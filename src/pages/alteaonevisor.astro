@@ -1,0 +1,405 @@
+---
+// Altea · One Visor. Propuesta pública de la pieza construida para Altea Farma.
+// Registro «Expediente» (ver src/styles/altea.css y las notas de la pieza): la página
+// se parece a la cosa que protege, que es un registro de lote.
+// Regla de cliente: la marca B y el sello toman los dos verdes del logotipo de Altea.
+// Letras del registro: Libre Baskerville, Public Sans y JetBrains Mono.
+import Base from '../layouts/Base.astro';
+import '@fontsource/libre-baskerville/400.css';
+import '@fontsource/libre-baskerville/400-italic.css';
+import '@fontsource/libre-baskerville/700.css';
+import '@fontsource-variable/public-sans/wght.css';
+import '@fontsource-variable/jetbrains-mono/wght.css';
+import '../styles/altea.css';
+
+// La tirilla de la apertura: una lectura real, acortada para que quepa en pantalla.
+const pesos = ['1.792', '1.787', '1.787', '1.791', '1.786', '1.790'];
+const resumen: [string, string][] = [
+  ['n', '26'],
+  ['x̄', '1.7928 g'],
+  ['s', '0.0101 g'],
+  ['srel', '0.56 %'],
+  ['Σx', '46.613 g'],
+  ['min', '1.770 g'],
+  ['max', '1.811 g'],
+  ['Diff', '0.041 g'],
+];
+---
+
+<Base
+  titulo="One Visor · lectura verificada de tirillas de balanza"
+  descripcion="Un visor que lee las tirillas de balanza de una planta farmacéutica, comprueba su propia lectura contra la aritmética impresa y lleva el dato hasta la decisión, sin salir del dominio del cliente."
+>
+
+<div class="pieza-altea">
+  <div class="libro">
+
+    <p class="rotulo">
+      <span>Torre D. Babel · propuesta funcional y económica</span>
+      <span class="ref">Ref. One Visor · Altea Farma</span>
+      <span>Octubre de 2026</span>
+    </p>
+
+    <section class="apertura" aria-label="Apertura">
+      <div class="apertura-escena">
+
+        <div class="apertura-copia activa" data-paso="1">
+          <div class="tirilla" role="img" aria-label="Tirilla de balanza con veintiséis pesadas y ocho estadísticos, con todos los datos señalados por igual">
+            <p class="tirilla-fila tirilla-cab"><span>21-Jan-2026</span><span>01:30:28</span></p>
+            <hr class="tirilla-sep" />
+            {pesos.map((p, i) => (
+              <p class="tirilla-fila"><span>{String(i + 1).padStart(3, '0')}:N</span><span><mark class="marca-a">{p} g</mark></span></p>
+            ))}
+            <p class="tirilla-pausa">···</p>
+            <hr class="tirilla-sep" />
+            {resumen.map(([k, v]) => (
+              <p class="tirilla-fila"><span>{k}</span><span><mark class="marca-a">{v}</mark></span></p>
+            ))}
+          </div>
+          <div class="apertura-dicho">
+            <p>Veintiséis pesadas, ocho estadísticos, la fecha, la hora y, encima, lo que alguien anotó a mano. Hoy una persona lee ese papel y lo teclea en el sistema, número por número, lote tras lote.</p>
+            <p class="apertura-pie">Así se ve un registro cuando todo pesa lo mismo. ¿Cuál de esos números verificó alguien dos veces?</p>
+          </div>
+          <p class="apertura-bajar" aria-hidden="true">Baje despacio</p>
+        </div>
+
+        <div class="apertura-copia" data-paso="2">
+          <div class="tirilla" role="img" aria-label="La misma tirilla, ahora con solo los ocho estadísticos señalados">
+            <p class="tirilla-fila tirilla-cab"><span>21-Jan-2026</span><span>01:30:28</span></p>
+            <hr class="tirilla-sep" />
+            {pesos.map((p, i) => (
+              <p class="tirilla-fila"><span>{String(i + 1).padStart(3, '0')}:N</span><span>{p} g</span></p>
+            ))}
+            <p class="tirilla-pausa">···</p>
+            <hr class="tirilla-sep" />
+            {resumen.map(([k, v]) => (
+              <p class="tirilla-fila"><span>{k}</span><span><mark class="marca-b">{v}</mark></span></p>
+            ))}
+          </div>
+          <div class="apertura-dicho">
+            <p>Pero esos ocho valores del final no son un adorno. La balanza los calculó a partir de las veintiséis pesadas de arriba.</p>
+            <p class="apertura-pie">Son la cuenta de lo que está impreso encima.</p>
+          </div>
+        </div>
+
+        <div class="apertura-copia" data-paso="3">
+          <div class="tirilla" role="img" aria-label="La misma tirilla con los pesos y los estadísticos señalados como las dos partes de una misma prueba">
+            <p class="tirilla-fila tirilla-cab"><span>21-Jan-2026</span><span>01:30:28</span></p>
+            <hr class="tirilla-sep" />
+            {pesos.map((p, i) => (
+              <p class="tirilla-fila"><span>{String(i + 1).padStart(3, '0')}:N</span><span><mark class="marca-c">{p} g</mark></span></p>
+            ))}
+            <p class="tirilla-pausa">···</p>
+            <hr class="tirilla-sep" />
+            {resumen.map(([k, v]) => (
+              <p class="tirilla-fila"><span>{k}</span><span><mark class="marca-b">{v}</mark></span></p>
+            ))}
+          </div>
+          <div class="apertura-dicho">
+            <p><span class="giro">Si los pesos leídos reproducen esos ocho valores hasta el último decimal, la lectura quedó demostrada.</span> La tirilla trae su propia prueba; lo único que faltaba era exigirla.</p>
+            <p class="apertura-pie">El <mark class="marca-a">ámbar</mark> marca lo que se va; el <mark class="marca-b">verde</mark>, lo que llega comprobado; el <mark class="marca-c">pergamino</mark>, lo que ya existe y permanece. El granate señala lo que no está verificado.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="apertura-disparadores" aria-hidden="true">
+        <div class="apertura-disparador" data-paso="1"></div>
+        <div class="apertura-disparador" data-paso="2"></div>
+        <div class="apertura-disparador" data-paso="3"></div>
+      </div>
+    </section>
+
+    <header class="titular">
+      <h1 class="lema">
+        <span class="par"><span class="nexo">De</span> <mark class="marca-a">transcribir</mark></span>
+        <span class="par"><span class="nexo">a</span> <mark class="marca-b">verificar</mark></span>
+      </h1>
+      <p class="entradilla">Un solo visor que lee toda tirilla de la planta, comprueba lo que leyó contra la aritmética impresa y lleva el dato hasta la decisión, sin salir del dominio de Altea.</p>
+      <p class="firma">Alexander Beltrán · Consultor de tecnología · Torre D. Babel S.A.S. · Bogotá</p>
+    </header>
+
+    <blockquote class="epigrafe">
+      <p>«El camino está cerca, y se lo busca lejos.»</p>
+      <footer>Mencio, <cite>Li Lou</cite> I</footer>
+    </blockquote>
+
+    <div class="columna">
+      <p>Lo veremos desde cuatro lados: <strong>dónde vive el dato</strong>, <strong>cómo se comprueba</strong>, <strong>en qué orden se construye</strong> y <strong>qué cuesta</strong>. Al final, lo que esta propuesta no promete.</p>
+    </div>
+
+    <div class="seccion"><span class="folio">01</span><h2>El dominio</h2></div>
+    <div class="columna">
+      <aside class="nota-margen">¿De quién debería ser el modelo que aprende a leer sus lotes?</aside>
+      <p>Hay dos maneras de resolver esto. Una se compra hecha: la imagen del lote sale a leerse a un servicio ajeno, el proceso de la planta se acomoda a lo que la herramienta sabe hacer, y el modelo que aprende de sus tirillas pertenece a quien se lo vendió.</p>
+      <p>La otra se construye adentro. <span class="giro">La herramienta se acomoda al proceso, y no al revés.</span></p>
+    </div>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo" id="f-caminos">Los dos caminos se separan en el segundo paso, y ahí ya no vuelven a encontrarse</h3>
+        <p class="figura-clave">Cada renglón es el recorrido del mismo dato, de la tirilla al sistema.</p>
+      </div>
+      <ul class="carriles" aria-labelledby="f-caminos">
+        <li>
+          <p class="carril-nombre">Comprar hecho</p>
+          <ul class="carril-pasos">
+            <li><mark class="marca-c">Su tirilla</mark></li>
+            <li><mark class="marca-a">Sale a leerse afuera</mark></li>
+            <li><mark class="marca-a">El proceso se adapta</mark></li>
+            <li><mark class="marca-a">El modelo es del proveedor</mark></li>
+          </ul>
+        </li>
+        <li>
+          <p class="carril-nombre">Construir adentro</p>
+          <ul class="carril-pasos">
+            <li><mark class="marca-c">Su tirilla</mark></li>
+            <li><mark class="marca-b">Se lee en su dominio</mark></li>
+            <li><mark class="marca-b">La herramienta se adapta</mark></li>
+            <li><mark class="marca-b">El modelo queda en Altea</mark></li>
+          </ul>
+        </li>
+      </ul>
+      <figcaption class="figura-nota">Esta propuesta recorre el renglón de abajo. El gráfico compara recorridos, no proveedores: no evalúa ninguna herramienta concreta del mercado.</figcaption>
+    </figure>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo">El dato recorre cinco estaciones y ninguna queda fuera del perímetro de Altea</h3>
+        <p class="figura-clave">Lo de dentro del marco ya existe y es suyo; en verde, lo que aporta el proyecto.</p>
+      </div>
+      <div class="perimetro">
+        <p class="perimetro-rotulo">Altea Farma · su nube, sus permisos, sus políticas</p>
+        <ul class="perimetro-fila">
+          <li><mark class="marca-c">Planta</mark></li><li class="sep" aria-hidden="true">→</li>
+          <li><mark class="marca-c">Power Apps</mark></li><li class="sep" aria-hidden="true">→</li>
+          <li><mark class="marca-b">El visor</mark></li><li class="sep" aria-hidden="true">→</li>
+          <li><mark class="marca-c">SharePoint y Dataverse</mark></li><li class="sep" aria-hidden="true">→</li>
+          <li><mark class="marca-b">Power BI</mark></li>
+        </ul>
+      </div>
+      <figcaption class="figura-nota">Ninguna imagen de lote cruza ese borde para ser leída. Supuesto por confirmar en la primera semana: licenciamiento vigente de Power Platform y permiso del área de tecnología para publicar en el entorno de producción.</figcaption>
+    </figure>
+
+    <div class="seccion"><span class="folio">02</span><h2>La prueba</h2></div>
+    <div class="columna">
+      <aside class="nota-margen">Una confianza del 94&nbsp;% le pide que le crea. Una prueba, no.</aside>
+      <p>Un lector de texto corriente reporta su propia confianza: dice <em>94&nbsp;%</em> y nadie puede saber si acertó, porque el número lo pone quien leyó. Sobre un umbral, completa solo; el error que pasa el umbral entra al registro sin que nadie lo note.</p>
+      <p>Aquí no. Dos lectores leen la tirilla por separado y después la aritmética decide: recalcula los ocho estadísticos impresos y los compara con los del papel. El visor solo elige entre valores que algún lector leyó de verdad, y <span class="giro">nunca inventa un número para que la cuenta cierre.</span></p>
+    </div>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo">Tres estados, y ninguno es un promedio</h3>
+        <p class="figura-clave">Lo que el visor hace con el resultado de la comprobación.</p>
+      </div>
+      <ul class="estados">
+        <li><h3>Cuadra una sola</h3><p><mark class="marca-b">Certificada</mark>. Entra sola al informe.</p></li>
+        <li><h3>Cuadran dos</h3><p><mark class="marca-a">Ambigua</mark>. No adivina: pregunta.</p></li>
+        <li><h3>No cuadra ninguna</h3><p><mark class="marca-a">A revisión</mark>, con la duda señalada.</p></li>
+      </ul>
+    </figure>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo">Trece tirillas reales de su planta, y ninguna lectura equivocada se dio por buena</h3>
+        <p class="figura-clave">Medición del 21 de septiembre de 2026. Las trece se transcribieron a mano para tener contra qué comparar; seis nunca se usaron para entrenar el modelo.</p>
+      </div>
+      <ul class="cifras">
+        <li><span class="n">0</span><span class="q">errores silenciosos: ninguna lectura equivocada pasó como buena</span></li>
+        <li><span class="n">6</span><span class="q">certificadas sin que nadie las tocara, y las seis exactas</span></li>
+        <li><span class="n">7</span><span class="q">enviadas a una persona, pre&#8209;llenadas y con la duda señalada</span></li>
+        <li><span class="n">2,2 s</span><span class="q">por tirilla: veintiséis pesadas leídas y comprobadas</span></li>
+      </ul>
+      <figcaption class="figura-nota">Lo que la cifra no muestra: son trece tirillas de una balanza y un lote. Con otras impresoras cambiará, y por eso la medición se repite durante el proyecto. Las siete que no se certificaron no fallaron en silencio: el programa dijo que dudaba.</figcaption>
+    </figure>
+
+    <div class="columna">
+      <p><span class="giro">Un sistema que duda y pide ayuda es útil; uno que se equivoca con aplomo es peligroso.</span> Por eso la cifra que vigilaríamos cada semana no es la de aciertos, sino la de errores silenciosos.</p>
+    </div>
+
+    <div class="seccion"><span class="folio">03</span><h2>El orden</h2></div>
+    <div class="columna">
+      <p>El trabajo se reparte en cuatro frentes, uno por disciplina. No son cuatro proyectos en fila: se traslapan a propósito, porque cada uno empieza a trabajar con lo que el anterior ya produce.</p>
+    </div>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo">Cada frente deja algo que sirve solo, y ninguno reemplaza al anterior</h3>
+        <p class="figura-clave">En orden, del papel a la decisión.</p>
+      </div>
+      <ol class="frentes">
+        <li>
+          <span class="folio">01</span>
+          <p class="disciplina">Ciencia de datos<span>One Visor universal</span></p>
+          <p class="detalle">Inventario de las tirillas que imprime hoy cada equipo, una plantilla por impresora, calibración con tirillas reales y comprobación contra la estadística impresa. Al terminar, toda tirilla entra por una sola puerta y entra comprobada.</p>
+        </li>
+        <li>
+          <span class="folio">02</span>
+          <p class="disciplina">Ingeniería de datos<span>El dato nace digital</span></p>
+          <p class="detalle">Captura en Power Apps por familia de producto, la tirilla leída junto al equipo, lo manuscrito confirmado en pantalla y flujos que archivan la imagen y publican el dato. El registro se arma mientras el lote ocurre.</p>
+        </li>
+        <li>
+          <span class="folio">03</span>
+          <p class="disciplina">Arquitectura de datos<span>Memoria y linaje</span></p>
+          <p class="detalle">Modelo de datos del lote, carga del histórico que ustedes definan, linaje de vuelta hasta la imagen de origen y cálculo automático de la estadística que hoy se hace a mano.</p>
+        </li>
+        <li>
+          <span class="folio">04</span>
+          <p class="disciplina">Inteligencia de negocio<span>El informe en Power BI</span></p>
+          <p class="detalle">Reglas acordadas con calidad y producción, el informe de lote armado solo, avisos a quien corresponde y entrega del código, los modelos y la capacitación.</p>
+        </li>
+      </ol>
+    </figure>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo">Tres meses, con los frentes montados unos sobre otros</h3>
+        <p class="figura-clave">El traslape es a propósito: la arquitectura empieza a modelar con los datos que la ingeniería ya está produciendo.</p>
+      </div>
+      <div class="crono" role="img" aria-label="Cronograma de doce semanas: ciencia de datos en las semanas 1 a 4, ingeniería de datos en las 3 a 7, arquitectura de datos en las 6 a 10 e inteligencia de negocio en las 9 a 12.">
+        <div class="crono-meses"><span>Frente</span><span>Mes 1</span><span>Mes 2</span><span>Mes 3</span></div>
+        <div class="crono-fila">
+          <p class="crono-nombre">Ciencia de datos</p>
+          <div class="crono-pista"><div class="crono-barra" style="left:0;width:33.3%">Semanas 1 a 4</div></div>
+        </div>
+        <div class="crono-fila">
+          <p class="crono-nombre">Ingeniería de datos</p>
+          <div class="crono-pista"><div class="crono-barra b2" style="left:16.6%;width:41.7%">Semanas 3 a 7</div></div>
+        </div>
+        <div class="crono-fila">
+          <p class="crono-nombre">Arquitectura de datos</p>
+          <div class="crono-pista"><div class="crono-barra b3" style="left:41.7%;width:41.6%">Semanas 6 a 10</div></div>
+        </div>
+        <div class="crono-fila">
+          <p class="crono-nombre">Inteligencia de negocio</p>
+          <div class="crono-pista"><div class="crono-barra b4" style="left:66.7%;width:33.3%">Semanas 9 a 12</div></div>
+        </div>
+      </div>
+      <figcaption class="figura-nota">Sin el primer frente, cada equipo nuevo vuelve a ser trabajo manual. Sin el último, el dato queda correcto pero llega cuando la decisión ya se tomó.</figcaption>
+    </figure>
+
+    <div class="seccion"><span class="folio">04</span><h2>Lo que cuesta</h2></div>
+    <div class="columna">
+      <p>Cuarenta y ocho millones más IVA por los tres meses completos. Tres momentos, tres facturas iguales, cada una emitida al cerrar su mes contra lo entregado.</p>
+    </div>
+
+    <figure class="figura">
+      <ul class="facturas">
+        <li><span class="mes">Mes 1 · factura 1</span><span class="disciplina">Ciencia de datos</span><span class="valor">$16.000.000</span><span class="alcance">Frente 1</span></li>
+        <li><span class="mes">Mes 2 · factura 2</span><span class="disciplina">Arquitectura e ingeniería de datos</span><span class="valor">$16.000.000</span><span class="alcance">Frentes 2 y 3</span></li>
+        <li><span class="mes">Mes 3 · factura 3</span><span class="disciplina">Inteligencia de negocio</span><span class="valor">$16.000.000</span><span class="alcance">Frente 4</span></li>
+      </ul>
+      <figcaption class="figura-nota">Incluye desarrollo, calibración, capacitación, documentación y el código en propiedad de Altea. No incluye licencias de Power Platform, equipos de captura ni la calificación formal del sistema. Desde el mes 4, acompañamiento opcional por $4.500.000 mensuales, cancelable con treinta días de aviso. Garantía de tres meses sobre lo instalado.</figcaption>
+    </figure>
+
+    <div class="seccion"><span class="folio">05</span><h2>Lo que no promete</h2></div>
+    <div class="columna">
+      <p>Prefiero decir esto aquí y no en una auditoría.</p>
+    </div>
+    <div class="figura">
+      <ul class="limites">
+        <li><h3>No decide sobre lo escrito a mano</h3><p>Todo manuscrito va a una persona, siempre. Ningún umbral de confianza lo completa solo: en un registro de lote esa comodidad no vale el riesgo.</p></li>
+        <li><h3>No verifica fecha ni hora</h3><p>La aritmética no las cubre. En una prueba el visor leyó 01:30:21 donde la tirilla decía 01:30:28, y lo marcó como no verificable.</p></li>
+        <li><h3>No detecta un documento adulterado</h3><p>Verifica la lectura, no la autenticidad. Una tirilla falsa pero aritméticamente coherente pasaría; eso lo sigue cuidando el sistema de calidad.</p></li>
+        <li><h3>No está validado todavía</h3><p>Ningún proveedor puede entregarlo validado: la calificación se hace con ustedes, sobre su proceso, y se planea desde la primera semana.</p></li>
+        <li><h3>No reemplaza la revisión de nadie</h3><p>Pre&#8209;llena y señala dudas. La liberación de un lote sigue siendo de quienes los procedimientos de Altea designan.</p></li>
+      </ul>
+    </div>
+
+    <div class="seccion"><span class="folio">06</span><h2>Cómo empezamos</h2></div>
+    <div class="figura">
+      <ol class="puerta">
+        <li><span class="folio">01</span><div><h3>Una demostración en vivo</h3><p>Con sus propias tirillas y sin compromiso. Media hora basta para ver si el visor las lee.</p></div></li>
+        <li><span class="folio">02</span><div><h3>Inventario de formatos</h3><p>Con producción, para saber cuántas impresoras distintas hay que enseñarle al visor.</p></div></li>
+        <li><span class="folio">03</span><div><h3>Acuerdo y primera semana</h3><p>Alcance, confidencialidad y propiedad del código. Después, la primera semana en planta.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="columna">
+      <p>De Altea necesito tres cosas: un referente de calidad y uno de producción, tirillas reales de cada equipo que hoy se digita, y el permiso del área de tecnología dentro del entorno de Power Platform.</p>
+      <p class="aforismo">La tirilla ya trae su prueba. Lo único que faltaba era exigirla.</p>
+    </div>
+
+  </div>
+
+  <section class="notas" aria-labelledby="n-altea">
+    <h2 id="n-altea">Notas y método</h2>
+
+    <details>
+      <summary>¿De dónde salen las cifras de las trece tirillas?</summary>
+      <p>De una evaluación propia hecha el 21 de septiembre de 2026 sobre tirillas reales de Altea: una fotografía de celular y un escaneo de doce tirillas en tres páginas. Las trece se transcribieron a mano, dígito por dígito, para tener contra qué comparar. Seis se apartaron y nunca se usaron para entrenar el modelo: son el examen fijo.</p>
+      <p>Sobre esas seis nunca vistas, el visor certificó tres y las tres quedaron exactas. Sobre las trece, certificó seis y no produjo ningún error silencioso.</p>
+    </details>
+
+    <details>
+      <summary>¿Qué significa «error silencioso»?</summary>
+      <p>Una lectura equivocada que el sistema da por buena y deja pasar al registro sin señal alguna. Es el peor error posible en un entorno regulado, porque no deja rastro: nadie sabe que hay que buscarlo. Un sistema que marca cien tirillas como dudosas es incómodo; uno que marca una como correcta sin serlo es un riesgo de calidad.</p>
+    </details>
+
+    <details>
+      <summary>¿Por qué esta página es verde?</summary>
+      <p>Porque dos de sus colores son de Altea. El verde vivo <span class="etiqueta">#4AA335</span> y el verde hondo <span class="etiqueta">#1F6C34</span> salen del degradado del logotipo de Altea Farma tal como aparece impreso. El papel, la tinta, el ámbar, el pergamino y el granate son del sistema visual de Torre D. Babel, sin cambios.</p>
+      <p>La idea del proyecto es que la solución se adapte al dominio de Altea en vez de pedirle que se adapte ella; la página hace lo mismo con los colores. Los valores se muestrearon de la imagen del logotipo, no de un manual de marca: conviene confirmarlos con el área de comunicaciones antes de usarlos en material oficial.</p>
+    </details>
+
+    <details>
+      <summary>¿Por qué esta página se ve distinta de las otras del sitio?</summary>
+      <p>Porque está hecha con otro registro visual. El sistema de la casa tiene un núcleo que no cambia —cómo se abre una pieza, cómo se enseña la leyenda, dónde van las notas, qué contraste debe cumplir cada texto— y un registro que sí cambia: la paleta, las letras y la forma del realce.</p>
+      <p>Esta usa el registro <strong>Expediente</strong>: papel de archivo, filete doble, casillas y folios, porque la pieza se parece a la cosa que protege, que es un registro de lote. La portada usa <strong>Pliego</strong> y la página del Chocó usa <strong>Río y sedimento</strong>. La regla de la casa prohíbe repetir registro en piezas seguidas.</p>
+      <p>Las letras también son propias de este registro: Libre Baskerville para el texto, Public Sans para claves y casillas, JetBrains Mono para folios y cifras. Todo texto cumple al menos 4,5:1 contra su fondo; se calculó uno por uno antes de escribir la primera línea.</p>
+    </details>
+
+    <details>
+      <summary>¿Qué queda fuera de la propuesta?</summary>
+      <p>La calificación formal del sistema (IQ/OQ/PQ), que corresponde al sistema de calidad de Altea y que acompaño con documentación pero no firmo. Las licencias de Power Platform y los equipos de captura. Y el análisis de riesgos y el control de cambios del modelo, que se definen con calidad durante el proyecto.</p>
+    </details>
+
+    <ol class="citas">
+      <li>Mencio, <em>Li Lou</em> I. Texto chino y traducción de James Legge.</li>
+      <li>Evaluación propia del lector de tirillas, 21 de septiembre de 2026, sobre trece tirillas de Altea Farma.</li>
+    </ol>
+  </section>
+</div>
+
+<script>
+  // Apertura de tres estados. Sin este guion la página se lee completa y marcada.
+  (() => {
+    const ap = document.querySelector<HTMLElement>('.pieza-altea .apertura');
+    if (!ap || !('IntersectionObserver' in window)) return;
+    ap.classList.add('viva');
+    const copias = ap.querySelectorAll<HTMLElement>('.apertura-copia');
+    const disp = [...ap.querySelectorAll<HTMLElement>('.apertura-disparador')];
+    let pendiente = false;
+    const aplicar = () => {
+      pendiente = false;
+      let activo: HTMLElement | null = null;
+      for (const d of disp) if (d.getBoundingClientRect().top < innerHeight * 0.5) activo = d;
+      const n = activo ? activo.dataset.paso : '1';
+      if (ap.dataset.estado === n) return;
+      ap.dataset.estado = n!;
+      copias.forEach((c) => c.classList.toggle('activa', c.dataset.paso === n));
+    };
+    const programar = () => {
+      if (pendiente) return;
+      pendiente = true;
+      requestAnimationFrame(aplicar);
+    };
+    addEventListener('scroll', programar, { passive: true });
+    addEventListener('resize', programar);
+    aplicar();
+
+    // El realce se pasa al entrar en pantalla; lo visible al cargar ya está marcado.
+    const ver = new IntersectionObserver(
+      (es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }),
+      { rootMargin: '0px 0px -18% 0px' }
+    );
+    document.querySelectorAll<HTMLElement>('.pieza-altea .columna > p, .pieza-altea .carriles li, .pieza-altea .perimetro').forEach((p) => {
+      if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * 0.82) {
+        p.classList.add('por-ver');
+        ver.observe(p);
+      }
+    });
+  })();
+</script>
+
+</Base>
