@@ -1,0 +1,650 @@
+---
+// Chocó · tablero del proyecto de alerta territorial.
+// Registro «Río y sedimento» (ver src/styles/choco.css y las notas de la pieza).
+// El marcado, el registro de color y el guion son los del artefacto aprobado
+// https://claude.ai/artifact/AJCWCjXTiKRHqEgj1g8CML
+// Si se cambia, cambie primero el artefacto, cópielo aquí y compruebe que se ven
+// igual a 1440, 768 y 390 px.
+import Base from '../layouts/Base.astro';
+import '../styles/choco.css';
+import datos from '../datos/choco.json';
+---
+
+<Base
+  titulo="Memoria del riesgo"
+  descripcion="Un sistema territorial de alerta temprana para prevenir el reclutamiento de niñas, niños y adolescentes en el Chocó. Siete capas sobre el mismo mapa, con los datos a la mano."
+>
+
+<div class="pieza-choco">
+  <div class="libro">
+    <p class="rotulo">Memoria del riesgo · Chocó, 1983–2026</p>
+
+    <section class="apertura" aria-label="Apertura">
+      <div class="apertura-escena">
+        <div class="apertura-copia activa" data-paso="1">
+          <p><mark class="oro">Treinta y un municipios del Chocó tienen hoy alerta temprana vigente.</mark> <mark class="oro">En todos hubo reclutamiento de niñas y niños, o puede haberlo mañana.</mark> <mark class="oro">Un mapa con el departamento entero señalado no dice dónde llegar primero.</mark> <mark class="oro">Marcar todo es no haber decidido nada.</mark></p>
+          <p class="apertura-pie">Así se ve un territorio cuando todo está en riesgo. ¿Por dónde empieza usted a proteger?</p>
+          <p class="apertura-bajar" aria-hidden="true">Baje despacio</p>
+        </div>
+        <div class="apertura-copia" data-paso="2">
+          <p><mark class="oro">Treinta y un municipios</mark> del Chocó tienen hoy alerta temprana vigente. En todos hubo reclutamiento de niñas y niños, o puede haberlo mañana. Un mapa con el departamento entero señalado <mark class="oro">no dice dónde llegar primero</mark>. <mark class="oro">Marcar todo es no haber decidido nada.</mark></p>
+          <p class="apertura-pie">El mismo territorio con solo tres marcas. Ahora sus ojos saben adónde ir.</p>
+        </div>
+        <div class="apertura-copia" data-paso="3">
+          <p><mark class="lino">Treinta y un municipios</mark> del Chocó tienen hoy alerta temprana vigente. En todos hubo reclutamiento de niñas y niños, o puede haberlo mañana. Un mapa con el departamento entero señalado <mark class="rosa">no dice dónde llegar primero</mark>. <span class="pluma">Marcar todo es no haber decidido nada.</span></p>
+          <p class="apertura-pie">Cada marca dirá siempre lo mismo: el <mark class="oro">oro</mark> es lo que se creyó, el <mark class="rosa">rosa</mark> lo que mostró el dato y el <mark class="lino">lino</mark> el territorio que permanece. <span class="pluma">La pluma</span> subraya el giro de cada sección.</p>
+        </div>
+      </div>
+      <div class="apertura-disparadores" aria-hidden="true">
+        <div class="apertura-disparador" data-paso="1"></div>
+        <div class="apertura-disparador" data-paso="2"></div>
+        <div class="apertura-disparador" data-paso="3"></div>
+      </div>
+    </section>
+
+    <header class="titular">
+      <h1 class="lema" aria-label="De contar a advertir">
+        <span class="par"><span class="nexo">De</span> <mark class="oro">contar</mark></span>
+        <span class="par"><span class="nexo">a</span> <mark class="rosa">advertir</mark></span>
+      </h1>
+      <p class="entradilla">Durante treinta y cuatro años el Chocó produjo un archivo del daño. Esta página pregunta si ese mismo archivo, que hoy solo sirve para contar lo que no pudo evitarse, puede usarse antes.</p>
+      <p class="firma">Por Alexander Beltrán · Maestría en Ciencia de Datos, Universidad EAN · Bogotá, octubre de 2026</p>
+    </header>
+
+    <blockquote class="epigrafe">
+      <p>«Procurar el bien de una persona es algo deseable, pero es más hermoso y divino conseguirlo para un pueblo y para ciudades.»</p>
+      <footer>Aristóteles, <cite>Ética a Nicómaco</cite>, I, 2, 1094b · traducción de Julio Pallí Bonet</footer>
+    </blockquote>
+
+    <section class="columna">
+      <p>El salto del caso al patrón no es solo moral: también es metodológico. Un expediente se atiende uno por uno; un patrón solo aparece cuando se mira la serie completa. Eso es lo que intentamos aquí, y lo miraremos desde cuatro lados: <mark class="lino">el territorio</mark>, el método, las variables y la prueba.</p>
+      <p>Empecemos por lo que se puede tocar. Antes de cualquier modelo hay un mapa, y ese mapa ya dice cosas.</p>
+    </section>
+
+    <section class="columna">
+      <h2 class="seccion">El territorio</h2>
+      <aside class="nota-margen">Toque un municipio en el mapa o en la lista: la ficha de la derecha cambia con él.</aside>
+      <p>El Chocó tiene treinta y un municipios y una geografía que manda sobre todo lo demás: el agua. El Atrato, el San Juan y el Baudó no son paisaje, son las vías por donde circula la vida y también las economías ilegales.</p>
+      <p>El tablero que sigue superpone sobre esa geografía las seis capas con las que trabajamos. Cada capa responde una pregunta distinta y todas comparten el mismo mapa, de modo que se puede ver cuáles coinciden y cuáles no. En la primera, la barra de tiempo deja ver cómo se fue acumulando el daño año por año; la última, <mark class="lino">el giro</mark>, enfrenta las dos lecturas y muestra quién sube y quién baja.</p>
+    </section>
+
+    <section class="figura tablero" id="tablero" aria-labelledby="tablero-titulo">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo" id="tablero-titulo">Seis maneras de mirar el mismo departamento</h3>
+        <p class="figura-clave" id="tablero-clave">Cuanto más oscuro, mayor el valor de la capa activa. La numeración es la del índice de municipios del proyecto.</p>
+      </div>
+      <ul class="capas" id="capas" role="group" aria-label="Capa del mapa"></ul>
+      <ul class="conmutas">
+        <li><button type="button" class="conmuta" id="conmuta-rios" aria-pressed="true"><i></i>Corredores fluviales</button></li>
+        <li><button type="button" class="conmuta ataque" id="conmuta-dron" aria-pressed="true"><i></i>Ataques con drones, 2026</button></li>
+      </ul>
+      <div class="tablero-cuerpo">
+        <div class="mapa-marco">
+          <svg class="mapa" id="mapa" viewBox="0 0 10 10" role="img" aria-labelledby="mapa-alt"><title id="mapa-alt">Mapa de los 31 municipios del Chocó coloreados según la capa activa</title></svg>
+          <div class="globo" id="globo" aria-hidden="true"></div>
+          <div class="escala">
+            <p class="etiqueta" id="escala-min">0</p>
+            <div class="escala-barra" id="escala-barra"></div>
+            <p class="etiqueta" id="escala-max">100</p>
+          </div>
+          <p class="etiqueta" id="escala-tit" style="margin:.5rem 0 0;text-transform:uppercase"></p>
+        </div>
+        <div>
+        <div class="tiempo" id="tiempo" hidden>
+          <div id="tiempo-serie"></div>
+          <input type="range" class="tiempo-rango" id="tiempo-rango" min="0" max="33" value="33" step="1" aria-label="Año hasta el que se acumula el reclutamiento">
+          <p class="etiqueta" id="tiempo-et"></p>
+        </div>
+        <div class="gira">
+          <button type="button" class="gira-b" id="gira-prev" aria-label="Municipio anterior del recorrido">&#8249;</button>
+          <p class="gira-et" id="gira-et">Recorrer los seis municipios atacados</p>
+          <button type="button" class="gira-b" id="gira-next" aria-label="Siguiente municipio del recorrido">&#8250;</button>
+        </div>
+          <div class="ficha" id="ficha"></div>
+          <p class="etiqueta" style="margin:1.6rem 0 .4rem;text-transform:uppercase" id="rank-tit">Los 31, ordenados</p>
+          <ul class="ranking" id="ranking"></ul>
+        </div>
+      </div>
+      <p class="figura-nota">Reclutamiento: Observatorio de Memoria y Conflicto del CNMH y Registro Único de Víctimas, 1983–2016. Coca: SIMCI–UNODC. Alertas y actividad posterior: Defensoría del Pueblo y monitoreo humanitario, 2016–2025. Ribereñidad y corredor en disputa son construcciones propias. El mapa no muestra ubicación de grupos armados ni datos por debajo del municipio.</p>
+    </section>
+
+    <section class="columna">
+      <p>Si recorrió las capas habrá notado algo: el reclutamiento histórico se concentra arriba, sobre el Atrato, y la coca abajo, sobre el San Juan y el Baudó. <span class="pluma">Las dos capas que más se parecen entre sí no son las dos que uno esperaría.</span></p>
+      <p>Guarde esa impresión. Va a volverse decisiva al final, cuando pongamos el modelo a prueba. Antes conviene explicar cómo se construye una alerta que merezca ese nombre.</p>
+    </section>
+
+    <section class="columna">
+      <h2 class="seccion">El método</h2>
+      <p>Un modelo que se valida con datos barajados al azar se califica a sí mismo con información que en la vida real no habría tenido. Es el error más común y el más difícil de ver, porque produce números excelentes.</p>
+      <p>Aquí el modelo solo ve el pasado. Se entrena hasta un año, espera el horizonte completo de la alerta y recién entonces se mide contra lo que vino después.</p>
+    </section>
+
+    <section class="figura recorrido" id="rec-metodo" aria-labelledby="metodo-titulo">
+      <div class="recorrido-cuerpo">
+        <div class="recorrido-escena">
+          <div class="figura-cabeza atenuable">
+            <h3 class="figura-titulo" id="metodo-titulo">La única prueba honesta es viajar en el tiempo</h3>
+            <p class="figura-clave">Cada franja es un tramo de la serie. El ancho es proporcional al número de años.</p>
+          </div>
+          <div class="columna-media" id="franjas"></div>
+        </div>
+        <div class="recorrido-pasos">
+          <div class="recorrido-paso" data-n="1" data-lado="izq" data-foco="ent">
+            <div class="paso"><p>El modelo aprende de <mark class="oro">todo lo ocurrido hasta el año t</mark>. Cada predictor se construye con rezagos estrictamente previos a ese corte.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="2" data-lado="der" data-foco="col">
+            <div class="paso"><p>Luego espera. Ningún dato del <mark class="lino">colchón</mark> entra en el entrenamiento ni en la evaluación: es el horizonte de la alerta, y debe quedar vacío.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="3" data-lado="der" data-foco="eva">
+            <div class="paso"><p>Solo entonces se mide contra <mark class="rosa">lo que de verdad pasó</mark>. El corte se desplaza año a año y el modelo se reentrena en cada paso.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="4" data-lado="izq" data-foco="ent col eva">
+            <div class="paso"><p><span class="pluma">Sin el colchón, un modelo de cuatro años se califica con años que ya están dentro de su propia predicción.</span></p></div>
+          </div>
+        </div>
+      </div>
+      <p class="figura-nota">Validación de origen rodante con ventana expansiva. El desempeño se reporta contra la línea base de prevalencia —AUC-PR 0,834 frente a 0,603— y no contra el 0,5 del azar, porque con clases desbalanceadas el AUC-ROC solo exagera.</p>
+    </section>
+
+    <section class="columna">
+      <p>Con ese método el modelo traduce cada municipio-año a un nivel de alerta, y el nivel se valida contra lo que ocurrió después: 79,0 % de reclutamiento real en el nivel alto, 65,0 % en el medio y 53,2 % en el bajo. La monotonía se cumple, que es la única prueba que vuelve utilizable un semáforo.</p>
+      <p>Queda una pregunta más incómoda: de todo lo que medimos, ¿qué explica de verdad la alarma?</p>
+    </section>
+
+    <section class="columna">
+      <h2 class="seccion">Las variables</h2>
+      <p>Probamos quince. Cuatro sostienen el modelo y tres fracasaron. Las siete aparecen aquí, porque un trabajo que solo reporta lo que funcionó no se lo puede verificar nadie.</p>
+    </section>
+
+    <section class="figura recorrido" id="rec-vars" aria-labelledby="vars-titulo">
+      <div class="recorrido-cuerpo">
+        <div class="recorrido-escena">
+          <div class="figura-cabeza atenuable">
+            <h3 class="figura-titulo" id="vars-titulo">Publicamos también las variables que no funcionaron</h3>
+            <p class="figura-clave">A la izquierda, lo que el dato confirmó. A la derecha, lo que creímos y el dato desmintió.</p>
+          </div>
+          <ol class="niveles" style="--columnas:2">
+            <li>
+              <ul>
+                <li class="atenuable" data-t="hist"><mark class="rosa">Historia acumulada</mark></li>
+                <li class="atenuable" data-t="anios"><mark class="rosa">Años activos previos</mark></li>
+                <li class="atenuable lazo" data-t="desap"><mark class="rosa">Desaparición forzada</mark><span class="lazo-nota">sube el AUC de 0,769 a 0,795</span></li>
+                <li class="atenuable" data-t="rib"><mark class="rosa">Ribereñidad</mark></li>
+              </ul>
+              <p class="niveles-rotulo">Lo que el dato confirmó</p>
+            </li>
+            <li>
+              <ul>
+                <li class="atenuable lazo" data-t="coca"><mark class="oro">Cultivos de coca</mark><span class="lazo-nota">volverá con el signo cambiado</span></li>
+                <li class="atenuable" data-t="auro"><mark class="oro">Explotación aurífera</mark></li>
+                <li class="atenuable" data-t="acel"><mark class="oro">Aceleración del acumulado</mark></li>
+              </ul>
+              <p class="niveles-rotulo">Lo que creímos y no fue</p>
+            </li>
+          </ol>
+        </div>
+        <div class="recorrido-pasos">
+          <div class="recorrido-paso" data-n="1" data-lado="izq" data-foco="hist anios">
+            <div class="paso"><p>Lo que más pesa es la memoria del territorio, y pesa más <mark class="rosa">la persistencia que la intensidad</mark>: un goteo sostenido anticipa mejor que un estallido aislado.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="2" data-lado="izq" data-foco="desap" data-lazo="desap">
+            <div class="paso"><p>De todas las variables de contexto que probamos, solo una mejora el modelo: la <mark class="rosa">desaparición forzada previa</mark>, que mide control armado sobre la población civil.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="3" data-lado="der" data-foco="coca auro acel">
+            <div class="paso"><p>Y tres no funcionaron. La <mark class="oro">coca</mark> no predice el reclutamiento; el oro va en sentido contrario al esperado; la aceleración aporta 0,001 al AUC-PR, dentro del ruido.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="4" data-lado="der" data-foco="coca" data-lazo="coca">
+            <div class="paso"><p><span class="pluma">Guarde la coca: en la siguiente sección reaparece con el signo cambiado.</span> No era una variable inútil, medía otro fenómeno.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="figura-nota">Atribución por SHAP sobre el conjunto de prueba, diagnóstico de multicolinealidad por VIF y comparación bajo validación temporal. Las quince variables probadas y sus coeficientes están en el cuaderno del proyecto.</p>
+    </section>
+
+    <section class="columna">
+      <h2 class="seccion">La prueba</h2>
+      <p>Entre junio y octubre de 2026, seis municipios del sur del Chocó sufrieron ataques con drones cargados con explosivos: Bajo Baudó, Sipí, Condoto, Nóvita, Río Iró y El Litoral del San Juan. Es el episodio más duro que ha vivido el departamento en años, y es también la prueba más exigente que se le puede hacer a un modelo entrenado hasta 2016.</p>
+      <p>Le preguntamos qué decía de esos seis municipios. La respuesta fue incómoda.</p>
+    </section>
+
+    <section class="figura recorrido" id="rec-prueba" aria-labelledby="prueba-titulo">
+      <div class="recorrido-cuerpo">
+        <div class="recorrido-escena">
+          <div class="figura-cabeza atenuable">
+            <h3 class="figura-titulo" id="prueba-titulo">El modelo aprendió dónde la guerra estuvo, no hacia dónde se desplaza</h3>
+            <p class="figura-clave">El mismo departamento bajo dos lecturas. El contorno punteado señala los seis municipios atacados.</p>
+          </div>
+          <div class="gemelos">
+            <div class="gemelo atenuable" data-t="A">
+              <svg id="gem-a" viewBox="0 0 10 10" role="img" aria-label="Mapa del riesgo de reclutamiento aprendido entre 1983 y 2016: el peso está en el norte"></svg>
+              <p class="etiqueta">A · lo que el modelo creyó</p>
+            </div>
+            <div class="gemelo atenuable" data-t="B">
+              <svg id="gem-b" viewBox="0 0 10 10" role="img" aria-label="Mapa del índice de corredor en disputa: el peso está en el sur"></svg>
+              <p class="etiqueta">B · lo que mostró el dato</p>
+            </div>
+          </div>
+        </div>
+        <div class="recorrido-pasos">
+          <div class="recorrido-paso" data-n="1" data-lado="izq" data-foco="A">
+            <div class="paso"><p>Cuatro de los seis estaban en el nivel más bajo del semáforo. Río Iró, el último atacado, <mark class="oro">no registra un solo hecho</mark> en los treinta y cuatro años de la serie.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="2" data-lado="izq" data-foco="A">
+            <div class="paso"><p>Medido como problema de ordenamiento, el desempeño es de <mark class="oro">0,337</mark>: por debajo del 0,500 que daría asignar el riesgo al azar. No es ruido, es una señal invertida.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="3" data-lado="der" data-foco="B">
+            <div class="paso"><p>Pero las variables para anticiparlo ya estaban en la base. Cercanía al San Juan, coca acumulada y divergencia entre presente y pasado alcanzan <mark class="rosa">0,927</mark>, sin usar el historial de reclutamiento.</p></div>
+          </div>
+          <div class="recorrido-paso" data-n="4" data-lado="der" data-foco="A B">
+            <div class="paso"><p><span class="pluma">No fue un error de datos: fue un error de especificación.</span> Le preguntamos por el reclutamiento del pasado cuando debíamos preguntarle por la disputa del corredor.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="figura-nota">Panel A: riesgo del semáforo al cierre de 2016. Panel B: índice de corredor en disputa, construido sin datos posteriores a 2025. Diez mil permutaciones del desenlace dan p = 0,0001; con pesos iguales y sin ajuste alguno el índice alcanza 0,913. Con seis positivos sobre treinta y un municipios, 0,927 es una cota superior: las cifras defendibles son las de los tres componentes por separado.</p>
+    </section>
+
+    <section class="columna">
+      <p>Hay un dato que reordena todo lo anterior. La coca, que en la sección de variables figuraba entre lo que no funcionó, es aquí el mejor componente individual. El mismo número cambia de signo según la pregunta: no dice dónde se recluta, dice <mark class="rosa">dónde hay algo por lo que valga la pena pelear</mark>.</p>
+      <p>Y hay algo más, que no es nuestro. El 30 de marzo de 2026 la Defensoría del Pueblo advirtió, en el mismo documento y para El Litoral del San Juan, los ataques con drones y la intensificación del reclutamiento de niñas, niños y adolescentes.<sup><a href="#cita-1" id="vuelta-1">1</a></sup> El primer ataque del departamento llegó setenta días después.</p>
+      <p>El país sabe advertir. <span class="pluma">El cuello de botella no está en la advertencia sino entre la advertencia y la respuesta.</span></p>
+    </section>
+
+    <section class="columna">
+      <h2 class="seccion">Lo que sigue</h2>
+      <p>La tentación es medir este trabajo por el número de niñas y niños que no fueron reclutados. Esa cifra no existe y no puede construirse: un reclutamiento evitado no deja registro, y cualquier estimación de ese contrafactual sería una invención.</p>
+      <p>Por eso la métrica norte mide otra cosa, observable y bajo nuestro control: <mark class="lino">qué parte del daño ocurrió en territorios que el sistema había priorizado antes</mark>. Hoy el nivel alto del semáforo cubre 123 de los 232 hechos observados usando el 20,1 % del panel.</p>
+      <div class="proporcion" aria-hidden="true">
+        <div class="proporcion-barra"><span class="p-rosa" style="flex:123"></span><span class="p-resto" style="flex:109"></span></div>
+        <p class="etiqueta">Hechos cubiertos por el nivel alto 123 · fuera de la prioridad 109</p>
+      </div>
+      <p>La cobertura se reporta siempre junto al costo territorial, porque priorizar todo el departamento la llevaría a 100 % y haría inútil el sistema. Ese par —cuánto cubre y a qué costo— es la métrica completa, y la meta a doce meses es 70 % sin pasar del 25 % del territorio.</p>
+      <p>Falta lo que no depende de nosotros. Sin una entidad que se comprometa a responder, el sistema puede medir si acierta, pero no si sirve.</p>
+      <p>Vuelva al mapa del comienzo, el que tenía los treinta y un municipios señalados del mismo modo. No le faltaba información: le faltaba una decisión.</p>
+      <p class="aforismo">Advertir a tiempo es la forma más alta de reparar.</p>
+    </section>
+  </div>
+
+  <section class="notas" aria-labelledby="notas-titulo">
+    <h2 id="notas-titulo">Notas y método</h2>
+    <details>
+      <summary>¿Qué registro visual usa esta pieza?</summary>
+      <p>El registro «Río y sedimento», inventado para este proyecto. Los cuatro realces salen del propio
+      departamento: el ocre del sedimento que arrastra el Atrato para el archivo, el óxido de la tierra roja
+      para la alarma del presente, el verde apagado de la selva para lo que permanece y el agua profunda para
+      los ríos y el subrayado del giro. Un color vivo sobre vidas que sufren las caricaturiza; aquí el tono
+      baja de saturación y sube de tierra.</p>
+      <p>La portada y los artículos de este sitio usan el registro 1, «Libro subrayado». La pieza anterior a
+      esta fue la portada, de modo que el cambio de registro está hecho a propósito.</p>
+    </details>
+    <details>
+      <summary>¿De dónde salen los datos del mapa?</summary>
+      <p>El panel tiene 1.054 observaciones municipio-año: treinta y un municipios por treinta y cuatro años. Los 401 hechos de reclutamiento se reconstruyeron desde dos fuentes primarias oficiales, el Observatorio de Memoria y Conflicto del Centro Nacional de Memoria Histórica y el Registro Único de Víctimas; 361 están georreferenciados a municipio. Los cultivos de coca vienen del sistema SIMCI de la UNODC, la población del DANE y las alertas tempranas de la Defensoría del Pueblo.</p>
+      <p>Ninguna cifra se estima ni se imputa. Donde falta desagregación, la celda queda vacía y se marca como tal.</p>
+    </details>
+    <details>
+      <summary>¿Qué son la ribereñidad y el índice de corredor?</summary>
+      <p>Las dos son construcciones propias del proyecto. Para la ribereñidad trazamos los tres cauces principales, los densificamos cada dos kilómetros, calculamos la distancia perpendicular de cada municipio al cauce más próximo y la convertimos en un índice de 0 a 100 por decaimiento exponencial. Cada corredor resultó tener una vocación distinta: la cercanía al Atrato se asocia con el reclutamiento y la del Baudó con los cultivos de coca.</p>
+      <p>El índice de corredor en disputa combina tres rangos percentiles: cercanía al río San Juan, coca acumulada y divergencia entre la actividad registrada después de 2016 y la historia previa. Los pesos son 0,40, 0,35 y 0,25. Ninguno de los tres componentes usa datos posteriores a 2025.</p>
+    </details>
+    <details>
+      <summary>¿Por qué toda cifra es un límite inferior?</summary>
+      <p>Porque el subregistro en territorios con presencia armada es sistemático y no aleatorio: donde el control es más fuerte, el registro es más débil. Los ceros del panel no distinguen entre ausencia del fenómeno y ausencia de registro, y los cinco municipios que no reportan un solo hecho en treinta y cuatro años no se interpretan como seguros. El cuaderno trata esa distinción con un modelo de ceros inflados, que estima un 83 % de ceros observados frente al 71 % que esperaría una distribución binomial negativa.</p>
+    </details>
+    <details>
+      <summary>¿Qué no hace este tablero, y por qué?</summary>
+      <p>No muestra ubicación de grupos armados, ni rutas, ni datos a escala veredal o nominal. La omisión es deliberada. Un modelo que señala dónde se intensificará la disputa armada es de doble uso: la misma lista que indica dónde reforzar la presencia de protección a la niñez indicaría dónde desplegar tropa, y esa segunda lectura no es neutra. La unidad mínima de agregación es el municipio y la salida se formula siempre como medida de protección, nunca como objetivo.</p>
+    </details>
+    <details>
+      <summary>¿Qué falta para que esto sirva de verdad?</summary>
+      <p>Cuatro variables a escala municipal que hoy bloquean la corrección: eventos con artefactos explosivos y drones, confinamiento y restricción a la movilidad, desplazamiento forzado en serie mensual continua, y la serie anual completa de cultivos de coca. Las cuatro son recolección documentada, con instructivo de descarga.</p>
+      <p>La quinta no es un problema de datos: hace falta una entidad receptora que se comprometa a responder, con un acta por municipio priorizado. Mientras no exista, los dos indicadores de uso quedan sin medición.</p>
+    </details>
+    <ol class="citas">
+      <li id="cita-1">Defensoría del Pueblo (2026). <i>Alerta Temprana de Inminencia 010-26. El Litoral del San Juan, Chocó</i>, 30 de marzo de 2026. Documentaba 1.367 personas confinadas en 465 familias y 324 estudiantes sin clases. <a href="#vuelta-1" aria-label="Volver al texto">↑</a></li>
+      <li>Centro Nacional de Memoria Histórica, Observatorio de Memoria y Conflicto. Base de hechos de reclutamiento y utilización de niñas, niños y adolescentes, 1983–2016.</li>
+      <li>Unidad para la Atención y Reparación Integral a las Víctimas. Registro Único de Víctimas, consulta por municipio y hecho victimizante.</li>
+      <li>Oficina de las Naciones Unidas contra la Droga y el Delito, sistema SIMCI. Monitoreo de territorios afectados por cultivos ilícitos, series municipales.</li>
+      <li>Departamento Administrativo Nacional de Estadística. Proyecciones de población municipal por edad y Censo Nacional de Población y Vivienda 2018.</li>
+    </ol>
+  </section>
+</div>
+
+</Base>
+
+<script is:inline define:vars={{ datos }}>window.__TAB = datos;</script>
+
+<script is:inline>
+/* Libro subrayado · transiciones. Sin este guion la página se lee completa y marcada. */
+(() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  if (!('IntersectionObserver' in window)) return;
+  const movil = () => matchMedia('(max-width: 720px)').matches;
+  const cruzo = (lista, linea, rect) => { let a = null; for (const x of lista) if (rect(x).top < linea) a = x; return a; };
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+  document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+
+  document.querySelectorAll('.apertura').forEach(ap => {
+    ap.classList.add('viva');
+    const copias = ap.querySelectorAll('.apertura-copia'), disp = [...ap.querySelectorAll('.apertura-disparador')];
+    tareas.push(() => {
+      const d = cruzo(disp, innerHeight * .5, x => x.getBoundingClientRect()), n = d ? d.dataset.paso : '1';
+      if (ap.dataset.estado === n) return;
+      ap.dataset.estado = n; copias.forEach(c => c.classList.toggle('activa', c.dataset.paso === n));
+    });
+  });
+
+  document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const piezas = rec.querySelectorAll('[data-t]'), cabeza = rec.querySelector('.figura-cabeza');
+    const escena = rec.querySelector('.recorrido-escena'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const tarjeta = p => p.querySelector('.paso').getBoundingClientRect();
+    const aplicar = (paso, fin) => {
+      const clave = fin ? 'fin' : (paso ? paso.dataset.n : '');
+      if ((rec.dataset.paso || '') === clave) return;
+      const foco = paso ? paso.dataset.foco.split(' ') : null, lazos = paso && paso.dataset.lazo ? paso.dataset.lazo.split(' ') : [];
+      piezas.forEach(p => { p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)); p.classList.toggle('con-lazo', lazos.includes(p.dataset.t)); });
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+      if (clave) rec.dataset.paso = clave; else delete rec.dataset.paso;
+    };
+    tareas.push(() => {
+      const linea = innerHeight * (movil() ? .75 : .5), actual = cruzo(pasos, linea, tarjeta), ultimo = pasos[pasos.length - 1];
+      if (actual === ultimo && tarjeta(ultimo).bottom < linea - innerHeight * .2) aplicar(null, true); else aplicar(actual);
+    });
+  });
+  tareas.forEach(t => t());
+})();
+</script>
+
+<script is:inline>
+/* Tablero territorial · el mapa vivo */
+(() => {
+  const D = window.__TAB, M = D.mun, SVG = 'http://www.w3.org/2000/svg';
+  const el = (t, a) => { const n = document.createElementNS(SVG, t); for (const k in a) n.setAttribute(k, a[k]); return n; };
+  const AN = D.anios, ULT = AN.length - 1;
+
+  /* Paleta Chocó «Río y sedimento»: el ocre es el sedimento del archivo, el óxido la alarma
+     del presente, el verde apagado la selva que permanece y el agua profunda la mano del maestro. */
+  const RAMPAS = {
+    oro:   ['#fffdf1', '#f6efdd', '#e9dcc0', '#e3b45f', '#d59a38', '#8a5f18'],
+    rosa:  ['#fffdf1', '#f8ece3', '#ecd3c4', '#dc8c6e', '#b2512f', '#6e2a17'],
+    pluma: ['#fffdf1', '#eceeed', '#cdd8dc', '#8fa9b4', '#4c7489', '#1c4759']
+  };
+  const hex = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+  const tono = (r, t) => {
+    const c = RAMPAS[r].map(hex), n = c.length - 1;
+    t = Math.max(0, Math.min(1, t));
+    const i = Math.min(Math.floor(t * n), n - 1), f = t * n - i;
+    return 'rgb(' + c[i].map((v, j) => Math.round(v + (c[i + 1][j] - v) * f)).join(',') + ')';
+  };
+  const degradado = r => 'linear-gradient(90deg,' + RAMPAS[r].join(',') + ')';
+  const divergente = t => t < 0 ? tono('oro', -t) : tono('rosa', t);
+
+  const CAPAS = [
+    { id: 'casos', n: 'Reclutamiento', r: 'oro', esc: 'raiz', u: 'hechos acumulados', tiempo: true,
+      v: (m, a) => a >= ULT ? m.casos : m.s.slice(0, a + 1).reduce((x, y) => x + y, 0),
+      clave: 'Cuanto más oscuro, más hechos acumulados. Mueva la barra de tiempo y verá el archivo formándose año por año. La escala es de raíz cuadrada, o Quibdó borraría a los otros treinta.' },
+    { id: 'idx', n: 'Corredor en disputa', r: 'rosa', esc: 'lin', u: 'índice 0–100', dec: 1,
+      v: m => m.idx,
+      clave: 'Geografía fluvial, economía de la coca y divergencia entre presente y pasado. No usa el historial de reclutamiento.' },
+    { id: 'coca', n: 'Cultivos de coca', r: 'oro', esc: 'raiz', u: 'hectáreas acumuladas',
+      v: m => m.coca,
+      clave: 'Hectáreas acumuladas. No predice el reclutamiento, pero marca dónde hay algo por lo que valga la pena pelear.' },
+    { id: 'rib', n: 'Ribereñidad', r: 'pluma', esc: 'lin', u: 'índice 0–100', dec: 1,
+      v: m => m.rib,
+      clave: 'Cercanía al cauce navegable más próximo, de 0 a 100. Es contexto: no cambia con el conflicto, lo precede.' },
+    { id: 'alertas', n: 'Alertas tempranas', r: 'rosa', esc: 'lin', u: 'alertas 2016–2025',
+      v: m => m.alertas,
+      clave: 'Alertas emitidas por la Defensoría del Pueblo entre 2016 y 2025, incluidas las de inminencia.' },
+    { id: 'semaforo', n: 'Semáforo del modelo', r: 'oro', esc: 'cat', u: 'nivel de alerta',
+      v: m => m.riesgo,
+      clave: 'Los tres niveles que el modelo produjo al cierre de 2016. Validados: 79,0 % de reclutamiento real en ALTA, 65,0 % en MEDIA y 53,2 % en BAJA.' },
+    { id: 'giro', n: 'El giro', r: 'div', esc: 'div', u: 'puestos que gana o pierde',
+      v: m => m.rh - m.rc,
+      clave: 'Las dos lecturas enfrentadas. En óxido, los municipios que el índice de corredor sube respecto del semáforo; en ocre, los que baja. Es el hallazgo central del proyecto, puesto a la mano.' }
+  ];
+  const NIVEL = { BAJA: '#e9dcc0', MEDIA: '#e3b45f', ALTA: '#8a5f18' };
+  const CLARO = { BAJA: false, MEDIA: false, ALTA: true };
+
+  let capa = CAPAS[0], sel = null, anio = ULT, gira = -1;
+
+  const num = (v, d) => v.toLocaleString('es-CO', { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 });
+  const bruto = m => capa.v(m, anio);
+  const crudo = m => { const v = bruto(m); return capa.esc === 'raiz' ? Math.sqrt(v) : v; };
+  let lo = 0, hi = 1, ext = 1;
+  const medir = () => {
+    if (capa.esc === 'div') { ext = Math.max(1, ...M.map(m => Math.abs(bruto(m)))); return; }
+    const v = M.map(crudo); lo = Math.min(...v); hi = Math.max(...v);
+  };
+  const t01 = m => hi === lo ? .5 : (crudo(m) - lo) / (hi - lo);
+  const relleno = m => capa.esc === 'cat' ? NIVEL[m.nivel]
+                     : capa.esc === 'div' ? divergente(bruto(m) / ext)
+                     : tono(capa.r, t01(m));
+  const claro = m => capa.esc === 'cat' ? CLARO[m.nivel]
+                   : capa.esc === 'div' ? Math.abs(bruto(m)) / ext > .62
+                   : t01(m) > .56;
+  const texto = m => {
+    if (capa.esc === 'cat') return m.nivel;
+    const v = bruto(m);
+    if (capa.esc === 'div') return (v > 0 ? '+' : '') + num(v);
+    return num(v, capa.dec || 0) + (capa.id === 'coca' ? ' ha' : '');
+  };
+
+  /* --- mapa --- */
+  const mapa = document.getElementById('mapa'), marco = mapa.parentNode, globo = document.getElementById('globo');
+  mapa.setAttribute('viewBox', `0 0 ${D.w} ${D.h}`);
+  const gMun = el('g'), gRio = el('g'), gDron = el('g'), gNum = el('g');
+  mapa.append(gMun, gRio, gDron, gNum);
+  const rutas = {}, rotulos = {};
+  const asomar = (m, e) => {
+    globo.innerHTML = `<b>${m.m}</b>${capa.n}: ${texto(m)}`;
+    globo.classList.add('ver');
+    const r = marco.getBoundingClientRect();
+    const x = Math.min(Math.max(e.clientX - r.left + 14, 4), r.width - globo.offsetWidth - 4);
+    globo.style.left = x + 'px'; globo.style.top = (e.clientY - r.top - globo.offsetHeight - 10) + 'px';
+  };
+  M.forEach(m => {
+    const p = el('path', { d: m.d, class: 'mun', tabindex: '0', role: 'button', 'aria-label': m.m });
+    p.addEventListener('click', () => { gira = -1; pintarGira(); elegir(m.cod); });
+    p.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); elegir(m.cod); } });
+    p.addEventListener('pointermove', e => asomar(m, e));
+    p.addEventListener('pointerleave', () => globo.classList.remove('ver'));
+    gMun.appendChild(p); rutas[m.cod] = p;
+    const t = el('text', { x: m.cx, y: m.cy + 3, 'text-anchor': 'middle', class: 'mnum' });
+    t.textContent = m.n; gNum.appendChild(t); rotulos[m.cod] = t;
+    if (m.dron) gDron.appendChild(el('path', { d: m.d, class: 'ataque' }));
+  });
+  const DESV = { 'Atrato': [13, -4], 'San Juan': [16, 15], 'Baudó': [-70, 2] };
+  D.rios.forEach(r => {
+    gRio.appendChild(el('path', { d: r.d, class: 'rio' }));
+    const o = DESV[r.n] || [12, 0];
+    const t = el('text', { x: r.lx + o[0], y: r.ly + o[1], class: 'rio-et' });
+    t.textContent = r.n.toUpperCase(); gRio.appendChild(t);
+  });
+
+  /* --- capas y conmutadores --- */
+  const ulCapas = document.getElementById('capas');
+  CAPAS.forEach(c => {
+    const li = document.createElement('li'), b = document.createElement('button');
+    b.type = 'button'; b.className = 'capa'; b.textContent = c.n;
+    b.setAttribute('aria-pressed', c === capa ? 'true' : 'false');
+    b.addEventListener('click', () => { capa = c; pintar(); });
+    c._b = b; li.appendChild(b); ulCapas.appendChild(li);
+  });
+  let verRios = true, verDron = true;
+  const bRios = document.getElementById('conmuta-rios'), bDron = document.getElementById('conmuta-dron');
+  bRios.addEventListener('click', () => { verRios = !verRios; bRios.setAttribute('aria-pressed', verRios); gRio.style.opacity = verRios ? 1 : 0; });
+  bDron.addEventListener('click', () => { verDron = !verDron; bDron.setAttribute('aria-pressed', verDron); gDron.style.opacity = verDron ? 1 : 0; });
+
+  /* --- escala --- */
+  const esMin = document.getElementById('escala-min'), esMax = document.getElementById('escala-max');
+  const esBar = document.getElementById('escala-barra'), esTit = document.getElementById('escala-tit');
+  function escala() {
+    esTit.textContent = capa.u;
+    if (capa.esc === 'cat') {
+      esBar.style.background = 'linear-gradient(90deg,#e9dcc0 0 33.3%,#e3b45f 33.3% 66.6%,#8a5f18 66.6%)';
+      esMin.textContent = 'BAJA'; esMax.textContent = 'ALTA';
+    } else if (capa.esc === 'div') {
+      esBar.style.background = 'linear-gradient(90deg,' + RAMPAS.oro.slice().reverse().join(',') + ',' + RAMPAS.rosa.join(',') + ')';
+      esMin.textContent = '−' + num(ext) + ' baja'; esMax.textContent = 'sube +' + num(ext);
+    } else {
+      esBar.style.background = degradado(capa.r);
+      const vs = M.map(bruto);
+      esMin.textContent = num(Math.min(...vs), capa.dec || 0);
+      esMax.textContent = num(Math.max(...vs), capa.dec || 0);
+    }
+  }
+
+  /* --- barra de tiempo: el archivo formándose --- */
+  const caja = document.getElementById('tiempo'), rango = document.getElementById('tiempo-rango');
+  const serie = document.getElementById('tiempo-serie'), tEt = document.getElementById('tiempo-et');
+  function pintarSerie() {
+    const W = 340, H = 30, n = D.dep.length, a = W / n, mx = Math.max(...D.dep);
+    let b = '';
+    D.dep.forEach((v, i) => {
+      const h = Math.max(1.5, (v / mx) * (H - 6));
+      b += `<rect x="${(i * a + .5).toFixed(1)}" y="${(H - 2 - h).toFixed(1)}" width="${(a - 1).toFixed(1)}" height="${h.toFixed(1)}" fill="${i <= anio ? '#d59a38' : '#e4e0d0'}"></rect>`;
+    });
+    serie.innerHTML = `<svg class="tiempo-serie" viewBox="0 0 ${W} ${H}" role="img" aria-label="Hechos por año en todo el departamento entre 1983 y 2016">${b}</svg>`;
+  }
+  rango.addEventListener('input', () => { anio = +rango.value; pintar(true); });
+
+  /* --- recorrido guiado por los seis atacados --- */
+  const ATAC = M.filter(m => m.dron).sort((a, b) => a.rc - b.rc);
+  const giraEt = document.getElementById('gira-et');
+  function pintarGira() {
+    giraEt.textContent = gira < 0 ? 'Recorrer los seis municipios atacados'
+      : `${gira + 1} de 6 · ${ATAC[gira].m}`;
+  }
+  const mover = d => {
+    gira = gira < 0 ? (d > 0 ? 0 : ATAC.length - 1) : (gira + d + ATAC.length) % ATAC.length;
+    pintarGira(); elegir(ATAC[gira].cod);
+  };
+  document.getElementById('gira-prev').addEventListener('click', () => mover(-1));
+  document.getElementById('gira-next').addEventListener('click', () => mover(1));
+
+  /* --- chispa: la serie anual del municipio --- */
+  function chispa(m) {
+    const W = 340, H = 54, n = m.s.length, mx = Math.max(1, ...m.s), a = W / n;
+    let b = '';
+    m.s.forEach((v, i) => {
+      const h = v === 0 ? 1 : Math.max(2, (v / mx) * (H - 12));
+      const c = v === 0 ? '#d9d4c2' : (i <= anio ? '#d59a38' : '#e4e0d0');
+      b += `<rect x="${(i * a + .6).toFixed(1)}" y="${(H - 10 - h).toFixed(1)}" width="${(a - 1.2).toFixed(1)}" height="${h.toFixed(1)}" fill="${c}"></rect>`;
+    });
+    const hoy = capa.tiempo && anio < n - 1 ? `<rect class="chispa-hoy" x="${((anio + 1) * a - .6).toFixed(1)}" y="0" width="1.4" height="${H - 8}"></rect>` : '';
+    return `<svg class="chispa" viewBox="0 0 ${W} ${H}" role="img" aria-label="Hechos de reclutamiento por año entre 1983 y 2016 en ${m.m}: máximo de ${mx} en un año">${b}${hoy}<line x1="0" y1="${H - 9.5}" x2="${W}" y2="${H - 9.5}" stroke="#787566" stroke-width="1"></line></svg>`;
+  }
+
+  /* --- ficha --- */
+  const ficha = document.getElementById('ficha');
+  function pintarFicha(m) {
+    const d = [
+      [num(m.casos), 'hechos 1983–2016'], [m.rh + '/31', 'puesto · semáforo'],
+      [m.rc + '/31', 'puesto · corredor'], [num(m.coca, m.coca < 100 ? 1 : 0), 'hectáreas de coca'],
+      [num(m.rib, 1), 'ribereñidad'], [num(m.post), 'actividad 2016–2025'],
+      [num(m.alertas), 'alertas tempranas'], [num(m.farc_act), 'años con hechos']
+    ];
+    const mx = Math.max(...m.s), anioMx = AN[m.s.indexOf(mx)], g = m.rh - m.rc;
+    ficha.innerHTML =
+      `<div class="ficha-cabeza"><h3>${m.m}</h3>` +
+      `<span class="ficha-sello s-${m.nivel.toLowerCase()}">${m.nivel}</span>` +
+      `<span class="ficha-num">N.º ${m.n} en el mapa</span></div>` +
+      `<p class="ficha-rio">${m.drio < .6 ? 'Asentado sobre el cauce del ' + m.rio + '.' : 'A ' + num(m.drio, 1) + ' km del ' + m.rio + ', su cauce más próximo.'} Población media del periodo: ${num(m.pob)} habitantes. ` +
+      (g === 0 ? 'Las dos lecturas lo sitúan en el mismo puesto.'
+        : g > 0 ? `El índice de corredor lo sube ${g} ${g === 1 ? 'puesto' : 'puestos'} respecto del semáforo.`
+        : `El índice de corredor lo baja ${-g} ${g === -1 ? 'puesto' : 'puestos'} respecto del semáforo.`) + `</p>` +
+      chispa(m) +
+      `<p class="chispa-pie etiqueta"><span>1983</span><span>${mx > 0 ? 'Año más intenso: ' + anioMx + ' · ' + mx + (mx === 1 ? ' hecho' : ' hechos') : 'Sin hechos registrados en la serie'}</span><span>2016</span></p>` +
+      `<ul class="ficha-datos">` + d.map(x => `<li><span class="v">${x[0]}</span><span class="k">${x[1]}</span></li>`).join('') + `</ul>` +
+      (m.dron ? `<p class="ficha-dron">Sufrió un ataque con dron cargado con explosivos en 2026. El semáforo lo situaba en el puesto ${m.rh} de 31; el índice de corredor, en el ${m.rc}.</p>` : '');
+  }
+
+  /* --- ranking --- */
+  const rank = document.getElementById('ranking'), rankTit = document.getElementById('rank-tit');
+  const filas = {};
+  function pintarRank() {
+    rank.textContent = ''; for (const k in filas) delete filas[k];
+    rankTit.textContent = 'Los 31, ordenados por ' + capa.n.toLowerCase();
+    const orden = M.slice().sort((a, b) => bruto(b) - bruto(a) || a.n - b.n);
+    orden.forEach((m, i) => {
+      const li = document.createElement('li'), b = document.createElement('button');
+      const ancho = capa.esc === 'div' ? Math.abs(bruto(m)) / ext * 100 : t01(m) * 100;
+      b.type = 'button'; b.className = 'rank-fila';
+      b.innerHTML = `<span class="rank-pos">${i + 1}</span>` +
+        `<span class="rank-nom">${m.dron ? '<i class="rank-dron"></i>' : ''}${m.m}</span>` +
+        `<span class="rank-barra"><i style="width:${Math.max(3, ancho).toFixed(0)}%;background:${relleno(m)}"></i></span>` +
+        `<span class="rank-val">${texto(m)}</span>`;
+      b.addEventListener('click', () => { gira = -1; pintarGira(); elegir(m.cod); });
+      li.appendChild(b); rank.appendChild(li); filas[m.cod] = b;
+    });
+    marcarSel();
+  }
+
+  function marcarSel() {
+    M.forEach(m => rutas[m.cod].classList.toggle('sel', m.cod === sel));
+    for (const c in filas) filas[c].setAttribute('aria-current', c === sel ? 'true' : 'false');
+  }
+  function elegir(cod) {
+    sel = cod; marcarSel();
+    const m = M.find(x => x.cod === cod); if (m) pintarFicha(m);
+  }
+
+  function pintar(soloTiempo) {
+    medir();
+    CAPAS.forEach(c => c._b.setAttribute('aria-pressed', c === capa ? 'true' : 'false'));
+    document.getElementById('tablero-clave').textContent = capa.clave;
+    caja.hidden = !capa.tiempo;
+    if (capa.tiempo) {
+      if (!soloTiempo) { anio = ULT; rango.value = ULT; }
+      pintarSerie();
+      tEt.textContent = anio >= ULT ? 'Acumulado completo · 1983 a 2016'
+        : 'Acumulado hasta ' + AN[anio] + ' · ' + num(M.reduce((s, m) => s + bruto(m), 0)) + ' de 361 hechos';
+    } else if (!soloTiempo) { anio = ULT; }
+    M.forEach(m => {
+      rutas[m.cod].setAttribute('fill', relleno(m));
+      rotulos[m.cod].setAttribute('fill', claro(m) ? '#fffdf1' : '#57554f');
+    });
+    escala(); pintarRank();
+    if (sel) { const m = M.find(x => x.cod === sel); if (m) pintarFicha(m); }
+  }
+
+  /* --- franjas del método --- */
+  const franjas = document.getElementById('franjas');
+  if (franjas) franjas.innerHTML =
+    '<div style="display:flex;gap:4px;align-items:stretch">' +
+    '<div class="atenuable" data-t="ent" style="flex:26;background:#e3b45f;padding:1.1rem 1rem">' +
+      '<p style="margin:0;font:italic 400 1.25rem/1.2 var(--serif);color:#282622">entrenamiento</p>' +
+      '<p class="etiqueta" style="margin:.4rem 0 0;color:#5a3a0c;text-transform:uppercase">1983 – 2008</p></div>' +
+    '<div class="atenuable" data-t="col" style="flex:4;background:#cbd0ba;padding:1.1rem .6rem">' +
+      '<p style="margin:0;font:italic 400 1.05rem/1.2 var(--sans);color:#282622">colchón</p>' +
+      '<p class="etiqueta" style="margin:.4rem 0 0;text-transform:uppercase">4 años</p></div>' +
+    '<div class="atenuable" data-t="eva" style="flex:4;background:#dc8c6e;padding:1.1rem .6rem">' +
+      '<p style="margin:0;font:italic 400 1.05rem/1.2 var(--sans);color:#282622">evaluación</p>' +
+      '<p class="etiqueta" style="margin:.4rem 0 0;color:#4a1a0e;text-transform:uppercase">2013 – 16</p></div></div>';
+
+  /* --- gemelos: el mismo mapa bajo dos lecturas --- */
+  function gemelo(id, clave, rampa) {
+    const s = document.getElementById(id); if (!s) return;
+    s.setAttribute('viewBox', `0 0 ${D.w} ${D.h}`);
+    const vs = M.map(m => m[clave]), a = Math.min(...vs), z = Math.max(...vs);
+    const g1 = el('g'), g2 = el('g');
+    M.forEach(m => {
+      g1.appendChild(el('path', { d: m.d, fill: tono(rampa, z === a ? .5 : (m[clave] - a) / (z - a)), stroke: '#fffdf1', 'stroke-width': '.9' }));
+      if (m.dron) g2.appendChild(el('path', { d: m.d, class: 'ataque' }));
+    });
+    s.append(g1, g2);
+  }
+  gemelo('gem-a', 'riesgo', 'oro');
+  gemelo('gem-b', 'idx', 'rosa');
+
+  pintarGira(); pintar();
+  elegir(M.find(m => m.m.indexOf('Litoral') >= 0).cod);
+})();
+</script>
