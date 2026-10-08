@@ -1,0 +1,627 @@
+/* ==========================================================================
+   Registro «Placa» · inventado para la pieza /choco (octubre de 2026)
+   --------------------------------------------------------------------------
+   El mundo: una placa conmemorativa. Lo que se pone en un muro para que un
+   nombre no se pierda. Esta pieza convierte el archivo de treinta y cuatro
+   años del Chocó en una advertencia, y un archivo del daño no se lee bien en
+   un cuaderno escolar: el resaltador es alegre y la letra manuscrita es
+   íntima. En una placa la letra no se escribe, se corta; el fondo no es papel,
+   es piedra; y lo único brillante es lo que el dato dice.
+
+   DOS SUPERFICIES, y esa alternancia es la firma del registro:
+     · piedra — gris frío, para la lectura larga. Ahí van los párrafos.
+     · losa   — pizarra honda, para los datos. Cada figura es una placa a
+                sangre, y el texto que la acompaña viaja encima como una
+                cartela de museo.
+   Un ensayo largo sobre fondo oscuro cansa; un tablero sobre fondo claro
+   pierde la mitad de su rango. Así cada cosa queda en su superficie.
+
+   LA FORMA DEL REALCE es una sola: filete cortado bajo la palabra. El color
+   va en el filete, nunca en la letra —la letra es siempre tinta plena, que es
+   lo que manda el núcleo del sistema—, de modo que los acentos quedan libres
+   para separarse en claridad sin perder legibilidad. Lo que distingue una
+   marca de otra es el trazo, no solo el tono:
+     · marca A · «lo contado»  — filete PUNTEADO ámbar, versalita espaciada.
+       Lo que el archivo ya contó. El pasado se va borrando: su filete está
+       hecho de puntos sueltos.
+     · marca B · «lo hallado»  — filete MACIZO de 3 px en agua honda, caja
+       normal en sans. Lo que el dato mostró. El presente se corta limpio.
+     · marca C · «lo firme»    — filete FINO en grafito. El territorio que
+       permanece. Sin color: el suelo no necesita señalarse.
+     · acento  · «el giro»     — no es un subrayado: es un bloque separado del
+       párrafo por un filete arriba, en la letra de titular. El giro de cada
+       sección queda literalmente cortado aparte.
+
+   CONTRASTES MEDIDOS antes de escribir una línea (WCAG, sRGB):
+     piedra #ebe9e4 — tinta #22252a 12,67 · tinta suave #5a5e64 5,38
+                      filete A #a9700f 3,45 · B #114c63 7,73 · C #6b7076 4,12
+     piedra honda #e1ded8 — tinta 11,45 · A 3,12 · B 6,99 · C 3,72
+     losa #191d21   — tinta #e9e7e1 13,71 · tinta suave #9ba1a7 6,50
+                      filete A #f2d58f 11,86 · B #4e9fbd 5,66 · C #8d9399 5,46
+     losa alta #23282d — tinta 12,02 · A 10,40 · B 4,97 · C 4,65
+   Texto por encima de 4,5:1; filetes por encima de 3:1, que es el umbral de
+   lo gráfico. El ámbar y el agua se separan 3,24× en claridad sobre piedra y
+   2,27× sobre losa: por encima del 1,8× que pide el sistema, de modo que
+   quien no distinga los tonos los separa igual por claridad y por trazo.
+
+   LA REGLA DE DIBUJO del mundo: una fila es un municipio y una casilla es un
+   año. De ahí sale el panel de la apertura —1.054 casillas reales— y de ahí
+   sale que en el mapa el valor alto sea CLARO y no oscuro: sobre piedra la
+   tinta se acumula, sobre losa lo que se acumula es la luz. Los rótulos del
+   mapa llevan halo (filete del color de la losa detrás de la letra) para que
+   no dependan de un umbral y sean legibles sobre cualquier relleno.
+
+   LETRAS: Cormorant Garamond para los titulares (serif lapidaria, de las que
+   se cortan en piedra), IBM Plex Sans para el cuerpo —como la cartela de un
+   museo— e IBM Plex Mono para cifras y etiquetas. Las tres de licencia libre.
+
+   Todo va encerrado bajo .pieza-placa. El núcleo del sitio (libro.css) y el
+   marco (marco.css) usan varios de estos nombres de clase con otro sentido,
+   así que abajo se neutralizan antes de volver a fijarlos.
+
+   Registros ya usados en el sitio: Pliego (portada), Libro subrayado
+   (artículos y documentos de clase), Río y sedimento (el /choco anterior,
+   que este reemplaza) y Expediente (/alteaonevisor).
+   ========================================================================== */
+
+
+/* --- Reinicio de colisiones -------------------------------------------------
+   El sitio ya usa estos nombres con otro sentido: .apertura abre un artículo
+   y .lema titula la portada. Las propiedades que este registro no declara se
+   filtrarían desde libro.css y marco.css.
+   -------------------------------------------------------------------------- */
+.pieza-placa :is(.aforismo,.apertura,.columna,.entradilla,.epigrafe,.etiqueta,.figura,.firma,.lema,.notas,.pie,.rotulo,.seccion,.sello){
+  display:block;position:static;float:none;width:auto;max-width:none;min-height:0;
+  margin:0;padding:0;border:0;background:none;box-shadow:none;
+  grid-template-columns:none;place-items:normal;gap:normal;text-align:inherit
+}
+.pieza-placa :is(.contado,.hallado,.firme,.giro){
+  background-color:transparent;border:0;border-radius:0;box-shadow:none;text-decoration:none;font-style:normal
+}
+
+
+/* --- Contrato del registro ------------------------------------------------- */
+.pieza-placa{
+  color-scheme:light;
+
+  /* superficie de lectura */
+  --piedra:#ebe9e4; --piedra-honda:#e1ded8; --regla:#c5c2bb;
+  --tinta:#22252a; --tinta-suave:#5a5e64;
+
+  /* superficie de datos */
+  --losa:#191d21; --losa-honda:#0f1215; --losa-alta:#23282d; --regla-losa:#3c4248;
+  --tinta-losa:#e9e7e1; --tinta-losa-suave:#9ba1a7;
+
+  /* filetes: el color del realce. Se redefinen dentro de .losa. */
+  --fil-a:#a9700f;  /* ámbar quemado · lo contado */
+  --fil-b:#114c63;  /* agua honda   · lo hallado */
+  --fil-c:#6b7076;  /* grafito      · lo firme */
+
+  /* fondo y tinta efectivos de la superficie en curso */
+  --fondo:var(--piedra); --fondo-hondo:var(--piedra-honda);
+  --escrito:var(--tinta); --escrito-suave:var(--tinta-suave); --filete:var(--regla);
+
+  --titular:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans Variable','IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',Consolas,Menlo,monospace;
+
+  --texto:1.1875rem; --col-texto:640px; --col-media:900px; --col-ancha:1200px;
+  --margen:1rem; --1s:1ms;
+}
+@media (prefers-reduced-motion:no-preference){.pieza-placa{--1s:1s}}
+@media screen and (max-width:920px){.pieza-placa{--margen:2rem}}
+@media screen and (max-width:720px){.pieza-placa{--texto:1.0625rem}}
+@media screen and (max-width:480px){.pieza-placa{--margen:1rem}}
+
+/* Toda la pieza hereda la superficie de lectura; .losa la cambia de golpe. */
+.pieza-placa{
+  margin:0;background:var(--piedra);color:var(--tinta);
+  font:400 var(--texto)/1.7 var(--sans);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility
+}
+.pieza-placa ::selection{background:var(--fil-b);color:#f4f2ec}
+.pieza-placa .libro{padding-inline:var(--margen);padding-block:2.5rem 0;overflow-x:clip}
+.pieza-placa .columna{max-width:var(--col-texto);margin-inline:auto;position:relative}
+.pieza-placa .columna-media{max-width:var(--col-media);margin-inline:auto}
+.pieza-placa .columna-ancha{max-width:var(--col-ancha);margin-inline:auto}
+.pieza-placa p,.pieza-placa li{margin:0 0 1.75rem}
+.pieza-placa ul,.pieza-placa ol{padding-inline-start:1.25em;margin:0 0 1.75rem}
+.pieza-placa li{margin-bottom:.9rem}
+.pieza-placa a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:var(--fil-b)}
+.pieza-placa a:hover{text-decoration-thickness:2px}
+.pieza-placa :focus-visible{outline:2px solid var(--fil-b);outline-offset:3px;border-radius:1px}
+.pieza-placa strong{font-weight:600;color:var(--escrito)}
+
+
+/* --- La losa: toda figura es una placa a sangre ---------------------------- */
+.pieza-placa .losa{
+  --fondo:var(--losa); --fondo-hondo:var(--losa-honda);
+  --escrito:var(--tinta-losa); --escrito-suave:var(--tinta-losa-suave); --filete:var(--regla-losa);
+  --fil-a:#f2d58f; --fil-b:#4e9fbd; --fil-c:#8d9399;
+  background:var(--losa);color:var(--tinta-losa);
+  margin-inline:calc(-1 * var(--margen));
+  padding-block:clamp(2.5rem,6vw,4.5rem);padding-inline:var(--margen);
+  position:relative
+}
+.pieza-placa .losa :focus-visible{outline-color:var(--fil-b)}
+.pieza-placa .losa a{text-decoration-color:var(--fil-b)}
+
+
+/* --- Rótulo de cabeza ------------------------------------------------------ */
+.pieza-placa .rotulo{
+  max-width:var(--col-ancha);margin:0 auto 2.5rem;text-align:center;
+  font:400 .75rem/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-suave)
+}
+
+
+/* --- El realce: un filete cortado bajo la palabra -------------------------
+   Una sola forma. El color va en el filete; la letra queda en tinta plena.
+   Al entrar en pantalla el filete se corta de izquierda a derecha.
+   -------------------------------------------------------------------------- */
+.pieza-placa mark{background:none;color:inherit}
+.pieza-placa :is(.contado,.hallado,.firme){
+  --avance:100%;
+  color:var(--escrito);
+  padding-bottom:.18em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background-repeat:no-repeat;background-position:0 100%;
+  transition:background-size calc(var(--1s) * .42) cubic-bezier(.33,1,.68,1);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact
+}
+/* marca A · lo contado: versalita espaciada sobre filete punteado.
+   El punteado sale de un degradado que se repite DENTRO de su propia caja, de
+   modo que estrechar la caja a --avance corta los puntos por la mitad justa y
+   el filete se va dibujando de izquierda a derecha sin tocar la letra. */
+.pieza-placa .contado{
+  font-family:var(--sans);font-weight:500;font-size:.92em;
+  letter-spacing:.07em;text-transform:uppercase;
+  background-image:repeating-linear-gradient(90deg,var(--fil-a) 0 2px,transparent 2px 5px);
+  background-size:var(--avance) 3px
+}
+/* marca B · lo hallado: caja normal sobre filete macizo */
+.pieza-placa .hallado{
+  font-family:var(--sans);font-weight:600;
+  background-image:linear-gradient(var(--fil-b),var(--fil-b));
+  background-size:var(--avance) 3px
+}
+/* marca C · lo firme: filete fino en grafito, sin color */
+.pieza-placa .firme{
+  font-family:var(--sans);font-weight:500;letter-spacing:.04em;
+  background-image:linear-gradient(var(--fil-c),var(--fil-c));
+  background-size:var(--avance) 1px
+}
+.pieza-placa .por-ver :is(.contado,.hallado,.firme){--avance:0%}
+
+/* el acento · el giro: cortado aparte del párrafo */
+.pieza-placa .giro{
+  display:block;margin:1.4rem 0 0;padding-top:1.1rem;
+  border-top:1px solid var(--filete);
+  font:400 1.3125rem/1.45 var(--titular);letter-spacing:.005em;color:var(--escrito)
+}
+.pieza-placa .giro::first-letter{font-size:1.05em}
+@media screen and (max-width:720px){.pieza-placa .giro{font-size:1.1875rem}}
+
+.pieza-placa .nota-margen{
+  display:block;margin:0 0 1.25rem;padding-left:.9rem;border-left:2px solid var(--fil-b);
+  font:400 .9375rem/1.5 var(--sans);color:var(--escrito-suave)
+}
+@media screen and (min-width:1180px){
+  .pieza-placa .nota-margen{position:absolute;left:calc(100% + 2.5rem);width:200px;margin:.3rem 0 0}
+}
+
+
+/* --- Titular -------------------------------------------------------------- */
+.pieza-placa .titular{max-width:var(--col-media);margin-inline:auto;padding-block:4.5rem 1rem}
+.pieza-placa .lema{
+  margin:0 0 2.5rem;font:400 clamp(3rem,11vw,6.5rem)/.92 var(--titular);
+  letter-spacing:-.015em;text-transform:uppercase;color:var(--tinta)
+}
+.pieza-placa .lema .par{display:block}
+.pieza-placa .lema .par+.par{margin-top:.1em;padding-left:2.2em}
+.pieza-placa .lema .nexo{
+  font:400 .26em/1 var(--mono);letter-spacing:.14em;color:var(--tinta-suave);
+  vertical-align:.9em;padding-right:.25em
+}
+.pieza-placa .lema mark{
+  padding-bottom:.08em;background-repeat:no-repeat;background-position:0 100%;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;color:var(--tinta)
+}
+.pieza-placa .lema .contado{
+  font:inherit;letter-spacing:inherit;text-transform:inherit;
+  background-image:repeating-linear-gradient(90deg,var(--fil-a) 0 5px,transparent 5px 11px);
+  background-size:100% 6px
+}
+.pieza-placa .lema .hallado{
+  font:inherit;background-image:linear-gradient(var(--fil-b),var(--fil-b));background-size:100% 6px
+}
+@media screen and (max-width:560px){.pieza-placa .lema .par+.par{padding-left:1.2em}}
+
+.pieza-placa .entradilla{
+  max-width:var(--col-media);margin:0 auto 1.25rem;
+  font:300 clamp(1.5rem,3.4vw,2.25rem)/1.3 var(--titular);letter-spacing:0;color:var(--tinta);text-wrap:balance
+}
+.pieza-placa .firma{
+  margin:0 0 2rem;font:400 .9375rem/1.5 var(--mono);letter-spacing:.03em;color:var(--tinta-suave)
+}
+
+.pieza-placa .epigrafe{max-width:36rem;margin:3rem auto 5rem;padding-block:1.75rem;border-top:1px solid var(--regla);border-bottom:1px solid var(--regla)}
+.pieza-placa .epigrafe p{margin:0;text-align:center;font:400 1.5rem/1.45 var(--titular);color:var(--tinta)}
+.pieza-placa .epigrafe footer{margin-top:1rem;text-align:center;text-wrap:balance;font:400 .75rem/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-placa .epigrafe cite{font-style:normal;text-transform:none;letter-spacing:.02em}
+
+.pieza-placa .seccion{
+  margin:6rem 0 1.5rem;font:400 clamp(2rem,5vw,2.75rem)/1.1 var(--titular);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--escrito);text-wrap:balance
+}
+.pieza-placa .seccion::after{content:"";display:block;width:3rem;height:0;margin-top:.9rem;border-top:3px solid var(--fil-a)}
+.pieza-placa .aforismo{
+  margin:4rem auto 0;padding-top:2rem;border-top:1px solid var(--regla);
+  text-align:center;font:400 clamp(1.625rem,4.4vw,2.25rem)/1.3 var(--titular);color:var(--tinta)
+}
+
+
+/* --- Figuras -------------------------------------------------------------- */
+/* Margen solo en el bloque: el sangrado lateral de .losa no se debe pisar. */
+.pieza-placa .figura{max-width:none;margin-block:4.5rem}
+.pieza-placa .figura-cabeza{max-width:var(--col-texto);margin:0 auto 1.75rem}
+.pieza-placa .figura-titulo{margin:0;font:400 clamp(1.625rem,3.6vw,2rem)/1.2 var(--titular);color:var(--escrito);text-wrap:balance}
+.pieza-placa .figura-clave{margin:.85rem 0 0;font:400 1.0625rem/1.55 var(--sans);color:var(--escrito-suave)}
+.pieza-placa .figura-nota{
+  max-width:var(--col-texto);margin:2rem auto 0;padding-top:1rem;border-top:1px solid var(--filete);
+  font:400 .8125rem/1.6 var(--sans);color:var(--escrito-suave)
+}
+.pieza-placa .etiqueta{font:400 .75rem/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--escrito-suave)}
+.pieza-placa .folio{
+  display:block;margin:0 0 .6rem;font:400 .75rem/1 var(--mono);letter-spacing:.14em;color:var(--fil-a)
+}
+
+
+/* --- El panel de la apertura: el archivo entero, casilla por casilla -------
+   Una fila por municipio, una casilla por año. 31 × 34 = 1.054.
+   -------------------------------------------------------------------------- */
+/* width:max-content, o el panel se estira a lo ancho del bloque y el fondo de la
+   retícula asoma como una banda gris a la derecha de la última columna. */
+.pieza-placa .panel{
+  display:grid;gap:1px;margin:0 auto;padding:1px;width:max-content;max-width:100%;
+  background:var(--regla-losa);grid-template-columns:repeat(34,var(--lado))
+}
+.pieza-placa .panel .c{width:var(--lado);height:var(--lado);background:var(--losa-honda);transition:background-color calc(var(--1s) * .5) ease}
+.pieza-placa .panel .c1{background:#6e5015}
+.pieza-placa .panel .c2{background:#a87a1d}
+.pieza-placa .panel .c3{background:#dcab45}
+.pieza-placa .panel .c4{background:#f4ddaa}
+.pieza-placa .panel-marco{min-width:0;flex:none}
+.pieza-placa .panel-eje{
+  display:flex;justify-content:space-between;gap:1rem;
+  width:calc(34 * var(--lado) + 36px);max-width:100%;margin:.6rem auto 0;
+  font:400 .6875rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-losa-suave)
+}
+.pieza-placa .panel-eje span:nth-child(2){text-align:center}
+/* las cinco filas sin una sola marca en treinta y cuatro años */
+.pieza-placa .panel .silencio{
+  grid-column:1 / -1;height:0;margin:0;
+  border-top:2px solid #4e9fbd;
+  transition:opacity calc(var(--1s) * .5) ease
+}
+
+
+/* --- Apertura: tres estados sobre el mismo panel --------------------------- */
+.pieza-placa .apertura{
+  --fondo:var(--losa); --fondo-hondo:var(--losa-honda);
+  --escrito:var(--tinta-losa); --escrito-suave:var(--tinta-losa-suave); --filete:var(--regla-losa);
+  --fil-a:#f2d58f; --fil-b:#4e9fbd; --fil-c:#8d9399;
+  background:var(--losa);color:var(--tinta-losa);
+  margin-inline:calc(-1 * var(--margen));padding-inline:var(--margen);
+
+  /* El lado de la casilla sale de un presupuesto, no de un porcentaje: lo que quepa a
+     la vez en el ancho disponible y en la altura que deja el texto, con un tope de
+     20 px para que a 1440 el panel no desborde el molde. --alto-copia es lo que ocupan
+     la copia, el eje y la llamada a bajar; se midió en el navegador a los tres anchos. */
+  --alto-copia:30rem;
+  --lado:clamp(5px,min(
+      calc((100vw - 2 * var(--margen) - 36px) / 34),
+      calc((100svh - var(--alto-copia)) / 31)
+    ),20px)
+}
+.pieza-placa .apertura .giro{font-family:var(--titular)}
+.pieza-placa .apertura-escena{padding-block:3rem;display:flex;flex-direction:column;gap:1.5rem}
+.pieza-placa .apertura-lado{min-width:0}
+.pieza-placa .apertura-copias{display:grid;max-width:34rem;margin:0 auto}
+.pieza-placa .apertura-copia{grid-area:1 / 1}
+
+.pieza-placa .apertura-copia>p:first-child{margin:0 0 1rem;font:400 1.1875rem/1.6 var(--sans)}
+.pieza-placa .apertura-pie{margin:0;font:400 1rem/1.5 var(--sans);color:var(--tinta-losa-suave)}
+.pieza-placa .apertura-bajar{
+  margin:1.5rem 0 0;font:400 .6875rem/1 var(--mono);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tinta-losa-suave)
+}
+.pieza-placa .apertura:not(.viva) .apertura-bajar{display:none}
+.pieza-placa .apertura:not(.viva) .apertura-copia+.apertura-copia{margin-top:2rem}
+.pieza-placa .apertura:not(.viva) .apertura-copias{display:block}
+.pieza-placa .apertura:not(.viva) .apertura-disparadores{display:none}
+
+/* La leyenda del registro: una tira donde cada palabra lleva puesto su propio filete,
+   de modo que el sentido de cada marca lo dice la palabra y no el color. */
+.pieza-placa .clave-marcas{
+  list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
+  margin:1.5rem 0 0;padding:0;
+  font:400 .9375rem/1.5 var(--sans)
+}
+.pieza-placa .clave-marcas li{margin:0}
+.pieza-placa .apertura.viva .clave-marcas{opacity:0;transition:opacity calc(var(--1s) * .42) ease}
+.pieza-placa .apertura.viva[data-estado="3"] .clave-marcas{opacity:1;transition-delay:calc(var(--1s) * .18)}
+
+.pieza-placa .apertura.viva .apertura-escena{
+  position:sticky;top:0;min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;padding-block:2rem
+}
+.pieza-placa .apertura.viva .apertura-copia{opacity:0;transition:opacity calc(var(--1s) * .42) ease}
+.pieza-placa .apertura.viva .apertura-copia.activa{opacity:1}
+.pieza-placa .apertura.viva .apertura-copia:not(.activa) :is(.contado,.hallado,.firme){--avance:0%}
+.pieza-placa .apertura.viva .apertura-copia.activa :is(.contado,.hallado,.firme){transition-delay:calc(var(--1s) * .18)}
+.pieza-placa .apertura.viva .apertura-disparadores{margin-top:-100vh}
+.pieza-placa .apertura.viva .apertura-disparador{height:100vh}
+/* estado 1 · el archivo completo: todas las casillas iguales */
+.pieza-placa .apertura.viva[data-estado="1"] .panel :is(.c1,.c2,.c3,.c4){background:var(--losa-honda)}
+/* el silencio solo se corta en el estado 3 */
+.pieza-placa .apertura.viva[data-estado="1"] .panel .silencio,
+.pieza-placa .apertura.viva[data-estado="2"] .panel .silencio{opacity:0}
+
+/* A partir de 1000 px el panel se pone al lado del texto: así la placa recibe toda la
+   altura de la pantalla y el presupuesto de la copia deja de restarle. Va después de
+   las reglas de .viva porque tiene la misma especificidad y manda el orden. */
+@media screen and (min-width:1000px){
+  .pieza-placa .apertura{--alto-copia:8rem}
+  .pieza-placa .apertura.viva .apertura-escena{
+    flex-direction:row;align-items:center;justify-content:center;gap:clamp(2rem,4vw,4.5rem)
+  }
+  .pieza-placa .apertura.viva .apertura-lado{width:min(24rem,40vw);flex:none}
+  .pieza-placa .apertura.viva .apertura-copias{margin:0}
+}
+
+
+/* --- Recorridos: la placa entera es el fondo, las cartelas viajan encima --- */
+.pieza-placa .recorrido,.pieza-placa .recorrido-cuerpo{position:relative}
+.pieza-placa .atenuable{transition:opacity calc(var(--1s) * .22) ease}
+.pieza-placa .atenuado{opacity:.32}
+.pieza-placa .paso{
+  max-width:min(400px,86vw);box-sizing:border-box;
+  background:var(--piedra);color:var(--tinta);
+  border-left:3px solid var(--fil-a);padding:1.1rem 1.25rem;
+  font:400 1.0625rem/1.6 var(--sans)
+}
+.pieza-placa .paso p{margin:0}
+.pieza-placa .paso :is(.contado,.hallado,.firme){--fil-a:#a9700f;--fil-b:#114c63;--fil-c:#6b7076;color:var(--tinta)}
+.pieza-placa .paso .giro{font-family:var(--titular);border-top-color:var(--regla);color:var(--tinta)}
+/* La escena ocupa la pantalla y se centra: así la tarjeta de paso, que también va
+   centrada, queda a la altura del elemento que resalta y no por debajo de él. */
+.pieza-placa .recorrido.vivo .recorrido-escena{
+  position:sticky;top:0;z-index:1;
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center
+}
+.pieza-placa .recorrido.vivo .recorrido-pasos{
+  position:relative;z-index:2;pointer-events:none;
+  margin-top:calc(-1 * var(--alto-escena,80vh));padding-block:85vh 45vh
+}
+.pieza-placa .recorrido.vivo .recorrido-paso{min-height:75vh;display:flex;align-items:center;justify-content:center}
+.pieza-placa .recorrido.vivo .paso{pointer-events:auto;box-shadow:0 0 0 7px var(--losa)}
+@media screen and (min-width:900px){
+  .pieza-placa .recorrido.vivo .recorrido-paso{max-width:var(--col-media);margin-inline:auto}
+  .pieza-placa .recorrido.vivo .recorrido-paso[data-lado="izq"]{justify-content:flex-start}
+  .pieza-placa .recorrido.vivo .recorrido-paso[data-lado="der"]{justify-content:flex-end}
+}
+@media screen and (max-width:720px){
+  .pieza-placa .recorrido.vivo .recorrido-paso{align-items:flex-end;padding-bottom:5vh;box-sizing:border-box}
+}
+.pieza-placa .recorrido:not(.vivo) .recorrido-pasos{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));
+  gap:1rem;max-width:var(--col-media);margin:2rem auto 0
+}
+.pieza-placa .recorrido:not(.vivo) .paso{max-width:none;font-size:1rem}
+
+
+/* --- Niveles: dos listas enfrentadas -------------------------------------- */
+.pieza-placa .niveles{
+  list-style:none;margin:0 auto;padding:0;max-width:var(--col-media);
+  display:grid;grid-template-columns:repeat(var(--columnas,3),minmax(0,1fr));gap:0 2.5rem;align-items:end
+}
+.pieza-placa .niveles>li{margin:0;display:flex;flex-direction:column}
+.pieza-placa .niveles ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:flex-start;gap:.9rem}
+.pieza-placa .niveles ul li{margin:0;font:400 1.1875rem/1.3 var(--sans)}
+.pieza-placa .niveles-rotulo{
+  margin:1rem 0 0;padding-top:.6rem;border-top:1px solid var(--filete);
+  font:400 .75rem/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--escrito-suave)
+}
+.pieza-placa .niveles mark{font-size:1em}
+.pieza-placa .lazo{position:relative}
+.pieza-placa .lazo-nota{
+  display:block;margin:.4rem 0 0;max-width:17rem;
+  font:400 .8125rem/1.45 var(--sans);color:var(--fil-b);opacity:0;
+  transition:opacity calc(var(--1s) * .22) ease
+}
+.pieza-placa .con-lazo .lazo-nota{opacity:1}
+.pieza-placa .recorrido:not(.vivo) .lazo-nota{opacity:1}
+@media screen and (max-width:720px){
+  .pieza-placa .niveles{grid-template-columns:1fr;gap:1.5rem}
+  .pieza-placa .niveles>li{flex-direction:column-reverse}
+  .pieza-placa .niveles-rotulo{margin:0 0 .6rem;border-top:0;padding:0}
+  .pieza-placa .niveles ul li{font-size:1.0625rem}
+}
+
+
+/* --- Proporción ----------------------------------------------------------- */
+.pieza-placa .proporcion{margin:0 0 2rem}
+.pieza-placa .proporcion-barra{display:flex;gap:2px;height:1.1rem}
+.pieza-placa .proporcion-barra span{display:block;min-width:3px}
+.pieza-placa .p-hallado{background:var(--fil-b)}
+.pieza-placa .p-resto{background:linear-gradient(var(--regla),var(--regla)) 0 100% / 100% 2px no-repeat}
+.pieza-placa .proporcion .etiqueta{margin:.6rem 0 0}
+
+.pieza-placa sup a{font:500 .7em/1 var(--mono);text-decoration:none;padding-inline:.15em;color:var(--fil-b)}
+
+
+/* --- El tablero ----------------------------------------------------------- */
+.pieza-placa .tablero{max-width:none}
+.pieza-placa .tablero>*{max-width:var(--col-ancha);margin-inline:auto}
+.pieza-placa .capas{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.25rem;padding:0;list-style:none}
+.pieza-placa .capa{
+  font:400 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tinta-losa-suave);background:transparent;border:1px solid var(--regla-losa);
+  padding:.65rem .8rem;cursor:pointer
+}
+.pieza-placa .capa:hover{color:var(--tinta-losa);border-color:var(--tinta-losa-suave)}
+.pieza-placa .capa[aria-pressed="true"]{color:var(--losa);background:var(--fil-a);border-color:var(--fil-a)}
+.pieza-placa .conmutas{display:flex;flex-wrap:wrap;gap:1.25rem;margin:0 0 1.75rem;padding:0;list-style:none}
+.pieza-placa .conmuta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font:400 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--tinta-losa-suave);background:none;border:0;padding:.2rem 0;cursor:pointer;margin:0
+}
+.pieza-placa .conmuta:hover{color:var(--tinta-losa)}
+.pieza-placa .conmuta i{display:block;width:1.5rem;height:0;border-top:2px solid var(--regla-losa);flex:none}
+.pieza-placa .conmuta[aria-pressed="true"]{color:var(--tinta-losa)}
+.pieza-placa .conmuta[aria-pressed="true"] i{border-top-color:var(--fil-b)}
+.pieza-placa .conmuta.ataque[aria-pressed="true"] i{border-top-style:dashed;border-top-color:var(--tinta-losa)}
+.pieza-placa .tablero-cuerpo{display:grid;grid-template-columns:minmax(0,.56fr) minmax(0,1fr);gap:2.5rem;align-items:start}
+@media screen and (max-width:880px){.pieza-placa .tablero-cuerpo{grid-template-columns:1fr;gap:2rem}}
+
+.pieza-placa .mapa-marco{position:relative}
+.pieza-placa .mapa{display:block;margin-inline:auto;height:min(72vh,640px);width:auto;max-width:100%}
+.pieza-placa .mun{stroke:var(--losa);stroke-width:.9;cursor:pointer;transition:fill calc(var(--1s) * .28) ease}
+.pieza-placa .mun:hover{stroke:var(--tinta-losa);stroke-width:1.6}
+.pieza-placa .mun.sel{stroke:var(--fil-b);stroke-width:2.8}
+.pieza-placa .ataque{fill:none;stroke:var(--tinta-losa);stroke-width:3.4;stroke-dasharray:9 6;pointer-events:none}
+/* el rótulo lleva halo: legible sobre cualquier relleno, sin depender de un umbral */
+.pieza-placa .mnum{
+  font:500 15px/1 var(--mono);fill:#f4f2ec;
+  stroke:#11151a;stroke-width:2.6px;stroke-linejoin:round;paint-order:stroke fill;
+  pointer-events:none;user-select:none
+}
+.pieza-placa .rio{fill:none;stroke:var(--fil-b);stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+/* El nombre del río cruza municipios de cualquier claridad, así que lleva halo igual
+   que el número: sin él se pierde sobre los rellenos claros. */
+.pieza-placa .rio-et{
+  font:500 16px/1 var(--mono);fill:var(--fil-b);letter-spacing:.06em;
+  stroke:#11151a;stroke-width:3.2px;stroke-linejoin:round;paint-order:stroke fill;
+  pointer-events:none
+}
+.pieza-placa .escala{display:flex;align-items:center;gap:.6rem;margin:1rem 0 0}
+.pieza-placa .escala-barra{flex:1;height:.55rem;min-width:0;border:1px solid var(--regla-losa)}
+.pieza-placa .escala .etiqueta{margin:0;white-space:nowrap}
+.pieza-placa .globo{
+  position:absolute;pointer-events:none;background:var(--piedra);color:var(--tinta);
+  padding:.35rem .6rem;font:400 .75rem/1.4 var(--mono);white-space:nowrap;
+  opacity:0;transition:opacity calc(var(--1s) * .15) ease;z-index:3
+}
+.pieza-placa .globo.ver{opacity:1}
+.pieza-placa .globo b{display:block;font-family:var(--sans);font-size:.9375rem;font-weight:600;color:var(--tinta)}
+
+.pieza-placa .tiempo{margin:0 0 1.25rem}
+.pieza-placa .tiempo[hidden]{display:none}
+.pieza-placa .tiempo-serie{width:100%;height:auto;display:block}
+.pieza-placa .tiempo-serie svg{width:100%;height:auto;display:block}
+.pieza-placa .tiempo-rango{width:100%;margin:.4rem 0 .35rem;accent-color:var(--fil-b);height:1.1rem}
+.pieza-placa .tiempo .etiqueta{margin:0}
+.pieza-placa .gira{display:flex;align-items:center;gap:.7rem;margin:0 0 1.75rem;padding:.6rem .7rem;background:var(--losa-alta)}
+.pieza-placa .gira-b{
+  font:400 1.1rem/1 var(--mono);color:var(--tinta-losa);background:transparent;
+  border:1px solid var(--regla-losa);width:2.1rem;height:2.1rem;cursor:pointer;flex:none
+}
+.pieza-placa .gira-b:hover{border-color:var(--fil-a);color:var(--fil-a)}
+.pieza-placa .gira-et{margin:0;flex:1;min-width:0;font:400 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-losa)}
+
+.pieza-placa .ficha{border-top:3px solid var(--fil-a);padding-top:1.25rem}
+.pieza-placa .ficha-cabeza{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.5rem}
+.pieza-placa .ficha-cabeza h3{margin:0;font:400 2.125rem/1.05 var(--titular);letter-spacing:.01em;color:var(--tinta-losa)}
+.pieza-placa .ficha-num{font:400 .75rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-losa-suave)}
+.pieza-placa .ficha-sello{font:500 .6875rem/1 var(--mono);letter-spacing:.12em;padding:.35rem .5rem}
+.pieza-placa .s-alta{background:#f4ddaa;color:#11151a}
+.pieza-placa .s-media{background:#a87a1d;color:#11151a}
+.pieza-placa .s-baja{background:#50555b;color:#f4f2ec}
+.pieza-placa .ficha-rio{margin:0 0 1.25rem;font:400 .9375rem/1.6 var(--sans);color:var(--tinta-losa-suave)}
+.pieza-placa .chispa{width:100%;height:auto;display:block;margin:0 0 .4rem}
+.pieza-placa .chispa-pie{margin:0 0 1.5rem;display:flex;justify-content:space-between;gap:1rem}
+.pieza-placa .chispa-hoy{fill:var(--fil-b)}
+.pieza-placa .ficha-datos{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));
+  gap:1.25rem 1.4rem;margin:0 0 1.5rem;padding:0;list-style:none
+}
+.pieza-placa .ficha-datos li{margin:0}
+.pieza-placa .ficha-datos .v{
+  display:block;font:400 1.875rem/1.05 var(--mono);color:var(--tinta-losa);font-variant-numeric:tabular-nums
+}
+.pieza-placa .ficha-datos .k{
+  display:block;margin-top:.3rem;font:400 .6875rem/1.4 var(--mono);
+  letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-losa-suave)
+}
+.pieza-placa .ficha-dron{
+  margin:0 0 1.25rem;padding:.85rem 1rem;background:var(--losa-alta);
+  border-left:3px solid var(--fil-b);font:400 .9375rem/1.6 var(--sans);color:var(--tinta-losa)
+}
+.pieza-placa .ranking{list-style:none;margin:0;padding:0;max-height:21rem;overflow-y:auto}
+.pieza-placa .ranking li{margin:0}
+.pieza-placa .rank-fila{
+  display:grid;grid-template-columns:1.8rem minmax(0,1fr) 5.5rem 3rem;gap:.55rem;align-items:center;
+  width:100%;background:none;border:0;border-bottom:1px solid var(--regla-losa);
+  padding:.45rem .15rem;cursor:pointer;font:inherit;color:var(--tinta-losa-suave);text-align:left
+}
+.pieza-placa .rank-fila:hover{background:var(--losa-alta);color:var(--tinta-losa)}
+.pieza-placa .rank-fila[aria-current="true"]{background:var(--losa-alta);color:var(--tinta-losa)}
+.pieza-placa .rank-pos{font:400 .75rem/1 var(--mono);font-variant-numeric:tabular-nums}
+.pieza-placa .rank-nom{font:400 .9375rem/1.3 var(--sans);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pieza-placa .rank-barra{height:.5rem;background:var(--losa-honda);min-width:0}
+.pieza-placa .rank-barra i{display:block;height:100%}
+.pieza-placa .rank-val{font:400 .75rem/1 var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.pieza-placa .rank-dron{display:inline-block;width:.42rem;height:.42rem;background:var(--tinta-losa);margin-right:.4rem;vertical-align:.08em}
+
+.pieza-placa .gemelos{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:var(--col-media);margin-inline:auto}
+@media screen and (max-width:620px){.pieza-placa .gemelos{grid-template-columns:1fr;gap:1.25rem}}
+.pieza-placa .gemelo svg{display:block;margin-inline:auto;height:min(48vh,420px);width:auto;max-width:100%}
+.pieza-placa .gemelo .ataque{stroke-width:6.5;stroke-dasharray:15 10}
+.pieza-placa .gemelo .etiqueta{margin:.75rem 0 0;text-align:center}
+
+
+/* --- Notas y método: la cara de atrás de la placa ------------------------- */
+.pieza-placa .notas{
+  background:var(--piedra-honda);border-top:1px solid var(--regla);
+  padding:4rem var(--margen) 5rem;margin-top:6rem
+}
+.pieza-placa .notas>*{max-width:var(--col-texto);margin-inline:auto}
+.pieza-placa .notas h2{
+  margin-block:0 2rem;font:400 2.25rem/1.1 var(--titular);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--tinta)
+}
+.pieza-placa .notas details{border-top:1px solid var(--regla)}
+.pieza-placa .notas details:last-of-type{border-bottom:1px solid var(--regla)}
+.pieza-placa .notas summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:1.1rem 0;font:500 1.0625rem/1.5 var(--sans);color:var(--tinta)
+}
+.pieza-placa .notas summary::-webkit-details-marker{display:none}
+.pieza-placa .notas summary::after{content:"+";font:400 1.5rem/1 var(--mono);color:var(--fil-a)}
+.pieza-placa .notas details[open] summary::after{content:"\2212"}
+.pieza-placa .notas details>:not(summary){font:400 .9375rem/1.7 var(--sans);color:var(--tinta-suave);margin:0 0 1.1rem}
+.pieza-placa .notas .citas{font:400 .8125rem/1.7 var(--sans);padding-inline-start:1.25rem;margin-top:2.5rem;color:var(--tinta-suave)}
+.pieza-placa .notas .citas li{margin:0 0 .6rem}
+
+
+/* --- Impreso -------------------------------------------------------------- */
+@media print{
+  .pieza-placa{--texto:11pt;--margen:0;background:transparent}
+  .pieza-placa .libro{padding:0;overflow:visible}
+  .pieza-placa .columna{max-width:32.5em}
+  .pieza-placa .por-ver :is(.contado,.hallado,.firme){--avance:100%}
+  .pieza-placa .atenuado{opacity:1}
+  .pieza-placa .losa,.pieza-placa .apertura{
+    background:transparent;color:var(--tinta);margin-inline:0;padding-inline:0;
+    --escrito:var(--tinta);--escrito-suave:var(--tinta-suave);--filete:var(--regla);
+    --fil-a:#a9700f;--fil-b:#114c63;--fil-c:#6b7076
+  }
+  .pieza-placa .recorrido.vivo .recorrido-escena{position:static}
+  .pieza-placa .apertura.viva .apertura-escena{position:static;min-height:0}
+  .pieza-placa .apertura-disparadores,.pieza-placa .apertura-bajar{display:none}
+  .pieza-placa .tiempo,.pieza-placa .gira,.pieza-placa .globo{display:none}
+  .pieza-placa .capas,.pieza-placa .conmutas,.pieza-placa .ranking{display:none}
+  .pieza-placa .lazo-nota{opacity:1}
+}
