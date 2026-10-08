@@ -1,0 +1,62 @@
+---
+// Plantilla de las páginas interiores (artículos, demos, 404): la cabecera y el pie
+// de la portada, con el interior en el registro de cada pieza (aquí, Libro subrayado).
+import '@fontsource-variable/source-serif-4/opsz.css';
+import '@fontsource-variable/source-serif-4/opsz-italic.css';
+import '@fontsource-variable/source-sans-3/wght.css';
+import '@fontsource-variable/source-sans-3/wght-italic.css';
+import '@fontsource/source-code-pro/400.css';
+import '@fontsource/source-code-pro/500.css';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/spectral/300-italic.css';
+import '@fontsource/archivo/400.css';
+import '../styles/libro.css';
+import '../styles/marco.css';
+import Cabeza from '../components/Cabeza.astro';
+import { SITIO } from '../sitio';
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+  imagen?: string;
+  tipo?: 'website' | 'article';
+  fecha?: Date;
+}
+const props = Astro.props;
+const ruta = Astro.url.pathname.replace(/\/$/, '');
+const menu = [
+  { href: '/#recorrido', texto: 'El recorrido' },
+  { href: '/articulos/', texto: 'Artículos' },
+  { href: '/demos/', texto: 'Demos' },
+  { href: '/#puerta', texto: 'Conversemos' },
+];
+const actual = (href: string) => href.length > 2 && !href.startsWith('/#') && ruta.startsWith(href.replace(/\/$/, ''));
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <Cabeza {...props} />
+  </head>
+  <body>
+    <a class="salto" href="#contenido">Saltar al contenido</a>
+    <div class="pagina">
+      <header class="marco-cab">
+        <nav aria-label="Principal">
+          <a class="inicio" href="/" aria-label="Torre D. Babel, portada"><span class="marco-torre" role="img" aria-label="Torre D. Babel"></span></a>
+          <ul class="marco-menu">
+            {menu.map((m) => <li><a href={m.href} aria-current={actual(m.href) ? 'page' : undefined}>{m.texto}</a></li>)}
+          </ul>
+        </nav>
+      </header>
+      <main id="contenido">
+        <slot />
+      </main>
+      <footer class="marco-pie">
+        <span class="marco-firma" role="img" aria-label="D'Babel"></span>
+        <p class="marco-sello">«{SITIO.sello}»</p>
+        <p>{SITIO.razonSocial} · NIT {SITIO.nit} · Bogotá, Colombia</p>
+        <p><a href={`mailto:${SITIO.correo}`}>{SITIO.correo}</a> · {SITIO.telefono}</p>
+      </footer>
+    </div>
+  </body>
+</html>

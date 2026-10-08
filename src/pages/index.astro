@@ -1,0 +1,326 @@
+---
+// Portada de torredbabel.com. El marcado, el estilo (src/styles/pliego.css) y el guion
+// son los del artefacto «Torre D. Babel» aprobado; solo se añadieron al menú
+// los enlaces a Artículos y Demos.
+import Pliego from '../layouts/Pliego.astro';
+---
+<Pliego>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+
+<header class="cabecera">
+  <nav aria-label="Principal">
+    <a class="inicio" href="#contenido" aria-label="Torre D. Babel, inicio"><span class="marca-torre" role="img" aria-label="Torre D. Babel"></span></a>
+    <ul class="menu">
+      <li><a href="#recorrido">El recorrido</a></li>
+      <li><a href="#lengua">La lengua</a></li>
+      <li><a href="#persona">La persona</a></li>
+      <li><a href="/articulos/">Artículos</a></li>
+      <li><a href="/demos/">Demos</a></li>
+      <li><a href="#puerta">Conversemos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="contenido" class="libro">
+
+<section class="apertura" aria-label="Apertura">
+  <div class="apertura-escena">
+
+    <div class="apertura-copia activa" data-paso="1">
+      <p>Cada mañana, alguien abre <mark class="marca-a">cuatro archivos</mark>, copia <mark class="marca-a">doscientas filas</mark> a mano y corrige <mark class="marca-a">la fórmula de ayer</mark>. A mediodía envía <mark class="marca-a">un informe</mark> que <mark class="marca-a">nadie lee</mark> completo, y en la tarde alguien pregunta <mark class="marca-a">por qué no cuadra</mark>. Nadie mintió. <mark class="marca-a">Nadie entendió</mark> del todo.</p>
+      <p class="apertura-pie">Así suena un proceso cuando los datos hablan lenguas distintas. ¿Le resulta familiar?</p>
+      <p class="apertura-bajar" aria-hidden="true">Baje despacio</p>
+    </div>
+
+    <div class="apertura-copia" data-paso="2">
+      <p>Cada mañana, alguien abre <mark class="marca-c">cuatro archivos</mark>, <mark class="marca-a">copia doscientas filas</mark> a mano y corrige la fórmula de ayer. A mediodía envía un informe que nadie lee completo, y en la tarde alguien pregunta por qué no cuadra. Nadie mintió. Nadie <mark class="marca-b">entendió</mark> del todo.</p>
+      <p class="apertura-pie">Tres cosas distintas: lo que ya existe, lo que sobra y lo que falta.</p>
+    </div>
+
+    <div class="apertura-copia" data-paso="3">
+      <p>Cada mañana, alguien abre <mark class="marca-c">cuatro archivos</mark>, <mark class="marca-a">copia doscientas filas</mark> a mano y corrige la fórmula de ayer. A mediodía envía un informe que nadie lee completo, y en la tarde alguien pregunta por qué no cuadra. Nadie mintió. Nadie <mark class="marca-b">entendió</mark> del todo. <span class="giro">Detrás de esas filas hay una persona que podría estar pensando.</span></p>
+      <p class="apertura-pie">En esta página, el <mark class="marca-a">ámbar</mark> marca lo que se va; el <mark class="marca-b">lapis</mark>, lo que llega; el <mark class="marca-c">pergamino</mark>, lo que ya existe y se queda. El subrayado rojo señala el giro.</p>
+    </div>
+
+  </div>
+  <div class="apertura-disparadores" aria-hidden="true">
+    <div class="apertura-disparador" data-paso="1"></div>
+    <div class="apertura-disparador" data-paso="2"></div>
+    <div class="apertura-disparador" data-paso="3"></div>
+  </div>
+</section>
+
+<header class="titular">
+  <p class="rotulo">Torre D. Babel · Consultoría de tecnología · Bogotá</p>
+  <h1 class="lema" aria-label="De ruido a criterio">
+    <span class="par" aria-hidden="true"><span class="nexo">De</span> <mark class="marca-a">ruido</mark></span>
+    <span class="par" aria-hidden="true"><span class="nexo">a</span> <mark class="marca-b">criterio</mark></span>
+  </h1>
+  <p class="entradilla">Ordenamos, conectamos y explicamos los datos de su organización en la lengua que su equipo ya habla. Cambia el proceso, y cambia también la persona que lo hace.</p>
+  <ul class="servicios" aria-label="Servicios">
+    <li>Ingeniería de datos</li>
+    <li>Arquitectura de datos</li>
+    <li>Inteligencia de negocios</li>
+    <li>Ciencia de datos</li>
+  </ul>
+</header>
+
+<blockquote class="epigrafe">
+  <p>«Una vida sin examen no merece ser vivida.»</p>
+  <footer>Platón, <cite>Apología de Sócrates</cite>, 38a</footer>
+</blockquote>
+
+<section class="columna">
+  <p>En español, una babel es «desorden y confusión»<sup id="vuelta-1"><a href="#cita-1">1</a></sup>: lo que ocurre cuando cada área nombra distinto la misma cosa. Una torre, en cambio, sirve para ver lejos y orientarse. Desde ahí trabajamos, y desde ahí le proponemos examinar sus datos con la misma calma con que Sócrates examinaba una vida.</p>
+  <p>Lo veremos desde tres lados: <strong>el recorrido</strong> que hace un dato hasta llegar a una decisión, <strong>la lengua</strong> en que se construye la solución y <strong>la persona</strong> que la usa.</p>
+</section>
+
+<section class="columna" id="recorrido">
+  <h2 class="seccion">El recorrido</h2>
+  <p>Un dato no llega solo a una decisión. Recorre cuatro fases, y en cada una puede perder sentido o ganarlo. Acompañamos el camino completo o el tramo que haga falta, pero siempre pensamos las cuatro juntas.</p>
+  <p>Para verlo, sigamos a un solo dato desde el sistema donde nace hasta la mesa donde se decide.</p>
+</section>
+
+<figure class="figura recorrido" aria-labelledby="f-fases">
+  <div class="recorrido-cuerpo">
+    <div class="recorrido-escena">
+      <div class="figura-cabeza atenuable">
+        <h3 class="figura-titulo" id="f-fases">Cuatro fases, cuatro preguntas: de dónde viene, qué significa, qué pasa y qué podría pasar</h3>
+        <p class="figura-clave">Cada columna es una fase, en el orden en que viaja el dato. En <mark class="marca-a">ámbar</mark> y tachado, lo que deja de hacerse; en <mark class="marca-b">lapis</mark>, lo que la fase entrega.</p>
+      </div>
+      <ol class="fases">
+        <li class="atenuable" data-t="ing">
+          <p class="fase-rotulo">Fase 1</p>
+          <h4 class="fase-nombre">Ingeniería de datos</h4>
+          <p class="fase-pregunta">¿De dónde viene?</p>
+          <ul>
+            <li><mark class="marca-a sale">copiar y pegar</mark></li>
+            <li>Fuentes conectadas, limpias y validadas</li>
+            <li><mark class="marca-b">cargas automáticas</mark></li>
+          </ul>
+        </li>
+        <li class="atenuable" data-t="arq">
+          <p class="fase-rotulo">Fase 2</p>
+          <h4 class="fase-nombre">Arquitectura de datos</h4>
+          <p class="fase-pregunta">¿Qué significa?</p>
+          <ul>
+            <li><mark class="marca-a sale">cuatro versiones</mark></li>
+            <li>Modelo, permisos y responsables</li>
+            <li class="lazo" data-t2="lazo"><mark class="marca-b">una sola definición</mark><span class="lazo-nota">Aquí nace la lengua común.</span></li>
+          </ul>
+        </li>
+        <li class="atenuable" data-t="bi">
+          <p class="fase-rotulo">Fase 3</p>
+          <h4 class="fase-nombre">Inteligencia de negocios</h4>
+          <p class="fase-pregunta">¿Qué está pasando?</p>
+          <ul>
+            <li><mark class="marca-a sale">informes que nadie abre</mark></li>
+            <li>Indicadores que se leen en un minuto</li>
+            <li><mark class="marca-b">cada cifra con su fórmula</mark></li>
+          </ul>
+        </li>
+        <li class="atenuable" data-t="cd">
+          <p class="fase-rotulo">Fase 4</p>
+          <h4 class="fase-nombre">Ciencia de datos</h4>
+          <p class="fase-pregunta">¿Qué podría pasar?</p>
+          <ul>
+            <li><mark class="marca-a sale">intuición sin prueba</mark></li>
+            <li>Pronósticos, grupos y experimentos</li>
+            <li><mark class="marca-b">modelos que dicen su duda</mark></li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    <div class="recorrido-pasos">
+      <div class="recorrido-paso" data-n="1" data-lado="der" data-foco="ing">
+        <div class="paso"><p><strong>Primero hay que traer el dato.</strong> Conectamos los sistemas que usted ya tiene, limpiamos y validamos lo que llega y programamos las cargas para que nadie vuelva a copiar filas a mano. Cada carga deja constancia de qué entró y qué se rechazó.<span class="pregunta">¿De dónde viene?</span></p></div>
+      </div>
+      <div class="recorrido-paso" data-n="2" data-lado="der" data-foco="arq" data-lazo="arq">
+        <div class="paso"><p><strong>Después hay que nombrarlo.</strong> Diseñamos dónde vive cada dato, cómo se llama y quién responde por él. El resultado es un diccionario común: una sola definición de venta, de cliente o de lote, escrita y acordada con su equipo.<span class="pregunta">¿Qué significa?</span></p></div>
+      </div>
+      <div class="recorrido-paso" data-n="3" data-lado="izq" data-foco="bi">
+        <div class="paso"><p><strong>Luego hay que mostrarlo.</strong> Indicadores y tableros que se entienden en un minuto y que dicen cómo se calculó cada cifra. Un tablero que nadie puede explicar no debería usarse para decidir.<span class="pregunta">¿Qué está pasando?</span></p></div>
+      </div>
+      <div class="recorrido-paso" data-n="4" data-lado="izq" data-foco="cd">
+        <div class="paso"><p><strong>Al final se puede anticipar.</strong> Estadística y modelos para pronosticar, agrupar y poner a prueba una hipótesis. Cada modelo dice qué tan seguro está, y cuando duda, lo dice y pide que una persona revise.<span class="pregunta">¿Qué podría pasar?</span></p></div>
+      </div>
+    </div>
+  </div>
+  <figcaption class="figura-nota">Fuente: elaboración propia. Lo que la figura no muestra: en la práctica las fases se cruzan y a veces hay que volver atrás. El orden es el del dato, no el de un calendario.</figcaption>
+</figure>
+
+<section class="columna">
+  <p>Las cuatro fases pueden contratarse por separado, pero el orden importa. <span class="giro">Un modelo brillante sobre datos mal nombrados solo repite el ruido con más seguridad.</span> Por eso, antes de pronosticar, preguntamos qué significa cada palabra.</p>
+  <p>Ahora bien, ¿en qué lengua se construye todo esto?</p>
+</section>
+
+<section class="columna" id="lengua">
+  <h2 class="seccion">La lengua</h2>
+  <p>No llegamos a reemplazar lo que su organización ya tiene. Llegamos a conectarlo. Trabajamos sobre su infraestructura: sus bases de datos, su nube o sus servidores, sus hojas de cálculo y sus tableros, sin pedirle que cambie de casa para que la solución funcione.</p>
+</section>
+
+<figure class="figura" aria-labelledby="f-torre">
+  <div class="figura-cabeza">
+    <h3 class="figura-titulo" id="f-torre">La torre se levanta con las lenguas que su casa ya habla</h3>
+    <p class="figura-clave">Cada piso es una familia de herramientas que suele haber en una organización. Ninguno se reemplaza: todos se conectan y la solución se escribe en ellos.</p>
+  </div>
+  <div class="torre" role="list" aria-label="Herramientas con las que se construye la solución, de la cima a la base">
+    <p class="torre-cima" role="listitem">Su lengua</p>
+    <ul class="piso" role="listitem" aria-label="Lenguajes"><li class="piso-nombre" aria-hidden="true">Lenguajes</li><li>SQL</li><li>Python</li><li>R</li></ul>
+    <ul class="piso" role="listitem" aria-label="Hojas de cálculo"><li class="piso-nombre" aria-hidden="true">Hojas de cálculo</li><li>Excel</li><li>Google Sheets</li><li>Power Query</li></ul>
+    <ul class="piso" role="listitem" aria-label="Bases de datos"><li class="piso-nombre" aria-hidden="true">Bases de datos</li><li>PostgreSQL</li><li>SQL Server</li><li>MySQL</li><li>Oracle</li></ul>
+    <ul class="piso" role="listitem" aria-label="Tableros"><li class="piso-nombre" aria-hidden="true">Tableros</li><li>Power BI</li><li>Looker Studio</li><li>Tableau</li><li>Metabase</li></ul>
+    <ul class="piso" role="listitem" aria-label="Sistemas de gestión"><li class="piso-nombre" aria-hidden="true">Sistemas de gestión</li><li>ERP</li><li>CRM</li><li>SharePoint</li><li>archivos planos</li><li>API</li></ul>
+    <ul class="piso" role="listitem" aria-label="Infraestructura"><li class="piso-nombre" aria-hidden="true">Infraestructura</li><li>AWS</li><li>Azure</li><li>Google Cloud</li><li>servidores propios</li><li>un solo computador</li></ul>
+  </div>
+  <figcaption class="figura-nota">Son ejemplos, no un catálogo cerrado: si su organización trabaja con otra herramienta, la solución se escribe en ella. Las marcas pertenecen a sus dueños; no vendemos licencias de terceros.</figcaption>
+</figure>
+
+<section class="columna">
+  <p>Hablamos su idioma dos veces. <strong>En el desarrollo</strong>, con su equipo y en los términos de su negocio, sin jerga, explicando cada decisión. <strong>En la solución</strong>, que se entrega escrita en las herramientas que su gente ya domina, documentada en español y con un manual para quien llegue después.</p>
+  <p>El código, los modelos y la documentación quedan en su casa. Si mañana decide seguir sin nosotros, puede. <span class="giro">Una solución que su equipo no puede leer sería solo una babel nueva.</span></p>
+  <p>Queda la parte que ninguna herramienta resuelve: la persona.</p>
+</section>
+
+<section class="columna" id="persona">
+  <h2 class="seccion">La persona</h2>
+  <aside class="nota-margen">Automatizar libera horas. Lo que se haga con ellas no lo decide la máquina.</aside>
+  <p>Un proceso es una secuencia de pasos, y cada paso lo da alguien. Cuando automatizamos una tarea, liberamos horas; lo que se haga con ellas depende de la persona que antes las gastaba copiando.</p>
+  <p>Por eso enseñamos mientras construimos. Kant llamó Ilustración a salir de una minoría de edad de la que uno mismo es responsable, y la resumió en atreverse a servirse del propio entendimiento<sup id="vuelta-2"><a href="#cita-2">2</a></sup>. En los datos, esa salida tiene una forma concreta: entender de dónde sale una cifra, poder preguntar por ella y no depender de nadie para leerla.</p>
+  <p><span class="giro">La ciencia de datos transforma el proceso; el conocimiento transforma a quien lo hace.</span> Lo primero se mide en horas. Lo segundo, en preguntas mejores.</p>
+</section>
+
+<figure class="figura" aria-labelledby="f-preguntas">
+  <div class="figura-cabeza">
+    <h3 class="figura-titulo" id="f-preguntas">Tres preguntas deciden si un trabajo está terminado</h3>
+    <p class="figura-clave">Se hacen al cerrar cada fase, no solo al final del proyecto.</p>
+  </div>
+  <ul class="preguntas">
+    <li><h4>¿A quién sirve?</h4><p>Detrás de cada dato hay una persona. Empezamos por ella y por la decisión que necesita tomar.</p></li>
+    <li><h4>¿Qué límite respeta?</h4><p>Solo los datos necesarios, con autorización y para un fin dicho, conforme a la Ley 1581 de 2012. En temas sensibles, solo datos agregados.</p></li>
+    <li><h4>¿Qué se verificó?</h4><p>Cada cifra lleva su fuente. Lo que no se pudo comprobar se marca; no se inventa.</p></li>
+  </ul>
+  <figcaption class="figura-nota">Estas preguntas no reemplazan una auditoría ni un concepto jurídico; los preparan.</figcaption>
+</figure>
+
+<section class="columna">
+  <p>De este mismo tronco salen nuestras aplicaciones: herramientas para la industria, para lo público y para el aula. Cada una es el mismo conocimiento puesto a trabajar en un lugar distinto, con la misma regla de medir con cuidado y explicar lo medido.</p>
+</section>
+
+<section class="columna" id="puerta">
+  <h2 class="seccion">Conversemos</h2>
+  <p>Hay tres maneras de empezar, y la primera no cuesta nada.</p>
+</section>
+
+<ol class="puerta">
+  <li><span class="num">01</span><div><h3>Una conversación</h3><p>Cuéntenos qué proceso le quita tiempo a su equipo. Si lo que necesita no es lo que hacemos, se lo decimos y le sugerimos a quién buscar.</p></div></li>
+  <li><span class="num">02</span><div><h3>Un proyecto por fases</h3><p>Con criterios de aceptación que se pueden verificar y entregas parciales. Al terminar, el código, los modelos y la documentación quedan en su casa.</p></div></li>
+  <li><span class="num">03</span><div><h3>Una clase o un taller</h3><p>Para equipos que ya tienen los datos y quieren aprender a leerlos, con ejercicios sobre sus propios casos.</p></div></li>
+</ol>
+
+<div class="contacto">
+  <span class="correo" id="correo">babeltran@torredbabel.com</span>
+  <button class="boton" type="button" id="copiar">Copiar el correo</button>
+  <a class="boton claro" href="mailto:babeltran@torredbabel.com">Escribir</a>
+  <span class="aviso" id="aviso" role="status" aria-live="polite"></span>
+</div>
+
+<section class="columna">
+  <p style="margin-top:4rem">Vuelva a la mañana del principio: cuatro archivos, doscientas filas, un informe que nadie lee. Con los datos en orden, la misma persona llega al mediodía con una pregunta mejor que la de ayer.</p>
+  <p class="aforismo">Un dato bien dicho libera a quien lo lee.</p>
+</section>
+
+</main>
+
+<section class="notas" aria-labelledby="n-titulo">
+  <h2 id="n-titulo">Notas y método</h2>
+  <details>
+    <summary>¿Trabajan con la infraestructura que ya tengo?</summary>
+    <p>Sí. La solución se diseña sobre lo que su organización ya usa y se escribe en las herramientas que su equipo puede mantener. Si alguna pieza nueva hace falta, se explica por qué y qué alternativas hay antes de proponerla.</p>
+  </details>
+  <details>
+    <summary>¿Qué pasa con los datos personales?</summary>
+    <p>Se usan solo los necesarios, con autorización y para una finalidad dicha, conforme a la Ley Estatutaria 1581 de 2012 de protección de datos personales. En temas sensibles se trabaja con datos agregados o anonimizados.</p>
+  </details>
+  <details>
+    <summary>¿Cómo está hecha esta página?</summary>
+    <p>Registro visual: Pliego, el del cartel de imprenta. Forma de la historia: un solo dato que recorre cuatro fases. Las citas se indican abajo; las de Kant y Platón son paráfrasis o traducciones de uso común, no versiones literales de una edición concreta.</p>
+  </details>
+  <ol class="citas">
+    <li id="cita-1">Real Academia Española, <a href="https://dle.rae.es/babel"><cite>Diccionario de la lengua española</cite>, «babel»</a>. <a href="#vuelta-1" aria-label="Volver al texto">↑</a></li>
+    <li id="cita-2">Immanuel Kant, <cite>Respuesta a la pregunta: ¿Qué es la Ilustración?</cite>, 1784. Paráfrasis del primer párrafo. <a href="#vuelta-2" aria-label="Volver al texto">↑</a></li>
+    <li>Platón, <cite>Apología de Sócrates</cite>, 38a. Traducción de uso común del epígrafe.</li>
+  </ol>
+</section>
+
+<footer class="pie">
+  <span class="marca-firma" role="img" aria-label="D'Babel"></span>
+  <p class="sello">«De la riqueza del corazón, la palabra.»</p>
+  <p>Torre D. Babel S.A.S. · NIT 902.112.383-9 · Bogotá, Colombia</p>
+  <p>babeltran@torredbabel.com · 312 416 4687</p>
+</footer>
+
+<script is:inline>
+// Torre D. Babel · transiciones. Sin este guion la página se lee completa y marcada.
+(() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+
+  // Copiar el correo
+  const boton = document.getElementById('copiar'), aviso = document.getElementById('aviso'), correo = document.getElementById('correo');
+  boton && boton.addEventListener('click', () => {
+    const texto = correo.textContent.trim();
+    const seleccionar = () => { const r = document.createRange(); r.selectNodeContents(correo); const s = getSelection(); s.removeAllRanges(); s.addRange(r); aviso.textContent = 'Seleccionado: presione Ctrl + C para copiarlo.'; };
+    try { navigator.clipboard.writeText(texto).then(() => { aviso.textContent = 'Correo copiado.'; }, seleccionar); } catch (e) { seleccionar(); }
+  });
+
+  if (!('IntersectionObserver' in window)) return;
+  const movil = () => matchMedia('(max-width: 720px)').matches;
+  const cruzo = (lista, linea, rect) => { let a = null; for (const x of lista) if (rect(x).top < linea) a = x; return a; };
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  // 1. El realce se pasa al entrar en pantalla; lo visible al cargar ya está marcado.
+  const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+  document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+
+  // 2. Apertura: la copia activa es la del último disparador que cruzó la mitad de la pantalla.
+  document.querySelectorAll('.apertura').forEach(ap => {
+    ap.classList.add('viva');
+    const copias = ap.querySelectorAll('.apertura-copia'), disp = [...ap.querySelectorAll('.apertura-disparador')];
+    tareas.push(() => {
+      const d = cruzo(disp, innerHeight * .5, x => x.getBoundingClientRect()), n = d ? d.dataset.paso : '1';
+      if (ap.dataset.estado === n) return;
+      ap.dataset.estado = n; copias.forEach(c => c.classList.toggle('activa', c.dataset.paso === n));
+    });
+  });
+
+  // 3. Recorrido: en pantallas anchas el esquema queda fijo y manda la última tarjeta que cruzó la línea.
+  //    En teléfonos las cuatro fases ya no caben a la vista: las tarjetas van en fila debajo.
+  if (!movil()) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const piezas = rec.querySelectorAll('[data-t]'), cabeza = rec.querySelector('.figura-cabeza');
+    const escena = rec.querySelector('.recorrido-escena'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const lazo = rec.querySelector('.lazo');
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const tarjeta = p => p.querySelector('.paso').getBoundingClientRect();
+    const aplicar = (paso, fin) => {
+      const clave = fin ? 'fin' : (paso ? paso.dataset.n : '');
+      if ((rec.dataset.paso || '') === clave) return;
+      const foco = paso ? paso.dataset.foco.split(' ') : null;
+      piezas.forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (lazo) lazo.classList.toggle('con-lazo', !!paso && paso.dataset.lazo === 'arq');
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+      if (clave) rec.dataset.paso = clave; else delete rec.dataset.paso;
+    };
+    tareas.push(() => {
+      const linea = innerHeight * .5, actual = cruzo(pasos, linea, tarjeta), ultimo = pasos[pasos.length - 1];
+      if (actual === ultimo && tarjeta(ultimo).bottom < linea - innerHeight * .2) aplicar(null, true); else aplicar(actual);
+    });
+  });
+  tareas.forEach(t => t());
+})();
+</script>
+</Pliego>

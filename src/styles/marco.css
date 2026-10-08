@@ -1,0 +1,19 @@
+/* Marco común (cáscara) de las páginas interiores: la misma cabecera y el mismo pie
+   de la portada, en el registro Pliego. El interior de cada artículo lleva su propio registro. */
+.marco-cab{padding-inline:clamp(1rem,4vw,2rem);padding-block:1.4rem 0;background:#f7f2e7}
+.marco-cab nav{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 2rem;padding-bottom:1rem;border-bottom:3px double #cfc3a6}
+.marco-cab .inicio{display:block;width:clamp(150px,18vw,210px);color:#1a150f}
+.marco-cab .inicio:hover{color:#9b2226}
+.marco-menu{display:flex;flex-wrap:wrap;gap:0 1.5rem;margin:0;padding:0;list-style:none;font:400 .75rem/1 "Space Mono",Consolas,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}
+.marco-menu li{margin:0}
+.marco-menu a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:#3a332a}
+.marco-menu a:hover,.marco-menu a[aria-current="page"]{color:#9b2226}
+.marco-torre,.marco-firma{display:block;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;max-width:100%}
+.marco-torre{-webkit-mask-image:url(/marcas/torre.png);mask-image:url(/marcas/torre.png);aspect-ratio:2048/366}
+.marco-firma{-webkit-mask-image:url(/marcas/firma.png);mask-image:url(/marcas/firma.png);aspect-ratio:1306/558}
+.marco-pie{background:#1a150f;color:#f7f2e7;padding:3.5rem clamp(1rem,4vw,2rem) 3rem;text-align:center}
+.marco-pie .marco-firma{width:min(60%,200px);margin:0 auto 1.5rem;color:#e8a33d}
+.marco-pie p{margin:0 0 .4rem;font:400 .9375rem/1.6 "Archivo","Segoe UI",Helvetica,Arial,sans-serif;color:#d8d1c2}
+.marco-pie .marco-sello{font:italic 300 1.375rem/1.45 "Spectral",Georgia,serif;color:#f7f2e7;margin-bottom:1.25rem}
+.marco-pie a{color:#e8a33d}
+@media print{.marco-menu{display:none}}

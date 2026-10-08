@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Datos de ejemplo, inventados para la demo. Valores en millones de pesos.
+const operaciones = [
+  { id: 'A', valor: 40, pedido: '2026-08-28', factura: '2026-09-02', pago: '2026-09-30', ajuste: 0 },
+  { id: 'B', valor: 25, pedido: '2026-09-05', factura: '2026-09-10', pago: '2026-10-15', ajuste: 0 },
+  { id: 'C', valor: 30, pedido: '2026-09-12', factura: '2026-09-20', pago: '2026-09-25', ajuste: 5 },
+  { id: 'D', valor: 50, pedido: '2026-09-22', factura: '2026-10-03', pago: '', ajuste: 0 },
+  { id: 'E', valor: 20, pedido: '2026-07-15', factura: '2026-07-20', pago: '2026-09-08', ajuste: 0 },
+  { id: 'F', valor: 15, pedido: '2026-09-26', factura: '2026-09-29', pago: '', ajuste: 3 },
+];
+const corta = (f: string) =>
+  f ? new Date(f + 'T12:00:00Z').toLocaleDateString('es-CO', { day: 'numeric', month: 'short', timeZone: 'UTC' }) : '—';
+---
+<Base titulo="Demos" descripcion="Demostraciones de productos de datos de Torre D. Babel que se pueden usar en el navegador, sin instalar nada.">
+  <header class="articulo-cabeza">
+    <div class="columna">
+      <p class="etiqueta">Demos</p>
+      <h1 class="articulo-titulo">Pruébelo antes de creerlo</h1>
+      <p class="articulo-bajada">Cada demo muestra una idea con datos de ejemplo. Se usa aquí mismo, en el navegador, y no guarda nada de lo que usted haga.</p>
+    </div>
+  </header>
+
+  <section class="seccion seccion--corta" aria-labelledby="t-demo1">
+    <div class="prosa">
+      <p class="etiqueta">Demo 1 · Inteligencia de negocios</p>
+      <h2 id="t-demo1">¿Cuánto se vendió en septiembre?</h2>
+      <p>Seis operaciones y una sola pregunta. Elija qué cuenta como venta y mire cómo cambia la cifra. <mark class="rosa">En rosa, las operaciones que entran en la cuenta.</mark></p>
+
+      <form id="demo-venta" class="demo-venta">
+        <fieldset>
+          <legend class="etiqueta">¿Qué es una venta?</legend>
+          <label><input type="radio" name="definicion" value="pedido" checked /> <span>El pedido firmado <span class="apoyo">(Comercial)</span></span></label>
+          <label><input type="radio" name="definicion" value="factura" /> <span>La factura emitida <span class="apoyo">(Facturación)</span></span></label>
+          <label><input type="radio" name="definicion" value="pago" /> <span>El dinero recibido <span class="apoyo">(Cartera)</span></span></label>
+          <label><input type="radio" name="definicion" value="neta" /> <span>La factura menos devoluciones y descuentos <span class="apoyo">(Finanzas)</span></span></label>
+        </fieldset>
+        <p class="demo-resultado" aria-live="polite">
+          <span class="etiqueta">Ventas de septiembre</span>
+          <output id="demo-total" for="demo-venta">$120 millones</output>
+        </p>
+      </form>
+
+      <div class="tabla-desliza">
+        <table id="demo-tabla">
+          <caption class="solo-lector">Operaciones de ejemplo con sus fechas</caption>
+          <thead>
+            <tr><th scope="col">Operación</th><th scope="col">Valor</th><th scope="col">Pedido</th><th scope="col">Factura</th><th scope="col">Pago</th><th scope="col">Ajuste</th></tr>
+          </thead>
+          <tbody>
+            {operaciones.map((o) => (
+              <tr data-op={JSON.stringify(o)}>
+                <th scope="row">{o.id}</th>
+                <td>${o.valor} M</td>
+                <td>{corta(o.pedido)}</td>
+                <td>{corta(o.factura)}</td>
+                <td>{corta(o.pago)}</td>
+                <td>{o.ajuste ? `−$${o.ajuste} M` : '—'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="apoyo">Datos inventados para la demostración. La pregunta de fondo está en el artículo <a href="/articulos/que-es-una-venta/">¿Qué es una venta?</a></p>
+    </div>
+  </section>
+
+  <section class="seccion seccion--final" aria-labelledby="t-proximas">
+    <div class="prosa">
+      <h2 id="t-proximas">Próximas demos</h2>
+      <p>Aquí irán demostraciones de tableros, modelos y flujos de datos. Las más livianas correrán en el navegador, como la de arriba; las que necesiten más fuerza vivirán en un servidor propio y se verán en esta misma página.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .demo-venta fieldset { margin: 0 0 1.5rem; padding: 0; border: 0; display: flex; flex-direction: column; gap: 6px; }
+  .demo-venta legend { margin-bottom: 10px; }
+  .demo-venta label {
+    display: flex; gap: 10px; align-items: baseline; min-height: 44px; padding: 8px 12px;
+    border: 1px solid var(--regla); border-radius: 6px; cursor: pointer; line-height: 1.35;
+  }
+  .demo-venta label:has(input:checked) { border-color: var(--pluma); background: var(--papel-hondo); }
+  .demo-venta input { accent-color: var(--pluma); width: 18px; height: 18px; flex: 0 0 auto; transform: translateY(2px); }
+  .demo-resultado { margin: 0 0 1.5rem !important; display: flex; flex-direction: column; gap: 4px; }
+  .demo-resultado output { font-size: clamp(40px, 5vw, 56px); line-height: 1.1; font-weight: 300; color: var(--tinta-fuerte); }
+  #demo-tabla tr.cuenta th, #demo-tabla tr.cuenta td { background: color-mix(in srgb, var(--rosa) 35%, var(--papel)); color: var(--tinta-fuerte); }
+  #demo-tabla td { white-space: nowrap; }
+</style>
+
+<script>
+  type Op = { id: string; valor: number; pedido: string; factura: string; pago: string; ajuste: number };
+  const enSeptiembre = (f: string) => f.startsWith('2026-09');
+  const reglas: Record<string, (o: Op) => number> = {
+    pedido: (o) => (enSeptiembre(o.pedido) ? o.valor : 0),
+    factura: (o) => (enSeptiembre(o.factura) ? o.valor : 0),
+    pago: (o) => (enSeptiembre(o.pago) ? o.valor : 0),
+    neta: (o) => (enSeptiembre(o.factura) ? o.valor - o.ajuste : 0),
+  };
+
+  const formulario = document.getElementById('demo-venta') as HTMLFormElement | null;
+  const total = document.getElementById('demo-total');
+  const filas = Array.from(document.querySelectorAll<HTMLTableRowElement>('#demo-tabla tbody tr'));
+
+  function calcular() {
+    if (!formulario || !total) return;
+    const definicion = (new FormData(formulario).get('definicion') as string) ?? 'pedido';
+    const regla = reglas[definicion];
+    let suma = 0;
+    for (const fila of filas) {
+      const op = JSON.parse(fila.dataset.op ?? '{}') as Op;
+      const aporte = regla(op);
+      fila.classList.toggle('cuenta', aporte > 0);
+      suma += aporte;
+    }
+    total.textContent = `$${suma} millones`;
+  }
+
+  formulario?.addEventListener('change', calcular);
+  calcular();
+</script>

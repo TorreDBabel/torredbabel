@@ -1,0 +1,24 @@
+---
+// Marco para mostrar una demo que vive en otro servidor (por ejemplo, demos.torredbabel.com
+// o un espacio de Hugging Face). Uso:
+//   <DemoExterno titulo="Pronóstico de demanda" src="https://demos.torredbabel.com/pronostico/" />
+interface Props {
+  titulo: string;
+  src: string;
+  nota?: string;
+}
+const { titulo, src, nota } = Astro.props;
+---
+<figure class="demo-marco">
+  <iframe
+    src={src}
+    title={titulo}
+    loading="lazy"
+    referrerpolicy="no-referrer"
+    sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-popups"
+  ></iframe>
+  <p>
+    {nota ?? 'La demo se carga desde un servidor aparte y puede tardar unos segundos en despertar.'}
+    {' '}<a href={src} target="_blank" rel="noopener">Abrir en una pestaña nueva</a>.
+  </p>
+</figure>

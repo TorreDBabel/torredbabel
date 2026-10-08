@@ -1,0 +1,416 @@
+/* ==========================================================================
+   Libro subrayado · hoja de estilos única de torredbabel.com
+   Todo el sitio toma su aspecto de este archivo. Si algo cambia aquí,
+   cambia en todas las páginas a la vez: así se cuida la integridad del estilo.
+   ========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+:root {
+  /* Papel */
+  --papel: #FFFDF1;
+  --papel-hondo: #F3EFD9;
+  --papel-pie: #E6E2BC;
+  --regla: #D9D4C2;
+  /* Tinta */
+  --tinta: #57554F;
+  --tinta-fuerte: #282622;
+  --tinta-suave: #787566;
+  /* Resaltadores: oro = lo que se cree, rosa = lo que muestra el dato, lino = contexto */
+  --oro: #FFBA47;
+  --rosa: #FF97D7;
+  --lino: #DCD4BB;
+  --oro-trazo: #C8800D;
+  --rosa-trazo: #E163B3;
+  --oro-hondo: #6F400C;
+  --rosa-hondo: #781D59;
+  /* Pluma: una sola frase subrayada por sección */
+  --pluma: #2E4A96;
+
+  /* Letra */
+  --serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans: 'Source Sans 3 Variable', 'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --mono: 'Source Code Pro', Consolas, Menlo, monospace;
+
+  /* Proporción */
+  --columna: 650px;
+  --ancho: 1200px;
+  --margen: clamp(16px, 4vw, 64px);
+
+  color-scheme: light;
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 16px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-size: clamp(18px, 1.4vw, 20px);
+  line-height: 1.55;
+}
+
+.pagina { container-type: inline-size; min-height: 100vh; display: flex; flex-direction: column; }
+.pagina > main { flex: 1 0 auto; }
+
+img, svg, video, iframe { max-width: 100%; }
+img { height: auto; }
+
+a { color: var(--tinta-fuerte); text-decoration-color: var(--pluma); text-underline-offset: .2em; }
+a:hover { color: var(--pluma); }
+:focus-visible { outline: 3px solid var(--pluma); outline-offset: 3px; }
+::selection { background: var(--oro); color: var(--tinta-fuerte); }
+
+h1, h2, h3, h4 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+.salto {
+  position: absolute; left: 16px; top: -100px; z-index: 10;
+  padding: 10px 16px; background: var(--tinta-fuerte); color: var(--papel);
+  font-family: var(--sans); font-weight: 600; text-decoration: none;
+}
+.salto:focus { top: 12px; color: var(--papel); }
+
+.solo-lector {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* 3. Resaltadores y pluma -------------------------------------------------- */
+mark { background-color: transparent; color: inherit; }
+.oro, .rosa, .lino {
+  font-style: italic; color: var(--tinta-fuerte); padding: 0 .35rem;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  background-repeat: no-repeat;
+}
+.oro {
+  font-family: var(--serif);
+  background-image: linear-gradient(var(--oro), var(--oro));
+  background-size: 100% 1.15em; background-position: 0 100%;
+}
+.rosa {
+  font-family: var(--sans); font-size: 1.05em;
+  background-image: linear-gradient(var(--rosa), var(--rosa));
+  background-size: 100% 1.1em; background-position: 0 50%;
+}
+.lino {
+  font-family: var(--sans); font-size: 1.05em;
+  background-image: linear-gradient(var(--lino), var(--lino));
+  background-size: 100% 1.1em; background-position: 0 50%;
+}
+.pluma {
+  text-decoration: underline; text-decoration-color: var(--pluma);
+  text-decoration-thickness: .09em; text-underline-offset: .22em;
+}
+/* En pantallas de alto contraste los resaltadores no se ven: se conserva el sentido */
+@media (forced-colors: active) {
+  .oro, .rosa, .lino { text-decoration: underline; }
+  .rosa { text-decoration-style: double; }
+  .lino { text-decoration-style: dotted; }
+}
+
+/* 4. Piezas de texto ------------------------------------------------------- */
+.etiqueta {
+  margin: 0; font-family: var(--mono); font-size: 13px; line-height: 1.4;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--tinta-suave);
+}
+.apoyo { font-family: var(--sans); font-size: .9em; line-height: 1.45; }
+.columna { max-width: var(--columna); margin-left: auto; margin-right: auto; }
+.columna > p, .prosa > p { margin: 0 0 2rem; }
+.columna > p:last-child, .prosa > p:last-child { margin-bottom: 0; }
+
+.titulo-seccion {
+  margin: 0 0 20px; font-family: var(--serif); font-size: clamp(26px, 2.2vw, 32px);
+  line-height: 1.2; font-weight: 400; letter-spacing: .03em;
+  text-transform: uppercase; color: var(--tinta);
+}
+.titulo-figura {
+  margin: 0; font-size: clamp(22px, 1.95vw, 28px); line-height: 1.2;
+  font-weight: 400; color: var(--tinta);
+}
+.clave {
+  margin: 12px 0 0; font-family: var(--sans); font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.3; letter-spacing: .01em; color: var(--tinta-suave);
+}
+.fuente-figura {
+  margin: 28px auto 0; max-width: var(--columna); font-family: var(--sans);
+  font-size: 14px; line-height: 1.45; color: var(--tinta);
+}
+
+.aforismo {
+  margin: 48px 0 0; text-align: center; font-size: clamp(28px, 2.5vw, 36px);
+  line-height: 1.25; font-style: italic; font-weight: 300; color: var(--tinta-fuerte);
+  text-wrap: balance;
+}
+
+.epigrafe { margin: 0 auto; max-width: 560px; text-align: center; }
+.epigrafe p {
+  margin: 0; font-size: clamp(21px, 1.7vw, 24px); line-height: 1.4; font-style: italic;
+  font-weight: 300; color: var(--tinta-fuerte); text-wrap: balance;
+}
+.epigrafe footer {
+  margin-top: 12px; font-family: var(--mono); font-size: 13px; line-height: 1.5;
+  letter-spacing: .02em; text-transform: uppercase; color: var(--tinta-suave); text-wrap: balance;
+}
+.epigrafe cite { font-style: italic; text-transform: none; letter-spacing: 0; }
+
+/* 5. Secciones ------------------------------------------------------------- */
+.seccion { padding: clamp(64px, 7vw, 96px) var(--margen) 0; }
+.seccion--corta { padding-top: clamp(48px, 6vw, 80px); }
+.seccion--final { padding-bottom: clamp(72px, 7vw, 96px); }
+
+/* 6. Encabezado y pie ------------------------------------------------------ */
+.cabecera { padding: 18px var(--margen) 0; }
+.cabecera nav {
+  max-width: var(--ancho); margin: 0 auto; display: flex; flex-wrap: wrap;
+  justify-content: space-between; align-items: center; gap: 4px 28px;
+  border-bottom: 1px solid var(--regla);
+}
+.marca {
+  display: inline-flex; align-items: center; min-height: 48px; font-size: 22px;
+  line-height: 1.2; font-weight: 500; color: var(--tinta-fuerte); text-decoration: none;
+}
+.marca mark { padding: 0 .18em; }
+.menu {
+  display: flex; flex-wrap: wrap; gap: 0 22px; margin: 0; padding: 0; list-style: none;
+  font-family: var(--mono); font-size: 13px; line-height: 1.3; letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.menu a {
+  display: inline-flex; align-items: center; min-height: 44px; color: var(--tinta);
+  text-decoration: none;
+}
+.menu a:hover, .menu a[aria-current="page"] {
+  color: var(--tinta-fuerte); text-decoration: underline; text-decoration-color: var(--pluma);
+  text-decoration-thickness: 2px;
+}
+
+.contacto {
+  background: var(--papel-hondo); border-top: 1px solid var(--regla);
+  padding: clamp(48px, 5vw, 72px) var(--margen);
+}
+.contacto .columna { display: flex; flex-direction: column; gap: 16px; }
+.contacto h2 {
+  margin: 0; font-family: var(--sans); font-size: 32px; line-height: 1.2;
+  font-weight: 400; color: var(--tinta);
+}
+.contacto p { margin: 0; }
+.correo {
+  align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px;
+  font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; color: var(--tinta-fuerte);
+  text-decoration: underline; text-decoration-color: var(--pluma);
+  text-decoration-thickness: 2px; text-underline-offset: .2em; overflow-wrap: anywhere;
+}
+.contacto .etiqueta { color: var(--tinta); line-height: 1.6; text-wrap: balance; }
+
+.pie {
+  background: var(--papel-pie); padding: 36px var(--margen) 44px; text-align: center;
+  font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--tinta);
+}
+.pie p { margin: 0; }
+.sello {
+  margin: 0 0 8px !important; font-family: var(--serif); font-size: 20px; line-height: 1.4;
+  font-style: italic; font-weight: 300; color: var(--tinta-fuerte);
+}
+.pie a { color: var(--tinta); }
+
+/* 7. Botón ----------------------------------------------------------------- */
+.boton {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px;
+  background: var(--pluma); color: var(--papel); font-family: var(--sans);
+  font-size: 17px; font-weight: 600; text-decoration: none;
+}
+.boton:hover { background: var(--tinta-fuerte); color: var(--papel); }
+
+/* 8. Portada --------------------------------------------------------------- */
+.apertura {
+  max-width: 1040px; margin: 0 auto; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: clamp(32px, 4.5vw, 64px); align-items: start;
+}
+.apertura > div { display: flex; flex-direction: column; gap: 16px; }
+.apertura p { margin: 0; }
+.apertura .relato { font-size: 1.1em; line-height: 1.6; }
+.leyenda mark { font-size: 1em; }
+
+.lema-bloque { text-align: center; }
+.rotulo { margin: 0 auto clamp(28px, 3vw, 44px); line-height: 1.5; text-wrap: balance; }
+.lema {
+  margin: 0 auto; max-width: var(--columna); display: flex; flex-direction: column;
+  gap: clamp(10px, 1.2vw, 16px); font-weight: 200; line-height: .8; text-transform: uppercase;
+}
+.lema > span { display: flex; align-items: flex-start; gap: clamp(8px, 1.2vw, 18px); }
+.lema > span:first-child { align-self: flex-start; }
+.lema > span:last-child { align-self: flex-end; }
+.lema small {
+  padding-top: .2em; font-family: var(--sans); font-size: clamp(16px, 2.4vw, 35px);
+  line-height: 1; font-weight: 400; letter-spacing: .05em; color: var(--tinta);
+}
+.lema mark {
+  font-size: clamp(56px, 6.25vw, 90px); line-height: 1; font-weight: 200;
+  padding: 0 .16em 0 .1em; background-size: 100% .9em; background-position: 0 60%;
+}
+.entradilla {
+  margin: clamp(36px, 3.4vw, 48px) auto 0; max-width: 900px;
+  font-size: clamp(24px, 2.5vw, 36px); line-height: 1.25; font-weight: 300;
+  letter-spacing: -.01em; text-wrap: balance;
+}
+.servicios {
+  list-style: none; margin: 24px auto 0; padding: 0; max-width: 900px; display: flex;
+  flex-wrap: wrap; justify-content: center; gap: 6px 26px; font-family: var(--mono);
+  font-size: 13px; line-height: 1.6; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--tinta);
+}
+.servicios li { white-space: nowrap; }
+.llamado {
+  margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center;
+  align-items: center; gap: 12px 24px;
+}
+.llamado span { font-family: var(--mono); font-size: 15px; line-height: 1.4; color: var(--tinta-fuerte); }
+
+.oficios-figura { margin: clamp(48px, 4.5vw, 64px) auto 0; max-width: var(--ancho); }
+.oficios-figura > div { max-width: var(--columna); margin: 0 auto 28px; }
+.oficios {
+  list-style: none; margin: 0 auto; padding: 0; max-width: 1080px; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 28px 32px; align-items: end;
+}
+.oficios > li { display: flex; flex-direction: column; gap: 12px; }
+.oficios ul {
+  list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column;
+  align-items: flex-start; gap: 12px; font-family: var(--sans);
+  font-size: clamp(18px, 1.45vw, 21px); line-height: 1.2; font-style: italic;
+  text-transform: uppercase;
+}
+.oficios mark { font-size: 1em; }
+.oficios .lino { color: var(--tinta); }
+.oficios .rosa { color: var(--rosa-hondo); }
+.oficios p {
+  margin: 0; padding-top: 9px; border-top: 1px solid var(--tinta-suave);
+  font-family: var(--mono); font-size: 13px; line-height: 1.3; letter-spacing: .02em;
+  text-transform: uppercase; color: var(--tinta-suave);
+}
+
+.tarjetas {
+  margin: clamp(48px, 4.5vw, 64px) auto 0; max-width: 1080px; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px;
+}
+.tarjeta {
+  padding: 18px 20px; background: var(--papel); border: 1px solid var(--tinta-suave);
+  border-radius: 8px; display: flex; flex-direction: column; gap: 10px;
+}
+.tarjeta h3 {
+  margin: 0; font-family: var(--mono); font-size: 13px; line-height: 1.3; font-weight: 500;
+  letter-spacing: .02em; text-transform: uppercase; color: var(--tinta-fuerte);
+}
+.tarjeta p { margin: 0; font-size: 18px; line-height: 1.5; }
+a.tarjeta { text-decoration: none; color: inherit; }
+a.tarjeta:hover { border-color: var(--pluma); }
+a.tarjeta:hover h3 { color: var(--pluma); }
+
+.pasos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 22px; counter-reset: paso; }
+.pasos li { display: flex; gap: 16px; align-items: baseline; counter-increment: paso; }
+.pasos li::before {
+  content: counter(paso); flex: 0 0 auto; min-width: 1.6em; font-family: var(--mono);
+  font-size: 14px; color: var(--tinta-suave);
+}
+.pasos p { margin: 0; }
+.pasos strong { font-weight: 600; color: var(--tinta-fuerte); }
+
+/* 9. Artículos ------------------------------------------------------------- */
+.articulo-cabeza { padding: clamp(40px, 5vw, 72px) var(--margen) 0; }
+.articulo-cabeza .columna { display: flex; flex-direction: column; gap: 18px; }
+.articulo-titulo {
+  margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.08; font-weight: 300;
+  letter-spacing: -.01em; color: var(--tinta-fuerte);
+}
+.articulo-bajada {
+  margin: 0; font-size: clamp(21px, 1.9vw, 26px); line-height: 1.35; font-weight: 300;
+}
+.articulo-datos { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+
+.prosa { max-width: var(--columna); margin: 0 auto; }
+.prosa h2 {
+  margin: 3.5rem 0 1.25rem; font-size: clamp(26px, 2.2vw, 32px); line-height: 1.2;
+  font-weight: 400; letter-spacing: .03em; text-transform: uppercase; color: var(--tinta);
+}
+.prosa h3 { margin: 2.5rem 0 1rem; font-size: 1.2em; font-weight: 500; color: var(--tinta-fuerte); }
+.prosa ul, .prosa ol { margin: 0 0 2rem; padding-left: 1.3em; }
+.prosa li { margin-bottom: .6rem; }
+.prosa li::marker { color: var(--tinta-suave); font-family: var(--mono); }
+.prosa blockquote {
+  margin: 0 0 2rem; padding: 0 0 0 1.2rem; border-left: 3px solid var(--lino);
+  font-style: italic; color: var(--tinta-fuerte);
+}
+.prosa figure { margin: 3rem 0; }
+.prosa figcaption { font-family: var(--sans); font-size: 14px; line-height: 1.45; margin-top: 12px; }
+.prosa code {
+  font-family: var(--mono); font-size: .85em; background: var(--papel-hondo);
+  padding: .1em .35em; border-radius: 3px;
+}
+.prosa pre {
+  margin: 0 0 2rem; padding: 16px 18px; overflow-x: auto; background: var(--papel-hondo);
+  border: 1px solid var(--regla); border-radius: 6px; font-size: 15px; line-height: 1.5;
+}
+.prosa pre code { background: none; padding: 0; font-size: inherit; }
+.prosa hr { border: 0; border-top: 1px solid var(--regla); margin: 3rem 0; }
+.prosa table { width: 100%; border-collapse: collapse; margin: 0 0 2rem; font-family: var(--sans); font-size: 16px; }
+.prosa th, .prosa td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--regla); vertical-align: top; }
+.prosa th { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; font-weight: 500; color: var(--tinta-suave); }
+.tabla-desliza { overflow-x: auto; }
+
+.notas {
+  max-width: var(--columna); margin: 4rem auto 0; padding-top: 1.5rem;
+  border-top: 1px solid var(--regla); font-family: var(--sans); font-size: 16px; line-height: 1.5;
+}
+.notas h2 { margin: 0 0 1rem; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--tinta-suave); }
+.notas p, .notas ul { margin: 0 0 1rem; }
+.notas ul { padding-left: 1.2em; }
+
+.lista-articulos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.lista-articulos li { padding: 28px 0; border-bottom: 1px solid var(--regla); }
+.lista-articulos li:first-child { border-top: 1px solid var(--regla); }
+.lista-articulos h2 { margin: 6px 0 8px; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.2; font-weight: 400; }
+.lista-articulos h2 a { text-decoration: none; }
+.lista-articulos h2 a:hover { text-decoration: underline; text-decoration-color: var(--pluma); }
+.lista-articulos p { margin: 0; }
+
+/* 10. Demos ---------------------------------------------------------------- */
+.demo-marco {
+  margin: 2rem 0; border: 1px solid var(--tinta-suave); border-radius: 8px;
+  overflow: hidden; background: var(--papel-hondo);
+}
+.demo-marco iframe { display: block; width: 100%; aspect-ratio: 4 / 3; border: 0; background: #fff; }
+.demo-marco p { margin: 0; padding: 10px 14px; font-family: var(--sans); font-size: 14px; }
+
+/* 11. Impresión ------------------------------------------------------------ */
+@media print {
+  @page { size: letter; margin: 18mm 20mm; }
+  body { font-size: 11pt; background: #fff; }
+  .cabecera, .salto, .llamado, .boton { display: none !important; }
+  .oro, .rosa, .lino { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .contacto, .pie { background: none; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .8em; word-break: break-all; }
+  h2, h3 { break-after: avoid; }
+  figure, .tarjeta, .pasos li { break-inside: avoid; }
+}
+
+/* 12. Ajustes de precisión ------------------------------------------------- */
+.columna > p.aforismo { margin: 48px 0 0; }
+.lista-articulos .titulo-figura { margin: 6px 0 8px; }
+.lista-articulos .titulo-figura a { text-decoration: none; }
+.lista-articulos .titulo-figura a:hover { text-decoration: underline; text-decoration-color: var(--pluma); }
+.ver-mas { margin-top: 20px !important; }
+.centrado { text-align: center; }

@@ -1,0 +1,61 @@
+---
+// Plantilla de artículo: apertura, rótulo, título, bajada, epígrafe, cuerpo y cierre.
+// El artículo solo escribe su contenido; el aspecto lo pone esta plantilla.
+import Base from './Base.astro';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  fecha: Date;
+  bajada?: string;
+  apertura?: string;
+  epigrafe?: { texto: string; autor: string; obra?: string; lugar?: string };
+  aforismo?: string;
+  notas?: string[];
+  imagen?: string;
+  minutos: number;
+}
+
+const { titulo, descripcion, fecha, bajada, apertura, epigrafe, aforismo, notas, imagen, minutos } = Astro.props;
+const fechaLarga = fecha.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<Base titulo={titulo} descripcion={descripcion} tipo="article" fecha={fecha} imagen={imagen}>
+  <article>
+    <header class="articulo-cabeza">
+      <div class="columna">
+        {apertura && <p class="apoyo" set:html={apertura} />}
+        <p class="etiqueta articulo-datos">
+          <span>Torre D. Babel</span>
+          <time datetime={fecha.toISOString().slice(0, 10)}>{fechaLarga}</time>
+          <span>{minutos} min de lectura</span>
+        </p>
+        <h1 class="articulo-titulo">{titulo}</h1>
+        {bajada && <p class="articulo-bajada" set:html={bajada} />}
+      </div>
+    </header>
+
+    {epigrafe && (
+      <section class="seccion seccion--corta" aria-label="Epígrafe">
+        <blockquote class="epigrafe">
+          <p>«{epigrafe.texto}»</p>
+          <footer>
+            {epigrafe.autor}{epigrafe.obra && <>, <cite>{epigrafe.obra}</cite></>}{epigrafe.lugar && <> · {epigrafe.lugar}</>}
+          </footer>
+        </blockquote>
+      </section>
+    )}
+
+    <div class="seccion seccion--corta seccion--final">
+      <div class="prosa">
+        <slot />
+        {aforismo && <p class="aforismo">{aforismo}</p>}
+      </div>
+      {notas && notas.length > 0 && (
+        <section class="notas" aria-labelledby="t-notas">
+          <h2 id="t-notas">Notas de método</h2>
+          <ul>{notas.map((n) => <li set:html={n} />)}</ul>
+        </section>
+      )}
+    </div>
+  </article>
+</Base>

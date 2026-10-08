@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import Articulo from '../../layouts/Articulo.astro';
+
+export async function getStaticPaths() {
+  const articulos = await getCollection('articulos', ({ data }) => !data.borrador);
+  return articulos.map((articulo) => ({ params: { id: articulo.id }, props: { articulo } }));
+}
+
+const { articulo } = Astro.props;
+const { Content } = await render(articulo);
+const palabras = (articulo.body ?? '').split(/\s+/).filter(Boolean).length;
+const minutos = Math.max(1, Math.round(palabras / 200));
+---
+<Articulo {...articulo.data} minutos={minutos}>
+  <Content />
+</Articulo>

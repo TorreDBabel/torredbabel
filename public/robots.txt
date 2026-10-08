@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://torredbabel.com/sitemap-index.xml

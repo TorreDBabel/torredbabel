@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const articulos = (await getCollection('articulos', ({ data }) => !data.borrador)).sort(
+  (a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf(),
+);
+const fechaLarga = (d: Date) =>
+  d.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<Base titulo="Artículos" descripcion="Ensayos de Torre D. Babel sobre datos, lenguaje y decisiones, escritos para leerse con calma.">
+  <header class="articulo-cabeza">
+    <div class="columna">
+      <p class="etiqueta">Artículos</p>
+      <h1 class="articulo-titulo">Para leer con el resaltador en la mano</h1>
+      <p class="articulo-bajada">Ensayos breves sobre datos, lenguaje y decisiones. Cada uno se puede leer solo.</p>
+    </div>
+  </header>
+  <section class="seccion seccion--corta seccion--final">
+    <div class="columna">
+      <ul class="lista-articulos">
+        {articulos.map((a) => (
+          <li>
+            <p class="etiqueta">{fechaLarga(a.data.fecha)}</p>
+            <h2><a href={`/articulos/${a.id}/`}>{a.data.titulo}</a></h2>
+            <p>{a.data.descripcion}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,48 @@
+---
+// Datos para buscadores y redes, comunes a todas las páginas.
+import { SITIO } from '../sitio';
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+  imagen?: string;
+  tipo?: 'website' | 'article';
+  fecha?: Date;
+}
+const { titulo, descripcion = SITIO.descripcion, imagen = '/compartir.png', tipo = 'website', fecha } = Astro.props;
+const tituloCompleto = titulo ? `${titulo} · ${SITIO.nombre}` : SITIO.nombre;
+const canonica = new URL(Astro.url.pathname, Astro.site);
+const imagenAbsoluta = new URL(imagen, Astro.site);
+const datos = {
+  '@context': 'https://schema.org',
+  ...(tipo === 'article'
+    ? {
+        '@type': 'Article', headline: titulo, description: descripcion, datePublished: fecha?.toISOString(),
+        publisher: { '@type': 'Organization', name: SITIO.nombre, url: Astro.site?.toString() },
+        image: imagenAbsoluta.toString(), inLanguage: SITIO.idioma,
+      }
+    : {
+        '@type': 'Organization', name: SITIO.nombre, legalName: SITIO.razonSocial, url: Astro.site?.toString(),
+        email: SITIO.correo, description: descripcion, logo: new URL('/marcas/torre.png', Astro.site).toString(),
+        address: { '@type': 'PostalAddress', addressLocality: 'Bogotá', addressCountry: 'CO' },
+      }),
+};
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{tituloCompleto}</title>
+<meta name="description" content={descripcion} />
+<link rel="canonical" href={canonica} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="theme-color" content="#f7f2e7" />
+<meta property="og:type" content={tipo} />
+<meta property="og:locale" content="es_CO" />
+<meta property="og:site_name" content={SITIO.nombre} />
+<meta property="og:title" content={titulo ?? SITIO.nombre} />
+<meta property="og:description" content={descripcion} />
+<meta property="og:url" content={canonica} />
+<meta property="og:image" content={imagenAbsoluta} />
+<meta name="twitter:card" content="summary_large_image" />
+{fecha && <meta property="article:published_time" content={fecha.toISOString()} />}
+<script type="application/ld+json" set:html={JSON.stringify(datos)} />
