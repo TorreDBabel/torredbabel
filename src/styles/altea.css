@@ -1,0 +1,320 @@
+/* ==========================================================================
+   Altea · One Visor · registro «Expediente»
+
+   Mundo visual: el registro de lote. Papel de archivo, filete doble, casillas,
+   folio y tinta de dos colores. La pieza se parece a la cosa que protege, que es
+   un documento regulado, no una presentación.
+
+   Regla de cliente (ver skill de estilo): el registro conserva su papel, su tinta,
+   sus letras y su escala; cede DOS colores a la casa que recibe la pieza. Aquí la
+   marca B y el sello toman los dos extremos del degradado del logotipo de Altea
+   Farma tal como aparece impreso: #4AA335 y #1F6C34. Los valores se muestrearon
+   de la imagen del logotipo, no de un manual de marca: conviene confirmarlos.
+
+   El granate NO se cede: en este registro significa «no verificado», y esa
+   distinción es del método, no del cliente.
+
+   Contraste comprobado uno por uno antes de escribir la primera línea:
+   tinta 10,8 · tinta-fuerte 16,5 · tinta-suave 4,9 · fuerte sobre ámbar 9,9 ·
+   fuerte sobre verde Altea 5,5 · fuerte sobre pergamino 12,0 · sello 6,1 ·
+   blanco sobre sello 6,5 · granate 7,7. Claridad ámbar/verde 2,0x.
+
+   Todo va encerrado bajo .pieza-altea, igual que /choco: el núcleo del sitio
+   (libro.css) define .apertura, .lema, .columna y .seccion con otro sentido, así
+   que encerrando la pieza no se pisa nada del resto del sitio.
+
+   Registro anterior usado en el sitio: Pliego (portada) y Río y sedimento (/choco).
+   La versión anterior de esta misma pieza usaba Libro subrayado; la regla de la
+   casa prohíbe repetir registro, y el expediente le queda mejor al asunto.
+   ========================================================================== */
+
+/* --- Reinicio de colisiones ------------------------------------------------- */
+.pieza-altea :is(.aforismo,.apertura,.columna,.entradilla,.epigrafe,.etiqueta,.lema,.notas,.pie,.rotulo,.seccion,.sello,.firma,.figura){
+  display:block;position:static;float:none;width:auto;max-width:none;min-height:0;
+  margin:0;padding:0;border:0;background:none;box-shadow:none;
+  grid-template-columns:none;place-items:normal;gap:normal;text-align:inherit
+}
+.pieza-altea :is(.lino,.oro,.pluma,.rosa){
+  background-color:transparent;border:0;border-radius:0;box-shadow:none;text-decoration:none
+}
+
+/* --- 1. El registro --------------------------------------------------------- */
+.pieza-altea{
+  color-scheme:light;
+  --papel:#faf9f6;--papel-hondo:#efede6;--papel-pie:#e0ddd2;--regla:#c8c4b8;
+  --tinta:#3a3a38;--tinta-fuerte:#1a1a19;--tinta-suave:#6f6d65;
+  --marca-a:#e3c04b;   /* ámbar de expediente: lo que se va, lo que hoy se teclea */
+  --marca-b:#4aa335;   /* verde Altea vivo: lo que llega comprobado  ← cedido */
+  --marca-c:#dad6c8;   /* pergamino: lo que ya existe y permanece */
+  --sello:#1f6c34;     /* verde Altea hondo: filetes, folios, el marco  ← cedido */
+  --acento:#8c2f39;    /* granate: el giro, y lo que NO está verificado */
+  --trazo-a:#8a6d00;--trazo-b:#235c3c;--hondo-a:#2e2200;
+  --serif:'Libre Baskerville',Georgia,'Times New Roman',serif;
+  --sans:'Public Sans Variable','Public Sans','Segoe UI',Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono Variable','JetBrains Mono',Consolas,Menlo,monospace;
+  --texto:1.0625rem;--col-texto:640px;--col-media:900px;--col-ancha:1200px;--margen:1rem;--1s:1ms
+}
+@media (prefers-reduced-motion:no-preference){.pieza-altea{--1s:1s}}
+@media screen and (max-width:920px){.pieza-altea{--margen:2rem}}
+@media screen and (max-width:720px){.pieza-altea{--texto:1rem}}
+@media screen and (max-width:480px){.pieza-altea{--margen:1rem}}
+
+.pieza-altea{background:var(--papel);color:var(--tinta);
+  font:400 var(--texto)/1.75 var(--serif);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.pieza-altea ::selection{background:var(--marca-b);color:var(--tinta-fuerte)}
+.pieza-altea .libro{padding-inline:var(--margen);padding-block:2.5rem 0;overflow-x:clip}
+.pieza-altea .columna{max-width:var(--col-texto);margin-inline:auto;position:relative}
+.pieza-altea p{margin:0 0 1.6rem}
+.pieza-altea a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+.pieza-altea a:hover{color:var(--acento)}
+.pieza-altea :focus-visible{outline:2px solid var(--sello);outline-offset:3px}
+.pieza-altea strong{font-weight:700;color:var(--tinta-fuerte)}
+.pieza-altea mark{background:none;color:inherit}
+
+/* El realce: casilla de expediente. Rectángulo con filete inferior, sin cursiva. */
+.pieza-altea :is(.marca-a,.marca-b,.marca-c){--c:transparent;--avance:100%;
+  font-family:var(--sans);font-style:normal;font-weight:600;font-size:.94em;
+  color:var(--tinta-fuerte);padding:.12em .36em;
+  border-bottom:1px solid var(--tinta-suave);
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background-image:linear-gradient(var(--c),var(--c));background-repeat:no-repeat;
+  background-size:var(--avance) 100%;background-position:0 0;
+  transition:background-size calc(var(--1s) * .42) cubic-bezier(.33,1,.68,1);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pieza-altea .marca-a{--c:var(--marca-a)}
+.pieza-altea .marca-b{--c:var(--marca-b)}
+.pieza-altea .marca-c{--c:var(--marca-c)}
+.pieza-altea .por-ver :is(.marca-a,.marca-b,.marca-c){--avance:0%}
+.pieza-altea .giro{text-decoration-line:underline;text-decoration-color:var(--acento);
+  text-decoration-thickness:.08em;text-underline-offset:.2em;text-decoration-skip-ink:auto;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pieza-altea .nota-margen{display:block;margin:0 0 1.2rem;padding-inline-start:.9rem;
+  border-inline-start:2px solid var(--acento);
+  font:400 .875rem/1.5 var(--sans);color:var(--acento)}
+@media screen and (min-width:1180px){
+  .pieza-altea .nota-margen{position:absolute;left:calc(100% + 2.5rem);width:200px;margin:.2rem 0 0}
+}
+
+/* --- 2. Cabeza del expediente ---------------------------------------------- */
+.pieza-altea .rotulo{max-width:var(--col-ancha);margin:0 auto 2.5rem;padding-bottom:.6rem;
+  border-bottom:3px double var(--sello);
+  display:flex;flex-wrap:wrap;gap:.3rem 1.5rem;justify-content:space-between;
+  font:400 .6875rem/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .rotulo span{display:block}
+.pieza-altea .rotulo .ref{color:var(--sello);font-weight:600}
+
+/* --- 3. Apertura: la tirilla ------------------------------------------------ */
+.pieza-altea .apertura-escena{display:grid;place-items:center}
+.pieza-altea .apertura-copia{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,25rem);
+  gap:2.5rem;align-items:center;max-width:var(--col-media);margin:0 auto 3rem}
+@media screen and (max-width:780px){
+  .pieza-altea .apertura-copia{grid-template-columns:1fr;gap:1.5rem;justify-items:center}
+}
+.pieza-altea .apertura-dicho>p:first-child{margin:0 0 1rem;font:400 1.0625rem/1.8 var(--serif)}
+.pieza-altea .apertura-pie{margin:0;font:400 .9375rem/1.6 var(--sans);color:var(--tinta-suave)}
+.pieza-altea .apertura-pie mark{font-size:.84em}
+.pieza-altea .apertura-bajar{margin:2.5rem 0 0;grid-column:1/-1;text-align:center;
+  font:400 .6875rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .apertura.viva .apertura-escena{position:sticky;top:0;height:100vh;height:100svh}
+.pieza-altea .apertura.viva .apertura-copia{grid-area:1/1;margin:0;opacity:0;
+  transition:opacity calc(var(--1s)*.42) ease}
+.pieza-altea .apertura.viva .apertura-copia.activa{opacity:1}
+.pieza-altea .apertura.viva .apertura-copia:not(.activa) :is(.marca-a,.marca-b,.marca-c){--avance:0%}
+.pieza-altea .apertura.viva .apertura-copia.activa :is(.marca-a,.marca-b,.marca-c){transition-delay:calc(var(--1s)*.18)}
+.pieza-altea .apertura .giro{transition:text-decoration-color calc(var(--1s)*.42) ease calc(var(--1s)*.5)}
+.pieza-altea .apertura.viva .apertura-copia:not(.activa) .giro{text-decoration-color:transparent}
+.pieza-altea .apertura.viva .apertura-disparadores{margin-top:-100vh}
+.pieza-altea .apertura.viva .apertura-disparador{height:100vh}
+.pieza-altea .apertura:not(.viva) .apertura-disparadores,
+.pieza-altea .apertura:not(.viva) .apertura-bajar{display:none}
+
+/* La tirilla: el asunto de la pieza, dibujado con la materia de la pieza. */
+.pieza-altea .tirilla{width:100%;max-width:15rem;box-sizing:border-box;
+  background:#fff;border:1px solid var(--regla);
+  padding:1.1rem .9rem 1.4rem;
+  font:400 .6875rem/1.7 var(--mono);color:var(--tinta-fuerte);
+  box-shadow:0 1px 0 var(--regla)}
+/* Las filas son <p> y heredarían el margen de párrafo del registro: una tirilla
+   real va apretada, así que aquí el renglón lo fija solo la altura de línea. */
+.pieza-altea .tirilla p{margin:0}
+.pieza-altea .tirilla-fila{display:flex;justify-content:space-between;gap:.5rem;white-space:nowrap}
+.pieza-altea .tirilla-sep{margin:.6rem 0;border:0;border-top:1px dashed var(--regla)}
+.pieza-altea .tirilla-pausa{text-align:center;color:var(--tinta-suave);letter-spacing:.3em}
+.pieza-altea .tirilla mark{padding:0 .18em;font-family:inherit;font-size:1em;font-weight:400;
+  border-bottom:0;letter-spacing:0}
+.pieza-altea .tirilla-cab{color:var(--tinta-suave)}
+
+/* --- 4. Titular ------------------------------------------------------------- */
+.pieza-altea .titular{max-width:var(--col-media);margin:0 auto;padding-block:1rem 2rem;
+  border-top:3px double var(--sello);padding-top:2.5rem}
+.pieza-altea .lema{margin:0 0 1.75rem;font:700 clamp(1.875rem,6vw,3.25rem)/1.2 var(--serif);
+  color:var(--tinta-fuerte);letter-spacing:-.015em}
+.pieza-altea .lema .par{display:block}
+.pieza-altea .lema .par+.par{margin-top:.35rem;padding-left:2.5em}
+.pieza-altea .lema .nexo{font-weight:400;color:var(--tinta-suave)}
+@media screen and (max-width:560px){.pieza-altea .lema .par+.par{padding-left:1.25em}}
+.pieza-altea .lema mark{font-size:1em;font-family:inherit;font-weight:700;padding:.02em .22em;
+  border-bottom-width:2px}
+.pieza-altea .entradilla{margin:0 0 1.25rem;font:400 1.25rem/1.6 var(--serif);color:var(--tinta)}
+.pieza-altea .firma{margin:0;font:400 .875rem/1.6 var(--sans);color:var(--tinta-suave)}
+@media screen and (max-width:720px){.pieza-altea .entradilla{font-size:1.0625rem}}
+
+.pieza-altea .epigrafe{max-width:32rem;margin:3rem auto;padding:1.4rem 1.6rem;
+  background:var(--papel-hondo);border-left:3px solid var(--sello)}
+.pieza-altea .epigrafe p{margin:0;font:italic 400 1.0625rem/1.65 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .epigrafe footer{margin-top:.7rem;font:400 .6875rem/1.5 var(--mono);
+  letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .epigrafe cite{font-style:italic;text-transform:none;letter-spacing:0}
+
+/* --- 5. Secciones, numeradas como un expediente ----------------------------- */
+.pieza-altea .seccion{max-width:var(--col-texto);margin:4.5rem auto 1.5rem;
+  padding-bottom:.5rem;border-bottom:1px solid var(--sello);
+  display:flex;align-items:baseline;gap:.9rem}
+.pieza-altea .seccion .folio{flex:none;font:400 .75rem/1 var(--mono);color:var(--sello);letter-spacing:.06em}
+.pieza-altea .seccion h2{margin:0;font:700 1.375rem/1.25 var(--serif);color:var(--tinta-fuerte)}
+
+/* --- 6. Figuras -------------------------------------------------------------- */
+.pieza-altea .figura{max-width:var(--col-ancha);margin:3rem auto}
+.pieza-altea .figura-cabeza{max-width:var(--col-texto);margin:0 auto 1.5rem}
+.pieza-altea .figura-titulo{margin:0;font:700 1.1875rem/1.4 var(--serif);color:var(--tinta-fuerte);text-wrap:balance}
+.pieza-altea .figura-clave{margin:.6rem 0 0;font:400 .9375rem/1.55 var(--sans);color:var(--tinta-suave)}
+.pieza-altea .figura-nota{max-width:var(--col-texto);margin:1.25rem auto 0;
+  font:400 .8125rem/1.6 var(--sans);color:var(--tinta-suave)}
+.pieza-altea .etiqueta{font:400 .6875rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+
+/* Carriles: los dos caminos del dato */
+.pieza-altea .carriles{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--regla);border:1px solid var(--regla)}
+.pieza-altea .carriles>li{margin:0;background:var(--papel);padding:1.1rem 1.25rem;
+  display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;align-items:center}
+.pieza-altea .carril-nombre{margin:0;font:600 .75rem/1.45 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .carril-pasos{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem .7rem;align-items:center}
+.pieza-altea .carril-pasos li{margin:0;font-size:.9375rem}
+@media screen and (max-width:720px){
+  .pieza-altea .carriles>li{grid-template-columns:1fr;gap:.6rem}
+}
+
+/* Perímetro: el dominio de gobierno, dibujado como un sello de expediente */
+.pieza-altea .perimetro{border:2px solid var(--sello);padding:1.4rem 1.5rem;background:var(--papel)}
+.pieza-altea .perimetro-rotulo{margin:0 0 1rem;font:600 .6875rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sello)}
+.pieza-altea .perimetro-fila{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:center}
+.pieza-altea .perimetro-fila li{margin:0;font-size:.9375rem}
+.pieza-altea .perimetro-fila .sep{color:var(--tinta-suave);font:400 .875rem/1 var(--mono)}
+
+/* Casillas de cifras: la prueba, contada como un acta */
+.pieza-altea .cifras{list-style:none;margin:2rem 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(10.5rem,100%),1fr));gap:1px;
+  background:var(--regla);border:1px solid var(--regla)}
+.pieza-altea .cifras li{margin:0;background:var(--papel);padding:1.1rem 1.2rem}
+.pieza-altea .cifras .n{display:block;font:400 2.25rem/1 var(--mono);color:var(--sello);font-variant-numeric:tabular-nums}
+.pieza-altea .cifras .q{display:block;margin-top:.6rem;font:400 .8125rem/1.5 var(--sans);color:var(--tinta-suave)}
+
+/* Estados: las tres casillas del árbitro */
+.pieza-altea .estados{list-style:none;margin:1.75rem 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(13rem,100%),1fr));gap:1px;
+  background:var(--regla);border:1px solid var(--regla)}
+.pieza-altea .estados li{margin:0;background:var(--papel);padding:1.1rem 1.2rem}
+.pieza-altea .estados h3{margin:0 0 .5rem;font:600 .75rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .estados p{margin:0;font-size:.9375rem;line-height:1.6}
+
+/* Frentes: las cuatro fases como renglones de un expediente */
+.pieza-altea .frentes{list-style:none;margin:0;padding:0;border-top:1px solid var(--regla)}
+.pieza-altea .frentes>li{margin:0;padding:1.4rem 0;border-bottom:1px solid var(--regla);
+  display:grid;grid-template-columns:3rem 12rem 1fr;gap:1.25rem;align-items:baseline}
+.pieza-altea .frentes .folio{font:400 .8125rem/1.5 var(--mono);color:var(--sello)}
+.pieza-altea .frentes .disciplina{margin:0;font:600 .9375rem/1.4 var(--sans);color:var(--tinta-fuerte)}
+.pieza-altea .frentes .disciplina span{display:block;margin-top:.25rem;font:400 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .frentes .detalle{margin:0;font-size:.9375rem;line-height:1.65}
+@media screen and (max-width:780px){
+  .pieza-altea .frentes>li{grid-template-columns:2.25rem 1fr;gap:.5rem 1rem}
+  .pieza-altea .frentes .detalle{grid-column:2}
+}
+
+/* Cronograma: una regla de doce semanas */
+.pieza-altea .crono{margin:1.75rem 0 0;border:1px solid var(--regla)}
+.pieza-altea .crono-meses{display:grid;grid-template-columns:10rem repeat(3,1fr);border-bottom:1px solid var(--regla)}
+.pieza-altea .crono-meses span{padding:.5rem .6rem;font:600 .6875rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave);border-left:1px solid var(--regla)}
+.pieza-altea .crono-meses span:first-child{border-left:0}
+.pieza-altea .crono-fila{display:grid;grid-template-columns:10rem 1fr;align-items:center;border-top:1px solid var(--regla)}
+.pieza-altea .crono-fila:first-of-type{border-top:0}
+.pieza-altea .crono-nombre{margin:0;padding:.55rem .6rem;font:400 .75rem/1.4 var(--sans);color:var(--tinta)}
+.pieza-altea .crono-pista{position:relative;height:1.75rem;border-left:1px solid var(--regla);background:
+  linear-gradient(90deg,transparent calc(33.333% - 1px),var(--regla) calc(33.333% - 1px),var(--regla) 33.333%,transparent 33.333%),
+  linear-gradient(90deg,transparent calc(66.666% - 1px),var(--regla) calc(66.666% - 1px),var(--regla) 66.666%,transparent 66.666%)}
+.pieza-altea .crono-barra{position:absolute;top:.35rem;bottom:.35rem;background:var(--sello);
+  display:flex;align-items:center;padding-left:.5rem;
+  font:400 .625rem/1 var(--mono);letter-spacing:.04em;color:#fff;white-space:nowrap;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pieza-altea .crono-barra.b2{background:#2f8234}
+.pieza-altea .crono-barra.b3{background:#3a8e35}
+.pieza-altea .crono-barra.b4{background:var(--marca-b);color:var(--tinta-fuerte)}
+@media screen and (max-width:720px){
+  .pieza-altea .crono-meses{grid-template-columns:6rem repeat(3,1fr)}
+  .pieza-altea .crono-fila{grid-template-columns:6rem 1fr}
+  .pieza-altea .crono-nombre{font-size:.6875rem}
+  .pieza-altea .crono-barra{font-size:0;padding:0}
+}
+
+/* Facturas: tres casillas de pago */
+.pieza-altea .facturas{list-style:none;margin:1.75rem 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));gap:1px;
+  background:var(--regla);border:1px solid var(--regla)}
+.pieza-altea .facturas li{margin:0;background:var(--papel);padding:1.2rem 1.3rem}
+.pieza-altea .facturas .mes{display:block;font:600 .6875rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .facturas .disciplina{display:block;margin:.5rem 0 .7rem;font:700 1.0625rem/1.35 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .facturas .valor{display:block;font:400 1.25rem/1.3 var(--mono);color:var(--sello);font-variant-numeric:tabular-nums}
+.pieza-altea .facturas .alcance{display:block;margin-top:.6rem;font:400 .8125rem/1.5 var(--sans);color:var(--tinta-suave)}
+
+/* Límites: lo que NO se promete, en granate */
+.pieza-altea .limites{list-style:none;margin:0;padding:0;border-top:1px solid var(--acento)}
+.pieza-altea .limites>li{margin:0;padding:1.1rem 0 1.1rem 1.25rem;border-bottom:1px solid var(--regla);border-left:2px solid var(--acento)}
+.pieza-altea .limites h3{margin:0 0 .35rem;font:700 1rem/1.35 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .limites p{margin:0;font-size:.9375rem;line-height:1.65}
+
+/* Puerta */
+.pieza-altea .puerta{list-style:none;margin:0;padding:0;counter-reset:paso}
+.pieza-altea .puerta>li{margin:0;padding:1.2rem 0;border-top:1px solid var(--regla);
+  display:grid;grid-template-columns:2.75rem 1fr;gap:1rem;align-items:baseline}
+.pieza-altea .puerta>li:last-child{border-bottom:1px solid var(--regla)}
+.pieza-altea .puerta .folio{font:400 .8125rem/1.5 var(--mono);color:var(--sello)}
+.pieza-altea .puerta h3{margin:0 0 .35rem;font:700 1rem/1.35 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .puerta p{margin:0;font-size:.9375rem;line-height:1.65}
+
+.pieza-altea .aforismo{max-width:var(--col-texto);margin:3rem auto 0;padding-top:1.5rem;
+  border-top:3px double var(--sello);
+  font:italic 400 1.375rem/1.5 var(--serif);color:var(--tinta-fuerte);text-wrap:balance}
+
+/* --- 7. Notas y método ------------------------------------------------------ */
+.pieza-altea .notas{background:var(--papel-hondo);border-top:3px double var(--sello);
+  margin-top:4rem;padding:3rem var(--margen) 3.5rem}
+.pieza-altea .notas>*{max-width:var(--col-texto);margin-inline:auto}
+.pieza-altea .notas h2{margin:0 0 1.25rem;font:700 1.25rem/1.3 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .notas details{border-top:1px solid var(--regla)}
+.pieza-altea .notas details:last-of-type{border-bottom:1px solid var(--regla)}
+.pieza-altea .notas summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;
+  align-items:baseline;gap:1rem;padding:.9rem 0;min-height:44px;box-sizing:border-box;
+  font:600 .9375rem/1.45 var(--sans);color:var(--tinta-fuerte)}
+.pieza-altea .notas summary::-webkit-details-marker{display:none}
+.pieza-altea .notas summary::after{content:"+";font:400 1.25rem/1 var(--mono);color:var(--acento)}
+.pieza-altea .notas details[open] summary::after{content:"−"}
+.pieza-altea .notas details>:not(summary){font:400 .875rem/1.7 var(--sans);color:var(--tinta);margin:0 0 .9rem}
+.pieza-altea .notas .citas{font:400 .8125rem/1.6 var(--sans);padding-inline-start:1.1rem;margin-top:1.5rem}
+.pieza-altea .notas .citas li{margin:0 0 .45rem}
+
+/* --- 8. Impresión ----------------------------------------------------------- */
+@media print{
+  .pieza-altea{--texto:10.5pt;--margen:0;background:transparent}
+  .pieza-altea .libro{padding:0;overflow:visible}
+  .pieza-altea p{margin-bottom:1em;orphans:3;widows:3}
+  .pieza-altea .por-ver :is(.marca-a,.marca-b,.marca-c){--avance:100%}
+  .pieza-altea .apertura.viva .apertura-escena{position:static;height:auto;display:block}
+  .pieza-altea .apertura.viva .apertura-copia{grid-area:auto;opacity:1;break-inside:avoid}
+  .pieza-altea .apertura.viva .apertura-copia:not(:first-child):not(:last-child){display:none}
+  .pieza-altea .apertura.viva .apertura-copia :is(.marca-a,.marca-b,.marca-c){--avance:100%}
+  .pieza-altea .apertura.viva .apertura-copia .giro{text-decoration-color:var(--acento)}
+  .pieza-altea .apertura-disparadores,.pieza-altea .apertura-bajar{display:none}
+  .pieza-altea .nota-margen{position:static;width:auto;margin:0 0 .8em}
+  .pieza-altea :is(.cifras,.estados,.facturas,.crono,.perimetro,.epigrafe,.figura-cabeza,.tirilla){break-inside:avoid}
+  .pieza-altea .seccion{break-after:avoid}
+  .pieza-altea .notas details>:not(summary){display:block}
+  .pieza-altea .notas summary::after{content:none}
+}
