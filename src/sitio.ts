@@ -1,5 +1,5 @@
-// Datos del sitio en un solo lugar. Si cambia el correo o el teléfono, se cambia aquí
-// y en el pie de src/pages/index.astro.
+// Datos del sitio en un solo lugar. Si cambia el correo, se cambia aquí y en el pie de
+// src/pages/index.astro. El contacto público es solo por correo: no se publica teléfono.
 export const SITIO = {
   nombre: 'Torre D. Babel',
   razonSocial: 'Torre D. Babel S.A.S.',
@@ -7,7 +7,6 @@ export const SITIO = {
   descripcion:
     'Torre D. Babel: ingeniería, arquitectura, inteligencia de negocios y ciencia de datos en la lengua que su organización ya habla. Bogotá.',
   correo: 'babeltran@torredbabel.com',
-  telefono: '312 416 4687',
   sello: 'De la riqueza del corazón, la palabra.',
   idioma: 'es-CO',
 };
