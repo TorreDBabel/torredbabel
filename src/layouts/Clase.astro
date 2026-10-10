@@ -1,0 +1,40 @@
+---
+// Plantilla de los laboratorios de clase (torredbabel.com/<curso><sesión>).
+// En el material de clase Alex habla como docente: la página no lleva la cabecera ni el pie
+// de Torre D. Babel. El pie lo trae cada laboratorio, solo con su nombre y su correo.
+// El estilo y el cuerpo de cada laboratorio llegan tal como se publicaron en el artefacto
+// (src/clases/<ruta>/); las letras las aloja el sitio y las importa cada página.
+interface Props {
+  titulo: string;
+  curso: string;
+  sesion: number;
+  descripcion: string;
+  tema: string;
+  estilo: string;
+}
+const { titulo, curso, sesion, descripcion, tema, estilo } = Astro.props;
+const completo = `${titulo} · ${curso}, sesión ${sesion}`;
+const canonica = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{completo}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="author" content="Brayeam Beltrán" />
+    <link rel="canonical" href={canonica} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content={tema} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:title" content={completo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={canonica} />
+    <style is:inline set:html={estilo}></style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

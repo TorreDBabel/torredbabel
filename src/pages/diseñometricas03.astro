@@ -1,0 +1,28 @@
+---
+// Diseño de métricas para el marketing (AFPN0097) · sesión 3 · Laboratorio de adquisición.
+// Registro «Taller»: IBM Plex Serif, IBM Plex Sans e IBM Plex Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+// La dirección sin eñe (/disenometricas03) lleva aquí: ver astro.config.mjs.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/ibm-plex-serif/300.css';
+import '@fontsource/ibm-plex-serif/300-italic.css';
+import '@fontsource/ibm-plex-serif/400.css';
+import '@fontsource/ibm-plex-serif/400-italic.css';
+import '@fontsource/ibm-plex-serif/600.css';
+import '@fontsource-variable/ibm-plex-sans/wght.css';
+import '@fontsource-variable/ibm-plex-sans/wght-italic.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import estilo from '../clases/diseñometricas03/laboratorio.css?raw';
+import cuerpo from '../clases/diseñometricas03/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de adquisición"
+  curso="Diseño de métricas para el marketing"
+  sesion={3}
+  descripcion="Laboratorio interactivo de la sesión 3 de Diseño de métricas para el marketing: CPC, CPL, CAC, ROAS y el valor del cliente."
+  tema="#f2f4f3"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

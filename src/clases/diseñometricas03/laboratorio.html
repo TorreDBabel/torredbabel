@@ -1,0 +1,1236 @@
+<div class="r-taller">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 3</a>
+  <ol class="bn-lista">
+    <li><a href="#escalera" data-sec="escalera"><span>1</span>La escalera</a></li>
+    <li><a href="#canales" data-sec="canales"><span>2</span>¿Qué canal apagar?</a></li>
+    <li><a href="#roas" data-sec="roas"><span>3</span>El ROAS</a></li>
+    <li><a href="#plataformas" data-sec="plataformas"><span>4</span>Plataformas</a></li>
+    <li><a href="#millon" data-sec="millon"><span>5</span>El próximo millón</a></li>
+    <li><a href="#casa" data-sec="casa"><span>6</span>Para la casa</a></li>
+    <li><a href="#su-escalera" data-sec="su-escalera"><span>7</span>Su escalera</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Diseño de métricas para el marketing · Sesión 3 · Laboratorio</p>
+
+  <!-- APERTURA -->
+  <section class="columna" aria-label="Apertura">
+    <p>Academia Puente invierte $6 millones al mes en pauta, repartidos en tres canales. La junta pide ahorrar, y el equipo de marketing trae un solo gráfico: lo que cuesta cada clic.</p>
+  </section>
+  <section class="figura" aria-labelledby="a1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="a1t">Lo que cuesta un clic en cada canal</h3><p class="figura-clave">Costo por clic de agosto de 2026: pauta del mes ÷ visitas a la web.</p></div>
+    <ul class="hbars" id="fig-apertura" aria-label="Costo por clic: TikTok 545, Meta 750 y Google 1.829 pesos"></ul>
+    <p class="figura-nota">Caso simulado. El gráfico solo muestra el primer peldaño del camino.</p>
+  </section>
+  <section class="columna">
+    <div class="apuesta viva" id="voto">
+      <p class="rotulo">Vote antes de seguir</p>
+      <p style="margin:0;font:400 1.25rem/1.3 var(--serif);color:var(--tinta-fuerte)">Si hubiera que apagar un canal para ahorrar, ¿cuál apagaría usted?</p>
+      <div class="voto" role="group" aria-label="Su voto">
+        <button type="button" data-voto="TikTok">TikTok</button><button type="button" data-voto="Meta">Meta</button><button type="button" data-voto="Google">Google</button>
+      </div>
+      <p class="voto-dato" hidden aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De precio a valor"><span class="par"><span class="nexo">De</span> <mark class="marca-a">precio</mark></span><span class="par"><span class="nexo">a</span> <mark class="marca-b">valor</mark></span></h1>
+    <p class="entradilla">El clic más barato puede traer al cliente más caro. Este laboratorio sigue el costo peldaño por peldaño, hasta el final del camino, y lo compara con lo que el cliente deja mientras se queda.</p>
+    <p class="firma">Por Brayeam Beltrán · Bogotá, octubre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«Todo necio<br>confunde valor y precio.»</p><footer>Antonio Machado, «Proverbios y cantares», LXVIII, <cite>Nuevas canciones</cite>, 1924</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer este laboratorio: el ámbar marca <mark class="marca-a">lo que se va</mark> —el precio—, el azul <mark class="marca-b">lo que llega</mark> —el valor— y el gris <mark class="marca-c">lo que permanece</mark> —la fórmula—; <span class="giro">la corrección en rojo señala el giro</span>.</p>
+    <ul class="claves" aria-label="Cómo leer los gráficos">
+      <li><span class="muestra costo"></span>costo</li>
+      <li><span class="muestra valor"></span>valor que deja el cliente</li>
+      <li><span class="muestra dec"></span>su decisión</li>
+      <li><span class="muestra ref"></span>referencia</li>
+    </ul>
+    <p style="margin-top:2rem">El recorrido sigue la guía, y cada estación cierra con un recuadro para comprobar lo que usted hizo a mano:</p>
+    <ol class="ruta-lista">
+      <li><a href="#escalera">La escalera del costo</a></li>
+      <li><a href="#canales">¿Qué canal apagar? · ej. 1</a></li>
+      <li><a href="#roas">El ROAS · ej. 2</a></li>
+      <li><a href="#plataformas">Plataformas y benchmarks</a></li>
+      <li><a href="#millon">El próximo millón · ej. 3</a></li>
+      <li><a href="#casa">Para la casa</a></li>
+      <li><a href="#su-escalera">Su propia escalera</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Las perillas mueven los supuestos; los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no, sin regalarle la respuesta. Lo que usted escribe aquí no sale de su navegador.</p>
+  </section>
+
+  <!-- 1 · LA ESCALERA -->
+  <div class="estacion" id="escalera">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1</span>La escalera del costo</h2>
+    <p>Casi todas las métricas de adquisición son la misma división: lo que se <mark class="marca-c">gastó ÷ lo que se consiguió</mark>. Lo único que cambia es qué se pone abajo. Imagine que vende postres en la universidad y paga $30.000 por promocionar una historia en Instagram. Baje despacio: cada peldaño deja menos gente, y cada persona cuesta más.</p>
+  </section>
+  <section class="figura recorrido" aria-labelledby="f1t">
+    <div class="recorrido-cuerpo">
+      <div class="recorrido-escena">
+        <div class="figura-cabeza atenuable"><h3 class="figura-titulo" id="f1t">Cada peldaño cuesta más que el anterior</h3><p class="figura-clave">Los escalones suben con el costo por persona; debajo, cuántas personas llegan a cada uno.</p></div>
+        <div class="lienzo" id="fig-escalera"></div>
+      </div>
+      <div class="recorrido-pasos">
+        <div class="recorrido-paso" data-n="1" data-foco="cpm"><div class="paso"><p>La historia cuesta <b>$30.000</b> y la ven <b>3.000 personas</b>: $10.000 por cada mil. Eso es el <b>CPM</b>.</p></div></div>
+        <div class="recorrido-paso" data-n="2" data-foco="cpc"><div class="paso"><p><b>60</b> tocan el enlace: cada clic costó 30.000 ÷ 60 = <b>$500</b>. Es el <b>CPC</b>.</p></div></div>
+        <div class="recorrido-paso" data-n="3" data-foco="cpl"><div class="paso"><p><b>12</b> escriben para preguntar: cada <i>lead</i> costó <b>$2.500</b>. Es el <b>CPL</b>.</p></div></div>
+        <div class="recorrido-paso" data-n="4" data-foco="cac"><div class="paso"><p><b>4</b> compran: cada cliente nuevo costó <b>$7.500</b>. Es el <b>CAC de pauta</b>.</p></div></div>
+        <div class="recorrido-paso" data-n="5" data-foco="cpc cac"><div class="paso"><p><span class="giro">El cliente costó quince veces lo que costó el clic.</span> Ninguno de los dos números está mal: miden peldaños distintos.</p></div></div>
+      </div>
+    </div>
+    <p class="figura-nota">Ejemplo de la guía, con cifras redondas. La altura de cada escalón crece con el logaritmo del costo, para que quepan los cuatro.</p>
+  </section>
+  <section class="columna">
+    <div class="tabla-marco" tabindex="0"><table class="tabla">
+      <caption class="solo-lector">Las siglas de la escalera</caption>
+      <thead><tr><th>Sigla</th><th>Qué es</th><th>Cómo se calcula</th></tr></thead>
+      <tbody>
+        <tr><td>CPM</td><td>Costo por mil impresiones</td><td>pauta ÷ impresiones × 1.000</td></tr>
+        <tr><td>CPC</td><td>Costo por clic</td><td>pauta ÷ clics</td></tr>
+        <tr><td>CPL</td><td>Costo por lead (quien escribe o deja sus datos)</td><td>pauta ÷ leads</td></tr>
+        <tr><td>CPA</td><td>Costo por la acción que se defina: agendar, registrarse, comprar</td><td>pauta ÷ acciones</td></tr>
+        <tr><td>CAC</td><td>Costo de adquisición de cliente</td><td>costos de conseguir clientes ÷ clientes nuevos</td></tr>
+      </tbody></table></div>
+    <p>El <mark class="marca-a">CAC de pauta</mark> solo cuenta los anuncios. El CAC completo suma todo lo que se gasta para conseguir clientes: pauta, equipo, agencia, herramientas, comisiones y descuentos de bienvenida. Y un CAC no es caro ni barato por sí solo: depende de lo que deja el cliente mientras vuelve. Pruébelo con los postres.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t">Un cliente «barato» que no vuelve deja menos de lo que costó</h3><p class="figura-clave">Ámbar: lo que cuesta conseguir un cliente. Azul: lo que deja si vuelve. Cada postre deja $3.000 de margen y regalar uno cuesta $5.000.</p></div>
+    <div class="mandos">
+      <label class="perilla">Personas que compraron <output id="p-c-o"></output><input id="p-c" type="range" min="1" max="12" step="1" value="4"></label>
+      <label class="perilla">Postres regalados para probar <output id="p-r-o"></output><input id="p-r" type="range" min="0" max="12" step="1" value="0"></label>
+      <label class="perilla">Compras de cada cliente en el semestre <output id="p-v-o"></output><input id="p-v" type="range" min="1" max="10" step="1" value="1"></label>
+    </div>
+    <ul class="hbars" id="fig-postres" style="--nombre:10rem;--nombre-m:7.5rem"></ul>
+    <p class="lectura" id="postres-lect" aria-live="polite"></p>
+    <p class="figura-nota">Cifras del ejemplo de la guía. No muestra a quienes compran sin haber visto la historia.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Regale 6 postres. ¿Cuántas compras necesita cada cliente para dejar al menos lo que costó?</summary><p>Cinco. El CAC completo sube a (30.000 + 30.000) ÷ 4 = $15.000, y cada compra deja $3.000. Con cuatro compras, el cliente todavía no ha pagado lo que costó.</p></details>
+      <details class="repaso"><summary>Suba los compradores a 8. ¿Qué le pasa al CAC, y qué no cambia?</summary><p>El CAC de pauta baja a $3.750, pero lo que deja cada cliente no cambia: depende de cuántas veces vuelve, no de cuántos llegaron.</p></details>
+      <details class="repaso"><summary>¿Por qué antes de comparar dos CPA hay que preguntar «¿cuál acción?»?</summary><p>Porque cada cuenta define su conversión: una cita, un registro, una descarga o una venta. Dos CPA con acciones distintas no se comparan.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <div class="historia"><h3>Detrás de cada lead hay una persona</h3><p>Un lead es alguien que dejó su nombre y su teléfono para pedir información: no para recibir cualquier mensaje ni para que sus datos pasen de mano en mano. La Ley 1581 de 2012 lo pide con dos palabras: autorización y finalidad. El lead «barato» que nadie autorizó sale caro: para la marca y, sobre todo, para la persona.</p></div>
+    <p class="frase">El costo se mide al final del camino.</p>
+    <p class="siguiente"><a href="#canales"><span><small>Siguiente estación</small>¿Qué canal apagar?</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 2 · CANALES -->
+  <div class="estacion" id="canales">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 1</span>¿Qué canal apagar?</h2>
+    <p>La junta solo vio el primer peldaño. Este es el camino completo de agosto de 2026, canal por canal:</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-canales"></table></div>
+    <p>Cambie de peldaño y mire qué pasa con el orden de los canales. Las barras son las mismas tres; lo que cambia es qué se pone abajo en la división.</p>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t">Al final del camino, el orden se voltea</h3><p class="figura-clave">Costo por persona en el peldaño que usted elija; las barras se reordenan de la más cara a la más barata.</p></div>
+    <div class="pestanas" role="group" aria-label="Peldaño">
+      <button class="boton" type="button" data-peldano="cpc" aria-pressed="true">Clic</button>
+      <button class="boton" type="button" data-peldano="cpl" aria-pressed="false">Lead</button>
+      <button class="boton" type="button" data-peldano="asi" aria-pressed="false">Asistente</button>
+      <button class="boton" type="button" data-peldano="cac" aria-pressed="false">Inscrito (CAC)</button>
+    </div>
+    <ul class="hbars" id="fig-canales"></ul>
+    <p class="lectura" id="canales-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado de Academia Puente, agosto de 2026. No incluye a quienes llegaron sin pauta (referidos y orgánico).</p>
+  </section>
+  <form class="comprobar" id="c-ej1" novalidate>
+    <h3>Compruebe su cuaderno · Ejercicio 1</h3>
+    <p>En pesos, sin decimales; y cuántos de cada 100 leads terminan inscritos.</p>
+    <fieldset class="grupo-campos"><legend>TikTok Ads</legend><div class="campos">
+      <label class="campo">CPC<input inputmode="decimal" data-ok="545.45" data-tol="1" data-pista="1.800.000 ÷ 3.300 visitas."><span class="veredicto"></span></label>
+      <label class="campo">CPL<input inputmode="decimal" data-ok="7826.09" data-tol="1" data-pista="1.800.000 ÷ 230 mensajes."><span class="veredicto"></span></label>
+      <label class="campo">Por asistente<input inputmode="decimal" data-ok="105882.35" data-tol="1" data-pista="1.800.000 ÷ 17 asistentes."><span class="veredicto"></span></label>
+      <label class="campo">CAC de pauta<input inputmode="decimal" data-ok="225000" data-tol="1" data-pista="1.800.000 ÷ 8 inscritos."><span class="veredicto"></span></label>
+      <label class="campo">Inscritos por 100 leads<input inputmode="decimal" data-ok="3.48" data-tol="0.6" data-pista="8 ÷ 230 × 100."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Meta Ads</legend><div class="campos">
+      <label class="campo">CPC<input inputmode="decimal" data-ok="750" data-tol="1" data-pista="2.700.000 ÷ 3.600 visitas."><span class="veredicto"></span></label>
+      <label class="campo">CPL<input inputmode="decimal" data-ok="9310.34" data-tol="1" data-pista="2.700.000 ÷ 290 mensajes."><span class="veredicto"></span></label>
+      <label class="campo">Por asistente<input inputmode="decimal" data-ok="75000" data-tol="1" data-pista="2.700.000 ÷ 36 asistentes."><span class="veredicto"></span></label>
+      <label class="campo">CAC de pauta<input inputmode="decimal" data-ok="135000" data-tol="1" data-pista="2.700.000 ÷ 20 inscritos."><span class="veredicto"></span></label>
+      <label class="campo">Inscritos por 100 leads<input inputmode="decimal" data-ok="6.9" data-tol="0.6" data-pista="20 ÷ 290 × 100."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Google (búsqueda)</legend><div class="campos">
+      <label class="campo">CPC<input inputmode="decimal" data-ok="1829.27" data-tol="1" data-pista="1.500.000 ÷ 820 visitas."><span class="veredicto"></span></label>
+      <label class="campo">CPL<input inputmode="decimal" data-ok="15625" data-tol="1" data-pista="1.500.000 ÷ 96 mensajes."><span class="veredicto"></span></label>
+      <label class="campo">Por asistente<input inputmode="decimal" data-ok="53571.43" data-tol="1" data-pista="1.500.000 ÷ 28 asistentes."><span class="veredicto"></span></label>
+      <label class="campo">CAC de pauta<input inputmode="decimal" data-ok="75000" data-tol="1" data-pista="1.500.000 ÷ 20 inscritos."><span class="veredicto"></span></label>
+      <label class="campo">Inscritos por 100 leads<input inputmode="decimal" data-ok="20.83" data-tol="0.6" data-pista="20 ÷ 96 × 100."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>TikTok, Meta y Google, en ese orden. CPC: $545, $750 y $1.829. CPL: $7.826, $9.310 y $15.625. Por asistente: $105.882, $75.000 y $53.571. CAC de pauta: <strong>$225.000, $135.000 y $75.000</strong>. De cada 100 leads se inscriben 3, 7 y 21. El canal del clic más caro trae el cliente más barato: quien busca «clases de inglés» ya quiere estudiar; quien ve un video solo tiene curiosidad.</p></div>
+  </form>
+  <section class="columna"><p>¿Qué necesitaría TikTok para igualar a Google? Escoja un canal y cambie dos cosas: lo que cuesta el clic y qué tan bien convierte sus leads en inscritos.</p></section>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t">Abaratar el clic no arregla lo que pasa después</h3><p class="figura-clave">CAC de pauta de hoy y del escenario. Las líneas punteadas son el CAC de hoy de cada canal.</p></div>
+    <div class="mandos">
+      <fieldset class="segmento"><legend>Canal</legend>
+        <label><input type="radio" name="sim-canal" value="0" checked>TikTok</label><label><input type="radio" name="sim-canal" value="1">Meta</label><label><input type="radio" name="sim-canal" value="2">Google</label>
+      </fieldset>
+      <label class="perilla">Cambio en el costo del clic <output id="s-clic-o"></output><input id="s-clic" type="range" min="-50" max="50" step="5" value="0"></label>
+      <label class="perilla">Mejora en la conversión de leads a inscritos <output id="s-conv-o"></output><input id="s-conv" type="range" min="-50" max="300" step="10" value="0"></label>
+    </div>
+    <ul class="hbars" id="fig-sim-canal"></ul>
+    <p class="lectura" id="sim-canal-lect" aria-live="polite"></p>
+    <p class="figura-nota">Supone que, con la misma pauta, la proporción de visitas que escribe no cambia. Es una simplificación.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Escoja TikTok y baje el costo del clic 50 %. ¿Alcanza a Google?</summary><p>No: su CAC baja a $112.500, todavía por encima de los $75.000 de Google.</p></details>
+      <details class="repaso"><summary>Devuelva el clic a 0 %. ¿Cuánto tendría que mejorar la conversión de TikTok para igualar a Google?</summary><p>Un 200 %: tendría que triplicar los inscritos que salen de cada lead. El problema de ese canal no es el precio del clic, sino lo que pasa después.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">El clic más barato puede traer el cliente más caro.</p>
+    <p class="siguiente"><a href="#roas"><span><small>Siguiente estación</small>El ROAS</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 3 · EL ROAS -->
+  <div class="estacion" id="roas">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 2</span>El ROAS</h2>
+    <p>El <mark class="marca-c">ROAS</mark> es ventas atribuidas a la pauta ÷ inversión en pauta. Un ROAS de 4 dice que por cada peso de pauta se vendieron cuatro. Suena a buen negocio… pero el ROAS mira lo que se <i>vendió</i>, no lo que <i>quedó</i>. Si de cada $100 vendidos quedan $25 de margen, un ROAS de 4 apenas empata. El punto de empate se llama ROAS de equilibrio, y es 1 ÷ margen.</p>
+  </section>
+  <section class="figura" aria-labelledby="f5t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f5t">Mientras menor el margen, más alto el ROAS que hace falta para no perder</h3><p class="figura-clave">La curva es el ROAS de equilibrio de cada margen. Debajo de ella, la campaña pierde; encima, gana. El rombo es el margen que usted elige.</p></div>
+    <div class="mandos">
+      <label class="perilla">Margen sobre el precio de venta <output id="eq-m-o"></output><input id="eq-m" type="range" min="10" max="90" step="5" value="25"></label>
+      <label class="perilla">ROAS de su campaña <output id="eq-r-o"></output><input id="eq-r" type="range" min="0.5" max="10" step="0.1" value="3"></label>
+    </div>
+    <div class="lienzo" id="fig-equilibrio"></div>
+    <p class="lectura" id="eq-lect" aria-live="polite"></p>
+    <p class="figura-nota">La fórmula supone que el margen es el mismo en todas las ventas de la campaña. No cuenta si el cliente vuelve.</p>
+  </section>
+  <section class="columna">
+    <p><strong>Ejercicio 2 · El ROAS que engaña.</strong> Laura, de Café Monteverde, probó dos anuncios en Instagram con la misma inversión. Cada bolsa le cuesta $24.000 entre café, empaque y envío.</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla">
+      <thead><tr><th></th><th class="num">A · Cupón del 20 %</th><th class="num">B · Sin descuento</th></tr></thead>
+      <tbody><tr><td>Inversión en pauta</td><td class="num">$500.000</td><td class="num">$500.000</td></tr><tr><td>Bolsas vendidas</td><td class="num">75</td><td class="num">45</td></tr><tr><td>Precio de cada bolsa</td><td class="num">$32.000</td><td class="num">$40.000</td></tr><tr><td>Volvieron a comprar a los 45 días</td><td class="num">9</td><td class="num">18</td></tr></tbody></table></div>
+  </section>
+  <form class="comprobar" id="c-ej2" novalidate>
+    <h3>Compruebe su cuaderno · Ejercicio 2</h3>
+    <p>Ventas y ganancia en pesos; ROAS con un decimal; recompra en porcentaje.</p>
+    <fieldset class="grupo-campos"><legend>Campaña A · Cupón del 20 %</legend><div class="campos">
+      <label class="campo">Ventas<input inputmode="decimal" data-ok="2400000" data-tol="1" data-pista="75 bolsas × $32.000."><span class="veredicto"></span></label>
+      <label class="campo">ROAS<input inputmode="decimal" data-ok="4.8" data-tol="0.05" data-pista="Ventas ÷ 500.000."><span class="veredicto"></span></label>
+      <label class="campo">Margen por bolsa<input inputmode="decimal" data-ok="8000" data-tol="1" data-pista="Precio − costo de la bolsa."><span class="veredicto"></span></label>
+      <label class="campo">Ganancia después de la pauta<input inputmode="decimal" data-ok="100000" data-tol="1" data-pista="75 × margen por bolsa − 500.000."><span class="veredicto"></span></label>
+      <label class="campo">ROAS de equilibrio<input inputmode="decimal" data-ok="4" data-tol="0.05" data-pista="Precio ÷ margen por bolsa."><span class="veredicto"></span></label>
+      <label class="campo">Recompra (%)<input inputmode="decimal" data-ok="12" data-tol="0.5" data-pct="1" data-pista="9 ÷ 75 × 100."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Campaña B · Sin descuento</legend><div class="campos">
+      <label class="campo">Ventas<input inputmode="decimal" data-ok="1800000" data-tol="1" data-pista="45 bolsas × $40.000."><span class="veredicto"></span></label>
+      <label class="campo">ROAS<input inputmode="decimal" data-ok="3.6" data-tol="0.05" data-pista="Ventas ÷ 500.000."><span class="veredicto"></span></label>
+      <label class="campo">Margen por bolsa<input inputmode="decimal" data-ok="16000" data-tol="1" data-pista="Precio − costo de la bolsa."><span class="veredicto"></span></label>
+      <label class="campo">Ganancia después de la pauta<input inputmode="decimal" data-ok="220000" data-tol="1" data-pista="45 × margen por bolsa − 500.000."><span class="veredicto"></span></label>
+      <label class="campo">ROAS de equilibrio<input inputmode="decimal" data-ok="2.5" data-tol="0.05" data-pista="Precio ÷ margen por bolsa."><span class="veredicto"></span></label>
+      <label class="campo">Recompra (%)<input inputmode="decimal" data-ok="40" data-tol="0.5" data-pct="1" data-pista="18 ÷ 45 × 100."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>Campaña A: ventas $2.400.000, ROAS <strong>4,8</strong>, margen por bolsa $8.000, ganancia <strong>$100.000</strong>, ROAS de equilibrio 4,0, recompra 12 %. Campaña B: $1.800.000, <strong>3,6</strong>, $16.000, <strong>$220.000</strong>, 2,5 y 40 %. La del mejor ROAS deja menos de la mitad de la ganancia, y sus clientes vuelven mucho menos: el cupón subió el ROAS y se comió el margen.</p></div>
+  </form>
+  <section class="columna"><p>Ahora, el cupón como perilla. Mueva el descuento y las bolsas, y mire cuándo un ROAS que «se ve bien» deja de ganar.</p></section>
+  <section class="figura" aria-labelledby="f6t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f6t">Un ROAS alto puede esconder una campaña que pierde</h3><p class="figura-clave">Arriba, el ROAS de equilibrio (gris); abajo, el de la campaña: azul si gana, ámbar si pierde.</p></div>
+    <div class="mandos">
+      <label class="perilla">Descuento del cupón <output id="cu-d-o"></output><input id="cu-d" type="range" min="0" max="45" step="5" value="20"></label>
+      <label class="perilla">Bolsas vendidas <output id="cu-b-o"></output><input id="cu-b" type="range" min="10" max="200" step="5" value="75"></label>
+      <label class="perilla">Pauta <output id="cu-p-o"></output><input id="cu-p" type="range" min="100000" max="1500000" step="100000" value="500000"></label>
+    </div>
+    <ul class="hbars" id="fig-cupon" style="--nombre:10rem;--nombre-m:7.5rem"></ul>
+    <p class="lectura" id="cupon-lect" aria-live="polite"></p>
+    <p class="figura-nota">Precio de lista $40.000 y costo de la bolsa $24.000. Cifras ilustrativas.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Suba el descuento a 25 % sin mover las 75 bolsas. ¿Qué pasa con el ROAS y con la ganancia?</summary><p>El ROAS sigue en 4,5, que suena bien; pero el margen por bolsa cae a $6.000 y la campaña pierde $50.000.</p></details>
+      <details class="repaso"><summary>Con 30 % de descuento, ¿cuántas bolsas tendría que vender para ganar lo mismo que la campaña B?</summary><p>180: el margen por bolsa queda en $4.000, y hacen falta (220.000 + 500.000) ÷ 4.000 bolsas.</p></details>
+      <details class="repaso"><summary>¿Qué métrica de contrapeso le pondría al ROAS para que nadie lo suba a punta de cupones?</summary><p>La recompra (o la ganancia después de la pauta). Un equipo premiado solo por el ROAS lo sube con descuentos o con anuncios para quienes ya iban a comprar: es la ley de Goodhart de la sesión 1.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">El ROAS mira ventas, no ganancias.</p>
+    <p class="siguiente"><a href="#plataformas"><span><small>Siguiente estación</small>Plataformas y benchmarks</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 4 · PLATAFORMAS -->
+  <div class="estacion" id="plataformas">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4</span>Plataformas y benchmarks</h2>
+    <p>Ninguna plataforma tiene la película completa. GA4 sabe qué pasó en la web; el administrador de anuncios, cuánto se gastó; el CRM, quién se volvió cliente. Elija qué busca y vea dónde se lee en cada una.</p>
+    <div class="pestanas" role="group" aria-label="Qué busca" id="pest-plataformas"></div>
+    <div class="tarjetas-dos" id="tarjetas-plataformas" aria-live="polite"></div>
+    <p class="indicacion">Rótulos de la ayuda oficial de GA4 y de HubSpot (octubre de 2026); pueden variar según el idioma, el plan y la versión. <span class="giro">El CAC completo y el CLV no los calcula ninguna: hay que armarlos.</span></p>
+  </section>
+  <section class="columna">
+    <p>Un <mark class="marca-c">benchmark</mark> es una referencia externa: ¿cuánto pagan otros por un clic o por un lead? Sirve para saber si uno está en otro planeta, no para ponerse nota. Estas son referencias reales de anuncios de búsqueda en Estados Unidos, convertidas a pesos con la tasa que usted elija.</p>
+  </section>
+  <section class="figura" aria-labelledby="f7t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f7t">El clic de la academia cuesta unas diez veces menos… en otro mercado</h3><p class="figura-clave">Costo por clic en pesos. Ámbar: referencias de Estados Unidos. Gris: la academia en Google.</p></div>
+    <div class="mandos"><label class="perilla">Pesos por dólar <output id="trm-o"></output><input id="trm" type="range" min="3000" max="5500" step="50" value="4000"></label></div>
+    <ul class="hbars" id="fig-bench" style="--nombre:11rem;--nombre-m:7rem"></ul>
+    <p class="lectura" id="bench-lect" aria-live="polite"></p>
+    <p class="figura-nota">Fuente: LocaliQ (2026), campañas de búsqueda de sus clientes en Estados Unidos. Academia Puente: caso simulado. No compara definiciones de «lead».</p>
+  </section>
+  <section class="columna">
+    <ol>
+      <li><strong>¿De qué país y en qué moneda?</strong> Un clic en Estados Unidos no cuesta lo mismo que en Colombia.</li>
+      <li><strong>¿De qué canal y qué tipo de campaña?</strong> Estas son de búsqueda; en redes sociales son otras.</li>
+      <li><strong>¿Cómo definen «lead»?</strong> Un formulario completo no es un «hola» por WhatsApp.</li>
+      <li><strong>¿De quién son los datos y de cuándo?</strong> Aquí, de los clientes de una sola agencia.</li>
+    </ol>
+    <p class="frase">El mejor benchmark casi siempre es uno mismo, hace seis meses.</p>
+    <p class="siguiente"><a href="#millon"><span><small>Siguiente estación</small>El próximo millón</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 5 · EL PRÓXIMO MILLÓN -->
+  <div class="estacion" id="millon">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 5 · Ejercicio 3</span>El próximo millón</h2>
+    <p>¿Caro comparado con qué? Con el <mark class="marca-b">valor</mark>: lo que el cliente deja mientras se queda, el CLV. En su versión simple es el margen de un mes por los meses de permanencia, y en un negocio de mensualidades la permanencia promedio es 1 ÷ (1 − renovación mensual).</p>
+  </section>
+  <section class="figura" aria-labelledby="f8t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f8t">Retener un poco más no sube el valor un poco: lo multiplica</h3><p class="figura-clave">Lo que deja un estudiante según la renovación mensual. El rombo es su elección.</p></div>
+    <div class="mandos">
+      <label class="perilla">Renovación mensual <output id="v-r-o"></output><input id="v-r" type="range" min="50" max="95" step="1" value="80"></label>
+      <label class="perilla">Margen por estudiante al mes <output id="v-m-o"></output><input id="v-m" type="range" min="40000" max="200000" step="2000" value="98000"></label>
+    </div>
+    <div class="lienzo" id="fig-clv"></div>
+    <p class="lectura" id="clv-lect" aria-live="polite"></p>
+    <p class="figura-nota">Fórmula simple: supone que cada mes se va la misma proporción de estudiantes. La sesión 5 trae la versión completa.</p>
+  </section>
+  <section class="columna">
+    <p><strong>Ejercicio 3 · ¿Dónde pongo el próximo millón?</strong> La junta aprobó $1.000.000 más al mes. Cada estudiante deja $98.000 de margen al mes. Primero, la parte A: el valor de cada destino.</p>
+  </section>
+  <form class="comprobar" id="c-ej3a" novalidate>
+    <h3>Compruebe su cuaderno · Ejercicio 3, parte A</h3>
+    <p>CLV en pesos, sin redondear la permanencia antes de multiplicar. CLV ÷ CAC con un decimal.</p>
+    <fieldset class="grupo-campos"><legend>CLV de cada destino</legend><div class="campos">
+      <label class="campo">TikTok (60 %)<input inputmode="decimal" data-ok="245000" data-tol="10" data-pista="98.000 × 1 ÷ (1 − 0,60)."><span class="veredicto"></span></label>
+      <label class="campo">Meta (78 %)<input inputmode="decimal" data-ok="445454.55" data-tol="60" data-pista="98.000 × 1 ÷ (1 − 0,78): no redondee los 4,545 meses."><span class="veredicto"></span></label>
+      <label class="campo">Google (85 %)<input inputmode="decimal" data-ok="653333.33" data-tol="60" data-pista="98.000 × 1 ÷ (1 − 0,85)."><span class="veredicto"></span></label>
+      <label class="campo">Referidos (88 %)<input inputmode="decimal" data-ok="816666.67" data-tol="60" data-pista="98.000 × 1 ÷ (1 − 0,88)."><span class="veredicto"></span></label>
+      <label class="campo">Confirmar la clase (80 %)<input inputmode="decimal" data-ok="490000" data-tol="10" data-pista="98.000 × 1 ÷ (1 − 0,80)."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>CLV ÷ CAC de pauta</legend><div class="campos">
+      <label class="campo">TikTok<input inputmode="decimal" data-ok="1.089" data-tol="0.06" data-pista="245.000 ÷ 225.000."><span class="veredicto"></span></label>
+      <label class="campo">Meta<input inputmode="decimal" data-ok="3.3" data-tol="0.06" data-pista="CLV de Meta ÷ 135.000."><span class="veredicto"></span></label>
+      <label class="campo">Google<input inputmode="decimal" data-ok="8.711" data-tol="0.06" data-pista="CLV de Google ÷ 75.000."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>Permanencias: 2,5, 4,5, 6,7, 8,3 y 5 meses. CLV: <strong>$245.000, $445.455, $653.333, $816.667 y $490.000</strong>. CLV ÷ CAC: <strong>1,1, 3,3 y 8,7</strong>. TikTok apenas devuelve lo que costó la pauta, sin contar al equipo; el estudiante más valioso es el referido, que no aparece en ningún informe de pauta.</p></div>
+  </form>
+  <section class="columna"><p>La parte B pide repartir el millón. El simulador supone que cada canal trae primero a los más fáciles de convencer: las inscripciones crecen menos que la pauta. Y supone que una persona que confirma cada clase de prueba sube la asistencia; ese supuesto tiene su propia perilla, porque una decisión es tan buena como sus supuestos.</p></section>
+  <section class="figura" aria-labelledby="f9t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f9t">El próximo peso no rinde como el promedio</h3><p class="figura-clave">Neto de cada destino: lo que dejan los inscritos extra menos lo que se les dio. Azul si deja, ámbar si pierde.</p></div>
+    <div class="mandos" id="mandos-millon">
+      <label class="perilla">TikTok <output id="m-0-o"></output><input id="m-0" type="range" min="0" max="1000" step="100" value="0"></label>
+      <label class="perilla">Meta <output id="m-1-o"></output><input id="m-1" type="range" min="0" max="1000" step="100" value="0"></label>
+      <label class="perilla">Google <output id="m-2-o"></output><input id="m-2" type="range" min="0" max="1000" step="100" value="500"></label>
+      <label class="perilla">Programa de referidos <output id="m-3-o"></output><input id="m-3" type="range" min="0" max="1000" step="100" value="500"></label>
+      <label class="perilla">Confirmar la clase de prueba <output id="m-4-o"></output><input id="m-4" type="range" min="0" max="1000" step="100" value="0"></label>
+      <label class="perilla">Supuesto: puntos de asistencia que gana confirmar <output id="m-pts-o"></output><input id="m-pts" type="range" min="0" max="20" step="1" value="12"></label>
+    </div>
+    <p class="restante" id="restante" aria-live="polite"></p>
+    <div class="botones" style="justify-content:center;margin:0 auto 1.25rem"><button class="boton" type="button" id="m-mejor">Buscar el mejor reparto</button><button class="boton" type="button" id="m-peor">Buscar el peor</button></div>
+    <ul class="hbars" id="fig-millon" style="--nombre:12rem;--nombre-m:7rem"></ul>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-millon"></table></div>
+    <p class="lectura" id="millon-lect" aria-live="polite"></p>
+    <p class="figura-nota">Supuestos del caso, no leyes: cuánto responde cada canal a más pauta y cuánto sube la asistencia al confirmar. Los valores están en las notas.</p>
+  </section>
+  <form class="comprobar" id="c-ej3b" novalidate>
+    <h3>Compruebe su cuaderno · Ejercicio 3, parte B</h3>
+    <p>Con todo el millón en cada destino y los inscritos extra de la guía. Se acepta una diferencia pequeña por redondeo.</p>
+    <fieldset class="grupo-campos"><legend>CAC marginal</legend><div class="campos">
+      <label class="campo">TikTok (2,9)<input inputmode="decimal" data-ok="344828" data-tol="2500" data-pista="1.000.000 ÷ 2,9."><span class="veredicto"></span></label>
+      <label class="campo">Meta (4,2)<input inputmode="decimal" data-ok="238095" data-tol="2500" data-pista="1.000.000 ÷ 4,2."><span class="veredicto"></span></label>
+      <label class="campo">Google (3,9)<input inputmode="decimal" data-ok="256410" data-tol="2500" data-pista="1.000.000 ÷ 3,9."><span class="veredicto"></span></label>
+      <label class="campo">Referidos (3,3)<input inputmode="decimal" data-ok="303030" data-tol="2500" data-pista="1.000.000 ÷ 3,3."><span class="veredicto"></span></label>
+      <label class="campo">Confirmar (14,6)<input inputmode="decimal" data-ok="68493" data-tol="1000" data-pista="1.000.000 ÷ 14,6."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Neto (lo que dejan − 1.000.000)</legend><div class="campos">
+      <label class="campo">TikTok<input inputmode="decimal" data-ok="-289500" data-tol="15000" data-pista="2,9 × 245.000 − 1.000.000. Puede dar negativo."><span class="veredicto"></span></label>
+      <label class="campo">Meta<input inputmode="decimal" data-ok="870909" data-tol="25000" data-pista="4,2 × CLV de Meta − 1.000.000."><span class="veredicto"></span></label>
+      <label class="campo">Google<input inputmode="decimal" data-ok="1548000" data-tol="25000" data-pista="3,9 × CLV de Google − 1.000.000."><span class="veredicto"></span></label>
+      <label class="campo">Referidos<input inputmode="decimal" data-ok="1695000" data-tol="25000" data-pista="3,3 × CLV de referidos − 1.000.000."><span class="veredicto"></span></label>
+      <label class="campo">Confirmar<input inputmode="decimal" data-ok="6154000" data-tol="25000" data-pista="14,6 × 490.000 − 1.000.000."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>CAC marginal: $344.828, $238.095, $256.410, $303.030 y <strong>$68.493</strong>. Neto, al millar: TikTok <strong>−$290.000</strong>; Meta +$871.000; Google +$1.548.000; referidos +$1.695.000; confirmar la clase <strong>+$6.154.000</strong>. El CAC promedio de Google es $75.000, pero cada inscrito extra cuesta más de $250.000. El mejor destino no compra un solo clic: que lleguen quienes ya agendaron.</p></div>
+  </form>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Pulse «Buscar el mejor reparto». ¿Dónde pone el millón?</summary><p>Todo en confirmar las clases de prueba, con un neto cercano a $6,1 millones. El peor reparto lo pone todo en TikTok, el canal del clic más barato.</p></details>
+      <details class="repaso"><summary>Baje el supuesto de asistencia a 3 puntos y busque otra vez. ¿Sigue ganando el mismo destino?</summary><p>No. Con 3 puntos, confirmar deja unos $784.000 y pasa del primer lugar al cuarto; el mejor reparto se mueve hacia Google y los referidos. Por eso la frase para la junta lleva una métrica de contrapeso: la asistencia.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">El próximo peso no rinde como el promedio.</p>
+    <p class="siguiente"><a href="#casa"><span><small>Siguiente estación</small>Para la casa</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 6 · PARA LA CASA -->
+  <div class="estacion" id="casa">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 6</span>Para la casa</h2>
+    <p><strong>La escalera de la academia, un año después.</strong> La pauta se triplicó, de $2.000.000 al mes en septiembre de 2025 a $6.000.000 en agosto de 2026, y la gerente pide «un anuncio mejor». Resuelva primero en el cuaderno con la guía; aquí puede comprobar cada paso.</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-escalera"></table></div>
+  </section>
+  <form class="comprobar" id="c-casa" novalidate>
+    <h3>Compruebe su cuaderno · Para la casa</h3>
+    <p>Cambio del costo de cada peldaño en porcentaje (con signo), y los pasos 4 y 5.</p>
+    <fieldset class="grupo-campos"><legend>Cambio del costo de cada peldaño (%)</legend><div class="campos">
+      <label class="campo">Alcance (por mil)<input inputmode="decimal" data-ok="-15.6" data-tol="1" data-pista="(37.500 ÷ 44.444 − 1) × 100."><span class="veredicto"></span></label>
+      <label class="campo">Visita<input inputmode="decimal" data-ok="6.7" data-tol="1" data-pista="Costo de agosto ÷ costo de hace un año − 1."><span class="veredicto"></span></label>
+      <label class="campo">Mensaje<input inputmode="decimal" data-ok="33.6" data-tol="1" data-pista="(8.850 ÷ 6.623 − 1) × 100."><span class="veredicto"></span></label>
+      <label class="campo">Clase agendada<input inputmode="decimal" data-ok="78.8" data-tol="1" data-pista="(29.557 ÷ 16.529 − 1) × 100."><span class="veredicto"></span></label>
+      <label class="campo">Asistente<input inputmode="decimal" data-ok="169.1" data-tol="1" data-pista="(61.856 ÷ 22.989 − 1) × 100."><span class="veredicto"></span></label>
+      <label class="campo">Inscripción<input inputmode="decimal" data-ok="189.7" data-tol="1" data-pista="(103.448 ÷ 35.714 − 1) × 100."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>El paso y el escenario</legend><div class="campos">
+      <label class="campo">Asistencia sep-25 (%)<input inputmode="decimal" data-ok="71.9" data-tol="0.6" data-pct="1" data-pista="87 ÷ 121 × 100."><span class="veredicto"></span></label>
+      <label class="campo">Asistencia ago-26 (%)<input inputmode="decimal" data-ok="47.8" data-tol="0.6" data-pct="1" data-pista="97 ÷ 203 × 100."><span class="veredicto"></span></label>
+      <label class="campo">Inscripción de asistentes ago-26 (%)<input inputmode="decimal" data-ok="59.8" data-tol="0.6" data-pct="1" data-pista="58 ÷ 97 × 100."><span class="veredicto"></span></label>
+      <label class="campo">Inscripciones del escenario<input inputmode="decimal" data-ok="87.3" data-tol="1.5" data-pista="203 × asistencia de hace un año × inscripción de agosto."><span class="veredicto"></span></label>
+      <label class="campo">CAC de pauta del escenario<input inputmode="decimal" data-ok="68736" data-tol="1300" data-pista="6.000.000 ÷ inscripciones del escenario."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>Costo de cada peldaño, de sep-25 a ago-26: $44.444 → $37.500 por mil (<strong>−16 %</strong>); $663 → $708 (+7 %); $6.623 → $8.850 (+34 %); $16.529 → $29.557 (+79 %); $22.989 → $61.856 (<strong>+169 %</strong>); $35.714 → $103.448 (<strong>+190 %</strong>). Asistencia: 72 % → 48 %; inscripción de quienes asisten: 64 % → 60 %. Escenario: unas <strong>87</strong> inscripciones y un CAC de pauta cercano a <strong>$69.000</strong>. La pauta no se encareció: el costo se dispara entre agendar y asistir.</p></div>
+  </form>
+  <section class="columna"><p>Para profundizar, el camino completo de agosto con tres perillas. Hay tres maneras de mejorar la adquisición: un clic más barato, un camino que no pierda gente y un cliente que se quede. Compárelas.</p></section>
+  <section class="figura" aria-labelledby="f10t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f10t">Recuperar la asistencia vale más que abaratar el clic</h3><p class="figura-clave">Ámbar: lo que cuesta un inscrito. Azul: lo que deja. La raya punteada marca el CAC de pauta de hoy ($103.448).</p></div>
+    <div class="mandos">
+      <label class="perilla">Puntos de asistencia que se ganan <output id="k-a-o"></output><input id="k-a" type="range" min="-20" max="40" step="1" value="0"></label>
+      <label class="perilla">Cambio en el costo del clic <output id="k-c-o"></output><input id="k-c" type="range" min="-50" max="50" step="1" value="0"></label>
+      <label class="perilla">Renovación mensual <output id="k-r-o"></output><input id="k-r" type="range" min="60" max="95" step="1" value="80"></label>
+    </div>
+    <ul class="hbars" id="fig-camino" style="--nombre:10rem;--nombre-m:7.5rem"></ul>
+    <p class="lectura" id="camino-lect" aria-live="polite"></p>
+    <p class="figura-nota">Agosto de 2026: pauta de $6.000.000 y equipo de $3.600.000 al mes. Supone que las demás proporciones del camino no cambian.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto y anote en el cuaderno</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Suba la asistencia 24 puntos, hasta el 72 % de hace un año. ¿Qué CAC de pauta queda?</summary><p>Unos $69.000, con cerca de 87 inscripciones: la misma pauta rinde la mitad más.</p></details>
+      <details class="repaso"><summary>Devuelva la asistencia a 0 y baje el costo del clic hasta lograr el mismo CAC. ¿Cuánto tuvo que bajar?</summary><p>Cerca de un tercio (alrededor de −33 %). Recuperar a quienes ya agendaron rinde lo mismo que un clic mucho más barato.</p></details>
+      <details class="repaso"><summary>Suba la renovación de 80 % a 88 %. ¿Qué cambia y qué no?</summary><p>El CAC no se mueve, pero el CLV pasa de $490.000 a unos $817.000 y la relación CLV ÷ CAC completo mejora de 3,0 a casi 5: que se quede también es adquisición bien hecha.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p><strong>Para el foro.</strong> Un creador de contenido le ofrece 100.000 visualizaciones por $2.000.000. ¿Qué tres números le pediría antes de aceptar?</p>
+    <p class="siguiente"><a href="#su-escalera"><span><small>Siguiente estación</small>Su propia escalera</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 7 · SU ESCALERA -->
+  <div class="estacion" id="su-escalera">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 7</span>Su propia escalera</h2>
+    <p>Arme la escalera de una campaña suya o de un negocio que conozca: un emprendimiento, una tienda en Instagram, una promoción de la universidad. Escriba los números del camino y lo que deja un cliente; el laboratorio calcula cada peldaño, el CAC y la relación con el valor.</p>
+  </section>
+  <section class="figura" aria-labelledby="f11t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f11t">La escalera de su campaña</h3><p class="figura-clave">Escriba los números; la escalera se redibuja sola. Nada de esto sale de su navegador.</p></div>
+    <div class="ejemplos" aria-label="Ejemplos para empezar">
+      <button class="boton" type="button" data-ej="postres">Postres</button>
+      <button class="boton" type="button" data-ej="tiktok">TikTok de la academia</button>
+      <button class="boton" type="button" data-ej="google">Google de la academia</button>
+      <button class="boton" type="button" data-ej="meta">Meta de la academia</button>
+    </div>
+    <div class="campos" id="su-campos" style="max-width:var(--col-texto);margin:0 auto 1.25rem">
+      <label class="campo"><span class="campo-t">Pauta ($)</span><input id="u-pauta" inputmode="decimal" value="30.000"></label>
+      <label class="campo"><span class="campo-t">Personas que vieron</span><input id="u-alc" inputmode="decimal" value="3.000"></label>
+      <label class="campo"><span class="campo-t">Clics</span><input id="u-clic" inputmode="decimal" value="60"></label>
+      <label class="campo"><span class="campo-t">Leads</span><input id="u-lead" inputmode="decimal" value="12"></label>
+      <label class="campo"><span class="campo-t">Clientes nuevos</span><input id="u-cli" inputmode="decimal" value="4"></label>
+      <label class="campo"><span class="campo-t">Otros costos de conseguirlos ($)</span><input id="u-otros" inputmode="decimal" value="0"></label>
+      <label class="campo"><span class="campo-t">Margen por cliente al mes o por compra ($)</span><input id="u-margen" inputmode="decimal" value="3.000"></label>
+      <label class="campo"><span class="campo-t">Meses o compras que se queda</span><input id="u-meses" inputmode="decimal" value="5"></label>
+    </div>
+    <div class="lienzo" id="fig-su"></div>
+    <ul class="resumen-lab" id="su-res" aria-live="polite"></ul>
+    <p class="lectura" id="su-lect" aria-live="polite"></p>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a la junta</h2>
+    <p id="cierre-voto">La junta quería apagar el canal del clic más caro. Al final del camino, ese canal traía el estudiante más barato y el que más se queda.</p>
+    <p>Machado llamó necio a quien confunde valor y precio. <span class="giro">El clic tiene precio; el cliente, valor, y entre los dos hay una escalera entera.</span> Antes de apagar, encender o repartir, tres preguntas: ¿costo de qué?, ¿comparado con qué?, ¿y cuánto cuesta el próximo?</p>
+    <p class="aforismo">Lo barato sale caro cuando se mide en el primer peldaño.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Academia Puente, Café Monteverde y el gimnasio La Forja son casos simulados que continúan las sesiones 1 y 2; los totales de agosto de 2026 por canal cuadran con el embudo de la sesión 1. Los benchmarks son reales: LocaliQ (2026), campañas de búsqueda de clientes de la agencia en Estados Unidos, en dólares. La tasa de cambio de partida, $4.000 por dólar, es una cifra redonda: cámbiela por la del día.</p></details>
+  <details><summary>¿Qué supone el simulador del millón?</summary><p>Que las inscripciones de un canal crecen menos que su pauta: inscritos = inscritos de hoy × (pauta nueva ÷ pauta de hoy) elevado a 0,70 en TikTok, 0,60 en Meta y 0,35 en Google. Que el programa de referidos trae 8 × ((1 + millones) elevado a 0,5 − 1) inscritos extra. Y que confirmar cada clase sube la asistencia los puntos de la perilla con $1.000.000, sin rendir más allá. Son supuestos del caso, no leyes.</p></details>
+  <details><summary>¿Cómo calcula el laboratorio?</summary><p>Cada costo es lo que se gastó ÷ lo que se consiguió en ese peldaño. El CLV es el margen de un mes por la permanencia, 1 ÷ (1 − renovación), sin redondear. El ROAS de equilibrio es precio ÷ margen por unidad, que es lo mismo que 1 ÷ margen.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra, y también su voto.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Taller»: papel técnico, retícula fina, cotas y rótulos, porque las métricas se miden como un plano. Forma «pieza por pieza»: la escalera se arma peldaño por peldaño y cada estación termina en el problema que resuelve la siguiente; al final se abre en un laboratorio libre. Recursos: la apuesta (el voto), la perilla y la tarjeta de repaso.</p></details>
+  <ol class="citas">
+    <li>Machado, A. (1924). «Proverbios y cantares», LXVIII, en <i>Nuevas canciones</i>.</li>
+    <li>LocaliQ (2026). <i>Search Advertising Benchmarks for Every Industry</i>.</li>
+    <li>Skok, D. <i>SaaS Metrics 2.0</i>. For Entrepreneurs (blog). Origen de la regla del «tres a uno» entre CLV y CAC.</li>
+    <li>Jeffery, M. (2010). <i>Data-Driven Marketing: The 15 Metrics Everyone in Marketing Should Know</i>. Wiley.</li>
+    <li>Congreso de Colombia (2012). Ley Estatutaria 1581, de protección de datos personales.</li>
+  </ol>
+</section>
+<footer class="pie"><p>Brayeam Beltrán · <a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"postres":{"inversion":30000,"alcance":3000,"clics":60,"mensajes":12,"compradores":4,"precio":8000,"margen":3000,"compras":5},"cafe":[{"inversion":500000,"bolsas":75,"precio":32000,"nota":"Anuncio con cupón de 20 % de descuento"},{"inversion":500000,"bolsas":45,"precio":40000,"nota":"Anuncio a personas parecidas a sus clientes, a precio de lista"}],"cafeCosto":24000,"tarifa":280000,"margen":0.35,"escalera":[["Alcance (personas)","Costo por mil personas alcanzadas",45000,160000,1000],["Visitas a la web","Costo por visita (≈ CPC)",3015,8480,1],["Mensajes pidiendo información","Costo por mensaje (CPL)",302,678,1],["Clases de prueba agendadas","Costo por clase agendada (CPA)",121,203,1],["Asistieron a la clase de prueba","Costo por asistente (CPA)",87,97,1],["Inscripciones nuevas","Costo de pauta por inscripción (CAC de pauta)",56,58,1]],"pauta":{"sep-25":2000000,"ago-26":6000000},"equipo":{"sep-25":3000000,"ago-26":3600000},"renov":{"sep-25":0.88,"ago-26":0.8},"insc":{"sep-25":56,"ago-26":58},"canales":[["TikTok Ads","Pago",1800000,57000,3300,230,55,17,8,0.6,50],["Meta Ads (Instagram y Facebook)","Pago",2700000,76000,3600,290,84,36,20,0.78,104],["Google (búsqueda)","Pago",1500000,11000,820,96,40,28,20,0.85,90],["Referidos","Sin pauta",0,0,0,22,12,10,8,0.88,100],["Orgánico (redes y web sin pauta)","Sin pauta",0,16000,760,40,12,6,2,0.8,20]],"tot":{"pauta":6000000,"alcance":160000,"visitas":8480,"mensajes":678,"agendadas":203,"asistieron":97,"inscripciones":58,"activos":364},"elast":{"TikTok Ads":0.7,"Meta Ads (Instagram y Facebook)":0.6,"Google (búsqueda)":0.35},"refElast":0.5,"recPts":0.12,"bench":[["Promedio de todas las industrias",5.42,66.69],["Educación e instrucción",4.81,77.48]],"trm":4000};
+/* Laboratorio · Más valen datos que percepciones · Sesión 3
+   Núcleo: números a la colombiana, estadística, azar con semilla y gráficos en SVG.
+   Lo usan el laboratorio (pantalla) y las guías (PDF), para que los gráficos sean los mismos. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* ---------- gráficos ---------- */
+/* El salón: una figura por persona y dos barras, mediana y promedio. */
+function dibujaSalon(el, n, entra, base = 1300000) {
+  const W0 = Math.max(260, el.clientWidth || 640);
+  const lado = n <= 60 ? 13 : n <= 160 ? 9 : 6, paso = lado + 3, porFila = Math.max(1, Math.floor((W0 - 30) / paso));
+  const filas = Math.ceil((n + 1) / porFila), altoU = filas * paso + 34;
+  const f = marco(el, altoU + 120, { i: 84, d: 18, a: 10, ab: 10 });
+  const ingresos = Array(n).fill(base).concat([entra]), prom = media(ingresos), med = mediana(ingresos);
+  for (let k = 0; k <= n; k++) {
+    const x = 6 + (k % porFila) * paso, y = 26 + Math.floor(k / porFila) * paso;
+    if (k < n) S('rect', { x, y, width: lado, height: lado, rx: 2, class: 'u-persona' }, f.svg);
+    else { S('rect', { x: x - 1, y: y - 1, width: lado + 2, height: lado + 2, rx: 2, class: 'u-entra' }, f.svg); }
+  }
+  T(f.svg, 6, 16, W0 < 520 ? `${num(n)} personas y, en negro, quien entra` : `${num(n)} personas con ${pesos(base)} al mes y, en negro, quien entra`, { class: 'ts' });
+  const y0 = altoU + 18, x = lin(0, prom * 1.02, f.x0, f.x1 - 120);
+  [['mediana', med, 'b-med'], ['promedio', prom, 'b-prom']].forEach(([nom, v, cl], i) => {
+    const y = y0 + i * 42;
+    T(f.svg, f.x0 - 10, y + 13, nom, { 'text-anchor': 'end', class: 'tf grande' });
+    S('rect', { x: f.x0, y, width: Math.max(2, x(v) - f.x0), height: 18, rx: 3, class: cl }, f.svg);
+    T(f.svg, Math.max(f.x0, x(v)) + 8, y + 14, pesos(v), { class: 'nf' });
+  });
+  f.svg.setAttribute('aria-label', `Figuras de ${n} personas y quien entra; barras: mediana ${pesos(med)} y promedio ${pesos(prom)}.`);
+  return { prom, med, debajo: ingresos.filter(v => v < prom).length, total: n + 1 };
+}
+
+/* Histograma con líneas de promedio, mediana o decisión, y una franja opcional. */
+function dibujaHisto(el, o) {
+  const f = marco(el, o.alto || 250, { i: 40, d: 16, a: 20 + 18 * (o.lineas || []).length, ab: o.xlab ? 46 : 30 });
+  const bins = [], k = Math.ceil((o.hasta - o.desde) / o.ancho);
+  for (let i = 0; i < k; i++) bins.push(0);
+  o.datos.forEach(v => { let i = Math.floor((Math.min(v, o.hasta - 1e-9) - o.desde) / o.ancho); i = Math.max(0, Math.min(k - 1, i)); bins[i]++; });
+  const maxY = Math.max(o.maxY || 0, ...bins, 1);
+  const x = lin(o.desde, o.hasta, f.x0, f.x1), y = lin(0, maxY, f.yb, f.yt);
+  ejeY(f, y, marcas(0, maxY, 4).filter(v => Number.isInteger(v)));
+  if (o.franja) S('rect', { x: x(Math.max(o.desde, o.franja[0])), y: f.yt - 4, width: Math.max(0, x(Math.min(o.hasta, o.franja[1])) - x(Math.max(o.desde, o.franja[0]))), height: f.yb - f.yt + 4, class: 'franja' }, f.svg);
+  bins.forEach((c, i) => {
+    if (!c) return;
+    const r = S('rect', { x: x(o.desde + i * o.ancho) + 1, y: y(c), width: Math.max(1, x(o.desde + (i + 1) * o.ancho) - x(o.desde + i * o.ancho) - 2), height: f.yb - y(c), class: 'b-dato' }, f.svg);
+    S('title', {}, r).textContent = `${o.fmtBin ? o.fmtBin(o.desde + i * o.ancho, o.desde + (i + 1) * o.ancho) : num(o.desde + i * o.ancho) + ' a ' + num(o.desde + (i + 1) * o.ancho)}: ${c}`;
+  });
+  const ticks = []; const cada = o.cadaTick || o.ancho * Math.max(1, Math.ceil(k / 8));
+  for (let v = o.desde; v <= o.hasta + 1e-9; v += cada) ticks.push(+v.toFixed(6));
+  ejeX(f, x, ticks, o.fmtX || (v => num(v)));
+  (o.lineas || []).forEach((l, i) => lineaV(f, x(Math.max(o.desde, Math.min(o.hasta, l.x))), l.clase, l.texto, i));
+  if (o.xlab) rotuloEje(f, o.xlab, 'x');
+  if (o.ylab) T(f.svg, 4, f.yt - 8 - 18 * ((o.lineas || []).length ? 0 : 0), o.ylab, { class: 'ts' });
+  f.svg.setAttribute('aria-label', o.aria || 'Histograma');
+  return { bins, f, x, y };
+}
+
+/* Reseñas hechas de estrellas: una estrella por reseña, apiladas por columna. */
+function dibujaEstrellas(el, conteo, o = {}) {
+  const maxC = Math.max(11, ...conteo), alto = o.alto || 300;
+  const f = marco(el, alto, { i: 36, d: 16, a: o.lineas ? 56 : 18, ab: 46 });
+  const x = lin(.5, 5.5, f.x0, f.x1), r = Math.min(10, (f.yb - f.yt) / maxC / 2 - .5), paso = (f.yb - f.yt) / maxC;
+  const y = lin(0, maxC, f.yb, f.yt);
+  ejeY(f, y, [0, 5, 10].filter(v => v <= maxC));
+  for (let s = 1; s <= 5; s++) {
+    for (let k = 0; k < conteo[s - 1]; k++) {
+      const p = S('path', { d: estrellaPath(x(s), f.yb - paso * (k + .5), r), class: 'estrella' }, f.svg);
+      S('title', {}, p).textContent = `Reseña de ${s} estrella${s > 1 ? 's' : ''}`;
+    }
+    T(f.svg, x(s), f.yb - paso * conteo[s - 1] - 6, conteo[s - 1] ? String(conteo[s - 1]) : '', { 'text-anchor': 'middle', class: 'nf' });
+  }
+  if (!suma(conteo)) T(f.svg, (f.x0 + f.x1) / 2, (f.yt + f.yb) / 2, 'aquí irán las estrellas', { 'text-anchor': 'middle', class: 'ts grande' });
+  S('line', { x1: f.x0, x2: f.x1, y1: f.yb, y2: f.yb, class: 'l-eje' }, f.svg);
+  for (let s = 1; s <= 5; s++) T(f.svg, x(s), f.yb + 18, s + ' ★', { 'text-anchor': 'middle', class: 'n' });
+  rotuloEje(f, 'estrellas que dio cada persona', 'x');
+  (o.lineas || []).forEach((l, i) => lineaV(f, x(l.x), l.clase, l.texto, i));
+  f.svg.setAttribute('aria-label', `Histograma de reseñas hecho de estrellas: ${conteo.map((c, i) => `${c} de ${i + 1}`).join(', ')}.`);
+  return f;
+}
+
+/* Barras pareadas: hoy (gris) y el escenario (ciruela). */
+function dibujaPares(el, cats, a, b, o = {}) {
+  const f = marco(el, o.alto || 240, { i: 40, d: 12, a: 16, ab: 44 });
+  const maxY = Math.max(...a, ...b, 1), x = lin(0, cats.length, f.x0, f.x1), y = lin(0, maxY * 1.12, f.yb, f.yt);
+  ejeY(f, y, marcas(0, maxY * 1.12, 4).filter(v => Number.isInteger(v)));
+  const w = (x(1) - x(0)) * .36;
+  cats.forEach((c, i) => {
+    const cx = x(i + .5);
+    [[a[i], 'b-dato', -w - 1], [b[i], 'b-esc', 1]].forEach(([v, cl, dx]) => {
+      const r = S('rect', { x: cx + dx, y: y(v), width: w, height: f.yb - y(v), class: cl }, f.svg);
+      S('title', {}, r).textContent = `${c}: ${v}`;
+      T(f.svg, cx + dx + w / 2, y(v) - 5, String(v), { 'text-anchor': 'middle', class: 'n' });
+    });
+    T(f.svg, cx, f.yb + 18, c, { 'text-anchor': 'middle', class: 'n' });
+  });
+  S('line', { x1: f.x0, x2: f.x1, y1: f.yb, y2: f.yb, class: 'l-eje' }, f.svg);
+  if (o.xlab) rotuloEje(f, o.xlab, 'x');
+  f.svg.setAttribute('aria-label', o.aria || 'Barras pareadas');
+}
+
+/* Tira de puntos: cada fila es un día, una ruta o una persona; los valores repetidos se apilan. */
+function dibujaTira(el, filas, desde, hasta, o = {}) {
+  const angosto = (el.clientWidth || 640) < 520;
+  const altoFila = o.altoFila || 64, f = marco(el, filas.length * altoFila + 46, { i: angosto ? (o.izqAngosto || 92) : (o.izq || 96), d: 18, a: 10, ab: 36 });
+  const x = lin(desde, hasta, f.x0, f.x1);
+  marcas(desde, hasta, o.marcas || 8).forEach(v => S('line', { x1: x(v), x2: x(v), y1: f.yt, y2: f.yb, class: 'l-regla' }, f.svg));
+  filas.forEach((fi, j) => {
+    const yb = f.yt + (j + 1) * altoFila - 14, vistos = {};
+    S('line', { x1: f.x0, x2: f.x1, y1: yb, y2: yb, class: 'l-eje' }, f.svg);
+    T(f.svg, f.x0 - 12, yb - 4, fi.nombre, { 'text-anchor': 'end', class: angosto ? 'tf' : 'tf grande' });
+    if (fi.sub) T(f.svg, f.x0 - 12, yb + 12, fi.sub, { 'text-anchor': 'end', class: 'n' });
+    const m = media(fi.datos);
+    S('line', { x1: x(m), x2: x(m), y1: yb - altoFila + 22, y2: yb + 6, class: 'l-prom' }, f.svg);
+    fi.datos.forEach(v => { const k = vistos[v] = (vistos[v] || 0) + 1; const c = S('circle', { cx: x(v), cy: yb - 7 - (k - 1) * 11, r: 5, class: 'p-dato' }, f.svg); S('title', {}, c).textContent = `${fi.nombre}: ${num(v)}`; });
+    if (o.decision !== undefined && o.decision !== null) rombo(f.svg, x(o.decision), yb + 1, 6);
+  });
+  ejeX(f, x, marcas(desde, hasta, angosto ? 5 : (o.marcas || 8)));
+  if (o.xlab) rotuloEje(f, angosto && o.xlabCorto ? o.xlabCorto : o.xlab, 'x');
+  f.svg.setAttribute('aria-label', o.aria || 'Tira de puntos');
+  return { f, x };
+}
+
+/* Curva de ganancia: la decisión del lector (rombo) y lo que más deja (línea). */
+function dibujaCurva(el, xs, ys, xSel, xMejor, o = {}) {
+  const f = marco(el, o.alto || 230, { i: 76, d: 18, a: 40, ab: 46 });
+  const lo = Math.min(...ys), hi = Math.max(...ys), pad = (hi - lo) * .12 || Math.abs(hi) * .1 || 1, minY = lo - pad, maxY = hi + pad;
+  const x = lin(xs[0], xs[xs.length - 1], f.x0, f.x1), y = lin(minY, maxY, f.yb, f.yt);
+  ejeY(f, y, marcas(minY, maxY, 4), v => num(v / 1000) + ' mil');
+  if (minY < 0 && maxY > 0) S('line', { x1: f.x0, x2: f.x1, y1: y(0), y2: y(0), class: 'l-eje' }, f.svg);
+  S('path', { d: xs.map((v, i) => (i ? 'L' : 'M') + x(v) + ',' + y(ys[i])).join(''), class: 'l-curva' }, f.svg);
+  lineaV(f, x(xMejor), 'l-eje', `${f.W < 520 ? 'mejor' : 'lo que más deja'}: ${num(xMejor)}`, 0);
+  const iSel = xs.indexOf(xSel);
+  if (iSel >= 0) rombo(f.svg, x(xSel), y(ys[iSel]), 8);
+  ejeX(f, x, xs.filter((v, i) => i % 2 === 0));
+  rotuloEje(f, o.xlab || '', 'x');
+  T(f.svg, 4, f.yt - 14, 'ganancia de las seis semanas', { class: 'ts' });
+  f.svg.setAttribute('aria-label', o.aria || 'Curva');
+}
+
+/* Nube de puntos con el método de los cuadrantes. */
+function dibujaNube(el, pts, o = {}) {
+  const f = marco(el, o.alto || 300, Object.assign({ i: 42, d: 14, a: 18, ab: o.xlab ? 44 : 22 }, o.m || {}));
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+  const dx = o.dom || { x0: Math.min(...xs), x1: Math.max(...xs), y0: Math.min(...ys), y1: Math.max(...ys) };
+  const px = (dx.x1 - dx.x0) * .06 || 1, py = (dx.y1 - dx.y0) * .08 || 1;
+  const x = lin(o.dom ? dx.x0 : dx.x0 - px, o.dom ? dx.x1 : dx.x1 + px, f.x0, f.x1), y = lin(o.dom ? dx.y0 : dx.y0 - py, o.dom ? dx.y1 : dx.y1 + py, f.yb, f.yt);
+  if (o.ejes !== false) {
+    const tx = marcas(x.inv(f.x0), x.inv(f.x1), o.mini ? 3 : 6), ty = marcas(y.inv(f.yb), y.inv(f.yt), o.mini ? 3 : 5);
+    tx.forEach(v => S('line', { x1: x(v), x2: x(v), y1: f.yt, y2: f.yb, class: 'l-regla' }, f.svg));
+    ejeY(f, y, ty);
+    ejeX(f, x, tx);
+  } else S('rect', { x: f.x0, y: f.yt, width: f.x1 - f.x0, height: f.yb - f.yt, class: 'l-regla' }, f.svg);
+  let c = null;
+  if (o.cuadrantes && pts.length > 1) {
+    c = cuadrantes(xs, ys);
+    const X = x(c.mx), Y = y(c.my);
+    S('rect', { x: X, y: f.yt, width: f.x1 - X, height: Y - f.yt, class: 'cuad' }, f.svg);
+    S('rect', { x: f.x0, y: Y, width: X - f.x0, height: f.yb - Y, class: 'cuad' }, f.svg);
+    S('line', { x1: X, x2: X, y1: f.yt, y2: f.yb, class: 'l-cuad' }, f.svg);
+    S('line', { x1: f.x0, x2: f.x1, y1: Y, y2: Y, class: 'l-cuad' }, f.svg);
+    if (!o.mini && o.esquinas !== false) {
+      T(f.svg, f.x1 - 6, f.yt + 16, 'de acuerdo', { 'text-anchor': 'end', class: 'ts' });
+      T(f.svg, f.x0 + 6, f.yb - 8, 'de acuerdo', { class: 'ts' });
+      T(f.svg, f.x0 + 6, f.yt + 16, 'en contra', { class: 'ts' });
+      T(f.svg, f.x1 - 6, f.yb - 8, 'en contra', { 'text-anchor': 'end', class: 'ts' });
+    }
+  }
+  if (o.recta) S('line', { x1: f.x0, x2: f.x1, y1: y(o.recta[0] + o.recta[1] * x.inv(f.x0)), y2: y(o.recta[0] + o.recta[1] * x.inv(f.x1)), class: 'l-mano' }, f.svg);
+  pts.forEach(p => {
+    let e;
+    if (p.t === 'n') e = equis(f.svg, x(p.x), y(p.y), o.mini ? 3.5 : 5);
+    else if (p.t === 'h') e = S('circle', { cx: x(p.x), cy: y(p.y), r: o.mini ? 3.5 : 5, class: 'p-hog' }, f.svg);
+    else e = S('circle', { cx: x(p.x), cy: y(p.y), r: o.r || (o.mini ? 3.5 : 4.5), class: 'p-dato' }, f.svg);
+    if (p.nombre) S('title', {}, e).textContent = `${p.nombre}: ${num(p.x, 2).replace(/,00$/, '')} y ${num(p.y, 2).replace(/,00$/, '')}`;
+    if (p.rotulo) T(f.svg, x(p.x) + 8, y(p.y) - 6, p.rotulo, { class: 'n' });
+  });
+  if (o.titulo) T(f.svg, f.x0, f.yt - 6, o.titulo, { class: 'tf' });
+  if (o.xlab) rotuloEje(f, o.xlab, 'x');
+  if (o.ylab) T(f.svg, f.x0 + 4, f.yt + (o.cuadrantes ? 34 : 14), o.ylab, { class: 'ts' });
+  f.svg.setAttribute('aria-label', o.aria || 'Nube de puntos');
+  return c;
+}
+
+/* Dos grupos de un experimento y, debajo, cien repeticiones del mismo experimento. */
+function dibujaGrupos(el, sin, con, o = {}) {
+  const f = marco(el, 150, { i: 8, d: 64, a: 8, ab: 30 });
+  const x = lin(0, o.max || 12, f.x0, f.x1);
+  [['sin mensajes extra', sin, 'b-dato'], ['con mensajes extra', con, 'b-esc']].forEach(([n, v, cl], i) => {
+    const y = f.yt + 18 + i * 52;
+    T(f.svg, f.x0, y - 5, n, { class: 'tf' });
+    S('rect', { x: f.x0, y, width: Math.max(2, x(v) - f.x0), height: 20, class: cl }, f.svg);
+    T(f.svg, x(v) + 8, y + 15, num(v, 2), { class: 'nf' });
+  });
+  ejeX(f, x, marcas(0, o.max || 12, 6));
+  f.svg.setAttribute('aria-label', `Compras promedio por hogar: ${num(sin, 2)} sin mensajes extra y ${num(con, 2)} con mensajes extra.`);
+}
+function dibujaRepeticiones(el, difs, efecto) {
+  const f = marco(el, 150, { i: 20, d: 20, a: 34, ab: 42 });
+  const lim = Math.max(3, Math.ceil(Math.max(...difs.map(Math.abs)) + .5));
+  const x = lin(-lim, lim, f.x0, f.x1), apil = {};
+  S('rect', { x: f.x0, y: f.yt - 8, width: x(0) - f.x0, height: f.yb - f.yt + 8, class: 'cuad' }, f.svg);
+  difs.forEach(d => { const b = Math.round(d * 4) / 4; const k = apil[b] = (apil[b] || 0) + 1; S('circle', { cx: x(b), cy: f.yb - 5 - (k - 1) * 7, r: 3.2, class: 'p-dato' }, f.svg); });
+  lineaV(f, x(efecto), 'l-dec', `efecto verdadero: ${num(efecto, 1)}`, 0);
+  ejeX(f, x, marcas(-lim, lim, 8), v => (v > 0 ? '+' : '') + num(v));
+  rotuloEje(f, f.W < 520 ? 'diferencia medida en cada experimento' : 'diferencia medida (compras por hogar) en cada uno de los 100 experimentos', 'x');
+  f.svg.setAttribute('aria-label', `Cien experimentos simulados con efecto verdadero ${num(efecto, 1)}.`);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+/* Laboratorio · Diseño de métricas para el marketing · Sesión 3: conexiones y simuladores. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const coma = n => String(n).replace('.', ',').replace('-', '−');
+  const redibujos = [];
+  const al = (ids, fn) => { ids.forEach(id => { const e = typeof id === 'string' ? $(id) : id; if (e) { e.addEventListener('input', fn); e.addEventListener('change', fn); } }); redibujos.push(fn); };
+  const radio = n => ($(`input[name="${n}"]:checked`) || {}).value;
+  const salida = (id, t) => { const o = $(id + '-o'); if (o) o.textContent = t; };
+  const pct = (v, d = 0) => num(v, d) + ' %';
+  const MARGEN_MES = D.tarifa * D.margen;                       // 98.000
+  const CAN = D.canales.map(c => ({ canal: c[0], corto: c[0].split(' ')[0], tipo: c[1], pauta: c[2], alcance: c[3], visitas: c[4], mensajes: c[5], agendadas: c[6], asistieron: c[7], insc: c[8], renov: c[9] }));
+  const PAGO = CAN.slice(0, 3);
+  let voto = null;
+
+  /* ---------- apertura: el gráfico de la junta y el voto ---------- */
+  hbars($('#fig-apertura'), PAGO.map(c => ({ id: c.corto, nombre: c.corto, valor: c.pauta / c.visitas, clase: 'hb-costo' })), { fmt: v => pesos(v) + ((document.querySelector('#fig-apertura').clientWidth || 600) < 520 ? '' : ' por clic') });
+  $$('#voto [data-voto]').forEach(b => b.addEventListener('click', () => {
+    voto = b.dataset.voto;
+    $$('#voto [data-voto]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = $('#voto .voto-dato'); d.hidden = false;
+    d.innerHTML = `Anotado: usted apagaría <strong>${voto}</strong>. Lo revisamos en la estación 2, cuando el camino llegue hasta el final. ¿Qué número le falta ver para estar seguro?`;
+    pintaCanales(); cierre();
+  }));
+
+  /* ---------- 1 · la escalera ---------- */
+  function escalones(pauta, alc, clic, lead, cli) {
+    const p = [];
+    if (alc > 0) p.push({ id: 'cpm', sigla: 'CPM', que: 'que la vean', personas: alc, unidad: 'personas', porPersona: pauta / alc, etiqueta: pesos(pauta / alc * 1000) + ' por mil', corta: pesos(pauta / alc * 1000) + '/mil' });
+    if (clic > 0) p.push({ id: 'cpc', sigla: 'CPC', que: 'que entren', personas: clic, unidad: 'clics', porPersona: pauta / clic, etiqueta: pesos(pauta / clic) });
+    if (lead > 0) p.push({ id: 'cpl', sigla: 'CPL', que: 'que pregunten', personas: lead, unidad: 'leads', porPersona: pauta / lead, etiqueta: pesos(pauta / lead) });
+    if (cli > 0) p.push({ id: 'cac', sigla: 'CAC', que: 'que compren', personas: cli, unidad: 'clientes', porPersona: pauta / cli, etiqueta: pesos(pauta / cli) });
+    return p;
+  }
+  function dibujaEscalera(el, pasos, o = {}) {
+    const W0 = Math.max(300, el.clientWidth || 640), angosto = W0 < 520;
+    const f = marco(el, o.alto || (angosto ? 330 : 360), { i: 14, d: 14, a: 26, ab: 70 });
+    if (!pasos.length) { T(f.svg, f.W / 2, f.H / 2, 'escriba al menos la pauta y un peldaño', { 'text-anchor': 'middle', class: 'ts' }); return; }
+    const n = pasos.length, ancho = (f.x1 - f.x0) / n, lmin = Math.log10(Math.max(.5, Math.min(...pasos.map(p => p.porPersona)) / 3)), lmax = Math.log10(Math.max(...pasos.map(p => p.porPersona)));
+    const alto = v => 18 + (Math.log10(v) - lmin) / (lmax - lmin || 1) * (f.yb - f.yt - 58);
+    const maxP = Math.max(...pasos.map(p => p.personas));
+    pasos.forEach((p, k) => {
+      const g = S('g', { 'data-t': p.id, class: 'atenuable' }, f.svg);
+      const x = f.x0 + k * ancho + 3, w = ancho - 6, h = alto(p.porPersona), y = f.yb - h;
+      S('rect', { x, y, width: w, height: h, class: 'esc-peldano' + (k === n - 1 ? ' final' : '') }, g);
+      // cota: línea con extremos de guion a la izquierda del escalón
+      S('path', { d: `M${x + 8},${y} V${f.yb} M${x + 4},${y} H${x + 12} M${x + 4},${f.yb} H${x + 12}`, class: 'cota' }, g);
+      T(g, x + w / 2, y - 22, p.sigla, { 'text-anchor': 'middle', class: 'nf' });
+      T(g, x + w / 2, y - 7, angosto && p.corta ? p.corta : p.etiqueta, { 'text-anchor': 'middle', class: angosto ? 'n' : 'tf' });
+      // gente que llega a ese peldaño
+      const gw = Math.max(4, Math.sqrt(p.personas / maxP) * (w - 10));
+      S('rect', { x: x + (w - gw) / 2, y: f.yb + 10, width: gw, height: 10, class: 'esc-gente' }, g);
+      T(g, x + w / 2, f.yb + 36, num(p.personas) + ' ' + p.unidad, { 'text-anchor': 'middle', class: 'n' });
+      T(g, x + w / 2, f.yb + 52, p.que, { 'text-anchor': 'middle', class: 'ts' });
+    });
+    S('line', { x1: f.x0, x2: f.x1, y1: f.yb, y2: f.yb, class: 'l-eje' }, f.svg);
+    f.svg.setAttribute('aria-label', 'Escalera del costo: ' + pasos.map(p => `${p.sigla} ${p.etiqueta} con ${num(p.personas)} ${p.unidad}`).join('; ') + '.');
+  }
+  const P = D.postres;
+  redibujos.push(() => { dibujaEscalera($('#fig-escalera'), escalones(P.inversion, P.alcance, P.clics, P.mensajes, P.compradores)); Transiciones.tras(); });
+
+  al(['#p-c', '#p-r', '#p-v'], () => {
+    const c = +$('#p-c').value, r = +$('#p-r').value, v = +$('#p-v').value;
+    salida('#p-c', num(c)); salida('#p-r', num(r)); salida('#p-v', num(v));
+    const cacP = P.inversion / c, cacC = (P.inversion + r * 5000) / c, clv = P.margen * v;
+    hbars($('#fig-postres'), [{ id: 'p', nombre: 'CAC de pauta', valor: cacP, clase: 'hb-gris' }, { id: 'c', nombre: 'CAC completo', valor: cacC, clase: 'hb-costo' }, { id: 'v', nombre: 'Lo que deja (CLV)', valor: clv, clase: 'hb-valor-c' }], { fmt: pesos, max: Math.max(cacC, clv, 1) });
+    $('#postres-lect').innerHTML = clv >= cacC ? `Cada cliente deja <b>${pesos(clv)}</b> y costó <b>${pesos(cacC)}</b>: devuelve <b>${num(clv / cacC, 1)}</b> veces lo que costó conseguirlo.` : `Cada cliente deja <b>${pesos(clv)}</b> y costó <b>${pesos(cacC)}</b>: con cada cliente nuevo se pierden <b>${pesos(cacC - clv)}</b>.`;
+  });
+
+  /* ---------- 2 · ¿qué canal apagar? ---------- */
+  $('#tabla-canales').innerHTML = `<caption class="solo-lector">Camino de agosto de 2026 por canal</caption><thead><tr><th>Canal</th><th class="num">Pauta</th><th class="num">Visitas (clics)</th><th class="num">Mensajes (leads)</th><th class="num">Asistieron</th><th class="num">Inscritos</th></tr></thead><tbody>${PAGO.map(c => `<tr><td>${c.corto}</td><td class="num">${pesos(c.pauta)}</td><td class="num">${num(c.visitas)}</td><td class="num">${num(c.mensajes)}</td><td class="num">${c.asistieron}</td><td class="num">${c.insc}</td></tr>`).join('')}</tbody>`;
+  const PELD = { cpc: ['visitas', 'clic'], cpl: ['mensajes', 'lead'], asi: ['asistieron', 'asistente'], cac: ['insc', 'inscrito'] };
+  let peldano = 'cpc';
+  function pintaCanales() {
+    const [campo, palabra] = PELD[peldano];
+    const items = PAGO.map(c => ({ id: c.corto, nombre: c.corto, valor: c.pauta / c[campo], clase: peldano === 'cac' ? 'hb-costo' : 'hb-gris' }));
+    hbars($('#fig-canales'), items, { fmt: v => pesos(v), orden: 'desc' });
+    const caro = items.slice().sort((a, b) => b.valor - a.valor)[0], barato = items.slice().sort((a, b) => a.valor - b.valor)[0];
+    let t = `Por ${palabra}, el más caro es <b>${caro.nombre}</b> (${pesos(caro.valor)}) y el más barato, <b>${barato.nombre}</b> (${pesos(barato.valor)}).`;
+    if (peldano === 'cac') t += ' <span class="giro">El canal del clic más caro trae el inscrito más barato.</span>';
+    if (voto && peldano === 'cac') t += ` Usted votó apagar <b>${voto}</b>: ${voto === 'Google' ? 'por clic era el más caro; por inscrito es el más barato.' : voto === 'TikTok' ? 'tenía el clic más barato y trae el inscrito más caro: si había que apagar uno, era ese.' : 'Meta queda en el medio en los dos extremos del camino.'}`;
+    $('#canales-lect').innerHTML = t;
+  }
+  $$('[data-peldano]').forEach(b => b.addEventListener('click', () => { peldano = b.dataset.peldano; $$('[data-peldano]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); pintaCanales(); }));
+  redibujos.push(pintaCanales);
+
+  al(['#s-clic', '#s-conv', ...$$('input[name="sim-canal"]')], () => {
+    const c = PAGO[+radio('sim-canal')], dc = +$('#s-clic').value, mc = +$('#s-conv').value;
+    salida('#s-clic', (dc > 0 ? '+' : '') + coma(dc) + ' %'); salida('#s-conv', (mc > 0 ? '+' : '') + coma(mc) + ' %');
+    const cpc = c.pauta / c.visitas * (1 + dc / 100), vis = c.pauta / cpc, leads = vis * c.mensajes / c.visitas, ins = leads * (c.insc / c.mensajes) * (1 + mc / 100), cac = c.pauta / ins, hoy = c.pauta / c.insc;
+    hbars($('#fig-sim-canal'), [{ id: 'h', nombre: c.corto + ' hoy', valor: hoy, clase: 'hb-gris' }, { id: 'e', nombre: 'Escenario', valor: cac, clase: cac <= 75000 + 1 ? 'hb-valor-c' : 'hb-costo' }],
+      { fmt: pesos, max: Math.max(260000, cac), refs: PAGO.map(p => ({ valor: p.pauta / p.insc, texto: p.corto })) });
+    $('#sim-canal-lect').innerHTML = `Con la misma pauta de ${pesos(c.pauta)}: <b>${num(leads, 0)}</b> leads, <b>${numS(ins, 1)}</b> inscritos y un CAC de <b>${pesos(cac)}</b> (hoy, ${pesos(hoy)}).`;
+  });
+
+  /* ---------- 3 · el ROAS ---------- */
+  al(['#eq-m', '#eq-r'], () => {
+    const m = +$('#eq-m').value / 100, r = +$('#eq-r').value; salida('#eq-m', pct(m * 100)); salida('#eq-r', num(r, 1));
+    const el = $('#fig-equilibrio'), f = marco(el, 280, { i: 44, d: 16, a: 18, ab: 46 });
+    const x = lin(10, 90, f.x0, f.x1), y = lin(0, 10, f.yb, f.yt);
+    const curva = []; for (let k = 10; k <= 90; k += 1) curva.push([x(k), y(Math.min(10, 100 / k))]);
+    S('path', { d: `M${x(10)},${y(10)} ` + curva.map(p => `L${p[0]},${p[1]}`).join(' ') + ` L${x(90)},${f.yt} L${x(10)},${f.yt} Z`, class: 'zona-gana' }, f.svg);
+    S('path', { d: `M${x(10)},${f.yb} ` + curva.map(p => `L${p[0]},${p[1]}`).join(' ') + ` L${x(90)},${f.yb} Z`, class: 'zona-pierde' }, f.svg);
+    ejeY(f, y, [0, 2, 4, 6, 8, 10], v => num(v));
+    S('path', { d: 'M' + curva.map(p => p.join(',')).join(' L'), class: 'l-costo' }, f.svg);
+    T(f.svg, x(80), y(9), 'gana', { 'text-anchor': 'middle', class: 'tf grande' });
+    T(f.svg, x(80), y(.5), 'pierde', { 'text-anchor': 'middle', class: 'tf grande' });
+    S('line', { x1: x(m * 100), x2: x(m * 100), y1: f.yb, y2: y(Math.min(10, 1 / m)), class: 'l-ref' }, f.svg);
+    S('circle', { cx: x(m * 100), cy: y(Math.min(10, 1 / m)), r: 4.5, class: 'fondo-svg', stroke: 'currentColor' }, f.svg);
+    rombo(f.svg, x(m * 100), y(Math.min(10, r)), 8);
+    ejeX(f, x, [10, 20, 30, 40, 50, 60, 70, 80, 90], v => v + ' %');
+    rotuloEje(f, 'margen sobre el precio de venta', 'x');
+    T(f.svg, f.x0 + 4, f.yt + 12, 'ROAS', { class: 'ts' });
+    const eq = 1 / m, por100 = r * 100 * m - 100;
+    $('#eq-lect').innerHTML = `Con ${pct(m * 100)} de margen, el ROAS de equilibrio es <b>${num(eq, 2)}</b>. Su campaña, con ROAS de <b>${num(r, 1)}</b>, ${por100 >= 0 ? `gana <b>${pesos(por100)}</b>` : `pierde <b>${pesos(-por100)}</b>`} por cada $100 de pauta.`;
+    f.svg.setAttribute('aria-label', `Curva de ROAS de equilibrio; con margen ${pct(m * 100)} el equilibrio es ${num(eq, 2)}.`);
+  });
+  al(['#cu-d', '#cu-b', '#cu-p'], () => {
+    const d = +$('#cu-d').value, b = +$('#cu-b').value, pa = +$('#cu-p').value; salida('#cu-d', d + ' %'); salida('#cu-b', num(b)); salida('#cu-p', pesos(pa));
+    const precio = 40000 * (1 - d / 100), mpb = precio - D.cafeCosto, ventas = b * precio, gan = b * mpb - pa, roas = ventas / pa;
+    if (mpb <= 0) {
+      hbars($('#fig-cupon'), [{ id: 'eq', nombre: 'ROAS de equilibrio', valor: 0, texto: 'no existe', clase: 'hb-gris' }, { id: 'r', nombre: 'ROAS de la campaña', valor: roas, clase: 'hb-costo' }], { fmt: v => num(v, 1), max: 10 });
+      $('#cupon-lect').innerHTML = `Con ${d} % de descuento la bolsa se vende a <b>${pesos(precio)}</b> y cuesta ${pesos(D.cafeCosto)}: ${mpb === 0 ? 'cada venta no deja nada, y falta pagar la pauta' : 'cada venta pierde plata, sin contar la pauta'}.`;
+      return;
+    }
+    const eq = precio / mpb;
+    hbars($('#fig-cupon'), [{ id: 'eq', nombre: 'ROAS de equilibrio', valor: eq, clase: 'hb-gris' }, { id: 'r', nombre: 'ROAS de la campaña', valor: roas, clase: gan >= 0 ? 'hb-valor-c' : 'hb-costo' }], { fmt: v => num(v, 1), max: Math.max(roas, eq) });
+    $('#cupon-lect').innerHTML = `Precio con cupón: <b>${pesos(precio)}</b> · margen por bolsa: <b>${pesos(mpb)}</b> · ventas: <b>${pesos(ventas)}</b>. Ganancia después de pagar la pauta: <b>${pesos(gan)}</b> ${gan >= 0 ? '(gana).' : '(pierde, aunque «venda más de lo que costó»).'}`;
+  });
+
+  /* ---------- 4 · plataformas y benchmarks ---------- */
+  const PLAT = [
+    ['De dónde llega la gente', 'Informes › Adquisición: «Adquisición de usuarios» (el primer canal de cada usuario nuevo) y «Adquisición de tráfico» (el canal de cada sesión).', 'Los informes de fuentes de tráfico y la «fuente original» de cada contacto.'],
+    ['Leads', '«Eventos clave» (antes se llamaban conversiones): enviar un formulario o tocar el botón de WhatsApp, si se configuran.', '«Contactos»; en Marketing › Anuncios, los contactos que trajo cada campaña.'],
+    ['Costo por lead', 'Publicidad › Planificación › Todos los canales: «Costo por evento clave». Solo aparece si la cuenta está vinculada con Google Ads o se importan los costos.', '«Costo por contacto», en Marketing › Anuncios.'],
+    ['Clientes y ventas', '«Ingresos totales», si la compra ocurre en línea. Una inscripción que se paga en la sede no la ve.', '«Negocios» y los ingresos de los que se cierran.'],
+    ['ROAS', '«Retorno de la inversión publicitaria (ROAS)», en el mismo informe y con la misma condición.', '«ROI», en Marketing › Anuncios (planes de pago). Su fórmula depende de cómo se configure la cuenta.'],
+    ['CAC completo y CLV', 'No los calcula: no conoce sueldos ni descuentos.', 'No los calcula solos: hay que armarlos.']];
+  $('#pest-plataformas').innerHTML = PLAT.map((p, k) => `<button class="boton" type="button" data-plat="${k}" aria-pressed="${k === 0}">${p[0]}</button>`).join('');
+  const pintaPlat = k => {
+    const p = PLAT[k], t = $('#tarjetas-plataformas');
+    t.innerHTML = `<div class="tarjeta"><h4>En Google Analytics 4</h4><p>${p[1]}</p></div><div class="tarjeta"><h4>En HubSpot</h4><p>${p[2]}</p></div>`;
+    if (!Transiciones.reducido) t.querySelectorAll('.tarjeta').forEach(x => x.classList.add('cambia'));
+  };
+  $$('[data-plat]').forEach(b => b.addEventListener('click', () => { $$('[data-plat]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); pintaPlat(+b.dataset.plat); }));
+  pintaPlat(0);
+  const G = PAGO[2];
+  al(['#trm'], () => {
+    const trm = +$('#trm').value; salida('#trm', pesos(trm));
+    const cpcA = G.pauta / G.visitas, cplA = G.pauta / G.mensajes;
+    hbars($('#fig-bench'), [{ id: 'todas', nombre: 'Todas las industrias (EE. UU.)', valor: D.bench[0][1] * trm, clase: 'hb-costo' }, { id: 'edu', nombre: 'Educación (EE. UU.)', valor: D.bench[1][1] * trm, clase: 'hb-costo' }, { id: 'ac', nombre: 'Academia · Google', valor: cpcA, clase: 'hb-gris' }], { fmt: pesos });
+    $('#bench-lect').innerHTML = `Con ${pesos(trm)} por dólar, el clic de educación en Estados Unidos cuesta <b>${pesos(D.bench[1][1] * trm)}</b> y el de la academia, <b>${pesos(cpcA)}</b>: <b>${num(D.bench[1][1] * trm / cpcA, 1)}</b> veces menos. El lead: ${pesos(D.bench[1][2] * trm)} contra ${pesos(cplA)}. ¿La academia es ${num(D.bench[1][1] * trm / cpcA, 0)} veces mejor? No: otro país, otra moneda, otra competencia por el clic.`;
+  });
+
+  /* ---------- 5 · el valor y el próximo millón ---------- */
+  al(['#v-r', '#v-m'], () => {
+    const r = +$('#v-r').value / 100, m = +$('#v-m').value; salida('#v-r', pct(r * 100)); salida('#v-m', pesos(m));
+    const el = $('#fig-clv'), f = marco(el, 270, { i: 70, d: 16, a: 18, ab: 46 });
+    const x = lin(50, 95, f.x0, f.x1), maxY = m / (1 - .95), y = lin(0, maxY * 1.05, f.yb, f.yt);
+    ejeY(f, y, marcas(0, maxY, 4), v => num(v / 1e6, 1) + ' M');
+    const pts = []; for (let k = 50; k <= 95; k += .5) pts.push(`${x(k)},${y(m / (1 - k / 100))}`);
+    S('path', { d: 'M' + pts.join(' L'), class: 'l-valor' }, f.svg);
+    [80, 90].forEach(k => S('line', { x1: x(k), x2: x(k), y1: f.yb, y2: y(m / (1 - k / 100)), class: 'l-ref' }, f.svg));
+    rombo(f.svg, x(r * 100), y(m / (1 - r)), 8);
+    ejeX(f, x, [50, 60, 70, 80, 90, 95], v => v + ' %'); rotuloEje(f, 'renovación mensual', 'x');
+    T(f.svg, 4, f.yt + 4, 'CLV', { class: 'ts' });
+    const perm = 1 / (1 - r), clv = m * perm;
+    $('#clv-lect').innerHTML = `Con una renovación de ${pct(r * 100)}, un estudiante se queda <b>${numS(perm, 1)}</b> meses y deja <b>${pesos(clv)}</b>. De 80 % a 90 %, el valor se duplica: de ${pesos(m * 5)} a ${pesos(m * 10)}.`;
+    f.svg.setAttribute('aria-label', `Curva del valor de vida según la renovación; con ${pct(r * 100)} deja ${pesos(clv)}.`);
+  });
+
+  const DEST = ['TikTok', 'Meta', 'Google', 'Programa de referidos', 'Confirmar la clase de prueba'];
+  const ELAS = [D.elast['TikTok Ads'], D.elast['Meta Ads (Instagram y Facebook)'], D.elast['Google (búsqueda)']];
+  function repartir(pesosPor, pts) {
+    return pesosPor.map((x, k) => {
+      let extra, clv;
+      if (k < 3) { const c = PAGO[k]; extra = c.insc * ((c.pauta + x) / c.pauta) ** ELAS[k] - c.insc; clv = MARGEN_MES / (1 - c.renov); }
+      else if (k === 3) { extra = 8 * ((1 + x / 1e6) ** D.refElast - 1); clv = MARGEN_MES / (1 - CAN[3].renov); }
+      else { const p = pts / 100 * Math.min(x, 1e6) / 1e6; extra = D.tot.agendadas * p * D.tot.inscripciones / D.tot.asistieron; clv = MARGEN_MES / (1 - .80); }
+      return { destino: DEST[k], pesos: x, extra, clv, cacM: extra > 1e-9 ? x / extra : NaN, dejan: extra * clv, neto: extra * clv - x };
+    });
+  }
+  const sliders = [0, 1, 2, 3, 4].map(k => $('#m-' + k));
+  function pintaMillon() {
+    const v = sliders.map(s => +s.value * 1000), pts = +$('#m-pts').value;
+    sliders.forEach((s, k) => salida('#m-' + k, pesos(v[k])));
+    salida('#m-pts', pts + ' puntos');
+    const r = repartir(v, pts), total = suma(v), resto = 1e6 - total;
+    const re = $('#restante'); re.textContent = resto === 0 ? 'Reparto completo: $1.000.000.' : resto > 0 ? `Le quedan ${pesos(resto)} por repartir.` : `Se pasó por ${pesos(-resto)}: el presupuesto es $1.000.000.`;
+    re.classList.toggle('mal', resto !== 0);
+    hbars($('#fig-millon'), r.map((d, k) => ({ id: 'd' + k, nombre: d.destino.replace('Programa de referidos', 'Referidos').replace('Confirmar la clase de prueba', 'Confirmar la clase'), valor: d.neto, clase: d.neto >= 0 ? 'hb-valor-c' : 'hb-costo', texto: (d.neto >= 0 ? '+' : '') + pesos(d.neto) })), { fmt: pesos, min: Math.min(-400000, ...r.map(d => d.neto)), max: Math.max(1e6, ...r.map(d => d.neto)) });
+    $('#tabla-millon').innerHTML = `<caption class="solo-lector">Resultado del reparto</caption><thead><tr><th>Destino</th><th class="num">Pesos</th><th class="num">Inscritos extra</th><th class="num">CAC marginal</th><th class="num">Lo que dejan</th><th class="num">Neto</th></tr></thead><tbody>${r.map(d => `<tr><td>${d.destino}</td><td class="num">${pesos(d.pesos)}</td><td class="num">${num(d.extra, 1)}</td><td class="num">${isFinite(d.cacM) ? pesos(d.cacM) : '—'}</td><td class="num">${pesos(d.dejan)}</td><td class="num">${pesos(d.neto)}</td></tr>`).join('')}</tbody><tfoot><tr><td>Total</td><td class="num">${pesos(total)}</td><td class="num">${num(suma(r.map(d => d.extra)), 1)}</td><td></td><td class="num">${pesos(suma(r.map(d => d.dejan)))}</td><td class="num">${pesos(suma(r.map(d => d.neto)))}</td></tr></tfoot>`;
+    $('#millon-lect').innerHTML = `Con este reparto: <b>${num(suma(r.map(d => d.extra)), 1)}</b> inscritos extra y un neto de <b>${pesos(suma(r.map(d => d.neto)))}</b>.`;
+  }
+  al([...sliders, '#m-pts'], pintaMillon);
+  function buscar(mejor) {
+    const pts = +$('#m-pts').value; let elegido = null;
+    for (let a = 0; a <= 10; a++) for (let b = 0; a + b <= 10; b++) for (let c = 0; a + b + c <= 10; c++) for (let d = 0; a + b + c + d <= 10; d++) {
+      const e = 10 - a - b - c - d, rep = [a, b, c, d, e], neto = suma(repartir(rep.map(x => x * 1e5), pts).map(z => z.neto));
+      if (!elegido || (mejor ? neto > elegido[0] : neto < elegido[0])) elegido = [neto, rep];
+    }
+    elegido[1].forEach((x, k) => { sliders[k].value = x * 100; });
+    pintaMillon();
+    $('#millon-lect').innerHTML = `Se probaron los 1.001 repartos posibles, de $100.000 en $100.000. El ${mejor ? 'mejor' : 'peor'}: ${elegido[1].map((x, k) => x ? `${DEST[k]} ${pesos(x * 1e5)}` : '').filter(Boolean).join(' · ')}, con un neto de <b>${pesos(elegido[0])}</b>.`;
+  }
+  $('#m-mejor').addEventListener('click', () => buscar(true));
+  $('#m-peor').addEventListener('click', () => buscar(false));
+
+  /* ---------- 6 · para la casa ---------- */
+  const E = D.escalera;
+  $('#tabla-escalera').innerHTML = `<caption class="solo-lector">El camino de la academia en dos fechas</caption><thead><tr><th>Peldaño del camino</th><th class="num">sep-25</th><th class="num">ago-26</th></tr></thead><tbody><tr><td>Pauta del mes</td><td class="num">${pesos(D.pauta['sep-25'])}</td><td class="num">${pesos(D.pauta['ago-26'])}</td></tr>${E.map(e => `<tr><td>${e[0]}</td><td class="num">${num(e[2])}</td><td class="num">${num(e[3])}</td></tr>`).join('')}</tbody>`;
+  al(['#k-a', '#k-c', '#k-r'], () => {
+    const a = +$('#k-a').value, c = +$('#k-c').value, r = +$('#k-r').value / 100;
+    salida('#k-a', (a > 0 ? '+' : '') + a); salida('#k-c', (c > 0 ? '+' : '') + c + ' %'); salida('#k-r', pct(r * 100));
+    const h = Object.fromEntries(E.map(e => [e[0], e[3]]));
+    const vis = h['Visitas a la web'] / (1 + c / 100), men = vis * h['Mensajes pidiendo información'] / h['Visitas a la web'], ag = men * h['Clases de prueba agendadas'] / h['Mensajes pidiendo información'];
+    const asis = Math.max(0, h['Asistieron a la clase de prueba'] / h['Clases de prueba agendadas'] + a / 100), ins = ag * asis * h['Inscripciones nuevas'] / h['Asistieron a la clase de prueba'];
+    const cacP = D.pauta['ago-26'] / ins, cacC = (D.pauta['ago-26'] + D.equipo['ago-26']) / ins, clv = MARGEN_MES / (1 - r);
+    hbars($('#fig-camino'), [{ id: 'p', nombre: 'CAC de pauta', valor: cacP, clase: 'hb-gris' }, { id: 'c', nombre: 'CAC completo', valor: cacC, clase: 'hb-costo' }, { id: 'v', nombre: 'Lo que deja (CLV)', valor: clv, clase: 'hb-valor-c' }],
+      { fmt: pesos, max: Math.max(clv, cacC, 500000), refs: [{ valor: 103448, texto: 'hoy' }] });
+    $('#camino-lect').innerHTML = `Asistencia: <b>${pct(asis * 100)}</b> · inscripciones: <b>${num(ins, 0)}</b> (hoy son 58) · CAC de pauta: <b>${pesos(cacP)}</b> (hoy, $103.448). CLV ÷ CAC completo: <b>${numS(clv / cacC, 1)}</b> (hoy, 3) · meses para recuperar el CAC: <b>${num(cacC / MARGEN_MES, 1)}</b>.`;
+  });
+
+  /* ---------- 7 · su escalera ---------- */
+  const EJ = { postres: [30000, 3000, 60, 12, 4, 0, 3000, 5], tiktok: [1800000, 57000, 3300, 230, 8, 0, 98000, 2.5], google: [1500000, 11000, 820, 96, 20, 0, 98000, 6.67], meta: [2700000, 76000, 3600, 290, 20, 0, 98000, 4.55] };
+  const ids = ['#u-pauta', '#u-alc', '#u-clic', '#u-lead', '#u-cli', '#u-otros', '#u-margen', '#u-meses'];
+  $$('[data-ej]').forEach(b => b.addEventListener('click', () => { const v = EJ[b.dataset.ej] || EJ.postres; ids.forEach((id, k) => { $(id).value = numS(v[k], 2); }); suEscalera(); }));
+  function suEscalera() {
+    const [pa, alc, cl, le, cli, otros, mg, meses] = ids.map(id => leer($(id).value) || 0);
+    const res = $('#su-res'), lect = $('#su-lect');
+    if (!(pa > 0)) { $('#fig-su').innerHTML = ''; res.innerHTML = ''; lect.textContent = 'Escriba la pauta y al menos un peldaño del camino.'; return; }
+    dibujaEscalera($('#fig-su'), escalones(pa, alc, cl, le, cli), { alto: 330 });
+    const cacP = cli > 0 ? pa / cli : NaN, cacC = cli > 0 ? (pa + otros) / cli : NaN, clv = mg * meses;
+    const fila = (a, b) => `<li>${a}<b>${b}</b></li>`;
+    res.innerHTML = [alc > 0 && fila('CPM', pesos(pa / alc * 1000)), cl > 0 && fila('CPC', pesos(pa / cl)), le > 0 && fila('CPL', pesos(pa / le)), cli > 0 && fila('CAC de pauta', pesos(cacP)), cli > 0 && fila('CAC completo', pesos(cacC)), clv > 0 && fila('CLV', pesos(clv)), cli > 0 && clv > 0 && fila('CLV ÷ CAC', num(clv / cacC, 1)), cli > 0 && mg > 0 && fila('Para recuperar el CAC', num(cacC / mg, 1) + (meses ? ' meses o compras' : ''))].filter(Boolean).join('');
+    const f = [];
+    if (cl > 0 && cli > 0) f.push(`El cliente costó <b>${num(cacP / (pa / cl), 0)}</b> veces lo que costó el clic.`);
+    if (cli > 0 && clv > 0) f.push(clv < cacC ? 'Cada cliente deja menos de lo que costó conseguirlo: así cada cliente nuevo resta.' : clv < 3 * cacC ? 'Cada cliente deja más de lo que costó, pero con poco margen para pagar al equipo y los imprevistos.' : 'Cada cliente deja varias veces lo que costó: hay espacio para invertir, mirando el costo del próximo cliente, no el promedio.');
+    if (cli > 0 && !(clv > 0)) f.push('Escriba el margen y la permanencia para comparar el costo con el valor.');
+    if (otros > 0) f.push(`Los otros costos suben el CAC en ${pesos(cacC - cacP)} por cliente: por eso el CAC siempre se escribe con su fórmula.`);
+    lect.innerHTML = f.join(' ');
+  }
+  ids.forEach(id => $(id).addEventListener('input', suEscalera));
+  redibujos.push(suEscalera);
+
+  /* ---------- cierre ---------- */
+  function cierre() {
+    const p = $('#cierre-voto');
+    if (!voto) return;
+    p.innerHTML = voto === 'Google' ? 'Usted votó apagar Google, como suele votar la mayoría. Al final del camino, ese canal traía el inscrito más barato y el que más se queda: apagarlo habría ahorrado clics y perdido estudiantes.'
+      : voto === 'TikTok' ? 'Usted votó apagar TikTok. Al final del camino, era el canal del inscrito más caro y del que menos se queda: el clic barato escondía un cliente caro.'
+      : 'Usted votó apagar Meta, el canal del medio. Al final del camino, el más barato por inscrito era Google y el más caro, TikTok: el primer peldaño no lo decía.';
+  }
+
+  activarComprobaciones();
+  const todo = () => redibujos.forEach(f => f());
+  todo(); Transiciones.todo();
+  let ancho = innerWidth, espera;
+  addEventListener('resize', () => { if (innerWidth === ancho) return; ancho = innerWidth; clearTimeout(espera); espera = setTimeout(() => { todo(); Transiciones.todo(); }, 150); });
+  document.fonts && document.fonts.ready.then(() => { todo(); Transiciones.todo(); });
+})();
+
+</script>

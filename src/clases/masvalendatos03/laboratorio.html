@@ -1,0 +1,1281 @@
+<div class="r-cuaderno">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 3</a>
+  <ol class="bn-lista">
+    <li><a href="#centro" data-sec="centro"><span>1</span>El centro</a></li>
+    <li><a href="#forma" data-sec="forma"><span>2</span>La forma</a></li>
+    <li><a href="#dispersion" data-sec="dispersion"><span>3</span>La dispersión</a></li>
+    <li><a href="#relacion" data-sec="relacion"><span>4</span>La relación</a></li>
+    <li><a href="#casa" data-sec="casa"><span>5</span>Para la casa</a></li>
+    <li><a href="#laboratorio" data-sec="laboratorio"><span>6</span>Su laboratorio</a></li>
+    <li><a href="#repaso" data-sec="repaso"><span>7</span>Repaso</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Más valen datos que percepciones · Sesión 3 · Laboratorio</p>
+
+  <!-- APERTURA: la apuesta, antes del título -->
+  <section class="columna" aria-label="Apertura">
+    <p>Cuarenta y dos personas en un salón, cada una con $1.300.000 al mes. Se abre la puerta y entra un futbolista que gana $900 millones al mes (las cifras son inventadas). Nadie en el salón tiene un peso más que hace un minuto.</p>
+    <form class="apuesta" id="ap-salon" data-dato="22.2" data-unidad=" millones" data-puntos=" millones">
+      <p class="rotulo">Apueste antes de seguir</p>
+      <label for="ap1">¿Cuál es ahora, más o menos, el ingreso promedio del salón?</label>
+      <input id="ap1" type="range" min="1" max="40" step="0.5" value="5"><output for="ap1"></output><button type="submit">Apostar</button>
+      <p class="apuesta-dato" tabindex="-1">Es de <strong>$22,2 millones</strong>: los $954,6 millones del salón repartidos entre 43 personas. <span data-juicio></span> Y 42 de las 43 personas ganan menos que ese «promedio». ¿Describe a alguien?</p>
+    </form>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De resumen a retrato"><span class="par"><span class="nexo">De</span> <mark class="marca-a">resumen</mark></span><span class="par"><span class="nexo">a</span> <mark class="marca-b">retrato</mark></span></h1>
+    <p class="entradilla">Un número solo resume, pero no retrata. Con cuatro preguntas —dónde está el centro, qué forma tienen los datos, qué tan parecidos son y qué se mueve con qué— se dibuja el retrato de un grupo y se decide para personas reales.</p>
+    <p class="firma">Por Brayeam Beltrán · Bogotá, octubre de 2026</p>
+  </header>
+
+  <blockquote class="epigrafe"><p>«El hombre medio, en efecto, es en una nación lo que el centro de gravedad es en un cuerpo.»</p><footer>Adolphe Quetelet, <cite>Sobre el hombre y el desarrollo de sus facultades</cite>, 1835 (traducción propia)</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer este laboratorio: el durazno marca <mark class="marca-a">lo que se va</mark> —la percepción—, la menta <mark class="marca-b">lo que llega</mark> —el dato— y la lavanda <mark class="marca-c">lo que permanece</mark> —el método—; <span class="giro">el subrayado ciruela señala el giro</span>.</p>
+    <ul class="claves" aria-label="Cómo leer los gráficos">
+      <li><span class="muestra prom"></span>promedio</li>
+      <li><span class="muestra med"></span>mediana</li>
+      <li><span class="muestra dec"></span>su decisión</li>
+      <li><span class="muestra dato"></span>los datos</li>
+    </ul>
+    <p style="margin-top:2rem">Lo miraremos con cuatro preguntas, en este orden, y después vienen la tarea y un laboratorio para sus propios datos:</p>
+    <ol class="ruta-lista">
+      <li><a href="#centro">El centro</a></li>
+      <li><a href="#forma">La forma · ejercicio 1</a></li>
+      <li><a href="#dispersion">La dispersión · ejercicio 2</a></li>
+      <li><a href="#relacion">La relación · ejercicio 3</a></li>
+      <li><a href="#casa">Para la casa</a></li>
+      <li><a href="#laboratorio">Su laboratorio</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Cada estación trae tres cosas: una apuesta para predecir antes de ver, perillas para mover y mirar qué cambia, y un recuadro «Compruebe su cuaderno» donde usted escribe lo que calculó a mano y el laboratorio le dice si va bien, sin regalarle la respuesta. Lo que usted escribe aquí no sale de su navegador.</p>
+  </section>
+
+  <!-- 1 · EL CENTRO -->
+  <section class="columna" id="centro">
+    <h2 class="seccion"><span class="estacion-num">Estación 1</span>El centro</h2>
+    <p>¿Qué número describe al salón? Hay tres candidatos. La <mark class="marca-c">media</mark> o promedio reparte la suma por igual entre todos; la <mark class="marca-c">mediana</mark> es el valor del medio cuando se ordenan los datos; la <mark class="marca-c">moda</mark> es el que más se repite. Mueva las perillas y mire cuál se deja arrastrar.</p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t">Un solo ingreso arrastra el promedio; la mediana no se entera</h3><p class="figura-clave">Cada cuadro es una persona del salón; el negro es quien entra. Las barras comparan la mediana y el promedio.</p></div>
+    <div class="mandos">
+      <label class="perilla">Personas en el salón <output id="salon-n-o"></output><input id="salon-n" type="range" min="5" max="500" step="1" value="42"></label>
+      <label class="perilla">Ingreso de quien entra <output id="salon-m-o"></output><input id="salon-m" type="range" min="1" max="2000" step="1" value="900"></label>
+    </div>
+    <div class="lienzo" id="fig-salon"></div>
+    <p class="lectura" id="salon-lect" aria-live="polite"></p>
+    <p class="figura-nota">Cifras inventadas. El gráfico no muestra un salón real: aquí todos ganan lo mismo, salvo uno.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Ponga 500 personas en el salón. ¿Deja de notarse el futbolista?</summary><p>No. El promedio baja a unos $3,1 millones, todavía más del doble de lo que gana cada persona. La mediana sigue en $1.300.000.</p></details>
+      <details class="repaso"><summary>En un salón de 42, ¿cuánto tendría que ganar quien entra para duplicar el promedio?</summary><p>Unos $57 millones: el promedio doble es $2,6 millones; por 43 personas da $111,8 millones, y los 42 ya suman $54,6 millones.</p></details>
+      <details class="repaso"><summary>¿Hay alguna posición de las perillas que mueva la mediana?</summary><p>No, mientras entre una sola persona: la del medio sigue ganando $1.300.000. Por eso se dice que la mediana es <strong>resistente</strong>.</p></details>
+    </div>
+  </div>
+
+  <section class="columna">
+    <p>Lo mismo pasa con datos de verdad. Estos son los 42 tiempos de viaje del curso simulado de la sesión 2: el promedio es 62,5 minutos y la mediana, 65. Ahora llega un compañero que viaja cuatro horas desde Girardot.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t">Llega un viajero de cuatro horas: el promedio sube y la mediana ni se entera</h3><p class="figura-clave">Cada columna cuenta cuántos estudiantes tardan entre esos minutos (de diez en diez). Mueva las perillas para traer más viajeros.</p></div>
+    <div class="mandos">
+      <label class="perilla">Viajeros que llegan <output id="via-n-o"></output><input id="via-n" type="range" min="0" max="10" step="1" value="1"></label>
+      <label class="perilla">Minutos que tarda cada uno <output id="via-m-o"></output><input id="via-m" type="range" min="60" max="600" step="10" value="240"></label>
+    </div>
+    <div class="lienzo" id="fig-viajero"></div>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="via-tabla"></table></div>
+    <p class="figura-nota">Datos simulados del curso (sesión 2). El gráfico no muestra quién viaja ni por qué: solo cuánto.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>¿Cuántos viajeros de cuatro horas hacen falta para mover la mediana?</summary><p>Con uno no se mueve (65). Con dos sube a 67,5, y con más sigue subiendo despacio, de dato en dato. El promedio, en cambio, salta con cada viajero.</p></details>
+      <details class="repaso"><summary>Ponga cero viajeros. ¿Por qué el promedio (62,5) queda por debajo de la mediana (65)?</summary><p>Porque los tiempos cortos se alejan más del centro que los largos —hay quien llega a pie en 10 minutos— y jalan el promedio hacia abajo.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <div class="tabla-marco" tabindex="0"><table class="tabla">
+      <caption class="solo-lector">Qué medida de centro sirve para cada tipo de dato</caption>
+      <thead><tr><th>Tipo de dato</th><th>Ejemplo</th><th>Medidas que sirven</th></tr></thead>
+      <tbody>
+        <tr><td>Categoría sin orden</td><td>localidad, medio de transporte</td><td>solo la moda</td></tr>
+        <tr><td>Categoría con orden</td><td>estrellas de 1 a 5</td><td>mediana y moda; el promedio, con la distribución al lado</td></tr>
+        <tr><td>Número</td><td>minutos, pesos, panes</td><td>las tres</td></tr>
+      </tbody></table></div>
+    <div class="historia">
+      <h3>El piloto promedio no existía</h3>
+      <p>El «hombre medio» de Quetelet hizo carrera: las cabinas de los aviones militares de Estados Unidos se diseñaban para el piloto promedio. En 1950 la Fuerza Aérea midió a 4.063 pilotos, y el teniente Gilbert Daniels contó cuántos quedaban cerca del promedio en las diez medidas más importantes. Resultado: ninguno. La solución fue diseñar para la variedad: asientos, pedales y correas ajustables (Daniels, 1952; Rose, 2016).</p>
+    </div>
+    <p class="frase">El promedio resume; no retrata.</p>
+    <p class="siguiente"><a href="#forma"><span><small>Siguiente estación</small>La forma</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+
+  <!-- 2 · LA FORMA -->
+  <section class="columna" id="forma">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 1</span>La forma</h2>
+    <p>Hamburguesas El Parche recibió 30 reseñas el viernes y el sábado, y la aplicación las resume en 3,2 estrellas. El dueño concluye: «ni bien ni mal, vamos regular». Antes de creerle, una apuesta con las reseñas de todo el semestre.</p>
+    <form class="apuesta" id="ap-resenas" data-dato="4.6" data-unidad=" %" data-puntos=" puntos">
+      <p class="rotulo">Apueste antes de seguir</p>
+      <label for="ap2">En el semestre, El Parche recibió 151 reseñas los viernes y sábados, con un promedio de 3,2. ¿Qué porcentaje cree usted que dio exactamente 3 estrellas?</label>
+      <input id="ap2" type="range" min="0" max="100" step="1" value="40"><output for="ap2"></output><button type="submit">Apostar</button>
+      <p class="apuesta-dato" tabindex="-1">Solo <strong>7 de 151, el 4,6 %</strong>. <span data-juicio></span> La nota «promedio» casi nadie la dio: a unos les fue muy bien y a otros muy mal.</p>
+    </form>
+    <p>Un resumen no ve eso; la <mark class="marca-b">forma</mark> sí. Para verla se cuenta: una <mark class="marca-c">tabla de frecuencias</mark> dice cuántos datos caen en cada valor, y su gráfico es el histograma. Cuente las 30 reseñas del ejercicio una por una, como en el cuaderno: un palito por reseña, en su fila.</p>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t">Treinta reseñas, una por una: así se arma la tabla de frecuencias</h3><p class="figura-clave">Arriba, las reseñas en el orden en que llegaron. Cada clic cuenta una: su palito va a la tabla y su estrella, a la columna.</p></div>
+    <ol class="chips" id="chips" aria-label="Las 30 reseñas en orden de llegada"></ol>
+    <div class="botones" style="justify-content:center;margin:0 auto 1.25rem">
+      <button class="boton" type="button" id="t-uno">Contar la siguiente</button>
+      <button class="boton" type="button" id="t-todas">Contar todas</button>
+      <button class="boton" type="button" id="t-cero">Empezar de nuevo</button>
+    </div>
+    <div class="conteo" id="conteo" aria-label="Tabla de frecuencias con palitos"></div>
+    <div class="lienzo" id="fig-estrellas"></div>
+    <p class="lectura" id="t-lect" aria-live="polite"></p>
+    <p class="figura-nota">Datos simulados. El histograma no dice por qué a unos les fue bien y a otros mal: eso hay que averiguarlo.</p>
+  </section>
+  <form class="comprobar" id="c-ej1" novalidate>
+    <h3>Compruebe su cuaderno · Ejercicio 1</h3>
+    <p>Escriba lo que obtuvo a mano y pulse «Revisar». Use coma para los decimales.</p>
+    <fieldset class="grupo-campos"><legend>Frecuencias</legend><div class="campos">
+      <label class="campo"><span class="campo-t">1 estrella</span><input inputmode="decimal" data-ok="7" data-tol="0" data-pista="Vuelva a recorrer la lista una sola vez, palito por palito."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">2 estrellas</span><input inputmode="decimal" data-ok="6" data-tol="0" data-pista="Vuelva a recorrer la lista una sola vez, palito por palito."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">3 estrellas</span><input inputmode="decimal" data-ok="1" data-tol="0" data-pista="Mire con cuidado: es la fila más corta."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">4 estrellas</span><input inputmode="decimal" data-ok="5" data-tol="0" data-pista="Vuelva a recorrer la lista una sola vez, palito por palito."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">5 estrellas</span><input inputmode="decimal" data-ok="11" data-tol="0" data-pista="Vuelva a recorrer la lista una sola vez. Las cinco frecuencias deben sumar 30."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Centro</legend><div class="campos">
+      <label class="campo"><span class="campo-t">Promedio</span><input inputmode="decimal" data-ok="3.233" data-tol="0.06" data-pista="Multiplique cada número de estrellas por su frecuencia y sume: debe dar 97. Luego divida entre 30."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Mediana</span><input inputmode="decimal" data-ok="4" data-tol="0" data-pista="Con 30 datos ordenados, la mediana es el promedio de los datos 15 y 16. Cuente desde el 1 sumando frecuencias."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Moda</span><input inputmode="decimal" data-ok="5" data-tol="0" data-pista="Es el número de estrellas con la frecuencia más alta."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>Frecuencias de 1 a 5 estrellas: 7, 6, 1, 5 y 11 (suman 30). Promedio: 1×7 + 2×6 + 3×1 + 4×5 + 5×11 = 97; 97 ÷ 30 = <strong>3,2</strong>. Mediana: los datos 15 y 16 de la lista ordenada son cuatros, así que es <strong>4</strong>. Moda: <strong>5</strong>. Solo una persona de treinta dio la nota «promedio»: la distribución tiene dos montañas.</p></div>
+  </form>
+
+  <section class="columna">
+    <p>Con las 300 reseñas del semestre se puede ir más lejos: elegir los días y probar un escenario. Suponga que El Parche arregla una parte de las malas experiencias, de modo que esas reseñas de 1 o 2 estrellas pasan a 4. ¿Cuánto sube el promedio?</p>
+  </section>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t">Arreglar a los inconformes sube el promedio más que mejorar un poco todo</h3><p class="figura-clave">Barras grises: las reseñas de hoy. Barras ciruela: el escenario que usted arma con la perilla.</p></div>
+    <div class="mandos">
+      <fieldset class="segmento"><legend>Días</legend>
+        <label><input type="radio" name="dias" value="fds" checked>Viernes y sábado</label>
+        <label><input type="radio" name="dias" value="sem">Domingo a jueves</label>
+        <label><input type="radio" name="dias" value="todos">Todos</label>
+      </fieldset>
+      <label class="perilla">Malas experiencias arregladas <output id="r-arr-o"></output><input id="r-arr" type="range" min="0" max="100" step="5" value="0"></label>
+    </div>
+    <div class="lienzo" id="fig-300"></div>
+    <p class="lectura" id="r-lect" aria-live="polite"></p>
+    <p class="figura-nota">Datos simulados de la sesión 1. El escenario supone que cada experiencia arreglada se vuelve una reseña de 4 estrellas; en la vida real, no se sabe.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Compare «Viernes y sábado» con «Domingo a jueves». ¿Dónde están las dos montañas?</summary><p>En el fin de semana: muchas reseñas de 1 y de 5 estrellas y casi ninguna de 3. Entre semana la forma es más pareja y el promedio, más alto.</p></details>
+      <details class="repaso"><summary>¿Qué porcentaje de malas experiencias habría que arreglar el fin de semana para llegar a 4,0?</summary><p>Alrededor del 75 %: con 70 % el promedio queda en 3,97 y con 75 %, en 4,03. Arreglar la mitad ya lo sube de 3,2 a 3,75.</p></details>
+      <details class="repaso"><summary>Escriba dos explicaciones de las dos montañas. ¿Qué dato pediría para comprobar cada una?</summary><p>Por ejemplo: dos públicos distintos (familias y grupos de amigos), o dos experiencias (la cocina desbordada en la hora pico, los domicilios que llegan fríos). Para comprobarlas: la hora, el canal y el plato de cada reseña.</p></details>
+    </div>
+  </div>
+  <section class="columna"><p class="frase">Antes de resumir, mire la forma.</p><p class="siguiente"><a href="#dispersion"><span><small>Siguiente estación</small>La dispersión</span><span class="flecha" aria-hidden="true">→</span></a></p></section>
+
+  <!-- 3 · LA DISPERSIÓN -->
+  <section class="columna" id="dispersion">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 2</span>La dispersión</h2>
+    <p>Dos rutas tardan 40 minutos en promedio hasta la universidad. ¿Cuál toma usted el día de un parcial? Si duda, ya entendió la <mark class="marca-b">dispersión</mark>: el centro no basta; también importa qué tan parecidos son los datos entre sí.</p>
+  </section>
+  <section class="figura" aria-labelledby="f5t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f5t">Mismo promedio, distinta confianza</h3><p class="figura-clave">Cada punto es un día de viaje; la raya terracota es el promedio de cada ruta.</p></div>
+    <div class="lienzo" id="fig-rutas"></div>
+    <p class="figura-nota">Datos simulados de cinco días por ruta. No muestra la hora de salida ni el tráfico de cada día.</p>
+  </section>
+  <section class="columna">
+    <p>La <mark class="marca-c">desviación estándar</mark> mide la distancia típica de cada dato al promedio. Se calcula en cinco pasos, y esta tabla los hace con usted. Cambie cualquier tiempo y mire cómo se recalcula todo; o escriba los suyos.</p>
+    <div class="botones" style="margin-bottom:1rem"><button class="boton" type="button" id="sd-a">Ruta A</button><button class="boton" type="button" id="sd-b">Ruta B</button></div>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-sd"></table></div>
+    <p class="lectura" id="sd-lect" aria-live="polite"></p>
+    <details class="repaso" style="margin-top:1.5rem"><summary>¿Por qué se elevan al cuadrado las distancias, y por qué se divide entre n − 1?</summary><p>Las distancias al promedio siempre suman cero: las negativas cancelan a las positivas. Al cuadrado, todas cuentan. Se divide entre n − 1, y no entre n, porque los datos son una muestra; así lo hacen la calculadora del celular y este laboratorio.</p></details>
+  </section>
+  <section class="figura" aria-labelledby="f6t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f6t">Con el mismo promedio, la ruta que más varía lo deja tarde más veces</h3><p class="figura-clave">Doscientos días simulados de viaje. El rombo ciruela es la anticipación con la que usted sale: todo lo que queda a su derecha es llegar tarde.</p></div>
+    <div class="mandos">
+      <label class="perilla">Promedio de la ruta <output id="t-prom-o"></output><input id="t-prom" type="range" min="20" max="90" step="1" value="40"></label>
+      <label class="perilla">Desviación estándar <output id="t-desv-o"></output><input id="t-desv" type="range" min="0.5" max="25" step="0.1" value="14.9"></label>
+      <label class="perilla">Sale con esta anticipación <output id="t-ant-o"></output><input id="t-ant" type="range" min="20" max="120" step="1" value="45"></label>
+    </div>
+    <div class="lienzo" id="fig-tarde"></div>
+    <p class="lectura" id="tarde-lect" aria-live="polite"></p>
+    <p class="figura-nota">Simulación con una distribución normal y semilla fija: siempre salen los mismos 200 días. Los viajes reales pueden tener colas más largas.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Deje la anticipación en 45. ¿Cuántos días llega tarde con la desviación de la ruta A (1,4) y con la de la ruta B (14,9)?</summary><p>Con la ruta A, ninguno; con la B, 88 de 200: casi la mitad de los días. Mismo promedio, otra vida.</p></details>
+      <details class="repaso"><summary>¿Cuánta anticipación necesita la ruta B para llegar tarde menos de 1 de cada 20 días?</summary><p>Unos 65 minutos: con 65 llega tarde 9 de 200 días. Es el promedio más algo más de una desviación y media: la desviación le dice cuánto colchón dejar.</p></details>
+    </div>
+  </div>
+
+  <section class="columna">
+    <p><strong>Ejercicio 2 · ¿Cuánto pan hornear?</strong> Doña Rosa hornea 450 panes cada martes y cada miércoles, «porque los dos días se vende lo mismo». El pan que sobra se regala al cierre. Resuelva el ejercicio en su cuaderno con la guía y compruébelo aquí.</p>
+  </section>
+  <form class="comprobar" id="c-ej2" novalidate>
+    <h3>Compruebe su cuaderno · Ejercicio 2</h3>
+    <p>Desviación con dos decimales o uno, y coeficiente de variación en porcentaje.</p>
+    <fieldset class="grupo-campos"><legend>Martes</legend><div class="campos">
+      <label class="campo"><span class="campo-t">Promedio</span><input inputmode="decimal" data-ok="370" data-tol="0.05" data-pista="Sume las seis semanas (debe dar 2.220) y divida entre 6."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Desviación estándar</span><input inputmode="decimal" data-ok="8.944" data-tol="0.1" data-pista="La suma de las distancias al cuadrado da 400; divídala entre 5 y saque la raíz."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Coeficiente de variación (%)</span><input inputmode="decimal" data-ok="2.417" data-tol="0.12" data-pct="1" data-pista="Desviación ÷ promedio, por 100."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Panes para hornear</span><input inputmode="decimal" data-ok="380" data-tol="0" data-pista="Promedio más una desviación, redondeado hacia arriba a la decena."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Miércoles</legend><div class="campos">
+      <label class="campo"><span class="campo-t">Promedio</span><input inputmode="decimal" data-ok="370" data-tol="0.05" data-pista="Sume las seis semanas (debe dar 2.220) y divida entre 6."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Desviación estándar</span><input inputmode="decimal" data-ok="34.059" data-tol="0.1" data-pista="La suma de las distancias al cuadrado da 5.800; divídala entre 5 y saque la raíz."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Coeficiente de variación (%)</span><input inputmode="decimal" data-ok="9.205" data-tol="0.12" data-pct="1" data-pista="Desviación ÷ promedio, por 100."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Panes para hornear</span><input inputmode="decimal" data-ok="410" data-tol="0" data-pista="Promedio más una desviación, redondeado hacia arriba a la decena."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>Los dos días promedian <strong>370</strong> panes. Martes: suma de cuadrados 400, varianza 80, desviación <strong>8,9</strong>, coeficiente de variación <strong>2,4 %</strong>. Miércoles: 5.800, 1.160, <strong>34,1</strong> y <strong>9,2 %</strong>. Con la regla, se hornean <strong>380</strong> y <strong>410</strong>. Hoy sobran 80 panes en promedio cada día; con la propuesta sobrarían 10 y 40, y en ninguna de las seis semanas habría faltado pan.</p></div>
+  </form>
+
+  <section class="figura" aria-labelledby="f7t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f7t">La mejor cantidad depende de cuánto cuesta equivocarse</h3><p class="figura-clave">Arriba, las seis semanas: lo que la gente quiso comprar. Abajo, la ganancia de cada cantidad posible; el rombo es la suya.</p></div>
+    <div class="mandos">
+      <fieldset class="segmento"><legend>Día</legend>
+        <label><input type="radio" name="pan-dia" value="martes">Martes</label>
+        <label><input type="radio" name="pan-dia" value="miercoles" checked>Miércoles</label>
+      </fieldset>
+      <label class="perilla">Panes a hornear <output id="p-q-o"></output><input id="p-q" type="range" min="300" max="460" step="10" value="450"></label>
+      <label class="perilla">Costo de hacer un pan (supuesto) <output id="p-c-o"></output><input id="p-c" type="range" min="200" max="1400" step="100" value="600"></label>
+      <label class="perilla">Precio de venta (supuesto) <output id="p-p-o"></output><input id="p-p" type="range" min="1000" max="3000" step="100" value="1500"></label>
+    </div>
+    <div class="lienzo" id="fig-pan-tira"></div>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="pan-tabla"></table></div>
+    <p class="lectura" id="pan-lect" aria-live="polite"></p>
+    <div class="lienzo" id="fig-pan"></div>
+    <p class="figura-nota">Ventas simuladas de seis semanas; el costo y el precio son supuestos. El simulador supone que lo vendido es todo lo que la gente quiso comprar.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Baje los panes hasta que empiece a faltar. ¿En cuál de los dos días pasa primero?</summary><p>En el miércoles: con 400 panes ya falta una semana y con 390, dos; el martes aguanta hasta 380. Más dispersión pide más colchón.</p></details>
+      <details class="repaso"><summary>Suba el costo de hacer un pan a $1.200. ¿Conviene hornear más o menos?</summary><p>Menos. Cuando sobrar sale caro, conviene quedarse cerca del promedio aunque a veces falte; cuando sobrar sale barato, conviene hornear de más.</p></details>
+      <details class="repaso"><summary>Los viernes se vendieron 550, 550, 545, 550, 550 y 550 panes. ¿La clientela más estable del mundo?</summary><p>No: los viernes solo se hornean 550 y casi siempre se agotan. Un techo también borra la dispersión. Los datos registran lo que se vendió, no lo que se habría podido vender.</p></details>
+    </div>
+  </div>
+  <section class="columna"><p class="frase">El promedio dice qué esperar; la desviación, cuánto fiarse.</p><p class="siguiente"><a href="#relacion"><span><small>Siguiente estación</small>La relación</span><span class="flecha" aria-hidden="true">→</span></a></p></section>
+
+  <!-- 4 · LA RELACIÓN -->
+  <section class="columna" id="relacion">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Ejercicio 3</span>La relación</h2>
+    <p>La cuarta pregunta ya no mira una variable, sino dos. La <mark class="marca-c">correlación</mark>, que se escribe <i>r</i>, va de −1 a 1 y dice qué tan juntas se mueven en línea recta: cerca de 1, cuando una sube la otra también; cerca de −1, cuando una sube la otra baja; cerca de 0, no hay relación lineal. Como guía, y sin mirar el signo: por debajo de 0,3 es débil; entre 0,3 y 0,7, moderada; por encima de 0,7, fuerte.</p>
+    <p>Sin fórmula, se mide con el método de los cuadrantes: se trazan las líneas de los dos promedios y se cuentan los puntos «de acuerdo» (arriba a la derecha y abajo a la izquierda) y «en contra». Fabrique una nube y cuente.</p>
+  </section>
+  <section class="figura" aria-labelledby="f8t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f8t">Así se ve cada valor de r</h3><p class="figura-clave">Las líneas punteadas son los promedios; los cuadrantes lavanda son los «de acuerdo».</p></div>
+    <div class="mandos">
+      <label class="perilla">Correlación que usted pide <output id="c-r-o"></output><input id="c-r" type="range" min="-1" max="1" step="0.1" value="0.6"></label>
+      <label class="perilla">Número de puntos <output id="c-n-o"></output><input id="c-n" type="range" min="5" max="300" step="5" value="100"></label>
+    </div>
+    <div class="lienzo" id="fig-corr"></div>
+    <p class="lectura" id="corr-lect" aria-live="polite"></p>
+    <p class="figura-nota">Puntos fabricados con semilla fija. Con pocos puntos, el r obtenido se aleja del pedido: en muestras pequeñas la correlación es inestable.</p>
+  </section>
+  <section class="columna">
+    <p>Con fórmula, la correlación compara cuánto se alejan juntas las dos variables de sus promedios. Esta es la tabla del ejemplo resuelto de la guía: cinco semanas de publicaciones y ventas de una sede. Cambie un número y mire qué pasa.</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-r"></table></div>
+    <p class="lectura" id="r5-lect" aria-live="polite"></p>
+    <details class="repaso" style="margin-top:1.5rem"><summary>Cambie la última venta de 5 a 1. ¿Qué le pasa a r?</summary><p>Pasa de 0,77 a −0,19: un solo dato le da la vuelta. Cinco puntos son muy pocos para sacar conclusiones.</p></details>
+  </section>
+
+  <section class="columna">
+    <p>Y una advertencia sobre el propio número. Cuatro sedes de El Parche anotaron durante 11 semanas sus publicaciones en Instagram y sus ventas. Su resumen es idéntico:</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-sedes"></table></div>
+  </section>
+  <section class="figura" aria-labelledby="f9t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f9t">El mismo resumen esconde cuatro historias</h3><p class="figura-clave">Publicaciones por semana en el eje horizontal y ventas en millones en el vertical. La línea es la misma recta para las cuatro.</p></div>
+    <div class="sedes-rejilla" id="fig-sedes"></div>
+    <p class="figura-nota">Datos: cuarteto de Anscombe (1973), con nombres de sedes inventados. Antes de calcular, mire.</p>
+  </section>
+
+  <section class="columna">
+    <p><strong>Ejercicio 3 · ¿Los mensajes hacen que compren más?</strong> La hija de doña Rosa revisó nueve clientes del Club del Pan y propone escribirles más a todos, porque quienes reciben más mensajes de WhatsApp compran más. A los hogares les llegan avisos de horneada y promociones; a los negocios, además, se les confirma cada pedido.</p>
+    <form class="apuesta" id="ap-club" data-dato="0.02" data-unidad="" data-puntos="">
+      <p class="rotulo">Apueste antes de seguir</p>
+      <label for="ap3">Con los 120 clientes del Club, la correlación entre mensajes y compras es de 0,93. Si se miran solo los 96 hogares, ¿cuánto cree usted que da?</label>
+      <input id="ap3" type="range" min="-1" max="1" step="0.05" value="0.8"><output for="ap3"></output><button type="submit">Apostar</button>
+      <p class="apuesta-dato" tabindex="-1">Da <strong>0,02</strong>: prácticamente nada. <span data-juicio></span> La nube completa mezcla dos públicos. Véalo abajo.</p>
+    </form>
+  </section>
+  <section class="figura" aria-labelledby="f10t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f10t">La relación casi perfecta se deshace al separar a los hogares de los negocios</h3><p class="figura-clave">Círculos: hogares. Equis: negocios. Las líneas punteadas son los promedios del grupo que usted elija.</p></div>
+    <div class="mandos">
+      <fieldset class="segmento"><legend>Base</legend>
+        <label><input type="radio" name="m-base" value="9" checked>Los 9 del ejercicio</label>
+        <label><input type="radio" name="m-base" value="120">Los 120 del Club</label>
+      </fieldset>
+      <fieldset class="segmento"><legend>Grupo</legend>
+        <label><input type="radio" name="m-grupo" value="todos" checked>Todos</label>
+        <label><input type="radio" name="m-grupo" value="H">Hogares</label>
+        <label><input type="radio" name="m-grupo" value="N">Negocios</label>
+      </fieldset>
+    </div>
+    <div class="lienzo" id="fig-msj"></div>
+    <p class="lectura" id="msj-lect" aria-live="polite"></p>
+    <p class="figura-nota">Mensajes y compras de ocho semanas; datos simulados de clientes que autorizaron el contacto. No muestra qué dicen los mensajes.</p>
+  </section>
+  <form class="comprobar" id="c-ej3" novalidate>
+    <h3>Compruebe su cuaderno · Ejercicio 3</h3>
+    <p>Con los nueve clientes y, después, solo con los cinco hogares.</p>
+    <fieldset class="grupo-campos"><legend>Los nueve clientes</legend><div class="campos">
+      <label class="campo"><span class="campo-t">Promedio de mensajes</span><input inputmode="decimal" data-ok="18" data-tol="0.05" data-pista="Sume los nueve (162) y divida entre 9."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Promedio de compras</span><input inputmode="decimal" data-ok="17" data-tol="0.05" data-pista="Sume los nueve (153) y divida entre 9."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Puntos de acuerdo</span><input inputmode="decimal" data-ok="9" data-tol="0" data-pista="Arriba a la derecha y abajo a la izquierda de las líneas de 18 y 17."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Puntos en contra</span><input inputmode="decimal" data-ok="0" data-tol="0" data-pista="Arriba a la izquierda y abajo a la derecha."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Solo los cinco hogares</legend><div class="campos">
+      <label class="campo"><span class="campo-t">Promedio de mensajes</span><input inputmode="decimal" data-ok="6" data-tol="0.05" data-pista="2 + 4 + 6 + 8 + 10, entre 5."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Promedio de compras</span><input inputmode="decimal" data-ok="7" data-tol="0.05" data-pista="6 + 8 + 7 + 8 + 6, entre 5."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Suma de los productos</span><input inputmode="decimal" data-ok="0" data-tol="0.05" data-pista="Para cada hogar, (mensajes − 6) × (compras − 7). Ojo con los signos."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Correlación r</span><input inputmode="decimal" data-ok="0" data-tol="0.02" data-pista="Si la suma de los productos es cero, ¿cuánto da la división?"><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>Con los nueve: promedios de <strong>18</strong> mensajes y <strong>17</strong> compras; <strong>9</strong> puntos de acuerdo y <strong>0</strong> en contra (r = 0,99). Solo los hogares: promedios de <strong>6</strong> y <strong>7</strong>; dos de acuerdo, dos en contra y H3 en el cruce; la suma de los productos es <strong>0</strong> y r = <strong>0</strong>. La nube completa mezcla dos públicos (tercera variable: el tipo de cliente), y en los negocios la compra genera el mensaje de confirmación (causa inversa).</p></div>
+  </form>
+
+  <section class="columna">
+    <p>Que dos cosas se muevan juntas no dice quién mueve a quién. Antes de hablar de <mark class="marca-a">causa</mark> hay tres sospechas que descartar: la casualidad, la causa inversa y una tercera variable que mueve a las dos. Póngalas a prueba con estos titulares.</p>
+    <ol class="sospechas" id="sospechas"></ol>
+    <p class="lectura" id="sos-lect" aria-live="polite"></p>
+  </section>
+
+  <section class="columna">
+    <p>La única salida honrada es el <mark class="marca-b">experimento</mark>: cambiar una sola cosa en un grupo elegido al azar y comparar con otro parecido, al que no se le cambia nada. Aquí usted decide el efecto verdadero de escribir más —algo que en la vida real nadie conoce— y mira si el experimento lo descubre.</p>
+  </section>
+  <section class="figura" aria-labelledby="f11t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f11t">Con pocos hogares, el experimento puede decir lo contrario de la verdad</h3><p class="figura-clave">Arriba, un experimento. Abajo, el mismo experimento repetido cien veces: cada punto es la diferencia que midió una repetición, y la zona lavanda reúne las que dieron cero o al revés.</p></div>
+    <div class="mandos">
+      <label class="perilla">Efecto verdadero (compras extra) <output id="e-ef-o"></output><input id="e-ef" type="range" min="0" max="3" step="0.5" value="1"></label>
+      <label class="perilla">Hogares en cada grupo <output id="e-n-o"></output><input id="e-n" type="range" min="5" max="400" step="5" value="10"></label>
+      <label class="perilla">Experimento número <output id="e-s-o"></output><input id="e-s" type="range" min="1" max="30" step="1" value="1"></label>
+    </div>
+    <div class="lienzo" id="fig-exp"></div>
+    <p class="lectura" id="exp-lect" aria-live="polite"></p>
+    <div class="lienzo" id="fig-rep"></div>
+    <p class="lectura" id="rep-lect" aria-live="polite"></p>
+    <p class="figura-nota">Simulación: las compras de cada hogar siguen una distribución de Poisson alrededor de 7. Solo se escribe a quien autorizó, y para la finalidad que autorizó (Ley 1581 de 2012).</p>
+  </section>
+  <section class="columna"><p class="frase">Correlación no es causa. Antes de calcular, mire.</p><p class="siguiente"><a href="#casa"><span><small>Siguiente estación</small>Para la casa</span><span class="flecha" aria-hidden="true">→</span></a></p></section>
+
+  <!-- 5 · PARA LA CASA -->
+  <section class="columna" id="casa">
+    <h2 class="seccion"><span class="estacion-num">Estación 5</span>Para la casa</h2>
+    <p><strong>El combo del cliente promedio.</strong> Doña Rosa quiere ponerle al combo el precio de lo que gasta, en promedio, un cliente del Club cada vez que compra. Usted tiene una muestra de doce clientes y su ticket promedio. Resuelva primero en el cuaderno, con la guía; aquí puede comprobar cada paso.</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-doce"></table></div>
+  </section>
+  <form class="comprobar" id="c-casa" novalidate>
+    <h3>Compruebe su cuaderno · Para la casa</h3>
+    <p>Escriba los valores en miles de pesos: 50 significa $50.000.</p>
+    <fieldset class="grupo-campos"><legend>Tabla de frecuencias (intervalos de $20.000)</legend><div class="campos">
+      <label class="campo"><span class="campo-t">$0 a $19.999</span><input inputmode="decimal" data-ok="8" data-tol="0" data-pista="Cuente los tickets por debajo de $20.000."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">$20.000 a $39.999</span><input inputmode="decimal" data-ok="0" data-tol="0" data-pista="¿Algún ticket cae en este intervalo?"><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">$40.000 a $59.999</span><input inputmode="decimal" data-ok="0" data-tol="0" data-pista="¿Algún ticket cae en este intervalo?"><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">$60.000 a $79.999</span><input inputmode="decimal" data-ok="3" data-tol="0" data-pista="Mire los negocios."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">$80.000 o más</span><input inputmode="decimal" data-ok="1" data-tol="0" data-pista="Mire al hotel."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Centro, con los doce y sin el hotel (miles de $)</legend><div class="campos">
+      <label class="campo"><span class="campo-t">Promedio con los 12</span><input inputmode="decimal" data-ok="50" data-tol="0.05" data-miles="1" data-pista="La suma de los doce tickets es 600 (miles)."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Mediana con los 12</span><input inputmode="decimal" data-ok="11" data-tol="0.05" data-miles="1" data-pista="Ordene los doce: la mediana es el promedio de los datos 6 y 7."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Moda con los 12</span><input inputmode="decimal" data-ok="10" data-tol="0" data-miles="1" data-pista="¿Qué ticket se repite más?"><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Promedio sin el hotel</span><input inputmode="decimal" data-ok="25" data-tol="0.05" data-miles="1" data-pista="Quite 325 a la suma y divida entre 11."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Mediana sin el hotel</span><input inputmode="decimal" data-ok="10" data-tol="0.05" data-miles="1" data-pista="Con 11 datos ordenados, la mediana es el sexto."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Clientes a ± 20 % del promedio de los 12</span><input inputmode="decimal" data-ok="0" data-tol="0" data-pista="El intervalo va de 40 a 60 mil. ¿Quién cae ahí?"><span class="veredicto"></span></label>
+    </div></fieldset>
+    <fieldset class="grupo-campos"><legend>Dispersión por grupos</legend><div class="campos">
+      <label class="campo"><span class="campo-t">Hogares: desviación (miles de $)</span><input inputmode="decimal" data-ok="2.204" data-tol="0.06" data-miles="1" data-pista="Promedio 10; la suma de las distancias al cuadrado es 34; divida entre 7 y saque la raíz."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Hogares: coef. de variación (%)</span><input inputmode="decimal" data-ok="22.04" data-tol="0.6" data-pct="1" data-pista="Desviación ÷ 10, por 100."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Negocios: desviación (miles de $)</span><input inputmode="decimal" data-ok="3" data-tol="0.05" data-miles="1" data-pista="Promedio 65; la suma de cuadrados es 18; divida entre 2."><span class="veredicto"></span></label>
+      <label class="campo"><span class="campo-t">Negocios: coef. de variación (%)</span><input inputmode="decimal" data-ok="4.615" data-tol="0.12" data-pct="1" data-pista="Desviación ÷ 65, por 100."><span class="veredicto"></span></label>
+    </div></fieldset>
+    <div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div>
+    <p class="comprobar-resumen" aria-live="polite"></p>
+    <div class="solucion" hidden><p>Frecuencias: 8, 0, 0, 3 y 1. Con el hotel: promedio <strong>$50.000</strong>, mediana <strong>$11.000</strong>, moda <strong>$10.000</strong>. Sin el hotel: <strong>$25.000</strong>, <strong>$10.000</strong> y $10.000. Cerca del promedio (± 20 %): <strong>ninguno</strong>, en los dos casos. Hogares: promedio $10.000, desviación <strong>$2.200</strong>, coeficiente de variación <strong>22 %</strong>. Negocios: $65.000, <strong>$3.000</strong> y <strong>4,6 %</strong>. Un solo combo «promedio» no le queda cerca a nadie; dentro de cada grupo, el promedio sí describe a alguien. Y doce clientes son muy pocos para decidir.</p></div>
+  </form>
+
+  <section class="columna">
+    <p>Para profundizar, los 120 clientes del Club. Mueva el precio del combo y arme escenarios: sin el hotel, o con negocios nuevos parecidos a los que ya hay. La franja ciruela marca los clientes que gastan entre un 20 % menos y un 20 % más que el combo.</p>
+  </section>
+  <section class="figura" aria-labelledby="f12t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f12t">Un combo al precio promedio cae en el valle, donde casi no hay clientes</h3><p class="figura-clave">Cada columna cuenta los clientes cuyo ticket cae en ese tramo de $10.000; la última reúne los de $120.000 o más.</p></div>
+    <div class="mandos">
+      <label class="perilla">Precio del combo <output id="k-p-o"></output><input id="k-p" type="range" min="4000" max="120000" step="1000" value="24000"></label>
+      <label class="perilla">Negocios nuevos <output id="k-n-o"></output><input id="k-n" type="range" min="0" max="60" step="5" value="0"></label>
+      <label class="casilla"><input id="k-h" type="checkbox" checked>Incluir al hotel</label>
+    </div>
+    <div class="lienzo" id="fig-club"></div>
+    <p class="lectura" id="club-lect" aria-live="polite"></p>
+    <p class="figura-nota">Datos simulados de 120 clientes que autorizaron el uso de sus compras. Los negocios nuevos se sacan al azar, con semilla fija, de los negocios actuales.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto y anote en el cuaderno</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Deje el combo en $24.000, cerca del promedio. ¿A cuántos clientes les queda cerca?</summary><p>A tres de 120, los tres hogares. El promedio cae en el valle entre las dos montañas: el centro de gravedad de un roscón queda en el hueco.</p></details>
+      <details class="repaso"><summary>Busque el precio que le queda cerca a más clientes. ¿De qué tipo son?</summary><p>Un combo de $10.000 le queda cerca a 50 clientes, todos hogares. Los negocios necesitan otro combo, cerca de su propio centro.</p></details>
+      <details class="repaso"><summary>Agregue 20 negocios. ¿Qué se mueve más, el promedio o la mediana?</summary><p>El promedio sube de $23.935 a unos $30.300; la mediana, apenas de $10.500 a $11.500. Otra vez: la mediana es resistente.</p></details>
+    </div>
+  </div>
+
+  <section class="columna"><p class="siguiente"><a href="#laboratorio"><span><small>Siguiente estación</small>Su laboratorio</span><span class="flecha" aria-hidden="true">→</span></a></p></section>
+
+  <!-- 6 · SU LABORATORIO -->
+  <section class="columna" id="laboratorio">
+    <h2 class="seccion"><span class="estacion-num">Estación 6</span>Su laboratorio</h2>
+    <p>Ahora, con datos suyos: sus notas del semestre, lo que gasta en transporte cada semana, los minutos que pasa en una aplicación. Escriba los números separados por espacios, saltos de línea o punto y coma, y use coma para los decimales. Si escribe una segunda lista del mismo tamaño, el laboratorio calcula también la correlación.</p>
+  </section>
+  <section class="figura" aria-labelledby="f13t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f13t">El retrato de sus datos</h3><p class="figura-clave">Centro, forma, dispersión y, si hay dos listas, relación. Nada de esto sale de su navegador.</p></div>
+    <div class="ejemplos" aria-label="Ejemplos para empezar">
+      <button class="boton" type="button" data-ej="notas">Unas notas</button>
+      <button class="boton" type="button" data-ej="rutab">Ruta B</button>
+      <button class="boton" type="button" data-ej="miercoles">Panes del miércoles</button>
+      <button class="boton" type="button" data-ej="doce">Tickets de los 12</button>
+      <button class="boton" type="button" data-ej="pubven">Publicaciones y ventas</button>
+    </div>
+    <div class="areas">
+      <label for="lx">Primera lista (X)<textarea id="lx" spellcheck="false"></textarea></label>
+      <label for="ly">Segunda lista (Y), opcional<textarea id="ly" spellcheck="false"></textarea></label>
+    </div>
+    <ul class="resumen-lab" id="lab-res" aria-live="polite"></ul>
+    <p class="lectura" id="lab-lect" aria-live="polite"></p>
+    <div class="lienzo" id="fig-lab-h"></div>
+    <div class="lienzo" id="fig-lab-n" style="max-width:560px"></div>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="lab-tabla"></table></div>
+  </section>
+
+  <section class="columna"><p class="siguiente"><a href="#repaso"><span><small>Siguiente estación</small>Repaso</span><span class="flecha" aria-hidden="true">→</span></a></p></section>
+
+  <!-- REPASO Y CIERRE -->
+  <section class="columna" id="repaso">
+    <h2 class="seccion">Repaso</h2>
+    <p>Antes de cerrar, pruebe su memoria. Lea la pregunta, responda en voz alta o en el cuaderno, y después abra la tarjeta.</p>
+  </section>
+  <div class="repasos">
+    <details class="repaso"><summary>¿Por qué la mediana describe mejor un salón con un futbolista?</summary><p>Porque es resistente: un valor extremo cambia la suma, pero no cambia quién queda en el medio.</p></details>
+    <details class="repaso"><summary>¿Qué medida usa para decir cuál es el medio de transporte más usado?</summary><p>La moda: es una categoría sin orden, y para ella no existen el promedio ni la mediana.</p></details>
+    <details class="repaso"><summary>Un promedio de 3,2 estrellas, ¿quiere decir «regular»?</summary><p>No necesariamente. Puede haber dos montañas: gente feliz y gente furiosa. Hay que mirar la forma.</p></details>
+    <details class="repaso"><summary>¿Qué dice el coeficiente de variación que no dice la desviación?</summary><p>Expresa la desviación como porcentaje del promedio, y así compara la dispersión de cosas de distinto tamaño.</p></details>
+    <details class="repaso"><summary>Los viernes la desviación es casi cero. ¿Clientela estable?</summary><p>No: hay un techo de 550 panes. Los datos registran lo vendido, no lo que se habría vendido.</p></details>
+    <details class="repaso"><summary>r = 0,9 entre seguidores y ventas. ¿Prueba que los seguidores venden?</summary><p>No. Puede ser casualidad, causa inversa o una tercera variable. Para probar una causa se experimenta, con suficientes personas.</p></details>
+    <details class="repaso"><summary>¿Por qué hay que mirar antes de calcular?</summary><p>Porque el mismo resumen puede esconder cuatro historias distintas, como las cuatro sedes de Anscombe.</p></details>
+    <details class="repaso"><summary>¿Para quién se diseña, entonces, si no es para el cliente promedio?</summary><p>Para grupos reales de personas: el hogar típico y el negocio típico, cada uno con su centro y su dispersión.</p></details>
+  </div>
+
+  <section class="columna">
+    <p>Volvamos al salón del principio. Quetelet veía en el hombre medio el centro de gravedad de una nación, y la imagen es más exacta de lo que él quiso: el centro de gravedad de un roscón queda en el hueco, donde no hay pan. Allí cayó el combo de doña Rosa, en el valle vacío entre los hogares y los negocios. <span class="giro">El cliente promedio no existe; los hogares y los negocios, sí.</span></p>
+    <p class="aforismo">El promedio resume; no retrata.</p>
+  </section>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Todos los casos y datos son simulados con fines didácticos: el curso, las reseñas, la panadería y el Club del Pan vienen de las sesiones 1 y 2. Las cuatro sedes usan los datos de Anscombe (1973) con nombres inventados. Las simulaciones usan una semilla fija, así que dan siempre el mismo resultado; si la cambia, cambia el experimento.</p></details>
+  <details><summary>¿Cómo calcula el laboratorio?</summary><p>La varianza y la desviación estándar dividen entre n − 1, como la calculadora del celular. La mediana de una lista par es el promedio de los dos datos del medio. La moda puede no existir (si ningún valor se repite) o ser más de una. La correlación es la de Pearson: mide relación en línea recta, no curvas.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra.</p></details>
+  <details><summary>¿Qué no hace este laboratorio?</summary><p>No reemplaza el cuaderno: los ejercicios se resuelven a mano y aquí se comprueban. Tampoco prueba causas: los simuladores muestran qué pasaría bajo unos supuestos, y esos supuestos están escritos en la nota de cada figura.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Cuaderno»: papel crema, rótulos a mano y realces de pincelada, porque es material para quitarle el miedo a la estadística. Forma «copa de martini»: un tallo guiado por estaciones y, al final, un laboratorio abierto. Recursos: la apuesta, la perilla y la tarjeta de repaso. Las guías en PDF conservan el formato de las sesiones anteriores; el laboratorio, en cambio, estrena registro en cada sesión.</p></details>
+  <ol class="citas">
+    <li>Quetelet, A. (1835). <i>Sur l'homme et le développement de ses facultés</i>. París: Bachelier. El epígrafe es traducción propia.</li>
+    <li>Daniels, G. S. (1952). <i>The «Average Man»?</i> Technical Note WCRD 53-7. Wright-Patterson Air Force Base. Citado en Rose (2016).</li>
+    <li>Rose, T. (2016). <i>The End of Average</i>. HarperOne.</li>
+    <li>Anscombe, F. J. (1973). Graphs in Statistical Analysis. <i>The American Statistician</i>, 27(1), 17-21.</li>
+    <li>Vigen, T. (2015). <i>Spurious Correlations</i>. Hachette.</li>
+    <li>Congreso de Colombia (2012). Ley Estatutaria 1581, de protección de datos personales.</li>
+  </ol>
+</section>
+<footer class="pie"><p>Brayeam Beltrán · <a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"curso":[70,60,80,15,35,95,110,25,55,75,70,20,90,65,100,60,45,10,85,40,60,70,55,100,105,50,20,80,75,65,50,115,70,30,25,70,95,75,45,50,80,35],"resenas":[["Viernes",3],["Sábado",1],["Viernes",4],["Martes",4],["Jueves",5],["Lunes",2],["Viernes",2],["Martes",1],["Domingo",4],["Sábado",5],["Sábado",5],["Lunes",5],["Viernes",4],["Martes",5],["Lunes",5],["Viernes",2],["Viernes",5],["Martes",5],["Viernes",2],["Viernes",5],["Sábado",4],["Viernes",4],["Martes",4],["Viernes",5],["Viernes",5],["Domingo",5],["Viernes",2],["Sábado",2],["Viernes",1],["Domingo",5],["Miércoles",1],["Viernes",4],["Jueves",5],["Viernes",2],["Domingo",5],["Viernes",5],["Jueves",4],["Jueves",4],["Jueves",5],["Sábado",5],["Viernes",2],["Viernes",3],["Sábado",5],["Viernes",2],["Sábado",3],["Lunes",4],["Miércoles",4],["Sábado",4],["Jueves",5],["Miércoles",4],["Domingo",5],["Sábado",5],["Martes",4],["Martes",2],["Sábado",2],["Jueves",3],["Domingo",3],["Sábado",5],["Miércoles",4],["Sábado",1],["Lunes",4],["Viernes",5],["Miércoles",5],["Domingo",5],["Domingo",5],["Jueves",3],["Viernes",1],["Sábado",2],["Lunes",5],["Viernes",4],["Domingo",4],["Miércoles",5],["Sábado",1],["Sábado",1],["Sábado",1],["Jueves",4],["Sábado",5],["Domingo",5],["Viernes",4],["Miércoles",4],["Jueves",5],["Viernes",1],["Domingo",2],["Sábado",1],["Viernes",2],["Miércoles",5],["Sábado",4],["Domingo",3],["Sábado",2],["Viernes",1],["Sábado",5],["Jueves",1],["Miércoles",5],["Viernes",3],["Jueves",5],["Sábado",5],["Sábado",3],["Sábado",5],["Sábado",5],["Sábado",1],["Viernes",5],["Viernes",5],["Jueves",1],["Viernes",2],["Jueves",4],["Sábado",2],["Viernes",3],["Lunes",4],["Lunes",5],["Sábado",5],["Lunes",2],["Domingo",1],["Sábado",4],["Viernes",1],["Lunes",5],["Domingo",5],["Lunes",4],["Miércoles",2],["Martes",4],["Martes",4],["Sábado",2],["Sábado",4],["Sábado",5],["Sábado",2],["Martes",5],["Sábado",5],["Jueves",5],["Domingo",3],["Miércoles",4],["Domingo",2],["Sábado",5],["Lunes",2],["Domingo",3],["Sábado",5],["Domingo",5],["Viernes",2],["Domingo",4],["Lunes",3],["Miércoles",5],["Lunes",3],["Viernes",2],["Jueves",5],["Lunes",3],["Jueves",5],["Domingo",5],["Sábado",1],["Viernes",4],["Sábado",5],["Sábado",5],["Martes",2],["Viernes",4],["Domingo",5],["Miércoles",4],["Sábado",5],["Viernes",2],["Viernes",5],["Viernes",4],["Domingo",5],["Martes",5],["Lunes",5],["Sábado",4],["Lunes",4],["Viernes",5],["Lunes",3],["Viernes",5],["Viernes",5],["Sábado",1],["Domingo",1],["Lunes",1],["Domingo",4],["Miércoles",4],["Domingo",3],["Miércoles",5],["Domingo",1],["Domingo",5],["Domingo",2],["Sábado",4],["Sábado",5],["Viernes",1],["Lunes",3],["Jueves",5],["Domingo",4],["Sábado",2],["Martes",4],["Viernes",1],["Miércoles",3],["Domingo",5],["Jueves",4],["Viernes",1],["Viernes",1],["Sábado",5],["Martes",4],["Sábado",5],["Martes",4],["Martes",1],["Sábado",5],["Martes",5],["Miércoles",5],["Jueves",5],["Miércoles",2],["Sábado",5],["Jueves",4],["Sábado",2],["Domingo",2],["Jueves",1],["Jueves",4],["Viernes",4],["Viernes",2],["Miércoles",5],["Sábado",4],["Domingo",3],["Domingo",3],["Sábado",1],["Domingo",4],["Lunes",5],["Sábado",2],["Jueves",3],["Jueves",5],["Sábado",2],["Miércoles",4],["Viernes",4],["Martes",5],["Sábado",1],["Sábado",2],["Sábado",5],["Viernes",4],["Viernes",2],["Jueves",3],["Sábado",5],["Viernes",1],["Sábado",1],["Miércoles",5],["Miércoles",3],["Lunes",5],["Lunes",4],["Sábado",2],["Viernes",5],["Domingo",4],["Sábado",4],["Viernes",2],["Sábado",1],["Viernes",5],["Jueves",2],["Sábado",5],["Sábado",1],["Viernes",4],["Viernes",5],["Viernes",2],["Miércoles",2],["Sábado",1],["Sábado",4],["Sábado",1],["Sábado",5],["Jueves",4],["Lunes",4],["Jueves",5],["Lunes",3],["Sábado",1],["Sábado",5],["Sábado",1],["Sábado",3],["Sábado",2],["Viernes",1],["Martes",5],["Sábado",5],["Miércoles",5],["Sábado",5],["Lunes",1],["Lunes",5],["Domingo",3],["Domingo",5],["Sábado",5],["Viernes",5],["Sábado",2],["Viernes",1],["Lunes",5],["Viernes",2],["Domingo",3],["Martes",3],["Miércoles",5],["Miércoles",5],["Domingo",4],["Lunes",1],["Sábado",1],["Sábado",5],["Miércoles",5],["Viernes",5],["Miércoles",4],["Sábado",2],["Domingo",5],["Domingo",1],["Martes",5],["Sábado",5],["Sábado",1],["Sábado",5],["Sábado",4],["Viernes",2],["Domingo",2],["Viernes",5],["Sábado",5]],"club":[["N",82000,21,23,0],["H",10500,7,8,0],["H",13000,12,9,0],["H",10000,11,0,0],["H",6500,7,0,0],["H",13500,6,8,0],["H",7500,4,10,0],["H",7500,4,0,0],["H",12000,6,10,0],["H",10500,10,8,0],["N",67500,38,44,0],["H",4000,11,8,0],["N",64000,16,17,0],["H",21500,5,8,0],["H",12000,5,8,0],["H",11000,7,2,0],["H",4000,3,0,0],["H",9500,7,6,0],["H",9500,7,9,0],["H",8500,6,0,0],["H",14000,13,8,0],["N",74500,30,32,0],["H",11500,10,8,0],["N",49000,36,38,0],["H",9000,14,4,0],["N",59000,39,45,0],["H",9500,6,8,0],["H",12000,6,10,0],["H",14000,9,2,0],["H",15000,5,10,0],["N",62500,30,32,0],["N",69500,23,20,0],["H",9000,7,8,0],["N",73000,24,23,0],["H",6000,3,4,0],["H",8500,7,6,0],["N",71500,21,25,0],["N",63000,33,37,0],["H",9500,2,8,0],["H",8000,6,8,0],["H",10500,5,0,0],["H",8500,4,4,0],["H",7000,8,9,0],["H",5500,10,8,0],["H",13500,7,8,0],["H",8000,12,10,0],["N",331200,8,9,1],["H",9500,5,8,0],["H",12000,7,8,0],["N",96000,31,29,0],["N",91000,22,21,0],["H",11000,5,0,0],["H",4500,11,6,0],["H",6500,8,2,0],["H",10000,8,10,0],["H",6500,7,0,0],["H",14000,2,2,0],["N",65500,47,49,0],["H",8000,5,8,0],["H",8500,7,0,0],["H",9500,7,0,0],["N",84500,18,23,0],["N",69000,42,45,0],["H",14500,6,10,0],["H",13500,8,4,0],["H",4500,10,10,0],["H",15000,3,6,0],["H",9000,7,2,0],["H",9000,10,10,0],["H",9000,9,6,0],["H",8000,6,8,0],["H",7000,8,8,0],["H",9500,6,8,0],["H",7000,6,8,0],["H",8500,8,4,0],["H",5500,12,6,0],["H",11500,5,9,0],["N",46500,35,39,0],["N",76500,21,26,0],["H",9000,8,10,0],["H",10000,7,0,0],["H",15500,5,4,0],["H",5000,4,10,0],["H",6000,7,8,0],["H",7000,11,9,0],["H",16500,11,4,0],["H",14500,10,4,0],["H",13500,10,8,0],["H",15500,8,6,0],["N",60000,16,13,0],["H",7000,10,9,0],["H",9000,6,9,0],["H",7000,10,4,0],["H",8500,10,6,0],["H",11500,6,8,0],["H",12500,11,8,0],["H",13000,6,8,0],["H",8000,13,0,0],["H",8500,6,4,0],["N",78000,34,31,0],["H",5000,6,4,0],["H",21500,8,8,0],["H",7500,3,10,0],["H",10000,12,6,0],["H",12000,11,8,0],["H",10500,12,4,0],["N",65000,31,30,0],["H",6500,8,10,0],["H",19500,3,8,0],["H",6500,7,8,0],["H",7000,6,8,0],["H",11000,8,6,0],["H",9500,4,6,0],["H",5000,12,6,0],["N",50500,36,33,0],["N",72000,32,37,0],["H",10000,5,8,0],["H",11000,10,8,0],["H",8000,14,6,0],["H",11500,7,8,0]],"sedes":{"Sede Chapinero":[[10,8,13,9,11,14,6,4,12,7,5],[8.04,6.95,7.58,8.81,8.33,9.96,7.24,4.26,10.84,4.82,5.68]],"Sede Cedritos":[[10,8,13,9,11,14,6,4,12,7,5],[9.14,8.14,8.74,8.77,9.26,8.1,6.13,3.1,9.13,7.26,4.74]],"Sede Modelia":[[10,8,13,9,11,14,6,4,12,7,5],[7.46,6.77,12.74,7.11,7.81,8.84,6.08,5.39,8.15,6.42,5.73]],"Sede Kennedy":[[8,8,8,8,8,8,8,19,8,8,8],[6.58,5.76,7.71,8.84,8.47,7.04,5.25,12.5,5.56,7.91,6.89]]},"resenas30":[5,1,4,5,2,5,1,5,2,4,1,5,5,2,3,1,5,4,2,5,1,4,5,2,1,5,2,5,4,1],"rutaA":[38,40,42,40,40],"rutaB":[22,60,40,30,48],"pub":[1,2,3,4,5],"ven":[2,4,5,4,5],"martes":[360,370,380,370,360,380],"miercoles":[330,410,350,400,340,390],"viernes":[550,550,545,550,550,550],"hog":[["H1",2,6],["H2",4,8],["H3",6,7],["H4",8,8],["H5",10,6]],"neg":[["N1",24,22],["N2",30,28],["N3",36,31],["N4",42,37]],"tHog":[7,8,9,10,10,10,12,14],"tNeg":[62,65,68],"tHotel":325};
+/* Laboratorio · Más valen datos que percepciones · Sesión 3
+   Núcleo: números a la colombiana, estadística, azar con semilla y gráficos en SVG.
+   Lo usan el laboratorio (pantalla) y las guías (PDF), para que los gráficos sean los mismos. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* ---------- gráficos ---------- */
+/* El salón: una figura por persona y dos barras, mediana y promedio. */
+function dibujaSalon(el, n, entra, base = 1300000) {
+  const W0 = Math.max(260, el.clientWidth || 640);
+  const lado = n <= 60 ? 13 : n <= 160 ? 9 : 6, paso = lado + 3, porFila = Math.max(1, Math.floor((W0 - 30) / paso));
+  const filas = Math.ceil((n + 1) / porFila), altoU = filas * paso + 34;
+  const f = marco(el, altoU + 120, { i: 84, d: 18, a: 10, ab: 10 });
+  const ingresos = Array(n).fill(base).concat([entra]), prom = media(ingresos), med = mediana(ingresos);
+  for (let k = 0; k <= n; k++) {
+    const x = 6 + (k % porFila) * paso, y = 26 + Math.floor(k / porFila) * paso;
+    if (k < n) S('rect', { x, y, width: lado, height: lado, rx: 2, class: 'u-persona' }, f.svg);
+    else { S('rect', { x: x - 1, y: y - 1, width: lado + 2, height: lado + 2, rx: 2, class: 'u-entra' }, f.svg); }
+  }
+  T(f.svg, 6, 16, W0 < 520 ? `${num(n)} personas y, en negro, quien entra` : `${num(n)} personas con ${pesos(base)} al mes y, en negro, quien entra`, { class: 'ts' });
+  const y0 = altoU + 18, x = lin(0, prom * 1.02, f.x0, f.x1 - 120);
+  [['mediana', med, 'b-med'], ['promedio', prom, 'b-prom']].forEach(([nom, v, cl], i) => {
+    const y = y0 + i * 42;
+    T(f.svg, f.x0 - 10, y + 13, nom, { 'text-anchor': 'end', class: 'tf grande' });
+    S('rect', { x: f.x0, y, width: Math.max(2, x(v) - f.x0), height: 18, rx: 3, class: cl }, f.svg);
+    T(f.svg, Math.max(f.x0, x(v)) + 8, y + 14, pesos(v), { class: 'nf' });
+  });
+  f.svg.setAttribute('aria-label', `Figuras de ${n} personas y quien entra; barras: mediana ${pesos(med)} y promedio ${pesos(prom)}.`);
+  return { prom, med, debajo: ingresos.filter(v => v < prom).length, total: n + 1 };
+}
+
+/* Histograma con líneas de promedio, mediana o decisión, y una franja opcional. */
+function dibujaHisto(el, o) {
+  const f = marco(el, o.alto || 250, { i: 40, d: 16, a: 20 + 18 * (o.lineas || []).length, ab: o.xlab ? 46 : 30 });
+  const bins = [], k = Math.ceil((o.hasta - o.desde) / o.ancho);
+  for (let i = 0; i < k; i++) bins.push(0);
+  o.datos.forEach(v => { let i = Math.floor((Math.min(v, o.hasta - 1e-9) - o.desde) / o.ancho); i = Math.max(0, Math.min(k - 1, i)); bins[i]++; });
+  const maxY = Math.max(o.maxY || 0, ...bins, 1);
+  const x = lin(o.desde, o.hasta, f.x0, f.x1), y = lin(0, maxY, f.yb, f.yt);
+  ejeY(f, y, marcas(0, maxY, 4).filter(v => Number.isInteger(v)));
+  if (o.franja) S('rect', { x: x(Math.max(o.desde, o.franja[0])), y: f.yt - 4, width: Math.max(0, x(Math.min(o.hasta, o.franja[1])) - x(Math.max(o.desde, o.franja[0]))), height: f.yb - f.yt + 4, class: 'franja' }, f.svg);
+  bins.forEach((c, i) => {
+    if (!c) return;
+    const r = S('rect', { x: x(o.desde + i * o.ancho) + 1, y: y(c), width: Math.max(1, x(o.desde + (i + 1) * o.ancho) - x(o.desde + i * o.ancho) - 2), height: f.yb - y(c), class: 'b-dato' }, f.svg);
+    S('title', {}, r).textContent = `${o.fmtBin ? o.fmtBin(o.desde + i * o.ancho, o.desde + (i + 1) * o.ancho) : num(o.desde + i * o.ancho) + ' a ' + num(o.desde + (i + 1) * o.ancho)}: ${c}`;
+  });
+  const ticks = []; const cada = o.cadaTick || o.ancho * Math.max(1, Math.ceil(k / 8));
+  for (let v = o.desde; v <= o.hasta + 1e-9; v += cada) ticks.push(+v.toFixed(6));
+  ejeX(f, x, ticks, o.fmtX || (v => num(v)));
+  (o.lineas || []).forEach((l, i) => lineaV(f, x(Math.max(o.desde, Math.min(o.hasta, l.x))), l.clase, l.texto, i));
+  if (o.xlab) rotuloEje(f, o.xlab, 'x');
+  if (o.ylab) T(f.svg, 4, f.yt - 8 - 18 * ((o.lineas || []).length ? 0 : 0), o.ylab, { class: 'ts' });
+  f.svg.setAttribute('aria-label', o.aria || 'Histograma');
+  return { bins, f, x, y };
+}
+
+/* Reseñas hechas de estrellas: una estrella por reseña, apiladas por columna. */
+function dibujaEstrellas(el, conteo, o = {}) {
+  const maxC = Math.max(11, ...conteo), alto = o.alto || 300;
+  const f = marco(el, alto, { i: 36, d: 16, a: o.lineas ? 56 : 18, ab: 46 });
+  const x = lin(.5, 5.5, f.x0, f.x1), r = Math.min(10, (f.yb - f.yt) / maxC / 2 - .5), paso = (f.yb - f.yt) / maxC;
+  const y = lin(0, maxC, f.yb, f.yt);
+  ejeY(f, y, [0, 5, 10].filter(v => v <= maxC));
+  for (let s = 1; s <= 5; s++) {
+    for (let k = 0; k < conteo[s - 1]; k++) {
+      const p = S('path', { d: estrellaPath(x(s), f.yb - paso * (k + .5), r), class: 'estrella' }, f.svg);
+      S('title', {}, p).textContent = `Reseña de ${s} estrella${s > 1 ? 's' : ''}`;
+    }
+    T(f.svg, x(s), f.yb - paso * conteo[s - 1] - 6, conteo[s - 1] ? String(conteo[s - 1]) : '', { 'text-anchor': 'middle', class: 'nf' });
+  }
+  if (!suma(conteo)) T(f.svg, (f.x0 + f.x1) / 2, (f.yt + f.yb) / 2, 'aquí irán las estrellas', { 'text-anchor': 'middle', class: 'ts grande' });
+  S('line', { x1: f.x0, x2: f.x1, y1: f.yb, y2: f.yb, class: 'l-eje' }, f.svg);
+  for (let s = 1; s <= 5; s++) T(f.svg, x(s), f.yb + 18, s + ' ★', { 'text-anchor': 'middle', class: 'n' });
+  rotuloEje(f, 'estrellas que dio cada persona', 'x');
+  (o.lineas || []).forEach((l, i) => lineaV(f, x(l.x), l.clase, l.texto, i));
+  f.svg.setAttribute('aria-label', `Histograma de reseñas hecho de estrellas: ${conteo.map((c, i) => `${c} de ${i + 1}`).join(', ')}.`);
+  return f;
+}
+
+/* Barras pareadas: hoy (gris) y el escenario (ciruela). */
+function dibujaPares(el, cats, a, b, o = {}) {
+  const f = marco(el, o.alto || 240, { i: 40, d: 12, a: 16, ab: 44 });
+  const maxY = Math.max(...a, ...b, 1), x = lin(0, cats.length, f.x0, f.x1), y = lin(0, maxY * 1.12, f.yb, f.yt);
+  ejeY(f, y, marcas(0, maxY * 1.12, 4).filter(v => Number.isInteger(v)));
+  const w = (x(1) - x(0)) * .36;
+  cats.forEach((c, i) => {
+    const cx = x(i + .5);
+    [[a[i], 'b-dato', -w - 1], [b[i], 'b-esc', 1]].forEach(([v, cl, dx]) => {
+      const r = S('rect', { x: cx + dx, y: y(v), width: w, height: f.yb - y(v), class: cl }, f.svg);
+      S('title', {}, r).textContent = `${c}: ${v}`;
+      T(f.svg, cx + dx + w / 2, y(v) - 5, String(v), { 'text-anchor': 'middle', class: 'n' });
+    });
+    T(f.svg, cx, f.yb + 18, c, { 'text-anchor': 'middle', class: 'n' });
+  });
+  S('line', { x1: f.x0, x2: f.x1, y1: f.yb, y2: f.yb, class: 'l-eje' }, f.svg);
+  if (o.xlab) rotuloEje(f, o.xlab, 'x');
+  f.svg.setAttribute('aria-label', o.aria || 'Barras pareadas');
+}
+
+/* Tira de puntos: cada fila es un día, una ruta o una persona; los valores repetidos se apilan. */
+function dibujaTira(el, filas, desde, hasta, o = {}) {
+  const angosto = (el.clientWidth || 640) < 520;
+  const altoFila = o.altoFila || 64, f = marco(el, filas.length * altoFila + 46, { i: angosto ? (o.izqAngosto || 92) : (o.izq || 96), d: 18, a: 10, ab: 36 });
+  const x = lin(desde, hasta, f.x0, f.x1);
+  marcas(desde, hasta, o.marcas || 8).forEach(v => S('line', { x1: x(v), x2: x(v), y1: f.yt, y2: f.yb, class: 'l-regla' }, f.svg));
+  filas.forEach((fi, j) => {
+    const yb = f.yt + (j + 1) * altoFila - 14, vistos = {};
+    S('line', { x1: f.x0, x2: f.x1, y1: yb, y2: yb, class: 'l-eje' }, f.svg);
+    T(f.svg, f.x0 - 12, yb - 4, fi.nombre, { 'text-anchor': 'end', class: angosto ? 'tf' : 'tf grande' });
+    if (fi.sub) T(f.svg, f.x0 - 12, yb + 12, fi.sub, { 'text-anchor': 'end', class: 'n' });
+    const m = media(fi.datos);
+    S('line', { x1: x(m), x2: x(m), y1: yb - altoFila + 22, y2: yb + 6, class: 'l-prom' }, f.svg);
+    fi.datos.forEach(v => { const k = vistos[v] = (vistos[v] || 0) + 1; const c = S('circle', { cx: x(v), cy: yb - 7 - (k - 1) * 11, r: 5, class: 'p-dato' }, f.svg); S('title', {}, c).textContent = `${fi.nombre}: ${num(v)}`; });
+    if (o.decision !== undefined && o.decision !== null) rombo(f.svg, x(o.decision), yb + 1, 6);
+  });
+  ejeX(f, x, marcas(desde, hasta, angosto ? 5 : (o.marcas || 8)));
+  if (o.xlab) rotuloEje(f, angosto && o.xlabCorto ? o.xlabCorto : o.xlab, 'x');
+  f.svg.setAttribute('aria-label', o.aria || 'Tira de puntos');
+  return { f, x };
+}
+
+/* Curva de ganancia: la decisión del lector (rombo) y lo que más deja (línea). */
+function dibujaCurva(el, xs, ys, xSel, xMejor, o = {}) {
+  const f = marco(el, o.alto || 230, { i: 76, d: 18, a: 40, ab: 46 });
+  const lo = Math.min(...ys), hi = Math.max(...ys), pad = (hi - lo) * .12 || Math.abs(hi) * .1 || 1, minY = lo - pad, maxY = hi + pad;
+  const x = lin(xs[0], xs[xs.length - 1], f.x0, f.x1), y = lin(minY, maxY, f.yb, f.yt);
+  ejeY(f, y, marcas(minY, maxY, 4), v => num(v / 1000) + ' mil');
+  if (minY < 0 && maxY > 0) S('line', { x1: f.x0, x2: f.x1, y1: y(0), y2: y(0), class: 'l-eje' }, f.svg);
+  S('path', { d: xs.map((v, i) => (i ? 'L' : 'M') + x(v) + ',' + y(ys[i])).join(''), class: 'l-curva' }, f.svg);
+  lineaV(f, x(xMejor), 'l-eje', `${f.W < 520 ? 'mejor' : 'lo que más deja'}: ${num(xMejor)}`, 0);
+  const iSel = xs.indexOf(xSel);
+  if (iSel >= 0) rombo(f.svg, x(xSel), y(ys[iSel]), 8);
+  ejeX(f, x, xs.filter((v, i) => i % 2 === 0));
+  rotuloEje(f, o.xlab || '', 'x');
+  T(f.svg, 4, f.yt - 14, 'ganancia de las seis semanas', { class: 'ts' });
+  f.svg.setAttribute('aria-label', o.aria || 'Curva');
+}
+
+/* Nube de puntos con el método de los cuadrantes. */
+function dibujaNube(el, pts, o = {}) {
+  const f = marco(el, o.alto || 300, Object.assign({ i: 42, d: 14, a: 18, ab: o.xlab ? 44 : 22 }, o.m || {}));
+  const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+  const dx = o.dom || { x0: Math.min(...xs), x1: Math.max(...xs), y0: Math.min(...ys), y1: Math.max(...ys) };
+  const px = (dx.x1 - dx.x0) * .06 || 1, py = (dx.y1 - dx.y0) * .08 || 1;
+  const x = lin(o.dom ? dx.x0 : dx.x0 - px, o.dom ? dx.x1 : dx.x1 + px, f.x0, f.x1), y = lin(o.dom ? dx.y0 : dx.y0 - py, o.dom ? dx.y1 : dx.y1 + py, f.yb, f.yt);
+  if (o.ejes !== false) {
+    const tx = marcas(x.inv(f.x0), x.inv(f.x1), o.mini ? 3 : 6), ty = marcas(y.inv(f.yb), y.inv(f.yt), o.mini ? 3 : 5);
+    tx.forEach(v => S('line', { x1: x(v), x2: x(v), y1: f.yt, y2: f.yb, class: 'l-regla' }, f.svg));
+    ejeY(f, y, ty);
+    ejeX(f, x, tx);
+  } else S('rect', { x: f.x0, y: f.yt, width: f.x1 - f.x0, height: f.yb - f.yt, class: 'l-regla' }, f.svg);
+  let c = null;
+  if (o.cuadrantes && pts.length > 1) {
+    c = cuadrantes(xs, ys);
+    const X = x(c.mx), Y = y(c.my);
+    S('rect', { x: X, y: f.yt, width: f.x1 - X, height: Y - f.yt, class: 'cuad' }, f.svg);
+    S('rect', { x: f.x0, y: Y, width: X - f.x0, height: f.yb - Y, class: 'cuad' }, f.svg);
+    S('line', { x1: X, x2: X, y1: f.yt, y2: f.yb, class: 'l-cuad' }, f.svg);
+    S('line', { x1: f.x0, x2: f.x1, y1: Y, y2: Y, class: 'l-cuad' }, f.svg);
+    if (!o.mini && o.esquinas !== false) {
+      T(f.svg, f.x1 - 6, f.yt + 16, 'de acuerdo', { 'text-anchor': 'end', class: 'ts' });
+      T(f.svg, f.x0 + 6, f.yb - 8, 'de acuerdo', { class: 'ts' });
+      T(f.svg, f.x0 + 6, f.yt + 16, 'en contra', { class: 'ts' });
+      T(f.svg, f.x1 - 6, f.yb - 8, 'en contra', { 'text-anchor': 'end', class: 'ts' });
+    }
+  }
+  if (o.recta) S('line', { x1: f.x0, x2: f.x1, y1: y(o.recta[0] + o.recta[1] * x.inv(f.x0)), y2: y(o.recta[0] + o.recta[1] * x.inv(f.x1)), class: 'l-mano' }, f.svg);
+  pts.forEach(p => {
+    let e;
+    if (p.t === 'n') e = equis(f.svg, x(p.x), y(p.y), o.mini ? 3.5 : 5);
+    else if (p.t === 'h') e = S('circle', { cx: x(p.x), cy: y(p.y), r: o.mini ? 3.5 : 5, class: 'p-hog' }, f.svg);
+    else e = S('circle', { cx: x(p.x), cy: y(p.y), r: o.r || (o.mini ? 3.5 : 4.5), class: 'p-dato' }, f.svg);
+    if (p.nombre) S('title', {}, e).textContent = `${p.nombre}: ${num(p.x, 2).replace(/,00$/, '')} y ${num(p.y, 2).replace(/,00$/, '')}`;
+    if (p.rotulo) T(f.svg, x(p.x) + 8, y(p.y) - 6, p.rotulo, { class: 'n' });
+  });
+  if (o.titulo) T(f.svg, f.x0, f.yt - 6, o.titulo, { class: 'tf' });
+  if (o.xlab) rotuloEje(f, o.xlab, 'x');
+  if (o.ylab) T(f.svg, f.x0 + 4, f.yt + (o.cuadrantes ? 34 : 14), o.ylab, { class: 'ts' });
+  f.svg.setAttribute('aria-label', o.aria || 'Nube de puntos');
+  return c;
+}
+
+/* Dos grupos de un experimento y, debajo, cien repeticiones del mismo experimento. */
+function dibujaGrupos(el, sin, con, o = {}) {
+  const f = marco(el, 150, { i: 8, d: 64, a: 8, ab: 30 });
+  const x = lin(0, o.max || 12, f.x0, f.x1);
+  [['sin mensajes extra', sin, 'b-dato'], ['con mensajes extra', con, 'b-esc']].forEach(([n, v, cl], i) => {
+    const y = f.yt + 18 + i * 52;
+    T(f.svg, f.x0, y - 5, n, { class: 'tf' });
+    S('rect', { x: f.x0, y, width: Math.max(2, x(v) - f.x0), height: 20, class: cl }, f.svg);
+    T(f.svg, x(v) + 8, y + 15, num(v, 2), { class: 'nf' });
+  });
+  ejeX(f, x, marcas(0, o.max || 12, 6));
+  f.svg.setAttribute('aria-label', `Compras promedio por hogar: ${num(sin, 2)} sin mensajes extra y ${num(con, 2)} con mensajes extra.`);
+}
+function dibujaRepeticiones(el, difs, efecto) {
+  const f = marco(el, 150, { i: 20, d: 20, a: 34, ab: 42 });
+  const lim = Math.max(3, Math.ceil(Math.max(...difs.map(Math.abs)) + .5));
+  const x = lin(-lim, lim, f.x0, f.x1), apil = {};
+  S('rect', { x: f.x0, y: f.yt - 8, width: x(0) - f.x0, height: f.yb - f.yt + 8, class: 'cuad' }, f.svg);
+  difs.forEach(d => { const b = Math.round(d * 4) / 4; const k = apil[b] = (apil[b] || 0) + 1; S('circle', { cx: x(b), cy: f.yb - 5 - (k - 1) * 7, r: 3.2, class: 'p-dato' }, f.svg); });
+  lineaV(f, x(efecto), 'l-dec', `efecto verdadero: ${num(efecto, 1)}`, 0);
+  ejeX(f, x, marcas(-lim, lim, 8), v => (v > 0 ? '+' : '') + num(v));
+  rotuloEje(f, f.W < 520 ? 'diferencia medida en cada experimento' : 'diferencia medida (compras por hogar) en cada uno de los 100 experimentos', 'x');
+  f.svg.setAttribute('aria-label', `Cien experimentos simulados con efecto verdadero ${num(efecto, 1)}.`);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+/* Laboratorio · conexiones: perillas, apuestas, comprobaciones y simuladores. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const coma = n => String(n).replace('.', ',').replace('-', '−');
+  const redibujos = [];
+  const al = (ids, fn) => { ids.forEach(id => { const e = typeof id === 'string' ? $(id) : id; e && e.addEventListener('input', fn); e && e.addEventListener('change', fn); }); redibujos.push(fn); };
+  const radio = n => ($(`input[name="${n}"]:checked`) || {}).value;
+  const salida = (id, texto) => { const o = $(id + '-o'); if (o) o.textContent = texto; };
+
+  /* ---------- apuestas (Apéndice B, módulo 5) ---------- */
+  $$('.apuesta').forEach(f => {
+    const e = f.querySelector('input[type=range]'), o = f.querySelector('output'), dato = f.querySelector('.apuesta-dato'), j = f.querySelector('[data-juicio]');
+    if (!e || !dato) return;
+    const u = f.dataset.unidad || '', pts = f.dataset.puntos || u, real = +f.dataset.dato;
+    f.classList.add('viva');
+    const pinta = () => { if (o) o.textContent = coma(e.value) + u; };
+    pinta(); e.addEventListener('input', pinta);
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      const d = Math.round((+e.value - real) * 10) / 10;
+      if (j) j.textContent = d === 0 ? 'Usted acertó.' : `Usted dijo ${coma(e.value)}${u}: quedó ${coma(Math.abs(d))}${pts} por ${d > 0 ? 'encima' : 'debajo'}.`;
+      f.classList.add('dicha'); e.disabled = true; f.querySelector('button').disabled = true; dato.focus({ preventScroll: true });
+    });
+  });
+
+  /* ---------- compruebe su cuaderno ---------- */
+  $$('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && ok > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final, con un número, un público y una acción.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+    });
+  });
+
+  /* ---------- 1 · el centro ---------- */
+  al(['#salon-n', '#salon-m'], () => {
+    const n = +$('#salon-n').value, m = +$('#salon-m').value * 1e6;
+    salida('#salon-n', num(n)); salida('#salon-m', '$' + num(m / 1e6) + ' millones');
+    const r = dibujaSalon($('#fig-salon'), n, m);
+    $('#salon-lect').innerHTML = `Promedio: <b>${pesos(r.prom)}</b>, ${num(r.prom / 1300000, 1)} veces lo que gana cada persona. Mediana: <b>${pesos(r.med)}</b>. <b>${num(r.debajo)}</b> de las ${num(r.total)} personas ganan menos que el promedio.`;
+  });
+
+  const curso = D.curso;
+  al(['#via-n', '#via-m'], () => {
+    const n = +$('#via-n').value, m = +$('#via-m').value, con = curso.concat(Array(n).fill(m));
+    salida('#via-n', num(n)); salida('#via-m', num(m) + ' min');
+    const hasta = Math.max(130, Math.ceil((Math.max(...con) + 1) / 10) * 10);
+    dibujaHisto($('#fig-viajero'), { datos: con, desde: 0, hasta, ancho: 10, cadaTick: hasta > 300 ? 60 : 20, xlab: 'minutos de viaje', ylab: 'estudiantes', alto: 270,
+      lineas: [{ x: media(con), clase: 'l-prom', texto: 'promedio ' + numS(media(con)) }, { x: mediana(con), clase: 'l-med', texto: 'mediana ' + numS(mediana(con)) }],
+      aria: `Histograma de ${con.length} tiempos de viaje: promedio ${num(media(con), 1)} y mediana ${num(mediana(con), 1)} minutos.` });
+    const fila = (nom, a, b) => `<tr><td>${nom}</td><td class="num">${numS(a)}</td><td class="num">${numS(b)}</td><td class="num">${b - a > 1e-9 ? '+' : ''}${numS(b - a)}</td></tr>`;
+    const mo = a => { const x = modas(a); return x.length ? x[0] : NaN; };
+    $('#via-tabla').innerHTML = `<caption class="solo-lector">Medidas de centro del curso, sin y con viajeros</caption><thead><tr><th>Medida</th><th class="num">Curso (42)</th><th class="num">Con ${n} viajero${n === 1 ? '' : 's'}</th><th class="num">Cambio</th></tr></thead><tbody>${fila('Promedio', media(curso), media(con))}${fila('Mediana', mediana(curso), mediana(con))}${fila('Moda', mo(curso), mo(con))}</tbody>`;
+  });
+
+  /* ---------- 2 · la forma: el conteo con palitos ---------- */
+  const R30 = D.resenas30; let contadas = 0;
+  $('#chips').innerHTML = R30.map((v, i) => `<li data-i="${i}">${v}★</li>`).join('');
+  const palitos = k => { let s = ''; for (let g = 0; g < Math.floor(k / 5); g++) s += '<span class="cinco">||||</span>'; return s + '|'.repeat(k % 5); };
+  function pintaConteo() {
+    const c = [0, 0, 0, 0, 0]; R30.slice(0, contadas).forEach(v => c[v - 1]++);
+    $$('#chips li').forEach((li, i) => { li.classList.toggle('contada', i < contadas); li.classList.toggle('ahora', i === contadas - 1); });
+    $('#conteo').innerHTML = [5, 4, 3, 2, 1].map(s => `<span class="fila-n">${s} ★</span><span class="palitos" aria-label="${c[s - 1]} palitos">${palitos(c[s - 1])}</span><span class="frec">${c[s - 1]}</span>`).join('');
+    const listo = contadas === R30.length;
+    dibujaEstrellas($('#fig-estrellas'), c, { alto: 300 });
+    $('#t-lect').innerHTML = listo ? `Contó las 30. Las frecuencias suman <b>30</b>. Ahora calcule en su cuaderno el promedio, la mediana y la moda, y compruébelos abajo. ¿Cuántas montañas ve?` : contadas ? `Lleva <b>${contadas}</b> de 30. La última fue de <b>${R30[contadas - 1]}</b> estrella${R30[contadas - 1] > 1 ? 's' : ''}.` : 'Pulse «Contar la siguiente» para empezar.';
+    $('#t-uno').disabled = $('#t-todas').disabled = listo;
+  }
+  $('#t-uno').addEventListener('click', () => { contadas = Math.min(R30.length, contadas + 1); pintaConteo(); });
+  $('#t-todas').addEventListener('click', () => { contadas = R30.length; pintaConteo(); });
+  $('#t-cero').addEventListener('click', () => { contadas = 0; pintaConteo(); });
+  redibujos.push(pintaConteo);
+
+  /* las 300 reseñas: escenario de malas experiencias arregladas */
+  al(['#r-arr', ...$$('input[name="dias"]')], () => {
+    const dias = radio('dias'), p = +$('#r-arr').value, fds = d => d === 'Viernes' || d === 'Sábado';
+    salida('#r-arr', p + ' %');
+    const sel = D.resenas.filter(([d]) => dias === 'todos' || (dias === 'fds') === fds(d)).map(([, s]) => s);
+    const esc = sel.slice(), malas = []; esc.forEach((s, i) => { if (s <= 2) malas.push(i); });
+    const k = Math.round(malas.length * p / 100); malas.slice(0, k).forEach(i => { esc[i] = 4; });
+    const cuenta = a => [1, 2, 3, 4, 5].map(s => a.filter(v => v === s).length);
+    const hoy = cuenta(sel), luego = cuenta(esc);
+    dibujaPares($('#fig-300'), ['1 ★', '2 ★', '3 ★', '4 ★', '5 ★'], hoy, luego, { xlab: 'estrellas', aria: `Reseñas por estrellas, hoy: ${hoy.join(', ')}; en el escenario: ${luego.join(', ')}.` });
+    const nombre = { fds: 'Viernes y sábado', sem: 'Domingo a jueves', todos: 'Todos los días' }[dias];
+    $('#r-lect').innerHTML = `${nombre}: <b>${sel.length}</b> reseñas. Hoy, <b>${hoy[2]}</b> dieron 3 estrellas (${num(100 * hoy[2] / sel.length, 1)} %) y <b>${hoy[0] + hoy[1]}</b> dieron 1 o 2. Promedio de hoy: <b>${num(media(sel), 2)}</b>. Si se arreglan ${k} malas experiencias, el promedio pasa a <b>${num(media(esc), 2)}</b>.`;
+  });
+
+  /* ---------- 3 · la dispersión ---------- */
+  al([], () => dibujaTira($('#fig-rutas'), [{ nombre: 'Ruta A', sub: 'desv. 1,4 min', datos: D.rutaA }, { nombre: 'Ruta B', sub: 'desv. 14,9 min', datos: D.rutaB }], 20, 62, { xlab: 'minutos de viaje', izq: 104, izqAngosto: 112, aria: 'Tira de puntos de dos rutas: la A entre 38 y 42 minutos; la B entre 22 y 60. Ambas con promedio 40.' }));
+  let cinco = D.rutaB.slice();
+  function tablaSD(foco) {
+    const v = cinco.map(x => isFinite(x) ? x : NaN), ok = v.every(isFinite) && v.length > 1;
+    const m = ok ? media(v) : NaN;
+    const filas = cinco.map((x, i) => { const d = x - m; return `<tr><td>${i + 1}</td><td class="num"><input inputmode="decimal" aria-label="Minutos del día ${i + 1}" data-k="${i}" value="${isFinite(x) ? coma(x) : ''}"></td><td class="num">${ok ? (d > 1e-9 ? '+' : '') + numS(d, 2) : '—'}</td><td class="num">${ok ? numS(d * d, 2) : '—'}</td></tr>`; }).join('');
+    const sc = ok ? sumaCuadrados(v) : NaN;
+    $('#tabla-sd').innerHTML = `<caption class="solo-lector">Desviación estándar paso a paso</caption><thead><tr><th>Día</th><th class="num">Minutos</th><th class="num">Distancia al promedio</th><th class="num">Distancia al cuadrado</th></tr></thead><tbody>${filas}</tbody><tfoot><tr><td>Suma</td><td class="num">${ok ? numS(suma(v), 2) : '—'}</td><td class="num">${ok ? '0' : '—'}</td><td class="num">${ok ? numS(sc, 2) : '—'}</td></tr></tfoot>`;
+    $('#sd-lect').innerHTML = ok ? `Promedio: ${numS(suma(v), 2)} ÷ ${v.length} = <b>${numS(m, 2)}</b>. Varianza: ${numS(sc, 2)} ÷ ${v.length - 1} = <b>${numS(sc / (v.length - 1), 1)}</b>. Desviación estándar: √${numS(sc / (v.length - 1), 1)} = <b>${numS(Math.sqrt(sc / (v.length - 1)), 1)}</b> minutos. Coeficiente de variación: <b>${num(100 * Math.sqrt(sc / (v.length - 1)) / m, 1)} %</b>.` : 'Escriba un número en cada casilla.';
+    $$('#tabla-sd input').forEach(i => i.addEventListener('change', () => { cinco[+i.dataset.k] = leer(i.value); tablaSD(+i.dataset.k); }));
+    if (foco !== undefined) { const s = $(`#tabla-sd input[data-k="${foco + 1}"]`); s && s.focus(); }
+  }
+  $('#sd-a').addEventListener('click', () => { cinco = D.rutaA.slice(); tablaSD(); });
+  $('#sd-b').addEventListener('click', () => { cinco = D.rutaB.slice(); tablaSD(); });
+  tablaSD();
+
+  al(['#t-prom', '#t-desv', '#t-ant'], () => {
+    const m = +$('#t-prom').value, s = +$('#t-desv').value, a = +$('#t-ant').value;
+    salida('#t-prom', m + ' min'); salida('#t-desv', coma(s) + ' min'); salida('#t-ant', a + ' min');
+    const r = azar(1), dias = Array.from({ length: 200 }, () => Math.max(5, m + s * normal(r)));
+    const tarde = dias.filter(d => d > a).length;
+    const hasta = Math.max(130, Math.ceil(Math.max(...dias, a) / 10) * 10 + 10);
+    dibujaHisto($('#fig-tarde'), { datos: dias, desde: 0, hasta, ancho: 5, cadaTick: 10, xlab: 'minutos de viaje (200 días simulados)', ylab: 'días', alto: 250, franja: [a, hasta],
+      lineas: [{ x: a, clase: 'l-dec', texto: `sale ${a} min antes` }], aria: `Histograma de 200 días simulados; llegaría tarde ${tarde} días.` });
+    $('#tarde-lect').innerHTML = `Llegaría tarde <b>${tarde}</b> de 200 días (<b>${num(100 * tarde / 200, 0)} %</b>). El promedio dice qué esperar; la desviación, cuánto fiarse.`;
+  });
+
+  /* panadería */
+  al(['#p-q', '#p-c', '#p-p', ...$$('input[name="pan-dia"]')], () => {
+    const dia = radio('pan-dia'), q = +$('#p-q').value, costo = +$('#p-c').value, precio = +$('#p-p').value;
+    salida('#p-q', num(q)); salida('#p-c', pesos(costo)); salida('#p-p', pesos(precio));
+    const dem = D[dia], vend = dem.map(d => Math.min(d, q)), sob = vend.map(v => q - v), fal = dem.map((d, i) => d - vend[i]);
+    const gan = qq => suma(dem.map(d => Math.min(d, qq))) * precio - qq * dem.length * costo;
+    const xs = []; for (let k = 300; k <= 460; k += 10) xs.push(k);
+    const ys = xs.map(gan), mejor = xs[ys.indexOf(Math.max(...ys))];
+    dibujaTira($('#fig-pan-tira'), [{ nombre: dia === 'martes' ? 'Martes' : 'Miércoles', sub: 'desv. ' + num(desv(dem), 1), datos: dem }], 320, 470, { altoFila: 80, izq: 104, decision: q, xlab: 'panes que la gente quiso comprar · el rombo: los que usted hornea', xlabCorto: 'panes · el rombo: lo que usted hornea', aria: `Seis semanas de ventas del ${dia}: ${dem.join(', ')}; usted hornea ${q}.` });
+    $('#pan-tabla').innerHTML = `<caption class="solo-lector">Semana a semana</caption><thead><tr><th>Semana</th>${dem.map((_, i) => `<th class="num">${i + 1}</th>`).join('')}</tr></thead><tbody><tr><td>Querían comprar</td>${dem.map(v => `<td class="num">${v}</td>`).join('')}</tr><tr><td>Vendidos</td>${vend.map(v => `<td class="num">${v}</td>`).join('')}</tr><tr><td>Sobraron</td>${sob.map(v => `<td class="num">${v}</td>`).join('')}</tr><tr><td>Faltaron</td>${fal.map(v => `<td class="num">${v}</td>`).join('')}</tr></tbody>`;
+    const semanasFalta = fal.filter(v => v > 0).length;
+    $('#pan-lect').innerHTML = `Horneando <b>${num(q)}</b>, sobran <b>${num(media(sob), 0)}</b> panes por semana en promedio y faltó pan <b>${semanasFalta}</b> de 6 semanas. Ganancia de las seis semanas: <b>${pesos(gan(q))}</b>. Con estos supuestos, lo que más deja es hornear <b>${num(mejor)}</b>.`;
+    dibujaCurva($('#fig-pan'), xs, ys, q, mejor, { xlab: 'panes horneados cada semana', aria: `Ganancia según los panes horneados; lo que más deja: ${mejor}.` });
+  });
+
+  /* ---------- 4 · la relación ---------- */
+  al(['#c-r', '#c-n'], () => {
+    const rr = +$('#c-r').value, n = +$('#c-n').value; salida('#c-r', coma(rr.toFixed(1))); salida('#c-n', num(n));
+    const g = azar(7), x = [], y = [];
+    for (let i = 0; i < n; i++) { const a = normal(g), b = normal(g); x.push(a); y.push(rr * a + Math.sqrt(Math.max(0, 1 - rr * rr)) * b); }
+    const c = dibujaNube($('#fig-corr'), x.map((v, i) => ({ x: v, y: y[i] })), { cuadrantes: true, ejes: false, alto: 320, r: n > 150 ? 3 : 4.5, aria: `Nube de ${n} puntos con correlación pedida ${num(rr, 1)}.` });
+    $('#corr-lect').innerHTML = `r pedido: <b>${num(rr, 1)}</b> · r obtenido: <b>${num(corr(x, y), 2)}</b>. Cuadrantes: <b>${c.acuerdo}</b> de acuerdo y <b>${c.contra}</b> en contra.`;
+  });
+
+  let cincoXY = D.pub.map((p, i) => [p, D.ven[i]]);
+  function tablaR() {
+    const x = cincoXY.map(p => p[0]), y = cincoXY.map(p => p[1]), ok = x.concat(y).every(isFinite);
+    const mx = ok ? media(x) : NaN, my = ok ? media(y) : NaN, f = v => ok ? num(v, Number.isInteger(+v.toFixed(6)) ? 0 : 2).replace(/^(\d)/, '$1') : '—';
+    const sg = v => ok ? (v > 1e-9 ? '+' : '') + num(v, Number.isInteger(+v.toFixed(6)) ? 0 : 2) : '—';
+    let sp = 0, sx = 0, sy = 0;
+    const filas = cincoXY.map(([a, b], i) => { const dx = a - mx, dy = b - my; sp += dx * dy; sx += dx * dx; sy += dy * dy; return `<tr><td>${i + 1}</td><td class="num"><input inputmode="decimal" aria-label="Publicaciones de la semana ${i + 1}" data-k="${i}" data-c="0" value="${coma(a)}"></td><td class="num"><input inputmode="decimal" aria-label="Ventas de la semana ${i + 1}" data-k="${i}" data-c="1" value="${coma(b)}"></td><td class="num">${sg(dx)}</td><td class="num">${sg(dy)}</td><td class="num">${sg(dx * dy)}</td><td class="num">${f(dx * dx)}</td><td class="num">${f(dy * dy)}</td></tr>`; }).join('');
+    $('#tabla-r').innerHTML = `<caption class="solo-lector">Correlación paso a paso</caption><thead><tr><th>Sem.</th><th class="num">Public. (X)</th><th class="num">Ventas, millones (Y)</th><th class="num">X − prom.</th><th class="num">Y − prom.</th><th class="num">Producto</th><th class="num">(X − prom.)²</th><th class="num">(Y − prom.)²</th></tr></thead><tbody>${filas}</tbody><tfoot><tr><td>Suma</td><td class="num">${ok ? num(suma(x), 1).replace(',0', '') : '—'}</td><td class="num">${ok ? num(suma(y), 1).replace(',0', '') : '—'}</td><td class="num">0</td><td class="num">0</td><td class="num">${f(sp)}</td><td class="num">${f(sx)}</td><td class="num">${f(sy)}</td></tr></tfoot>`;
+    $('#r5-lect').innerHTML = ok && sx && sy ? `Promedios: <b>${numS(mx, 2)}</b> publicaciones y <b>${numS(my, 2)}</b> millones. r = ${num(sp, 2).replace(/,00$/, '')} ÷ √(${num(sx, 2).replace(/,00$/, '')} × ${num(sy, 2).replace(/,00$/, '')}) = <b>${num(sp / Math.sqrt(sx * sy), 2)}</b>.` : 'Escriba un número en cada casilla (y que no sean todos iguales).';
+    $$('#tabla-r input').forEach(i => i.addEventListener('change', () => { cincoXY[+i.dataset.k][+i.dataset.c] = leer(i.value); tablaR(); }));
+  }
+  tablaR();
+
+  const sedes = Object.entries(D.sedes), lecturaSede = {
+    'Sede Chapinero': 'Una relación razonable, con ruido.',
+    'Sede Cedritos': 'Una curva: sube y después baja. La recta no la describe.',
+    'Sede Modelia': 'Una línea casi perfecta y una semana rara que tuerce el resumen.',
+    'Sede Kennedy': 'Siempre publica 8 veces, salvo una semana: un solo punto fabrica la correlación.' };
+  $('#tabla-sedes').innerHTML = `<caption class="solo-lector">Resumen de las cuatro sedes</caption><thead><tr><th>Sede</th><th class="num">Prom. public.</th><th class="num">Prom. ventas</th><th class="num">Desv. ventas</th><th class="num">r</th></tr></thead><tbody>${sedes.map(([n, [x, y]]) => `<tr><td>${n.replace('Sede ', '')}</td><td class="num">${num(media(x), 2)}</td><td class="num">${num(media(y), 2)}</td><td class="num">${num(desv(y), 2)}</td><td class="num">${num(corr(x, y), 2)}</td></tr>`).join('')}</tbody>`;
+  const rejilla = $('#fig-sedes');
+  rejilla.className = 'sedes-rejilla';
+  rejilla.innerHTML = sedes.map((_, i) => `<figure style="margin:0"><div class="lienzo" id="sede-${i}"></div><figcaption class="figura-nota" style="margin:.4rem 0 0;text-align:left"></figcaption></figure>`).join('');
+  redibujos.push(() => sedes.forEach(([n, [x, y]], i) => {
+    dibujaNube($('#sede-' + i), x.map((v, k) => ({ x: v, y: y[k], nombre: 'semana ' + (k + 1) })), { dom: { x0: 2, x1: 20, y0: 2, y1: 14 }, recta: [3, .5], mini: true, alto: 210, titulo: n, m: { a: 26, ab: 26, i: 30 }, aria: `${n}: ${lecturaSede[n]}` });
+    $(`#sede-${i}`).nextElementSibling.textContent = lecturaSede[n];
+  }));
+
+  /* ejercicio 3: mensajes y compras */
+  const nueve = D.hog.map(([n, m, c]) => ({ nombre: n, x: m, y: c, t: 'h' })).concat(D.neg.map(([n, m, c]) => ({ nombre: n, x: m, y: c, t: 'n' })));
+  const club = D.club.map(([t, ticket, compras, msj, hotel], i) => ({ nombre: 'cliente ' + (i + 1), t: t === 'H' ? 'h' : 'n', x: msj, y: compras, ticket, hotel }));
+  al($$('input[name="m-base"], input[name="m-grupo"]'), () => {
+    const base = radio('m-base'), g = radio('m-grupo');
+    let pts = base === '9' ? nueve : club;
+    if (g !== 'todos') pts = pts.filter(p => p.t === g.toLowerCase());
+    const dom = base === '9' ? { x0: 0, x1: 45, y0: 0, y1: 40 } : null;
+    const c = dibujaNube($('#fig-msj'), pts.map(p => Object.assign({}, p, { rotulo: base === '9' ? p.nombre : null })), { cuadrantes: true, esquinas: false, dom, alto: 330, xlab: 'mensajes de WhatsApp recibidos en 8 semanas', ylab: 'compras en 8 semanas', aria: `Nube de ${pts.length} clientes: mensajes y compras.` });
+    const x = pts.map(p => p.x), y = pts.map(p => p.y), nom = { todos: 'Todos', H: 'Solo hogares', N: 'Solo negocios' }[g];
+    $('#msj-lect').innerHTML = `${nom} (${pts.length} clientes): promedios de <b>${numS(c.mx)}</b> mensajes y <b>${numS(c.my)}</b> compras. Cuadrantes: <b>${c.acuerdo}</b> de acuerdo, <b>${c.contra}</b> en contra${c.linea ? ` y <b>${c.linea}</b> sobre una línea` : ''}. Correlación: <b>r = ${num(corr(x, y), 2)}</b>.`;
+  });
+
+  /* las tres sospechas */
+  const SOS = [
+    { t: '«En los meses en que más helado se vende, más personas se ahogan en las playas.»', ok: ['tercera'], e: 'Tercera variable: el calor sube las dos cosas. El helado no ahoga a nadie.' },
+    { t: '«Los clientes que más confirmaciones de pedido reciben son los que más compran.»', ok: ['inversa'], e: 'Causa inversa: es la compra la que genera la confirmación, como en los negocios del Club.' },
+    { t: '«El consumo de queso mozzarella sube y baja con los doctorados en ingeniería civil.»', ok: ['casualidad'], e: 'Casualidad: si se cruzan suficientes series de datos, siempre aparece alguna pareja que «cuadra» (Vigen, 2015).' },
+    { t: '«Cuantos más bomberos llegan a un incendio, mayor es el daño.»', ok: ['tercera'], e: 'Tercera variable: el tamaño del incendio llama a más bomberos y causa más daño.' },
+    { t: '«Los días con más paraguas abiertos en la calle, llueve más.»', ok: ['inversa'], e: 'Causa inversa: la lluvia abre los paraguas, no al revés.' },
+    { t: '«Las semanas en que la sede publica más en Instagram, vende más.»', ok: ['casualidad', 'inversa', 'tercera'], e: 'Las tres siguen abiertas: puede ser casualidad (pocas semanas), causa inversa (cuando hay producto nuevo y ventas, se publica más) o tercera variable (la temporada). Sin experimento, no se sabe.' }];
+  const NOM = { casualidad: 'Casualidad', inversa: 'Causa inversa', tercera: 'Tercera variable' }, respondidas = {};
+  $('#sospechas').innerHTML = SOS.map((s, i) => `<li class="sospecha" data-i="${i}"><p>${s.t}</p><div class="botones">${Object.keys(NOM).map(k => `<button class="boton" type="button" data-k="${k}" aria-pressed="false">${NOM[k]}</button>`).join('')}</div><p class="veredicto" aria-live="polite"></p></li>`).join('');
+  $$('.sospecha').forEach(li => li.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    const s = SOS[+li.dataset.i], k = b.dataset.k, bien = s.ok.includes(k);
+    li.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    li.querySelector('.veredicto').textContent = (bien ? '✓ Sí. ' : '✗ No es la mejor sospecha. ') + s.e;
+    respondidas[li.dataset.i] = bien;
+    const n = Object.keys(respondidas).length, b2 = Object.values(respondidas).filter(Boolean).length;
+    $('#sos-lect').innerHTML = `Lleva <b>${b2}</b> de <b>${n}</b> titulares bien sospechados${n === SOS.length ? '. Fíjese en el último: a veces las tres sospechas siguen abiertas, y solo un experimento decide.' : '.'}`;
+  })));
+
+  /* el experimento */
+  function experimento(semilla, n, efecto) {
+    const g = azar(semilla * 7919 + n), sin = [], con = [];
+    for (let i = 0; i < n; i++) { sin.push(poisson(g, 7)); con.push(poisson(g, 7 + efecto)); }
+    return [media(sin), media(con)];
+  }
+  al(['#e-ef', '#e-n', '#e-s'], () => {
+    const ef = +$('#e-ef').value, n = +$('#e-n').value, s = +$('#e-s').value;
+    salida('#e-ef', coma(ef.toFixed(1))); salida('#e-n', num(n)); salida('#e-s', String(s));
+    const [a, b] = experimento(s, n, ef);
+    dibujaGrupos($('#fig-exp'), a, b);
+    $('#exp-lect').innerHTML = `Efecto verdadero: <b>${num(ef, 1)}</b> compras extra. Diferencia que midió este experimento: <b>${b - a > 0 ? '+' : ''}${num(b - a, 2)}</b> compras por hogar.`;
+    const difs = []; for (let k = 1; k <= 100; k++) { const [x, y] = experimento(1000 + k, n, ef); difs.push(y - x); }
+    dibujaRepeticiones($('#fig-rep'), difs, ef);
+    const malos = difs.filter(d => d <= 0).length;
+    $('#rep-lect').innerHTML = ef > 0 ? `De 100 experimentos con ${num(n)} hogares por grupo, <b>${malos}</b> midieron una diferencia en cero o al revés, aunque el efecto existe. ${malos > 10 ? 'Con tan pocos hogares, el azar puede más que el mensaje.' : 'Con estos hogares, el efecto se ve con claridad.'}` : `Sin efecto alguno, las diferencias se reparten a lado y lado del cero: <b>${100 - malos}</b> de 100 experimentos midieron una diferencia a favor de los mensajes, y fue puro azar.`;
+  });
+
+  /* ---------- 5 · para la casa ---------- */
+  const doce = D.tHog.map(v => ['Hogar', v]).concat(D.tNeg.map(v => ['Negocio', v]), [['Hotel', D.tHotel]]);
+  $('#tabla-doce').innerHTML = `<caption class="solo-lector">Ticket promedio de doce clientes del Club</caption><thead><tr><th>Cliente</th><th>Tipo</th><th class="num">Ticket</th></tr></thead><tbody>${doce.map(([t, v], i) => `<tr><td>C${String(i + 1).padStart(2, '0')}</td><td>${t}</td><td class="num">${pesos(v * 1000)}</td></tr>`).join('')}</tbody>`;
+  const corrientes = club.filter(p => p.t === 'n' && !p.hotel);
+  al(['#k-p', '#k-n', '#k-h'], () => {
+    const p = +$('#k-p').value, nn = +$('#k-n').value, h = $('#k-h').checked;
+    salida('#k-p', pesos(p)); salida('#k-n', num(nn));
+    let datos = club.filter(c => h || !c.hotel);
+    const g = azar(3); for (let i = 0; i < nn; i++) datos = datos.concat([corrientes[Math.floor(g() * corrientes.length)]]);
+    const t = datos.map(c => c.ticket), cerca = datos.filter(c => c.ticket >= .8 * p && c.ticket <= 1.2 * p);
+    dibujaHisto($('#fig-club'), { datos: t.map(v => Math.min(v, 125000)), desde: 0, hasta: 130000, ancho: 10000, cadaTick: 20000, fmtX: v => v >= 130000 ? '' : num(v / 1000) + ' mil', xlab: 'ticket promedio por compra (miles de $)', ylab: 'clientes', alto: 290, franja: [.8 * p, 1.2 * p],
+      fmtBin: (a, b) => b > 120000 ? '$120.000 o más' : `${pesos(a)} a ${pesos(b - 1)}`,
+      lineas: [{ x: media(t), clase: 'l-prom', texto: 'promedio ' + pesos(media(t)) }, { x: mediana(t), clase: 'l-med', texto: 'mediana ' + pesos(mediana(t)) }, { x: p, clase: 'l-dec', texto: 'combo ' + pesos(p) }],
+      aria: `Histograma de ${t.length} tickets; el combo de ${pesos(p)} queda cerca de ${cerca.length} clientes.` });
+    const hog = cerca.filter(c => c.t === 'h').length;
+    $('#club-lect').innerHTML = `Clientes en el escenario: <b>${t.length}</b> (${datos.filter(c => c.t === 'h').length} hogares y ${datos.filter(c => c.t === 'n').length} negocios). Promedio <b>${pesos(media(t))}</b>, mediana <b>${pesos(mediana(t))}</b>. Un combo de <b>${pesos(p)}</b> le queda cerca a <b>${cerca.length}</b> cliente${cerca.length === 1 ? '' : 's'} (${hog} hogares y ${cerca.length - hog} negocios).`;
+  });
+
+  /* ---------- 6 · su laboratorio ---------- */
+  const EJ = { notas: ['3,8 4,2 2,9 4,5 3,6 4,0 3,1 4,8 3,9', ''], rutab: [D.rutaB.join(' '), ''], miercoles: [D.miercoles.join(' '), ''],
+    doce: [doce.map(([, v]) => v * 1000).join(' '), ''], pubven: [D.pub.join(' '), D.ven.join(' ')] };
+  $$('[data-ej]').forEach(b => b.addEventListener('click', () => { [$('#lx').value, $('#ly').value] = EJ[b.dataset.ej]; laboratorio(); }));
+  function laboratorio() {
+    const x = leerLista($('#lx').value), y = leerLista($('#ly').value), n = x.length;
+    const res = $('#lab-res'), lect = $('#lab-lect');
+    if (n < 2) { res.innerHTML = ''; lect.textContent = 'Escriba al menos dos números en la primera lista, o pulse uno de los ejemplos.'; $('#fig-lab-h').innerHTML = $('#fig-lab-n').innerHTML = $('#lab-tabla').innerHTML = ''; return; }
+    const m = media(x), md = mediana(x), mo = modas(x), s = desv(x), mx = Math.max(...x), mn = Math.min(...x), dec = x.some(v => !Number.isInteger(v)) ? 2 : 1;
+    const f = v => numS(v, Math.abs(v) >= 1000 ? 0 : dec);
+    res.innerHTML = [['Datos', num(n)], ['Promedio', f(m)], ['Mediana', f(md)], ['Moda', mo.length ? (mo.length > 3 ? 'varias' : mo.map(v => f(v)).join(' y ')) : 'no hay'], ['Rango', f(mx - mn)], ['Desviación', f(s)], ['Coef. de variación', m ? num(100 * s / Math.abs(m), 1) + ' %' : '—']]
+      .map(([a, b]) => `<li>${a}<b>${b}</b></li>`).join('');
+    const frases = [];
+    const dif = (m - md) / (s || 1);
+    if (dif > .25) frases.push('El promedio queda por encima de la mediana: hay valores altos que lo jalan hacia arriba. Para describir el dato típico, la mediana es más segura.');
+    else if (dif < -.25) frases.push('El promedio queda por debajo de la mediana: hay valores bajos que lo jalan hacia abajo.');
+    else frases.push('El promedio y la mediana están cerca: no hay valores extremos que arrastren el centro.');
+    const cv = 100 * s / Math.abs(m || 1);
+    frases.push(cv < 10 ? 'Los datos se parecen mucho entre sí: el promedio es confiable.' : cv < 30 ? 'Hay una dispersión moderada: el promedio orienta, pero no promete.' : 'Los datos son muy distintos entre sí: mire el histograma antes de usar el promedio para decidir.');
+    if (n < 10) frases.push(`Con ${n} datos, cualquier conclusión es frágil.`);
+    // histograma: por valor si hay pocos valores enteros distintos; si no, intervalos del mismo ancho
+    const distintos = new Set(x).size;
+    let ancho, desde, hasta;
+    if (x.every(Number.isInteger) && mx - mn <= 12) { ancho = 1; desde = mn - .5; hasta = mx + .5; }
+    else { const k = Math.min(12, Math.max(4, Math.ceil(Math.log2(n) + 1))); const bruto = (mx - mn) / k || 1; const p10 = 10 ** Math.floor(Math.log10(bruto)); ancho = [1, 2, 2.5, 5, 10].map(q => q * p10).find(q => q >= bruto) || bruto; desde = Math.floor(mn / ancho) * ancho; hasta = Math.max(desde + ancho, Math.ceil((mx + 1e-9) / ancho) * ancho); if (hasta <= mx) hasta += ancho; }
+    dibujaHisto($('#fig-lab-h'), { datos: x, desde, hasta, ancho, cadaTick: ancho === 1 ? 1 : ancho * Math.max(1, Math.ceil((hasta - desde) / ancho / 8)), fmtX: v => ancho === 1 ? num(v + .5) : f(v), alto: 250, xlab: 'primera lista',
+      lineas: [{ x: m, clase: 'l-prom', texto: 'promedio ' + f(m) }, { x: md, clase: 'l-med', texto: 'mediana ' + f(md) }], aria: `Histograma de sus ${n} datos.` });
+    if (y.length === n && n > 2) {
+      const c = dibujaNube($('#fig-lab-n'), x.map((v, i) => ({ x: v, y: y[i], nombre: 'dato ' + (i + 1) })), { cuadrantes: true, alto: 300, xlab: 'primera lista (X)', ylab: 'segunda lista (Y)', aria: 'Nube de sus datos.' });
+      const r = corr(x, y);
+      frases.push(isFinite(r) ? `Correlación: r = ${num(r, 2)} (${Math.abs(r) < .3 ? 'débil' : Math.abs(r) < .7 ? 'moderada' : 'fuerte'}, ${r > 0 ? 'positiva' : 'negativa'}), con ${c.acuerdo} puntos de acuerdo y ${c.contra} en contra. Recuerde las tres sospechas antes de hablar de causa.` : 'Una de las listas no varía: no hay correlación que calcular.');
+    } else {
+      $('#fig-lab-n').innerHTML = '';
+      if (y.length && y.length !== n) frases.push(`La segunda lista tiene ${y.length} números y la primera ${n}: para la correlación deben tener los mismos.`);
+    }
+    lect.innerHTML = frases.join(' ');
+    const enteros = x.every(Number.isInteger) && Number.isInteger(m), fx = v => enteros ? numS(v, 2) : num(v, 2);
+    if (n <= 20) {
+      $('#lab-tabla').innerHTML = `<caption class="solo-lector">Su desviación estándar paso a paso</caption><thead><tr><th>Dato</th><th class="num">Valor</th><th class="num">Distancia al promedio</th><th class="num">Distancia al cuadrado</th></tr></thead><tbody>${x.map((v, i) => `<tr><td>${i + 1}</td><td class="num">${f(v)}</td><td class="num">${v - m > 1e-9 ? '+' : ''}${fx(v - m)}</td><td class="num">${fx((v - m) ** 2)}</td></tr>`).join('')}</tbody><tfoot><tr><td>Suma</td><td class="num">${f(suma(x))}</td><td class="num">0</td><td class="num">${fx(sumaCuadrados(x))}</td></tr></tfoot>`;
+    } else $('#lab-tabla').innerHTML = '';
+  }
+  $('#lx').addEventListener('input', laboratorio); $('#ly').addEventListener('input', laboratorio);
+  [$('#lx').value, $('#ly').value] = EJ.notas; redibujos.push(laboratorio);
+
+  /* ---------- dibujar todo y redibujar al cambiar el ancho ---------- */
+  const todo = () => redibujos.forEach(f => f());
+  todo();
+  let ancho = innerWidth, espera;
+  addEventListener('resize', () => { if (innerWidth === ancho) return; ancho = innerWidth; clearTimeout(espera); espera = setTimeout(todo, 150); });
+  document.fonts && document.fonts.ready.then(todo);
+})();
+
+Transiciones.todo();
+
+</script>

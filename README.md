@@ -25,6 +25,7 @@ Para que siga así: no edite `pliego.css` ni el marcado de la portada sin revisa
 | `src/styles/libro.css` | El interior de los artículos y demos (registro Libro subrayado) |
 | `src/content/articulos/` | Un archivo `.md` por artículo. Cada uno es una página propia |
 | `src/pages/demos/index.astro` | La página de demos |
+| `src/clases/` y `src/layouts/Clase.astro` | Los laboratorios de clase, uno por sesión (ver «Laboratorios de clase») |
 | `src/layouts/Pliego.astro` | Plantilla de la portada |
 | `src/layouts/Base.astro` | Plantilla de las páginas interiores: cabecera, pie y datos para buscadores |
 | `src/layouts/Articulo.astro` | La plantilla de cada artículo |
@@ -189,6 +190,29 @@ import DemoExterno from '../../components/DemoExterno.astro';
 ---
 <DemoExterno titulo="Pronóstico de demanda" src="https://demos.torredbabel.com/pronostico/" />
 ```
+
+## Laboratorios de clase
+
+Cada laboratorio de clase vive en una dirección con el curso y el número de la sesión, para
+seguir el curso lección por lección:
+
+| Dirección | Curso | Sesión |
+| --- | --- | --- |
+| `torredbabel.com/masvalendatos03` | Más valen datos que percepciones (AFPN0087) | 3 · Laboratorio del promedio |
+| `torredbabel.com/diseñometricas03` | Diseño de métricas para el marketing (AFPN0097) | 3 · Laboratorio de adquisición |
+
+- Son material de clase: no llevan la cabecera ni el pie de Torre D. Babel. El pie de cada
+  laboratorio trae solo el nombre y el correo del docente.
+- Cada uno tiene tres archivos con el mismo nombre de la dirección:
+  `src/clases/<dirección>/laboratorio.css` (estilo), `src/clases/<dirección>/laboratorio.html`
+  (cuerpo y guion) y `src/pages/<dirección>.astro` (título, descripción y letras). La plantilla
+  común es `src/layouts/Clase.astro`.
+- El estilo y el cuerpo son copia del laboratorio publicado como artefacto; se corrigen en su
+  fuente y se vuelven a copiar, no se editan aquí a mano. La única diferencia es que las letras
+  las aloja el sitio, como en el resto de las páginas.
+- Si la dirección lleva eñe, agregue en `astro.config.mjs` la versión sin eñe, que lleva a la
+  original: `/disenometricas03` abre `/diseñometricas03`.
+- La sesión siguiente es otra dirección (`masvalendatos04`); las anteriores no se borran.
 
 ## Comandos
 
