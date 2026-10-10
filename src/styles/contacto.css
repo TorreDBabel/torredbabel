@@ -1,0 +1,60 @@
+/* Páginas de /contacto/ en el registro Noche clara. Todo lo demás viene de noche.css (copia del artefacto). */
+/* Un cielo quieto: los puntos de la portada sin movimiento, con semilla fija y tenues para no tapar la letra.
+   En pantallas angostas va la mitad de los puntos. */
+.cielo-quieto{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(1px 1px at 82.5% 28.4%,rgb(220 221 240 / 0.28) 99%,transparent),
+  radial-gradient(1px 1px at 94.0% 17.3%,rgb(220 221 240 / 0.44) 99%,transparent),
+  radial-gradient(1px 1px at 51.3% 33.1%,rgb(220 221 240 / 0.26) 99%,transparent),
+  radial-gradient(1px 1px at 6.7% 84.9%,rgb(220 221 240 / 0.3) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 85.5% 39.6%,rgb(220 221 240 / 0.32) 99%,transparent),
+  radial-gradient(1px 1px at 83.7% 39.7%,rgb(220 221 240 / 0.36) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 18.6% 60.0%,rgb(220 221 240 / 0.3) 99%,transparent),
+  radial-gradient(2px 2px at 87.3% 60.5%,rgb(220 221 240 / 0.38) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 52.0% 67.2%,rgb(220 221 240 / 0.23) 99%,transparent),
+  radial-gradient(1px 1px at 2.1% 48.6%,rgb(220 221 240 / 0.25) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 64.0% 52.9%,rgb(220 221 240 / 0.33) 99%,transparent),
+  radial-gradient(1px 1px at 19.3% 63.0%,rgb(220 221 240 / 0.45) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 27.3% 26.7%,rgb(220 221 240 / 0.4) 99%,transparent),
+  radial-gradient(1px 1px at 23.2% 87.2%,rgb(220 221 240 / 0.27) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 85.0% 87.0%,rgb(220 221 240 / 0.4) 99%,transparent),
+  radial-gradient(1px 1px at 66.5% 52.9%,rgb(220 221 240 / 0.27) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 39.9% 76.7%,rgb(220 221 240 / 0.37) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 47.3% 44.1%,rgb(220 221 240 / 0.49) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 96.6% 20.6%,rgb(220 221 240 / 0.43) 99%,transparent),
+  radial-gradient(1px 1px at 71.5% 91.5%,rgb(220 221 240 / 0.47) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 57.2% 47.8%,rgb(220 221 240 / 0.31) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 50.5% 12.0%,rgb(220 221 240 / 0.37) 99%,transparent)}
+.cielo-quieto::after{content:"";position:absolute;inset:0;background-image:radial-gradient(2px 2px at 69.6% 70.7%,rgb(220 221 240 / 0.47) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 95.9% 74.1%,rgb(220 221 240 / 0.21) 99%,transparent),
+  radial-gradient(1px 1px at 96.1% 40.2%,rgb(220 221 240 / 0.42) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 24.1% 66.3%,rgb(220 221 240 / 0.29) 99%,transparent),
+  radial-gradient(1px 1px at 37.7% 2.0%,rgb(220 221 240 / 0.42) 99%,transparent),
+  radial-gradient(1px 1px at 54.1% 43.9%,rgb(220 221 240 / 0.23) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 26.9% 63.9%,rgb(220 221 240 / 0.37) 99%,transparent),
+  radial-gradient(1px 1px at 11.8% 79.7%,rgb(220 221 240 / 0.29) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 42.3% 55.1%,rgb(220 221 240 / 0.28) 99%,transparent),
+  radial-gradient(2px 2px at 10.0% 83.1%,rgb(220 221 240 / 0.42) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 94.4% 3.5%,rgb(220 221 240 / 0.45) 99%,transparent),
+  radial-gradient(1px 1px at 95.7% 10.8%,rgb(220 221 240 / 0.31) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 16.1% 78.9%,rgb(220 221 240 / 0.3) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 27.5% 22.5%,rgb(220 221 240 / 0.2) 99%,transparent),
+  radial-gradient(2px 2px at 34.8% 53.8%,rgb(220 221 240 / 0.48) 99%,transparent),
+  radial-gradient(2px 2px at 76.3% 52.8%,rgb(220 221 240 / 0.36) 99%,transparent),
+  radial-gradient(2px 2px at 93.1% 49.7%,rgb(220 221 240 / 0.43) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 97.6% 19.6%,rgb(220 221 240 / 0.24) 99%,transparent),
+  radial-gradient(1px 1px at 87.3% 36.6%,rgb(220 221 240 / 0.38) 99%,transparent),
+  radial-gradient(1.5px 1.5px at 3.8% 53.0%,rgb(220 221 240 / 0.44) 99%,transparent),
+  radial-gradient(1px 1px at 42.2% 60.9%,rgb(220 221 240 / 0.25) 99%,transparent),
+  radial-gradient(1px 1px at 49.1% 78.4%,rgb(220 221 240 / 0.49) 99%,transparent)}
+@media screen and (max-width:899px){.cielo-quieto::after{display:none}}
+.pagina-corta{padding-bottom:6rem}
+.titular-corto{padding-block:3.5rem .5rem}
+.titular-corto .entradilla{margin-top:2.25rem}
+.pagina-titulo{margin:.25rem 0 0;font:400 clamp(2.5rem,9vw,4.75rem)/1 var(--titular);letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-fuerte)}
+/* La torre hecha de estrellas, como queda al final de la apertura de la portada */
+.torre-mini{display:block;width:92px;height:auto;margin:0 auto 1.75rem;overflow:visible}
+.torre-mini .silueta{fill:none;stroke:var(--marca-b);stroke-width:1.6;stroke-linejoin:round;stroke-opacity:.8}
+.torre-mini .hilo{fill:none;stroke:var(--marca-b);stroke-width:1.2;stroke-dasharray:3 5;stroke-opacity:.6}
+.torre-mini .punto{fill:var(--marca-b)}
+.torre-mini .halo{fill:none;stroke:var(--marca-b);stroke-opacity:.4}
+.volver{margin-top:2.5rem}
+@media print{.cielo-quieto,.torre-mini{display:none}}

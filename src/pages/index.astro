@@ -1,17 +1,23 @@
 ---
-// Portada de torredbabel.com. El marcado, el estilo (src/styles/pliego.css) y el guion
-// son los del artefacto «Torre D. Babel» aprobado; solo se añadieron al menú
-// los enlaces a Artículos y Demos.
-import Pliego from '../layouts/Pliego.astro';
+// Portada de torredbabel.com en el registro Noche clara. El marcado, el estilo (src/styles/noche.css) y el guion
+// son copia exacta del artefacto aprobado https://claude.ai/artifact/HFjH4CdTu5KDdfQRmXSPDA.
+// Diferencias con el artefacto: los enlaces a Artículos y Demos son internos, los logos salen de /marcas/
+// y el formulario de contacto vive en src/components/Formulario.astro (mismo bloque, con action=).
+import Noche from '../layouts/Noche.astro';
+import Formulario from '../components/Formulario.astro';
 ---
-<Pliego>
+<Noche>
+<div class="progreso" aria-hidden="true"></div>
+<canvas class="cielo" aria-hidden="true"></canvas>
 <a class="salto" href="#contenido">Saltar al contenido</a>
+
+<div class="r-noche">
 
 <header class="cabecera">
   <nav aria-label="Principal">
     <a class="inicio" href="#contenido" aria-label="Torre D. Babel, inicio"><span class="marca-torre" role="img" aria-label="Torre D. Babel"></span></a>
     <ul class="menu">
-      <li><a href="#recorrido">El recorrido</a></li>
+      <li><a href="#torre">La torre</a></li>
       <li><a href="#lengua">La lengua</a></li>
       <li><a href="#persona">La persona</a></li>
       <li><a href="/articulos/">Artículos</a></li>
@@ -27,19 +33,19 @@ import Pliego from '../layouts/Pliego.astro';
   <div class="apertura-escena">
 
     <div class="apertura-copia activa" data-paso="1">
-      <p>Cada mañana, alguien abre <mark class="marca-a">cuatro archivos</mark>, copia <mark class="marca-a">doscientas filas</mark> a mano y corrige <mark class="marca-a">la fórmula de ayer</mark>. A mediodía envía <mark class="marca-a">un informe</mark> que <mark class="marca-a">nadie lee</mark> completo, y en la tarde alguien pregunta <mark class="marca-a">por qué no cuadra</mark>. Nadie mintió. <mark class="marca-a">Nadie entendió</mark> del todo.</p>
-      <p class="apertura-pie">Así suena un proceso cuando los datos hablan lenguas distintas. ¿Le resulta familiar?</p>
+      <p>Cada día, su organización enciende <mark class="marca-a">miles de datos</mark>: <mark class="marca-a">pedidos</mark>, <mark class="marca-a">facturas</mark>, <mark class="marca-a">pagos</mark>, <mark class="marca-a">inventarios</mark>, <mark class="marca-a">correos</mark> y <mark class="marca-a">reportes</mark>. <mark class="marca-a">Todos brillan igual</mark>, y por eso <mark class="marca-a">ninguno orienta</mark>.</p>
+      <p class="apertura-pie">Así se ve un cielo de datos sin ordenar. ¿Hacia dónde miraría usted primero?</p>
       <p class="apertura-bajar" aria-hidden="true">Baje despacio</p>
     </div>
 
     <div class="apertura-copia" data-paso="2">
-      <p>Cada mañana, alguien abre <mark class="marca-c">cuatro archivos</mark>, <mark class="marca-a">copia doscientas filas</mark> a mano y corrige la fórmula de ayer. A mediodía envía un informe que nadie lee completo, y en la tarde alguien pregunta por qué no cuadra. Nadie mintió. Nadie <mark class="marca-b">entendió</mark> del todo.</p>
+      <p>Cada día, su organización enciende <mark class="marca-c">miles de datos</mark>: pedidos, facturas, pagos, inventarios, correos y reportes. Todos <mark class="marca-a">brillan igual</mark>, y por eso ninguno <mark class="marca-b">orienta</mark>.</p>
       <p class="apertura-pie">Tres cosas distintas: lo que ya existe, lo que sobra y lo que falta.</p>
     </div>
 
     <div class="apertura-copia" data-paso="3">
-      <p>Cada mañana, alguien abre <mark class="marca-c">cuatro archivos</mark>, <mark class="marca-a">copia doscientas filas</mark> a mano y corrige la fórmula de ayer. A mediodía envía un informe que nadie lee completo, y en la tarde alguien pregunta por qué no cuadra. Nadie mintió. Nadie <mark class="marca-b">entendió</mark> del todo. <span class="giro">Detrás de esas filas hay una persona que podría estar pensando.</span></p>
-      <p class="apertura-pie">En esta página, el <mark class="marca-a">ámbar</mark> marca lo que se va; el <mark class="marca-b">lapis</mark>, lo que llega; el <mark class="marca-c">pergamino</mark>, lo que ya existe y se queda. El subrayado rojo señala el giro.</p>
+      <p>Cada día, su organización enciende <mark class="marca-c">miles de datos</mark>: pedidos, facturas, pagos, inventarios, correos y reportes. Todos <mark class="marca-a">brillan igual</mark>, y por eso ninguno <mark class="marca-b">orienta</mark>. <span class="giro">Quien sabe unirlos encuentra el norte.</span></p>
+      <p class="apertura-pie">En esta página, el <mark class="marca-a">oro</mark> marca lo que se va; el <mark class="marca-b">azul</mark>, lo que llega; el <mark class="marca-c">blanco</mark>, lo que ya existe y se queda. El verde subraya el giro.</p>
     </div>
 
   </div>
@@ -52,11 +58,12 @@ import Pliego from '../layouts/Pliego.astro';
 
 <header class="titular">
   <p class="rotulo">Torre D. Babel · Consultoría de tecnología · Bogotá</p>
-  <h1 class="lema" aria-label="De ruido a criterio">
-    <span class="par" aria-hidden="true"><span class="nexo">De</span> <mark class="marca-a">ruido</mark></span>
-    <span class="par" aria-hidden="true"><span class="nexo">a</span> <mark class="marca-b">criterio</mark></span>
+  <h1 class="lema" aria-label="De ruido a sentido">
+    <span class="par" aria-hidden="true"><span class="nexo">De</span> <mark class="marca-a ruido"><span style="--y:-.05em;--r:-5deg">R</span><span style="--y:.07em;--r:4deg">u</span><span style="--y:-.09em;--r:-2deg">i</span><span style="--y:.04em;--r:6deg">d</span><span style="--y:-.02em;--r:-3deg">o</span></mark></span>
+    <span class="par" aria-hidden="true"><span class="nexo">a</span> <mark class="marca-b">sentido</mark></span>
   </h1>
-  <p class="entradilla">Ordenamos, conectamos y explicamos los datos de su organización en la lengua que su equipo ya habla. Cambia el proceso, y cambia también la persona que lo hace.</p>
+  <p class="entradilla">En español, sentido quiere decir dos cosas: lo que algo significa y hacia dónde va. Ordenamos, conectamos y explicamos los datos de su organización, en la lengua que su equipo ya habla, para que cada decisión tenga las dos.</p>
+  <p class="firma">Torre D. Babel · Bogotá · octubre de 2026</p>
   <ul class="servicios" aria-label="Servicios">
     <li>Ingeniería de datos</li>
     <li>Arquitectura de datos</li>
@@ -66,134 +73,230 @@ import Pliego from '../layouts/Pliego.astro';
 </header>
 
 <blockquote class="epigrafe">
-  <p>«Una vida sin examen no merece ser vivida.»</p>
-  <footer>Platón, <cite>Apología de Sócrates</cite>, 38a</footer>
+  <p>«El cielo estrellado sobre mí y la ley moral en mí.»</p>
+  <footer>Immanuel Kant, <cite>Crítica de la razón práctica</cite>, Conclusión · 1788</footer>
 </blockquote>
 
 <section class="columna">
-  <p>En español, una babel es «desorden y confusión»<sup id="vuelta-1"><a href="#cita-1">1</a></sup>: lo que ocurre cuando cada área nombra distinto la misma cosa. Una torre, en cambio, sirve para ver lejos y orientarse. Desde ahí trabajamos, y desde ahí le proponemos examinar sus datos con la misma calma con que Sócrates examinaba una vida.</p>
-  <p>Lo veremos desde tres lados: <strong>el recorrido</strong> que hace un dato hasta llegar a una decisión, <strong>la lengua</strong> en que se construye la solución y <strong>la persona</strong> que la usa.</p>
+  <p>Kant admiraba esas dos cosas: el orden del mundo, afuera, y la ley que cada persona lleva adentro. Nuestro oficio tiene los mismos dos lados: ordenar el dato y acompañar a quien lo usa.</p>
+  <p>Le proponemos recorrerlo en tres tramos: <strong>la torre</strong>, que se levanta piso por piso; <strong>la lengua</strong> en que se construye; y <strong>la persona</strong> que sube a mirar.</p>
 </section>
 
-<section class="columna" id="recorrido">
-  <h2 class="seccion">El recorrido</h2>
-  <p>Un dato no llega solo a una decisión. Recorre cuatro fases, y en cada una puede perder sentido o ganarlo. Acompañamos el camino completo o el tramo que haga falta, pero siempre pensamos las cuatro juntas.</p>
-  <p>Para verlo, sigamos a un solo dato desde el sistema donde nace hasta la mesa donde se decide.</p>
+<section class="columna" id="torre">
+  <h2 class="seccion" data-num="I">La torre</h2>
+  <p>Una torre se levanta de abajo arriba, y nadie empieza por la cima. Con los datos pasa igual: antes de anticipar el futuro hay que saber de dónde viene cada cifra y qué significa.</p>
+  <p>Esta es la torre completa. Ahora subámosla piso por piso, en el orden en que viaja el dato.</p>
 </section>
 
-<figure class="figura recorrido" aria-labelledby="f-fases">
+<figure class="figura recorrido" aria-labelledby="f-torre">
   <div class="recorrido-cuerpo">
-    <div class="recorrido-escena">
+    <div class="recorrido-escena torre-escena">
       <div class="figura-cabeza atenuable">
-        <h3 class="figura-titulo" id="f-fases">Cuatro fases, cuatro preguntas: de dónde viene, qué significa, qué pasa y qué podría pasar</h3>
-        <p class="figura-clave">Cada columna es una fase, en el orden en que viaja el dato. En <mark class="marca-a">ámbar</mark> y tachado, lo que deja de hacerse; en <mark class="marca-b">lapis</mark>, lo que la fase entrega.</p>
+        <h3 class="figura-titulo" id="f-torre">Cada piso sostiene al de arriba, y cada uno responde una pregunta</h3>
+        <p class="figura-clave">Cada piso es un oficio. En <mark class="marca-a">oro</mark>, lo que deja de hacerse a mano; en <mark class="marca-b">azul</mark>, lo que el piso entrega; en <mark class="marca-c">blanco</mark>, lo que ya era suyo y se queda.</p>
       </div>
-      <ol class="fases">
-        <li class="atenuable" data-t="ing">
-          <p class="fase-rotulo">Fase 1</p>
-          <h4 class="fase-nombre">Ingeniería de datos</h4>
-          <p class="fase-pregunta">¿De dónde viene?</p>
-          <ul>
-            <li><mark class="marca-a sale">copiar y pegar</mark></li>
-            <li>Fuentes conectadas, limpias y validadas</li>
-            <li><mark class="marca-b">cargas automáticas</mark></li>
-          </ul>
+      <ol class="torre">
+        <li class="piso atenuable" data-t="p1" style="--ancho:100%">
+          <p class="piso-rotulo">Piso 1 · Ingeniería de datos</p>
+          <p class="piso-pregunta">¿De dónde viene?</p>
+          <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">copiar y pegar</mark></span><span><b>entra</b><mark class="marca-b">cargas automáticas</mark></span><span><b>se queda</b><mark class="marca-c">sus fuentes</mark></span></p>
         </li>
-        <li class="atenuable" data-t="arq">
-          <p class="fase-rotulo">Fase 2</p>
-          <h4 class="fase-nombre">Arquitectura de datos</h4>
-          <p class="fase-pregunta">¿Qué significa?</p>
-          <ul>
-            <li><mark class="marca-a sale">cuatro versiones</mark></li>
-            <li>Modelo, permisos y responsables</li>
-            <li class="lazo" data-t2="lazo"><mark class="marca-b">una sola definición</mark><span class="lazo-nota">Aquí nace la lengua común.</span></li>
-          </ul>
+        <li class="piso atenuable" data-t="p2" style="--ancho:88%">
+          <p class="piso-rotulo">Piso 2 · Arquitectura de datos</p>
+          <p class="piso-pregunta">¿Qué significa?</p>
+          <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">cuatro versiones</mark></span><span><b>entra</b><mark class="marca-b lazo">una sola definición</mark></span><span><b>se queda</b><mark class="marca-c">sus sistemas</mark></span></p>
+          <span class="lazo-nota">Aquí nace la lengua común.</span>
         </li>
-        <li class="atenuable" data-t="bi">
-          <p class="fase-rotulo">Fase 3</p>
-          <h4 class="fase-nombre">Inteligencia de negocios</h4>
-          <p class="fase-pregunta">¿Qué está pasando?</p>
-          <ul>
-            <li><mark class="marca-a sale">informes que nadie abre</mark></li>
-            <li>Indicadores que se leen en un minuto</li>
-            <li><mark class="marca-b">cada cifra con su fórmula</mark></li>
-          </ul>
+        <li class="piso atenuable" data-t="p3" style="--ancho:76%">
+          <p class="piso-rotulo">Piso 3 · Inteligencia de negocios</p>
+          <p class="piso-pregunta">¿Qué está pasando?</p>
+          <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">informes que nadie abre</mark></span><span><b>entra</b><mark class="marca-b">cada cifra con su fórmula</mark></span><span><b>se queda</b><mark class="marca-c">sus herramientas</mark></span></p>
         </li>
-        <li class="atenuable" data-t="cd">
-          <p class="fase-rotulo">Fase 4</p>
-          <h4 class="fase-nombre">Ciencia de datos</h4>
-          <p class="fase-pregunta">¿Qué podría pasar?</p>
-          <ul>
-            <li><mark class="marca-a sale">intuición sin prueba</mark></li>
-            <li>Pronósticos, grupos y experimentos</li>
-            <li><mark class="marca-b">modelos que dicen su duda</mark></li>
-          </ul>
+        <li class="piso atenuable" data-t="p4" style="--ancho:64%">
+          <p class="piso-rotulo">Piso 4 · Ciencia de datos</p>
+          <p class="piso-pregunta">¿Qué podría pasar?</p>
+          <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">intuición sin prueba</mark></span><span><b>entra</b><mark class="marca-b">modelos que dicen su duda</mark></span><span><b>se queda</b><mark class="marca-c">su criterio</mark></span></p>
+        </li>
+        <li class="cima atenuable" data-t="cima">
+          <svg class="estrella" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 0 L15.4 10.6 L26 13 L15.4 15.4 L13 26 L10.6 15.4 L0 13 L10.6 10.6 Z" fill="currentColor"/></svg>
+          <span>Ver lejos</span>
         </li>
       </ol>
     </div>
     <div class="recorrido-pasos">
-      <div class="recorrido-paso" data-n="1" data-lado="der" data-foco="ing">
-        <div class="paso"><p><strong>Primero hay que traer el dato.</strong> Conectamos los sistemas que usted ya tiene, limpiamos y validamos lo que llega y programamos las cargas para que nadie vuelva a copiar filas a mano. Cada carga deja constancia de qué entró y qué se rechazó.<span class="pregunta">¿De dónde viene?</span></p></div>
+      <div class="recorrido-paso" data-n="1" data-foco="p1">
+        <div class="paso"><p><strong>Primero, los cimientos.</strong> Conectamos los sistemas que usted ya tiene, limpiamos y validamos lo que llega y programamos las cargas para que nadie vuelva a copiar filas a mano. Cada carga deja constancia de qué entró y qué se rechazó.<span class="sigue">Pero un dato que llega a tiempo todavía puede querer decir cuatro cosas distintas.</span></p></div>
       </div>
-      <div class="recorrido-paso" data-n="2" data-lado="der" data-foco="arq" data-lazo="arq">
-        <div class="paso"><p><strong>Después hay que nombrarlo.</strong> Diseñamos dónde vive cada dato, cómo se llama y quién responde por él. El resultado es un diccionario común: una sola definición de venta, de cliente o de lote, escrita y acordada con su equipo.<span class="pregunta">¿Qué significa?</span></p></div>
+      <div class="recorrido-paso" data-n="2" data-foco="p2" data-lazo="p2">
+        <div class="paso"><p><strong>Después, la estructura.</strong> Diseñamos dónde vive cada dato, cómo se llama y quién responde por él. El resultado es un diccionario común: una sola definición de venta, de cliente o de lote, acordada con su equipo.<span class="sigue">Pero un dato bien nombrado todavía hay que verlo.</span></p></div>
       </div>
-      <div class="recorrido-paso" data-n="3" data-lado="izq" data-foco="bi">
-        <div class="paso"><p><strong>Luego hay que mostrarlo.</strong> Indicadores y tableros que se entienden en un minuto y que dicen cómo se calculó cada cifra. Un tablero que nadie puede explicar no debería usarse para decidir.<span class="pregunta">¿Qué está pasando?</span></p></div>
+      <div class="recorrido-paso" data-n="3" data-foco="p3">
+        <div class="paso"><p><strong>Luego, el mirador.</strong> Indicadores y tableros que se entienden en un minuto y dicen cómo se calculó cada cifra. Un tablero que nadie puede explicar no debería usarse para decidir.<span class="sigue">Pero ver el presente no basta para preparar lo que viene.</span></p></div>
       </div>
-      <div class="recorrido-paso" data-n="4" data-lado="izq" data-foco="cd">
-        <div class="paso"><p><strong>Al final se puede anticipar.</strong> Estadística y modelos para pronosticar, agrupar y poner a prueba una hipótesis. Cada modelo dice qué tan seguro está, y cuando duda, lo dice y pide que una persona revise.<span class="pregunta">¿Qué podría pasar?</span></p></div>
+      <div class="recorrido-paso" data-n="4" data-foco="p4 cima">
+        <div class="paso"><p><strong>Al final, la cima.</strong> Estadística y modelos para pronosticar, agrupar y poner a prueba una hipótesis. Cada modelo dice qué tan seguro está, y cuando duda, lo dice y deja la decisión a una persona.<span class="sigue">Desde aquí se ve lejos, y el criterio sigue siendo suyo.</span></p></div>
       </div>
     </div>
   </div>
-  <figcaption class="figura-nota">Fuente: elaboración propia. Lo que la figura no muestra: en la práctica las fases se cruzan y a veces hay que volver atrás. El orden es el del dato, no el de un calendario.</figcaption>
+  <figcaption class="figura-nota">Fuente: elaboración propia. Lo que la figura no muestra: en la práctica los pisos se cruzan y a veces hay que bajar para reforzar uno. El orden es el del dato, no el de un calendario.</figcaption>
 </figure>
 
 <section class="columna">
-  <p>Las cuatro fases pueden contratarse por separado, pero el orden importa. <span class="giro">Un modelo brillante sobre datos mal nombrados solo repite el ruido con más seguridad.</span> Por eso, antes de pronosticar, preguntamos qué significa cada palabra.</p>
-  <p>Ahora bien, ¿en qué lengua se construye todo esto?</p>
+  <p>Los cuatro pisos pueden contratarse por separado, pero el orden importa. <span class="giro">Un modelo brillante sobre datos mal nombrados solo repite el ruido con más seguridad.</span></p>
+</section>
+<details class="nuez">
+  <summary>¿Hay que empezar siempre por el primer piso?</summary>
+  <p>No necesariamente. Muchas organizaciones ya tienen cimientos y les falta el mirador, o tienen tableros en los que nadie cree. Empezamos por una pregunta: ¿dónde se pierde hoy el sentido de sus datos? Ese es el primer piso que vale la pena revisar.</p>
+</details>
+<section class="columna">
+  <p>Ahora bien, ¿con qué materiales se levanta esta torre?</p>
 </section>
 
 <section class="columna" id="lengua">
-  <h2 class="seccion">La lengua</h2>
-  <p>No llegamos a reemplazar lo que su organización ya tiene. Llegamos a conectarlo. Trabajamos sobre su infraestructura: sus bases de datos, su nube o sus servidores, sus hojas de cálculo y sus tableros, sin pedirle que cambie de casa para que la solución funcione.</p>
+  <h2 class="seccion" data-num="II">La lengua</h2>
+  <p>Con los suyos. En español, una babel es «desorden y confusión»<sup><a href="#cita-1" id="vuelta-1">1</a></sup>: lo que ocurre cuando cada sistema y cada área hablan distinto. No llegamos a reemplazar lo que su organización ya tiene; llegamos a conectarlo, sobre su infraestructura y sin pedirle que cambie de casa para que la solución funcione.</p>
 </section>
 
-<figure class="figura" aria-labelledby="f-torre">
+<figure class="figura" aria-labelledby="f-cielo">
   <div class="figura-cabeza">
-    <h3 class="figura-titulo" id="f-torre">La torre se levanta con las lenguas que su casa ya habla</h3>
-    <p class="figura-clave">Cada piso es una familia de herramientas que suele haber en una organización. Ninguno se reemplaza: todos se conectan y la solución se escribe en ellos.</p>
+    <h3 class="figura-titulo" id="f-cielo">Unimos las estrellas que su cielo ya tiene</h3>
+    <p class="figura-clave">Cada punto <mark class="marca-c">blanco</mark> es una herramienta que suele haber en una organización; cada línea, una conexión que construimos. En el centro, en <mark class="marca-b">azul</mark>, la lengua común que llega. Ninguna herramienta se reemplaza.</p>
   </div>
-  <div class="torre" role="list" aria-label="Herramientas con las que se construye la solución, de la cima a la base">
-    <p class="torre-cima" role="listitem">Su lengua</p>
-    <ul class="piso" role="listitem" aria-label="Lenguajes"><li class="piso-nombre" aria-hidden="true">Lenguajes</li><li>SQL</li><li>Python</li><li>R</li></ul>
-    <ul class="piso" role="listitem" aria-label="Hojas de cálculo"><li class="piso-nombre" aria-hidden="true">Hojas de cálculo</li><li>Excel</li><li>Google Sheets</li><li>Power Query</li></ul>
-    <ul class="piso" role="listitem" aria-label="Bases de datos"><li class="piso-nombre" aria-hidden="true">Bases de datos</li><li>PostgreSQL</li><li>SQL Server</li><li>MySQL</li><li>Oracle</li></ul>
-    <ul class="piso" role="listitem" aria-label="Tableros"><li class="piso-nombre" aria-hidden="true">Tableros</li><li>Power BI</li><li>Looker Studio</li><li>Tableau</li><li>Metabase</li></ul>
-    <ul class="piso" role="listitem" aria-label="Sistemas de gestión"><li class="piso-nombre" aria-hidden="true">Sistemas de gestión</li><li>ERP</li><li>CRM</li><li>SharePoint</li><li>archivos planos</li><li>API</li></ul>
-    <ul class="piso" role="listitem" aria-label="Infraestructura"><li class="piso-nombre" aria-hidden="true">Infraestructura</li><li>AWS</li><li>Azure</li><li>Google Cloud</li><li>servidores propios</li><li>un solo computador</li></ul>
+  <div class="cielo-figura">
+    <svg class="cielo-ancho" viewBox="0 0 1000 540" role="img" aria-labelledby="f-cielo d-cielo">
+      <g class="anillos">
+        <line class="anillo" pathLength="1" style="--i:0" x1="410" y1="45" x2="500" y2="110"/>
+        <line class="anillo" pathLength="1" style="--i:1" x1="500" y1="110" x2="670" y2="95"/>
+        <line class="anillo" pathLength="1" style="--i:2" x1="670" y1="95" x2="745" y2="190"/>
+        <line class="anillo" pathLength="1" style="--i:3" x1="745" y1="190" x2="690" y2="290"/>
+        <line class="anillo" pathLength="1" style="--i:4" x1="690" y1="290" x2="760" y2="385"/>
+        <line class="anillo" pathLength="1" style="--i:5" x1="760" y1="385" x2="655" y2="460"/>
+        <line class="anillo" pathLength="1" style="--i:6" x1="655" y1="460" x2="600" y2="505"/>
+        <line class="anillo" pathLength="1" style="--i:7" x1="600" y1="505" x2="500" y2="440"/>
+        <line class="anillo" pathLength="1" style="--i:8" x1="500" y1="440" x2="340" y2="465"/>
+        <line class="anillo" pathLength="1" style="--i:9" x1="340" y1="465" x2="245" y2="385"/>
+        <line class="anillo" pathLength="1" style="--i:10" x1="245" y1="385" x2="300" y2="290"/>
+        <line class="anillo" pathLength="1" style="--i:11" x1="300" y1="290" x2="255" y2="190"/>
+        <line class="anillo" pathLength="1" style="--i:12" x1="255" y1="190" x2="330" y2="95"/>
+        <line class="anillo" pathLength="1" style="--i:13" x1="330" y1="95" x2="410" y2="45"/>
+      </g>
+      <g class="rayos">
+        <line class="rayo" pathLength="1" style="--i:2" x1="500" y1="275" x2="410" y2="45"/>
+        <line class="rayo" pathLength="1" style="--i:3" x1="500" y1="275" x2="500" y2="110"/>
+        <line class="rayo" pathLength="1" style="--i:4" x1="500" y1="275" x2="670" y2="95"/>
+        <line class="rayo" pathLength="1" style="--i:5" x1="500" y1="275" x2="745" y2="190"/>
+        <line class="rayo" pathLength="1" style="--i:6" x1="500" y1="275" x2="690" y2="290"/>
+        <line class="rayo" pathLength="1" style="--i:7" x1="500" y1="275" x2="760" y2="385"/>
+        <line class="rayo" pathLength="1" style="--i:8" x1="500" y1="275" x2="655" y2="460"/>
+        <line class="rayo" pathLength="1" style="--i:9" x1="500" y1="275" x2="600" y2="505"/>
+        <line class="rayo" pathLength="1" style="--i:10" x1="500" y1="275" x2="500" y2="440"/>
+        <line class="rayo" pathLength="1" style="--i:11" x1="500" y1="275" x2="340" y2="465"/>
+        <line class="rayo" pathLength="1" style="--i:12" x1="500" y1="275" x2="245" y2="385"/>
+        <line class="rayo" pathLength="1" style="--i:13" x1="500" y1="275" x2="300" y2="290"/>
+        <line class="rayo" pathLength="1" style="--i:14" x1="500" y1="275" x2="255" y2="190"/>
+        <line class="rayo" pathLength="1" style="--i:15" x1="500" y1="275" x2="330" y2="95"/>
+      </g>
+      <g class="astros">
+        <circle class="astro-halo" style="--i:0" cx="410" cy="45" r="11"/><circle class="astro" style="--i:0" cx="410" cy="45" r="5"/><text class="nombre" style="--i:0" x="394" y="52" text-anchor="end">la nube</text>
+        <circle class="astro-halo" style="--i:1" cx="500" cy="110" r="11"/><circle class="astro" style="--i:1" cx="500" cy="110" r="5"/><text class="nombre" style="--i:1" x="500" y="84" text-anchor="middle">Power BI</text>
+        <circle class="astro-halo" style="--i:2" cx="670" cy="95" r="11"/><circle class="astro" style="--i:2" cx="670" cy="95" r="5"/><text class="nombre" style="--i:2" x="686" y="102" text-anchor="start">SQL Server</text>
+        <circle class="astro-halo" style="--i:3" cx="745" cy="190" r="11"/><circle class="astro" style="--i:3" cx="745" cy="190" r="5"/><text class="nombre" style="--i:3" x="761" y="197" text-anchor="start">PostgreSQL</text>
+        <circle class="astro-halo" style="--i:4" cx="690" cy="290" r="11"/><circle class="astro" style="--i:4" cx="690" cy="290" r="5"/><text class="nombre" style="--i:4" x="706" y="297" text-anchor="start">Oracle</text>
+        <circle class="astro-halo" style="--i:5" cx="760" cy="385" r="11"/><circle class="astro" style="--i:5" cx="760" cy="385" r="5"/><text class="nombre" style="--i:5" x="776" y="392" text-anchor="start">ERP</text>
+        <circle class="astro-halo" style="--i:6" cx="655" cy="460" r="11"/><circle class="astro" style="--i:6" cx="655" cy="460" r="5"/><text class="nombre" style="--i:6" x="671" y="467" text-anchor="start">API</text>
+        <circle class="astro-halo" style="--i:7" cx="600" cy="505" r="11"/><circle class="astro" style="--i:7" cx="600" cy="505" r="5"/><text class="nombre" style="--i:7" x="616" y="512" text-anchor="start">servidores propios</text>
+        <circle class="astro-halo" style="--i:8" cx="500" cy="440" r="11"/><circle class="astro" style="--i:8" cx="500" cy="440" r="5"/><text class="nombre" style="--i:8" x="500" y="476" text-anchor="middle">Python</text>
+        <circle class="astro-halo" style="--i:9" cx="340" cy="465" r="11"/><circle class="astro" style="--i:9" cx="340" cy="465" r="5"/><text class="nombre" style="--i:9" x="324" y="472" text-anchor="end">CRM</text>
+        <circle class="astro-halo" style="--i:10" cx="245" cy="385" r="11"/><circle class="astro" style="--i:10" cx="245" cy="385" r="5"/><text class="nombre" style="--i:10" x="229" y="392" text-anchor="end">SharePoint</text>
+        <circle class="astro-halo" style="--i:11" cx="300" cy="290" r="11"/><circle class="astro" style="--i:11" cx="300" cy="290" r="5"/><text class="nombre" style="--i:11" x="284" y="297" text-anchor="end">archivos planos</text>
+        <circle class="astro-halo" style="--i:12" cx="255" cy="190" r="11"/><circle class="astro" style="--i:12" cx="255" cy="190" r="5"/><text class="nombre" style="--i:12" x="239" y="197" text-anchor="end">Google Sheets</text>
+        <circle class="astro-halo" style="--i:13" cx="330" cy="95" r="11"/><circle class="astro" style="--i:13" cx="330" cy="95" r="5"/><text class="nombre" style="--i:13" x="314" y="102" text-anchor="end">Excel</text>
+      </g>
+      <circle class="nucleo-halo" cx="500" cy="275" r="22"/>
+      <circle class="nucleo" cx="500" cy="275" r="10"/>
+      <text class="nombre-nucleo" x="500" y="325" text-anchor="middle">lengua común</text>
+    </svg>
+    <svg class="cielo-alto" viewBox="0 0 600 860" role="img" aria-labelledby="f-cielo d-cielo">
+      <g class="anillos">
+        <line class="anillo" pathLength="1" style="--i:0" x1="160" y1="55" x2="450" y2="80"/>
+        <line class="anillo" pathLength="1" style="--i:1" x1="450" y1="80" x2="505" y2="190"/>
+        <line class="anillo" pathLength="1" style="--i:2" x1="505" y1="190" x2="440" y2="300"/>
+        <line class="anillo" pathLength="1" style="--i:3" x1="440" y1="300" x2="520" y2="430"/>
+        <line class="anillo" pathLength="1" style="--i:4" x1="520" y1="430" x2="445" y2="570"/>
+        <line class="anillo" pathLength="1" style="--i:5" x1="445" y1="570" x2="500" y2="680"/>
+        <line class="anillo" pathLength="1" style="--i:6" x1="500" y1="680" x2="430" y2="790"/>
+        <line class="anillo" pathLength="1" style="--i:7" x1="430" y1="790" x2="160" y2="800"/>
+        <line class="anillo" pathLength="1" style="--i:8" x1="160" y1="800" x2="95" y2="680"/>
+        <line class="anillo" pathLength="1" style="--i:9" x1="95" y1="680" x2="155" y2="570"/>
+        <line class="anillo" pathLength="1" style="--i:10" x1="155" y1="570" x2="80" y2="430"/>
+        <line class="anillo" pathLength="1" style="--i:11" x1="80" y1="430" x2="160" y2="300"/>
+        <line class="anillo" pathLength="1" style="--i:12" x1="160" y1="300" x2="95" y2="190"/>
+        <line class="anillo" pathLength="1" style="--i:13" x1="95" y1="190" x2="160" y2="55"/>
+      </g>
+      <g class="rayos">
+        <line class="rayo" pathLength="1" style="--i:2" x1="300" y1="430" x2="160" y2="55"/>
+        <line class="rayo" pathLength="1" style="--i:3" x1="300" y1="430" x2="450" y2="80"/>
+        <line class="rayo" pathLength="1" style="--i:4" x1="300" y1="430" x2="505" y2="190"/>
+        <line class="rayo" pathLength="1" style="--i:5" x1="300" y1="430" x2="440" y2="300"/>
+        <line class="rayo" pathLength="1" style="--i:6" x1="300" y1="430" x2="520" y2="430"/>
+        <line class="rayo" pathLength="1" style="--i:7" x1="300" y1="430" x2="445" y2="570"/>
+        <line class="rayo" pathLength="1" style="--i:8" x1="300" y1="430" x2="500" y2="680"/>
+        <line class="rayo" pathLength="1" style="--i:9" x1="300" y1="430" x2="430" y2="790"/>
+        <line class="rayo" pathLength="1" style="--i:10" x1="300" y1="430" x2="160" y2="800"/>
+        <line class="rayo" pathLength="1" style="--i:11" x1="300" y1="430" x2="95" y2="680"/>
+        <line class="rayo" pathLength="1" style="--i:12" x1="300" y1="430" x2="155" y2="570"/>
+        <line class="rayo" pathLength="1" style="--i:13" x1="300" y1="430" x2="80" y2="430"/>
+        <line class="rayo" pathLength="1" style="--i:14" x1="300" y1="430" x2="160" y2="300"/>
+        <line class="rayo" pathLength="1" style="--i:15" x1="300" y1="430" x2="95" y2="190"/>
+      </g>
+      <g class="astros">
+        <circle class="astro-halo" style="--i:0" cx="160" cy="55" r="12"/><circle class="astro" style="--i:0" cx="160" cy="55" r="6"/><text class="nombre" style="--i:0" x="160" y="98" text-anchor="middle">Google Sheets</text>
+        <circle class="astro-halo" style="--i:1" cx="450" cy="80" r="12"/><circle class="astro" style="--i:1" cx="450" cy="80" r="6"/><text class="nombre" style="--i:1" x="450" y="123" text-anchor="middle">SQL Server</text>
+        <circle class="astro-halo" style="--i:2" cx="505" cy="190" r="12"/><circle class="astro" style="--i:2" cx="505" cy="190" r="6"/><text class="nombre" style="--i:2" x="505" y="233" text-anchor="middle">Oracle</text>
+        <circle class="astro-halo" style="--i:3" cx="440" cy="300" r="12"/><circle class="astro" style="--i:3" cx="440" cy="300" r="6"/><text class="nombre" style="--i:3" x="440" y="343" text-anchor="middle">PostgreSQL</text>
+        <circle class="astro-halo" style="--i:4" cx="520" cy="430" r="12"/><circle class="astro" style="--i:4" cx="520" cy="430" r="6"/><text class="nombre" style="--i:4" x="520" y="473" text-anchor="middle">ERP</text>
+        <circle class="astro-halo" style="--i:5" cx="445" cy="570" r="12"/><circle class="astro" style="--i:5" cx="445" cy="570" r="6"/><text class="nombre" style="--i:5" x="445" y="613" text-anchor="middle">Power BI</text>
+        <circle class="astro-halo" style="--i:6" cx="500" cy="680" r="12"/><circle class="astro" style="--i:6" cx="500" cy="680" r="6"/><text class="nombre" style="--i:6" x="500" y="723" text-anchor="middle">API</text>
+        <circle class="astro-halo" style="--i:7" cx="430" cy="790" r="12"/><circle class="astro" style="--i:7" cx="430" cy="790" r="6"/><text class="nombre" style="--i:7" x="430" y="833" text-anchor="middle">la nube</text>
+        <circle class="astro-halo" style="--i:8" cx="160" cy="800" r="12"/><circle class="astro" style="--i:8" cx="160" cy="800" r="6"/><text class="nombre" style="--i:8" x="160" y="843" text-anchor="middle">servidores propios</text>
+        <circle class="astro-halo" style="--i:9" cx="95" cy="680" r="12"/><circle class="astro" style="--i:9" cx="95" cy="680" r="6"/><text class="nombre" style="--i:9" x="95" y="723" text-anchor="middle">CRM</text>
+        <circle class="astro-halo" style="--i:10" cx="155" cy="570" r="12"/><circle class="astro" style="--i:10" cx="155" cy="570" r="6"/><text class="nombre" style="--i:10" x="155" y="613" text-anchor="middle">SharePoint</text>
+        <circle class="astro-halo" style="--i:11" cx="80" cy="430" r="12"/><circle class="astro" style="--i:11" cx="80" cy="430" r="6"/><text class="nombre" style="--i:11" x="80" y="473" text-anchor="middle">Python</text>
+        <circle class="astro-halo" style="--i:12" cx="160" cy="300" r="12"/><circle class="astro" style="--i:12" cx="160" cy="300" r="6"/><text class="nombre" style="--i:12" x="160" y="343" text-anchor="middle">archivos planos</text>
+        <circle class="astro-halo" style="--i:13" cx="95" cy="190" r="12"/><circle class="astro" style="--i:13" cx="95" cy="190" r="6"/><text class="nombre" style="--i:13" x="95" y="233" text-anchor="middle">Excel</text>
+      </g>
+      <circle class="nucleo-halo" cx="300" cy="430" r="25"/>
+      <circle class="nucleo" cx="300" cy="430" r="12"/>
+      <text class="nombre-nucleo" x="300" y="487" text-anchor="middle">lengua común</text>
+    </svg>
+    <p class="solo-lector" id="d-cielo">Constelación de catorce herramientas: Excel, Google Sheets, archivos planos, SharePoint, CRM, ERP, API, Power BI, Python, SQL Server, PostgreSQL, Oracle, la nube y servidores propios. Todas se conectan entre sí y con una lengua común en el centro.</p>
   </div>
-  <figcaption class="figura-nota">Son ejemplos, no un catálogo cerrado: si su organización trabaja con otra herramienta, la solución se escribe en ella. Las marcas pertenecen a sus dueños; no vendemos licencias de terceros.</figcaption>
+  <figcaption class="figura-nota">Fuente: elaboración propia. Son ejemplos, no un catálogo cerrado: si su organización trabaja con otras herramientas, la solución se escribe en ellas. La figura no muestra cuánto trabajo pide cada conexión: unas toman un día y otras, semanas. Las marcas pertenecen a sus dueños; no vendemos licencias de terceros.</figcaption>
 </figure>
 
 <section class="columna">
-  <p>Hablamos su idioma dos veces. <strong>En el desarrollo</strong>, con su equipo y en los términos de su negocio, sin jerga, explicando cada decisión. <strong>En la solución</strong>, que se entrega escrita en las herramientas que su gente ya domina, documentada en español y con un manual para quien llegue después.</p>
+  <p>Hablamos su idioma dos veces. <strong>En el desarrollo</strong>, con su equipo y en los términos de su negocio, sin jerga y explicando cada decisión. <strong>En la solución</strong>, que se entrega escrita en las herramientas que su gente ya domina, documentada en español y con un manual para quien llegue después.</p>
   <p>El código, los modelos y la documentación quedan en su casa. Si mañana decide seguir sin nosotros, puede. <span class="giro">Una solución que su equipo no puede leer sería solo una babel nueva.</span></p>
-  <p>Queda la parte que ninguna herramienta resuelve: la persona.</p>
+  <p>Queda lo que ninguna herramienta resuelve: quien sube a mirar.</p>
 </section>
 
 <section class="columna" id="persona">
-  <h2 class="seccion">La persona</h2>
+  <h2 class="seccion" data-num="III">La persona</h2>
   <aside class="nota-margen">Automatizar libera horas. Lo que se haga con ellas no lo decide la máquina.</aside>
   <p>Un proceso es una secuencia de pasos, y cada paso lo da alguien. Cuando automatizamos una tarea, liberamos horas; lo que se haga con ellas depende de la persona que antes las gastaba copiando.</p>
-  <p>Por eso enseñamos mientras construimos. Kant llamó Ilustración a salir de una minoría de edad de la que uno mismo es responsable, y la resumió en atreverse a servirse del propio entendimiento<sup id="vuelta-2"><a href="#cita-2">2</a></sup>. En los datos, esa salida tiene una forma concreta: entender de dónde sale una cifra, poder preguntar por ella y no depender de nadie para leerla.</p>
-  <p><span class="giro">La ciencia de datos transforma el proceso; el conocimiento transforma a quien lo hace.</span> Lo primero se mide en horas. Lo segundo, en preguntas mejores.</p>
+  <p>Kant llamó Ilustración a salir de una minoría de edad de la que uno mismo es responsable, y la resumió en atreverse a servirse del propio entendimiento<sup><a href="#cita-2" id="vuelta-2">2</a></sup>. En los datos, esa salida tiene una forma concreta: entender de dónde sale una cifra, poder preguntar por ella y no depender de nadie para leerla. Por eso enseñamos mientras construimos.</p>
+</section>
+
+<p class="destacado">La ciencia de datos transforma el proceso; el conocimiento transforma a quien lo hace.</p>
+
+<section class="columna">
+  <p>Lo primero se mide en horas. Lo segundo, en preguntas mejores. <span class="giro">Y una persona que pregunta mejor cambia el proceso siguiente sin que nadie se lo pida.</span></p>
 </section>
 
 <figure class="figura" aria-labelledby="f-preguntas">
   <div class="figura-cabeza">
     <h3 class="figura-titulo" id="f-preguntas">Tres preguntas deciden si un trabajo está terminado</h3>
-    <p class="figura-clave">Se hacen al cerrar cada fase, no solo al final del proyecto.</p>
+    <p class="figura-clave">Se hacen al cerrar cada piso, no solo al final del proyecto.</p>
   </div>
   <ul class="preguntas">
     <li><h4>¿A quién sirve?</h4><p>Detrás de cada dato hay una persona. Empezamos por ella y por la decisión que necesita tomar.</p></li>
@@ -204,30 +307,25 @@ import Pliego from '../layouts/Pliego.astro';
 </figure>
 
 <section class="columna">
-  <p>De este mismo tronco salen nuestras aplicaciones: herramientas para la industria, para lo público y para el aula. Cada una es el mismo conocimiento puesto a trabajar en un lugar distinto, con la misma regla de medir con cuidado y explicar lo medido.</p>
+  <p>De este mismo conocimiento salen nuestras aplicaciones: herramientas para la industria, para lo público y para el aula. Cada una es la misma torre levantada en un lugar distinto, con la misma regla de medir con cuidado y explicar lo medido.</p>
 </section>
 
 <section class="columna" id="puerta">
-  <h2 class="seccion">Conversemos</h2>
+  <h2 class="seccion" data-num="IV">Conversemos</h2>
   <p>Hay tres maneras de empezar, y la primera no cuesta nada.</p>
 </section>
 
 <ol class="puerta">
   <li><span class="num">01</span><div><h3>Una conversación</h3><p>Cuéntenos qué proceso le quita tiempo a su equipo. Si lo que necesita no es lo que hacemos, se lo decimos y le sugerimos a quién buscar.</p></div></li>
-  <li><span class="num">02</span><div><h3>Un proyecto por fases</h3><p>Con criterios de aceptación que se pueden verificar y entregas parciales. Al terminar, el código, los modelos y la documentación quedan en su casa.</p></div></li>
+  <li><span class="num">02</span><div><h3>Un proyecto por pisos</h3><p>Con criterios de aceptación que se pueden verificar y entregas parciales. Al terminar, el código, los modelos y la documentación quedan en su casa.</p></div></li>
   <li><span class="num">03</span><div><h3>Una clase o un taller</h3><p>Para equipos que ya tienen los datos y quieren aprender a leerlos, con ejercicios sobre sus propios casos.</p></div></li>
 </ol>
 
-<div class="contacto">
-  <span class="correo" id="correo">babeltran@torredbabel.com</span>
-  <button class="boton" type="button" id="copiar">Copiar el correo</button>
-  <a class="boton claro" href="mailto:babeltran@torredbabel.com">Escribir</a>
-  <span class="aviso" id="aviso" role="status" aria-live="polite"></span>
-</div>
+<Formulario />
 
 <section class="columna">
-  <p style="margin-top:4rem">Vuelva a la mañana del principio: cuatro archivos, doscientas filas, un informe que nadie lee. Con los datos en orden, la misma persona llega al mediodía con una pregunta mejor que la de ayer.</p>
-  <p class="aforismo">Un dato bien dicho libera a quien lo lee.</p>
+  <p style="margin-top:5rem">Vuelva al cielo del principio: miles de puntos que brillaban igual. Ninguno se borró. Ahora hay líneas entre ellos, una lengua común en el centro y una torre desde donde mirarlos.</p>
+  <p class="aforismo">Unir los puntos es encontrar el norte.</p>
 </section>
 
 </main>
@@ -236,57 +334,55 @@ import Pliego from '../layouts/Pliego.astro';
   <h2 id="n-titulo">Notas y método</h2>
   <details>
     <summary>¿Trabajan con la infraestructura que ya tengo?</summary>
-    <p>Sí. La solución se diseña sobre lo que su organización ya usa y se escribe en las herramientas que su equipo puede mantener. Si alguna pieza nueva hace falta, se explica por qué y qué alternativas hay antes de proponerla.</p>
+    <p>Sí. La solución se diseña sobre lo que su organización ya usa y se escribe en las herramientas que su equipo puede mantener. Si hace falta una pieza nueva, se explica por qué y qué alternativas hay antes de proponerla.</p>
   </details>
   <details>
     <summary>¿Qué pasa con los datos personales?</summary>
-    <p>Se usan solo los necesarios, con autorización y para una finalidad dicha, conforme a la Ley Estatutaria 1581 de 2012 de protección de datos personales. En temas sensibles se trabaja con datos agregados o anonimizados.</p>
+    <p>Se usan solo los necesarios, con autorización y para una finalidad dicha, conforme a la Ley Estatutaria 1581 de 2012 de protección de datos personales. En temas sensibles se trabaja con datos agregados o anonimizados. Lo que usted escriba en el formulario de contacto se usa solo para responderle.</p>
+  </details>
+  <details>
+    <summary>¿Qué son los puntos del cielo?</summary>
+    <p>Son ilustrativos: no representan datos de ninguna organización. Se dibujan siempre con la misma semilla, y los que forman la torre son siempre los mismos. Si su equipo pidió menos movimiento, el cielo se queda quieto.</p>
   </details>
   <details>
     <summary>¿Cómo está hecha esta página?</summary>
-    <p>Registro visual: Pliego, el del cartel de imprenta. Forma de la historia: un solo dato que recorre cuatro fases. Las citas se indican abajo; las de Kant y Platón son paráfrasis o traducciones de uso común, no versiones literales de una edición concreta.</p>
+    <p>Lector supuesto: quien decide en una organización y sospecha que sus datos dicen menos de lo que podrían. Forma de la historia: pieza por pieza, la torre armada en el orden en que viaja el dato. Registro visual: Noche clara. Recursos: barra de progreso, frase destacada y una explicación que se abre. Formato: página web; lo único que se mueve es el cielo de la apertura, la torre que se enciende piso por piso y la constelación que se dibuja al llegar, y sin guion todo se lee quieto.</p>
+    <p>La portada anterior usaba el registro Pliego y la forma de un solo dato que recorría cuatro fases. Las citas se indican abajo; las de Kant son traducciones o paráfrasis de uso común, no versiones literales de una edición concreta.</p>
   </details>
   <ol class="citas">
     <li id="cita-1">Real Academia Española, <a href="https://dle.rae.es/babel"><cite>Diccionario de la lengua española</cite>, «babel»</a>. <a href="#vuelta-1" aria-label="Volver al texto">↑</a></li>
     <li id="cita-2">Immanuel Kant, <cite>Respuesta a la pregunta: ¿Qué es la Ilustración?</cite>, 1784. Paráfrasis del primer párrafo. <a href="#vuelta-2" aria-label="Volver al texto">↑</a></li>
-    <li>Platón, <cite>Apología de Sócrates</cite>, 38a. Traducción de uso común del epígrafe.</li>
+    <li>Immanuel Kant, <cite>Crítica de la razón práctica</cite>, 1788, Conclusión. Traducción de uso común del epígrafe.</li>
   </ol>
 </section>
 
 <footer class="pie">
   <span class="marca-firma" role="img" aria-label="D'Babel"></span>
   <p class="sello">«De la riqueza del corazón, la palabra.»</p>
-  <p>Torre D. Babel S.A.S. · NIT 902.112.383-9 · Bogotá, Colombia</p>
-  <p><a href="mailto:babeltran@torredbabel.com">babeltran@torredbabel.com</a></p>
+  <p>Torre D. Babel S.A.S. · Bogotá, Colombia</p>
+  <p>babeltran@torredbabel.com</p>
 </footer>
+
+</div>
 
 <script is:inline>
 // Torre D. Babel · transiciones. Sin este guion la página se lee completa y marcada.
 (() => {
   const raiz = document.documentElement;
   raiz.classList.add('js'); raiz.lang = 'es';
+  const quieto = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Copiar el correo
-  const boton = document.getElementById('copiar'), aviso = document.getElementById('aviso'), correo = document.getElementById('correo');
-  boton && boton.addEventListener('click', () => {
-    const texto = correo.textContent.trim();
-    const seleccionar = () => { const r = document.createRange(); r.selectNodeContents(correo); const s = getSelection(); s.removeAllRanges(); s.addRange(r); aviso.textContent = 'Seleccionado: presione Ctrl + C para copiarlo.'; };
-    try { navigator.clipboard.writeText(texto).then(() => { aviso.textContent = 'Correo copiado.'; }, seleccionar); } catch (e) { seleccionar(); }
-  });
-
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
   if (!('IntersectionObserver' in window)) return;
-  const movil = () => matchMedia('(max-width: 720px)').matches;
+
   const cruzo = (lista, linea, rect) => { let a = null; for (const x of lista) if (rect(x).top < linea) a = x; return a; };
   const tareas = []; let pendiente = false;
   const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
   addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
 
-  // 1. El realce se pasa al entrar en pantalla; lo visible al cargar ya está marcado.
-  const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
-  document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
-
-  // 2. Apertura: la copia activa es la del último disparador que cruzó la mitad de la pantalla.
-  document.querySelectorAll('.apertura').forEach(ap => {
+  // 1. Apertura: la copia activa es la del último disparador que cruzó la mitad de la pantalla.
+  const ap = document.querySelector('.apertura');
+  if (ap) {
     ap.classList.add('viva');
     const copias = ap.querySelectorAll('.apertura-copia'), disp = [...ap.querySelectorAll('.apertura-disparador')];
     tareas.push(() => {
@@ -294,33 +390,153 @@ import Pliego from '../layouts/Pliego.astro';
       if (ap.dataset.estado === n) return;
       ap.dataset.estado = n; copias.forEach(c => c.classList.toggle('activa', c.dataset.paso === n));
     });
-  });
+  }
 
-  // 3. Recorrido: en pantallas anchas el esquema queda fijo y manda la última tarjeta que cruzó la línea.
-  //    En teléfonos las cuatro fases ya no caben a la vista: las tarjetas van en fila debajo.
-  if (!movil()) document.querySelectorAll('.recorrido').forEach(rec => {
-    rec.classList.add('vivo');
+  // 2. La torre: en pantallas anchas la torre queda fija y se enciende el piso de la última tarjeta que cruzó la línea.
+  //    En pantallas angostas la torre se ve entera y las tarjetas van en fila debajo.
+  const ancho = matchMedia('(min-width: 960px)');
+  document.querySelectorAll('.recorrido').forEach(rec => {
     const piezas = rec.querySelectorAll('[data-t]'), cabeza = rec.querySelector('.figura-cabeza');
     const escena = rec.querySelector('.recorrido-escena'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
-    const lazo = rec.querySelector('.lazo');
     const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
-    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
     const tarjeta = p => p.querySelector('.paso').getBoundingClientRect();
     const aplicar = (paso, fin) => {
       const clave = fin ? 'fin' : (paso ? paso.dataset.n : '');
       if ((rec.dataset.paso || '') === clave) return;
-      const foco = paso ? paso.dataset.foco.split(' ') : null;
-      piezas.forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
-      if (lazo) lazo.classList.toggle('con-lazo', !!paso && paso.dataset.lazo === 'arq');
+      const foco = paso ? paso.dataset.foco.split(' ') : null, lazos = paso && paso.dataset.lazo ? paso.dataset.lazo.split(' ') : [];
+      piezas.forEach(p => { p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)); p.classList.toggle('con-lazo', lazos.includes(p.dataset.t)); });
       if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
       if (clave) rec.dataset.paso = clave; else delete rec.dataset.paso;
     };
+    const activar = () => {
+      if (ancho.matches) { rec.classList.add('vivo'); medir(); }
+      else { rec.classList.remove('vivo'); delete rec.dataset.paso; piezas.forEach(p => p.classList.remove('atenuado', 'con-lazo')); if (cabeza) cabeza.classList.remove('atenuado'); }
+    };
+    activar(); ancho.addEventListener('change', () => { activar(); programar(); });
+    addEventListener('resize', () => { if (rec.classList.contains('vivo')) medir(); });
+    if (document.fonts) document.fonts.ready.then(() => { if (rec.classList.contains('vivo')) medir(); });
     tareas.push(() => {
+      if (!rec.classList.contains('vivo')) return;
       const linea = innerHeight * .5, actual = cruzo(pasos, linea, tarjeta), ultimo = pasos[pasos.length - 1];
       if (actual === ultimo && tarjeta(ultimo).bottom < linea - innerHeight * .2) aplicar(null, true); else aplicar(actual);
     });
   });
+
+  // 3. La constelación se dibuja al llegar; lo que ya se ve al cargar aparece dibujado.
+  const dibujo = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-dibujar'); dibujo.unobserve(e.target); } }), { rootMargin: '0px 0px -20% 0px' });
+  if (!quieto()) document.querySelectorAll('.cielo-figura').forEach(f => { if (f.getBoundingClientRect().top > innerHeight * .8) { f.classList.add('por-dibujar'); dibujo.observe(f); } });
+
+  // 4. El cielo: puntos que brillan igual, tres que se encienden y una torre que se arma con ellos.
+  const lienzo = document.querySelector('.cielo');
+  const ctx = lienzo && lienzo.getContext && lienzo.getContext('2d');
+  if (ctx && ap) {
+    let semilla = 20261009;
+    const azar = () => { semilla |= 0; semilla = semilla + 0x6D2B79F5 | 0; let t = Math.imul(semilla ^ semilla >>> 15, 1 | semilla); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+    const ORO = [254, 191, 50], AZUL = [79, 138, 251], BLANCO = [220, 221, 240];
+    const mezcla = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+    const suave = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const recorta = v => Math.max(0, Math.min(1, v));
+    // La silueta escalonada de la torre, en coordenadas de 0 a 1; el último punto es la estrella del norte.
+    const silueta = [[0,1],[0,.81],[.11,.81],[.11,.62],[.22,.62],[.22,.43],[.33,.43],[.33,.24],[.5,.24],[.67,.24],[.67,.43],[.78,.43],[.78,.62],[.89,.62],[.89,.81],[1,.81],[1,1]];
+    const norte = [.5, .02];
+    const estrellas = [], torre = [];
+    // Un cielo con su franja: cuatro de cada diez puntos caen sobre una banda diagonal, como la Vía Láctea.
+    const gauss = () => { let s = 0; for (let k = 0; k < 4; k++) s += azar(); return (s - 2) / 2; };
+    for (let i = 0; i < 340; i++) {
+      let x = azar(), y = azar();
+      if (azar() < .4) { x = azar(); y = .8 - .62 * x + gauss() * .2; }
+      const grande = azar() < .05;
+      estrellas.push({ x, y: ((y % 1) + 1) % 1, r: grande ? 1.7 + azar() * .9 : .5 + Math.pow(azar(), 2) * 1.5, a: .45 + azar() * .55, v: .5 + azar() * 1.8, f: azar() * 6.28, halo: grande });
+    }
+    for (const p of [...silueta, norte]) torre.push({ x: .06 + azar() * .88, y: .08 + azar() * .84, tx: p[0], ty: p[1], r: 1.2 + azar() * .8, a: .7 + azar() * .3, f: azar() * 6.28 });
+    let W = 0, H = 0, cuantas = 0, p2 = 0, p3 = 0, ultimo = 0, vivo = true;
+    const medir = () => {
+      const dpr = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight;
+      lienzo.width = Math.round(W * dpr); lienzo.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cuantas = Math.round(Math.min(340, Math.max(130, W * H / 4200)));
+    };
+    // La torre se dibuja en el espacio que deja libre el texto de la apertura: a la derecha en pantallas anchas, arriba en las angostas.
+    const copiasCielo = [...ap.querySelectorAll('.apertura-copia')], escenaCielo = ap.querySelector('.apertura-escena');
+    const caja = () => {
+      const rs = copiasCielo.map(c => c.getBoundingClientRect()), esc = escenaCielo.getBoundingClientRect();
+      if (W >= 900) {
+        const izq = Math.max(...rs.map(r => r.right)) + 40, der = W - 40;
+        let h = esc.height * .58, w = h * .78;
+        if (w > der - izq) { w = Math.max(0, der - izq); h = w / .78; }
+        return { x: izq + (der - izq - w) / 2, y: esc.top + esc.height / 2 - h / 2, w, h };
+      }
+      const arriba = esc.top + esc.height * .08, abajo = Math.min(...rs.map(r => r.top)) - 28;
+      let h = Math.min(esc.height * .36, abajo - arriba), w = h * .82;
+      if (w > W - 48) { w = W - 48; h = w / .82; }
+      return { x: W / 2 - w / 2, y: arriba + (abajo - arriba - h) / 2, w, h };
+    };
+    const punto = (x, y, r, c, a) => { ctx.globalAlpha = a; ctx.fillStyle = `rgb(${c})`; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill(); };
+    const pintar = t => {
+      ctx.clearRect(0, 0, W, H);
+      const rect = ap.getBoundingClientRect();
+      const vis = recorta((rect.bottom - H * .35) / (H * .5));
+      const lejos = .42 + .58 * vis;
+      const desliza = quieto() ? 0 : scrollY * .05;
+      const e2 = suave(p2), tibio = mezcla(BLANCO, ORO, .6);
+      for (let i = 0; i < cuantas; i++) {
+        const s = estrellas[i];
+        const brillo = quieto() ? 1 : .7 + .3 * Math.sin(t * .001 * s.v + s.f);
+        const y = ((s.y * H - desliza) % H + H) % H;
+        const c = mezcla(tibio, BLANCO, e2), a = s.a * brillo * lejos * (1 - .4 * e2);
+        punto(s.x * W, y, s.r, c, a);
+        if (s.halo) punto(s.x * W, y, s.r * 2.8, c, a * .12);
+      }
+      if (vis <= 0) return;
+      const b = caja();
+      if (b.h < 60) return;
+      const m = suave(recorta(p3 / .6)), l = suave(recorta((p3 - .45) / .55));
+      const pos = torre.map(s => [s.x * W + (b.x + s.tx * b.w - s.x * W) * m, s.y * H + (b.y + s.ty * b.h - s.y * H) * m]);
+      if (l > 0) {
+        ctx.globalAlpha = .8 * vis; ctx.strokeStyle = `rgb(${AZUL})`; ctx.lineWidth = 1.6; ctx.lineJoin = 'round'; ctx.beginPath();
+        const n = silueta.length - 1, hasta = l * n;
+        ctx.moveTo(pos[0][0], pos[0][1]);
+        for (let k = 0; k < n; k++) {
+          if (k + 1 <= hasta) ctx.lineTo(pos[k + 1][0], pos[k + 1][1]);
+          else { const f = hasta - k; if (f > 0) ctx.lineTo(pos[k][0] + (pos[k + 1][0] - pos[k][0]) * f, pos[k][1] + (pos[k + 1][1] - pos[k][1]) * f); break; }
+        }
+        if (l >= 1) ctx.closePath();
+        ctx.stroke();
+        if (l > .85) {
+          const f = recorta((l - .85) / .15);
+          ctx.setLineDash([3, 5]); ctx.globalAlpha = .55 * vis * f; ctx.beginPath();
+          ctx.moveTo(pos[8][0], pos[8][1]); ctx.lineTo(pos[8][0] + (pos[17][0] - pos[8][0]) * f, pos[8][1] + (pos[17][1] - pos[8][1]) * f); ctx.stroke(); ctx.setLineDash([]);
+        }
+      }
+      torre.forEach((s, i) => {
+        const es = i === torre.length - 1;
+        const brillo = quieto() ? 1 : .82 + .18 * Math.sin(t * .0012 + s.f);
+        const c = mezcla(tibio, AZUL, e2);
+        const r = s.r + (es ? 3 : 1.5) * e2;
+        punto(pos[i][0], pos[i][1], r, c, (s.a + (1 - s.a) * e2) * brillo * vis);
+        if (e2 > 0) {
+          punto(pos[i][0], pos[i][1], r * 2.6, c, .14 * e2 * vis);
+          ctx.globalAlpha = .3 * e2 * vis; ctx.strokeStyle = `rgb(${c})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(pos[i][0], pos[i][1], r + 5 + (es ? 6 * l : 0), 0, 6.2832); ctx.stroke();
+        }
+      });
+      ctx.globalAlpha = 1;
+    };
+    const cuadro = t => {
+      if (!vivo) return;
+      const dt = Math.min(.1, (t - (ultimo || t)) / 1000); ultimo = t;
+      const e = +(ap.dataset.estado || 1);
+      const hacia = (v, meta, paso) => meta > v ? Math.min(meta, v + paso) : Math.max(meta, v - paso);
+      if (quieto()) { p2 = e >= 2 ? 1 : 0; p3 = e >= 3 ? 1 : 0; }
+      else { p2 = hacia(p2, e >= 2 ? 1 : 0, dt / .7); p3 = hacia(p3, e >= 3 ? 1 : 0, dt / 1.6); }
+      pintar(t);
+      if (!quieto()) requestAnimationFrame(cuadro);
+    };
+    medir(); addEventListener('resize', () => { medir(); if (quieto()) cuadro(performance.now()); });
+    addEventListener('scroll', () => { if (quieto()) requestAnimationFrame(cuadro); }, { passive: true });
+    document.addEventListener('visibilitychange', () => { vivo = !document.hidden; if (vivo) { ultimo = 0; requestAnimationFrame(cuadro); } });
+    requestAnimationFrame(cuadro);
+  }
+
   tareas.forEach(t => t());
 })();
 </script>
-</Pliego>
+</Noche>

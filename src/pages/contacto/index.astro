@@ -1,0 +1,21 @@
+---
+// Página de contacto: las tres maneras de empezar y el formulario que envía el mensaje al correo.
+// La enlazan el menú y el pie de las páginas interiores; la portada tiene el mismo formulario en «Conversemos».
+import NocheMarco from '../../layouts/NocheMarco.astro';
+import Formulario from '../../components/Formulario.astro';
+---
+<NocheMarco
+  titulo="Conversemos"
+  descripcion="Escríbale a Torre D. Babel desde esta página: cuéntenos qué proceso le quita tiempo a su equipo."
+  rotulo="Torre D. Babel · Consultoría de tecnología · Bogotá"
+  encabezado="Conversemos"
+  entradilla="Hay tres maneras de empezar, y la primera no cuesta nada."
+>
+<ol class="puerta">
+  <li><span class="num">01</span><div><h2>Una conversación</h2><p>Cuéntenos qué proceso le quita tiempo a su equipo. Si lo que necesita no es lo que hacemos, se lo decimos y le sugerimos a quién buscar.</p></div></li>
+  <li><span class="num">02</span><div><h2>Un proyecto por pisos</h2><p>Con criterios de aceptación que se pueden verificar y entregas parciales. Al terminar, el código, los modelos y la documentación quedan en su casa.</p></div></li>
+  <li><span class="num">03</span><div><h2>Una clase o un taller</h2><p>Para equipos que ya tienen los datos y quieren aprender a leerlos, con ejercicios sobre sus propios casos.</p></div></li>
+</ol>
+
+<Formulario nivel={2} />
+</NocheMarco>

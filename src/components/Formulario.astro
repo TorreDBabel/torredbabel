@@ -1,0 +1,131 @@
+---
+// Formulario de contacto. Es el mismo bloque del artefacto aprobado (sección «Conversemos» de la portada);
+// en el sitio se añade action= para que funcione también sin guion. Lo usan la portada y /contacto/.
+// El envío lo hace FormSubmit (https://formsubmit.co): la primera vez manda un correo de activación a
+// babeltran@torredbabel.com y no entrega nada hasta que se pulsa «Activate Form» en ese correo.
+interface Props {
+  /** Nivel de los títulos del bloque: 3 en la portada (bajo «Conversemos»), 2 en /contacto/. */
+  nivel?: 2 | 3;
+}
+const { nivel = 3 } = Astro.props;
+const Titulo = `h${nivel}` as 'h2' | 'h3';
+---
+<div class="contacto" id="escribir">
+  <div class="contacto-cabeza">
+    <Titulo class="figura-titulo" id="f-escribir">Escríbanos desde aquí</Titulo>
+    <p class="figura-clave">El mensaje llega a nuestro correo y le respondemos al suyo. Solo pedimos lo necesario para contestarle.</p>
+  </div>
+  <form class="formulario" id="formulario" action="https://formsubmit.co/babeltran@torredbabel.com" method="post" accept-charset="UTF-8" aria-labelledby="f-escribir" data-ajax="https://formsubmit.co/ajax/babeltran@torredbabel.com">
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde torredbabel.com">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://torredbabel.com/contacto/gracias/">
+    <div class="campo">
+      <label for="f-nombre">Su nombre</label>
+      <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="120" required aria-describedby="e-nombre">
+      <span class="campo-error" id="e-nombre" data-error="nombre"></span>
+    </div>
+    <div class="campo">
+      <label for="f-correo">Su correo</label>
+      <input id="f-correo" name="email" type="email" autocomplete="email" maxlength="160" spellcheck="false" required aria-describedby="e-correo">
+      <span class="campo-error" id="e-correo" data-error="email"></span>
+    </div>
+    <div class="campo campo-ancho">
+      <label for="f-organizacion">Su organización <span class="opcional">(opcional)</span></label>
+      <input id="f-organizacion" name="organizacion" type="text" autocomplete="organization" maxlength="160">
+    </div>
+    <div class="campo campo-ancho">
+      <label for="f-mensaje">Su mensaje</label>
+      <span class="campo-ayuda" id="a-mensaje">Por ejemplo, qué proceso le quita tiempo a su equipo.</span>
+      <textarea id="f-mensaje" name="mensaje" rows="6" maxlength="5000" required aria-describedby="a-mensaje e-mensaje"></textarea>
+      <span class="campo-error" id="e-mensaje" data-error="mensaje"></span>
+    </div>
+    <div class="campo-ancho autorizacion">
+      <input id="f-autorizacion" name="autorizacion" type="checkbox" value="Sí. Autorizo a Torre D. Babel S.A.S. a usar estos datos solo para responder mi mensaje, conforme a la Ley 1581 de 2012." required aria-describedby="a-autorizacion e-autorizacion">
+      <label for="f-autorizacion">Autorizo a Torre D. Babel S.A.S. a usar estos datos solo para responder mi mensaje, conforme a la Ley 1581 de 2012.</label>
+      <span class="campo-ayuda" id="a-autorizacion">El mensaje viaja por FormSubmit, un servicio externo que opera fuera de Colombia, lo entrega a nuestro correo y guarda una copia. Para conocer, corregir o borrar sus datos, o para revocar esta autorización, escríbanos a babeltran@torredbabel.com. También puede acudir a la Superintendencia de Industria y Comercio.</span>
+      <span class="campo-error" id="e-autorizacion" data-error="autorizacion"></span>
+    </div>
+    <div class="trampa" aria-hidden="true"><label for="f-trampa">Deje este campo vacío</label><input id="f-trampa" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
+    <div class="campo-ancho envio">
+      <button class="boton boton-lleno" type="submit">Enviar mensaje</button>
+      <p class="estado" id="estado" role="status" aria-live="polite"></p>
+    </div>
+  </form>
+  <div class="gracias" id="gracias" hidden>
+    <Titulo class="figura-titulo" tabindex="-1">Gracias. Su mensaje va en camino.</Titulo>
+    <p>Le responderemos a <strong id="gracias-correo"></strong>. Si no ve la respuesta en su bandeja de entrada, revise la carpeta de correo no deseado.</p>
+    <button class="boton" type="button" id="otro">Escribir otro mensaje</button>
+  </div>
+  <p class="alterno">¿Prefiere su propio programa de correo? Escríbanos a <a id="correo" href="mailto:babeltran@torredbabel.com">babeltran@torredbabel.com</a><button class="copiar" type="button" id="copiar" hidden>Copiar el correo</button><span class="aviso-copia" id="aviso" role="status" aria-live="polite"></span></p>
+</div>
+<script is:inline>
+// Formulario de contacto (en el sitio vive, igual, en src/components/Formulario.astro).
+// Con guion, el mensaje sale por FormSubmit sin dejar la página. Sin guion, el formulario se envía a FormSubmit
+// (que pide confirmar que no es un robot) y vuelve a /contacto/gracias/.
+(() => {
+  const correo = document.getElementById('correo'), copiar = document.getElementById('copiar'), aviso = document.getElementById('aviso');
+  // El aviso se vacía y se vuelve a escribir para que el lector de pantalla lo diga cada vez.
+  const avisar = texto => { aviso.textContent = ''; setTimeout(() => { aviso.textContent = texto; }, 60); };
+  if (copiar) {
+    copiar.hidden = false;
+    copiar.addEventListener('click', () => {
+      const seleccionar = () => { const r = document.createRange(); r.selectNodeContents(correo); const s = getSelection(); s.removeAllRanges(); s.addRange(r); avisar('Seleccionado: cópielo con Ctrl + C (o ⌘ + C en Mac).'); };
+      try { navigator.clipboard.writeText(correo.textContent.trim()).then(() => avisar('Correo copiado.'), seleccionar); } catch (e) { seleccionar(); }
+    });
+  }
+
+  const f = document.getElementById('formulario');
+  if (!f || !window.fetch || !window.FormData) return;
+  f.noValidate = true;
+  const boton = f.querySelector('[type="submit"]'), estado = document.getElementById('estado');
+  const gracias = document.getElementById('gracias'), otro = document.getElementById('otro');
+  const reglas = {
+    nombre: c => c.value.trim() ? '' : 'Escriba su nombre.',
+    email: c => !c.value.trim() ? 'Escriba su correo para poder responderle.' : /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c.value.trim()) ? '' : 'Revise el correo: debe tener la forma nombre@dominio.com.',
+    mensaje: c => c.value.trim() ? '' : 'Cuéntenos en qué podemos ayudarle.',
+    autorizacion: c => c.checked ? '' : 'Para enviar el mensaje, marque la autorización.',
+  };
+  const revisar = c => {
+    const texto = reglas[c.name](c), error = f.querySelector(`[data-error="${c.name}"]`);
+    if (error) error.textContent = texto;
+    if (texto) c.setAttribute('aria-invalid', 'true'); else c.removeAttribute('aria-invalid');
+    return texto;
+  };
+  const vigilar = e => { if (reglas[e.target.name] && e.target.hasAttribute('aria-invalid')) revisar(e.target); };
+  f.addEventListener('input', vigilar); f.addEventListener('change', vigilar);
+  const listo = direccion => {
+    document.getElementById('gracias-correo').textContent = direccion;
+    f.hidden = true; gracias.hidden = false; gracias.querySelector('.figura-titulo').focus();
+  };
+  otro.addEventListener('click', () => {
+    f.elements.mensaje.value = ''; f.elements.autorizacion.checked = false; estado.textContent = '';
+    gracias.hidden = true; f.hidden = false; f.elements.mensaje.focus();
+  });
+  f.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (f.dataset.enviando) return;
+    const malos = Object.keys(reglas).map(n => f.elements[n]).filter(c => revisar(c));
+    if (malos.length) { estado.textContent = ''; malos[0].focus(); return; }
+    const d = new FormData(f), dato = n => String(d.get(n) || '').trim();
+    if (dato('_honey')) { listo(dato('email')); return; }
+    // El botón no se desactiva: así el foco no se pierde. El cerrojo evita el doble envío.
+    f.dataset.enviando = 'sí'; boton.setAttribute('aria-disabled', 'true'); boton.textContent = 'Enviando…'; estado.textContent = 'Enviando su mensaje…';
+    const cuerpo = {
+      nombre: dato('nombre'), email: dato('email'), organizacion: dato('organizacion') || '—', mensaje: dato('mensaje'),
+      autorizacion: dato('autorizacion'), pagina: location.origin + location.pathname,
+      _subject: dato('_subject'), _template: 'table', _captcha: 'false', _replyto: dato('email'),
+    };
+    let bien = false;
+    const corte = window.AbortController ? new AbortController() : null, reloj = corte && setTimeout(() => corte.abort(), 20000);
+    try {
+      const r = await fetch(f.dataset.ajax, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(cuerpo), signal: corte ? corte.signal : undefined });
+      const j = await r.json().catch(() => ({}));
+      bien = r.ok && String(j.success) === 'true';
+    } catch (err) { bien = false; }
+    clearTimeout(reloj);
+    delete f.dataset.enviando; boton.removeAttribute('aria-disabled'); boton.textContent = 'Enviar mensaje';
+    if (bien) listo(cuerpo.email);
+    else estado.textContent = 'No pudimos enviar el mensaje desde aquí. Su texto sigue en el formulario: puede intentarlo de nuevo, o copiar el correo de abajo y escribirnos desde el suyo.';
+  });
+})();
+</script>
