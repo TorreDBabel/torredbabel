@@ -201,8 +201,8 @@ seguir el curso lección por lección:
 | `torredbabel.com/masvalendatos03` | Más valen datos que percepciones (AFPN0087) | 3 · Laboratorio del promedio |
 | `torredbabel.com/diseñometricas03` | Diseño de métricas para el marketing (AFPN0097) | 3 · Laboratorio de adquisición |
 
-- Son material de clase: no llevan la cabecera ni el pie de Torre D. Babel. El pie de cada
-  laboratorio trae solo el nombre y el correo del docente.
+- Son material de clase: no llevan la cabecera ni el pie de Torre D. Babel, ni el nombre del
+  docente. Lo importante es el mensaje: el pie trae solo el correo de contacto.
 - Cada uno tiene tres archivos con el mismo nombre de la dirección:
   `src/clases/<dirección>/laboratorio.css` (estilo), `src/clases/<dirección>/laboratorio.html`
   (cuerpo y guion) y `src/pages/<dirección>.astro` (título, descripción y letras). La plantilla
