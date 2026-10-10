@@ -124,7 +124,7 @@ const resumen: [string, string][] = [
     </blockquote>
 
     <div class="columna">
-      <p>Lo veremos desde cuatro lados: <strong>dónde vive el dato</strong>, <strong>cómo se comprueba</strong>, <strong>en qué orden se construye</strong> y <strong>qué cuesta</strong>. Al final, lo que esta propuesta no promete.</p>
+      <p>Lo veremos así: <strong>dónde vive el dato</strong>, <strong>cómo se comprueba</strong>, <strong>qué recibe Altea</strong>, <strong>cómo se arma el informe</strong> que ustedes ya conocen, <strong>por dónde pasa</strong> el dato hasta llegar allí, <strong>qué se vigila</strong> mientras tanto, en qué orden se construye y qué cuesta. Al final, lo que esta propuesta no promete.</p>
     </div>
 
     <div class="seccion"><span class="folio">01</span><h2>El dominio</h2></div>
@@ -217,7 +217,275 @@ const resumen: [string, string][] = [
       <p><span class="giro">Un sistema que duda y pide ayuda es útil; uno que se equivoca con aplomo es peligroso.</span> Por eso la cifra que vigilaríamos cada semana no es la de aciertos, sino la de errores silenciosos.</p>
     </div>
 
-    <div class="seccion"><span class="folio">03</span><h2>El orden</h2></div>
+    <div class="seccion"><span class="folio">03</span><h2>El entregable</h2></div>
+    <div class="columna">
+      <aside class="nota-margen">Si al terminar no puede señalar con el dedo lo que recibió, la propuesta estaba mal escrita.</aside>
+      <p>Al cerrar los tres meses, Altea no recibe «un visor». Recibe seis cosas, cada una útil por separado, y todas quedan dentro de su dominio con el código y la documentación en su propiedad.</p>
+      <p>El informe que me compartieron trae las especificaciones separadas por país —Canadá y Nueva Zelanda— y casi todo su historial de validación está titulado en inglés. <span class="giro">Por eso cada entregable sale en español y en inglés desde el primer día, y no como una traducción al final.</span></p>
+    </div>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo" id="f-entregables">Seis entregables, y ninguno depende de que los otros cinco existan</h3>
+        <p class="figura-clave">Al borde derecho, las lenguas en que se entrega cada uno.</p>
+      </div>
+      <ol class="entregables" aria-labelledby="f-entregables">
+        <li>
+          <span class="folio">01</span>
+          <div>
+            <p class="ent-nombre">El visor de tirillas</p>
+            <p class="ent-detalle">Una plantilla por impresora de la planta, calibrada con tirillas reales, con la comprobación aritmética adentro. Entra toda tirilla por una sola puerta, y entra comprobada.</p>
+          </div>
+          <p class="ent-lengua"><span>ES</span><span>EN</span></p>
+        </li>
+        <li>
+          <span class="folio">02</span>
+          <div>
+            <p class="ent-nombre">La captura en planta</p>
+            <p class="ent-detalle">Formularios por familia de producto, junto al equipo: la tirilla leída, lo manuscrito confirmado en pantalla y la imagen archivada. El registro se arma mientras el lote ocurre.</p>
+          </div>
+          <p class="ent-lengua"><span>ES</span><span>EN</span></p>
+        </li>
+        <li>
+          <span class="folio">03</span>
+          <div>
+            <p class="ent-nombre">El repositorio del lote</p>
+            <p class="ent-detalle">Modelo de datos del lote, el histórico que ustedes definan ya cargado, y linaje de vuelta hasta la imagen de origen: de cualquier cifra del informe se llega al papel que la produjo.</p>
+          </div>
+          <p class="ent-lengua"><span>ES</span><span>EN</span></p>
+        </li>
+        <li>
+          <span class="folio">04</span>
+          <div>
+            <p class="ent-nombre">El informe de mantenimiento de estado validado</p>
+            <p class="ent-detalle">El documento que hoy se arma a mano, con sus tablas, sus cartas de control y su análisis de capacidad, generado desde el repositorio en la plantilla de Altea. La sección siguiente lo desarma pieza por pieza.</p>
+          </div>
+          <p class="ent-lengua"><span>ES</span><span>EN</span></p>
+        </li>
+        <li>
+          <span class="folio">05</span>
+          <div>
+            <p class="ent-nombre">El tablero de decisión</p>
+            <p class="ent-detalle">Cuatro vistas en Power BI sobre lo capturado y lo conectado de las otras fuentes, una por pregunta que alguien tiene que responder hoy.</p>
+          </div>
+          <p class="ent-lengua"><span>ES</span><span>EN</span></p>
+        </li>
+        <li>
+          <span class="folio">06</span>
+          <div>
+            <p class="ent-nombre">Las alarmas</p>
+            <p class="ent-detalle">Reglas acordadas con calidad y producción sobre datos que ya existen, y el aviso a quien corresponde mientras el lote todavía se puede atender.</p>
+          </div>
+          <p class="ent-lengua"><span>ES</span><span>EN</span></p>
+        </li>
+      </ol>
+      <figcaption class="figura-nota">Se entregan además el código fuente, los modelos entrenados, el diccionario de datos, el manual de operación y la capacitación, en las dos lenguas. Bilingüe significa interfaz, rótulos, mensajes de alarma y documento; los nombres de lote, producto y equipo se conservan tal como Altea los usa, porque traducirlos rompería la trazabilidad.</figcaption>
+    </figure>
+
+    <div class="seccion"><span class="folio">04</span><h2>El informe</h2></div>
+    <div class="columna">
+      <p>Conviene mirar de cerca el entregable que Altea ya conoce. Tomo como referencia el <strong>VP-VAL-0430 versión 2</strong>, informe de mantenimiento de estado validado del Clobetasol Propionato Crema 0,05 %, código SAP 30000058, emitido el 6 de agosto de 2026. Cubre diecinueve lotes de granel fabricados entre julio de 2023 y mayo de 2026.</p>
+      <p>Es un documento serio y está bien hecho. La pregunta no es si está bien, sino cuánto trabajo humano cuesta cada vez que hay que hacerlo.</p>
+    </div>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo">Dos párrafos de ese informe descansan sobre nueve mil pesadas tecleadas a mano</h3>
+        <p class="figura-clave">Todas las cifras salen del propio VP-VAL-0430. La población de pesadas se despeja de los porcentajes que el informe reporta.</p>
+      </div>
+      <ul class="cifras">
+        <li><span class="n">9.162</span><span class="q">pesadas de tubo detrás del atributo peso de llenado</span></li>
+        <li><span class="n">19</span><span class="q">lotes de granel, repartidos en treinta y cinco meses</span></li>
+        <li><span class="n">57</span><span class="q">determinaciones de contenido, cada una transcrita</span></li>
+        <li><span class="n">13 min</span><span class="q">de máquina para leer esas mismas pesadas</span></li>
+      </ul>
+      <figcaption class="figura-nota">Cómo se despejan las 9.162: el informe dice que 122 resultados fuera de los límites de control son el 10,8 % de la población del tubo x 50 g, y que 498 son el 6,2 % del tubo x 30 g; de ahí salen 1.130 y 8.032 pesadas. El mismo despeje aplicado al contenido devuelve 57, que es la cifra que el informe sí declara, y eso da confianza en el método. Los 13 minutos extrapolan los 2,2 s por tirilla medidos en septiembre suponiendo veintiséis pesadas por tirilla: es una estimación, no una medición, y conviene confirmarla contra los registros de envase.</figcaption>
+    </figure>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo">El informe no cambia de forma: cambia de dónde saca cada tabla</h3>
+        <p class="figura-clave">Las secciones y la numeración son las del VP-VAL-0430. En verde, lo que el visor alimenta; en granate, lo que sigue escribiendo una persona.</p>
+      </div>
+      <div class="anatomia-marco">
+        <table class="anatomia">
+          <caption>Anatomía del informe de mantenimiento de estado validado</caption>
+          <thead>
+            <tr><th scope="col">§</th><th scope="col">Sección</th><th scope="col">De dónde sale hoy</th><th scope="col">De dónde saldría</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="par">1–2</td><td>Objetivo y alcance</td><td>Se escribe cada vez</td><td>Plantilla con producto, periodo y presentaciones</td></tr>
+            <tr><td class="par">3.1</td><td>Sistemas de apoyo crítico y equipos</td><td>Cronograma de calificación, a mano</td><td>Del cronograma, con lo vencido señalado</td></tr>
+            <tr><td class="par">3.2</td><td>Lotes manufacturados</td><td>Batch record, lote por lote</td><td>Del repositorio; el tiempo de almacenamiento, calculado</td></tr>
+            <tr><td class="par">3.3</td><td>Instructivos de fabricación y envase</td><td>Búsqueda documental</td><td>Versión vigente al día de cada lote</td></tr>
+            <tr><td class="par">3.4</td><td>Metodologías analíticas</td><td>Búsqueda documental</td><td>Vigencia resuelta por lote</td></tr>
+            <tr><td class="par">3.5</td><td>Principios activos y preservante</td><td>Consulta a SAP, a mano</td><td>De SAP, por lote de granel</td></tr>
+            <tr><td class="par">3.6</td><td>Parámetros críticos en proceso</td><td>Batch record</td><td>Capturado en planta mientras ocurre</td></tr>
+            <tr><td class="par">3.7</td><td>Rendimientos</td><td>Batch record</td><td>Calculado sobre lo capturado</td></tr>
+            <tr class="destacada"><td class="par">3.8</td><td>Peso de llenado, tubo x 30 g y x 50 g</td><td>Tirillas tecleadas una por una</td><td>Leído y comprobado contra su propia aritmética</td></tr>
+            <tr><td class="par">3.8</td><td>Atributos analíticos de producto terminado</td><td>Certificados analíticos</td><td>Del laboratorio, por conector</td></tr>
+            <tr class="destacada"><td class="par">3.9</td><td>Capacidad: Cp, Cpk, Pp y Ppk</td><td>Hoja de cálculo aparte</td><td>Calculado y versionado con el informe</td></tr>
+            <tr><td class="par">4</td><td>Quejas, controles de cambio y desviaciones</td><td>Sistema de calidad</td><td>Consultado, con los lotes que alcanza</td></tr>
+            <tr class="humana"><td class="par">5–6</td><td>Conclusiones y recomendaciones</td><td>Las escribe una persona</td><td>Las sigue escribiendo una persona</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption class="figura-nota">La última fila es la importante. El sistema arma las tablas y las gráficas; concluir si el producto mantiene su estado calificado es un juicio técnico con firma, y esa firma no se automatiza.</figcaption>
+    </figure>
+
+    <div class="columna">
+      <aside class="nota-margen">La planta ya pesa todos los tubos. El informe usa una muestra.</aside>
+      <p>Hay algo en ese informe que vale la pena señalar. Al analizar el peso de llenado, el documento anota que «en el proceso de envase se realiza el monitoreo del 100 % de los tubos envasados a través de la balanza Garvens». Es decir: el censo completo ya se produce. El informe, en cambio, se construye con la muestra de los controles en proceso.</p>
+      <p><span class="giro">El dato que haría innecesaria la estimación ya existe y no llega al informe.</span> Conectar esa balanza convertiría una muestra en una población, y el análisis de capacidad dejaría de estimar lo que se puede contar. No está en el precio de esta propuesta; está en la lista de lo que conviene mirar después.</p>
+    </div>
+
+    <div class="seccion"><span class="folio">05</span><h2>La arquitectura</h2></div>
+    <div class="columna">
+      <p>Entre la tirilla y el informe hay cinco estaciones. Ninguna es nueva para Altea: lo que cambia es que el dato pase por todas sin que nadie lo teclee dos veces.</p>
+      <p>Las herramientas que nombro encajan sobre lo que ustedes ya tienen. Cuál de ellas está disponible con licencia vigente es lo primero que hay que confirmar, y por eso está en la primera semana.</p>
+    </div>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo" id="f-arq">De la tirilla a la decisión, sin que el dato salga del perímetro</h3>
+        <p class="figura-clave">En cada estación, lo que pasa y con qué se hace. Las herramientas marcadas en verde son las que aporta el proyecto; las demás ya existen en Altea.</p>
+      </div>
+      <ol class="estaciones" aria-labelledby="f-arq">
+        <li>
+          <span class="folio">01</span>
+          <p class="est-nombre">Origen<span>Dónde nace el dato</span></p>
+          <p class="est-detalle">La balanza imprime la tirilla, el operario firma el paso en el batch record, el laboratorio emite el certificado, SAP sabe qué lote de principio activo entró y el sistema de calidad sabe qué desviación está abierta. Son seis fuentes que hoy solo se encuentran dentro de la cabeza de quien arma el informe.</p>
+          <ul class="herramientas">
+            <li>Balanza Comadis</li><li>Balanza Garvens</li><li>Batch record</li><li>Laboratorio de control</li><li>SAP</li><li>Sistema de calidad</li><li>Cronograma de calificación</li>
+          </ul>
+        </li>
+        <li>
+          <span class="folio">02</span>
+          <p class="est-nombre">Recolección<span>Se captura sin teclear</span></p>
+          <p class="est-detalle">La tirilla se fotografía junto al equipo y el visor la lee y la comprueba en el sitio; lo manuscrito se confirma en pantalla, nunca se adivina. De SAP y del laboratorio se lee por conector. Si alguna puerta está cerrada, se resuelve con una exportación programada: cambia la frecuencia, no el resultado.</p>
+          <ul class="herramientas">
+            <li class="nueva">El visor</li><li class="nueva">Plantilla por impresora</li><li>Power Apps</li><li>Power Automate</li><li>Conector de SAP</li><li>Carpeta vigilada en SharePoint</li>
+          </ul>
+        </li>
+        <li>
+          <span class="folio">03</span>
+          <p class="est-nombre">Repositorio<span>Se guarda en tres capas, con linaje</span></p>
+          <p class="est-detalle">Tres capas, y la primera nunca se toca. Esa es la que permite que un auditor pida la cifra 3.8 del informe y llegue a la fotografía del papel que la produjo.</p>
+          <ul class="est-capas">
+            <li><b>Tal como llegó</b><span>La imagen de la tirilla y la lectura cruda, intactas y con su sello de tiempo.</span></li>
+            <li><b>Comprobado</b><span>El dato que pasó la aritmética, con su estado, su duda y quién la resolvió.</span></li>
+            <li><b>Modelado</b><span>Lote, atributo, especificación y equipo, listos para consultar y para el informe.</span></li>
+          </ul>
+          <ul class="herramientas">
+            <li>SharePoint</li><li>Dataverse</li><li>SQL Server</li><li class="nueva">Modelo de datos del lote</li><li class="nueva">Diccionario de datos</li>
+          </ul>
+        </li>
+        <li>
+          <span class="folio">04</span>
+          <p class="est-nombre">Cálculo<span>Se vuelve estadística</span></p>
+          <p class="est-detalle">Las mismas pruebas que el informe ya usa, ni una más: estadística descriptiva por lote y global, carta de valores individuales, prueba de normalidad de Anderson–Darling, prueba de bondad de ajuste y capacidad entre/dentro cuando los datos no se ajustan a ninguna distribución. La diferencia es que quedan escritas en código, versionadas, y se pueden volver a correr.</p>
+          <ul class="herramientas">
+            <li class="nueva">Python · pandas</li><li class="nueva">SciPy · statsmodels</li><li class="nueva">Cuadernos versionados</li><li>Minitab, donde calidad ya lo usa</li>
+          </ul>
+        </li>
+        <li>
+          <span class="folio">05</span>
+          <p class="est-nombre">Salida<span>Llega a la decisión</span></p>
+          <p class="est-detalle">Tres salidas sobre el mismo repositorio: el informe armado en la plantilla de Altea, el tablero y la alarma. Las tres en español y en inglés, porque las tres salen del mismo diccionario de datos y basta cambiarle la lengua.</p>
+          <ul class="herramientas">
+            <li>Power BI</li><li>Plantilla Word y PDF</li><li>Power Automate</li><li>Teams</li><li>Correo</li><li class="nueva">Diccionario bilingüe</li>
+          </ul>
+        </li>
+      </ol>
+      <figcaption class="figura-nota">Supuestos por confirmar en la primera semana: licenciamiento vigente de Power Platform, permiso del área de tecnología para publicar en producción, y la vía autorizada para leer de SAP y del laboratorio. Ninguna imagen de lote cruza el perímetro de Altea para ser leída, en ninguna de las cinco estaciones.</figcaption>
+    </figure>
+
+    <div class="seccion"><span class="folio">06</span><h2>La vigilancia</h2></div>
+    <div class="columna">
+      <aside class="nota-margen">Estar dentro de especificación y estar bajo control no son lo mismo.</aside>
+      <p>El VP-VAL-0430 concluye que todo cumple, y es cierto. Pero en ese mismo documento la gravedad específica tiende al límite superior, el pH de fabricación tiene su límite de control por encima de la especificación, y el Cpk del contenido de Clobetasol cayó de 1,71 a 0,90 frente al periodo anterior, con una probabilidad estimada del 3,24 % de resultados fuera de especificación a largo plazo.</p>
+      <p>Nada de eso estaba fuera de especificación. Todo eso estaba fuera de forma. <span class="giro">Y se supo tres años después, porque el informe es la primera vez que alguien mira la serie completa.</span></p>
+    </div>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo" id="f-alarmas">Doce avisos, ordenados por el tiempo que dejan para hacer algo</h3>
+        <p class="figura-clave">Cada uno se dispara sobre un dato que ya existe. Los del primer grupo alcanzan a atenderse dentro del mismo lote.</p>
+      </div>
+      <div class="alarmas" aria-labelledby="f-alarmas">
+        <section class="pronto">
+          <h4>Dentro del lote</h4>
+          <p class="cuando">Minutos · se corrige a tiempo</p>
+          <ol>
+            <li><b>Peso fuera de especificación.</b> Fuera de 53,8 a 56,5 g en tubo x 50, o de 30,1 a 33,5 g en tubo x 30.</li>
+            <li><b>Siete pesadas del mismo lado de la media</b>, aun dentro de especificación: la llenadora está derivando.</li>
+            <li><b>Dos de tres pesadas más allá de dos desviaciones.</b> El llenado se está abriendo antes de salirse.</li>
+            <li><b>pH fuera de 4,5 a 6,0</b> en el control del paso 26IF.</li>
+            <li><b>Temperatura de fase fuera de rango</b>: 83 a 87 °C, 73 a 77 °C o 39 a 40 °C según la etapa.</li>
+            <li><b>Tirilla que no cuadra con su propia aritmética.</b> A revisión antes de seguir envasando.</li>
+          </ol>
+        </section>
+        <section>
+          <h4>Dentro del turno</h4>
+          <p class="cuando">Horas · se replanea el día</p>
+          <ol>
+            <li><b>Granel al quinto día de almacenamiento</b>, con el máximo en siete según el DCO-VAL-002.</li>
+            <li><b>Rendimiento por debajo del mínimo</b>: 98 % en fabricación, 98 % en envase, 96 % final.</li>
+            <li><b>Equipo o sistema de apoyo con calificación vencida o por vencer en treinta días</b>, como ocurrió con la encartonadora.</li>
+          </ol>
+        </section>
+        <section>
+          <h4>Entre lotes</h4>
+          <p class="cuando">Semanas · se corrige el proceso</p>
+          <ol>
+            <li><b>Cpk móvil por debajo de 1,33</b>, o caída frente al periodo anterior.</li>
+            <li><b>Límite de control por fuera del límite de especificación</b>, que es lo que hoy pasa con la gravedad específica.</li>
+            <li><b>Primer lote con principio activo nuevo</b>, o con cambio de proveedor o fabricante.</li>
+          </ol>
+        </section>
+      </div>
+      <figcaption class="figura-nota">Los avisos 2 y 3 son reglas de Nelson: detectan un desplazamiento del proceso sin que haya un solo dato fuera de especificación, que es justamente lo que el informe no puede ver hasta que pasan tres años. Ninguna alarma bloquea el proceso por sí sola: avisa a quien los procedimientos de Altea designan, y la decisión sigue siendo de ellos. Los umbrales de este cuadro salen de las especificaciones del propio informe; los definitivos se acuerdan con calidad y producción en el cuarto frente.</figcaption>
+    </figure>
+
+    <figure class="figura">
+      <div class="figura-cabeza">
+        <h3 class="figura-titulo" id="f-tablero">Cuatro vistas, una por pregunta que alguien tiene que responder hoy</h3>
+        <p class="figura-clave">Cada vista dice quién la mira y de qué fuentes se alimenta. No hay una quinta vista de «todo junto».</p>
+      </div>
+      <ul class="vistas" aria-labelledby="f-tablero">
+        <li>
+          <p class="quien">Producción · en planta</p>
+          <h4>El lote de hoy</h4>
+          <p class="pregunta">¿Puedo seguir envasando?</p>
+          <p class="trae">Última tirilla leída y su estado, peso contra especificación en vivo, carta de control del lote en curso y alarmas abiertas con su hora.</p>
+          <p class="fuentes">Visor · captura en planta</p>
+        </li>
+        <li>
+          <p class="quien">Calidad · semanal</p>
+          <h4>El producto en el tiempo</h4>
+          <p class="pregunta">¿Sigue bajo control?</p>
+          <p class="trae">Carta de valores individuales por atributo, Cp y Cpk móviles, y la comparación contra el periodo de validación anterior, que es la tabla que hoy cierra el informe.</p>
+          <p class="fuentes">Repositorio · laboratorio</p>
+        </li>
+        <li>
+          <p class="quien">Validación · mensual</p>
+          <h4>El estado calificado</h4>
+          <p class="pregunta">¿Qué vence y qué falta?</p>
+          <p class="trae">Cronograma de equipos y sistemas de apoyo, instructivos y técnicas analíticas vigentes por lote, y lo que vence en los próximos noventa días.</p>
+          <p class="fuentes">Cronograma · documental</p>
+        </li>
+        <li>
+          <p class="quien">Dirección · mensual</p>
+          <h4>La carga de calidad</h4>
+          <p class="pregunta">¿Qué está abierto y a quién toca?</p>
+          <p class="trae">Desviaciones, controles de cambio y acciones rápidas sin cerrar, con los lotes que alcanza cada una y los días que llevan abiertos.</p>
+          <p class="fuentes">Sistema de calidad · SAP</p>
+        </li>
+      </ul>
+      <figcaption class="figura-nota">El tablero no decide: acorta la distancia entre la medida y la persona que puede actuar, que hoy se cuenta en semanas. Las cuatro vistas se alimentan de las fuentes que el informe ya cita, y ninguna pide un dato que la planta no produzca hoy.</figcaption>
+    </figure>
+
+    <div class="seccion"><span class="folio">07</span><h2>El orden</h2></div>
     <div class="columna">
       <p>El trabajo se reparte en cuatro frentes, uno por disciplina. No son cuatro proyectos en fila: se traslapan a propósito, porque cada uno empieza a trabajar con lo que el anterior ya produce.</p>
     </div>
@@ -241,12 +509,12 @@ const resumen: [string, string][] = [
         <li>
           <span class="folio">03</span>
           <p class="disciplina">Arquitectura de datos<span>Memoria y linaje</span></p>
-          <p class="detalle">Modelo de datos del lote, carga del histórico que ustedes definan, linaje de vuelta hasta la imagen de origen y cálculo automático de la estadística que hoy se hace a mano.</p>
+          <p class="detalle">Modelo de datos del lote en tres capas, carga del histórico que ustedes definan, linaje de vuelta hasta la imagen de origen, y el cálculo de la estadística que hoy se hace a mano: descriptiva, cartas de control, normalidad y capacidad entre/dentro.</p>
         </li>
         <li>
           <span class="folio">04</span>
-          <p class="disciplina">Inteligencia de negocio<span>El informe en Power BI</span></p>
-          <p class="detalle">Reglas acordadas con calidad y producción, el informe de lote armado solo, avisos a quien corresponde y entrega del código, los modelos y la capacitación.</p>
+          <p class="disciplina">Inteligencia de negocio<span>Informe, tablero y alarmas</span></p>
+          <p class="detalle">Umbrales de alarma acordados con calidad y producción, las cuatro vistas del tablero, el informe de mantenimiento de estado validado armado desde el repositorio en la plantilla de Altea, y entrega del código, los modelos, la documentación y la capacitación en las dos lenguas.</p>
         </li>
       </ol>
     </figure>
@@ -278,21 +546,21 @@ const resumen: [string, string][] = [
       <figcaption class="figura-nota">Sin el primer frente, cada equipo nuevo vuelve a ser trabajo manual. Sin el último, el dato queda correcto pero llega cuando la decisión ya se tomó.</figcaption>
     </figure>
 
-    <div class="seccion"><span class="folio">04</span><h2>Lo que cuesta</h2></div>
+    <div class="seccion"><span class="folio">08</span><h2>Lo que cuesta</h2></div>
     <div class="columna">
       <p>Cuarenta y ocho millones más IVA por los tres meses completos. Tres momentos, tres facturas iguales, cada una emitida al cerrar su mes contra lo entregado.</p>
     </div>
 
     <figure class="figura">
       <ul class="facturas">
-        <li><span class="mes">Mes 1 · factura 1</span><span class="disciplina">Ciencia de datos</span><span class="valor">$16.000.000</span><span class="alcance">Frente 1</span></li>
-        <li><span class="mes">Mes 2 · factura 2</span><span class="disciplina">Arquitectura e ingeniería de datos</span><span class="valor">$16.000.000</span><span class="alcance">Frentes 2 y 3</span></li>
-        <li><span class="mes">Mes 3 · factura 3</span><span class="disciplina">Inteligencia de negocio</span><span class="valor">$16.000.000</span><span class="alcance">Frente 4</span></li>
+        <li><span class="mes">Mes 1 · factura 1</span><span class="disciplina">Ciencia de datos</span><span class="valor">$16.000.000</span><span class="alcance">Entregable 1 · el visor</span></li>
+        <li><span class="mes">Mes 2 · factura 2</span><span class="disciplina">Arquitectura e ingeniería de datos</span><span class="valor">$16.000.000</span><span class="alcance">Entregables 2 y 3 · captura y repositorio</span></li>
+        <li><span class="mes">Mes 3 · factura 3</span><span class="disciplina">Inteligencia de negocio</span><span class="valor">$16.000.000</span><span class="alcance">Entregables 4, 5 y 6 · informe, tablero y alarmas</span></li>
       </ul>
       <figcaption class="figura-nota">Incluye desarrollo, calibración, capacitación, documentación y el código en propiedad de Altea. No incluye licencias de Power Platform, equipos de captura ni la calificación formal del sistema. Desde el mes 4, acompañamiento opcional por $4.500.000 mensuales, cancelable con treinta días de aviso. Garantía de tres meses sobre lo instalado.</figcaption>
     </figure>
 
-    <div class="seccion"><span class="folio">05</span><h2>Lo que no promete</h2></div>
+    <div class="seccion"><span class="folio">09</span><h2>Lo que no promete</h2></div>
     <div class="columna">
       <p>Prefiero decir esto aquí y no en una auditoría.</p>
     </div>
@@ -303,10 +571,12 @@ const resumen: [string, string][] = [
         <li><h3>No detecta un documento adulterado</h3><p>Verifica la lectura, no la autenticidad. Una tirilla falsa pero aritméticamente coherente pasaría; eso lo sigue cuidando el sistema de calidad.</p></li>
         <li><h3>No está validado todavía</h3><p>Ningún proveedor puede entregarlo validado: la calificación se hace con ustedes, sobre su proceso, y se planea desde la primera semana.</p></li>
         <li><h3>No reemplaza la revisión de nadie</h3><p>Pre&#8209;llena y señala dudas. La liberación de un lote sigue siendo de quienes los procedimientos de Altea designan.</p></li>
+        <li><h3>No concluye ni firma el informe</h3><p>Arma las tablas, las cartas y el análisis de capacidad del VP&#8209;VAL&#8209;0430. Decir si el producto mantiene su estado calificado es un juicio técnico con firma, y lo sigue haciendo una persona. El sistema le ahorra la transcripción, no el criterio.</p></li>
+        <li><h3>La alarma avisa, no actúa</h3><p>Ningún aviso detiene una máquina ni corrige un parámetro. Notifica a quien corresponde y deja registro de que avisó. Intervenir un equipo desde un tablero abriría una puerta que en un entorno regulado conviene dejar cerrada.</p></li>
       </ul>
     </div>
 
-    <div class="seccion"><span class="folio">06</span><h2>Cómo empezamos</h2></div>
+    <div class="seccion"><span class="folio">10</span><h2>Cómo empezamos</h2></div>
     <div class="figura">
       <ol class="puerta">
         <li><span class="folio">01</span><div><h3>Una demostración en vivo</h3><p>Con sus propias tirillas y sin compromiso. Media hora basta para ver si el visor las lee.</p></div></li>
@@ -329,6 +599,19 @@ const resumen: [string, string][] = [
       <summary>¿De dónde salen las cifras de las trece tirillas?</summary>
       <p>De una evaluación propia hecha el 21 de septiembre de 2026 sobre tirillas reales de Altea: una fotografía de celular y un escaneo de doce tirillas en tres páginas. Las trece se transcribieron a mano, dígito por dígito, para tener contra qué comparar. Seis se apartaron y nunca se usaron para entrenar el modelo: son el examen fijo.</p>
       <p>Sobre esas seis nunca vistas, el visor certificó tres y las tres quedaron exactas. Sobre las trece, certificó seis y no produjo ningún error silencioso.</p>
+    </details>
+
+    <details>
+      <summary>¿De dónde salen las cifras del informe VP-VAL-0430?</summary>
+      <p>Del propio documento, versión 2, con fecha de emisión 2026-08-06, que Altea me compartió. Las que aparecen tal cual son los diecinueve lotes de granel, el periodo de julio de 2023 a mayo de 2026, las 57 determinaciones de contenido, las especificaciones de peso de llenado y pH, y los índices de capacidad de la tabla comparativa que cierra el informe.</p>
+      <p>Dos cifras son derivadas y conviene decirlo. Las <strong>9.162 pesadas</strong> se despejan de los porcentajes que el informe reporta: 122 puntos fuera de los límites de control equivalen al 10,8 % de la población del tubo x 50 g, y 498 al 6,2 % del tubo x 30 g. El mismo despeje aplicado al contenido devuelve 57, que es un número que el informe sí declara, y eso sugiere que el método reproduce su aritmética. Aun así es una deducción, no un conteo.</p>
+      <p>Los <strong>13 minutos</strong> extrapolan los 2,2 s por tirilla medidos el 21 de septiembre, suponiendo veintiséis pesadas por tirilla como en la que sirvió de muestra. Si las tirillas de envase traen otro número de pesadas, la cifra cambia. Es una estimación de orden de magnitud, no una promesa de desempeño.</p>
+    </details>
+
+    <details>
+      <summary>¿Por qué los entregables van en español y en inglés?</summary>
+      <p>Porque el propio informe lo pide. Las especificaciones de producto terminado están separadas por país, con columnas para Canadá y para Nueva Zelanda; el historial de validación de la Tabla 2 está titulado íntegramente en inglés; y el producto se fabrica para un cliente internacional, con referencias como DERMOL CREAM y MYLAN-CLOBETASOL.</p>
+      <p>Bilingüe aquí significa interfaz del visor, pantallas de captura, rótulos y medidas del tablero, texto de las alarmas, el documento del informe y el manual de operación. No significa traducir los identificadores: códigos de lote, códigos SAP, nombres de equipo y nombres de producto se conservan tal como Altea los usa, porque traducirlos rompería la trazabilidad. La segunda lengua sale del mismo diccionario de datos, de modo que no hay dos versiones que puedan desincronizarse.</p>
     </details>
 
     <details>
@@ -357,6 +640,8 @@ const resumen: [string, string][] = [
     <ol class="citas">
       <li>Mencio, <em>Li Lou</em> I. Texto chino y traducción de James Legge.</li>
       <li>Evaluación propia del lector de tirillas, 21 de septiembre de 2026, sobre trece tirillas de Altea Farma.</li>
+      <li>Altea Farmacéutica S.A. <em>Informe de mantenimiento de estado validado del proceso de manufactura del producto Clobetasol Propionate Cream 0,05 % bulk, código SAP 30000058</em>. Código VP-VAL-0430, versión 2, fecha de emisión 2026-08-06. Documento facilitado por el cliente; las cifras citadas en esta página provienen de él.</li>
+      <li>Nelson, L. S. (1984). «The Shewhart Control Chart: Tests for Special Causes». <em>Journal of Quality Technology</em>, 16(4). De ahí salen las reglas 2 y 3 del cuadro de alarmas.</li>
     </ol>
   </section>
 </div>

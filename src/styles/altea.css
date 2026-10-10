@@ -300,6 +300,103 @@
 .pieza-altea .notas .citas{font:400 .8125rem/1.6 var(--sans);padding-inline-start:1.1rem;margin-top:1.5rem}
 .pieza-altea .notas .citas li{margin:0 0 .45rem}
 
+/* --- 7 bis. Entregable, informe, arquitectura y vigilancia -------------------
+   Componentes añadidos al ampliar la propuesta con el informe VP-VAL-0430. Todos
+   siguen la forma del registro: casilla de expediente, filete, folio en mono.
+   -------------------------------------------------------------------------- */
+
+/* Entregables: una casilla por cosa que Altea recibe, con la lengua al borde */
+.pieza-altea .entregables{list-style:none;margin:1.75rem 0 0;padding:0;border-top:1px solid var(--sello)}
+.pieza-altea .entregables>li{margin:0;padding:1.1rem 0;border-bottom:1px solid var(--regla);
+  display:grid;grid-template-columns:2.75rem 1fr 5rem;gap:.4rem 1.1rem;align-items:baseline}
+.pieza-altea .entregables .folio{font:400 .8125rem/1.5 var(--mono);color:var(--sello)}
+.pieza-altea .ent-nombre{margin:0 0 .3rem;font:700 1rem/1.35 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .ent-detalle{margin:0;font-size:.9375rem;line-height:1.65}
+.pieza-altea .ent-lengua{margin:0;display:flex;gap:.3rem;justify-content:flex-end}
+.pieza-altea .ent-lengua span{
+  font:500 .625rem/1 var(--mono);letter-spacing:.08em;padding:.3rem .4rem;
+  border:1px solid var(--sello);color:var(--sello)}
+@media screen and (max-width:720px){
+  .pieza-altea .entregables>li{grid-template-columns:2.25rem 1fr;gap:.35rem .75rem}
+  .pieza-altea .ent-detalle{grid-column:2}
+  .pieza-altea .ent-lengua{grid-column:2;justify-content:flex-start;margin-top:.5rem}
+}
+
+/* Anatomía del informe: la tabla de secciones, de dónde sale cada una */
+.pieza-altea .anatomia-marco{overflow-x:auto;margin:1.75rem 0 0}
+.pieza-altea .anatomia{width:100%;min-width:34rem;border-collapse:collapse;
+  font:400 .875rem/1.5 var(--sans);color:var(--tinta)}
+.pieza-altea .anatomia caption{text-align:left;padding-bottom:.6rem;
+  font:400 .6875rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .anatomia th{text-align:left;vertical-align:bottom;padding:.5rem .7rem;
+  border-bottom:2px solid var(--sello);
+  font:600 .6875rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-fuerte)}
+.pieza-altea .anatomia td{padding:.55rem .7rem;border-bottom:1px solid var(--regla);vertical-align:top}
+.pieza-altea .anatomia .par{font:400 .75rem/1.4 var(--mono);color:var(--sello);white-space:nowrap}
+/* «destacada», no «clave»: el núcleo (libro.css) ya usa .clave para la clave de
+   lectura de una figura y se filtraría hasta aquí cambiando letra y tamaño. */
+.pieza-altea .anatomia tr.destacada td{background:var(--papel-hondo);font-weight:600;color:var(--tinta-fuerte)}
+.pieza-altea .anatomia tr.humana td{background:#f4eeec}
+.pieza-altea .anatomia tr.humana .par{color:var(--acento)}
+
+/* Estaciones: la arquitectura, con sus herramientas al pie de cada una */
+.pieza-altea .estaciones{list-style:none;margin:1.75rem 0 0;padding:0;border-top:1px solid var(--sello)}
+/* El folio ocupa la primera columna; todo lo demás se apila en la segunda. Sin la
+   colocación explícita la retícula reparte los hijos en zigzag. */
+.pieza-altea .estaciones>li{margin:0;padding:1.25rem 0;border-bottom:1px solid var(--regla);
+  display:grid;grid-template-columns:2.75rem minmax(0,1fr);gap:.5rem 1.1rem;align-items:start}
+.pieza-altea .estaciones>li>:not(.folio){grid-column:2}
+.pieza-altea .estaciones .folio{grid-column:1;grid-row:1;font:400 .8125rem/1.5 var(--mono);color:var(--sello)}
+.pieza-altea .est-nombre{margin:0 0 .35rem;font:700 1rem/1.35 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .est-nombre span{display:block;margin-top:.2rem;
+  font:400 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .est-detalle{margin:0 0 .8rem;font-size:.9375rem;line-height:1.65}
+.pieza-altea .est-capas{list-style:none;margin:0 0 .8rem;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(11rem,100%),1fr));gap:1px;
+  background:var(--regla);border:1px solid var(--regla)}
+.pieza-altea .est-capas li{margin:0;padding:.65rem .75rem;background:var(--papel)}
+.pieza-altea .est-capas b{display:block;margin-bottom:.2rem;
+  font:400 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sello)}
+.pieza-altea .est-capas span{font:400 .8125rem/1.5 var(--sans);color:var(--tinta)}
+.pieza-altea .herramientas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:flex-start;gap:.35rem}
+.pieza-altea .herramientas li{margin:0;
+  font:400 .6875rem/1.4 var(--mono);letter-spacing:.03em;
+  padding:.28rem .45rem;border:1px solid var(--regla);background:var(--papel-hondo);color:var(--tinta)}
+.pieza-altea .herramientas li.nueva{border-color:var(--trazo-b);color:var(--trazo-b)}
+@media screen and (max-width:720px){
+  .pieza-altea .estaciones>li{grid-template-columns:2.25rem minmax(0,1fr);gap:.35rem .75rem}
+}
+
+/* Alarmas: tres grupos por el tiempo que dejan para actuar */
+.pieza-altea .alarmas{margin:1.75rem 0 0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));gap:1px;
+  background:var(--regla);border:1px solid var(--regla)}
+.pieza-altea .alarmas>section{background:var(--papel);padding:1.1rem 1rem 1.25rem}
+.pieza-altea .alarmas h4{margin:0 0 .2rem;font:700 .9375rem/1.3 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .alarmas .cuando{margin:0 0 .9rem;
+  font:400 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-suave)}
+.pieza-altea .alarmas ol{list-style:none;margin:0;padding:0;counter-reset:al}
+.pieza-altea .alarmas li{margin:0 0 .75rem;padding-left:1.5rem;position:relative;
+  font:400 .875rem/1.6 var(--sans);color:var(--tinta);counter-increment:al}
+.pieza-altea .alarmas li::before{content:counter(al,decimal-leading-zero);position:absolute;left:0;top:.15em;
+  font:400 .6875rem/1.4 var(--mono);color:var(--sello)}
+.pieza-altea .alarmas section.pronto li::before{color:var(--trazo-b)}
+.pieza-altea .alarmas li b{font-weight:600;color:var(--tinta-fuerte)}
+
+/* Vistas del tablero: una casilla por pregunta */
+.pieza-altea .vistas{list-style:none;margin:1.75rem 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(17rem,100%),1fr));gap:1px;
+  background:var(--regla);border:1px solid var(--regla)}
+.pieza-altea .vistas>li{margin:0;background:var(--papel);padding:1.1rem 1rem 1.25rem;
+  display:flex;flex-direction:column;gap:.55rem}
+.pieza-altea .vistas .quien{margin:0;
+  font:400 .6875rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sello)}
+.pieza-altea .vistas h4{margin:0;font:700 1rem/1.3 var(--serif);color:var(--tinta-fuerte)}
+.pieza-altea .vistas .pregunta{margin:0;font:italic 400 .9375rem/1.45 var(--serif);color:var(--acento)}
+.pieza-altea .vistas .trae{margin:0;font:400 .875rem/1.6 var(--sans);color:var(--tinta)}
+.pieza-altea .vistas .fuentes{margin:auto 0 0;padding-top:.75rem;border-top:1px solid var(--regla);
+  font:400 .6875rem/1.5 var(--mono);letter-spacing:.03em;color:var(--tinta-suave)}
+
 /* --- 8. Impresión ----------------------------------------------------------- */
 @media print{
   .pieza-altea{--texto:10.5pt;--margen:0;background:transparent}
@@ -314,6 +411,9 @@
   .pieza-altea .apertura-disparadores,.pieza-altea .apertura-bajar{display:none}
   .pieza-altea .nota-margen{position:static;width:auto;margin:0 0 .8em}
   .pieza-altea :is(.cifras,.estados,.facturas,.crono,.perimetro,.epigrafe,.figura-cabeza,.tirilla){break-inside:avoid}
+  .pieza-altea :is(.entregables>li,.estaciones>li,.alarmas>section,.vistas>li,.anatomia tr){break-inside:avoid}
+  .pieza-altea .anatomia-marco{overflow:visible}
+  .pieza-altea .anatomia{min-width:0;font-size:8.5pt}
   .pieza-altea .seccion{break-after:avoid}
   .pieza-altea .notas details>:not(summary){display:block}
   .pieza-altea .notas summary::after{content:none}
