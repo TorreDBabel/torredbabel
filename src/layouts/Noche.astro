@@ -1,0 +1,38 @@
+---
+// Plantilla del registro Noche clara: la portada y las páginas de /contacto/.
+// Letras propias del registro, servidas por el sitio, y su hoja de estilos (copia del artefacto).
+import '@fontsource/bitter/300.css';
+import '@fontsource/bitter/400.css';
+import '@fontsource/bitter/500.css';
+import '@fontsource/bitter/600.css';
+import '@fontsource/bitter/300-italic.css';
+import '@fontsource/bitter/400-italic.css';
+import '@fontsource/bitter/500-italic.css';
+import '@fontsource/outfit/200.css';
+import '@fontsource/outfit/300.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/600.css';
+import '@fontsource/outfit/700.css';
+import '@fontsource/chivo-mono/300.css';
+import '@fontsource/chivo-mono/400.css';
+import '@fontsource/chivo-mono/500.css';
+import '../styles/noche.css';
+import Cabeza from '../components/Cabeza.astro';
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+  indexar?: boolean;
+}
+const props = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <Cabeza {...props} tema="#12112b" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+// A esta página vuelve quien envió el formulario sin guion (FormSubmit redirige aquí con _next).
+// Con guion, el agradecimiento aparece en el mismo formulario y nadie llega aquí. No sale en los buscadores.
+import NocheMarco from '../../layouts/NocheMarco.astro';
+---
+<NocheMarco
+  titulo="Gracias"
+  descripcion="Su mensaje a Torre D. Babel va en camino."
+  indexar={false}
+  rotulo="Conversemos"
+  encabezado="Gracias"
+  entradilla="Su mensaje va en camino."
+>
+<section class="columna">
+  <p>Le responderemos al correo que nos dejó. Si no ve la respuesta en su bandeja de entrada, revise la carpeta de correo no deseado.</p>
+  <p class="volver"><a class="boton" href="/">Volver a la portada</a></p>
+</section>
+</NocheMarco>

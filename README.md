@@ -4,33 +4,42 @@ Sitio de Torre D. Babel, hecho con [Astro](https://astro.build) y publicado en G
 
 ## La portada se publica idéntica al diseño aprobado
 
-La portada (`src/pages/index.astro`) es copia exacta del artefacto «Torre D. Babel» del
-8 de octubre de 2026: el mismo marcado, la misma hoja de estilos (`src/styles/pliego.css`) y el
-mismo guion de transiciones. La única diferencia son dos enlaces más en el menú: Artículos y Demos.
+La portada (`src/pages/index.astro`) es copia exacta del artefacto «Torre D. Babel · Noche clara»
+(https://claude.ai/artifact/HFjH4CdTu5KDdfQRmXSPDA), aprobado el 10 de octubre de 2026: el mismo
+marcado, la misma hoja de estilos (`src/styles/noche.css`) y el mismo guion del cielo, la torre y la
+constelación. Las diferencias son solo de lugar: los enlaces a Artículos y Demos son internos, los
+logos salen de `public/marcas/` y el formulario de contacto vive en `src/components/Formulario.astro`
+(el mismo bloque, con la dirección de envío para quien navega sin guion).
 
 Se comprobó comparando las dos versiones píxel por píxel, pantalla por pantalla, a 1440, 768 y
-390 px de ancho: la diferencia fue de 0 %. Las letras (Playfair Display, Spectral, Archivo y
-Space Mono) viajan dentro del sitio, así que no dependen de Google ni cambian con el tiempo.
+390 px de ancho, con el cielo quieto: la diferencia fue de 0 %. Las letras (Bitter, Outfit y
+Chivo Mono) viajan dentro del sitio, así que no dependen de Google ni cambian con el tiempo.
 
-Para que siga así: no edite `pliego.css` ni el marcado de la portada sin revisar el resultado con
-`npm run dev` en escritorio y en celular.
+Para que siga así: cambie primero el artefacto, cópielo aquí y compare de nuevo. No edite
+`noche.css` ni el marcado de la portada sin revisar el resultado con `npm run dev` en escritorio y
+en celular. La portada anterior (registro Pliego, «De ruido a criterio») queda en el historial del
+repositorio.
 
 ## Qué hay en el proyecto
 
 | Ruta | Qué es |
 | --- | --- |
-| `src/pages/index.astro` | La portada (registro Pliego) |
-| `src/styles/pliego.css` | El estilo de la portada, idéntico al del artefacto aprobado |
+| `src/pages/index.astro` | La portada (registro Noche clara) |
+| `src/styles/noche.css` | El estilo de la portada, idéntico al del artefacto aprobado |
+| `src/components/Formulario.astro` | El formulario de contacto (ver «El formulario de contacto») |
+| `src/pages/contacto/` | La página de contacto y la de agradecimiento, en Noche clara |
+| `src/styles/contacto.css` | Lo propio de las páginas de contacto: el cielo quieto y la torre de estrellas |
 | `src/styles/marco.css` | La cabecera con el logo principal y el pie con la firma, para las páginas interiores |
 | `src/styles/libro.css` | El interior de los artículos y demos (registro Libro subrayado) |
 | `src/content/articulos/` | Un archivo `.md` por artículo. Cada uno es una página propia |
 | `src/pages/demos/index.astro` | La página de demos |
 | `src/clases/` y `src/layouts/Clase.astro` | Los laboratorios de clase, uno por sesión (ver «Laboratorios de clase») |
-| `src/layouts/Pliego.astro` | Plantilla de la portada |
+| `src/layouts/Noche.astro` | Plantilla del registro Noche clara: letras y estilo de la portada |
+| `src/layouts/NocheMarco.astro` | Cabecera, pie y apertura corta de las páginas de contacto |
 | `src/layouts/Base.astro` | Plantilla de las páginas interiores: cabecera, pie y datos para buscadores |
 | `src/layouts/Articulo.astro` | La plantilla de cada artículo |
 | `src/components/Cabeza.astro` | Título, descripción e imagen para Google y redes sociales |
-| `src/sitio.ts` | Razón social, NIT, correo, teléfono, sello y descripción del sitio |
+| `src/sitio.ts` | Razón social, correo, sello y descripción del sitio (no se publican NIT ni teléfono) |
 | `public/marcas/` | Los dos logos: `torre.png` (principal) y `firma.png` (la firma D'Babel) |
 | `public/` | Ícono, imagen para redes, `CNAME` y `robots.txt` |
 | `.github/workflows/publicar.yml` | Publica el sitio cada vez que usted sube cambios |
@@ -122,6 +131,9 @@ indique. Así nadie más puede usar su dominio en GitHub.
    propiedad de tipo **Dominio**: `torredbabel.com`.
 2. Google le dará un registro **TXT**. Agréguelo en el DNS de Squarespace, igual que en el paso 5.
 3. Ya verificado, vaya a **Sitemaps** y envíe `https://torredbabel.com/sitemap-index.xml`.
+   El mapa solo anuncia lo que se alcanza desde el menú (portada, artículos, demos y contacto);
+   los laboratorios de clase y las páginas que se comparten por enlace no se anuncian
+   (se decide en `astro.config.mjs`).
 
 Google suele tardar entre unos días y algunas semanas en mostrar un sitio nuevo. Cada artículo
 lleva título, descripción, fecha e imagen para buscadores y redes sociales.
@@ -190,6 +202,45 @@ import DemoExterno from '../../components/DemoExterno.astro';
 ---
 <DemoExterno titulo="Pronóstico de demanda" src="https://demos.torredbabel.com/pronostico/" />
 ```
+
+## El formulario de contacto
+
+La portada (sección «Conversemos») y `torredbabel.com/contacto/` tienen el mismo formulario. El
+mensaje sale de la página y llega a babeltran@torredbabel.com por medio de
+[FormSubmit](https://formsubmit.co), un servicio gratuito que no pide cuenta ni servidor propio.
+La cabecera y el pie de las páginas interiores llevan a `/contacto/`.
+
+**Activación, una sola vez.** FormSubmit no entrega nada hasta que el dueño del correo lo
+confirma:
+
+1. Con el sitio ya publicado, abra `torredbabel.com/contacto/` y envíese un mensaje de prueba.
+   Puede que la página diga que no se pudo enviar: antes de activar, es normal.
+2. En babeltran@torredbabel.com llegará un correo de FormSubmit con el botón **Activate Form**.
+   Púlselo. Si no lo ve, busque en el correo no deseado.
+3. Envíe otro mensaje de prueba, ahora desde la portada. Debe llegarle como una tabla con nombre,
+   correo, organización, mensaje y la autorización. Si FormSubmit pide activar de nuevo para esa
+   página, repita el paso 2.
+
+**Cómo funciona.**
+
+- Con guion (casi todos los visitantes), el mensaje se envía sin salir de la página y aparece
+  un agradecimiento con el correo al que se responderá. Si el envío falla, el texto queda en el
+  formulario y la página ofrece el correo para escribir desde el programa de cada quien.
+- Sin guion, el formulario va a FormSubmit, que pide confirmar que no es un robot y vuelve a
+  `/contacto/gracias/`.
+- Para responder, basta con **Responder** en el correo: la respuesta va a quien escribió.
+- Contra el correo basura hay un campo trampa invisible (`_honey`): si un robot lo llena, el
+  mensaje no se envía.
+
+**Datos personales (Ley 1581 de 2012).** El formulario pide solo lo necesario para responder y
+una autorización expresa, obligatoria, que dice para qué se usan los datos, que viajan por
+FormSubmit y que este guarda una copia, y cómo pedir que se corrijan o se borren.
+
+**Si cambia el correo,** cámbielo en `src/sitio.ts`; en `src/components/Formulario.astro` (las dos
+direcciones de FormSubmit, la nota de la autorización y el enlace `mailto:` con su texto); en el pie
+de la portada (`src/pages/index.astro`) y en el artefacto. Después vuelva a activar el formulario.
+Después de la activación, FormSubmit ofrece una dirección cifrada para usar en lugar del correo
+dentro del formulario; es opcional, porque el correo ya es público en la página.
 
 ## Laboratorios de clase
 

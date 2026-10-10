@@ -8,8 +8,12 @@ interface Props {
   imagen?: string;
   tipo?: 'website' | 'article';
   fecha?: Date;
+  /** Color de la barra del navegador en el celular: el fondo de la página. */
+  tema?: string;
+  /** false en páginas que no deben salir en los buscadores (por ejemplo, /contacto/gracias/). */
+  indexar?: boolean;
 }
-const { titulo, descripcion = SITIO.descripcion, imagen = '/compartir.png', tipo = 'website', fecha } = Astro.props;
+const { titulo, descripcion = SITIO.descripcion, imagen = '/compartir.png', tipo = 'website', fecha, tema = '#f7f2e7', indexar = true } = Astro.props;
 const tituloCompleto = titulo ? `${titulo} · ${SITIO.nombre}` : SITIO.nombre;
 const canonica = new URL(Astro.url.pathname, Astro.site);
 const imagenAbsoluta = new URL(imagen, Astro.site);
@@ -35,7 +39,8 @@ const datos = {
 <link rel="canonical" href={canonica} />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<meta name="theme-color" content="#f7f2e7" />
+<meta name="theme-color" content={tema} />
+{!indexar && <meta name="robots" content="noindex" />}
 <meta property="og:type" content={tipo} />
 <meta property="og:locale" content="es_CO" />
 <meta property="og:site_name" content={SITIO.nombre} />

@@ -1,0 +1,60 @@
+---
+// Marco de las páginas de /contacto/ en el registro Noche clara: la cabecera y el pie de la portada,
+// un cielo quieto y una apertura corta (la torre hecha de estrellas, el rótulo, el título y la entradilla).
+import Noche from './Noche.astro';
+import '../styles/contacto.css';
+import { SITIO } from '../sitio';
+
+interface Props {
+  titulo: string;
+  descripcion?: string;
+  indexar?: boolean;
+  rotulo: string;
+  encabezado: string;
+  entradilla?: string;
+}
+const { titulo, descripcion, indexar, rotulo, encabezado, entradilla } = Astro.props;
+const ruta = Astro.url.pathname;
+const menu = [
+  { href: '/#torre', texto: 'La torre' },
+  { href: '/#lengua', texto: 'La lengua' },
+  { href: '/#persona', texto: 'La persona' },
+  { href: '/articulos/', texto: 'Artículos' },
+  { href: '/demos/', texto: 'Demos' },
+  { href: '/contacto/', texto: 'Conversemos' },
+];
+---
+<Noche titulo={titulo} descripcion={descripcion} indexar={indexar}>
+<div class="cielo-quieto" aria-hidden="true"></div>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+
+<div class="r-noche">
+
+<header class="cabecera">
+  <nav aria-label="Principal">
+    <a class="inicio" href="/" aria-label="Torre D. Babel, portada"><span class="marca-torre" role="img" aria-label="Torre D. Babel"></span></a>
+    <ul class="menu">
+      {menu.map((m) => <li><a href={m.href} aria-current={ruta === m.href ? 'page' : undefined}>{m.texto}</a></li>)}
+    </ul>
+  </nav>
+</header>
+
+<main id="contenido" class="libro pagina-corta">
+  <header class="titular titular-corto">
+    <svg class="torre-mini" viewBox="0 0 120 150" aria-hidden="true" focusable="false"><polygon class="silueta" points="6,140 6,115.3 17.9,115.3 17.9,90.6 29.8,90.6 29.8,65.9 41.6,65.9 41.6,41.2 60.0,41.2 78.4,41.2 78.4,65.9 90.2,65.9 90.2,90.6 102.1,90.6 102.1,115.3 114,115.3 114,140"/><line class="hilo" x1="60.0" y1="41.2" x2="60.0" y2="12.6"/><circle class="punto" cx="6" cy="140" r="2.2"/><circle class="punto" cx="6" cy="115.3" r="2.2"/><circle class="punto" cx="17.9" cy="115.3" r="2.2"/><circle class="punto" cx="17.9" cy="90.6" r="2.2"/><circle class="punto" cx="29.8" cy="90.6" r="2.2"/><circle class="punto" cx="29.8" cy="65.9" r="2.2"/><circle class="punto" cx="41.6" cy="65.9" r="2.2"/><circle class="punto" cx="41.6" cy="41.2" r="2.2"/><circle class="punto" cx="60.0" cy="41.2" r="2.2"/><circle class="punto" cx="78.4" cy="41.2" r="2.2"/><circle class="punto" cx="78.4" cy="65.9" r="2.2"/><circle class="punto" cx="90.2" cy="65.9" r="2.2"/><circle class="punto" cx="90.2" cy="90.6" r="2.2"/><circle class="punto" cx="102.1" cy="90.6" r="2.2"/><circle class="punto" cx="102.1" cy="115.3" r="2.2"/><circle class="punto" cx="114" cy="115.3" r="2.2"/><circle class="punto" cx="114" cy="140" r="2.2"/><circle class="halo" cx="60.0" cy="12.6" r="9"/><circle class="punto" cx="60.0" cy="12.6" r="4.2"/></svg>
+    <p class="rotulo">{rotulo}</p>
+    <h1 class="pagina-titulo">{encabezado}</h1>
+    {entradilla && <p class="entradilla">{entradilla}</p>}
+  </header>
+  <slot />
+</main>
+
+<footer class="pie">
+  <span class="marca-firma" role="img" aria-label="D'Babel"></span>
+  <p class="sello">«{SITIO.sello}»</p>
+  <p>{SITIO.razonSocial} · Bogotá, Colombia</p>
+  <p>{SITIO.correo}</p>
+</footer>
+
+</div>
+</Noche>
