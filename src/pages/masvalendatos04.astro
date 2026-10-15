@@ -1,0 +1,32 @@
+---
+// Más valen datos que percepciones (AFPN0087) · sesión 4 · Laboratorio de visualización.
+// Registro «Gaceta»: Faustina, Big Shoulders Display y Azeret Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/faustina/300';
+import '@fontsource/faustina/300-italic';
+import '@fontsource/faustina/400';
+import '@fontsource/faustina/400-italic';
+import '@fontsource/faustina/500';
+import '@fontsource/faustina/600';
+import '@fontsource/big-shoulders-display/400';
+import '@fontsource/big-shoulders-display/600';
+import '@fontsource/big-shoulders-display/700';
+import '@fontsource/big-shoulders-display/800';
+import '@fontsource/azeret-mono/300';
+import '@fontsource/azeret-mono/400';
+import '@fontsource/azeret-mono/500';
+import '@fontsource/azeret-mono/600';
+import estilo from '../clases/masvalendatos04/laboratorio.css?raw';
+import cuerpo from '../clases/masvalendatos04/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de visualización"
+  curso="Más valen datos que percepciones"
+  sesion={4}
+  descripcion="Un laboratorio para elegir el gráfico según el mensaje, medir cuánto exagera un dibujo y armar un tablero de una página. Sesión 4 de Más valen datos que percepciones."
+  tema="#fffdf8"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

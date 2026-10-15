@@ -19,5 +19,6 @@ export default defineConfig({
   // Las clases con eñe en la dirección también se abren sin ella (teclados, QR y mensajes).
   redirects: {
     '/disenometricas03': '/diseñometricas03/',
+    '/disenometricas04': '/diseñometricas04/',
   },
 });

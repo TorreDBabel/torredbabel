@@ -1,0 +1,758 @@
+<div class="r-noche">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 4</a>
+  <ol class="bn-lista">
+    <li><a href="#embudo" data-sec="embudo"><span>1</span>Del clic a la compra</a></li>
+    <li><a href="#anuncios" data-sec="anuncios"><span>2</span>¿Cuál anuncio ganó?</a></li>
+    <li><a href="#redes" data-sec="redes"><span>3</span>La publicación estrella</a></li>
+    <li><a href="#atribucion" data-sec="atribucion"><span>4</span>¿A quién se le anota?</a></li>
+    <li><a href="#casa" data-sec="casa"><span>5</span>Para la casa</a></li>
+    <li><a href="#su-embudo" data-sec="su-embudo"><span>6</span>Su embudo</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Diseño de métricas para el marketing · Sesión 4 · Laboratorio</p>
+
+  <!-- APERTURA -->
+  <section class="columna" aria-label="Apertura">
+    <p>En agosto, Academia Puente tuvo 48 inscritos que llegaron por pauta. Al cerrar el mes, cada plataforma manda su informe. Esto es lo que dicen, sumado, frente a lo que registró el sistema que cuenta a cada estudiante una sola vez:</p>
+  </section>
+  <section class="figura" aria-labelledby="a1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="a1t">Las plataformas se anotan 76 inscritos; llegaron 48</h3><p class="figura-clave">Inscritos de agosto de 2026 que cada plataforma dice haber traído, y los que registró el CRM.</p></div>
+    <ul class="hbars" id="fig-apertura" style="--nombre:11rem;--nombre-m:7.5rem"></ul>
+    <p class="figura-nota">Caso simulado. La línea punteada marca los 48 inscritos reales de pauta.</p>
+  </section>
+  <section class="columna">
+    <div class="apuesta viva" id="voto">
+      <p class="rotulo">Vote antes de seguir</p>
+      <p style="margin:0;font:400 1.25rem/1.3 var(--serif);color:var(--tinta-fuerte)">Las cuentas no cuadran. ¿Quién miente?</p>
+      <div class="voto" role="group" aria-label="Su voto">
+        <button type="button" data-voto="TikTok">TikTok</button><button type="button" data-voto="Meta">Meta</button><button type="button" data-voto="Google">Google</button><button type="button" data-voto="nadie">Nadie</button>
+      </div>
+      <p class="voto-dato" hidden aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De toque a jugada"><span class="par"><span class="nexo">De</span> <mark class="marca-a">toque</mark></span><span class="par"><span class="nexo">a</span> <mark class="marca-b">jugada</mark></span></h1>
+    <p class="entradilla">Un gol casi nunca es de una sola persona. Este laboratorio sigue al cliente desde que ve un anuncio hasta que compra, mide cada paso con su base a la vista y pregunta a quién se le anota el gol.</p>
+    <p class="firma">Bogotá, octubre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«La mitad del dinero que gasto en publicidad se desperdicia; el problema es que no sé cuál mitad.»</p><footer>Atribuida a John Wanamaker · la versión más antigua conocida, de 1897, no nombra a nadie</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer este laboratorio: el oro marca <mark class="marca-a">lo que se va</mark> —el toque suelto, el clic que no vuelve—, el azul <mark class="marca-b">lo que llega</mark> —la jugada completa, el cliente— y la letra fija <mark class="marca-c">lo que permanece</mark>: la regla de cada división; <span class="giro">el verde señala el giro</span>. En los gráficos, cada canal conserva su color:</p>
+    <ul class="claves" aria-label="Colores de los canales">
+      <li><span class="muestra tiktok"></span><span class="t-tiktok">TikTok</span></li>
+      <li><span class="muestra meta"></span><span class="t-meta">Meta</span></li>
+      <li><span class="muestra google"></span><span class="t-google">Google</span></li>
+      <li><span class="muestra otro"></span>orgánico y referidos</li>
+    </ul>
+    <p style="margin-top:2rem">El recorrido sigue la guía, y cada estación con ejercicio cierra con un recuadro para comprobar lo que usted hizo a mano:</p>
+    <ol class="ruta-lista">
+      <li><a href="#embudo">Del clic a la compra</a></li>
+      <li><a href="#anuncios">¿Cuál anuncio ganó? · ej. 1</a></li>
+      <li><a href="#redes">La publicación estrella · ej. 2</a></li>
+      <li><a href="#atribucion">¿A quién se le anota? · ej. 3</a></li>
+      <li><a href="#casa">Para la casa</a></li>
+      <li><a href="#su-embudo">Su propio embudo</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Las perillas mueven los supuestos; los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no, sin regalarle la respuesta. Lo que usted escribe aquí no sale de su navegador.</p>
+  </section>
+
+  <!-- 1 · EMBUDO -->
+  <div class="estacion" id="embudo">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1</span>Del clic a la compra</h2>
+    <p>Un anuncio se muestra, alguien lo toca, la página carga, la persona se queda o se va, y a veces compra. Cada paso es una división: lo que llegó al peldaño siguiente sobre lo que llegó a este. Mueva las tres tasas y mire qué le pasa al costo de cada compra.</p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t">Cada paso decide cuánto cuesta la compra</h3><p class="figura-clave">Una campaña de $350.000 con 50.000 impresiones. Las barras muestran cuántas personas llegan a cada peldaño, en escala de raíz cuadrada para que se vean todas.</p></div>
+    <div class="mandos">
+      <label class="perilla">CTR: de cada 100 impresiones, cuántos clics <output id="e-ctr-o"></output><input id="e-ctr" type="range" min="0.4" max="5" step="0.1" value="1.8"></label>
+      <label class="perilla">Interacción: sesiones que se quedan <output id="e-int-o"></output><input id="e-int" type="range" min="10" max="90" step="1" value="64"></label>
+      <label class="perilla">Compran: de cada 100 sesiones con interacción <output id="e-conv-o"></output><input id="e-conv" type="range" min="1" max="15" step="0.5" value="5"></label>
+    </div>
+    <ul class="hbars" id="fig-embudo" style="--nombre:12rem;--nombre-m:7.5rem"></ul>
+    <ul class="resumen-lab" id="embudo-res"></ul>
+    <p class="lectura" id="embudo-lect" aria-live="polite"></p>
+    <p class="figura-nota">Supone que 83 de cada 100 clics se vuelven sesión, como en los anuncios del ejercicio 1. Es una simplificación.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Duplique el CTR, de 1,8 % a 3,6 %. ¿Qué le pasa al costo por clic?</summary><p>Se reduce a la mitad: con el mismo CPM, el doble de clics reparte la misma plata entre el doble de personas. CPC = CPM ÷ (1.000 × CTR).</p></details>
+      <details class="repaso"><summary>Ahora baje la interacción a 20 %, como la del sorteo. ¿Ganó o perdió con el CTR alto?</summary><p>Perdió: atrajo más gente, pero la mayoría se fue de una. El costo por compra sube aunque el clic sea barato. El CTR mide la promesa; la interacción y la conversión, si se cumplió.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p>Antes de seguir, una advertencia que vale para toda la sesión. Con los postres de la sesión 3 (3.000 impresiones, 60 clics, 12 mensajes y 4 compras), la «tasa de conversión» cambia según lo que se ponga abajo:</p>
+  </section>
+  <div class="base-caja" id="base">
+    <div class="pestanas" role="group" aria-label="Base de la tasa">
+      <button class="boton" type="button" data-base="impresiones" aria-pressed="false">Sobre impresiones</button>
+      <button class="boton" type="button" data-base="clics" aria-pressed="true">Sobre clics</button>
+      <button class="boton" type="button" data-base="leads" aria-pressed="false">Sobre leads</button>
+    </div>
+    <span class="cifra-grande" id="base-cifra">6,7 %</span>
+    <p id="base-lect" aria-live="polite" style="margin:0">4 compras ÷ 60 clics × 100.</p>
+  </div>
+  <section class="columna">
+    <p class="frase">Una tasa sin su base es una opinión con porcentaje.</p>
+    <p class="siguiente"><a href="#anuncios"><span><small>Siguiente estación</small>¿Cuál anuncio ganó?</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 2 · ANUNCIOS -->
+  <div class="estacion" id="anuncios">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 1</span>¿Cuál anuncio ganó?</h2>
+    <p>Laura, de Café Monteverde, pagó $350.000 por cada anuncio, y cada uno se mostró 50.000 veces. La agencia recomienda repetir el sorteo «porque tuvo el mejor CTR».</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-anuncios"></table></div>
+    <p>Cambie de métrica y mire cómo se reordena el podio. Las barras son las mismas tres; lo que cambia es la pregunta.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t">El mejor CTR trae la compra más cara</h3><p class="figura-clave">Los tres anuncios ordenados según la métrica que usted elija. En el costo por compra, menos es mejor.</p></div>
+    <div class="pestanas" role="group" aria-label="Métrica">
+      <button class="boton" type="button" data-met="ctr" aria-pressed="true">CTR</button>
+      <button class="boton" type="button" data-met="rebote" aria-pressed="false">Rebote</button>
+      <button class="boton" type="button" data-met="conv" aria-pressed="false">Conversión</button>
+      <button class="boton" type="button" data-met="cpa" aria-pressed="false">Costo por compra</button>
+    </div>
+    <ul class="hbars" id="fig-anuncios" style="--nombre:9.5rem;--nombre-m:6.5rem"></ul>
+    <p class="lectura" id="anuncios-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado de Café Monteverde. Conversión = compras ÷ sesiones.</p>
+  </section>
+  <form class="comprobar" id="c-ej1" novalidate><h3>Compruebe su cuaderno · Ejercicio 1</h3><p>Porcentajes con un decimal; pesos sin decimales.</p><fieldset class="grupo-campos"><legend>A · Sorteo</legend><div class="campos"><label class="campo"><span class="campo-t">CTR (%)</span><input inputmode="decimal" data-ok="3.0" data-tol="0.05" data-pct="1" data-pista="clics ÷ impresiones × 100, con los clics del anuncio A."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Interacción (%)</span><input inputmode="decimal" data-ok="20.0" data-tol="0.1" data-pct="1" data-pista="sesiones con interacción ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="0.5" data-tol="0.05" data-pct="1" data-pista="compras ÷ sesiones × 100 (no ÷ clics)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Compras por 1.000 impresiones</span><input inputmode="decimal" data-ok="0.12" data-tol="0.006" data-pista="compras ÷ impresiones × 1.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Costo por compra ($)</span><input inputmode="decimal" data-ok="58333.333333" data-tol="2" data-pista="inversión ÷ compras."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>B · Origen</legend><div class="campos"><label class="campo"><span class="campo-t">CTR (%)</span><input inputmode="decimal" data-ok="1.2" data-tol="0.05" data-pct="1" data-pista="clics ÷ impresiones × 100, con los clics del anuncio B."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Interacción (%)</span><input inputmode="decimal" data-ok="70.0" data-tol="0.1" data-pct="1" data-pista="sesiones con interacción ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="3.0" data-tol="0.05" data-pct="1" data-pista="compras ÷ sesiones × 100 (no ÷ clics)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Compras por 1.000 impresiones</span><input inputmode="decimal" data-ok="0.3" data-tol="0.006" data-pista="compras ÷ impresiones × 1.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Costo por compra ($)</span><input inputmode="decimal" data-ok="23333.333333" data-tol="2" data-pista="inversión ÷ compras."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>C · Reseña</legend><div class="campos"><label class="campo"><span class="campo-t">CTR (%)</span><input inputmode="decimal" data-ok="1.8" data-tol="0.05" data-pct="1" data-pista="clics ÷ impresiones × 100, con los clics del anuncio C."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Interacción (%)</span><input inputmode="decimal" data-ok="64.0" data-tol="0.1" data-pct="1" data-pista="sesiones con interacción ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="3.2" data-tol="0.05" data-pct="1" data-pista="compras ÷ sesiones × 100 (no ÷ clics)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Compras por 1.000 impresiones</span><input inputmode="decimal" data-ok="0.48" data-tol="0.006" data-pista="compras ÷ impresiones × 1.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Costo por compra ($)</span><input inputmode="decimal" data-ok="14583.333333" data-tol="2" data-pista="inversión ÷ compras."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>A, B y C, en ese orden. CTR: 3,0 %, 1,2 % y 1,8 %. CPC: $233, $583 y $389. Interacción: 20 %, 70 % y 64 % (rebote: 80 %, 30 % y 36 %). Conversión: 0,5 %, 3,0 % y 3,2 %. Compras por 1.000 impresiones: 0,12, 0,30 y 0,48. Costo por compra: <strong>$58.333, $23.333 y $14.583</strong>. El mejor CTR trae la compra más cara: el sorteo atrajo a quien quería la cafetera, no el café. C gana porque atrae más gente que B sin perder la calidad.</p></div></form>
+  <section class="columna"><p>¿Qué pesa más en el costo por compra: atraer o convencer? Escoja un anuncio y mueva sus dos tasas.</p></section>
+  <section class="figura" aria-labelledby="f2bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2bt">Atraer abarata; convencer, más</h3><p class="figura-clave">Costo por compra del anuncio que usted mueve frente a los otros dos, que se quedan quietos.</p></div>
+    <div class="mandos">
+      <fieldset class="segmento"><legend>Anuncio</legend>
+        <label><input type="radio" name="sim-an" value="0" checked>A · Sorteo</label><label><input type="radio" name="sim-an" value="1">B · Origen</label><label><input type="radio" name="sim-an" value="2">C · Reseña</label>
+      </fieldset>
+      <label class="perilla">Cambio en el CTR <output id="s-ctr-o"></output><input id="s-ctr" type="range" min="-50" max="100" step="10" value="0"></label>
+      <label class="perilla">Cambio en la conversión <output id="s-conv-o"></output><input id="s-conv" type="range" min="-50" max="500" step="10" value="0"></label>
+    </div>
+    <ul class="hbars" id="fig-sim-an" style="--nombre:9.5rem;--nombre-m:6.5rem"></ul>
+    <p class="lectura" id="sim-an-lect" aria-live="polite"></p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Escoja el sorteo y duplique su CTR (+100 %). ¿Alcanza a la reseña?</summary><p>No: su compra baja a $29.167, todavía el doble de la reseña. Más gente que no quiere café sigue sin comprar café.</p></details>
+      <details class="repaso"><summary>Devuelva el CTR a 0 %. ¿Cuánto tendría que mejorar la conversión del sorteo para igualar a la reseña?</summary><p>Un 300 %: tendría que cuadruplicar las compras de cada sesión. El problema del sorteo no es atraer, sino a quién atrae.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">El CTR mide la promesa; la conversión, si se cumplió.</p>
+    <p class="siguiente"><a href="#redes"><span><small>Siguiente estación</small>La publicación estrella</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 3 · REDES -->
+  <div class="estacion" id="redes">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 2</span>La publicación estrella</h2>
+    <p>El gimnasio La Forja tiene 5.000 seguidores. Su encargada de redes quiere repetir la publicación 1 cada mes, «porque fue la más exitosa». ¿Exitosa según qué base?</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-posts"></table></div>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t" aria-live="polite">Cada base corona a una publicación distinta</h3><p class="figura-clave">Las cuatro publicaciones ordenadas por la medida que usted elija; la primera de la lista es la «estrella» según esa medida.</p></div>
+    <div class="pestanas" role="group" aria-label="Medida">
+      <button class="boton" type="button" data-er="seg" aria-pressed="true">Por seguidores</button>
+      <button class="boton" type="button" data-er="alc" aria-pressed="false">Por alcance</button>
+      <button class="boton" type="button" data-er="men" aria-pressed="false">Mensajes por 1.000</button>
+      <button class="boton" type="button" data-er="vis" aria-pressed="false">Visitas de prueba</button>
+    </div>
+    <ul class="hbars" id="fig-posts" style="--nombre:12rem;--nombre-m:7rem"></ul>
+    <p class="lectura" id="posts-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado. Interacciones = me gusta + comentarios + guardados + compartidos.</p>
+  </section>
+  <form class="comprobar" id="c-ej2" novalidate><h3>Compruebe su cuaderno · Ejercicio 2</h3><p>Porcentajes con un decimal.</p><fieldset class="grupo-campos"><legend>1 · Reto</legend><div class="campos"><label class="campo"><span class="campo-t">Interacciones</span><input inputmode="decimal" data-ok="1080" data-tol="0" data-pista="me gusta + comentarios + guardados + compartidos."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por alcance (%)</span><input inputmode="decimal" data-ok="9.0" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ alcance × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por seguidores (%)</span><input inputmode="decimal" data-ok="21.6" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ 5.000 seguidores × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mensajes por 1.000 alcanzados</span><input inputmode="decimal" data-ok="0.5" data-tol="0.06" data-pista="mensajes ÷ alcance × 1.000."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>2 · Rutina</legend><div class="campos"><label class="campo"><span class="campo-t">Interacciones</span><input inputmode="decimal" data-ok="430" data-tol="0" data-pista="me gusta + comentarios + guardados + compartidos."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por alcance (%)</span><input inputmode="decimal" data-ok="14.333333" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ alcance × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por seguidores (%)</span><input inputmode="decimal" data-ok="8.6" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ 5.000 seguidores × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mensajes por 1.000 alcanzados</span><input inputmode="decimal" data-ok="8.0" data-tol="0.06" data-pista="mensajes ÷ alcance × 1.000."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>3 · Antes y después</legend><div class="campos"><label class="campo"><span class="campo-t">Interacciones</span><input inputmode="decimal" data-ok="580" data-tol="0" data-pista="me gusta + comentarios + guardados + compartidos."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por alcance (%)</span><input inputmode="decimal" data-ok="9.666667" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ alcance × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por seguidores (%)</span><input inputmode="decimal" data-ok="11.6" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ 5.000 seguidores × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mensajes por 1.000 alcanzados</span><input inputmode="decimal" data-ok="1.666667" data-tol="0.06" data-pista="mensajes ÷ alcance × 1.000."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>4 · Precio</legend><div class="campos"><label class="campo"><span class="campo-t">Interacciones</span><input inputmode="decimal" data-ok="100" data-tol="0" data-pista="me gusta + comentarios + guardados + compartidos."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por alcance (%)</span><input inputmode="decimal" data-ok="6.666667" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ alcance × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Por seguidores (%)</span><input inputmode="decimal" data-ok="2.0" data-tol="0.1" data-pct="1" data-pista="interacciones ÷ 5.000 seguidores × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mensajes por 1.000 alcanzados</span><input inputmode="decimal" data-ok="20.0" data-tol="0.06" data-pista="mensajes ÷ alcance × 1.000."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Interacciones: 1.080, 430, 580 y 100. Por alcance: 9,0 %, <strong>14,3 %</strong>, 9,7 % y 6,7 %. Por seguidores: <strong>21,6 %</strong>, 8,6 %, 11,6 % y 2,0 %. Mensajes por 1.000 alcanzados: 0,5, 8,0, 1,7 y <strong>20,0</strong>. Cada base corona a una publicación distinta; la del precio trajo 9 de las 18 visitas de prueba.</p></div></form>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>¿Por qué la publicación 2 tiene tantos guardados y tan pocos me gusta?</summary><p>Porque sirve: una rutina para principiantes se guarda para hacerla después. Guardar dice «esto me sirve»; un me gusta, «lo vi». Y trajo 6 visitas de prueba.</p></details>
+      <details class="repaso"><summary>¿Qué necesita La Forja antes de publicar la foto del «antes y después» de un socio?</summary><p>Su autorización expresa, para esa finalidad. Es la imagen de su cuerpo: la Ley 1581 de 2012 pide autorización y finalidad, y el respeto lo pide antes que la ley.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">Participación no es decisión.</p>
+    <p class="siguiente"><a href="#atribucion"><span><small>Siguiente estación</small>¿A quién se le anota?</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 4 · ATRIBUCIÓN -->
+  <div class="estacion" id="atribucion">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Ejercicio 3</span>¿A quién se le anota?</h2>
+    <p>Diez inscritos de agosto contaron, en la entrevista de bienvenida, por dónde conocieron la academia. Cada fila es un recorrido, del primer toque al último. Escoja un modelo y mire cuánto crédito recibe cada toque.</p>
+  </section>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t" aria-live="polite">Con el último clic, TikTok no metió ningún gol</h3><p class="figura-clave">Crédito de cada toque según el modelo, y abajo, la suma por canal. Cada recorrido reparte un inscrito.</p></div>
+    <div class="mandos">
+      <fieldset class="segmento"><legend>Modelo</legend>
+        <label><input type="radio" name="modelo" value="ultimo" checked>Último clic</label><label><input type="radio" name="modelo" value="primero">Primer clic</label><label><input type="radio" name="modelo" value="lineal">Lineal</label><label><input type="radio" name="modelo" value="posicion">Por posición</label>
+      </fieldset>
+      <div class="pesos-pos">
+        <label class="perilla">Por posición: peso del primer toque <output id="p-pri-o"></output><input id="p-pri" type="range" min="0" max="60" step="5" value="40"></label>
+        <label class="perilla">Por posición: peso del último toque <output id="p-ult-o"></output><input id="p-ult" type="range" min="0" max="60" step="5" value="40"></label>
+      </div>
+      <label class="casilla"><input type="checkbox" id="apagar">Apagar TikTok: marcar los recorridos que pierden un toque</label>
+    </div>
+    <ol class="recorridos" id="lista-rec"></ol>
+    <ul class="hbars" id="fig-atr" style="--nombre:8rem;--nombre-m:6rem"></ul>
+    <p class="lectura" id="atr-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado. Con dos toques, el modelo por posición los reparte por partes iguales; con uno, todo va a ese toque.</p>
+  </section>
+  <form class="comprobar" id="c-ej3" novalidate><h3>Compruebe su cuaderno · Ejercicio 3</h3><p>Inscritos que le tocan a cada canal; en el lineal, con dos decimales.</p><fieldset class="grupo-campos"><legend>Último clic</legend><div class="campos"><label class="campo"><span class="campo-t">TikTok</span><input inputmode="decimal" data-ok="0.0" data-tol="0" data-pista="cuente los recorridos que terminan en TikTok."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Meta</span><input inputmode="decimal" data-ok="2.0" data-tol="0" data-pista="cuente los recorridos que terminan en Meta."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Google</span><input inputmode="decimal" data-ok="7.0" data-tol="0" data-pista="cuente los recorridos que terminan en Google."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Primer clic</legend><div class="campos"><label class="campo"><span class="campo-t">TikTok</span><input inputmode="decimal" data-ok="5.0" data-tol="0" data-pista="cuente los recorridos que empiezan en TikTok."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Meta</span><input inputmode="decimal" data-ok="3.0" data-tol="0" data-pista="cuente los recorridos que empiezan en Meta."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Google</span><input inputmode="decimal" data-ok="1.0" data-tol="0" data-pista="cuente los recorridos que empiezan en Google."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Lineal</legend><div class="campos"><label class="campo"><span class="campo-t">TikTok</span><input inputmode="decimal" data-ok="2.166667" data-tol="0.06" data-pista="en cada recorrido, TikTok recibe 1 ÷ (número de toques) por cada toque suyo; sume los diez."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Meta</span><input inputmode="decimal" data-ok="3.0" data-tol="0.06" data-pista="en cada recorrido, Meta recibe 1 ÷ (número de toques) por cada toque suyo; sume los diez."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Google</span><input inputmode="decimal" data-ok="3.5" data-tol="0.06" data-pista="en cada recorrido, Google recibe 1 ÷ (número de toques) por cada toque suyo; sume los diez."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Último clic: TikTok 0, Meta 2, Google 7, referido 1. Primer clic: TikTok 5, Meta 3, Google 1, referido 1. Lineal: TikTok 2,17, Meta 3,00, Google 3,50, orgánico 0,33, referido 1. Por posición (40-20-40): TikTok 2,3, Meta 2,8, Google 3,7, orgánico 0,2, referido 1. Cada modelo suma 10. TikTok es el canal que más cambia porque abre cinco recorridos y no cierra ninguno.</p></div></form>
+  <section class="columna">
+    <p>Y ahora la apertura. Si cada plataforma se anota la inscripción completa cada vez que tuvo un toque en el recorrido, estos diez inscritos se convierten en muchos más:</p>
+  </section>
+  <section class="figura" aria-labelledby="f4bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4bt">Diez inscritos, diecisiete goles anotados</h3><p class="figura-clave">Recorridos en los que aparece cada plataforma de pauta, frente a los diez inscritos reales.</p></div>
+    <ul class="hbars" id="fig-auto" style="--nombre:8rem;--nombre-m:6rem"></ul>
+    <p class="figura-nota">Es la autoatribución: nadie miente, todos se anotan el gol. El total solo cuadra en el sistema que cuenta a cada cliente una vez.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Marque «Apagar TikTok». ¿Cuántos inscritos desaparecen?</summary><p>No lo sabemos. Cinco recorridos pierden su primer toque, pero algunos de esos estudiantes quizá habrían buscado la academia igual. Para saberlo hay que probar: apagar el canal en una ciudad o unas semanas y comparar con otra parecida.</p></details>
+      <details class="repaso"><summary>En el modelo por posición, ponga 60 % al primer toque y 0 % al último. ¿A qué modelo se parece?</summary><p>Al primer clic, aunque no del todo: los toques del medio todavía reciben algo. Los porcentajes son una convención; cada número cuenta una historia distinta.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">Ningún modelo es la verdad: es una regla de reparto.</p>
+    <p class="siguiente"><a href="#casa"><span><small>Siguiente estación</small>Para la casa</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 5 · CASA -->
+  <div class="estacion" id="casa">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 5</span>Para la casa · El rebote que subió</h2>
+    <p>La gerente ve que el rebote del sitio pasó de 45 % en agosto a casi 52 % en septiembre y quiere rediseñar la página. Este es el informe por canal de septiembre:</p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-ga4"></table></div>
+  </section>
+  <form class="comprobar" id="c-casa" novalidate><h3>Compruebe su cuaderno · Para la casa</h3><p>Porcentajes con un decimal.</p><fieldset class="grupo-campos"><legend>TikTok</legend><div class="campos"><label class="campo"><span class="campo-t">Rebote (%)</span><input inputmode="decimal" data-ok="72.0" data-tol="0.1" data-pct="1" data-pista="sesiones sin interacción ÷ sesiones × 100 (o 100 − interacción)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="5.0" data-tol="0.1" data-pct="1" data-pista="formularios ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Meta</legend><div class="campos"><label class="campo"><span class="campo-t">Rebote (%)</span><input inputmode="decimal" data-ok="50.0" data-tol="0.1" data-pct="1" data-pista="sesiones sin interacción ÷ sesiones × 100 (o 100 − interacción)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="8.0" data-tol="0.1" data-pct="1" data-pista="formularios ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Google</legend><div class="campos"><label class="campo"><span class="campo-t">Rebote (%)</span><input inputmode="decimal" data-ok="25.0" data-tol="0.1" data-pct="1" data-pista="sesiones sin interacción ÷ sesiones × 100 (o 100 − interacción)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="13.0" data-tol="0.1" data-pct="1" data-pista="formularios ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Orgánico</legend><div class="campos"><label class="campo"><span class="campo-t">Rebote (%)</span><input inputmode="decimal" data-ok="35.0" data-tol="0.1" data-pct="1" data-pista="sesiones sin interacción ÷ sesiones × 100 (o 100 − interacción)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="6.0" data-tol="0.1" data-pct="1" data-pista="formularios ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Directo</legend><div class="campos"><label class="campo"><span class="campo-t">Rebote (%)</span><input inputmode="decimal" data-ok="20.0" data-tol="0.1" data-pct="1" data-pista="sesiones sin interacción ÷ sesiones × 100 (o 100 − interacción)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión (%)</span><input inputmode="decimal" data-ok="12.0" data-tol="0.1" data-pct="1" data-pista="formularios ÷ sesiones × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Todo el sitio y el escenario</legend><div class="campos"><label class="campo"><span class="campo-t">Rebote del sitio (%)</span><input inputmode="decimal" data-ok="51.918605" data-tol="0.1" data-pct="1" data-pista="(8.600 − 4.135) ÷ 8.600 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión del sitio (%)</span><input inputmode="decimal" data-ok="7.523256" data-tol="0.1" data-pct="1" data-pista="647 ÷ 8.600 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Rebote del escenario (%)</span><input inputmode="decimal" data-ok="47.676056" data-tol="0.15" data-pct="1" data-pista="TikTok con 1.500 sesiones y 420 con interacción; sume de nuevo todo el sitio."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Rebote: TikTok 72 %, Meta 50 %, Google 25 %, orgánico 35 %, directo 20 %; sitio <strong>51,9 %</strong>. Conversión: 5,0 %, 8,0 %, 13,0 %, 6,0 % y 12,0 %; sitio 7,5 %. Con la mitad de las sesiones de TikTok, el rebote del sitio habría sido <strong>47,7 %</strong>: ningún canal empeoró; cambió la mezcla. No hace falta rediseñar: hay que mirar el rebote por canal.</p></div></form>
+  <section class="columna"><p>¿Se dañó la página, o cambió quién llega? Mueva las sesiones de TikTok sin tocar ninguna tasa y mire el rebote del sitio.</p></section>
+  <section class="figura" aria-labelledby="f5t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f5t" aria-live="polite">El promedio sube sin que nadie empeore</h3><p class="figura-clave">Rebote de cada canal (quieto) y del sitio (cambia con la mezcla). La línea punteada es el 45 % de agosto.</p></div>
+    <div class="mandos">
+      <label class="perilla">Sesiones de TikTok en septiembre <output id="m-tk-o"></output><input id="m-tk" type="range" min="0" max="6000" step="250" value="3000"></label>
+    </div>
+    <ul class="hbars" id="fig-mezcla" style="--nombre:12rem;--nombre-m:7rem"></ul>
+    <p class="lectura" id="mezcla-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado. Cada canal conserva su tasa de interacción; solo cambia cuántas sesiones trae TikTok.</p>
+  </section>
+  <section class="columna">
+    <p class="siguiente"><a href="#su-embudo"><span><small>Siguiente estación</small>Su propio embudo</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 6 · SU EMBUDO -->
+  <div class="estacion" id="su-embudo">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 6</span>Su propio embudo</h2>
+    <p>Escriba los números de una campaña suya, de un emprendimiento que conozca o de un caso inventado. El laboratorio calcula cada tasa con su base a la vista y le dice dónde se pierde más gente.</p>
+    <div class="areas" id="su-campos">
+      <label>Inversión ($)<input class="campo-libre" data-k="inv" inputmode="decimal" value="200.000"></label>
+      <label>Impresiones<input class="campo-libre" data-k="imp" inputmode="decimal" value="20.000"></label>
+      <label>Clics<input class="campo-libre" data-k="cli" inputmode="decimal" value="400"></label>
+      <label>Sesiones<input class="campo-libre" data-k="ses" inputmode="decimal" value="340"></label>
+      <label>Sesiones con interacción<input class="campo-libre" data-k="int" inputmode="decimal" value="150"></label>
+      <label>Conversiones<input class="campo-libre" data-k="con" inputmode="decimal" value="9"></label>
+    </div>
+  </section>
+  <section class="figura">
+    <ul class="resumen-lab" id="su-res"></ul>
+    <p class="lectura" id="su-lect" aria-live="polite"></p>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a la apertura</h2>
+    <p id="cierre-voto">Las plataformas sumaban 76 inscritos y llegaron 48. Nadie mentía: cada una se anotó el gol de una jugada en la que tocó el balón.</p>
+    <p>Wanamaker, o quien haya dicho la frase, no sabía qué mitad de su publicidad se desperdiciaba. <span class="giro">Hoy sabemos por qué es tan difícil saberlo: cada tasa depende de su base y cada crédito, de su regla.</span> Antes de premiar o apagar un canal, tres preguntas: ¿tasa de qué sobre qué?, ¿con qué modelo?, ¿y qué pasaría sin él?</p>
+    <p class="aforismo">El gol se celebra con todo el equipo.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Academia Puente, Café Monteverde y el gimnasio La Forja son casos simulados que continúan las sesiones 1 a 3; los 48 inscritos de pauta de agosto son los mismos de la sesión 3 (8 de TikTok, 20 de Meta y 20 de Google). Las definiciones de sesión con interacción y de rebote son las de la ayuda oficial de Google Analytics; los modelos retirados en 2023, los del anuncio de Google Ads.</p></details>
+  <details><summary>¿Qué supone el simulador del embudo?</summary><p>Que el CPM no cambia con el CTR, que 83 de cada 100 clics se vuelven sesión y que solo compran las sesiones con interacción. Son supuestos del caso, no leyes: en la realidad, un anuncio que atrae más también puede atraer a otra gente.</p></details>
+  <details><summary>¿Cómo calcula los modelos de atribución?</summary><p>Cada recorrido reparte un inscrito. Último y primer clic le dan todo al último o al primer toque; el lineal reparte por partes iguales entre los toques; el de posición da el peso elegido al primero y al último y reparte el resto entre los del medio (con dos toques, se reparten el total en proporción a sus pesos). El modelo basado en datos de GA4 no se puede reproducir con diez recorridos: necesita miles.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra, y también su voto.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Noche clara»: índigo profundo y palabras que toman el color de lo que nombran, porque la atribución es una idea abstracta que se explica paso a paso y cada canal conserva su color en toda la pieza. Forma «hipótesis y refutación»: se afirma algo (el sorteo ganó, la publicación 1 fue la estrella, TikTok no trae a nadie), se prueba con otra base o con otro modelo y se corrige. Recursos: la apuesta (el voto), la perilla y la tarjeta de repaso. La sesión anterior usó el registro «Taller».</p></details>
+  <ol class="citas">
+    <li>Popik, B. «Half the money spent on advertising is wasted, but no one knows which half». The Big Apple. Sobre el origen de la frase del epígrafe.</li>
+    <li>Google. «Dimensiones y métricas». Ayuda de Google Analytics (sesión con interacción, tasa de interacción y tasa de rebote).</li>
+    <li>Google (2023). «First click, linear, time decay, and position-based attribution models are going away». Ayuda de Google Ads.</li>
+    <li>Kaushik, A. <i>Web Analytics 2.0</i>. Wiley.</li>
+    <li>Congreso de Colombia (2012). Ley Estatutaria 1581, de protección de datos personales.</li>
+  </ol>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"plataformas": [["TikTok Ads", 19], ["Meta Ads", 31], ["Google Ads", 26]], "reales": 48, "postres": {"pauta": 30000, "impresiones": 3000, "clics": 60, "leads": 12, "compras": 4}, "anuncios": [["A · Sorteo de una cafetera", 350000, 50000, 1500, 1200, 240, 6], ["B · Café de origen, tostado esta semana", 350000, 50000, 600, 500, 350, 15], ["C · Reseña de una clienta, en video", 350000, 50000, 900, 750, 480, 24]], "seguidores": 5000, "posts": [["1 · Reto de 30 sentadillas (video corto)", 12000, 900, 60, 30, 90, 6, 1], ["2 · Rutina de 20 minutos para principiantes (carrusel)", 3000, 150, 25, 210, 45, 24, 6], ["3 · Antes y después de un socio (foto)", 6000, 480, 70, 20, 10, 10, 2], ["4 · Horarios y precio del plan de noviembre", 1500, 40, 18, 35, 7, 30, 9]], "recorridos": [["TikTok", "Google"], ["TikTok", "Meta", "Google"], ["Meta", "Google"], ["Google"], ["TikTok", "Orgánico", "Google"], ["Meta", "Meta", "Google"], ["Referido"], ["TikTok", "Meta"], ["Meta"], ["TikTok", "Google"]], "canales": ["TikTok", "Meta", "Google", "Orgánico", "Referido"], "ga4": [["TikTok (pauta)", 3000, 840, 150], ["Meta (pauta)", 3400, 1700, 272], ["Google (búsqueda pagada)", 900, 675, 117], ["Orgánico", 800, 520, 48], ["Directo", 500, 400, 60]], "reboteAgosto": 45};
+/* Núcleo común de los laboratorios: números a la colombiana, escalas, barras animadas, navegación y comprobaciones. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+
+/* Laboratorio · Diseño de métricas para el marketing · Sesión 4: conexiones y simuladores. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const pct = (v, d = 1) => num(v, d) + ' %';
+  const al = (ids, fn) => { ids.forEach(id => { const e = typeof id === 'string' ? $(id) : id; if (e) { e.addEventListener('input', fn); e.addEventListener('change', fn); } }); fn(); };
+  const radio = n => ($(`input[name="${n}"]:checked`) || {}).value;
+  const salida = (id, t) => { const o = $(id + '-o'); if (o) o.textContent = t; };
+  const clase = c => ({ TikTok: 'hb-tiktok', Meta: 'hb-meta', Google: 'hb-google' })[c] || 'hb-otro';
+  const angosto = () => matchMedia('(max-width: 520px)').matches;
+  const n2 = v => Math.abs(v % 1) > 1e-9 ? num(v, 2) : num(v);
+  let voto = null;
+
+  /* ---------- apertura ---------- */
+  function apertura() {
+    const items = D.plataformas.map(([n, v]) => ({ id: n, nombre: n, valor: v, clase: clase(n.split(' ')[0]) }));
+    const suma = D.plataformas.reduce((s, x) => s + x[1], 0);
+    items.push({ id: 'suma', nombre: 'Suma de los informes', valor: suma, clase: 'hb-gris' });
+    items.push({ id: 'crm', nombre: 'Inscritos reales (CRM)', valor: D.reales, clase: 'hb-dec' });
+    hbars($('#fig-apertura'), items, { refs: [{ valor: D.reales, texto: angosto() ? '' : '48 reales' }], max: 80 });
+  }
+  apertura();
+  $$('#voto [data-voto]').forEach(b => b.addEventListener('click', () => {
+    voto = b.dataset.voto;
+    $$('#voto [data-voto]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = $('#voto .voto-dato'); d.hidden = false;
+    d.innerHTML = voto === 'nadie'
+      ? 'Anotado: usted cree que <strong>nadie miente</strong>. Entonces, ¿de dónde salen los 28 inscritos de más? Lo resolvemos en la estación 4.'
+      : `Anotado: usted sospecha de <strong>${voto}</strong>. Lo revisamos en la estación 4, cuando sigamos a cada inscrito por todo su recorrido.`;
+    cierre();
+  }));
+  function cierre() {
+    const p = $('#cierre-voto'); if (!p) return;
+    const base = 'Las plataformas sumaban 76 inscritos y llegaron 48. Nadie mentía: cada una se anotó el gol de una jugada en la que tocó el balón.';
+    p.textContent = !voto ? base : voto === 'nadie' ? 'Usted votó que nadie mentía, y acertó. ' + base.split('. ')[1] : `Usted sospechó de ${voto}. ` + base;
+  }
+
+  /* ---------- 1 · embudo ---------- */
+  const INV = 350000, IMP = 50000, SES = .83;
+  al(['#e-ctr', '#e-int', '#e-conv'], () => {
+    const ctr = +$('#e-ctr').value, it = +$('#e-int').value, cv = +$('#e-conv').value;
+    salida('#e-ctr', pct(ctr)); salida('#e-int', pct(it, 0)); salida('#e-conv', pct(cv));
+    const cli = IMP * ctr / 100, ses = cli * SES, inter = ses * it / 100, comp = inter * cv / 100;
+    const r = v => Math.sqrt(v);
+    hbars($('#fig-embudo'), [
+      { id: 'imp', nombre: 'Vieron el anuncio', valor: r(IMP), texto: num(IMP), clase: 'hb-gris' },
+      { id: 'cli', nombre: 'Tocaron (clics)', valor: r(cli), texto: num(cli), clase: 'hb-costo' },
+      { id: 'ses', nombre: 'Llegaron (sesiones)', valor: r(ses), texto: num(ses), clase: 'hb-costo' },
+      { id: 'int', nombre: 'Se quedaron', valor: r(inter), texto: num(inter), clase: 'hb-valor-c' },
+      { id: 'com', nombre: 'Compraron', valor: r(comp), texto: num(comp, 1), clase: 'hb-dec' }], { max: r(IMP) });
+    const cpc = INV / cli, cpa = comp > 0 ? INV / comp : Infinity;
+    $('#embudo-res').innerHTML = `<li>CPC<b>${pesos(cpc)}</b></li><li>Rebote<b>${pct(100 - it, 0)}</b></li><li>Conversión de sesiones<b>${pct(comp / ses * 100)}</b></li><li>Costo por compra<b>${isFinite(cpa) ? pesos(cpa) : '—'}</b></li>`;
+    const ref = 14583;
+    $('#embudo-lect').innerHTML = `De cada 1.000 impresiones salen <b>${num(comp / IMP * 1000, 2)}</b> compras. ` +
+      (cpa < ref * .95 ? 'Esta campaña vende más barato que la reseña del ejercicio 1.' : cpa > ref * 1.05 ? `Cada compra cuesta <b>${num(cpa / ref, 1)}</b> veces lo que costó con la reseña del ejercicio 1.` : 'Está cerca de la reseña del ejercicio 1.');
+  });
+  /* la base de la tasa */
+  const P0 = D.postres;
+  const bases = { impresiones: [P0.impresiones, 'impresiones'], clics: [P0.clics, 'clics'], leads: [P0.leads, 'leads'] };
+  $$('#base [data-base]').forEach(b => b.addEventListener('click', () => {
+    $$('#base [data-base]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const [d, n] = bases[b.dataset.base], v = P0.compras / d * 100;
+    $('#base-cifra').textContent = pct(v, v < 1 ? 2 : 1);
+    $('#base-lect').textContent = `${P0.compras} compras ÷ ${num(d)} ${n} × 100. Las tres tasas son ciertas; lo que cambia es la base.`;
+    if (!Transiciones.reducido) { const c = $('#base-cifra'); c.classList.remove('cambia'); void c.offsetWidth; c.classList.add('cambia'); }
+  }));
+
+  /* ---------- 2 · anuncios ---------- */
+  const AN = D.anuncios.map(([n, inv, imp, cl, ses, it, co]) => ({ n, corto: n.split(',')[0].replace('Café de origen', 'Origen').replace('Sorteo de una cafetera', 'Sorteo').replace('Reseña de una clienta', 'Reseña'), inv, imp, cl, ses, it, co,
+    ctr: cl / imp * 100, rebote: 100 - it / ses * 100, conv: co / ses * 100, cpa: inv / co }));
+  $('#tabla-anuncios').innerHTML = '<thead><tr><th>Anuncio</th><th class="num">Clics</th><th class="num">Sesiones</th><th class="num">Con interacción</th><th class="num">Compras</th></tr></thead><tbody>' +
+    AN.map(a => `<tr><td>${a.n}</td><td class="num">${num(a.cl)}</td><td class="num">${num(a.ses)}</td><td class="num">${num(a.it)}</td><td class="num">${a.co}</td></tr>`).join('') + '</tbody>';
+  const MET = { ctr: ['CTR', v => pct(v), 'El sorteo gana en CTR: es el que más atrae.'], rebote: ['Rebote', v => pct(v, 0), 'El sorteo pierde a 8 de cada 10 visitas apenas llegan.'],
+    conv: ['Conversión', v => pct(v), 'B y C convierten casi igual sus sesiones; el sorteo, seis veces menos.'], cpa: ['Costo por compra', v => pesos(v), 'Al final del camino, el orden se voltea: la reseña vende cuatro veces más barato que el sorteo.'] };
+  let met = 'ctr';
+  function pintaAnuncios() {
+    hbars($('#fig-anuncios'), AN.map((a, i) => ({ id: 'a' + i, nombre: a.corto, valor: a[met], clase: met === 'cpa' ? 'hb-costo' : met === 'rebote' ? 'hb-gris' : 'hb-valor-c' })), { fmt: MET[met][1], orden: 'desc' });
+    $('#anuncios-lect').textContent = MET[met][2];
+  }
+  $$('[data-met]').forEach(b => b.addEventListener('click', () => { met = b.dataset.met; $$('[data-met]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); pintaAnuncios(); }));
+  pintaAnuncios();
+  al(['#s-ctr', '#s-conv', ...$$('input[name="sim-an"]')], () => {
+    const k = +radio('sim-an'), dc = +$('#s-ctr').value, dv = +$('#s-conv').value;
+    salida('#s-ctr', (dc > 0 ? '+' : '') + dc + ' %'); salida('#s-conv', (dv > 0 ? '+' : '') + dv + ' %');
+    const items = AN.map((a, i) => {
+      let cpa = a.cpa;
+      if (i === k) { const co = a.co * (1 + dc / 100) * (1 + dv / 100); cpa = a.inv / co; }
+      return { id: 's' + i, nombre: a.corto + (i === k ? ' (usted)' : ''), valor: cpa, clase: i === k ? 'hb-dec' : 'hb-gris' };
+    });
+    hbars($('#fig-sim-an'), items, { fmt: v => pesos(v), max: 70000 });
+    const mio = items[k].valor, mejor = Math.min(...items.filter((_, i) => i !== k).map(x => x.valor));
+    $('#sim-an-lect').innerHTML = mio <= mejor * 1.005 ? `Con esos cambios, <b>${AN[k].corto}</b> vende tan barato como el mejor de los otros, o más.` : `<b>${AN[k].corto}</b> todavía vende <b>${num(mio / mejor, 1)}</b> veces más caro que el mejor de los otros dos.`;
+  });
+
+  /* ---------- 3 · redes ---------- */
+  const PO = D.posts.map(([n, alc, mg, com, gua, cmp, men, vis]) => { const it = mg + com + gua + cmp; return { n, corto: n.split(' (')[0], alc, mg, com, gua, cmp, men, vis, it, alc_: it / alc * 100, seg: it / D.seguidores * 100, menm: men / alc * 1000 }; });
+  $('#tabla-posts').innerHTML = '<thead><tr><th>Publicación</th><th class="num">Alcance</th><th class="num">Me gusta</th><th class="num">Com.</th><th class="num">Guar.</th><th class="num">Comp.</th><th class="num">Mensajes</th><th class="num">Visitas</th></tr></thead><tbody>' +
+    PO.map(p => `<tr><td>${p.corto}</td><td class="num">${num(p.alc)}</td><td class="num">${num(p.mg)}</td><td class="num">${p.com}</td><td class="num">${p.gua}</td><td class="num">${p.cmp}</td><td class="num">${p.men}</td><td class="num">${p.vis}</td></tr>`).join('') + '</tbody>';
+  const ER = { seg: ['seg', v => pct(v), 'Por seguidores gana el reto de las sentadillas: llegó a mucha gente que no sigue la cuenta.'],
+    alc: ['alc_', v => pct(v), 'Por alcance gana la rutina para principiantes: de quienes la vieron, a más les movió algo.'],
+    men: ['menm', v => num(v, 1), 'Por mensajes gana la del precio: llegó a poca gente, pero a la gente que estaba por decidir.'],
+    vis: ['vis', v => num(v), 'Las visitas de prueba dan la razón a los mensajes: la publicación del precio trajo 9 de las 18.'] };
+  let er = 'seg';
+  function pintaPosts() {
+    const [k, f, t] = ER[er];
+    hbars($('#fig-posts'), PO.map((p, i) => ({ id: 'p' + i, nombre: p.corto, valor: p[k], clase: er === 'men' || er === 'vis' ? 'hb-dec' : 'hb-valor-c' })), { fmt: f, orden: 'desc' });
+    $('#posts-lect').textContent = t;
+  }
+  $$('[data-er]').forEach(b => b.addEventListener('click', () => { er = b.dataset.er; $$('[data-er]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); pintaPosts(); }));
+  pintaPosts();
+
+  /* ---------- 4 · atribución ---------- */
+  function credito(rec, m, wp, wu) {
+    const n = rec.length, c = rec.map(() => 0);
+    if (m === 'ultimo') c[n - 1] = 1;
+    else if (m === 'primero') c[0] = 1;
+    else if (m === 'lineal') c.fill(1 / n);
+    else {
+      if (n === 1) c[0] = 1;
+      else if (n === 2) { const s = wp + wu || 1; c[0] = wp / s; c[1] = wu / s; }
+      else { c[0] = wp; c[n - 1] = wu; const resto = Math.max(0, 1 - wp - wu) / (n - 2); for (let i = 1; i < n - 1; i++) c[i] = resto; }
+    }
+    return c;
+  }
+  const titulos = { ultimo: 'Con el último clic, TikTok no metió ningún gol', primero: 'Con el primer clic, TikTok abre la mitad de las jugadas', lineal: 'Con el lineal, todos los que tocaron el balón reciben algo', posicion: 'Por posición: el que inicia y el que remata se llevan casi todo' };
+  al(['#p-pri', '#p-ult', '#apagar', ...$$('input[name="modelo"]')], () => {
+    const m = radio('modelo'), wp = +$('#p-pri').value / 100, wu = +$('#p-ult').value / 100, apaga = $('#apagar').checked;
+    salida('#p-pri', pct(wp * 100, 0)); salida('#p-ult', pct(wu * 100, 0));
+    $$('.pesos-pos input').forEach(i => i.disabled = m !== 'posicion');
+    const tot = Object.fromEntries(D.canales.map(c => [c, 0]));
+    const lis = D.recorridos.map((rec, i) => {
+      const c = credito(rec, m, wp, wu); rec.forEach((k, j) => tot[k] += c[j]);
+      const toques = rec.map((k, j) => `<span class="toque ${k.toLowerCase()}">${k}<span class="peso">${num(c[j], c[j] % 1 ? 2 : 0)}</span></span>`).join('<span class="fl" aria-hidden="true">→</span>');
+      const roto = apaga && rec.includes('TikTok');
+      return `<li class="${roto ? 'roto' : ''}"><span class="quien">Inscrito ${i + 1}</span><span class="toques">${toques}</span><span class="meta-r">${roto ? 'pierde un toque' : rec.length + (rec.length === 1 ? ' toque' : ' toques')}</span></li>`;
+    });
+    $('#lista-rec').innerHTML = lis.join('');
+    hbars($('#fig-atr'), D.canales.map(c => ({ id: c, nombre: c, valor: tot[c], clase: clase(c) })), { fmt: v => num(v, v % 1 ? 2 : 0), max: 7.5 });
+    $('#f4t').textContent = titulos[m];
+    const rotos = D.recorridos.filter(r => r.includes('TikTok')).length;
+    $('#atr-lect').innerHTML = apaga
+      ? `Si se apaga TikTok, <b>${rotos}</b> de los 10 recorridos pierden un toque, aunque con este modelo TikTok solo tenga <b>${n2(tot.TikTok)}</b> inscritos. ¿Desaparecen esos estudiantes o habrían llegado igual? Solo un experimento lo dice.`
+      : `TikTok: <b>${n2(tot.TikTok)}</b> · Meta: <b>${n2(tot.Meta)}</b> · Google: <b>${n2(tot.Google)}</b>. El total siempre suma 10: lo que cambia es el reparto.`;
+  });
+  const auto = ['TikTok', 'Meta', 'Google'].map(c => ({ id: c, nombre: c, valor: D.recorridos.filter(r => r.includes(c)).length, clase: clase(c) }));
+  const sumaAuto = auto.reduce((s, x) => s + x.valor, 0);
+  auto.push({ id: 'suma', nombre: 'Suma', valor: sumaAuto, clase: 'hb-gris' });
+  hbars($('#fig-auto'), auto, { refs: [{ valor: 10, texto: angosto() ? '' : '10 reales' }], max: 18 });
+
+  /* ---------- 5 · para la casa ---------- */
+  const G4 = D.ga4.map(([c, s, i, f]) => ({ c, s, i, f, tasa: i / s }));
+  $('#tabla-ga4').innerHTML = '<thead><tr><th>Canal</th><th class="num">Sesiones</th><th class="num">Con interacción</th><th class="num">Formularios</th></tr></thead><tbody>' +
+    G4.map(g => `<tr><td>${g.c}</td><td class="num">${num(g.s)}</td><td class="num">${num(g.i)}</td><td class="num">${num(g.f)}</td></tr>`).join('') +
+    `</tbody><tfoot><tr><td>Todo el sitio</td><td class="num">${num(G4.reduce((a, g) => a + g.s, 0))}</td><td class="num">${num(G4.reduce((a, g) => a + g.i, 0))}</td><td class="num">${num(G4.reduce((a, g) => a + g.f, 0))}</td></tr></tfoot>`;
+  al(['#m-tk'], () => {
+    const tk = +$('#m-tk').value; salida('#m-tk', num(tk));
+    let S = 0, I = 0;
+    G4.forEach((g, k) => { const s = k === 0 ? tk : g.s; S += s; I += s * g.tasa; });
+    const site = S ? 100 - I / S * 100 : 0;
+    const items = G4.map((g, k) => ({ id: 'g' + k, nombre: g.c, valor: 100 - g.tasa * 100, texto: pct(100 - g.tasa * 100, 0), clase: k === 0 ? 'hb-tiktok' : 'hb-gris' }));
+    items.push({ id: 'sitio', nombre: 'Todo el sitio', valor: site, texto: pct(site), clase: 'hb-dec' });
+    hbars($('#fig-mezcla'), items, { refs: [{ valor: D.reboteAgosto, texto: angosto() ? '' : '45 % en agosto' }], max: 80 });
+    $('#f5t').textContent = site > D.reboteAgosto + 1 ? 'El promedio sube sin que nadie empeore' : site < D.reboteAgosto - 1 ? 'Con menos TikTok, el rebote del sitio baja' : 'Con esta mezcla, el sitio vuelve al rebote de agosto';
+    $('#mezcla-lect').innerHTML = `Con <b>${num(tk)}</b> sesiones de TikTok, el rebote del sitio es <b>${pct(site)}</b>. Ninguna tasa cambió: solo cambió cuánta gente trae el canal que más rebota.`;
+  });
+
+  /* ---------- 6 · su embudo ---------- */
+  al($$('.campo-libre'), () => {
+    const v = {}; $$('.campo-libre').forEach(i => v[i.dataset.k] = leer(i.value));
+    const ok = k => isFinite(v[k]) && v[k] > 0;
+    const r = [];
+    if (ok('imp') && ok('cli')) r.push(['CTR', pct(v.cli / v.imp * 100, 2)]);
+    if (ok('inv') && ok('cli')) r.push(['CPC', pesos(v.inv / v.cli)]);
+    if (ok('ses') && ok('int')) r.push(['Interacción', pct(v.int / v.ses * 100)], ['Rebote', pct(100 - v.int / v.ses * 100)]);
+    if (ok('ses') && ok('con')) r.push(['Conversión de sesiones', pct(v.con / v.ses * 100, 2)]);
+    if (ok('inv') && ok('con')) r.push(['Costo por conversión', pesos(v.inv / v.con)]);
+    $('#su-res').innerHTML = r.map(([a, b]) => `<li>${a}<b>${b}</b></li>`).join('');
+    const pasos = [['impresiones', 'clics', v.cli / v.imp], ['clics', 'sesiones', v.ses / v.cli], ['sesiones', 'sesiones con interacción', v.int / v.ses], ['sesiones con interacción', 'conversiones', v.con / v.int]].filter(p => isFinite(p[2]) && p[2] > 0);
+    const raros = pasos.filter(p => p[2] > 1);
+    if (raros.length) { $('#su-lect').innerHTML = `Revise los números: hay más ${raros[0][1]} que ${raros[0][0]}, y eso no puede pasar en un embudo.`; return; }
+    if (!pasos.length) { $('#su-lect').textContent = 'Escriba al menos dos peldaños seguidos.'; return; }
+    const peor = pasos.slice(1).reduce((a, p) => p[2] < a[2] ? p : a, pasos[1] || pasos[0]);
+    $('#su-lect').innerHTML = `Después del primer clic, donde más gente se pierde es entre <b>${peor[0]}</b> y <b>${peor[1]}</b>: solo pasa el <b>${pct(peor[2] * 100)}</b>. Antes de pagar más pauta, mire ese paso.`;
+  });
+
+  activarComprobaciones();
+  Transiciones.todo();
+  addEventListener('resize', () => { apertura(); });
+})();
+
+</script>

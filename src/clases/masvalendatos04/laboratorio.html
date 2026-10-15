@@ -1,0 +1,1031 @@
+<div class="r-gaceta">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 4</a>
+  <ol class="bn-lista">
+    <li><a href="#formas" data-sec="formas"><span>1</span>Un dato, cinco gráficos</a></li>
+    <li><a href="#mensaje" data-sec="mensaje"><span>2</span>Un mensaje, un gráfico</a></li>
+    <li><a href="#engano" data-sec="engano"><span>3</span>El gráfico que engaña</a></li>
+    <li><a href="#tablero" data-sec="tablero"><span>4</span>El tablero del lunes</a></li>
+    <li><a href="#casa" data-sec="casa"><span>5</span>Para la casa</a></li>
+    <li><a href="#suyo" data-sec="suyo"><span>6</span>Su propio gráfico</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Más valen datos que percepciones · Sesión 4 · Laboratorio</p>
+
+  <!-- APERTURA -->
+  <section class="columna" aria-label="Apertura">
+    <p>Doña Rosa tiene competencia nueva en la esquina. Un sobrino manda el gráfico B al grupo de la familia; otro responde con el A. Los dos usan los mismos números: panes vendidos en un día por cada panadería.</p>
+  </section>
+  <section class="figura" aria-labelledby="a1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="a1t">Mismos números, dos noticias</h3><p class="figura-clave">Panes vendidos en un día por doña Rosa y por la panadería de la esquina.</p></div>
+    <div class="dos-graficos">
+      <div><p class="mini-t">Gráfico A</p><div class="lienzo" id="fig-a"></div></div>
+      <div><p class="mini-t">Gráfico B</p><div class="lienzo" id="fig-b"></div></div>
+    </div>
+    <p class="figura-nota">Caso simulado. Fíjese en el número más bajo de cada eje.</p>
+  </section>
+  <section class="columna">
+    <div class="apuesta viva" id="voto">
+      <p class="rotulo">Vote antes de seguir</p>
+      <p style="margin:0;font:400 1.25rem/1.3 var(--serif);color:var(--tinta-fuerte)">Mire solo el gráfico B, sin hacer cuentas. ¿Cuántas veces más vende doña Rosa?</p>
+      <div class="voto" role="group" aria-label="Su voto">
+        <button type="button" data-voto="casi">Casi lo mismo</button><button type="button" data-voto="doble">El doble</button><button type="button" data-voto="cuatro">Unas cuatro veces</button>
+      </div>
+      <p class="voto-dato" hidden aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="El gráfico también opina"><span class="par"><span class="nexo">El</span> <mark class="marca-a">gráfico</mark></span><span class="par"><span class="nexo">también</span> <mark class="marca-b">opina</mark></span></h1>
+    <p class="entradilla">Un gráfico es una frase dicha con formas, y como toda frase, puede aclarar o disfrazar. Este laboratorio elige el gráfico según el mensaje, mide cuánto exagera un dibujo y arma un tablero de una página.</p>
+    <p class="firma">Bogotá, octubre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«El mayor valor de una imagen es cuando nos obliga a notar lo que nunca esperábamos ver.»</p><footer>John W. Tukey, <i>Exploratory Data Analysis</i> (1977) · traducción propia</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer esta gaceta: el amarillo marca <mark class="marca-a">lo que se ve</mark> —el dibujo, el tamaño, el color—, el ultramar <mark class="marca-b">lo que dicen los datos</mark> y el azul pálido <mark class="marca-c">la regla</mark> que no cambia; <span class="giro">el subrayado señala el giro</span>. Cada figura abre con un veredicto, como una nota de prensa que se corrige a la vista:</p>
+    <ul class="claves" aria-label="Veredictos">
+      <li><span class="veredicto-t v-cierto">Cierto</span>el gráfico dice lo que pasó</li>
+      <li><span class="veredicto-t v-falso">Engaña</span>el dibujo exagera o esconde</li>
+      <li><span class="veredicto-t">A medias</span>sirve, pero no para este mensaje</li>
+    </ul>
+    <p style="margin-top:2rem">El recorrido sigue la guía, y cada estación con ejercicio cierra con un recuadro para comprobar lo que usted hizo a mano:</p>
+    <ol class="ruta-lista">
+      <li><a href="#formas">Un dato, cinco gráficos</a></li>
+      <li><a href="#mensaje">Un mensaje, un gráfico · ej. 1</a></li>
+      <li><a href="#engano">El gráfico que engaña · ej. 2</a></li>
+      <li><a href="#tablero">El tablero del lunes · ej. 3</a></li>
+      <li><a href="#casa">Para la casa · su primer tablero</a></li>
+      <li><a href="#suyo">Su propio gráfico</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Los botones cambian el gráfico y las perillas mueven el dibujo, nunca los datos; los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no, sin regalarle la respuesta. Lo que usted escribe aquí no sale de su navegador.</p>
+  </section>
+
+  <!-- 1 · CINCO FORMAS -->
+  <div class="estacion" id="formas">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1</span>Un dato, cinco gráficos</h2>
+    <p>Doña Rosa quiere saber qué hornear más. La pregunta es concreta: <strong>¿qué se vende más, el pan integral o el croissant?, ¿y cuál es el tercer producto?</strong> Los datos son siempre los mismos; cambie la forma y mire cuál le responde rápido.</p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t" aria-live="polite"></h3><p class="figura-clave">Lo que vende doña Rosa en un día, por producto, en porcentaje de las unidades.</p></div>
+    <div class="pestanas" role="group" aria-label="Forma del gráfico">
+      <button class="boton" type="button" data-forma="torta" aria-pressed="true">Torta</button>
+      <button class="boton" type="button" data-forma="arco" aria-pressed="false">Barras de colores</button>
+      <button class="boton" type="button" data-forma="orden" aria-pressed="false">Barras ordenadas</button>
+      <button class="boton" type="button" data-forma="cien" aria-pressed="false">Cuadrícula de 100</button>
+      <button class="boton" type="button" data-forma="tabla" aria-pressed="false">Tabla</button>
+    </div>
+    <div class="lienzo" id="fig-formas"></div>
+    <p class="lectura" id="formas-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado. Los seis porcentajes suman 100.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>En la torta, tape las etiquetas con el dedo. ¿Puede decir cuál es más grande, el integral o el croissant?</summary><p>Casi nadie puede: 16 % y 15 % son dos ángulos de 58 y 54 grados. El ojo compara bien longitudes que arrancan en la misma línea y mal ángulos y áreas. Por eso las barras ganan cuando hay que comparar.</p></details>
+      <details class="repaso"><summary>¿Cuándo sí sirve la torta?</summary><p>Con dos o tres partes y una sola pregunta: «¿qué tan grande es esta parte del todo?». Por ejemplo, qué parte de las ventas viene de los negocios. Con seis partes parecidas, no.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">Primero el mensaje, después el gráfico.</p>
+    <p class="siguiente"><a href="#mensaje"><span><small>Siguiente estación</small>Un mensaje, un gráfico</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 2 · UN MENSAJE, UN GRÁFICO -->
+  <div class="estacion" id="mensaje">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 1</span>Un mensaje, un gráfico</h2>
+    <p>Hamburguesas El Parche presenta resultados a sus socios el viernes. El administrador tiene cuatro mensajes y los datos de cada uno. Escoja un mensaje, pruébele los cinco gráficos y compare con el boceto de su cuaderno.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t" aria-live="polite"></h3><p class="figura-clave" id="f2c"></p></div>
+    <div class="mandos" style="grid-template-columns:1fr">
+      <fieldset class="segmento"><legend>Mensaje</legend>
+        <label><input type="radio" name="msg" value="0" checked>1 · La espera es la queja número uno</label><label><input type="radio" name="msg" value="1">2 · Desde la caja rápida, la espera bajó</label><label><input type="radio" name="msg" value="2">3 · El viernes en la noche es el cuello de botella</label><label><input type="radio" name="msg" value="3">4 · Más espera, peores estrellas</label>
+      </fieldset>
+      <fieldset class="segmento"><legend>Gráfico</legend>
+        <label><input type="radio" name="graf" value="orden" checked>Barras ordenadas</label><label><input type="radio" name="graf" value="linea">Línea</label><label><input type="radio" name="graf" value="calor">Mapa de calor</label><label><input type="radio" name="graf" value="disp">Dispersión</label><label><input type="radio" name="graf" value="torta">Torta</label>
+      </fieldset>
+    </div>
+    <div class="lienzo" id="fig-msg"></div>
+    <p class="dictamen" id="msg-dict" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado de Hamburguesas El Parche.</p>
+  </section>
+  <form class="comprobar" id="c-ej1" novalidate><h3>Compruebe su cuaderno · Ejercicio 1</h3><p>Los números que van dentro de los títulos-hallazgo. Porcentajes con un decimal.</p><fieldset class="grupo-campos"><legend>Mensaje 1 · Las quejas</legend><div class="campos"><label class="campo"><span class="campo-t">Espera, del total de quejas (%)</span><input inputmode="decimal" data-ok="45.714286" data-tol="0.1" data-pct="1" data-pista="48 ÷ el total de reseñas negativas (105) × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Mensaje 2 · La espera</legend><div class="campos"><label class="campo"><span class="campo-t">Promedio semanas 1 a 4 (min)</span><input inputmode="decimal" data-ok="18.0" data-tol="0.05" data-pista="sume las cuatro primeras semanas y divida entre 4."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Promedio semanas 5 a 8 (min)</span><input inputmode="decimal" data-ok="12.0" data-tol="0.05" data-pista="sume las semanas 5 a 8 y divida entre 4."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Minutos que bajó</span><input inputmode="decimal" data-ok="6.0" data-tol="0.05" data-pista="promedio de antes menos promedio de después."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Mensaje 3 · El cuello de botella</legend><div class="campos"><label class="campo"><span class="campo-t">Pedidos en la celda más alta</span><input inputmode="decimal" data-ok="95" data-tol="0" data-pista="busque el número mayor de toda la tabla: un día y una franja."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Mensaje 1: barras horizontales ordenadas; la espera es el <strong>45,7 %</strong> de las quejas (48 de 105). Mensaje 2: línea con una marca en la semana 5; la espera bajó de <strong>18 a 12 minutos</strong> en promedio, 6 menos. Mensaje 3: mapa de calor; el máximo es el viernes en la noche, <strong>95</strong> pedidos. Mensaje 4: dispersión; relación negativa fuerte (r = −0,99), que no prueba causa.</p></div></form>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Mensaje 2 con barras ordenadas: ¿qué le pasa a la historia de la caja rápida?</summary><p>Desaparece. Al ordenar de mayor a menor, las semanas pierden su orden y ya no se ve el antes y el después. En el tiempo, el orden lo pone el calendario, no el tamaño.</p></details>
+      <details class="repaso"><summary>Mensaje 4: la dispersión muestra que a más espera, peores estrellas. ¿La espera causa las malas estrellas?</summary><p>Puede ser, pero el gráfico no lo prueba. Los días de más espera quizá son los de más gente, y con más gente también se enfría la comida o se demora el domicilio: una tercera variable, como en la sesión 3. Para saberlo habría que comparar días con la misma clientela y distinta espera.</p></details>
+      <details class="repaso"><summary>Mensaje 2: ¿bajó la espera por la caja rápida o porque bajaron los pedidos?</summary><p>Con estos datos no se sabe. Haría falta el número de pedidos de cada semana: si se mantuvo igual o subió, la caja rápida gana fuerza como explicación.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">El título dice el hallazgo; el gráfico, la evidencia.</p>
+    <p class="siguiente"><a href="#engano"><span><small>Siguiente estación</small>El gráfico que engaña</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 3 · EL GRÁFICO QUE ENGAÑA -->
+  <div class="estacion" id="engano">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 2</span>El gráfico que engaña</h2>
+    <p>Tres gráficos circularon esta semana en los grupos del barrio. Ninguno tiene una cifra falsa. Mueva el dibujo y mire el <strong>factor de mentira</strong> de Tufte: el cambio que se ve en el dibujo dividido entre el cambio que hay en los datos. Un gráfico honesto da 1.</p>
+    <p>Esta vez, compruebe primero: con las perillas en su lugar inicial, la figura muestra las respuestas.</p>
+  </section>
+  <form class="comprobar" id="c-ej2" novalidate><h3>Compruebe su cuaderno · Ejercicio 2</h3><p>Porcentajes con un decimal; los factores, como le den.</p><fieldset class="grupo-campos"><legend>Gráfico 1 · Doña Rosa</legend><div class="campos"><label class="campo"><span class="campo-t">Veces más alta que se ve</span><input inputmode="decimal" data-ok="4.0" data-tol="0.05" data-pista="(370 − 330) ÷ (340 − 330): la parte visible de cada barra."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Diferencia real (%)</span><input inputmode="decimal" data-ok="8.823529" data-tol="0.1" data-pct="1" data-pista="(370 − 340) ÷ 340 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Factor de mentira</span><input inputmode="decimal" data-ok="34.0" data-tol="1" data-pista="cambio que se ve, en %, ÷ cambio real, en %. Si se ve 4 veces, el cambio que se ve es (4 − 1) × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Gráfico 2 · El Parche</legend><div class="campos"><label class="campo"><span class="campo-t">Veces más grande el área</span><input inputmode="decimal" data-ok="2.25" data-tol="0.02" data-pista="1,5 de ancho × 1,5 de alto."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Diferencia real (%)</span><input inputmode="decimal" data-ok="50.0" data-tol="0.1" data-pct="1" data-pista="(3.000 − 2.000) ÷ 2.000 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Factor de mentira</span><input inputmode="decimal" data-ok="2.5" data-tol="0.05" data-pista="(área − 1) × 100 ÷ diferencia real."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Gráfico 3 · Las ventas</legend><div class="campos"><label class="campo"><span class="campo-t">Caída según el título (%)</span><input inputmode="decimal" data-ok="-25.0" data-tol="0.1" data-pct="1" data-pista="(semana 11 − semana 10) ÷ semana 10 × 100. Da negativo."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Promedio semanas 1 a 9</span><input inputmode="decimal" data-ok="2697.777778" data-tol="1" data-pista="sume las nueve primeras semanas y divida entre 9."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Semana 11 frente al promedio (%)</span><input inputmode="decimal" data-ok="-3.253707" data-tol="0.1" data-pct="1" data-pista="(2.610 − promedio) ÷ promedio × 100. Da negativo."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Gráfico 1: eje recortado; se ve <strong>4</strong> veces más alta; diferencia real <strong>8,8 %</strong>; factor de mentira <strong>34</strong>. Gráfico 2: dibujo que crece en dos direcciones; el área se ve <strong>2,25</strong> veces; diferencia real <strong>50 %</strong>; factor <strong>2,5</strong>. Gráfico 3: periodo escogido; el título dice <strong>−25 %</strong>, pero frente al promedio de las semanas 1 a 9 (<strong>2.698</strong>) la semana 11 está <strong>3,3 %</strong> abajo: la rara fue la semana de la feria.</p></div></form>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t" aria-live="polite"></h3><p class="figura-clave" id="f3c"></p></div>
+    <div class="pestanas" role="group" aria-label="Gráfico">
+      <button class="boton" type="button" data-truco="eje" aria-pressed="true">1 · Doña Rosa</button>
+      <button class="boton" type="button" data-truco="area" aria-pressed="false">2 · El Parche</button>
+      <button class="boton" type="button" data-truco="periodo" aria-pressed="false">3 · Las ventas</button>
+    </div>
+    <div class="mandos" data-panel="eje">
+      <label class="perilla">El eje empieza en <output id="t-eje-o"></output><input id="t-eje" type="range" min="0" max="338" step="1" value="330"></label>
+    </div>
+    <div class="mandos" data-panel="area" hidden>
+      <label class="perilla">El dibujo nuevo es más grande <output id="t-esc-o"></output><input id="t-esc" type="range" min="1" max="2" step="0.05" value="1.5"></label>
+      <fieldset class="segmento"><legend>Cómo crece</legend>
+        <label><input type="radio" name="crece" value="dos" checked>De ancho y de alto</label><label><input type="radio" name="crece" value="alto">Solo de alto</label><label><input type="radio" name="crece" value="iconos">Íconos repetidos</label>
+      </fieldset>
+    </div>
+    <div class="mandos" data-panel="periodo" hidden>
+      <label class="casilla"><input type="checkbox" id="t-todo">Mostrar las doce semanas</label>
+      <label class="casilla"><input type="checkbox" id="t-prom">Agregar el promedio de las semanas 1 a 9</label>
+    </div>
+    <div class="lienzo" id="fig-truco"></div>
+    <ul class="resumen-lab" id="truco-res"></ul>
+    <p class="lectura" id="truco-lect" aria-live="polite"></p>
+    <p class="figura-nota">Casos simulados. El factor de mentira se calcula con el cambio porcentual del dibujo (altura o área) y el de los datos.</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>En el gráfico 1, ¿desde qué número del eje la barra de doña Rosa se ve el doble de alta?</summary><p>Desde 310: la de doña Rosa mide 60 y la de la esquina 30. Cada número que sube el comienzo del eje agranda la diferencia, aunque las ventas sigan quietas en 370 y 340.</p></details>
+      <details class="repaso"><summary>En el gráfico 2, escoja «Íconos repetidos». ¿Por qué esa corrección es honesta?</summary><p>Porque cada hamburguesa vale lo mismo (mil al mes) y todas tienen el mismo tamaño: dos contra tres. El ojo cuenta figuras iguales sin error; lo que no sabe es comparar áreas.</p></details>
+      <details class="repaso"><summary>En el gráfico 3, ¿la semana 11 fue mala?</summary><p>No especialmente: quedó un 3 % por debajo del promedio de las semanas 1 a 9, dentro de lo que se mueve una semana normal. Lo raro fue la semana 10, la de la feria. Compararse con un pico siempre da caída.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">Las barras empiezan en cero: la altura es el dato.</p>
+    <p class="siguiente"><a href="#tablero"><span><small>Siguiente estación</small>El tablero del lunes</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 4 · EL TABLERO DEL LUNES -->
+  <div class="estacion" id="tablero">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Ejercicio 3</span>El tablero del lunes</h2>
+    <p>Durante 8 semanas, el sobrino de doña Rosa anotó cuántas veces el pan blanco se agotó antes de terminar cada franja. Cada celda está en porcentaje: veces ÷ 8 × 100. Compruebe primero sus porcentajes y sus tonos; después mueva los límites y mire cómo cambia lo que el ojo encuentra.</p>
+  </section>
+  <form class="comprobar" id="c-ej3" novalidate><h3>Compruebe su cuaderno · Ejercicio 3</h3><p>Mañana, mediodía y tarde de cada día, en porcentaje con un decimal; los tonos, en número de celdas.</p><fieldset class="grupo-campos"><legend>Lun</legend><div class="campos"><label class="campo"><span class="campo-t">Mañana (%)</span><input inputmode="decimal" data-ok="0.0" data-tol="0.1" data-pct="1" data-pista="0 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mediodía (%)</span><input inputmode="decimal" data-ok="12.5" data-tol="0.1" data-pct="1" data-pista="1 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tarde (%)</span><input inputmode="decimal" data-ok="25.0" data-tol="0.1" data-pct="1" data-pista="2 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Mar</legend><div class="campos"><label class="campo"><span class="campo-t">Mañana (%)</span><input inputmode="decimal" data-ok="0.0" data-tol="0.1" data-pct="1" data-pista="0 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mediodía (%)</span><input inputmode="decimal" data-ok="12.5" data-tol="0.1" data-pct="1" data-pista="1 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tarde (%)</span><input inputmode="decimal" data-ok="37.5" data-tol="0.1" data-pct="1" data-pista="3 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Mié</legend><div class="campos"><label class="campo"><span class="campo-t">Mañana (%)</span><input inputmode="decimal" data-ok="0.0" data-tol="0.1" data-pct="1" data-pista="0 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mediodía (%)</span><input inputmode="decimal" data-ok="25.0" data-tol="0.1" data-pct="1" data-pista="2 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tarde (%)</span><input inputmode="decimal" data-ok="50.0" data-tol="0.1" data-pct="1" data-pista="4 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Jue</legend><div class="campos"><label class="campo"><span class="campo-t">Mañana (%)</span><input inputmode="decimal" data-ok="12.5" data-tol="0.1" data-pct="1" data-pista="1 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mediodía (%)</span><input inputmode="decimal" data-ok="25.0" data-tol="0.1" data-pct="1" data-pista="2 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tarde (%)</span><input inputmode="decimal" data-ok="62.5" data-tol="0.1" data-pct="1" data-pista="5 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Vie</legend><div class="campos"><label class="campo"><span class="campo-t">Mañana (%)</span><input inputmode="decimal" data-ok="12.5" data-tol="0.1" data-pct="1" data-pista="1 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mediodía (%)</span><input inputmode="decimal" data-ok="50.0" data-tol="0.1" data-pct="1" data-pista="4 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tarde (%)</span><input inputmode="decimal" data-ok="100.0" data-tol="0.1" data-pct="1" data-pista="8 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Sáb</legend><div class="campos"><label class="campo"><span class="campo-t">Mañana (%)</span><input inputmode="decimal" data-ok="37.5" data-tol="0.1" data-pct="1" data-pista="3 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Mediodía (%)</span><input inputmode="decimal" data-ok="75.0" data-tol="0.1" data-pct="1" data-pista="6 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tarde (%)</span><input inputmode="decimal" data-ok="100.0" data-tol="0.1" data-pct="1" data-pista="8 ÷ 8 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Tonos (límites 25 % y 60 %)</legend><div class="campos"><label class="campo"><span class="campo-t">Celdas claras</span><input inputmode="decimal" data-ok="10" data-tol="0" data-pista="cuente las celdas de 0 a 25 %, incluido el 25."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Celdas medias</span><input inputmode="decimal" data-ok="4" data-tol="0" data-pista="cuente las celdas de 26 a 60 %."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Celdas oscuras</span><input inputmode="decimal" data-ok="4" data-tol="0" data-pista="cuente las celdas de 61 a 100 %."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Porcentajes (mañana, mediodía, tarde) · Lun: 0, 12,5, 25; Mar: 0, 12,5, 37,5; Mié: 0, 25, 50; Jue: 12,5, 25, 62,5; Vie: 12,5, 50, 100; Sáb: 37,5, 75, 100. Tonos: <strong>10 claras, 4 medias y 4 oscuras</strong>. El problema se concentra en las tardes del final de la semana: jueves, viernes y sábado, y el sábado desde el mediodía.</p></div></form>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t" aria-live="polite">El pan blanco se acaba el viernes y el sábado en la tarde</h3><p class="figura-clave">Porcentaje de las 8 semanas en que el pan blanco se agotó antes de terminar la franja.</p></div>
+    <div class="mandos">
+      <label class="perilla">Claro: de 0 hasta <output id="c-lo-o"></output><input id="c-lo" type="range" min="0" max="50" step="5" value="25"></label>
+      <label class="perilla">Medio: hasta <output id="c-hi-o"></output><input id="c-hi" type="range" min="30" max="95" step="5" value="60"></label>
+    </div>
+    <div class="calor" id="fig-calor" role="table" aria-label="Mapa de calor del pan blanco agotado"></div>
+    <ul class="clave-calor" id="clave-calor"></ul>
+    <ul class="resumen-lab" id="calor-res"></ul>
+    <p class="lectura" id="calor-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado. Los límites de la guía son 25 % y 60 %: con ellos se comprueba el ejercicio.</p>
+  </section>
+  <section class="columna">
+    <p>Ahora, el tablero. Doña Rosa se hace tres preguntas cada lunes: ¿cómo van las ventas frente a las semanas anteriores?, ¿qué producto sobra al cierre? y ¿qué día y a qué hora se acaba el pan blanco? Toque una pieza y luego el lugar donde va (en computador también puede arrastrarla). Sobran piezas a propósito.</p>
+  </section>
+  <section class="figura" aria-labelledby="f4bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4bt">Arme el tablero en una página</h3><p class="figura-clave">Lo más importante va arriba a la izquierda, donde empieza a leer el ojo.</p></div>
+    <ul class="piezas" id="piezas" aria-label="Piezas disponibles"></ul>
+    <div class="tablero" id="armado">
+      <div class="ranura" data-lugar="ai" tabindex="0" role="button"><span class="r-lugar">Arriba a la izquierda · lo primero que se lee</span><span class="r-pieza">Vacío</span></div>
+      <div class="ranura" data-lugar="ad" tabindex="0" role="button"><span class="r-lugar">Arriba a la derecha</span><span class="r-pieza">Vacío</span></div>
+      <div class="ranura" data-lugar="bi" tabindex="0" role="button"><span class="r-lugar">Abajo a la izquierda</span><span class="r-pieza">Vacío</span></div>
+      <div class="ranura" data-lugar="bd" tabindex="0" role="button"><span class="r-lugar">Abajo a la derecha</span><span class="r-pieza">Vacío</span></div>
+      <div class="ranura filtro" data-lugar="fi" tabindex="0" role="button"><span class="r-lugar">Franja de abajo · filtro o nota</span><span class="r-pieza">Vacío</span></div>
+    </div>
+    <ul class="avisos" id="tablero-avisos" aria-live="polite"></ul>
+    <div class="botones" style="justify-content:center"><button class="boton" type="button" id="tablero-limpiar">Empezar de nuevo</button></div>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Ponga la torta en tres dimensiones en el tablero. ¿Qué pregunta responde?</summary><p>Ninguna de las tres de doña Rosa. Un tablero no es un álbum: cada gráfico responde una pregunta que su lector se hace cada semana. Si no hay pregunta, sobra.</p></details>
+      <details class="repaso"><summary>Los viernes y sábados en la tarde el pan se agotó 8 de 8 veces. ¿Cuántos panes más habría vendido?</summary><p>No se sabe con estos datos: cuando el pan se acaba, la demanda que no se atendió no queda registrada. Es como los viernes de 550 panes de la sesión 3: el techo era el horno, no los clientes. Para saberlo habría que hornear más un par de viernes y contar.</p></details>
+    </div>
+  </div>
+  <section class="columna">
+    <p class="frase">Un tablero responde preguntas; no colecciona gráficos.</p>
+    <p class="siguiente"><a href="#casa"><span><small>Siguiente estación</small>Para la casa</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 5 · PARA LA CASA -->
+  <div class="estacion" id="casa">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 5</span>Para la casa · Su primer tablero</h2>
+    <p>Para la parte B de la tarea, descargue la tabla de los clientes del Club del Pan de la sesión 3. Tiene una fila por cliente y una columna por variable, como la quiere Tableau Public: tipo de cliente, ticket promedio, mensajes recibidos y compras en 8 semanas. Los datos son simulados: se pueden publicar.</p>
+  </section>
+  <div class="descarga">
+    <button class="boton lleno" type="button" id="bajar-csv">Descargar club_del_pan.csv</button>
+    <span class="etiqueta" id="csv-info"></span>
+  </div>
+  <section class="columna">
+    <p>Antes de abrir Tableau, pruebe sus preguntas aquí. Es el mismo movimiento de Tableau: una <strong>dimensión</strong> (el tipo de cliente) en las columnas y una <strong>medida</strong> (un número) en las filas, con un filtro.</p>
+  </section>
+  <section class="figura" aria-labelledby="f5t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f5t" aria-live="polite"></h3><p class="figura-clave" id="f5c"></p></div>
+    <div class="mandos">
+      <fieldset class="segmento"><legend>Medida</legend>
+        <label><input type="radio" name="medida" value="n" checked>Clientes</label><label><input type="radio" name="medida" value="ticket">Ticket promedio</label><label><input type="radio" name="medida" value="compras">Compras promedio</label><label><input type="radio" name="medida" value="ventas">Ventas totales</label>
+      </fieldset>
+      <fieldset class="segmento"><legend>Filtro · tipo de cliente</legend>
+        <label class="casilla"><input type="checkbox" class="f-tipo" value="Hogar" checked>Hogar</label><label class="casilla"><input type="checkbox" class="f-tipo" value="Negocio" checked>Negocio</label><label class="casilla"><input type="checkbox" class="f-tipo" value="Hotel" checked>Hotel</label>
+      </fieldset>
+    </div>
+    <ul class="hbars" id="fig-club-b" style="--nombre:7rem;--nombre-m:5.5rem"></ul>
+    <div class="lienzo" id="fig-club-d"></div>
+    <p class="lectura" id="club-lect" aria-live="polite"></p>
+    <p class="figura-nota">Caso simulado de la sesión 3. Ventas totales = ticket promedio × compras en 8 semanas, sumado por tipo.</p>
+  </section>
+  <section class="columna">
+    <p>Antes de publicar su tablero, repáselo con esta lista. No se guarda: es para usted.</p>
+  </section>
+  <ul class="chequeo" id="chequeo">
+    <li><label><input type="checkbox">Escribí las tres preguntas antes de abrir Tableau.</label></li>
+    <li><label><input type="checkbox">Cada hoja responde una sola pregunta.</label></li>
+    <li><label><input type="checkbox">Cada título dice el hallazgo y tiene un número dentro.</label></li>
+    <li><label><input type="checkbox">Las barras empiezan en cero y están ordenadas.</label></li>
+    <li><label><input type="checkbox">Usé gris para todo y un solo color para lo que importa.</label></li>
+    <li><label><input type="checkbox">Lo más importante quedó arriba a la izquierda.</label></li>
+    <li><label><input type="checkbox">El tablero tiene un filtro por tipo de cliente.</label></li>
+    <li><label><input type="checkbox">Alguien de mi casa entendió de qué se trata en cinco segundos.</label></li>
+    <li><label><input type="checkbox">Solo publico datos simulados, abiertos o agregados; nunca datos de personas reales.</label></li>
+  </ul>
+  <p class="cuenta-chequeo" id="chequeo-cuenta" aria-live="polite"></p>
+  <section class="columna">
+    <p class="siguiente"><a href="#suyo"><span><small>Siguiente estación</small>Su propio gráfico</span><span class="flecha" aria-hidden="true">→</span></a></p>
+  </section>
+  </div>
+
+  <!-- 6 · SU PROPIO GRÁFICO -->
+  <div class="estacion" id="suyo">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 6</span>Su propio gráfico</h2>
+    <p>Pegue datos suyos, de un emprendimiento que conozca o de la parte A de la tarea: una línea por dato, con la etiqueta y el número separados por coma, punto y coma o tabulación. Diga qué quiere mostrar y el laboratorio le sugiere un gráfico y le avisa si cae en alguno de los trucos.</p>
+    <div class="areas">
+      <label>Sus datos<textarea id="su-datos" spellcheck="false">Pan blanco; 310
+Mogolla; 180
+Pan integral; 160
+Croissant; 150
+Pan de bono; 120
+Otros; 80</textarea></label>
+    </div>
+  </section>
+  <section class="figura">
+    <div class="mandos">
+      <fieldset class="segmento"><legend>¿Qué quiere mostrar?</legend>
+        <label><input type="radio" name="su-msg" value="comparar" checked>Comparar cantidades</label><label><input type="radio" name="su-msg" value="tiempo">Un cambio en el tiempo</label><label><input type="radio" name="su-msg" value="partes">Las partes de un todo</label>
+      </fieldset>
+      <label class="perilla">El eje empieza en <output id="su-eje-o"></output><input id="su-eje" type="range" min="0" max="100" step="1" value="0"></label>
+    </div>
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="su-t" aria-live="polite"></h3></div>
+    <div class="lienzo" id="su-fig"></div>
+    <ul class="avisos" id="su-avisos" aria-live="polite"></ul>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a la apertura</h2>
+    <p id="cierre-voto">El gráfico B hace ver la barra de doña Rosa cuatro veces más alta que la de la esquina. Los datos dicen otra cosa: vende 370 panes contra 340, un 8,8 % más.</p>
+    <p>Tukey decía que el mayor valor de una imagen es obligarnos a notar lo inesperado. <span class="giro">La otra cara es que una imagen también puede obligarnos a notar lo que no pasó.</span> Antes de creerle a un gráfico, y antes de publicar uno, tres preguntas: ¿dónde empieza el eje?, ¿qué quedó por fuera?, ¿comparado con qué?</p>
+    <p class="aforismo">El dibujo opina; el dato decide.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Doña Rosa, Hamburguesas El Parche y el Club del Pan son casos simulados que continúan las sesiones 1 a 3. La tabla del Club del Pan es la misma de la estación de dispersión de la sesión 3: 120 clientes, con el hotel que allí resultó ser un dato atípico.</p></details>
+  <details><summary>¿Cómo se calcula el factor de mentira?</summary><p>Como lo propuso Tufte: el cambio porcentual que muestra el dibujo dividido entre el cambio porcentual de los datos. En el eje recortado, el dibujo es la altura visible de cada barra (valor menos comienzo del eje); en el ícono, el área, que crece con el cuadrado de la escala cuando el dibujo se agranda de ancho y de alto. Un gráfico honesto da 1.</p></details>
+  <details><summary>¿Por qué el mapa de calor tiene tres tonos?</summary><p>Porque el ojo distingue bien tres o cuatro tonos de un mismo color y mal diez. Los límites (25 % y 60 % en la guía) son una decisión de quien hace el gráfico: muévalos y verá que el mensaje se mantiene si los datos son claros, y cambia si están en la frontera.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo y marco?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra, y también su voto, su tablero y su lista de chequeo. El archivo que descarga se arma en su propio navegador.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Gaceta»: papel claro, amarillo y ultramar, titulares condensados y datos de imprenta en mono, porque la sesión trata de gráficos que circulan como noticias en los grupos del barrio. Forma «veredictos»: cada figura abre con un dictamen sobre lo que dice el gráfico, y al final la pieza se abre como copa de martini para que usted explore sus propios datos. Recursos: la apuesta (el voto), la perilla y la tarjeta de repaso. La sesión anterior usó el registro «Cuaderno».</p></details>
+  <ol class="citas">
+    <li>Tufte, E. R. (1983). <i>The Visual Display of Quantitative Information</i>. Graphics Press. El factor de mentira.</li>
+    <li>Knaflic, C. N. (2015). <i>Storytelling with Data</i>. Wiley. Bibliografía del curso.</li>
+    <li>Huff, D. (1954). <i>How to Lie with Statistics</i>. W. W. Norton.</li>
+    <li>Tukey, J. W. (1977). <i>Exploratory Data Analysis</i>. Addison-Wesley. El epígrafe.</li>
+    <li>Tableau (2024). «Getting ready to publish your first data visualization». Blog oficial de Tableau Public.</li>
+    <li>Congreso de Colombia (2012). Ley Estatutaria 1581, de protección de datos personales.</li>
+  </ol>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"rosa": [370, 340, 330], "productos": [["Pan blanco", 31], ["Mogolla", 18], ["Pan integral", 16], ["Croissant", 15], ["Pan de bono", 12], ["Otros", 8]], "quejas": [["Espera", 48], ["Domicilio", 21], ["Atención", 15], ["Precio", 12], ["Sabor", 9]], "espera": [18, 17, 18, 19, 14, 12, 11, 11], "dias": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], "franjas": ["Almuerzo", "Tarde", "Noche"], "pedidos": [[40, 15, 35], [42, 14, 38], [45, 16, 40], [48, 18, 52], [55, 25, 95], [60, 40, 88], [70, 35, 45]], "esperaEstrellas": [[8, 4.6], [10, 4.4], [11, 4.5], [12, 4.2], [14, 3.9], [15, 3.8], [18, 3.4], [20, 3.1], [22, 3.0], [25, 2.6]], "hamb": [2000, 3000], "semanas": [2640, 2700, 2610, 2750, 2690, 2730, 2680, 2760, 2720, 3480, 2610, 2660], "dias6": ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"], "franjas3": ["Mañana", "Mediodía", "Tarde"], "agotado": [[0, 1, 2], [0, 1, 3], [0, 2, 4], [1, 2, 5], [1, 4, 8], [3, 6, 8]], "club": [["N", 82000, 21, 23, 0], ["H", 10500, 7, 8, 0], ["H", 13000, 12, 9, 0], ["H", 10000, 11, 0, 0], ["H", 6500, 7, 0, 0], ["H", 13500, 6, 8, 0], ["H", 7500, 4, 10, 0], ["H", 7500, 4, 0, 0], ["H", 12000, 6, 10, 0], ["H", 10500, 10, 8, 0], ["N", 67500, 38, 44, 0], ["H", 4000, 11, 8, 0], ["N", 64000, 16, 17, 0], ["H", 21500, 5, 8, 0], ["H", 12000, 5, 8, 0], ["H", 11000, 7, 2, 0], ["H", 4000, 3, 0, 0], ["H", 9500, 7, 6, 0], ["H", 9500, 7, 9, 0], ["H", 8500, 6, 0, 0], ["H", 14000, 13, 8, 0], ["N", 74500, 30, 32, 0], ["H", 11500, 10, 8, 0], ["N", 49000, 36, 38, 0], ["H", 9000, 14, 4, 0], ["N", 59000, 39, 45, 0], ["H", 9500, 6, 8, 0], ["H", 12000, 6, 10, 0], ["H", 14000, 9, 2, 0], ["H", 15000, 5, 10, 0], ["N", 62500, 30, 32, 0], ["N", 69500, 23, 20, 0], ["H", 9000, 7, 8, 0], ["N", 73000, 24, 23, 0], ["H", 6000, 3, 4, 0], ["H", 8500, 7, 6, 0], ["N", 71500, 21, 25, 0], ["N", 63000, 33, 37, 0], ["H", 9500, 2, 8, 0], ["H", 8000, 6, 8, 0], ["H", 10500, 5, 0, 0], ["H", 8500, 4, 4, 0], ["H", 7000, 8, 9, 0], ["H", 5500, 10, 8, 0], ["H", 13500, 7, 8, 0], ["H", 8000, 12, 10, 0], ["N", 331200, 8, 9, 1], ["H", 9500, 5, 8, 0], ["H", 12000, 7, 8, 0], ["N", 96000, 31, 29, 0], ["N", 91000, 22, 21, 0], ["H", 11000, 5, 0, 0], ["H", 4500, 11, 6, 0], ["H", 6500, 8, 2, 0], ["H", 10000, 8, 10, 0], ["H", 6500, 7, 0, 0], ["H", 14000, 2, 2, 0], ["N", 65500, 47, 49, 0], ["H", 8000, 5, 8, 0], ["H", 8500, 7, 0, 0], ["H", 9500, 7, 0, 0], ["N", 84500, 18, 23, 0], ["N", 69000, 42, 45, 0], ["H", 14500, 6, 10, 0], ["H", 13500, 8, 4, 0], ["H", 4500, 10, 10, 0], ["H", 15000, 3, 6, 0], ["H", 9000, 7, 2, 0], ["H", 9000, 10, 10, 0], ["H", 9000, 9, 6, 0], ["H", 8000, 6, 8, 0], ["H", 7000, 8, 8, 0], ["H", 9500, 6, 8, 0], ["H", 7000, 6, 8, 0], ["H", 8500, 8, 4, 0], ["H", 5500, 12, 6, 0], ["H", 11500, 5, 9, 0], ["N", 46500, 35, 39, 0], ["N", 76500, 21, 26, 0], ["H", 9000, 8, 10, 0], ["H", 10000, 7, 0, 0], ["H", 15500, 5, 4, 0], ["H", 5000, 4, 10, 0], ["H", 6000, 7, 8, 0], ["H", 7000, 11, 9, 0], ["H", 16500, 11, 4, 0], ["H", 14500, 10, 4, 0], ["H", 13500, 10, 8, 0], ["H", 15500, 8, 6, 0], ["N", 60000, 16, 13, 0], ["H", 7000, 10, 9, 0], ["H", 9000, 6, 9, 0], ["H", 7000, 10, 4, 0], ["H", 8500, 10, 6, 0], ["H", 11500, 6, 8, 0], ["H", 12500, 11, 8, 0], ["H", 13000, 6, 8, 0], ["H", 8000, 13, 0, 0], ["H", 8500, 6, 4, 0], ["N", 78000, 34, 31, 0], ["H", 5000, 6, 4, 0], ["H", 21500, 8, 8, 0], ["H", 7500, 3, 10, 0], ["H", 10000, 12, 6, 0], ["H", 12000, 11, 8, 0], ["H", 10500, 12, 4, 0], ["N", 65000, 31, 30, 0], ["H", 6500, 8, 10, 0], ["H", 19500, 3, 8, 0], ["H", 6500, 7, 8, 0], ["H", 7000, 6, 8, 0], ["H", 11000, 8, 6, 0], ["H", 9500, 4, 6, 0], ["H", 5000, 12, 6, 0], ["N", 50500, 36, 33, 0], ["N", 72000, 32, 37, 0], ["H", 10000, 5, 8, 0], ["H", 11000, 10, 8, 0], ["H", 8000, 14, 6, 0], ["H", 11500, 7, 8, 0]]};
+/* Núcleo común de los laboratorios: números a la colombiana, escalas, barras animadas, navegación y comprobaciones. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+
+/* Laboratorio · Más valen datos que percepciones · Sesión 4: gráficos, trucos y tablero. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const pct = (v, d = 1) => num(v, d) + ' %';
+  const mas = (v, d = 1) => (v > 0 ? '+' : '') + pct(v, d);
+  const al = (ids, fn) => { ids.forEach(id => { const e = typeof id === 'string' ? $(id) : id; if (e) { e.addEventListener('input', fn); e.addEventListener('change', fn); } }); fn(); };
+  const radio = n => ($(`input[name="${n}"]:checked`) || {}).value;
+  const salida = (id, t) => { const o = $(id + '-o'); if (o) o.textContent = t; };
+  const angosto = () => matchMedia('(max-width: 520px)').matches;
+  const minus = t => t.charAt(0).toLowerCase() + t.slice(1);
+  const chip = v => `<span class="veredicto-t ${v === 'Cierto' ? 'v-cierto' : v === 'Engaña' ? 'v-falso' : ''}">${v}</span>`;
+  const pulsar = sel => $$(sel).forEach(b => b.addEventListener('click', () => $$(sel).forEach(x => x.setAttribute('aria-pressed', String(x === b)))));
+  const ARCO = ['#e63946', '#f4a261', '#2a9d8f', '#8e44ad', '#f1c40f', '#3498db'];
+  let voto = null;
+
+  /* ---------- dibujos en SVG ---------- */
+  function barsV(el, labels, vals, o = {}) {
+    const f = marco(el, o.alto || 230, { i: 46, ab: 34, a: 22, d: 10 });
+    const lo = o.min || 0, hi = o.max || Math.max(...vals) * 1.08;
+    const y = lin(lo, hi, f.yb, f.yt);
+    ejeY(f, y, marcas(lo, hi, 4).filter(v => v >= lo && v <= hi));
+    const band = (f.x1 - f.x0) / vals.length, w = Math.min(band * .52, 96);
+    vals.forEach((v, i) => {
+      const cx = f.x0 + band * (i + .5), top = y(Math.max(v, lo));
+      S('rect', { x: cx - w / 2, y: top, width: w, height: Math.max(0, f.yb - top), class: (o.clases || [])[i] || 'f-c' }, f.svg);
+      T(f.svg, cx, top - 6, num(v), { class: 'nf', 'text-anchor': 'middle' });
+      T(f.svg, cx, f.yb + 18, labels[i], { 'text-anchor': 'middle' });
+    });
+    S('line', { x1: f.x0, x2: f.x1, y1: f.yb, y2: f.yb, class: 'l-eje' }, f.svg);
+    return f;
+  }
+  function barsH(el, items, o = {}) {
+    const fila = 30, f = marco(el, items.length * fila + 40, { i: angosto() ? 92 : 130, ab: 28, a: 8, d: 52 });
+    const lo = o.min || 0, hi = Math.max(...items.map(i => i.v), lo + 1) * 1.02;
+    const x = lin(lo, hi, f.x0, f.x1);
+    marcas(lo, hi, 4).filter(v => v >= lo && v <= hi).forEach(v => { S('line', { x1: x(v), x2: x(v), y1: f.yt, y2: f.yb, class: 'l-regla' }, f.svg); T(f.svg, x(v), f.yb + 17, num(v), { class: 'n', 'text-anchor': 'middle' }); });
+    items.forEach((it, k) => {
+      const yy = f.yt + k * fila + 4, xr = x(Math.max(it.v, lo));
+      S('rect', { x: f.x0, y: yy, width: Math.max(0, xr - f.x0), height: fila - 10, class: it.clase || 'f-c' }, f.svg);
+      T(f.svg, f.x0 - 8, yy + fila / 2, it.n.length > 16 && angosto() ? it.n.slice(0, 15) + '…' : it.n, { 'text-anchor': 'end' });
+      T(f.svg, xr + 6, yy + fila / 2, it.t ?? num(it.v), { class: 'nf' });
+    });
+    S('line', { x1: f.x0, x2: f.x0, y1: f.yt, y2: f.yb, class: 'l-eje' }, f.svg);
+    if (lo > 0) T(f.svg, f.x0, f.yb + 17, num(lo), { class: 'nf', 'text-anchor': 'middle' });
+  }
+  function linea(el, labels, series, o = {}) {
+    const f = marco(el, o.alto || 260, { i: 50, ab: 36, a: 26, d: o.d ?? 18 });
+    const todos = series.flatMap(s => s.v).concat(o.ref ? [o.ref.v] : []);
+    const lo = o.min ?? Math.min(...todos) * .9, hi = o.max ?? Math.max(...todos) * 1.06;
+    const x = lin(0, Math.max(1, labels.length - 1), f.x0 + 26, f.x1 - 18), y = lin(lo, hi, f.yb, f.yt);
+    ejeY(f, y, marcas(lo, hi, 4).filter(v => v >= lo && v <= hi), o.fmtY);
+    ejeX(f, x, labels.map((_, i) => i), i => labels[i]);
+    if (o.corte) lineaV(f, x(o.corte.i - .5), 'l-corte', o.corte.texto);
+    if (o.ref) { S('line', { x1: f.x0, x2: f.x1, y1: y(o.ref.v), y2: y(o.ref.v), class: 'l-prom-t' }, f.svg); const lx = f.x1 - o.ref.texto.length * 7 - 4; S('line', { x1: lx - 26, x2: lx - 6, y1: 9, y2: 9, class: 'l-prom-t' }, f.svg); T(f.svg, f.x1, 13, o.ref.texto, { class: 'ts', 'text-anchor': 'end' }); }
+    if (o.tramos) o.tramos.forEach(([a, b, v, t]) => { S('line', { x1: x(a), x2: x(b), y1: y(v), y2: y(v), class: 'l-prom-t' }, f.svg); T(f.svg, (x(a) + x(b)) / 2, y(v) - 7, t, { class: 'ts', 'text-anchor': 'middle' }); });
+    series.forEach(s => {
+      S('path', { d: s.v.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1)).join(''), class: s.clase || 'l-b' }, f.svg);
+      s.v.forEach((v, i) => { S('circle', { cx: x(i), cy: y(v), r: 3.6, class: s.punto || 'f-b' }, f.svg); if (s.etiquetas) T(f.svg, x(i), y(v) - 9, num(v), { class: 'n', 'text-anchor': 'middle' }); });
+      if (s.nombre) T(f.svg, x(s.v.length - 1) + 8, y(s.v[s.v.length - 1]) + 4, s.nombre, { class: 'tf' });
+    });
+    if (o.rotY) rotuloEje(f, o.rotY, 'y');
+    return f;
+  }
+  function dispersion(el, pts, o = {}) {
+    const f = marco(el, o.alto || 280, { i: 50, ab: 44, a: 26, d: 18 });
+    const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+    const x = lin(o.x0 ?? Math.min(...xs) * .9, o.x1 ?? Math.max(...xs) * 1.06, f.x0, f.x1), y = lin(o.y0 ?? Math.min(...ys) * .9, o.y1 ?? Math.max(...ys) * 1.08, f.yb, f.yt);
+    const [a0, a1] = [x.inv(f.x0), x.inv(f.x1)], [b0, b1] = [y.inv(f.yb), y.inv(f.yt)];
+    ejeY(f, y, marcas(b0, b1, 4).filter(v => v >= b0 && v <= b1), o.fmtY);
+    ejeX(f, x, marcas(a0, a1, 5).filter(v => v >= a0 && v <= a1));
+    if (o.unir) S('path', { d: pts.map((p, i) => (i ? 'L' : 'M') + x(p.x).toFixed(1) + ',' + y(p.y).toFixed(1)).join(''), class: 'l-b' }, f.svg);
+    pts.forEach(p => { if (p.forma === 'rombo') rombo(f.svg, x(p.x), y(p.y), 7, p.clase || 'f-t'); else S('circle', { cx: x(p.x), cy: y(p.y), r: o.r || 5, class: p.clase || 'f-b', 'fill-opacity': o.op ?? 1 }, f.svg); });
+    rotuloEje(f, o.rotX || '', 'x'); if (o.rotY) T(f.svg, f.x0 - 40, f.yt - 10, o.rotY, { class: 'ts' });
+    return f;
+  }
+  function torta(el, items, o = {}) {
+    const f = marco(el, o.alto || 270, { i: 0, ab: 0, a: 0, d: 0 });
+    const r = Math.min(110, f.W / 2 - (o.sinEtiquetas ? 10 : 100)), cx = f.W / 2, cy = f.H / 2, tot = items.reduce((s, i) => s + i.v, 0);
+    let a = -Math.PI / 2;
+    items.forEach((it, k) => {
+      const da = it.v / tot * Math.PI * 2, b = a + da, big = da > Math.PI ? 1 : 0;
+      S('path', { d: `M${cx},${cy}L${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}A${r},${r} 0 ${big} 1 ${cx + r * Math.cos(b)},${cy + r * Math.sin(b)}Z`, fill: it.color || ARCO[k % ARCO.length], stroke: 'var(--fondo)', 'stroke-width': 1.5 }, f.svg);
+      if (!o.sinEtiquetas) {
+        const m = (a + b) / 2, lx = cx + (r + 12) * Math.cos(m), ly = cy + (r + 12) * Math.sin(m);
+        T(f.svg, lx, ly + 4, o.etiquetas === false ? '' : it.n, { 'text-anchor': Math.cos(m) >= 0 ? 'start' : 'end', class: 'n' });
+      }
+      a = b;
+    });
+  }
+  function cien(el, items) {
+    const f = marco(el, 250, { i: 0, ab: 0, a: 0, d: 0 });
+    const lado = 21, x0 = Math.max(4, f.W / 2 - (angosto() ? 108 : 230)), y0 = 16;
+    let k = 0;
+    items.forEach((it, j) => { for (let c = 0; c < it.v; c++, k++) { S('rect', { x: x0 + (k % 10) * lado, y: y0 + Math.floor(k / 10) * lado, width: lado - 3, height: lado - 3, fill: ARCO[j % ARCO.length] }, f.svg); } });
+    if (!angosto()) items.forEach((it, j) => { const yy = y0 + 12 + j * 30; S('rect', { x: x0 + 236, y: yy - 11, width: 14, height: 14, fill: ARCO[j] }, f.svg); T(f.svg, x0 + 258, yy, `${it.n} · ${it.v} %`); });
+    else el.insertAdjacentHTML('beforeend', '<ul class="claves">' + items.map((it, j) => `<li><span class="muestra" style="width:.8rem;height:.8rem;background:${ARCO[j]}"></span>${it.n} ${it.v} %</li>`).join('') + '</ul>');
+  }
+  function calor(el, filas, cols, m, tono, fmt = v => num(v)) {
+    el.innerHTML = '';
+    const g = el.classList.contains('calor') ? el : el.appendChild(Object.assign(document.createElement('div'), { className: 'calor' }));
+    g.style.setProperty('--cols', cols.length);
+    g.innerHTML = '<span class="cab"></span>' + cols.map(c => `<span class="cab" role="columnheader">${c}</span>`).join('') +
+      filas.map((f, i) => `<span class="cab fil" role="rowheader">${f}</span>` + m[i].map((v, j) => `<span class="ce t${tono(v)}" role="cell" aria-label="${f}, ${cols[j]}: ${fmt(v)}">${fmt(v)}</span>`).join('')).join('');
+    return g;
+  }
+
+  /* ---------- apertura ---------- */
+  const [ROSA, ESQ, DESDE] = D.rosa;
+  function apertura() {
+    barsV($('#fig-a'), ['Doña Rosa', 'La esquina'], [ROSA, ESQ], { min: 0, max: 400, clases: ['f-b', 'f-c'], alto: 220 });
+    barsV($('#fig-b'), ['Doña Rosa', 'La esquina'], [ROSA, ESQ], { min: DESDE, max: 375, clases: ['f-b', 'f-c'], alto: 220 });
+  }
+  apertura();
+  const VOTOS = { casi: 'casi lo mismo', doble: 'el doble', cuatro: 'unas cuatro veces' };
+  $$('#voto [data-voto]').forEach(b => b.addEventListener('click', () => {
+    voto = b.dataset.voto;
+    $$('#voto [data-voto]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = $('#voto .voto-dato'); d.hidden = false;
+    d.innerHTML = voto === 'casi'
+      ? 'Anotado: usted ve <strong>casi lo mismo</strong>. Su ojo leyó el eje antes que la barra. En la estación 3 medimos cuánto exagera el dibujo.'
+      : `Anotado: usted ve <strong>${VOTOS[voto]}</strong>. Eso es lo que dibuja el gráfico B. En la estación 3 medimos cuánto se aleja de los datos.`;
+    cierre();
+  }));
+  function cierre() {
+    const p = $('#cierre-voto'); if (!p) return;
+    const base = 'El gráfico B hace ver la barra de doña Rosa cuatro veces más alta que la de la esquina. Los datos dicen otra cosa: vende 370 panes contra 340, un 8,8 % más.';
+    p.textContent = !voto ? base : voto === 'casi' ? 'Usted vio «casi lo mismo» y acertó. ' + base : `Usted vio «${VOTOS[voto]}». ` + base + ' El dibujo exageraba 34 veces.';
+  }
+
+  /* ---------- 1 · cinco formas ---------- */
+  const PROD = D.productos.map(([n, v]) => ({ n, v }));
+  const DESORDEN = [3, 0, 5, 2, 1, 4];
+  const FORMAS = {
+    torta: ['Engaña', 'El integral y el croissant parecen empatados', 'En la torta, 16 % y 15 % son dos tajadas casi iguales. Para saber cuál es el tercer producto hay que leer las etiquetas: el dibujo no ayuda.'],
+    arco: ['A medias', 'Seis colores, ningún significado', 'Las barras dejan comparar, pero sin orden hay que buscar cada una, y el ojo pregunta qué quiere decir cada color. No quiere decir nada.'],
+    orden: ['Cierto', 'El integral le gana al croissant por un punto', 'Ordenadas, en gris y con un solo color para lo que importa, la respuesta salta: el integral es el tercero, después del pan blanco y la mogolla.'],
+    cien: ['A medias', 'Se cuentan las partes, pero cuesta compararlas', 'Cada cuadrito es 1 %. Sirve para decir «uno de cada tres panes es blanco», pero comparar 16 contra 15 cuadritos obliga a contar.'],
+    tabla: ['A medias', 'Los números están; el hallazgo, no', 'La tabla es exacta y sirve para buscar un valor. Para ver el orden hay que leer fila por fila: el trabajo lo hace el lector.']
+  };
+  let forma = 'torta';
+  function pintaFormas() {
+    const el = $('#fig-formas'), [v, t, l] = FORMAS[forma];
+    $('#f1t').innerHTML = chip(v) + t; $('#formas-lect').textContent = l;
+    if (forma === 'arco' || forma === 'orden') {
+      let ul = el.querySelector('ul.hbars');
+      if (!ul) { el.innerHTML = '<ul class="hbars" style="--nombre:8rem;--nombre-m:6rem"></ul>'; ul = el.firstChild; }
+      const items = (forma === 'arco' ? DESORDEN.map(i => PROD[i]) : PROD).map(p => ({ id: p.n, nombre: p.n, valor: p.v, texto: p.v + ' %',
+        clase: forma === 'arco' ? 'hb-arco' + PROD.indexOf(p) : p.n === 'Pan integral' ? 'hb-b' : p.n === 'Croissant' ? 'hb-a' : 'hb-gris' }));
+      hbars(ul, items, { max: 34 });
+    } else if (forma === 'torta') torta(el, PROD);
+    else if (forma === 'cien') cien(el, PROD);
+    else el.innerHTML = '<table class="tabla tabla-dato"><thead><tr><th>Producto</th><th class="num">Porcentaje</th></tr></thead><tbody>' + PROD.map(p => `<tr><td>${p.n}</td><td class="num">${p.v} %</td></tr>`).join('') + '</tbody></table>';
+  }
+  pulsar('[data-forma]');
+  $$('[data-forma]').forEach(b => b.addEventListener('click', () => { forma = b.dataset.forma; pintaFormas(); }));
+  pintaFormas();
+
+  /* ---------- 2 · un mensaje, un gráfico ---------- */
+  const Q = D.quejas.map(([n, v]) => ({ n, v })), ESP = D.espera, SEM = ESP.map((_, i) => 'S' + (i + 1));
+  const MSG = [
+    ['La espera es la queja número uno', 'Reseñas negativas del trimestre, por tema.'],
+    ['Desde la caja rápida, la espera bajó', 'Minutos de espera en promedio, semanas 1 a 8. La caja rápida abrió en la semana 5.'],
+    ['El viernes en la noche es el cuello de botella', 'Pedidos promedio por día y franja.'],
+    ['Más espera, peores estrellas', 'Diez días: minutos de espera y estrellas promedio de ese día.']];
+  const DICT = [
+    { orden: ['Cierto', 'Barras ordenadas: la espera salta a la vista y se lee el orden completo de las quejas. Ponga en el título el número que lo prueba.'],
+      linea: ['Engaña', 'Una línea une puntos que van uno después de otro, como el tiempo. Entre «Espera» y «Domicilio» no hay camino: son temas sueltos, y la línea inventa una tendencia.'],
+      calor: ['A medias', 'Una sola fila de tonos: se nota que la espera es la más oscura, pero no cuánto más. El mapa de calor es para cruzar dos categorías.'],
+      disp: ['No aplica', 'La dispersión necesita dos números por caso. Aquí hay un solo número por tema: no hay qué cruzar.'],
+      torta: ['A medias', 'La espera se ve grande, casi la mitad, pero atención, precio y sabor quedan como tajadas parecidas que el ojo no sabe ordenar. Para comparar, barras.'] },
+    { linea: ['Cierto', 'La línea muestra la secuencia y el quiebre de la semana 5. Con la marca de la caja rápida y los dos promedios, el antes y el después se leen solos.'],
+      orden: ['Engaña', 'Al ordenar las semanas de mayor a menor se pierde el calendario: ya no se ve cuándo bajó la espera. En el tiempo, el orden lo pone el reloj.'],
+      calor: ['A medias', 'Ocho celdas en fila: se adivina que las últimas son más claras, pero el cambio se ve mejor como una línea que baja.'],
+      disp: ['A medias', 'Los puntos están en su lugar, pero sin la línea el ojo no sigue la secuencia. Para un cambio en el tiempo, una los puntos.'],
+      torta: ['No aplica', 'Las semanas no son partes de un todo: sumar los minutos de espera de ocho semanas no tiene sentido.'] },
+    { calor: ['Cierto', 'El cruce de día y franja se lee de un vistazo: la celda más oscura es la del cuello de botella. Tres tonos y la clave bastan.'],
+      orden: ['A medias', 'Las 21 celdas ordenadas muestran cuál es la mayor, pero se pierde el patrón: que la noche pesa en todo el fin de semana y que el almuerzo crece hacia el domingo.'],
+      linea: ['A medias', 'Tres líneas, una por franja: se ve el pico, y sirve si la pregunta es cómo cambia la semana. Para encontrar el cuello de botella, el mapa es más directo.'],
+      disp: ['No aplica', 'Día y franja son categorías, no números: no hay dos ejes numéricos que cruzar.'],
+      torta: ['Engaña', 'Veintiuna tajadas: nadie puede leer esto. La torta solo sirve con dos o tres partes.'] },
+    { disp: ['Cierto', 'Un punto por día: a más minutos de espera, menos estrellas, casi en línea recta. Recuerde la sesión 3: relación no es causa.'],
+      linea: ['A medias', 'Unir los puntos sugiere que son días seguidos. Son diez días cualesquiera ordenados por espera: la línea agrega un recorrido que no existe.'],
+      orden: ['Engaña', 'Barras de estrellas ordenadas: se ve qué día fue peor, pero desaparece la espera, que es la mitad del mensaje.'],
+      calor: ['No aplica', 'Espera y estrellas son números continuos: un mapa de calor obligaría a inventar categorías.'],
+      torta: ['No aplica', 'Las estrellas de cada día no son partes de un todo.'] }];
+  const tono3 = (lo, hi) => v => v <= lo ? 0 : v <= hi ? 1 : 2;
+  function pintaMensaje() {
+    const m = +radio('msg'), g = radio('graf'), el = $('#fig-msg'), [v, txt] = DICT[m][g];
+    $('#f2t').innerHTML = chip(v) + '«' + MSG[m][0] + '»'; $('#f2c').textContent = MSG[m][1];
+    const d = $('#msg-dict'); d.textContent = txt; d.className = 'dictamen ' + (v === 'Cierto' ? 'bien' : v === 'No aplica' ? '' : 'mal');
+    el.innerHTML = '';
+    if (v === 'No aplica') { el.innerHTML = '<p class="figura-nota" style="text-align:center;padding:2.5rem 0;border:1.5px dashed var(--regla)">Este gráfico no se puede dibujar con estos datos.</p>'; return; }
+    if (m === 0) {
+      if (g === 'orden') barsH(el, Q.map((q, i) => ({ n: q.n, v: q.v, clase: i === 0 ? 'f-b' : 'f-c' })));
+      else if (g === 'linea') linea(el, Q.map(q => q.n), [{ v: Q.map(q => q.v), etiquetas: true }], { min: 0 });
+      else if (g === 'calor') calor(el, ['Quejas'], Q.map(q => q.n), [Q.map(q => q.v)], tono3(15, 30));
+      else torta(el, Q, { alto: 250 });
+    } else if (m === 1) {
+      const a = media(ESP.slice(0, 4)), b = media(ESP.slice(4));
+      if (g === 'linea') linea(el, SEM, [{ v: ESP, etiquetas: true }], { min: 0, max: 22, corte: { i: 4, texto: 'caja rápida' }, tramos: [[0, 3, a, 'promedio ' + num(a)], [4, 7, b, 'promedio ' + num(b)]], rotY: 'minutos' });
+      else if (g === 'orden') barsH(el, ESP.map((v, i) => ({ n: 'Semana ' + (i + 1), v })).sort((p, q) => q.v - p.v).map(x => ({ ...x, clase: 'f-c' })));
+      else if (g === 'calor') calor(el, ['Minutos'], SEM, [ESP], tono3(12, 16));
+      else dispersion(el, ESP.map((v, i) => ({ x: i + 1, y: v })), { x0: 0, x1: 9, y0: 0, y1: 22, rotX: 'semana', rotY: 'minutos' });
+    } else if (m === 2) {
+      const P = D.pedidos;
+      if (g === 'calor') calor(el, D.dias, D.franjas, P, tono3(30, 60));
+      else if (g === 'orden') { const cel = []; P.forEach((f, i) => f.forEach((v, j) => cel.push({ n: D.dias[i] + ' · ' + D.franjas[j].toLowerCase(), v }))); cel.sort((p, q) => q.v - p.v); barsH(el, cel.map((c, k) => ({ ...c, clase: k === 0 ? 'f-b' : 'f-c' }))); }
+      else if (g === 'linea') linea(el, D.dias, D.franjas.map((fr, j) => ({ v: P.map(f => f[j]), nombre: angosto() ? '' : fr, clase: ['l-a', 'l-t', 'l-b'][j], punto: ['f-a', 'f-t', 'f-b'][j] })), { min: 0, d: angosto() ? 18 : 78 });
+      else { const cel = P.flat().map((v, k) => ({ n: '', v, color: ARCO[k % 6] })); torta(el, cel, { sinEtiquetas: true }); }
+    } else {
+      const pts = D.esperaEstrellas.map(([x, y]) => ({ x, y }));
+      if (g === 'disp') dispersion(el, pts, { x0: 5, x1: 27, y0: 2, y1: 5, rotX: 'minutos de espera', rotY: 'estrellas', fmtY: v => num(v, 1) });
+      else if (g === 'linea') dispersion(el, pts, { x0: 5, x1: 27, y0: 2, y1: 5, unir: true, rotX: 'minutos de espera', rotY: 'estrellas', fmtY: v => num(v, 1) });
+      else barsH(el, pts.map((p, i) => ({ n: 'Día ' + (i + 1), v: p.y, t: num(p.y, 1) })).sort((p, q) => q.v - p.v).map(x => ({ ...x, clase: 'f-c' })));
+    }
+  }
+  al($$('input[name="msg"], input[name="graf"]'), pintaMensaje);
+
+  /* ---------- 3 · el gráfico que engaña ---------- */
+  const [H0, H1] = D.hamb, SP = D.semanas, PROM9 = media(SP.slice(0, 9));
+  const REAL_EJE = (ROSA / ESQ - 1) * 100, REAL_H = (H1 / H0 - 1) * 100;
+  let truco = 'eje';
+  function hamburguesa(svg, cx, base, w, h, clase) {
+    const g = S('g', {}, svg), top = base - h;
+    S('path', { d: `M${cx - w / 2},${top + h * .42}Q${cx - w / 2},${top} ${cx},${top}Q${cx + w / 2},${top} ${cx + w / 2},${top + h * .42}Z`, class: clase }, g);
+    S('rect', { x: cx - w / 2 - w * .03, y: top + h * .46, width: w * 1.06, height: h * .2, rx: h * .08, class: 'f-t' }, g);
+    S('rect', { x: cx - w / 2, y: top + h * .7, width: w, height: h * .3, rx: h * .1, class: clase }, g);
+  }
+  function pintaTruco() {
+    $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== truco);
+    const el = $('#fig-truco'); let v, t, res, lect;
+    if (truco === 'eje') {
+      const m = +$('#t-eje').value; salida('#t-eje', num(m));
+      barsV(el, ['Doña Rosa', 'La esquina'], [ROSA, ESQ], { min: m, max: 375, clases: ['f-b', 'f-c'], alto: 250 });
+      const visto = (ROSA - m) / (ESQ - m), fac = (visto - 1) * 100 / REAL_EJE;
+      v = fac < 1.15 ? 'Cierto' : 'Engaña'; t = fac < 1.15 ? 'Doña Rosa vende un poco más que la esquina' : `«Doña Rosa vende ${num(visto, visto < 2 ? 1 : 0)} veces más»`;
+      $('#f3c').textContent = `Panes vendidos en un día. El eje empieza en ${num(m)}.`;
+      res = [['La barra se ve', num(visto, 2).replace(/,?0+$/, '') + ' veces más alta'], ['Diferencia real', mas(REAL_EJE)], ['Factor de mentira', numS(fac, fac < 10 ? 1 : 0)]];
+      lect = m === 0 ? 'Con el eje en cero, la altura es el dato: el dibujo y los números dicen lo mismo, y el factor de mentira es 1.' : `Las ventas no se movieron: 370 y 340. Lo único que cambió es dónde empieza el eje, y el dibujo exagera <b>${numS(fac, fac < 10 ? 1 : 0)}</b> veces la diferencia.`;
+    } else if (truco === 'area') {
+      const s = +$('#t-esc').value, modo = radio('crece'); salida('#t-esc', num(s, 2).replace(/0$/, '') + ' veces');
+      $$('#t-esc').forEach(i => i.disabled = modo === 'iconos');
+      const f = marco(el, angosto() ? 215 : 260, { i: 10, ab: 36, a: 10, d: 10 }), base = f.yb, w0 = angosto() ? 70 : 96, h0 = w0 * .7;
+      let ratio;
+      if (modo === 'iconos') {
+        ratio = H1 / H0;
+        const sep = w0 * .55 + 8, y1 = base - h0 * .55;
+        [[f.W * .27, 2], [f.W * .7, 3]].forEach(([cx, n]) => { for (let k = 0; k < n; k++) hamburguesa(f.svg, cx + (k - (n - 1) / 2) * sep, base, w0 * .55, h0 * .55, 'f-a'); });
+        T(f.svg, f.W * .27, y1 - 14, '2.000', { class: 'nf', 'text-anchor': 'middle' }); T(f.svg, f.W * .7, y1 - 14, '3.000', { class: 'nf', 'text-anchor': 'middle' });
+        T(f.svg, f.W / 2, f.yt + 12, 'cada hamburguesa = 1.000 al mes', { class: 'ts', 'text-anchor': 'middle' });
+      } else {
+        const w1 = modo === 'dos' ? w0 * s : w0, h1 = h0 * s; ratio = (w1 * h1) / (w0 * h0);
+        hamburguesa(f.svg, f.W * .27, base, w0, h0, 'f-a'); hamburguesa(f.svg, f.W * .68, base, w1, h1, 'f-a');
+        T(f.svg, f.W * .27, base - h0 - 10, '2.000', { class: 'nf', 'text-anchor': 'middle' }); T(f.svg, f.W * .68, base - h1 - 10, '3.000', { class: 'nf', 'text-anchor': 'middle' });
+      }
+      T(f.svg, f.W * .27, base + 20, '2025', { 'text-anchor': 'middle' }); T(f.svg, modo === 'iconos' ? f.W * .7 : f.W * .68, base + 20, '2026', { 'text-anchor': 'middle' });
+      const fac = (ratio - 1) * 100 / REAL_H;
+      v = Math.abs(fac - 1) < .08 ? 'Cierto' : 'Engaña'; t = v === 'Cierto' ? 'Las ventas crecieron a la mitad, y así se ven' : `«Las ventas se multiplicaron por ${num(ratio, 1)}»`;
+      $('#f3c').textContent = 'Hamburguesas vendidas al mes por El Parche: 2.000 en 2025 y 3.000 en 2026.';
+      res = [[modo === 'iconos' ? 'Figuras' : 'El área del dibujo crece', modo === 'iconos' ? '2 contra 3' : num(ratio, 2) + ' veces'], ['Diferencia real', mas(REAL_H, 0)], ['Factor de mentira', num(fac, 1)]];
+      lect = modo === 'dos' ? `Agrandar ${num(s, 2).replace(/0$/, '')} veces de ancho y de alto multiplica el área por <b>${num(ratio, 2)}</b>: el ojo compara superficies, no alturas.` : modo === 'alto' ? 'Si el dibujo solo crece de alto, funciona como una barra: el área crece lo mismo que la altura.' : 'Íconos repetidos del mismo tamaño: el ojo cuenta figuras iguales sin error. Es la corrección más honesta para un dibujo.';
+    } else {
+      const todo = $('#t-todo').checked, prom = $('#t-prom').checked;
+      $('#t-prom').disabled = !todo; if (!todo) $('#t-prom').checked = false;
+      const idx = todo ? SP.map((_, i) => i) : [9, 10];
+      linea(el, idx.map(i => 'S' + (i + 1)), [{ v: idx.map(i => SP[i]), etiquetas: true, clase: 'l-t', punto: 'f-t' }],
+        { min: todo ? 2000 : 2500, max: 3700, ref: prom && todo ? { v: PROM9, texto: 'promedio S1 a S9: ' + num(PROM9) } : null, rotY: 'panes', alto: 260 });
+      const caida = (SP[10] / SP[9] - 1) * 100, vs = (SP[10] / PROM9 - 1) * 100;
+      v = !todo ? 'Engaña' : prom ? 'Cierto' : 'A medias';
+      t = !todo ? '«Las ventas de pan blanco se desplomaron 25 %»' : prom ? 'La semana 11 fue normal; la rara fue la 10, la de la feria' : 'Con las doce semanas, la «caída» parece un regreso';
+      $('#f3c').textContent = `Panes blancos vendidos por semana; el eje empieza en ${todo ? '2.000' : '2.500'}. La semana 10 fue la de la feria del barrio.`;
+      res = [['Según el título', mas(caida, 0)], ['Promedio de las semanas 1 a 9', num(PROM9)], ['Semana 11 frente a ese promedio', mas(vs)]];
+      lect = !todo ? 'Dos puntos no son una tendencia. Además, el eje empieza en 2.500. Marque «Mostrar las doce semanas».' : prom ? `Frente a lo normal, la semana 11 quedó apenas <b>${pct(-vs)}</b> abajo. Compararse con un pico siempre da caída: la pregunta es «¿comparado con qué?».` : 'Ya se ve que la semana 10 es la excepción. Agregue el promedio para tener con qué comparar.';
+    }
+    $('#f3t').innerHTML = chip(v) + t;
+    $('#truco-res').innerHTML = res.map(([a, b]) => `<li>${a}<b>${b}</b></li>`).join('');
+    $('#truco-lect').innerHTML = lect;
+  }
+  pulsar('[data-truco]');
+  $$('[data-truco]').forEach(b => b.addEventListener('click', () => { truco = b.dataset.truco; pintaTruco(); }));
+  al(['#t-eje', '#t-esc', '#t-todo', '#t-prom', ...$$('input[name="crece"]')], pintaTruco);
+
+  /* ---------- 4 · mapa de calor ---------- */
+  const AG = D.agotado.map(f => f.map(v => v / 8 * 100));
+  al(['#c-lo', '#c-hi'], () => {
+    let lo = +$('#c-lo').value, hi = +$('#c-hi').value;
+    if (hi <= lo) { hi = lo + 5; $('#c-hi').value = hi; }
+    salida('#c-lo', lo + ' %'); salida('#c-hi', hi + ' %');
+    const t = tono3(lo, hi);
+    calor($('#fig-calor'), D.dias6, D.franjas3, AG, t, v => num(v, v % 1 ? 1 : 0).replace(',0', '') + ' %');
+    const n = [0, 0, 0], osc = [];
+    AG.forEach((f, i) => f.forEach((v, j) => { n[t(v)]++; if (t(v) === 2) osc.push(D.dias6[i] + ' ' + D.franjas3[j].toLowerCase()); }));
+    $('#clave-calor').innerHTML = `<li><span class="sw"></span>Claro · 0 a ${lo} %</li><li><span class="sw t1"></span>Medio · ${lo + 1} a ${hi} %</li><li><span class="sw t2"></span>Oscuro · ${hi + 1} a 100 %</li>`;
+    $('#calor-res').innerHTML = `<li>Celdas claras<b>${n[0]}</b></li><li>Celdas medias<b>${n[1]}</b></li><li>Celdas oscuras<b>${n[2]}</b></li>`;
+    $('#calor-lect').innerHTML = osc.length ? `Oscuras: <b>${osc.join(', ')}</b>. ` + (lo === 25 && hi === 60 ? 'Son los límites de la guía.' : 'Con los límites de la guía (25 y 60) son cuatro; compare.') : 'Ninguna celda queda oscura con estos límites: el mapa ya no grita dónde está el problema.';
+  });
+
+  /* tablero */
+  const PIEZAS = [
+    { id: 'cifra', n: 'Panes vendidos esta semana frente a la anterior', tipo: 'Cifra grande', q: 'ventas' },
+    { id: 'linea', n: 'Ventas de las últimas 12 semanas', tipo: 'Línea', q: 'ventas' },
+    { id: 'sobra', n: 'Lo que sobró al cierre, por producto', tipo: 'Barras ordenadas', q: 'sobra' },
+    { id: 'calor', n: 'Cuándo se agota el pan blanco', tipo: 'Mapa de calor', q: 'agota' },
+    { id: 'filtro', n: 'Escoger la semana', tipo: 'Filtro', q: 'filtro' },
+    { id: 'torta3d', n: 'Ventas por producto', tipo: 'Torta en 3D', q: null },
+    { id: 'tabla', n: 'Las 600 ventas del mes, una por fila', tipo: 'Tabla', q: null }];
+  const lugar = {}; let elegida = null;
+  const ul = $('#piezas');
+  ul.innerHTML = PIEZAS.map(p => `<li><button type="button" class="pieza" draggable="true" data-pieza="${p.id}" aria-pressed="false"><span class="tipo">${p.tipo}</span>${p.n}</button></li>`).join('');
+  const poner = (pid, slot) => {
+    Object.keys(lugar).forEach(k => { if (lugar[k] === pid) delete lugar[k]; });
+    lugar[slot] = pid; elegida = null; pintaTablero();
+  };
+  $$('.pieza', ul).forEach(b => {
+    b.addEventListener('click', () => { elegida = elegida === b.dataset.pieza ? null : b.dataset.pieza; $$('.pieza', ul).forEach(x => x.setAttribute('aria-pressed', String(x.dataset.pieza === elegida))); });
+    b.addEventListener('dragstart', e => { e.dataTransfer.setData('text/plain', b.dataset.pieza); e.dataTransfer.effectAllowed = 'move'; });
+  });
+  $$('.ranura').forEach(r => {
+    const usar = () => { if (elegida) poner(elegida, r.dataset.lugar); };
+    r.addEventListener('click', e => { if (e.target.closest('.quitar')) { delete lugar[r.dataset.lugar]; pintaTablero(); return; } usar(); });
+    r.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); usar(); } });
+    r.addEventListener('dragover', e => { e.preventDefault(); r.classList.add('sobre'); });
+    r.addEventListener('dragleave', () => r.classList.remove('sobre'));
+    r.addEventListener('drop', e => { e.preventDefault(); r.classList.remove('sobre'); const pid = e.dataTransfer.getData('text/plain'); if (pid) poner(pid, r.dataset.lugar); });
+  });
+  $('#tablero-limpiar').addEventListener('click', () => { Object.keys(lugar).forEach(k => delete lugar[k]); elegida = null; pintaTablero(); });
+  function pintaTablero() {
+    const usadas = new Set(Object.values(lugar));
+    $$('.pieza', ul).forEach(b => { b.classList.toggle('usada', usadas.has(b.dataset.pieza)); b.setAttribute('aria-pressed', 'false'); });
+    $$('.ranura').forEach(r => {
+      const p = PIEZAS.find(x => x.id === lugar[r.dataset.lugar]);
+      r.classList.toggle('llena', !!p);
+      r.querySelector('.r-pieza').innerHTML = p ? `<strong>${p.tipo}</strong> · ${p.n}` : 'Vacío';
+      const q = r.querySelector('.quitar'); if (q) q.remove();
+      if (p) r.insertAdjacentHTML('beforeend', '<button type="button" class="quitar" aria-label="Quitar esta pieza">×</button>');
+    });
+    const ps = [...usadas].map(id => PIEZAS.find(p => p.id === id)), qs = new Set(ps.map(p => p.q));
+    const av = [];
+    if (!ps.length) { $('#tablero-avisos').innerHTML = '<li>Toque una pieza y luego un lugar del tablero.</li>'; return; }
+    [['ventas', '¿cómo van las ventas?'], ['sobra', '¿qué sobra al cierre?'], ['agota', '¿cuándo se acaba el pan blanco?']].forEach(([k, t]) => av.push([qs.has(k), qs.has(k) ? `Responde ${t}` : `Falta una pieza que responda ${t}`]));
+    const ai = PIEZAS.find(p => p.id === lugar.ai);
+    if (ai) av.push([['cifra', 'calor', 'linea'].includes(ai.id), ['cifra', 'calor', 'linea'].includes(ai.id) ? `Arriba a la izquierda va «${minus(ai.tipo)}»: lo primero que mira doña Rosa responde una de sus preguntas.` : `Arriba a la izquierda quedó «${minus(ai.tipo)}». Ese lugar es para lo más importante: la cifra grande o la pregunta que más pesa.`]);
+    av.push([usadas.has('filtro'), usadas.has('filtro') ? (lugar.fi === 'filtro' ? 'Tiene filtro por semana, en su franja.' : 'Tiene filtro por semana; en la franja de abajo estorba menos.') : 'Falta un filtro: con él, doña Rosa se busca sin pedir otro informe.']);
+    ps.filter(p => !p.q).forEach(p => av.push([false, p.id === 'torta3d' ? 'La torta en 3D sobra: no responde ninguna de las tres preguntas y deforma las tajadas del frente.' : 'La tabla de 600 filas sobra: un tablero muestra lo que se mira cada semana, no todos los registros.']));
+    const graf = ps.filter(p => p.q && p.q !== 'filtro').length;
+    if (graf > 4) av.push([false, 'Más de cuatro piezas: revise la prueba de los cinco segundos.']);
+    const bien = av.every(a => a[0]);
+    $('#tablero-avisos').innerHTML = av.map(([ok, t]) => `<li class="${ok ? 'ok' : 'no'}">${t}</li>`).join('') + (bien ? '<li class="ok"><strong>Este tablero pasa la prueba: tres preguntas, lo importante arriba a la izquierda y un filtro.</strong></li>' : '');
+  }
+  pintaTablero();
+
+  /* ---------- 5 · para la casa ---------- */
+  const CLUB = D.club.map(([t, ticket, compras, msj, hotel], i) => ({ id: i + 1, tipo: hotel ? 'Hotel' : t === 'H' ? 'Hogar' : 'Negocio', ticket, compras, msj }));
+  const csv = '﻿cliente,tipo,ticket_promedio,mensajes_recibidos,compras_8_semanas\n' + CLUB.map(c => `cliente ${c.id},${c.tipo},${c.ticket},${c.msj},${c.compras}`).join('\n') + '\n';
+  $('#csv-info').textContent = `${CLUB.length} filas · 5 columnas · ${num(csv.length / 1024, 1)} kB`;
+  $('#bajar-csv').addEventListener('click', () => {
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' })); a.download = 'club_del_pan.csv';
+    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+  });
+  const MED = { n: ['Clientes por tipo', v => num(v), g => g.length], ticket: ['Ticket promedio por tipo', v => pesos(v), g => media(g.map(c => c.ticket))],
+    compras: ['Compras promedio en 8 semanas, por tipo', v => num(v, 1), g => media(g.map(c => c.compras))], ventas: ['Ventas totales en 8 semanas, por tipo', v => millones(v), g => suma(g.map(c => c.ticket * c.compras))] };
+  const CL = { Hogar: ['hb-a', 'f-a'], Negocio: ['hb-b', 'f-b'], Hotel: ['hb-t', 'f-t'] };
+  al([...$$('input[name="medida"]'), ...$$('.f-tipo')], () => {
+    const md = radio('medida'), tipos = $$('.f-tipo').filter(i => i.checked).map(i => i.value), [tt, fmt, agg] = MED[md];
+    const sel = CLUB.filter(c => tipos.includes(c.tipo));
+    $('#f5t').innerHTML = '<span class="veredicto-t">Tema</span>' + tt;
+    $('#f5c').textContent = `Arriba, una dimensión (tipo) y una medida; abajo, mensajes recibidos contra compras, un punto por cliente. ${sel.length} de ${CLUB.length} clientes con el filtro.`;
+    hbars($('#fig-club-b'), tipos.map(t => { const g = CLUB.filter(c => c.tipo === t); return { id: t, nombre: t, valor: agg(g), texto: fmt(agg(g)), clase: CL[t][0] }; }), { orden: 'desc' });
+    if (sel.length) dispersion($('#fig-club-d'), sel.map(c => ({ x: c.msj, y: c.compras, clase: CL[c.tipo][1], forma: c.tipo === 'Hotel' ? 'rombo' : '' })), { x0: 0, x1: 52, y0: 0, y1: 50, r: 4.5, op: .85, rotX: 'mensajes recibidos', rotY: 'compras' });
+    else $('#fig-club-d').innerHTML = '';
+    const r = sel.length > 2 ? corr(sel.map(c => c.msj), sel.map(c => c.compras)) : NaN;
+    $('#club-lect').innerHTML = (sel.length ? `Con este filtro, la correlación entre mensajes y compras es <b>${isFinite(r) ? num(r, 2) : '—'}</b>. ` : 'Marque al menos un tipo. ') +
+      'Ese título dice el tema. Conviértalo en un título-hallazgo para su tablero: ¿qué número le llama la atención?';
+  });
+  al($$('#chequeo input'), () => { const n = $$('#chequeo input').filter(i => i.checked).length, t = $$('#chequeo input').length; $('#chequeo-cuenta').textContent = n === t ? `${n} de ${t} · listo para publicar` : `${n} de ${t} revisados`; });
+
+  /* ---------- 6 · su propio gráfico ---------- */
+  function leerDatos(txt) {
+    return txt.split(/\n/).map(l => l.trim()).filter(Boolean).map(l => {
+      let p = l.includes('\t') ? l.split('\t') : l.includes(';') ? l.split(';') : [l.slice(0, l.lastIndexOf(',')), l.slice(l.lastIndexOf(',') + 1)];
+      return { n: (p[0] || '').trim(), v: leer((p[1] || '').trim()) };
+    }).filter(d => d.n && isFinite(d.v));
+  }
+  let ejeAntes = null;
+  al(['#su-datos', '#su-eje', ...$$('input[name="su-msg"]')], () => {
+    const d = leerDatos($('#su-datos').value), msg = radio('su-msg'), el = $('#su-fig'), av = [];
+    if (d.length < 2) { el.innerHTML = ''; $('#su-t').textContent = ''; $('#su-avisos').innerHTML = '<li class="no">Escriba al menos dos líneas, cada una con una etiqueta y un número.</li>'; return; }
+    const vs = d.map(x => x.v), mn = Math.min(...vs), mx = Math.max(...vs), sl = $('#su-eje');
+    const tope = Math.max(0, Math.floor(mn > 0 ? mx * .97 : 0)), paso = Math.max(1, Math.pow(10, Math.floor(Math.log10(Math.max(1, tope))) - 1));
+    if (ejeAntes !== tope) { sl.max = tope; sl.step = paso; ejeAntes = tope; }
+    const eje = Math.min(+sl.value, tope); salida('#su-eje', num(eje));
+    const neg = mn < 0;
+    if (neg) av.push([false, 'Hay números negativos: use barras desde cero, con las negativas hacia el otro lado, y deje el eje en 0.']);
+    let sug;
+    sl.disabled = false;
+    if (msg === 'tiempo') {
+      sug = 'Línea, en el orden en que escribió los datos';
+      linea(el, d.map(x => x.n), [{ v: vs, etiquetas: d.length <= 14, clase: 'l-b' }], { min: eje || Math.min(0, mn), max: mx * 1.08 });
+      av.push([true, 'En el tiempo, el orden lo pone el calendario: revise que las líneas estén de la más antigua a la más reciente.']);
+      if (eje > 0) av.push([true, `En una línea, el eje puede empezar en ${num(eje)} si lo dice en la clave de lectura; en barras, no.`]);
+      if (d.length === 2) av.push([false, 'Dos puntos no son una tendencia: agregue más periodos o una referencia.']);
+    } else {
+      const tot = suma(vs), esPct = Math.abs(tot - 100) < 1.5;
+      const orden = d.slice().sort((a, b) => b.v - a.v);
+      if (msg === 'partes' && d.length <= 3 && !neg) {
+        sug = 'Torta: son pocas partes'; torta(el, orden.map((x, k) => ({ n: x.n + ' · ' + pct(x.v / tot * 100, 0), v: x.v, color: ['var(--marca-b)', 'var(--marca-a)', 'var(--tinta-suave)'][k] })), { alto: 240 });
+      } else {
+        sug = msg === 'partes' ? 'Barras ordenadas: con más de tres partes, la torta compara mal' : 'Barras ordenadas de mayor a menor';
+        barsH(el, orden.map((x, k) => ({ n: x.n, v: x.v, t: msg === 'partes' ? pct(x.v / tot * 100, 0) : num(x.v, x.v % 1 ? 1 : 0), clase: k === 0 ? 'f-b' : 'f-c' })), { min: eje });
+      }
+      const esTorta = msg === 'partes' && d.length <= 3 && !neg;
+      sl.disabled = esTorta;
+      if (msg === 'partes') av.push([true, esPct ? 'Los números suman 100: se leen como porcentajes.' : `Los números suman ${num(tot)}: el laboratorio los pasó a porcentaje del total.`]);
+      if (esTorta) av.push([true, 'Con dos o tres partes, la torta responde «¿qué tan grande es esta parte del todo?». Si quiere comparar las partes entre sí, use barras.']);
+      else if (eje > 0) {
+        const fac = mn > eje ? (((mx - eje) / (mn - eje)) - 1) / ((mx / mn) - 1) : Infinity;
+        av.push([false, isFinite(fac) ? `El eje empieza en ${num(eje)}: entre la barra mayor y la menor, el dibujo exagera ${numS(fac, fac < 10 ? 1 : 0)} veces (factor de mentira). Las barras empiezan en cero.` : `El eje empieza por encima de su dato más pequeño: esa barra desaparece. Las barras empiezan en cero.`]);
+      } else if (!neg) av.push([true, 'Las barras empiezan en cero: la altura es el dato.']);
+      if (d.length > 12) av.push([false, `Son ${d.length} categorías: agrupe las pequeñas en «Otros» para que se lea de un vistazo.`]);
+      if (mn > 0 && mn / mx > .9) av.push([false, 'Las diferencias son pequeñas (menos del 10 %): dígalas como cifra o muestre la diferencia, en vez de recortar el eje para agrandarlas.']);
+      if (!esTorta) av.push([true, 'Use gris para todo y un solo color para lo que importa; el laboratorio pintó el mayor.']);
+    }
+    $('#su-t').innerHTML = '<span class="veredicto-t v-cierto">Sugerencia</span>' + sug;
+    av.push([true, 'Falta lo suyo: un título que diga el hallazgo, con un número dentro, y la fuente al pie.']);
+    $('#su-avisos').innerHTML = av.map(([ok, t]) => `<li class="${ok ? 'ok' : 'no'}">${t}</li>`).join('');
+  });
+
+  activarComprobaciones();
+  Transiciones.todo();
+  let ancho = innerWidth;
+  addEventListener('resize', () => { if (Math.abs(innerWidth - ancho) < 30) return; ancho = innerWidth; apertura(); if (forma === 'torta' || forma === 'cien') pintaFormas(); pintaMensaje(); pintaTruco(); $('#su-datos').dispatchEvent(new Event('input')); $$('.f-tipo')[0].dispatchEvent(new Event('change')); });
+})();
+
+</script>

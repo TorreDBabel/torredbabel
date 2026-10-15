@@ -251,6 +251,8 @@ seguir el curso lección por lección:
 | --- | --- | --- |
 | `torredbabel.com/masvalendatos03` | Más valen datos que percepciones (AFPN0087) | 3 · Laboratorio del promedio |
 | `torredbabel.com/diseñometricas03` | Diseño de métricas para el marketing (AFPN0097) | 3 · Laboratorio de adquisición |
+| `torredbabel.com/masvalendatos04` | Más valen datos que percepciones (AFPN0087) | 4 · Laboratorio de visualización |
+| `torredbabel.com/diseñometricas04` | Diseño de métricas para el marketing (AFPN0097) | 4 · Laboratorio de conversión y atribución |
 
 - Son material de clase: no llevan la cabecera ni el pie de Torre D. Babel, ni el nombre del
   docente. Lo importante es el mensaje: el pie trae solo el correo de contacto.
@@ -262,8 +264,8 @@ seguir el curso lección por lección:
   fuente y se vuelven a copiar, no se editan aquí a mano. La única diferencia es que las letras
   las aloja el sitio, como en el resto de las páginas.
 - Si la dirección lleva eñe, agregue en `astro.config.mjs` la versión sin eñe, que lleva a la
-  original: `/disenometricas03` abre `/diseñometricas03`.
-- La sesión siguiente es otra dirección (`masvalendatos04`); las anteriores no se borran.
+  original: `/disenometricas03` abre `/diseñometricas03` y `/disenometricas04`, `/diseñometricas04`.
+- La sesión siguiente es otra dirección (`masvalendatos05`); las anteriores no se borran.
 
 ## Comandos
 

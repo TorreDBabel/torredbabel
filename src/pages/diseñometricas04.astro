@@ -1,0 +1,35 @@
+---
+// Diseño de métricas para el marketing (AFPN0097) · sesión 4 · Laboratorio de conversión y atribución.
+// Registro «Noche clara»: Bitter, Outfit y Chivo Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+// La dirección sin eñe (/disenometricas04) lleva aquí: ver astro.config.mjs.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/bitter/200.css';
+import '@fontsource/bitter/200-italic.css';
+import '@fontsource/bitter/300.css';
+import '@fontsource/bitter/300-italic.css';
+import '@fontsource/bitter/400.css';
+import '@fontsource/bitter/400-italic.css';
+import '@fontsource/bitter/600.css';
+import '@fontsource/outfit/200.css';
+import '@fontsource/outfit/300.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/600.css';
+import '@fontsource/outfit/700.css';
+import '@fontsource/chivo-mono/300.css';
+import '@fontsource/chivo-mono/400.css';
+import '@fontsource/chivo-mono/500.css';
+import estilo from '../clases/diseñometricas04/laboratorio.css?raw';
+import cuerpo from '../clases/diseñometricas04/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de conversión y atribución"
+  curso="Diseño de métricas para el marketing"
+  sesion={4}
+  descripcion="Un laboratorio para seguir al cliente del anuncio a la compra, medir cada tasa con su base y repartir el crédito entre canales. Sesión 4 de Diseño de métricas para el marketing."
+  tema="#12112b"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>
