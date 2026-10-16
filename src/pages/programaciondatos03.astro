@@ -1,0 +1,29 @@
+---
+// Programación y Analítica de Datos (AFPN0006) · sesión 3 · Laboratorio de ciclos (for y while).
+// Registro «Taller»: IBM Plex Serif, IBM Plex Sans e IBM Plex Mono.
+// Python corre en el navegador con Pyodide 0.26.4, que se descarga de cdn.jsdelivr.net.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/ibm-plex-serif/200.css';
+import '@fontsource/ibm-plex-serif/300.css';
+import '@fontsource/ibm-plex-serif/300-italic.css';
+import '@fontsource/ibm-plex-serif/400.css';
+import '@fontsource/ibm-plex-serif/400-italic.css';
+import '@fontsource/ibm-plex-serif/600.css';
+import '@fontsource-variable/ibm-plex-sans/wght.css';
+import '@fontsource-variable/ibm-plex-sans/wght-italic.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import estilo from '../clases/programaciondatos03/laboratorio.css?raw';
+import cuerpo from '../clases/programaciondatos03/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de ciclos"
+  curso="Programación y Analítica de Datos"
+  sesion={3}
+  descripcion="Un laboratorio para aprender los ciclos for y while con ejemplos de economía: doce ejercicios que suben de dificultad, con Python en el navegador, comprobación automática y soluciones ocultas."
+  tema="#f2f4f3"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

@@ -1,0 +1,1364 @@
+<div class="r-taller">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 3</a>
+  <ol class="bn-lista"><li><a href="#adentro" data-sec="adentro"><span>0</span>El ciclo por dentro</a></li><li><a href="#nivel1" data-sec="nivel1"><span>1</span>Completar una línea</a></li><li><a href="#nivel2" data-sec="nivel2"><span>2</span>Ciclos que deciden</a></li><li><a href="#nivel3" data-sec="nivel3"><span>3</span>Repetir mientras</a></li><li><a href="#nivel4" data-sec="nivel4"><span>4</span>Pensar como programador</a></li><li><a href="#casa" data-sec="casa"><span>5</span>Para la casa</a></li><li><a href="#arenero" data-sec="arenero"><span>6</span>Arenero</a></li></ol>
+  <span class="bn-cuenta" aria-live="polite"></span>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Programación y Analítica de Datos · Sesión 3 · Laboratorio</p>
+
+  <section class="columna" aria-label="Apertura">
+    <p>Doña Rosa tiene su tienda desde hace diez años y anotó en un cuaderno lo que vendió cada día: 3.650 números. Su sobrino quiere sumarlos con Python. Si escribiera una suma por día, el programa tendría 3.650 líneas casi iguales, copiadas y pegadas.</p>
+    <div class="apuesta" data-dato="3">
+      <p>Antes de seguir, apueste: ¿cuántas líneas de Python hacen falta, como mínimo, para sumar esas 3.650 ventas?</p>
+      <div class="opciones" role="group" aria-label="Su apuesta">
+        <button type="button" data-v="3650">3.650, una por día</button><button type="button" data-v="365">Unas 365</button><button type="button" data-v="30">Unas 30</button><button type="button" data-v="3">Tres</button>
+      </div>
+      <p class="dato" hidden><span data-juicio></span> Bastan <b>tres líneas</b>: una que prepara la suma y dos que forman un ciclo. El ciclo escribe la instrucción una vez y la repite 3.650 veces. Abajo puede verlo funcionar.</p>
+    </div>
+  </section>
+
+  <p class="motor" data-estado="espera" role="status"><span>Python se prepara en cuanto la página termina de cargar.</span></p>
+
+  <section class="arenero figura" aria-labelledby="d3650">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="d3650">Tres líneas suman diez años de ventas</h3><p class="figura-clave">Las ventas son simuladas con números al azar. Las tres líneas del ciclo son las que empiezan en <code>total = 0</code>. Presione Ejecutar.</p></div>
+    <div class="banco">
+      <div><div class="editor" data-nombre="Demostración"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Demostración: Diez años de ventas">import random
+random.seed(2026)
+# 3.650 ventas diarias simuladas: diez años de la tienda de doña Rosa
+ventas = [random.randint(150_000, 600_000) for dia in range(3650)]
+
+total = 0
+for venta in ventas:
+    total = total + venta
+
+print("Días sumados:", len(ventas))
+print("Total vendido en diez años:", total)
+</textarea></div>
+        <div class="mandos"><button type="button" class="boton primario" data-accion="ejecutar">Ejecutar</button></div></div>
+      <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De copiar a repetir"><span class="par"><span class="nexo">De</span> <mark class="marca-a">copiar</mark></span><span class="par"><span class="nexo">a</span> <mark class="marca-b">repetir</mark></span></h1>
+    <p class="entradilla">Un ciclo es una instrucción que se escribe una vez y se cumple muchas. Este laboratorio le enseña los dos que usa Python, <code>for</code> y <code>while</code>, con doce ejercicios que suben de dificultad poco a poco.</p>
+    <p class="firma">Bogotá, octubre de 2026</p>
+  </header>
+
+  <blockquote class="epigrafe"><p>«Lo que hay que aprender a hacer, lo aprendemos haciéndolo.»</p><footer>Aristóteles, <cite>Ética a Nicómaco</cite>, II, 1 (1103a) · versión libre</footer></blockquote>
+
+  <section class="columna">
+    <p>En este laboratorio <mark class="marca-a">copiar</mark> es lo que se deja atrás: escribir a mano la misma línea una y otra vez. <mark class="marca-b">Repetir</mark> es lo que llega: que el computador lo haga por usted. Y <mark class="marca-c">la sangría</mark>, los cuatro espacios al comienzo de la línea, es lo que permanece en todo ciclo: marca qué se repite.</p>
+    <ul class="leyenda" aria-label="Clave de colores"><li><mark class="marca-a">A</mark> lo que se va</li><li><mark class="marca-b">B</mark> lo que llega</li><li><mark class="marca-c">C</mark> lo que permanece</li></ul>
+    <p>El recorrido tiene seis estaciones: primero mira un ciclo por dentro, después sube cuatro niveles de ejercicios, sigue con el de la casa y termina en un arenero para inventar los suyos. Cada ejercicio de la guía tiene aquí su estación, con espacio para escribir, un recuadro que le dice si va bien y la solución escondida.</p>
+  </section>
+
+  <section class="columna" id="adentro" aria-labelledby="adentro-t">
+    <h2 class="seccion" id="adentro-t">El ciclo por dentro</h2>
+    <p>Un <code>for</code> dice: «<b>para cada</b> elemento de esta lista, haga esto». Piense en el cajero que pasa los productos por el lector uno por uno: no necesita saber cuántos hay, solo tomar el siguiente hasta que no quede ninguno.</p>
+  </section>
+  <div class="anatomia" role="figure" aria-label="Las cuatro piezas de un ciclo for">
+    <pre><span class="p1">for</span> <span class="p2">precio</span> in <span class="p3">canasta</span>:
+<span class="p4">    total = total + precio</span></pre>
+    <ol>
+      <li style="--b:var(--trazo-a)"><b>1 · for</b>La palabra que anuncia el ciclo. La línea termina en dos puntos.</li>
+      <li style="--b:var(--trazo-b)"><b>2 · precio</b>Una cajita que, en cada vuelta, recibe el siguiente elemento.</li>
+      <li style="--b:var(--acento)"><b>3 · canasta</b>La lista que se recorre. Su largo dice cuántas vueltas habrá.</li>
+      <li><b>4 · la sangría</b>Lo que se repite: todas las líneas con cuatro espacios debajo.</li>
+    </ol>
+  </div>
+  <div class="demo figura"><div class="figura-cabeza"><h3 class="figura-titulo">Mire cómo crece el total, vuelta por vuelta</h3><p class="figura-clave">Presione «Verlo paso a paso» y avance con «Siguiente paso». La línea resaltada es la que Python acaba de ejecutar; las cajitas amarillas son las que cambiaron.</p></div>
+  <div class="columna-media"><pre class="codigo">canasta = [3200, 18500, 4800]
+total = 0
+for precio in canasta:
+    total = total + precio
+print(total)</pre>
+  <div class="mandos"><button type="button" class="boton primario" data-accion="demo">Verlo paso a paso</button></div></div>
+  <div class="rastro" hidden tabindex="0"></div></div>
+  <section class="columna">
+    <p>Un <code>while</code> dice: «<b>mientras</b> esto sea cierto, siga». Es el ciclo de las metas: ahorrar mientras no llegue a la meta, pagar mientras quede deuda. Antes de cada vuelta hace una pregunta de sí o no; cuando la respuesta es «no», para.</p>
+  </section>
+  <div class="demo figura"><div class="figura-cabeza"><h3 class="figura-titulo">El while pregunta antes de cada vuelta</h3><p class="figura-clave">Ahorrar $180.000 al mes hasta tener $500.000. Fíjese en el paso en que la condición ya no se cumple.</p></div>
+  <div class="columna-media"><pre class="codigo">ahorro = 0
+meses = 0
+while ahorro &lt; 500000:
+    ahorro = ahorro + 180000
+    meses = meses + 1
+print(meses, ahorro)</pre>
+  <div class="mandos"><button type="button" class="boton primario" data-accion="demo">Verlo paso a paso</button></div></div>
+  <div class="rastro" hidden tabindex="0"></div></div>
+  <section class="columna">
+    <p><span class="giro">La pregunta que decide entre los dos es una sola: ¿sabe usted cuántas vueltas habrá?</span> Si lo sabe, <code>for</code>. Si no, <code>while</code>. Póngala a prueba con estas cuatro situaciones.</p>
+  </section>
+  <ol class="quiz"><li data-ok="for" data-por="Se sabe cuántas vueltas habrá: una por día, 30."><p>Sumar las ventas de los 30 días de septiembre.</p><div class="opciones" role="group" aria-label="Elija el ciclo"><button type="button" data-v="for">for</button><button type="button" data-v="while">while</button></div><p class="veredicto" aria-live="polite"></p></li><li data-ok="while" data-por="No se sabe de antemano: se repite mientras quede deuda."><p>Saber cuántos meses tardará Laura en pagar su deuda.</p><div class="opciones" role="group" aria-label="Elija el ciclo"><button type="button" data-v="for">for</button><button type="button" data-v="while">while</button></div><p class="veredicto" aria-live="polite"></p></li><li data-ok="for" data-por="Una vuelta por producto: la lista dice cuántas son."><p>Calcular el precio con IVA de cada producto del catálogo.</p><div class="opciones" role="group" aria-label="Elija el ciclo"><button type="button" data-v="for">for</button><button type="button" data-v="while">while</button></div><p class="veredicto" aria-live="polite"></p></li><li data-ok="while" data-por="Se repite mientras no llegue: no sabemos cuántos años serán."><p>Saber en qué año la población de una ciudad llegará a 10 millones.</p><div class="opciones" role="group" aria-label="Elija el ciclo"><button type="button" data-v="for">for</button><button type="button" data-v="while">while</button></div><p class="veredicto" aria-live="polite"></p></li></ol>
+
+  <section class="nivel" id="nivel1"><span class="estrellas">★ · 3 ejercicios</span><h2>Nivel 1 · Completar una línea</h2><p>El ciclo ya está escrito: usted completa la línea que hace el trabajo.</p></section>
+
+<section class="estacion" id="ej1" data-ej="1" aria-labelledby="ej1-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 1</span><span>★</span><span>acumulador</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej1-t">La canasta de la semana</h3>
+  </header>
+  <div class="texto">
+    <p>Valentina hace el mercado de la semana en la tienda de doña Rosa: una libra de arroz ($3.200), una cubeta de huevos ($18.500), una bolsa de leche ($4.800), un litro de aceite ($9.200) y una panela ($3.100). Quiere saber cuánto va a pagar antes de llegar a la caja.</p>
+    <details class="nuez"><summary>¿Qué es «canasta familiar»?</summary><p>El conjunto de productos que un hogar compra con regularidad. El DANE sigue sus precios para medir la inflación. Aquí los precios son simulados.</p></details>
+    <p class="pide">Complete el ciclo para que la variable <code>total</code> termine con la suma de los cinco precios.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="1"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: La canasta de la semana">canasta = [3200, 18500, 4800, 9200, 3100]
+
+total = 0
+for precio in canasta:
+    total = ___
+
+print("Total a pagar:", total)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>La cajita <code>total</code> debe quedarse con lo que ya tenía <b>más</b> el precio nuevo.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">canasta = [3200, 18500, 4800, 9200, 3100]
+
+total = 0
+for precio in canasta:
+    total = total + precio
+
+print("Total a pagar:", total)</pre>
+      <div><p>En cada vuelta, <code>total</code> recibe lo que ya tenía más el precio de esa vuelta. Empieza en 0 y termina en $38.800. Si escribe <code>total = precio</code>, la cajita se queda solo con el último precio, $3.100: el acumulador olvida lo anterior.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej2" data-ej="2" aria-labelledby="ej2-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 2</span><span>★</span><span>range</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej2-t">El salario de todo el año</h3>
+  </header>
+  <div class="texto">
+    <p>Un trabajador gana el salario mínimo de 2026: $1.750.905 al mes. ¿Cuánto habrá recibido al terminar diciembre, sin contar primas ni auxilios?</p>
+    <details class="nuez"><summary>¿Qué es «salario mínimo»?</summary><p>Lo menos que, por ley, se le puede pagar a un trabajador de tiempo completo en un mes. En Colombia lo fija el Gobierno cada diciembre; para 2026 subió 23 %.</p></details>
+    <p class="pide">Use <code>range</code> para que el ciclo dé exactamente doce vueltas, una por mes, y sume el salario en <code>acumulado</code>.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="2"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: El salario de todo el año">salario = 1_750_905
+acumulado = 0
+
+for mes in range(___, ___):
+    acumulado = acumulado + salario
+    print("Mes", mes, "→ lleva", acumulado)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden><code>range(a, b)</code> cuenta desde <code>a</code> y se detiene un número <b>antes</b> de <code>b</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">salario = 1_750_905
+acumulado = 0
+
+for mes in range(1, 13):
+    acumulado = acumulado + salario
+    print("Mes", mes, "→ lleva", acumulado)</pre>
+      <div><p><code>range(1, 13)</code> produce 1, 2, …, 12: empieza en el primero y se detiene <b>antes</b> del segundo. Por eso, para llegar a 12, se escribe 13. Al final, <code>acumulado</code> vale $21.010.860, que es 12 × $1.750.905.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej3" data-ej="3" aria-labelledby="ej3-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 3</span><span>★</span><span>lista</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej3-t">El precio con IVA, producto por producto</h3>
+  </header>
+  <div class="texto">
+    <p>Una papelería tiene sus precios sin IVA: $10.000, $25.000, $4.200 y $87.000. Para la vitrina necesita el precio final que paga el cliente, con el 19 % de IVA incluido.</p>
+    <details class="nuez"><summary>¿Qué es «IVA»?</summary><p>El impuesto al valor agregado: un porcentaje que se suma al precio y que el vendedor entrega al Estado. En Colombia la tarifa general es 19 %, así que el precio final es el precio × 1,19.</p></details>
+    <p class="pide">Recorra la lista y agregue a <code>con_iva</code> cada precio multiplicado por 1,19 y redondeado al peso con <code>round()</code>.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="3"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: El precio con IVA, producto por producto">sin_iva = [10000, 25000, 4200, 87000]
+con_iva = []
+
+for precio in sin_iva:
+    con_iva.append(___)
+
+print(con_iva)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>Dentro del paréntesis va el precio de esa vuelta multiplicado por <code>1.19</code>, con punto decimal, todo dentro de <code>round()</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">sin_iva = [10000, 25000, 4200, 87000]
+con_iva = []
+
+for precio in sin_iva:
+    con_iva.append(round(precio * 1.19))
+
+print(con_iva)</pre>
+      <div><p><code>.append()</code> pega un elemento al final de la lista. La lista empieza vacía y en cada vuelta crece uno: [11900], luego [11900, 29750], y así hasta [11900, 29750, 4998, 103530]. Sin <code>round()</code>, el computador escribiría 4997.999… por la forma en que guarda los decimales.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+<section class="nivel" id="nivel2"><span class="estrellas">★★ · 3 ejercicios</span><h2>Nivel 2 · Ciclos que deciden</h2><p>Un <code>if</code> dentro del <code>for</code>: el ciclo pregunta en cada vuelta.</p></section>
+
+<section class="estacion" id="ej4" data-ej="4" aria-labelledby="ej4-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 4</span><span>★★</span><span>contador</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej4-t">¿Cuántos días superó la meta?</h3>
+  </header>
+  <div class="texto">
+    <p>Doña Rosa se puso una meta: vender más de $300.000 al día. Estas fueron sus ventas de lunes a domingo (datos simulados): 285.000, 310.000, 248.000, 402.000, 365.000, 520.000 y 298.000.</p>
+    <details class="nuez"><summary>¿Qué es «meta de ventas»?</summary><p>Un número que el negocio se propone alcanzar en un periodo. Contar cuántas veces se cumple dice más que el promedio, que puede esconder días malos.</p></details>
+    <p class="pide">Dentro del ciclo, use un <code>if</code> para sumar 1 a <code>dias_buenos</code> solo cuando la venta supere la meta.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="4"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: ¿Cuántos días superó la meta?">ventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]
+meta = 300000
+dias_buenos = 0
+
+for venta in ventas:
+    if ___:
+        dias_buenos = dias_buenos + 1
+
+print("Días que superó la meta:", dias_buenos)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>La condición compara la venta de esa vuelta con la meta: ¿es mayor?</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">ventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]
+meta = 300000
+dias_buenos = 0
+
+for venta in ventas:
+    if venta &gt; meta:
+        dias_buenos = dias_buenos + 1
+
+print("Días que superó la meta:", dias_buenos)</pre>
+      <div><p>Un <b>contador</b> es un acumulador que suma 1 en lugar de sumar un valor. El <code>if</code> va dentro del ciclo, con una sangría más: se pregunta en cada vuelta. Cuatro días superaron la meta: martes, jueves, viernes y sábado.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej5" data-ej="5" aria-labelledby="ej5-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 5</span><span>★★</span><span>el mayor</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej5-t">El mejor día de la semana</h3>
+  </header>
+  <div class="texto">
+    <p>Con las mismas ventas, doña Rosa quiere saber cuál fue su mejor día y cuánto vendió, para decidir cuándo surtir más.</p>
+    <details class="nuez"><summary>¿Qué es «pico de demanda»?</summary><p>El momento en que más se compra. Saberlo permite tener mercancía cuando la gente la busca y no quedarse con bodega llena cuando no.</p></details>
+    <p class="pide">Sin usar <code>max()</code>: recorra los días con <code>range(len(ventas))</code> y guarde en <code>mayor</code> la venta más alta y en <code>mejor_dia</code> el nombre de ese día.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="5"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: El mejor día de la semana">dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+ventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]
+
+mayor = ventas[0]
+mejor_dia = dias[0]
+
+for i in range(len(ventas)):
+    if ventas[i] &gt; mayor:
+        mayor = ___
+        mejor_dia = ___
+
+print("El mejor día fue", mejor_dia, "con", mayor)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>Cuando aparece una venta mayor, el campeón nuevo es <code>ventas[i]</code> y su nombre está en la misma posición de la lista <code>dias</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+ventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]
+
+mayor = ventas[0]
+mejor_dia = dias[0]
+
+for i in range(len(ventas)):
+    if ventas[i] &gt; mayor:
+        mayor = ventas[i]
+        mejor_dia = dias[i]
+
+print("El mejor día fue", mejor_dia, "con", mayor)</pre>
+      <div><p>Es la receta del <b>campeón</b>: se supone que el primero es el mejor y, en cada vuelta, si aparece uno mayor, toma su lugar. Como <code>i</code> es la posición, sirve para las dos listas a la vez. El campeón cambia en el martes, el jueves y el sábado: sábado, $520.000.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej6" data-ej="6" aria-labelledby="ej6-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 6</span><span>★★</span><span>acumulador que multiplica</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej6-t">Lo que costaba $10.000 en 2020</h3>
+  </header>
+  <div class="texto">
+    <p>Un almuerzo costaba $10.000 al terminar 2020. Si su precio subió cada año igual que la inflación, ¿cuánto cuesta al terminar 2025?</p>
+    <details class="nuez"><summary>¿Qué es «inflación»?</summary><p>Cuánto suben en promedio los precios en un año. La mide el DANE con el Índice de Precios al Consumidor (IPC). Fue de 5,62 % en 2021, 13,12 % en 2022, 9,28 % en 2023, 5,20 % en 2024 y 5,10 % en 2025.</p></details>
+    <p class="pide">En cada vuelta, actualice el precio: precio nuevo = precio anterior × (1 + inflación).</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="6"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: Lo que costaba $10.000 en 2020">inflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]   # 2021 a 2025, DANE
+precio = 10000
+
+for inflacion in inflaciones:
+    precio = ___
+    print(round(precio))
+
+precio = round(precio)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>El precio nuevo es el precio que ya tenía multiplicado por <code>(1 + inflacion)</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">inflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]   # 2021 a 2025, DANE
+precio = 10000
+
+for inflacion in inflaciones:
+    precio = precio * (1 + inflacion)
+    print(round(precio))
+
+precio = round(precio)</pre>
+      <div><p>Cada año la inflación se aplica sobre el precio <b>ya subido</b>: es un acumulador que multiplica. El almuerzo termina en $14.436, es decir, 44,4 % más caro, y no 38,2 % como daría la suma simple. A eso se le llama <b>efecto compuesto</b>.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+<section class="nivel" id="nivel3"><span class="estrellas">★★ · 3 ejercicios</span><h2>Nivel 3 · Repetir mientras</h2><p>Ciclos <code>while</code>: no sabemos cuántas vueltas habrá.</p></section>
+
+<section class="estacion" id="ej7" data-ej="7" aria-labelledby="ej7-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 7</span><span>★★</span><span>while con contador</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej7-t">¿Cuándo llego a la meta de ahorro?</h3>
+  </header>
+  <div class="texto">
+    <p>Camilo quiere juntar $1.000.000 para la matrícula de un curso. Puede guardar $180.000 cada mes, en una alcancía que no paga intereses.</p>
+    <details class="nuez"><summary>¿Qué es «meta de ahorro»?</summary><p>Una cantidad que se quiere juntar. Lo que se pregunta es el <b>tiempo</b>: no sabemos de antemano cuántos meses tomará, y por eso aquí va un <code>while</code>.</p></details>
+    <p class="pide">Escriba la condición del <code>while</code>: el ciclo debe seguir <b>mientras</b> el ahorro no haya llegado a la meta.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="7"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: ¿Cuándo llego a la meta de ahorro?">meta = 1_000_000
+aporte = 180_000
+ahorro = 0
+meses = 0
+
+while ___:
+    ahorro = ahorro + aporte
+    meses = meses + 1
+
+print("Llega en", meses, "meses, con", ahorro)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>La condición es una pregunta que se responde con Sí o No: ¿el ahorro todavía es menor que la meta?</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">meta = 1_000_000
+aporte = 180_000
+ahorro = 0
+meses = 0
+
+while ahorro &lt; meta:
+    ahorro = ahorro + aporte
+    meses = meses + 1
+
+print("Llega en", meses, "meses, con", ahorro)</pre>
+      <div><p>El <code>while</code> pregunta <b>antes</b> de cada vuelta. Mientras el ahorro sea menor que la meta, guarda otro aporte. Al sexto mes tiene $1.080.000: la condición deja de cumplirse y el ciclo para. Se pasa de la meta porque los aportes van de $180.000 en $180.000.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej8" data-ej="8" aria-labelledby="ej8-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 8</span><span>★★</span><span>while que multiplica</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej8-t">¿En cuántos años se duplica un precio?</h3>
+  </header>
+  <div class="texto">
+    <p>Suponga que la inflación se queda fija en 9 % al año, como en 2023. Un producto cuesta $10.000. ¿Cuántos años pasan hasta que cueste $20.000 o más?</p>
+    <details class="nuez"><summary>¿Qué es «poder de compra»?</summary><p>Lo que alcanza a comprar el dinero. Si los precios se duplican, el mismo billete compra la mitad. Por eso una inflación «de un dígito» importa: con el tiempo se acumula.</p></details>
+    <p class="pide">Complete el ciclo: mientras el precio sea menor que el doble, súbalo un 9 % y cuente un año más.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="8"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: ¿En cuántos años se duplica un precio?">precio = 10_000
+doble = 2 * precio
+anos = 0
+
+while precio &lt; doble:
+    precio = ___
+    anos = ___
+
+print("Se duplica en", anos, "años; queda en", round(precio))
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>Dos líneas dentro del ciclo: el precio se multiplica por <code>1.09</code> y los años suben de a uno.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">precio = 10_000
+doble = 2 * precio
+anos = 0
+
+while precio &lt; doble:
+    precio = precio * 1.09
+    anos = anos + 1
+
+print("Se duplica en", anos, "años; queda en", round(precio))</pre>
+      <div><p>Tras 8 años el precio va en $19.926, todavía por debajo; en el noveno llega a $21.719 y el ciclo para: 9 años. La regla del 72 da 72 ÷ 9 = 8, una buena aproximación de cabeza. El <code>while</code> da la respuesta exacta.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej9" data-ej="9" aria-labelledby="ej9-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 9</span><span>★★</span><span>while con dos cambios</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej9-t">Pagar una deuda con intereses</h3>
+  </header>
+  <div class="texto">
+    <p>Laura debe $2.000.000 en una tarjeta que cobra 2 % de interés mensual. Cada mes, primero el banco le suma el interés y después ella paga una cuota de $300.000. ¿Cuántos meses tarda en quedar a paz y salvo?</p>
+    <details class="nuez"><summary>¿Qué es «interés y cuota»?</summary><p>El interés es lo que cobra el banco por prestar: un porcentaje de lo que se debe. La cuota es lo que se paga cada mes. Una parte de la cuota se va en intereses y solo el resto baja la deuda.</p></details>
+    <p class="pide">Mientras la deuda sea mayor que cero, súmele el interés del mes, réstele la cuota y cuente el mes.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="9"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: Pagar una deuda con intereses">deuda = 2_000_000
+interes = 0.02
+cuota = 300_000
+meses = 0
+
+while deuda &gt; 0:
+    deuda = ___
+    meses = meses + 1
+    print("Mes", meses, "→ debe", round(deuda))
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>La deuda nueva es la deuda por <code>(1 + interes)</code>, menos la <code>cuota</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">deuda = 2_000_000
+interes = 0.02
+cuota = 300_000
+meses = 0
+
+while deuda &gt; 0:
+    deuda = deuda * (1 + interes) - cuota
+    meses = meses + 1
+    print("Mes", meses, "→ debe", round(deuda))</pre>
+      <div><p>Cada mes la deuda crece 2 % y luego baja $300.000. Sin intereses serían 7 meses (2.000.000 ÷ 300.000 = 6,7); con intereses son 8. En el octavo mes la deuda queda en −$231.572: la última cuota solo necesitaba ser de unos $68.428.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+<section class="nivel" id="nivel4"><span class="estrellas">★★★ · 3 ejercicios</span><h2>Nivel 4 · Pensar como programador</h2><p>Corregir un error, recorrer varias listas a la vez y meter un ciclo dentro de otro.</p></section>
+
+<section class="estacion" id="ej10" data-ej="10" aria-labelledby="ej10-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 10</span><span>★★★</span><span>depurar</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej10-t">El ciclo que nunca termina</h3>
+  </header>
+  <div class="texto">
+    <p>Un compañero escribió este programa para saber en cuántos meses junta $600.000 ahorrando $150.000 al mes. Lo ejecutó y el computador se quedó pensando para siempre.</p>
+    <details class="nuez"><summary>¿Qué es «ciclo infinito»?</summary><p>Un <code>while</code> cuya condición nunca deja de cumplirse. Pasa cuando dentro del ciclo nada cambia la variable de la condición. En el laboratorio, una alarma lo detiene a tiempo.</p></details>
+    <p class="pide">Encuentre por qué no termina y corríjalo agregando la línea que falta. Debe dar 4 meses.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="10"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: El ciclo que nunca termina">ahorro = 0
+meses = 0
+
+while ahorro &lt; 600_000:
+    meses = meses + 1
+
+print("Lo logra en", meses, "meses")
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>Mire la condición del <code>while</code>. ¿Qué variable pregunta? ¿Esa variable cambia dentro del ciclo?</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">ahorro = 0
+meses = 0
+
+while ahorro &lt; 600_000:
+    ahorro = ahorro + 150_000
+    meses = meses + 1
+
+print("Lo logra en", meses, "meses")</pre>
+      <div><p>La condición pregunta por <code>ahorro</code>, pero dentro del ciclo solo cambiaba <code>meses</code>: el ahorro seguía en 0 y la respuesta siempre era «sí, siga». Al agregar <code>ahorro = ahorro + 150_000</code> dentro del ciclo, al cuarto mes llega a $600.000 y para.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej11" data-ej="11" aria-labelledby="ej11-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 11</span><span>★★★</span><span>dos listas a la vez</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej11-t">¿En qué años le ganó el salario a la inflación?</h3>
+  </header>
+  <div class="texto">
+    <p>Entre 2021 y 2025 el salario mínimo subió 3,5 %, 10,07 %, 16 %, 12 % y 9,54 %. La inflación de esos mismos años fue 5,62 %, 13,12 %, 9,28 %, 5,20 % y 5,10 %.</p>
+    <details class="nuez"><summary>¿Qué es «salario real»?</summary><p>Lo que el salario puede comprar. Sube solo si el salario sube más que los precios. Se calcula como (1 + aumento) ÷ (1 + inflación) − 1.</p></details>
+    <p class="pide">Recorra los cinco años y guarde en la lista <code>anos_que_gano</code> los años en que el aumento fue mayor que la inflación. Guarde también en <code>reales</code> la variación real de cada año, en porcentaje y con dos decimales.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="11"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: ¿En qué años le ganó el salario a la inflación?">anos = [2021, 2022, 2023, 2024, 2025]
+aumentos = [0.035, 0.1007, 0.16, 0.12, 0.0954]
+inflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]
+
+anos_que_gano = []
+reales = []
+
+for i in range(len(anos)):
+    real = (1 + aumentos[i]) / (1 + inflaciones[i]) - 1
+    reales.append(round(real * 100, 2))
+    if ___:
+        anos_que_gano.append(___)
+
+print(reales)
+print("Ganó en:", anos_que_gano)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>Compare <code>aumentos[i]</code> con <code>inflaciones[i]</code>; si ganó, agregue el año de esa misma posición: <code>anos[i]</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">anos = [2021, 2022, 2023, 2024, 2025]
+aumentos = [0.035, 0.1007, 0.16, 0.12, 0.0954]
+inflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]
+
+anos_que_gano = []
+reales = []
+
+for i in range(len(anos)):
+    real = (1 + aumentos[i]) / (1 + inflaciones[i]) - 1
+    reales.append(round(real * 100, 2))
+    if aumentos[i] &gt; inflaciones[i]:
+        anos_que_gano.append(anos[i])
+
+print(reales)
+print("Ganó en:", anos_que_gano)</pre>
+      <div><p>La posición <code>i</code> amarra las tres listas: el año, su aumento y su inflación. En 2021 y 2022 el salario subió en pesos pero <b>perdió</b> poder de compra (−2,01 % y −2,70 %). Ganó en 2023, 2024 y 2025. Subir no es lo mismo que mejorar.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+<section class="estacion" id="ej12" data-ej="12" aria-labelledby="ej12-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 12</span><span>★★★</span><span>ciclo dentro de un ciclo</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ej12-t">Reto: la tabla de duplicación</h3>
+  </header>
+  <div class="texto">
+    <p>Un banco ofrece tres cuentas de ahorro: al 4 %, al 8 % y al 12 % efectivo anual. Usted quiere una tabla que diga, para cada tasa, en cuántos años se duplica el dinero.</p>
+    <details class="nuez"><summary>¿Qué es «interés compuesto»?</summary><p>Cuando los intereses de un año también ganan intereses el año siguiente. Es la misma cuenta de la inflación, pero a favor del ahorrador.</p></details>
+    <p class="pide">Escriba un <code>while</code> dentro del <code>for</code>: para cada tasa, empiece con 1 peso y multiplíquelo por (1 + tasa) hasta llegar a 2, contando los años. Guarde cada resultado en <code>anos_para_duplicar</code>.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="12"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: Reto: la tabla de duplicación">tasas = [0.04, 0.08, 0.12]
+anos_para_duplicar = []
+
+for tasa in tasas:
+    valor = 1
+    anos = 0
+    # Escriba aquí el while que sube el valor hasta 2 y cuenta los años
+    ___
+    anos_para_duplicar.append(anos)
+
+print(anos_para_duplicar)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>El <code>while</code> lleva dos líneas adentro, con <b>dos</b> sangrías: el valor se multiplica por <code>(1 + tasa)</code> y los años suben de a uno.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">tasas = [0.04, 0.08, 0.12]
+anos_para_duplicar = []
+
+for tasa in tasas:
+    valor = 1
+    anos = 0
+    while valor &lt; 2:
+        valor = valor * (1 + tasa)
+        anos = anos + 1
+    anos_para_duplicar.append(anos)
+
+print(anos_para_duplicar)</pre>
+      <div><p>El <code>for</code> da tres vueltas, una por tasa; dentro, el <code>while</code> da las que haga falta. <code>valor</code> y <code>anos</code> vuelven a empezar dentro del <code>for</code>: si se escribieran antes, la segunda tasa arrancaría con el dinero ya duplicado. Resultado: 18, 10 y 7 años; la regla del 72 da 18, 9 y 6.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="casa"><span class="estrellas">Para la casa · for y while juntos</span><h2>El ejercicio para la casa</h2><p>Hágalo primero en su cuaderno, como dice la guía, y después compruébelo aquí.</p></section>
+  
+<section class="estacion" id="ejCasa" data-ej="Casa" aria-labelledby="ejCasa-t">
+  <header>
+    <p class="est-rotulo"><span>Para la casa</span><span>Para la casa</span><span>for y while juntos</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejCasa-t">Para la casa: la cuenta de ahorro de Andrés</h3>
+  </header>
+  <div class="texto">
+    <p>Andrés abre una cuenta que paga 0,8 % de interés cada mes (unos 10 % al año, una tasa simulada). Cada mes pasa esto, en este orden: primero el saldo gana el interés y después Andrés deposita $200.000. Empieza con la cuenta en cero.</p>
+    <details class="nuez"><summary>¿Qué es «saldo»?</summary><p>El dinero que hay en la cuenta en un momento dado. Aquí crece por dos razones: lo que Andrés deposita y lo que paga el banco.</p></details>
+    <p class="pide">a) Con un <code>for</code>, calcule el saldo al cabo de 12 meses y guárdelo, redondeado al peso, en <code>saldo_12</code>. b) Con un <code>while</code>, calcule cuántos meses necesita para tener $3.000.000 o más y guárdelo en <code>meses_meta</code>.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="Casa"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Su código: Para la casa: la cuenta de ahorro de Andrés">interes = 0.008
+deposito = 200_000
+
+# a) Doce meses, con for
+saldo = 0
+___
+saldo_12 = round(saldo)
+
+# b) ¿Cuántos meses para llegar a 3.000.000?, con while
+saldo = 0
+meses_meta = 0
+___
+
+print(saldo_12, meses_meta)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>La línea que se repite en los dos ciclos es la misma: <code>saldo = saldo * (1 + interes) + deposito</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">interes = 0.008
+deposito = 200_000
+
+# a) Doce meses, con for
+saldo = 0
+for mes in range(12):
+    saldo = saldo * (1 + interes) + deposito
+saldo_12 = round(saldo)
+
+# b) ¿Cuántos meses para llegar a 3.000.000?, con while
+saldo = 0
+meses_meta = 0
+while saldo &lt; 3_000_000:
+    saldo = saldo * (1 + interes) + deposito
+    meses_meta = meses_meta + 1
+
+print(saldo_12, meses_meta)</pre>
+      <div><p>En 12 meses Andrés depositó $2.400.000 y tiene $2.508.467: el banco le pagó $108.467. Para pasar de $3.000.000 necesita 15 meses. La misma línea de cálculo sirve en los dos ciclos; lo que cambia es la pregunta: «¿cuánto al cabo de 12?» (sé las vueltas: <code>for</code>) o «¿cuándo llego?» (no las sé: <code>while</code>).</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="arenero"><span class="estrellas">Arenero · sin calificación</span><h2>Su propio ciclo</h2><p>Aquí no hay respuesta correcta. Cambie la inflación, invente una deuda o recorra su propia lista de gastos.</p></section>
+  <section class="arenero estacion" aria-label="Arenero">
+    <div class="banco">
+      <div><div class="editor" data-nombre="Arenero" data-ej="arenero"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Arenero: Arenero"># Arenero: escriba aquí su propio ciclo y presione Ejecutar.
+# Idea: ¿cuántos años tarda en duplicarse un precio con la inflación de su elección?
+inflacion = 0.06
+precio = 1
+anos = 0
+while precio &lt; 2:
+    precio = precio * (1 + inflacion)
+    anos = anos + 1
+print("Con", inflacion * 100, "% al año, los precios se duplican en", anos, "años")
+</textarea></div>
+        <div class="mandos"><button type="button" class="boton primario" data-accion="ejecutar">Ejecutar</button><button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button></div>
+        <p class="atajo">Ctrl + Enter también ejecuta. Lo que escribe se guarda solo en este navegador.</p></div>
+      <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+    </div>
+    <div class="rastro" hidden tabindex="0"></div>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta al cuaderno de doña Rosa</h2>
+    <p>Las 3.650 ventas del principio ya no asustan: son una lista, y una lista se recorre con un <code>for</code>. La deuda de Laura, la meta de Camilo y los precios que se duplican no tienen número de vueltas conocido, y por eso se resuelven con un <code>while</code>. En la próxima sesión, pandas hará muchos de estos ciclos en una sola línea; quien entiende el ciclo entiende lo que pandas hace por dentro.</p>
+    <p class="aforismo">Lo que se repite a mano, se escribe una vez.</p>
+  </section>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿Cómo corre Python dentro de esta página?</summary><p>Con Pyodide, una versión de Python que funciona dentro del navegador. La primera vez se descargan unos 10 MB; después queda guardado. Su código no se envía a ningún servidor: corre en su equipo, y lo que escribe se guarda solo en este navegador para que no lo pierda si recarga.</p><p>Una alarma detiene cualquier programa que dé más de 200.000 pasos: así un ciclo infinito no congela la página.</p></details>
+  <details><summary>¿De dónde salen los datos?</summary><p>Son reales: el salario mínimo de 2026 ($1.750.905, Decreto 1469 de 2025), los aumentos del salario mínimo de 2021 a 2025 (decretos anuales), la inflación anual a diciembre de 2021 a 2025 (DANE, IPC) y la tarifa general del IVA (19 %). Son simulados: las ventas de doña Rosa, los precios de la canasta y de la papelería, la deuda de Laura, el ahorro de Camilo y de Andrés, y las tasas del banco del reto.</p></details>
+  <details><summary>¿Cómo se comprueba cada ejercicio?</summary><p>El laboratorio ejecuta su programa y revisa el valor final de las variables que pide el ejercicio. También mira que use el ciclo que se pide: un número escrito a mano no cuenta. Si algo falla, el recuadro le dice qué revisar, en español y con el número de línea.</p></details>
+  <details><summary>¿Qué no muestra este laboratorio?</summary><p>Los casos económicos están simplificados para que quepan en un ejercicio: la deuda no tiene seguros ni cuota de manejo, el ahorro no paga impuestos y la inflación se supone pareja todo el año. La regla del 72 es una aproximación, no una ley.</p></details>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+</div>
+<script type="application/json" id="datos-ejercicios">{"1": {"checks": [["total == 38800", "El total debería ser la suma de los cinco precios. Revise que en cada vuelta sume el precio a lo que ya llevaba: <code>total + precio<\/code>."]], "requiere": "for", "requiere2": null, "prohibe": null, "arranque": "canasta = [3200, 18500, 4800, 9200, 3100]\n\ntotal = 0\nfor precio in canasta:\n    total = ___\n\nprint(\"Total a pagar:\", total)\n", "solucion": "canasta = [3200, 18500, 4800, 9200, 3100]\n\ntotal = 0\nfor precio in canasta:\n    total = total + precio\n\nprint(\"Total a pagar:\", total)\n"}, "2": {"checks": [["acumulado == 21010860", "El acumulado debería valer doce salarios. Si le dio once, revise el segundo número de <code>range<\/code>: se detiene uno antes."], ["mes == 12", "El último mes del ciclo debería ser el 12 (diciembre)."]], "requiere": "for", "requiere2": null, "prohibe": null, "arranque": "salario = 1_750_905\nacumulado = 0\n\nfor mes in range(___, ___):\n    acumulado = acumulado + salario\n    print(\"Mes\", mes, \"→ lleva\", acumulado)\n", "solucion": "salario = 1_750_905\nacumulado = 0\n\nfor mes in range(1, 13):\n    acumulado = acumulado + salario\n    print(\"Mes\", mes, \"→ lleva\", acumulado)\n"}, "3": {"checks": [["con_iva == [11900, 29750, 4998, 103530]", "La lista debería quedar con cuatro precios: cada uno de los originales × 1.19, redondeado. Fíjese en usar punto decimal: 1.19, no 1,19."]], "requiere": "for", "requiere2": null, "prohibe": null, "arranque": "sin_iva = [10000, 25000, 4200, 87000]\ncon_iva = []\n\nfor precio in sin_iva:\n    con_iva.append(___)\n\nprint(con_iva)\n", "solucion": "sin_iva = [10000, 25000, 4200, 87000]\ncon_iva = []\n\nfor precio in sin_iva:\n    con_iva.append(round(precio * 1.19))\n\nprint(con_iva)\n"}, "4": {"checks": [["dias_buenos == 4", "Deberían ser 4 días. Revise la condición: ¿compara <code>venta<\/code> con <code>meta<\/code> usando <code>&gt;<\/code>?"]], "requiere": "for", "requiere2": null, "prohibe": null, "arranque": "ventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]\nmeta = 300000\ndias_buenos = 0\n\nfor venta in ventas:\n    if ___:\n        dias_buenos = dias_buenos + 1\n\nprint(\"Días que superó la meta:\", dias_buenos)\n", "solucion": "ventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]\nmeta = 300000\ndias_buenos = 0\n\nfor venta in ventas:\n    if venta > meta:\n        dias_buenos = dias_buenos + 1\n\nprint(\"Días que superó la meta:\", dias_buenos)\n"}, "5": {"checks": [["mayor == 520000", "La venta más alta debería ser 520.000. ¿Guardó en <code>mayor<\/code> la venta de esa vuelta, <code>ventas[i]<\/code>?"], ["mejor_dia == 'sábado'", "El mejor día debería ser el sábado. ¿Tomó el nombre de la lista <code>dias<\/code> en la misma posición <code>i<\/code>?"]], "requiere": "for", "requiere2": null, "prohibe": ["max(", "Esta vez, hágalo sin <code>max()<\/code>: el ejercicio es construir usted mismo lo que esa función hace por dentro."], "arranque": "dias = [\"lunes\", \"martes\", \"miércoles\", \"jueves\", \"viernes\", \"sábado\", \"domingo\"]\nventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]\n\nmayor = ventas[0]\nmejor_dia = dias[0]\n\nfor i in range(len(ventas)):\n    if ventas[i] > mayor:\n        mayor = ___\n        mejor_dia = ___\n\nprint(\"El mejor día fue\", mejor_dia, \"con\", mayor)\n", "solucion": "dias = [\"lunes\", \"martes\", \"miércoles\", \"jueves\", \"viernes\", \"sábado\", \"domingo\"]\nventas = [285000, 310000, 248000, 402000, 365000, 520000, 298000]\n\nmayor = ventas[0]\nmejor_dia = dias[0]\n\nfor i in range(len(ventas)):\n    if ventas[i] > mayor:\n        mayor = ventas[i]\n        mejor_dia = dias[i]\n\nprint(\"El mejor día fue\", mejor_dia, \"con\", mayor)\n"}, "6": {"checks": [["precio == 14436", "El precio final debería ser $14.436. Revise que multiplique el precio que ya llevaba por <code>(1 + inflacion)<\/code>, y no por la inflación sola."]], "requiere": "for", "requiere2": null, "prohibe": null, "arranque": "inflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]   # 2021 a 2025, DANE\nprecio = 10000\n\nfor inflacion in inflaciones:\n    precio = ___\n    print(round(precio))\n\nprecio = round(precio)\n", "solucion": "inflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]   # 2021 a 2025, DANE\nprecio = 10000\n\nfor inflacion in inflaciones:\n    precio = precio * (1 + inflacion)\n    print(round(precio))\n\nprecio = round(precio)\n"}, "7": {"checks": [["meses == 6", "Deberían ser 6 meses. La condición debe ser verdadera mientras falte dinero: <code>ahorro &lt; meta<\/code>."], ["ahorro == 1080000", "Al terminar, el ahorro debería ser $1.080.000."]], "requiere": "while", "requiere2": null, "prohibe": null, "arranque": "meta = 1_000_000\naporte = 180_000\nahorro = 0\nmeses = 0\n\nwhile ___:\n    ahorro = ahorro + aporte\n    meses = meses + 1\n\nprint(\"Llega en\", meses, \"meses, con\", ahorro)\n", "solucion": "meta = 1_000_000\naporte = 180_000\nahorro = 0\nmeses = 0\n\nwhile ahorro < meta:\n    ahorro = ahorro + aporte\n    meses = meses + 1\n\nprint(\"Llega en\", meses, \"meses, con\", ahorro)\n"}, "8": {"checks": [["anos == 9", "Deberían ser 9 años. ¿Multiplica el precio por <code>1.09<\/code> y suma 1 a <code>anos<\/code> en cada vuelta?"], ["round(precio) == 21719", "El precio final debería quedar en $21.719."]], "requiere": "while", "requiere2": null, "prohibe": null, "arranque": "precio = 10_000\ndoble = 2 * precio\nanos = 0\n\nwhile precio < doble:\n    precio = ___\n    anos = ___\n\nprint(\"Se duplica en\", anos, \"años; queda en\", round(precio))\n", "solucion": "precio = 10_000\ndoble = 2 * precio\nanos = 0\n\nwhile precio < doble:\n    precio = precio * 1.09\n    anos = anos + 1\n\nprint(\"Se duplica en\", anos, \"años; queda en\", round(precio))\n"}, "9": {"checks": [["meses == 8", "Deberían ser 8 meses. Revise el orden: primero se multiplica por <code>(1 + interes)<\/code> y después se resta la cuota."], ["round(deuda) == -231572", "Al terminar, la deuda debería quedar en −231.572 (lo que se pagó de más en la última cuota)."]], "requiere": "while", "requiere2": null, "prohibe": null, "arranque": "deuda = 2_000_000\ninteres = 0.02\ncuota = 300_000\nmeses = 0\n\nwhile deuda > 0:\n    deuda = ___\n    meses = meses + 1\n    print(\"Mes\", meses, \"→ debe\", round(deuda))\n", "solucion": "deuda = 2_000_000\ninteres = 0.02\ncuota = 300_000\nmeses = 0\n\nwhile deuda > 0:\n    deuda = deuda * (1 + interes) - cuota\n    meses = meses + 1\n    print(\"Mes\", meses, \"→ debe\", round(deuda))\n"}, "10": {"checks": [["meses == 4", "Debería dar 4 meses. La línea que falta suma el aporte al ahorro y va dentro del ciclo, con sangría."], ["ahorro == 600000", "Al terminar, el ahorro debería ser $600.000."]], "requiere": "while", "requiere2": null, "prohibe": null, "arranque": "ahorro = 0\nmeses = 0\n\nwhile ahorro < 600_000:\n    meses = meses + 1\n\nprint(\"Lo logra en\", meses, \"meses\")\n", "solucion": "ahorro = 0\nmeses = 0\n\nwhile ahorro < 600_000:\n    ahorro = ahorro + 150_000\n    meses = meses + 1\n\nprint(\"Lo logra en\", meses, \"meses\")\n"}, "11": {"checks": [["anos_que_gano == [2023, 2024, 2025]", "Deberían ser 2023, 2024 y 2025. ¿Compara el aumento con la inflación de la misma posición <code>i<\/code> y agrega <code>anos[i]<\/code>?"], ["reales == [-2.01, -2.7, 6.15, 6.46, 4.22]", "Las variaciones reales no coinciden: no cambie la línea que las calcula."]], "requiere": "for", "requiere2": null, "prohibe": null, "arranque": "anos = [2021, 2022, 2023, 2024, 2025]\naumentos = [0.035, 0.1007, 0.16, 0.12, 0.0954]\ninflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]\n\nanos_que_gano = []\nreales = []\n\nfor i in range(len(anos)):\n    real = (1 + aumentos[i]) / (1 + inflaciones[i]) - 1\n    reales.append(round(real * 100, 2))\n    if ___:\n        anos_que_gano.append(___)\n\nprint(reales)\nprint(\"Ganó en:\", anos_que_gano)\n", "solucion": "anos = [2021, 2022, 2023, 2024, 2025]\naumentos = [0.035, 0.1007, 0.16, 0.12, 0.0954]\ninflaciones = [0.0562, 0.1312, 0.0928, 0.0520, 0.0510]\n\nanos_que_gano = []\nreales = []\n\nfor i in range(len(anos)):\n    real = (1 + aumentos[i]) / (1 + inflaciones[i]) - 1\n    reales.append(round(real * 100, 2))\n    if aumentos[i] > inflaciones[i]:\n        anos_que_gano.append(anos[i])\n\nprint(reales)\nprint(\"Ganó en:\", anos_que_gano)\n"}, "12": {"checks": [["anos_para_duplicar == [18, 10, 7]", "Deberían ser 18, 10 y 7 años. ¿Reinició <code>valor<\/code> y <code>anos<\/code> dentro del <code>for<\/code>, y el <code>while<\/code> sigue mientras <code>valor &lt; 2<\/code>?"]], "requiere": "while", "requiere2": "for", "prohibe": null, "arranque": "tasas = [0.04, 0.08, 0.12]\nanos_para_duplicar = []\n\nfor tasa in tasas:\n    valor = 1\n    anos = 0\n    # Escriba aquí el while que sube el valor hasta 2 y cuenta los años\n    ___\n    anos_para_duplicar.append(anos)\n\nprint(anos_para_duplicar)\n", "solucion": "tasas = [0.04, 0.08, 0.12]\nanos_para_duplicar = []\n\nfor tasa in tasas:\n    valor = 1\n    anos = 0\n    while valor < 2:\n        valor = valor * (1 + tasa)\n        anos = anos + 1\n    anos_para_duplicar.append(anos)\n\nprint(anos_para_duplicar)\n"}, "Casa": {"checks": [["saldo_12 == 2508467", "El saldo a 12 meses debería ser $2.508.467. Revise el orden: primero el interés, después el depósito."], ["meses_meta == 15", "Deberían ser 15 meses para llegar a $3.000.000."]], "requiere": "while", "requiere2": "for", "prohibe": null, "arranque": "interes = 0.008\ndeposito = 200_000\n\n# a) Doce meses, con for\nsaldo = 0\n___\nsaldo_12 = round(saldo)\n\n# b) ¿Cuántos meses para llegar a 3.000.000?, con while\nsaldo = 0\nmeses_meta = 0\n___\n\nprint(saldo_12, meses_meta)\n", "solucion": "interes = 0.008\ndeposito = 200_000\n\n# a) Doce meses, con for\nsaldo = 0\nfor mes in range(12):\n    saldo = saldo * (1 + interes) + deposito\nsaldo_12 = round(saldo)\n\n# b) ¿Cuántos meses para llegar a 3.000.000?, con while\nsaldo = 0\nmeses_meta = 0\nwhile saldo < 3_000_000:\n    saldo = saldo * (1 + interes) + deposito\n    meses_meta = meses_meta + 1\n\nprint(saldo_12, meses_meta)\n"}}</script>
+<script type="text/x-python" id="motor-python">"""Motor del laboratorio: corre el código del estudiante, lo comprueba y arma la prueba de escritorio.
+Se ejecuta igual en Pyodide (navegador) y en CPython (pruebas). Devuelve JSON."""
+import sys, io, json, re, contextlib, traceback
+
+LIMITE_PASOS = 200_000
+LIMITE_RASTRO = 160
+
+
+class _CicloInfinito(Exception):
+    pass
+
+
+def _nombre_error(e):
+    return type(e).__name__
+
+
+def _linea_de(e, codigo):
+    n = None
+    if isinstance(e, SyntaxError):
+        n = e.lineno
+    else:
+        tb = e.__traceback__
+        while tb is not None:
+            if tb.tb_frame.f_code.co_filename == "<estudiante>":
+                n = tb.tb_lineno
+            tb = tb.tb_next
+    return n
+
+
+def _traducir(e, codigo):
+    n = _linea_de(e, codigo)
+    donde = f" en la línea {n}" if n else ""
+    tipo = _nombre_error(e)
+    msg = str(e)
+    if isinstance(e, _CicloInfinito):
+        return ("El programa dio demasiadas vueltas y lo detuve: parece un <b>ciclo infinito<\/b>. "
+                "Revise que dentro del <code>while<\/code> cambie la variable que la condición pregunta.")
+    if tipo == "IndentationError" or tipo == "TabError":
+        if "expected an indented block" in msg:
+            return f"Falta la <b>sangría<\/b>{donde}: después de una línea que termina en <code>:<\/code>, las líneas de adentro van con cuatro espacios."
+        if "unexpected indent" in msg:
+            return f"Hay una <b>sangría de más<\/b>{donde}: esa línea tiene espacios al comienzo que no corresponden."
+        return f"La <b>sangría<\/b> no cuadra{donde}. Las líneas de un mismo bloque deben empezar en la misma columna."
+    if tipo == "SyntaxError":
+        linea = codigo.splitlines()[n - 1] if n and n <= len(codigo.splitlines()) else ""
+        if re.match(r"\s*(for|while|if|else|elif)\b", linea) and not linea.rstrip().endswith(":"):
+            return f"Falta el <b>dos puntos<\/b> <code>:<\/code> al final de la línea {n}."
+        if re.search(r"\b(if|while)\b[^=!<>]*[^=!<>]=[^=]", linea):
+            return f"En la línea {n}, para <b>comparar<\/b> se escriben dos signos: <code>==<\/code>. Uno solo, <code>=<\/code>, guarda."
+        if "never closed" in msg or "unmatched" in msg or "was never closed" in msg:
+            return f"Un paréntesis o corchete quedó sin cerrar{donde}."
+        return f"Python no entiende la escritura{donde}. Revise paréntesis, comillas, dos puntos y que los decimales lleven punto, no coma."
+    if tipo == "NameError":
+        m = re.search(r"name '(.+?)' is not defined", msg)
+        nom = m.group(1) if m else "?"
+        return f"Usa el nombre <code>{nom}<\/code>{donde}, pero esa variable no existe todavía. ¿Está bien escrito? ¿Le dio un valor antes del ciclo?"
+    if tipo == "TypeError":
+        return f"Mezcla tipos de datos que no se pueden combinar{donde} (por ejemplo, un texto con un número). Detalle: <code>{msg}<\/code>"
+    if tipo == "IndexError":
+        return f"Pide una posición que no existe en la lista{donde}. Recuerde que las posiciones empiezan en 0."
+    if tipo == "ZeroDivisionError":
+        return f"Hay una división entre cero{donde}."
+    return f"Python se detuvo con un error{donde}: <code>{tipo}: {msg}<\/code>"
+
+
+def _simple(v):
+    if isinstance(v, bool) or v is None:
+        return repr(v)
+    if isinstance(v, int):
+        return f"{v:,}".replace(",", ".")
+    if isinstance(v, float):
+        if abs(v) < 1 and v != 0:
+            return f"{v:.4f}".replace(".", ",")
+        return f"{v:,.2f}".replace(",", "_").replace(".", ",").replace("_", ".")
+    if isinstance(v, str):
+        return repr(v)
+    if isinstance(v, (list, tuple)):
+        r = "[" + ", ".join(_simple(x) for x in v[:8]) + (", …" if len(v) > 8 else "") + "]"
+        return r
+    return None
+
+
+def _foto(f_locals):
+    out = {}
+    for k, v in f_locals.items():
+        if k.startswith("_"):
+            continue
+        s = _simple(v)
+        if s is not None:
+            out[k] = s
+    return out
+
+
+def _ejecutar(codigo, rastrear=False):
+    contador = [0]
+    pasos = []
+
+    def traza(frame, evento, arg):
+        if frame.f_code.co_filename != "<estudiante>":
+            return None
+        if evento == "line":
+            contador[0] += 1
+            if contador[0] > LIMITE_PASOS:
+                raise _CicloInfinito()
+            if rastrear and len(pasos) < LIMITE_RASTRO:
+                pasos.append([frame.f_lineno, _foto(frame.f_locals)])
+        return traza
+
+    ns = {"__name__": "__main__"}
+    salida = io.StringIO()
+    error = None
+    try:
+        obj = compile(codigo, "<estudiante>", "exec")
+    except SyntaxError as e:
+        return ns, "", e, pasos, 0
+    sys.settrace(traza)
+    try:
+        with contextlib.redirect_stdout(salida):
+            exec(obj, ns)
+    except BaseException as e:  # noqa
+        error = e
+    finally:
+        sys.settrace(None)
+    if rastrear:
+        # foto final, después de la última línea
+        pasos.append([None, _foto(ns)])
+    return ns, salida.getvalue(), error, pasos, contador[0]
+
+
+def _sin_comentarios(codigo):
+    return "\n".join(l.split("#")[0] for l in codigo.splitlines())
+
+
+def comprobar(codigo, spec_json):
+    spec = json.loads(spec_json)
+    r = {"estado": "mal", "mensaje": "", "salida": ""}
+    if "___" in codigo:
+        r["estado"] = "falta"
+        r["mensaje"] = "Todavía hay espacios en blanco <code>___<\/code> por llenar. Cámbielos por su código."
+        return json.dumps(r)
+    ns, salida, error, _, _ = _ejecutar(codigo)
+    r["salida"] = salida[-4000:]
+    if error is not None:
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(error, codigo)
+        return json.dumps(r)
+    limpio = _sin_comentarios(codigo)
+    for palabra in [spec.get("requiere"), spec.get("requiere2")]:
+        if palabra and not re.search(rf"\b{palabra}\b", limpio):
+            r["mensaje"] = f"El resultado puede estar bien, pero este ejercicio pide usar un ciclo <code>{palabra}<\/code>."
+            return json.dumps(r)
+    if spec.get("prohibe") and spec["prohibe"][0] in limpio:
+        r["mensaje"] = spec["prohibe"][1]
+        return json.dumps(r)
+    for expr, msg in spec["checks"]:
+        try:
+            ok = eval(expr, dict(ns))
+        except NameError as e:
+            m = re.search(r"name '(.+?)' is not defined", str(e))
+            r["mensaje"] = f"No encuentro la variable <code>{m.group(1) if m else '?'}<\/code>. ¿La creó con ese nombre exacto?"
+            return json.dumps(r)
+        except Exception:
+            ok = False
+        if not ok:
+            r["mensaje"] = msg
+            return json.dumps(r)
+    r["estado"] = "ok"
+    return json.dumps(r)
+
+
+def ejecutar(codigo):
+    """Arenero: solo corre y muestra la salida."""
+    ns, salida, error, _, n = _ejecutar(codigo)
+    r = {"estado": "ok", "salida": salida[-6000:], "mensaje": ""}
+    if error is not None:
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(error, codigo)
+    return json.dumps(r)
+
+
+def rastrear(codigo):
+    if "___" in codigo:
+        return json.dumps({"estado": "falta", "mensaje": "Llene primero los espacios <code>___<\/code>; después podrá verlo paso a paso.", "pasos": []})
+    ns, salida, error, pasos, n = _ejecutar(codigo, rastrear=True)
+    r = {"estado": "ok", "pasos": pasos, "lineas": codigo.splitlines(), "total": n, "corto": n > LIMITE_RASTRO, "mensaje": ""}
+    if error is not None:
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(error, codigo)
+    return json.dumps(r)
+</script>
+<script>
+/* Laboratorio de ciclos · Python de verdad en el navegador (Pyodide).
+   Nada de lo que la persona escribe sale de su navegador: el código corre aquí mismo. */
+(() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js');
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const guardar = (k, v) => { try { localStorage.setItem('ciclos03:' + k, v); } catch (e) {} };
+  const leer = k => { try { return localStorage.getItem('ciclos03:' + k); } catch (e) { return null; } };
+  const EJ = JSON.parse($('#datos-ejercicios').textContent);
+  const MOTOR = $('#motor-python').textContent.split('<\\/').join('</');
+
+  /* ---------- 1. Python en el navegador ---------- */
+  const PYO = window.LAB_PYODIDE || 'https://cdn.jsdelivr.net/npm/pyodide@0.26.4/';
+  const aviso = $('.motor');
+  const pinta = (estado, texto) => { if (aviso) { aviso.dataset.estado = estado; aviso.querySelector('span').innerHTML = texto; } };
+  let promesa = null;
+  function python() {
+    if (promesa) return promesa;
+    pinta('cargando', 'Preparando Python en su navegador. La primera vez tarda unos segundos…');
+    promesa = new Promise((ok, no) => {
+      const s = document.createElement('script');
+      s.src = PYO + 'pyodide.js';
+      s.onload = async () => {
+        try {
+          const py = await loadPyodide(Object.assign({ indexURL: PYO }, window.LAB_STDLIB ? { stdLibURL: window.LAB_STDLIB } : {}));
+          py.runPython(MOTOR);
+          pinta('listo', '<b>Python está listo.</b> Su código corre aquí, en su navegador: nada de lo que escribe sale de este equipo.');
+          ok(py);
+        } catch (e) { no(e); }
+      };
+      s.onerror = () => no(new Error('No se pudo descargar Python'));
+      document.head.appendChild(s);
+    }).catch(e => {
+      pinta('falla', '<b>No pude cargar Python</b> en este navegador (revise su conexión y recargue la página). Mientras tanto puede leer los ejercicios, hacerlos en su cuaderno y abrir las soluciones.');
+      promesa = null;
+      throw e;
+    });
+    return promesa;
+  }
+  async function llamar(fn, ...args) {
+    const py = await python();
+    return JSON.parse(py.globals.get(fn)(...args));
+  }
+  const arrancar = () => python().catch(() => {});
+  if ('requestIdleCallback' in window) requestIdleCallback(arrancar, { timeout: 2500 }); else setTimeout(arrancar, 800);
+
+  /* ---------- 2. Editores ---------- */
+  function editor(caja) {
+    const ta = $('textarea', caja), nums = $('.numeros', caja);
+    const ajusta = () => {
+      const n = ta.value.split('\n').length;
+      nums.textContent = Array.from({ length: n }, (_, i) => i + 1).join('\n');
+      ta.style.height = 'auto';
+      ta.style.height = ta.scrollHeight + 'px';
+    };
+    ta.addEventListener('input', () => { ajusta(); if (caja.dataset.ej) guardar('codigo:' + caja.dataset.ej, ta.value); });
+    ta.addEventListener('keydown', e => {
+      const { selectionStart: a, selectionEnd: b, value: v } = ta;
+      if (e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault(); ta.setRangeText('    ', a, b, 'end'); ta.dispatchEvent(new Event('input'));
+      } else if (e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        const ini = v.lastIndexOf('\n', a - 1) + 1;
+        const quita = (v.slice(ini, ini + 4).match(/^ {1,4}/) || [''])[0].length;
+        if (quita) { ta.setRangeText('', ini, ini + quita, 'preserve'); ta.selectionStart = ta.selectionEnd = Math.max(ini, a - quita); ta.dispatchEvent(new Event('input')); }
+      } else if (e.key === 'Enter' && !e.ctrlKey && !e.metaKey) {
+        e.preventDefault();
+        const ini = v.lastIndexOf('\n', a - 1) + 1, linea = v.slice(ini, a);
+        let sangria = (linea.match(/^ */) || [''])[0];
+        if (/:\s*(#.*)?$/.test(linea)) sangria += '    ';
+        ta.setRangeText('\n' + sangria, a, b, 'end'); ta.dispatchEvent(new Event('input'));
+      } else if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault(); const p = caja.closest('.estacion, .arenero'); const btn = p && $('[data-accion=comprobar], [data-accion=ejecutar]', p); if (btn) btn.click();
+      }
+    });
+    const previo = caja.dataset.ej && leer('codigo:' + caja.dataset.ej);
+    if (previo) ta.value = previo;
+    ajusta();
+    return ta;
+  }
+
+  /* ---------- 3. Veredicto ---------- */
+  const TITULOS = { ok: '✓ ¡Va muy bien!', mal: '✗ Todavía no', error: '✗ Python encontró un problema', falta: '… Le falta completar', corriendo: 'Ejecutando…' };
+  function veredicto(panel, r, extra) {
+    panel.dataset.estado = r.estado;
+    $('.panel-cabeza span', panel).textContent = TITULOS[r.estado] || 'Resultado';
+    const caja = $('.veredicto-caja', panel);
+    caja.innerHTML = '';
+    if (r.estado === 'ok') caja.innerHTML = `<p class="titulo-v">Correcto.</p><p>${extra || 'Su programa da el resultado esperado.'}</p>`;
+    else caja.innerHTML = `<p>${r.mensaje || ''}</p>`;
+    $('.salida', panel).textContent = r.salida || '';
+  }
+
+  /* ---------- 4. Prueba de escritorio paso a paso ---------- */
+  const esCabeza = l => /^\s*(for|while)\b/.test(l || '');
+  function rastro(contenedor, r) {
+    contenedor.hidden = false;
+    const lineas = r.lineas || [], pasos = r.pasos || [];
+    const filas = pasos.slice(0, -1).map((p, k) => ({ linea: p[0], antes: p[1], despues: (pasos[k + 1] || p)[1] }));
+    let vuelta = 0;
+    let fuera = false;
+    const sangria = n => ((lineas[n - 1] || '').match(/^ */) || [''])[0].length;
+    filas.forEach((f, k) => {
+      if (esCabeza(lineas[f.linea - 1])) {
+        const sig = filas[k + 1];
+        if (sig && sig.linea > f.linea && sangria(sig.linea) > sangria(f.linea)) { vuelta += 1; fuera = false; } else { f.sale = true; fuera = true; }
+      } else f.fuera = fuera;
+      f.vuelta = vuelta;
+    });
+    const nombres = [];
+    filas.forEach(f => Object.keys(f.despues).forEach(n => { if (!nombres.includes(n)) nombres.push(n); }));
+    contenedor.innerHTML = `
+      <div class="rastro-cabeza"><span>Prueba de escritorio automática</span><span class="cuenta-vueltas"></span></div>
+      <div class="rastro-cuerpo">
+        <ol class="rastro-codigo">${lineas.map(l => `<li>${l.replace(/&/g, '&amp;').replace(/</g, '&lt;') || ' '}</li>`).join('')}</ol>
+        <div class="rastro-vars"><p class="rastro-que"></p><ul class="cajitas"></ul></div>
+      </div>
+      <div class="rastro-mandos">
+        <button type="button" class="boton" data-r="-1">Anterior</button>
+        <button type="button" class="boton primario" data-r="1">Siguiente paso</button>
+        <button type="button" class="boton" data-r="fin">Ir al final</button>
+        <button type="button" class="boton" data-r="tabla" aria-expanded="false">Ver la tabla</button>
+        <span class="cuenta" aria-live="polite"></span>
+      </div>
+      <div class="rastro-tabla-marco" hidden tabindex="0"></div>`;
+    if (r.mensaje) $('.rastro-cabeza', contenedor).insertAdjacentHTML('afterend', `<p class="rastro-que" style="padding:.6rem .9rem;margin:0;border-bottom:1px solid var(--regla)">${r.mensaje}</p>`);
+    const lis = $$('.rastro-codigo li', contenedor), que = $('.rastro-que:not([style])', contenedor), caj = $('.cajitas', contenedor), cuenta = $('.cuenta', contenedor), cv = $('.cuenta-vueltas', contenedor);
+    const marco = $('.rastro-tabla-marco', contenedor);
+    // tabla clásica: una fila por paso en que algo cambió
+    const filasT = filas.map((f, k) => ({ f, k })).filter(({ f }) => nombres.some(n => f.despues[n] !== f.antes[n]));
+    marco.innerHTML = `<table class="tabla"><thead><tr><th>Paso</th><th>Línea</th>${nombres.map(n => `<th>${n}</th>`).join('')}</tr></thead><tbody>${filasT.map(({ f, k }) => `<tr data-k="${k}"><td>${k + 1}</td><td>${f.linea}</td>${nombres.map(n => `<td>${f.despues[n] !== f.antes[n] ? '<b>' + (f.despues[n] ?? '') + '</b>' : (f.despues[n] ?? '')}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    let i = 0;
+    const ir = n => {
+      if (!filas.length) { que.textContent = 'No hubo pasos que mostrar.'; return; }
+      i = Math.max(0, Math.min(filas.length - 1, n));
+      const f = filas[i];
+      lis.forEach((li, k) => li.classList.toggle('aqui', k === f.linea - 1));
+      const lin = (lineas[f.linea - 1] || '').trim();
+      let texto = `Python ejecutó la línea ${f.linea}`;
+      if (esCabeza(lin)) {
+        const w = /^while/.test(lin);
+        texto = f.sale ? (w ? `La condición del while ya no se cumple: el ciclo termina (línea ${f.linea})` : `Ya no quedan valores: el for termina (línea ${f.linea})`)
+                       : (w ? `La condición del while se cumple: entra otra vez (línea ${f.linea})` : `El for toma el siguiente valor (línea ${f.linea})`);
+      }
+      que.innerHTML = `<b>Paso ${i + 1}</b>${texto}`;
+      caj.innerHTML = Object.keys(f.despues).map(n => `<li class="${f.despues[n] !== f.antes[n] ? 'cambio' : ''}"><span>${n}</span><span>${f.despues[n]}</span></li>`).join('') || '<li><span>—</span><span>Todavía no hay variables</span></li>';
+      cuenta.textContent = `Paso ${i + 1} de ${filas.length}${r.corto ? ' (se muestran los primeros)' : ''}`;
+      cv.textContent = f.sale ? 'Fin del ciclo' : f.fuera ? 'Después del ciclo' : (f.vuelta ? `Vuelta ${f.vuelta}` : 'Antes del ciclo');
+      $$('tr[data-k]', marco).forEach(tr => tr.classList.toggle('aqui', +tr.dataset.k === i));
+      $$('[data-r]', contenedor).forEach(b => { if (b.dataset.r === '-1') b.disabled = i === 0; if (b.dataset.r === '1' || b.dataset.r === 'fin') b.disabled = i === filas.length - 1; });
+      const activa = lis[f.linea - 1]; if (activa && activa.scrollIntoViewIfNeeded) activa.scrollIntoViewIfNeeded(false);
+    };
+    $$('[data-r]', contenedor).forEach(b => b.addEventListener('click', () => {
+      if (b.dataset.r === 'fin') ir(filas.length - 1);
+      else if (b.dataset.r === 'tabla') { marco.hidden = !marco.hidden; b.setAttribute('aria-expanded', !marco.hidden); b.textContent = marco.hidden ? 'Ver la tabla' : 'Ocultar la tabla'; }
+      else ir(i + Number(b.dataset.r));
+    }));
+    contenedor.addEventListener('keydown', e => { if (e.key === 'ArrowRight') ir(i + 1); else if (e.key === 'ArrowLeft') ir(i - 1); });
+    ir(0);
+  }
+
+  /* ---------- 5. Progreso ---------- */
+  const total = $$('.estacion[data-ej]').length;
+  const resueltos = new Set(JSON.parse(leer('resueltos') || '[]'));
+  const cuentaNav = $('.bn-cuenta');
+  function progreso() {
+    $$('.estacion[data-ej]').forEach(s => s.classList.toggle('resuelta', resueltos.has(s.dataset.ej)));
+    if (cuentaNav) { cuentaNav.textContent = `✓ ${resueltos.size}/${total}`; cuentaNav.title = `${resueltos.size} de ${total} ejercicios resueltos`; }
+  }
+  progreso();
+
+  /* ---------- 6. Estaciones ---------- */
+  $$('.estacion[data-ej]').forEach(est => {
+    const num = est.dataset.ej, spec = EJ[num];
+    const ta = editor($('.editor', est)), panel = $('.panel', est), cont = $('.rastro', est), pista = $('.pista', est);
+    const specJson = JSON.stringify({ checks: spec.checks, requiere: spec.requiere, requiere2: spec.requiere2, prohibe: spec.prohibe });
+    $('[data-accion=comprobar]', est).addEventListener('click', async () => {
+      veredicto(panel, { estado: 'corriendo', mensaje: 'Un momento: Python está corriendo su programa.' });
+      try {
+        const r = await llamar('comprobar', ta.value, specJson);
+        veredicto(panel, r, spec.felicita);
+        if (r.estado === 'ok') { resueltos.add(num); guardar('resueltos', JSON.stringify([...resueltos])); progreso(); }
+      } catch (e) { veredicto(panel, { estado: 'error', mensaje: 'Python no está disponible en este momento. Recargue la página o compruebe su respuesta con la solución.' }); }
+    });
+    $('[data-accion=rastrear]', est).addEventListener('click', async () => {
+      try { rastro(cont, await llamar('rastrear', ta.value)); cont.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      catch (e) { veredicto(panel, { estado: 'error', mensaje: 'Python no está disponible en este momento.' }); }
+    });
+    $('[data-accion=pista]', est).addEventListener('click', e => { pista.hidden = !pista.hidden; e.currentTarget.setAttribute('aria-expanded', !pista.hidden); });
+    $('[data-accion=reiniciar]', est).addEventListener('click', () => { ta.value = spec.arranque; ta.dispatchEvent(new Event('input')); veredicto(panel, { estado: '', mensaje: 'Volvió al código de arranque.' }); panel.dataset.estado = ''; $('.panel-cabeza span', panel).textContent = 'Resultado'; cont.hidden = true; });
+    const verSol = $('[data-accion=rastrear-solucion]', est);
+    if (verSol) verSol.addEventListener('click', async () => { try { rastro(cont, await llamar('rastrear', spec.solucion)); cont.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {} });
+  });
+
+  /* ---------- 7. Demostraciones de solo lectura y arenero ---------- */
+  $$('.demo').forEach(d => {
+    const codigo = $('pre.codigo', d).textContent, cont = $('.rastro', d);
+    $('[data-accion=demo]', d).addEventListener('click', async () => { try { rastro(cont, await llamar('rastrear', codigo)); } catch (e) { cont.hidden = false; cont.innerHTML = '<p class="rastro-que" style="padding:1rem">Python no está disponible en este momento.</p>'; } });
+  });
+  $$('.arenero').forEach(a => {
+    const ta = editor($('.editor', a)), panel = $('.panel', a), cont = $('.rastro', a);
+    $('[data-accion=ejecutar]', a).addEventListener('click', async () => {
+      veredicto(panel, { estado: 'corriendo', mensaje: '' });
+      try { const r = await llamar('ejecutar', ta.value); veredicto(panel, r, a.dataset.felicita || 'Su programa corrió sin errores. Mire abajo lo que imprimió.'); } catch (e) { veredicto(panel, { estado: 'error', mensaje: 'Python no está disponible en este momento.' }); }
+    });
+    const rb = $('[data-accion=rastrear]', a);
+    if (rb) rb.addEventListener('click', async () => { try { rastro(cont, await llamar('rastrear', ta.value)); } catch (e) {} });
+  });
+
+  /* ---------- 8. Apuesta y quiz ---------- */
+  $$('.apuesta[data-dato]').forEach(ap => {
+    const dato = $('.dato', ap);
+    $$('.opciones button', ap).forEach(b => b.addEventListener('click', () => {
+      $$('.opciones button', ap).forEach(x => x.setAttribute('aria-pressed', x === b));
+      dato.hidden = false; $('[data-juicio]', ap).textContent = b.dataset.v === ap.dataset.dato ? 'Usted acertó.' : `Usted eligió «${b.textContent}».`;
+    }));
+  });
+  $$('.quiz li').forEach(li => {
+    const v = $('.veredicto', li);
+    $$('button', li).forEach(b => b.addEventListener('click', () => {
+      $$('button', li).forEach(x => x.setAttribute('aria-pressed', x === b));
+      v.innerHTML = (b.dataset.v === li.dataset.ok ? '<b>Así es.</b> ' : '<b>Mírelo otra vez.</b> ') + li.dataset.por;
+    }));
+  });
+
+  /* ---------- 9. Navegación por estaciones ---------- */
+  const enlaces = $$('.bn-lista a');
+  const secciones = enlaces.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+  let pend = false, ultimo = null;
+  const marcar = () => {
+    pend = false;
+    let mejor = null;
+    secciones.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * .4) mejor = s.id; });
+    if (mejor === ultimo) return;
+    ultimo = mejor;
+    enlaces.forEach(a => a.setAttribute('aria-current', a.dataset.sec === mejor));
+    const act = enlaces.find(a => a.dataset.sec === mejor);
+    if (act) { const l = act.closest('.bn-lista'); l.scrollTo({ left: act.offsetLeft - l.clientWidth / 2 + act.clientWidth / 2 }); }
+  };
+  addEventListener('scroll', () => { if (!pend) { pend = true; requestAnimationFrame(marcar); } }, { passive: true });
+  marcar();
+  addEventListener('beforeprint', () => $$('details').forEach(d => d.open = true));
+})();
+
+</script>
