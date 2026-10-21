@@ -6,7 +6,7 @@ export const SITIO = {
   razonSocial: 'Torre D. Babel S.A.S.',
   descripcion:
     'Torre D. Babel: ingeniería, arquitectura, inteligencia de negocios y ciencia de datos en la lengua que su organización ya habla. Bogotá.',
-  correo: 'babeltran@torredbabel.com',
+  correo: 'contacto@torredbabel.com',
   sello: 'De la riqueza del corazón, la palabra.',
   idioma: 'es-CO',
 };

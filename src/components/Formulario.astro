@@ -2,7 +2,7 @@
 // Formulario de contacto. Es el mismo bloque del artefacto aprobado (sección «Conversemos» de la portada);
 // en el sitio se añade action= para que funcione también sin guion. Lo usan la portada y /contacto/.
 // El envío lo hace FormSubmit (https://formsubmit.co): la primera vez manda un correo de activación a
-// babeltran@torredbabel.com y no entrega nada hasta que se pulsa «Activate Form» en ese correo.
+// contacto@torredbabel.com y no entrega nada hasta que se pulsa «Activate Form» en ese correo.
 interface Props {
   /** Nivel de los títulos del bloque: 3 en la portada (bajo «Conversemos»), 2 en /contacto/. */
   nivel?: 2 | 3;
@@ -15,7 +15,7 @@ const Titulo = `h${nivel}` as 'h2' | 'h3';
     <Titulo class="figura-titulo" id="f-escribir">Escríbanos desde aquí</Titulo>
     <p class="figura-clave">El mensaje llega a nuestro correo y le respondemos al suyo. Solo pedimos lo necesario para contestarle.</p>
   </div>
-  <form class="formulario" id="formulario" action="https://formsubmit.co/babeltran@torredbabel.com" method="post" accept-charset="UTF-8" aria-labelledby="f-escribir" data-ajax="https://formsubmit.co/ajax/babeltran@torredbabel.com">
+  <form class="formulario" id="formulario" action="https://formsubmit.co/contacto@torredbabel.com" method="post" accept-charset="UTF-8" aria-labelledby="f-escribir" data-ajax="https://formsubmit.co/ajax/contacto@torredbabel.com">
     <input type="hidden" name="_subject" value="Nuevo mensaje desde torredbabel.com">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_next" value="https://torredbabel.com/contacto/gracias/">
@@ -42,7 +42,7 @@ const Titulo = `h${nivel}` as 'h2' | 'h3';
     <div class="campo-ancho autorizacion">
       <input id="f-autorizacion" name="autorizacion" type="checkbox" value="Sí. Autorizo a Torre D. Babel S.A.S. a usar estos datos solo para responder mi mensaje, conforme a la Ley 1581 de 2012." required aria-describedby="a-autorizacion e-autorizacion">
       <label for="f-autorizacion">Autorizo a Torre D. Babel S.A.S. a usar estos datos solo para responder mi mensaje, conforme a la Ley 1581 de 2012.</label>
-      <span class="campo-ayuda" id="a-autorizacion">El mensaje viaja por FormSubmit, un servicio externo que opera fuera de Colombia, lo entrega a nuestro correo y guarda una copia. Para conocer, corregir o borrar sus datos, o para revocar esta autorización, escríbanos a babeltran@torredbabel.com. También puede acudir a la Superintendencia de Industria y Comercio.</span>
+      <span class="campo-ayuda" id="a-autorizacion">El mensaje viaja por FormSubmit, un servicio externo que opera fuera de Colombia, lo entrega a nuestro correo y guarda una copia. Para conocer, corregir o borrar sus datos, o para revocar esta autorización, escríbanos a contacto@torredbabel.com. También puede acudir a la Superintendencia de Industria y Comercio.</span>
       <span class="campo-error" id="e-autorizacion" data-error="autorizacion"></span>
     </div>
     <div class="trampa" aria-hidden="true"><label for="f-trampa">Deje este campo vacío</label><input id="f-trampa" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
@@ -56,7 +56,7 @@ const Titulo = `h${nivel}` as 'h2' | 'h3';
     <p>Le responderemos a <strong id="gracias-correo"></strong>. Si no ve la respuesta en su bandeja de entrada, revise la carpeta de correo no deseado.</p>
     <button class="boton" type="button" id="otro">Escribir otro mensaje</button>
   </div>
-  <p class="alterno">¿Prefiere su propio programa de correo? Escríbanos a <a id="correo" href="mailto:babeltran@torredbabel.com">babeltran@torredbabel.com</a><button class="copiar" type="button" id="copiar" hidden>Copiar el correo</button><span class="aviso-copia" id="aviso" role="status" aria-live="polite"></span></p>
+  <p class="alterno">¿Prefiere su propio programa de correo? Escríbanos a <a id="correo" href="mailto:contacto@torredbabel.com">contacto@torredbabel.com</a><button class="copiar" type="button" id="copiar" hidden>Copiar el correo</button><span class="aviso-copia" id="aviso" role="status" aria-live="polite"></span></p>
 </div>
 <script is:inline>
 // Formulario de contacto (en el sitio vive, igual, en src/components/Formulario.astro).
