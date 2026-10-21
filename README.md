@@ -114,7 +114,7 @@ El archivo `public/CNAME` del proyecto ya lleva ese dominio.
 | CNAME | www | SU-USUARIO.github.io |
 
 > **Cuidado con el correo.** No borre los registros **MX** ni los **TXT** que ya existan
-> (SPF, DKIM, verificaciones de Google). De ellos depende que babeltran@torredbabel.com siga
+> (SPF, DKIM, verificaciones de Google). De ellos depende que contacto@torredbabel.com siga
 > recibiendo correo. Si Squarespace muestra registros **A** o **CNAME www** predeterminados que
 > apuntan a Squarespace, elimine solo esos, porque chocan con los de GitHub.
 
@@ -206,7 +206,7 @@ import DemoExterno from '../../components/DemoExterno.astro';
 ## El formulario de contacto
 
 La portada (sección «Conversemos») y `torredbabel.com/contacto/` tienen el mismo formulario. El
-mensaje sale de la página y llega a babeltran@torredbabel.com por medio de
+mensaje sale de la página y llega a contacto@torredbabel.com por medio de
 [FormSubmit](https://formsubmit.co), un servicio gratuito que no pide cuenta ni servidor propio.
 La cabecera y el pie de las páginas interiores llevan a `/contacto/`.
 
@@ -215,7 +215,7 @@ confirma:
 
 1. Con el sitio ya publicado, abra `torredbabel.com/contacto/` y envíese un mensaje de prueba.
    Puede que la página diga que no se pudo enviar: antes de activar, es normal.
-2. En babeltran@torredbabel.com llegará un correo de FormSubmit con el botón **Activate Form**.
+2. En contacto@torredbabel.com llegará un correo de FormSubmit con el botón **Activate Form**.
    Púlselo. Si no lo ve, busque en el correo no deseado.
 3. Envíe otro mensaje de prueba, ahora desde la portada. Debe llegarle como una tabla con nombre,
    correo, organización, mensaje y la autorización. Si FormSubmit pide activar de nuevo para esa
