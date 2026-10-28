@@ -1,0 +1,9 @@
+# Verificado con Python 3.12 y 3.13.
+# Los guiones fijan semilla en 42; con estas versiones las cifras del README se reproducen.
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+scipy>=1.11
+statsmodels>=0.14
+xgboost>=2.0
+openpyxl>=3.1

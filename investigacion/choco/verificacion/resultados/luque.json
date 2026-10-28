@@ -1,0 +1,497 @@
+{
+ "ventanas": [
+  {
+   "anio": 2006,
+   "n_entrena": 682,
+   "positivos_entrena": 61,
+   "n_evalua": 31,
+   "positivos_evalua": 12,
+   "hechos_evalua": 16
+  },
+  {
+   "anio": 2007,
+   "n_entrena": 713,
+   "positivos_entrena": 73,
+   "n_evalua": 31,
+   "positivos_evalua": 12,
+   "hechos_evalua": 28
+  },
+  {
+   "anio": 2008,
+   "n_entrena": 744,
+   "positivos_entrena": 85,
+   "n_evalua": 31,
+   "positivos_evalua": 8,
+   "hechos_evalua": 17
+  },
+  {
+   "anio": 2009,
+   "n_entrena": 775,
+   "positivos_entrena": 93,
+   "n_evalua": 31,
+   "positivos_evalua": 9,
+   "hechos_evalua": 31
+  },
+  {
+   "anio": 2010,
+   "n_entrena": 806,
+   "positivos_entrena": 102,
+   "n_evalua": 31,
+   "positivos_evalua": 11,
+   "hechos_evalua": 26
+  },
+  {
+   "anio": 2011,
+   "n_entrena": 837,
+   "positivos_entrena": 113,
+   "n_evalua": 31,
+   "positivos_evalua": 12,
+   "hechos_evalua": 27
+  },
+  {
+   "anio": 2012,
+   "n_entrena": 868,
+   "positivos_entrena": 125,
+   "n_evalua": 31,
+   "positivos_evalua": 13,
+   "hechos_evalua": 28
+  },
+  {
+   "anio": 2013,
+   "n_entrena": 899,
+   "positivos_entrena": 138,
+   "n_evalua": 31,
+   "positivos_evalua": 14,
+   "hechos_evalua": 40
+  },
+  {
+   "anio": 2014,
+   "n_entrena": 930,
+   "positivos_entrena": 152,
+   "n_evalua": 31,
+   "positivos_evalua": 10,
+   "hechos_evalua": 35
+  },
+  {
+   "anio": 2015,
+   "n_entrena": 961,
+   "positivos_entrena": 162,
+   "n_evalua": 31,
+   "positivos_evalua": 8,
+   "hechos_evalua": 17
+  },
+  {
+   "anio": 2016,
+   "n_entrena": 992,
+   "positivos_entrena": 170,
+   "n_evalua": 31,
+   "positivos_evalua": 5,
+   "hechos_evalua": 11
+  }
+ ],
+ "epv": 18.9,
+ "separacion": {
+  "coef_max": 61.5,
+  "ee_max": 52558.4
+ },
+ "ee_comparacion": [
+  {
+   "index": "Intercept",
+   "coef": -2.356,
+   "EE iid": 0.151,
+   "EE agrupado": 0.115,
+   "razon EE": 0.76,
+   "p iid": 0.0,
+   "p agrupado": 0.0
+  },
+  {
+   "index": "lag1",
+   "coef": 0.232,
+   "EE iid": 0.205,
+   "EE agrupado": 0.167,
+   "razon EE": 0.81,
+   "p iid": 0.258,
+   "p agrupado": 0.1646
+  },
+  {
+   "index": "acum_prev",
+   "coef": 0.617,
+   "EE iid": 0.485,
+   "EE agrupado": 0.625,
+   "razon EE": 1.29,
+   "p iid": 0.2033,
+   "p agrupado": 0.3237
+  },
+  {
+   "index": "anios_activos_prev",
+   "coef": 0.097,
+   "EE iid": 0.411,
+   "EE agrupado": 0.45,
+   "razon EE": 1.09,
+   "p iid": 0.814,
+   "p agrupado": 0.8298
+  },
+  {
+   "index": "racha_prev",
+   "coef": -0.032,
+   "EE iid": 0.189,
+   "EE agrupado": 0.189,
+   "razon EE": 1.0,
+   "p iid": 0.8672,
+   "p agrupado": 0.8675
+  },
+  {
+   "index": "anios_desde_ultimo",
+   "coef": -0.617,
+   "EE iid": 0.164,
+   "EE agrupado": 0.149,
+   "razon EE": 0.91,
+   "p iid": 0.0002,
+   "p agrupado": 0.0
+  },
+  {
+   "index": "depto_lag1",
+   "coef": 0.126,
+   "EE iid": 0.12,
+   "EE agrupado": 0.112,
+   "razon EE": 0.94,
+   "p iid": 0.2915,
+   "p agrupado": 0.2613
+  }
+ ],
+ "rho_intra": -0.0235,
+ "razon_ee_media": 0.97,
+ "tiempo_mixto_s": 0.24,
+ "sd_intercepto_aleatorio": 0.29,
+ "comparacion_jerarquico": [
+  {
+   "modelo": "logística agrupada, 9 variables (la publicada)",
+   "aucroc": 0.788,
+   "aucpr": 0.704,
+   "prec5": 0.764
+  },
+  {
+   "modelo": "logística agrupada, 9 variables, sin reponderar",
+   "aucroc": 0.786,
+   "aucpr": 0.703,
+   "prec5": 0.8
+  },
+  {
+   "modelo": "logística agrupada, 6 variables estimables",
+   "aucroc": 0.798,
+   "aucpr": 0.719,
+   "prec5": 0.8
+  },
+  {
+   "modelo": "logística jerárquica, intercepto aleatorio por municipio",
+   "aucroc": 0.792,
+   "aucpr": 0.711,
+   "prec5": 0.782
+  }
+ ],
+ "sensibilidad_C": [
+  {
+   "C": 0.001,
+   "aucroc": 0.808,
+   "aucpr": 0.727,
+   "prec5": 0.8
+  },
+  {
+   "C": 0.01,
+   "aucroc": 0.802,
+   "aucpr": 0.721,
+   "prec5": 0.8
+  },
+  {
+   "C": 0.05,
+   "aucroc": 0.794,
+   "aucpr": 0.711,
+   "prec5": 0.8
+  },
+  {
+   "C": 0.1,
+   "aucroc": 0.792,
+   "aucpr": 0.708,
+   "prec5": 0.8
+  },
+  {
+   "C": 0.5,
+   "aucroc": 0.789,
+   "aucpr": 0.705,
+   "prec5": 0.8
+  },
+  {
+   "C": 1.0,
+   "aucroc": 0.788,
+   "aucpr": 0.704,
+   "prec5": 0.764
+  },
+  {
+   "C": 5.0,
+   "aucroc": 0.788,
+   "aucpr": 0.702,
+   "prec5": 0.764
+  },
+  {
+   "C": 10.0,
+   "aucroc": 0.787,
+   "aucpr": 0.702,
+   "prec5": 0.764
+  },
+  {
+   "C": 100.0,
+   "aucroc": 0.788,
+   "aucpr": 0.702,
+   "prec5": 0.745
+  }
+ ],
+ "influencia": [
+  {
+   "municipio": "RIOSUCIO",
+   "auc_sin_el": 0.769,
+   "cambio": -0.02,
+   "hechos": 48
+  },
+  {
+   "municipio": "BOJAYÁ",
+   "auc_sin_el": 0.786,
+   "cambio": -0.002,
+   "hechos": 10
+  },
+  {
+   "municipio": "MEDIO BAUDÓ",
+   "auc_sin_el": 0.786,
+   "cambio": -0.002,
+   "hechos": 4
+  },
+  {
+   "municipio": "SIPÍ",
+   "auc_sin_el": 0.786,
+   "cambio": -0.002,
+   "hechos": 2
+  },
+  {
+   "municipio": "LLORÓ",
+   "auc_sin_el": 0.787,
+   "cambio": -0.001,
+   "hechos": 6
+  },
+  {
+   "municipio": "CARMEN DEL DARIÉN",
+   "auc_sin_el": 0.787,
+   "cambio": -0.001,
+   "hechos": 17
+  },
+  {
+   "municipio": "EL CANTÓN DEL SAN PABLO",
+   "auc_sin_el": 0.787,
+   "cambio": -0.001,
+   "hechos": 0
+  },
+  {
+   "municipio": "CÉRTEGUI",
+   "auc_sin_el": 0.787,
+   "cambio": -0.001,
+   "hechos": 0
+  },
+  {
+   "municipio": "QUIBDÓ",
+   "auc_sin_el": 0.788,
+   "cambio": -0.001,
+   "hechos": 102
+  },
+  {
+   "municipio": "NUEVO BELÉN DE BAJIRÁ",
+   "auc_sin_el": 0.787,
+   "cambio": -0.001,
+   "hechos": 0
+  },
+  {
+   "municipio": "UNIÓN PANAMERICANA",
+   "auc_sin_el": 0.787,
+   "cambio": -0.001,
+   "hechos": 0
+  },
+  {
+   "municipio": "RÍO IRÓ",
+   "auc_sin_el": 0.787,
+   "cambio": -0.001,
+   "hechos": 0
+  },
+  {
+   "municipio": "NUQUÍ",
+   "auc_sin_el": 0.788,
+   "cambio": -0.0,
+   "hechos": 4
+  },
+  {
+   "municipio": "CONDOTO",
+   "auc_sin_el": 0.789,
+   "cambio": 0.0,
+   "hechos": 3
+  },
+  {
+   "municipio": "ISTMINA",
+   "auc_sin_el": 0.788,
+   "cambio": 0.0,
+   "hechos": 25
+  },
+  {
+   "municipio": "JURADÓ",
+   "auc_sin_el": 0.789,
+   "cambio": 0.0,
+   "hechos": 2
+  },
+  {
+   "municipio": "MEDIO ATRATO",
+   "auc_sin_el": 0.788,
+   "cambio": -0.0,
+   "hechos": 27
+  },
+  {
+   "municipio": "UNGUÍA",
+   "auc_sin_el": 0.789,
+   "cambio": 0.0,
+   "hechos": 7
+  },
+  {
+   "municipio": "ACANDÍ",
+   "auc_sin_el": 0.789,
+   "cambio": 0.001,
+   "hechos": 7
+  },
+  {
+   "municipio": "EL CARMEN DE ATRATO",
+   "auc_sin_el": 0.789,
+   "cambio": 0.001,
+   "hechos": 6
+  },
+  {
+   "municipio": "BAJO BAUDÓ",
+   "auc_sin_el": 0.789,
+   "cambio": 0.001,
+   "hechos": 3
+  },
+  {
+   "municipio": "ATRATO",
+   "auc_sin_el": 0.79,
+   "cambio": 0.001,
+   "hechos": 5
+  },
+  {
+   "municipio": "BAHÍA SOLANO",
+   "auc_sin_el": 0.789,
+   "cambio": 0.001,
+   "hechos": 6
+  },
+  {
+   "municipio": "ALTO BAUDÓ",
+   "auc_sin_el": 0.789,
+   "cambio": 0.001,
+   "hechos": 5
+  },
+  {
+   "municipio": "TADÓ",
+   "auc_sin_el": 0.789,
+   "cambio": 0.001,
+   "hechos": 16
+  },
+  {
+   "municipio": "NÓVITA",
+   "auc_sin_el": 0.789,
+   "cambio": 0.001,
+   "hechos": 13
+  },
+  {
+   "municipio": "EL LITORAL DEL SAN JUAN",
+   "auc_sin_el": 0.79,
+   "cambio": 0.002,
+   "hechos": 13
+  },
+  {
+   "municipio": "BAGADÓ",
+   "auc_sin_el": 0.79,
+   "cambio": 0.002,
+   "hechos": 7
+  },
+  {
+   "municipio": "RÍO QUITO",
+   "auc_sin_el": 0.79,
+   "cambio": 0.002,
+   "hechos": 2
+  },
+  {
+   "municipio": "MEDIO SAN JUAN",
+   "auc_sin_el": 0.791,
+   "cambio": 0.003,
+   "hechos": 2
+  },
+  {
+   "municipio": "SAN JOSÉ DEL PALMAR",
+   "auc_sin_el": 0.792,
+   "cambio": 0.004,
+   "hechos": 18
+  }
+ ],
+ "auc_base_rodante": 0.788,
+ "influencia_amplitud": [
+  -0.02,
+  0.004
+ ],
+ "box_tidwell": [
+  {
+   "variable": "media_movil3",
+   "p_del_termino_bt": 0.0,
+   "veredicto": "rechaza linealidad"
+  },
+  {
+   "variable": "acum_prev",
+   "p_del_termino_bt": 0.0,
+   "veredicto": "rechaza linealidad"
+  },
+  {
+   "variable": "anios_activos_prev",
+   "p_del_termino_bt": 0.0003,
+   "veredicto": "rechaza linealidad"
+  },
+  {
+   "variable": "depto_lag1",
+   "p_del_termino_bt": 0.0,
+   "veredicto": "rechaza linealidad"
+  }
+ ],
+ "simulacion": {
+  "replicas": 300,
+  "beta_verdadero": 0.9,
+  "estimacion_media": 1.516,
+  "sesgo": 0.616,
+  "sd_empirica": 0.243,
+  "ee_iid": 0.216,
+  "ee_agrupado": 0.259,
+  "cobertura_iid": 21.7,
+  "cobertura_agrupada": 32.7
+ },
+ "chequeo_predictivo": [
+  {
+   "rasgo": "total de ocurrencias",
+   "observado": 114.0,
+   "simulado_medio": 262.3,
+   "p_predictivo": 1.0,
+   "veredicto": "NO reproducido"
+  },
+  {
+   "rasgo": "máximo de municipios activos en un año",
+   "observado": 14.0,
+   "simulado_medio": 28.8,
+   "p_predictivo": 1.0,
+   "veredicto": "NO reproducido"
+  },
+  {
+   "rasgo": "municipios sin ninguna ocurrencia",
+   "observado": 5.0,
+   "simulado_medio": 0.0,
+   "p_predictivo": 0.0,
+   "veredicto": "NO reproducido"
+  }
+ ]
+}

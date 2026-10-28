@@ -1,0 +1,143 @@
+{
+ "n_municipios": 31,
+ "n_atacados": 6,
+ "permutacion_exacta": [
+  {
+   "ordenamiento": "Índice de corredor en disputa (compuesto)",
+   "AUC": 0.927,
+   "p_exacta_unilateral": 0.00023,
+   "p_exacta_bilateral": 0.00046,
+   "percentil": 100.0
+  },
+  {
+   "ordenamiento": "Coca acumulada",
+   "AUC": 0.78,
+   "p_exacta_unilateral": 0.01748,
+   "p_exacta_bilateral": 0.03444,
+   "percentil": 98.3
+  },
+  {
+   "ordenamiento": "Cercanía al río San Juan (sola)",
+   "AUC": 0.777,
+   "p_exacta_unilateral": 0.01846,
+   "p_exacta_bilateral": 0.03623,
+   "percentil": 98.2
+  },
+  {
+   "ordenamiento": "Divergencia presente/pasado",
+   "AUC": 0.72,
+   "p_exacta_unilateral": 0.05108,
+   "p_exacta_bilateral": 0.10219,
+   "percentil": 94.9
+  },
+  {
+   "ordenamiento": "Actividad registrada 2016-2025",
+   "AUC": 0.607,
+   "p_exacta_unilateral": 0.21984,
+   "p_exacta_bilateral": 0.43997,
+   "percentil": 78.0
+  },
+  {
+   "ordenamiento": "Semáforo histórico de reclutamiento",
+   "AUC": 0.337,
+   "p_exacta_unilateral": 0.88946,
+   "p_exacta_bilateral": 0.2304,
+   "percentil": 11.1
+  }
+ ],
+ "ic_auc_drones": [
+  {
+   "ordenamiento": "Índice compuesto",
+   "AUC": 0.927,
+   "ic95": "[0.820; 1.000]",
+   "amplitud": 0.18
+  },
+  {
+   "ordenamiento": "Cercanía al San Juan sola",
+   "AUC": 0.777,
+   "ic95": "[0.580; 0.940]",
+   "amplitud": 0.36
+  },
+  {
+   "ordenamiento": "Semáforo histórico",
+   "AUC": 0.337,
+   "ic95": "[0.120; 0.577]",
+   "amplitud": 0.457
+  }
+ ],
+ "descomposicion": [
+  {
+   "componentes": "corredor",
+   "AUC": 0.777,
+   "top6": 2
+  },
+  {
+   "componentes": "coca",
+   "AUC": 0.78,
+   "top6": 3
+  },
+  {
+   "componentes": "divergencia",
+   "AUC": 0.72,
+   "top6": 2
+  },
+  {
+   "componentes": "corredor + coca",
+   "AUC": 0.88,
+   "top6": 3
+  },
+  {
+   "componentes": "corredor + divergencia",
+   "AUC": 0.83,
+   "top6": 3
+  },
+  {
+   "componentes": "coca + divergencia",
+   "AUC": 0.847,
+   "top6": 2
+  },
+  {
+   "componentes": "corredor + coca + divergencia",
+   "AUC": 0.913,
+   "top6": 4
+  }
+ ],
+ "d_san_juan_atacados": [
+  {
+   "municipio": "EL LITORAL DEL SAN JUAN",
+   "d_san_juan": 0.0,
+   "rio_cercano": "san_juan",
+   "coca_total": 706.57
+  },
+  {
+   "municipio": "CONDOTO",
+   "d_san_juan": 0.6875474314100626,
+   "rio_cercano": "san_juan",
+   "coca_total": 220.93
+  },
+  {
+   "municipio": "NÓVITA",
+   "d_san_juan": 9.56045895048793,
+   "rio_cercano": "san_juan",
+   "coca_total": 2107.2
+  },
+  {
+   "municipio": "RÍO IRÓ",
+   "d_san_juan": 15.692502704517798,
+   "rio_cercano": "san_juan",
+   "coca_total": 58.95
+  },
+  {
+   "municipio": "SIPÍ",
+   "d_san_juan": 21.45498203817821,
+   "rio_cercano": "san_juan",
+   "coca_total": 1785.15
+  },
+  {
+   "municipio": "BAJO BAUDÓ",
+   "d_san_juan": 57.22270654879144,
+   "rio_cercano": "baudo",
+   "coca_total": 4066.38
+  }
+ ]
+}
