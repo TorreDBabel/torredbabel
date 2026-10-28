@@ -83,8 +83,25 @@ descuido, y la respuesta a «¿qué más habrá?» es que corrimos los siete gui
 | `05_diagnosticos_de_panel.py` | Independencia, lambda, influencia, linealidad en el logit |
 | `06_simulacion_y_chequeo.py` | ¿Recupera el estimador la verdad con 31 unidades? |
 | `07_alarmas_y_defensoria.py` | Matriz de confusión y concordancia con quien ya advierte |
+| `08_corredor_en_el_tiempo.py` | ¿Tiene el corredor valor predictivo, o solo retrospectivo? |
 
 Cada uno deja su salida en `verificacion/resultados/`. Todos fijan semilla en 42.
+
+El **08** merece atención aparte porque es la única prueba del repositorio que refuta una
+hipótesis nuestra. El índice de corredor se construyó mirando los ataques de 2026, de modo que su
+AUC de 0,927 es circular. Ese guion hace lo contrario: reconstruye el índice año por año con la
+coca anual del UNODC —disponible desde 1999— y lo confronta con el reclutamiento registrado entre
+2000 y 2016, que es anterior a los ataques y por tanto no pudo influir en la elección de sus
+componentes.
+
+El resultado es inequívoco. El corredor da **AUC 0,470** sobre ese periodo, con intervalo
+[0,358; 0,591] que contiene el azar; añadido al bloque de memoria histórica, la ganancia es
+**−0,005**, intervalo [−0,015; +0,001]. **El corredor no predice reclutamiento.**
+
+Eso no refuta la hipótesis del giro: la refuerza. Un índice que describe la disputa posterior al
+acuerdo y que, probado contra el fenómeno anterior, no ordena nada, se comporta exactamente como
+se esperaría si los dos regímenes tuvieran causas distintas. Y cierra una puerta con evidencia:
+meter el corredor como variable en el modelo de reclutamiento del Chocó queda descartado.
 
 ---
 
@@ -124,7 +141,7 @@ Box–Tidwell rechaza la linealidad en el logit de las cuatro continuas (p < 0,0
 p = 0,0003 en la cuarta). El modelo ordena bien aun así, pero splines o tramos —con el criterio
 de selección declarado— son el segundo pendiente.
 
-### 4. El índice de corredor es una hipótesis, no un resultado
+### 4. El índice de corredor es una hipótesis para el régimen posterior, y está refutado para el anterior
 
 Los tres componentes del índice que ordena los ataques de 2026 con AUC 0,927 se eligieron
 **después** de saber qué municipios fueron atacados. La prueba de permutación exacta (p = 0,00023,
@@ -133,6 +150,12 @@ el azar, y la respuesta es sí; no responde si lo habríamos elegido antes de ve
 
 Solo se vuelve evidencia si el índice se congela hoy —está escrito en `04_prueba_exacta_2026.py`—
 y se evalúa contra desenlaces que todavía no han ocurrido.
+
+Lo que sí está medido, y es el resultado del guion `08`, es que **ese índice no explica el
+reclutamiento anterior al acuerdo**: AUC de 0,470 sobre 527 municipio-año de 2000 a 2016, y una
+ganancia de −0,005 al añadirlo al modelo. La celda de arriba a la derecha del dos por dos de la
+separata es la única construida sabiendo el desenlace; las otras tres son limpias, y ya bastan
+para establecer el cambio de régimen.
 
 ### 5. Lo que medimos con la Defensoría es concordancia, no anticipación
 

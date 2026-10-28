@@ -1,0 +1,89 @@
+{
+ "ordenamiento_directo": [
+  {
+   "ordenamiento": "Memoria historica (referencia)",
+   "auc": 0.76,
+   "aucpr": 0.608
+  },
+  {
+   "ordenamiento": "Coca acumulada hasta el año anterior",
+   "auc": 0.553,
+   "aucpr": 0.366
+  },
+  {
+   "ordenamiento": "Coca del año anterior",
+   "auc": 0.526,
+   "aucpr": 0.35
+  },
+  {
+   "ordenamiento": "Corredor con coca acumulada",
+   "auc": 0.487,
+   "aucpr": 0.356
+  },
+  {
+   "ordenamiento": "Corredor con coca anual",
+   "auc": 0.47,
+   "aucpr": 0.335
+  },
+  {
+   "ordenamiento": "Cercania al San Juan (estatica)",
+   "auc": 0.449,
+   "aucpr": 0.301
+  }
+ ],
+ "incremental": [
+  {
+   "conjunto": "Memoria historica sola (9 variables)",
+   "n": 341,
+   "aucroc": 0.784,
+   "aucpr": 0.7,
+   "prec5": 0.836,
+   "delta_auc": 0.0
+  },
+  {
+   "conjunto": "Corredor solo (rio + coca anual)",
+   "n": 341,
+   "aucroc": 0.511,
+   "aucpr": 0.378,
+   "prec5": 0.382,
+   "delta_auc": -0.273
+  },
+  {
+   "conjunto": "Memoria + cercania al rio",
+   "n": 341,
+   "aucroc": 0.782,
+   "aucpr": 0.696,
+   "prec5": 0.8,
+   "delta_auc": -0.002
+  },
+  {
+   "conjunto": "Memoria + coca anual",
+   "n": 341,
+   "aucroc": 0.781,
+   "aucpr": 0.697,
+   "prec5": 0.818,
+   "delta_auc": -0.003
+  },
+  {
+   "conjunto": "Memoria + corredor completo",
+   "n": 341,
+   "aucroc": 0.779,
+   "aucpr": 0.693,
+   "prec5": 0.818,
+   "delta_auc": -0.005
+  }
+ ],
+ "ganancia": {
+  "observada": -0.005,
+  "ic": [
+   -0.015,
+   0.001
+  ],
+  "p_positiva": 0.069
+ },
+ "movimiento": {
+  "mediana": 21.8,
+  "maximo": 38.4,
+  "mun_max": "MEDIO SAN JUAN"
+ }
+}
