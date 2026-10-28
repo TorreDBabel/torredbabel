@@ -2,7 +2,8 @@
 // Chocó · la separata técnica del modelo de alerta territorial.
 // Registro «Separata» (ver src/styles/separata.css y las notas de la pieza): papel
 // crema de tirada corta, filetes finos, secciones numeradas y el realce en versalita
-// con filete de un pelo. El gráfico propio es la barra de intervalo.
+// con filete de un pelo. Dos gráficos propios: la barra de intervalo y la matriz de
+// confusión dibujada a escala.
 // La pieza anterior, /choco, va en el registro «Placa»: el tablero se mira, la
 // separata se sustenta. El cambio de registro es deliberado.
 // Letras del registro: Crimson Pro, Libre Franklin y Roboto Mono.
@@ -18,7 +19,7 @@ import '../styles/separata.css';
 
 <Base
   titulo="La cifra y su intervalo"
-  descripcion="Revisión técnica del modelo de alerta territorial del Chocó: nueve cifras corregidas, cada métrica con su intervalo, y las pruebas que exige un panel de 31 municipios."
+  descripcion="Cómo se construyó el sistema de alerta territorial del Chocó: fuentes, tratamiento, variables, modelos, desempeño con intervalos, matriz de confusión de las alarmas y concordancia con la Defensoría del Pueblo."
   tipo="article"
 >
   <div class="pieza-separata">
@@ -26,66 +27,135 @@ import '../styles/separata.css';
 
   <!-- ========== APERTURA ========== -->
   <header class="apertura">
-    <p class="invita">Dos maneras de informar el mismo desempeño</p>
+    <p class="invita">Los 31 municipios del Chocó, dos veces</p>
 
-    <div class="par-cifra">
-      <div class="cifra-caso">
-        <h3>Como estaba publicado</h3>
-        <div class="iv" id="iv-antes"></div>
-        <p class="leyenda">Un punto. Nada dice si el dato siguiente lo movería mucho o poco.</p>
+    <div class="cinta">
+      <div class="cinta-fila">
+        <h3>Municipios con alerta temprana de la Defensoría</h3>
+        <div class="casillas" id="c-def" aria-hidden="true"></div>
+        <p><b>30 de 31.</b> Y los seis que fueron atacados con drones en 2026 estaban
+          advertidos: seis de seis, cinco de ellos con alerta de inminencia.</p>
       </div>
-      <div class="cifra-caso">
-        <h3>Como queda al calcularle el intervalo</h3>
-        <div class="iv" id="iv-despues"></div>
-        <p class="leyenda">El mismo desempeño, con el margen que deja un panel de 31 municipios.
-          La línea punteada es lo que daría ordenar al azar.</p>
+      <div class="cinta-fila">
+        <h3>Municipios que el modelo pondría en el nivel alto</h3>
+        <div class="casillas" id="c-mod" aria-hidden="true"></div>
+        <p><b>10 de 31.</b> La misma información, ordenada.</p>
       </div>
     </div>
 
-    <p>De las dos afirmaciones, solo la segunda se puede defender. Y una de ellas —la del
-      ordenamiento que parecía invertido— deja de sostenerse del todo cuando se le mide el margen.</p>
+    <p>La advertencia existía. Lo que no existía era un orden dentro de ella. Cuando todo
+      está advertido, una alerta más no dice por dónde empezar, y ese es exactamente el
+      hueco que un modelo puede llenar: no reemplaza a quien advierte, lo ordena.</p>
   </header>
 
   <!-- ========== LEMA ========== -->
   <div class="lema-caja">
-    <h1 class="lema"><span class="par"><span class="nx">De</span> <span class="w1">publicar</span></span><span
-      class="par"><span class="nx">a</span> <span class="w2">sostener</span></span></h1>
-    <p class="entradilla">Revisamos nuestras propias cifras del modelo de alerta territorial del
-      Chocó, una por una, contra los datos que las produjeron. Nueve no se sostuvieron. Esta separata
-      las corrige, les pone intervalo y deja a la vista el método que permitió encontrarlas.</p>
+    <h1 class="lema"><span class="par"><span class="nx">De</span> <span class="w1">advertir</span></span><span
+      class="par"><span class="nx">a</span> <span class="w2">priorizar</span></span></h1>
+    <p class="entradilla">Cómo se construyó el sistema de alerta territorial del Chocó: de qué
+      fuentes sale cada dato, cómo se organizó en un panel, qué variables lo describen, qué
+      modelos lo estiman, cuánto aciertan sus alarmas y en qué coinciden con quien ya
+      advierte en el territorio.</p>
     <p class="firma">Alexander Beltrán · Maestría en Ciencia de Datos, Universidad Ean ·
       Bogotá, octubre de 2026</p>
   </div>
 
-  <p class="clave">A lo largo de la página, la <mark class="pub">versalita ocre</mark> señala lo que
-    habíamos publicado; la <mark class="rev">versalita índigo</mark>, lo que el recálculo arroja; y la
-    <mark class="nov">versalita granate</mark>, lo que no pudimos verificar y queda marcado como
-    faltante. El código no cambia de significado en ningún punto de la página.</p>
+  <p class="clave">A lo largo de la página, la <mark class="pub">versalita ocre</mark> señala
+    lo advertido —el universo que ya está marcado—; la <mark class="rev">versalita índigo</mark>,
+    lo priorizado, que es lo que el modelo aporta; y la <mark class="nov">versalita granate</mark>,
+    lo que no pudimos verificar y queda marcado como faltante. El código no cambia de significado
+    en ningún punto de la página.</p>
 
   <div class="ruta">
-    <p>El trabajo se mira desde cinco lados, en el orden en que un dato recorre el sistema:</p>
+    <p>El recorrido sigue el camino de un dato, desde la fuente hasta la decisión:</p>
     <ol>
-      <li data-n="1"><b>La fuente.</b> De dónde sale un hecho y qué significa un cero.</li>
-      <li data-n="2"><b>Las variables.</b> Nueve, todas rezagadas, y una colinealidad que obliga a penalizar.</li>
-      <li data-n="3"><b>La validación.</b> Once ventanas, su tamaño real y el colchón contra la fuga.</li>
-      <li data-n="4"><b>Las cifras.</b> Cada métrica con su intervalo y su referencia de azar.</li>
-      <li data-n="5"><b>Lo que falta.</b> Cuatro cosas que el trabajo todavía no responde.</li>
+      <li data-n="1"><b>Las fuentes.</b> Ocho bases oficiales y qué aporta cada una.</li>
+      <li data-n="2"><b>El tratamiento.</b> Cómo ocho bases se vuelven un panel de 1.054 filas.</li>
+      <li data-n="3"><b>Las variables.</b> Nueve, todas rezagadas, y la colinealidad que obliga a penalizar.</li>
+      <li data-n="4"><b>Los modelos.</b> Tres, y por qué gana el más simple.</li>
+      <li data-n="5"><b>El desempeño.</b> Cada métrica con su intervalo y su referencia de azar.</li>
+      <li data-n="6"><b>Las alarmas.</b> Tres políticas y su matriz de confusión.</li>
+      <li data-n="7"><b>La concordancia.</b> Qué tanto coincide con la Defensoría del Pueblo.</li>
+      <li data-n="8"><b>Lo que corregimos y lo que falta.</b></li>
     </ol>
   </div>
 
-  </div><!-- /hoja -->
+  </div>
 
-  <!-- ========== 1. LA FUENTE ========== -->
+  <!-- ========== 1. FUENTES ========== -->
   <div class="hoja">
   <section>
     <div class="sec-cab"><span class="sec-n">§ 1</span>
-      <h2>La fuente, y qué significa un cero</h2></div>
+      <h2>Las fuentes</h2></div>
 
-    <p>La unidad de análisis es el municipio-año. El Chocó tiene 31 municipios y la serie va de 1983
-      a 2016, de modo que el panel tiene <mark class="rev">1.054 filas</mark>. Al modelar se pierden
-      las 31 del primer año, porque ninguna variable rezagada existe todavía: quedan 1.023.</p>
+    <p>Ninguna cifra de este trabajo se estima. Cada una viene de una base oficial primaria y
+      se cita. Donde una fuente no desagrega, la celda queda vacía y marcada; no se imputa.</p>
 
-    <p>El conteo de hechos se reconcilia así, y la suma es exacta:</p>
+    <div class="tabla-env">
+      <table>
+        <caption>Ocho bases oficiales, y qué aporta cada una al panel</caption>
+        <thead><tr><th>Fuente</th><th>Qué aporta</th><th class="num">Al panel</th></tr></thead>
+        <tbody>
+          <tr class="destaca"><td class="nom"><b>JEP · Caso 07</b><br>expediente anonimizado</td>
+            <td>Los hechos de reclutamiento con municipio y fecha. Es la variable que se modela.</td>
+            <td class="num">401 hechos</td></tr>
+          <tr><td class="nom">UARIV · Registro Único de Víctimas</td>
+            <td>Casos y personas con código DANE y fecha, corte de marzo de 2026. Contraste del conteo.</td>
+            <td class="num">serie anual</td></tr>
+          <tr><td class="nom">UARIV · Cifras de víctimas por hecho</td>
+            <td>Desagregación nacional por hecho, sexo, etnia y ciclo vital.</td>
+            <td class="num">287.555 filas</td></tr>
+          <tr><td class="nom">UNODC–SIMCI</td>
+            <td>Hectáreas de coca por municipio y año. Economía del territorio.</td>
+            <td class="num">31 municipios</td></tr>
+          <tr><td class="nom">Defensoría del Pueblo</td>
+            <td>Alertas tempranas, estructurales y de inminencia por municipio.</td>
+            <td class="num">3 series</td></tr>
+          <tr><td class="nom">OCHA</td>
+            <td>Eventos humanitarios registrados, 2016–2025.</td>
+            <td class="num">1 serie</td></tr>
+          <tr><td class="nom">DANE</td>
+            <td>Proyecciones de población municipal y áreas municipales 1985–2020. Denominadores.</td>
+            <td class="num">2 series</td></tr>
+          <tr><td class="nom">IGAC · geometrías</td>
+            <td>Contornos municipales y trazos de los ríos Atrato, San Juan y Baudó.</td>
+            <td class="num">34 polígonos</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-fig">El expediente del Caso 07 llega anonimizado: sin nombres, sin edades
+      individuales, sin ubicación por debajo del municipio.
+      <b>Lo que esta tabla no muestra:</b> los documentos de alerta de la Defensoría uno por uno.
+      Tenemos los conteos por municipio, no el inventario de cada alerta; mientras no lo tengamos,
+      esa serie se usa para contrastar y no para modelar.</p>
+
+    <h3 class="sub">El cero es la pregunta difícil</h3>
+
+    <p>Un cero en este panel no dice «aquí no hubo reclutamiento». Dice «aquí no hay registro de
+      reclutamiento». Las dos cosas se confunden en el mismo símbolo, y la distancia entre ellas es
+      la cobertura del aparato estatal en el departamento con menor densidad institucional del país.</p>
+
+    <p>De eso se sigue la regla que gobierna toda lectura:
+      <mark class="rev">toda cifra es un piso, no una estimación</mark>. Y una consecuencia sobre lo
+      que el modelo puede prometer: no predice reclutamiento, ordena territorios por riesgo
+      registrado, que es una cantidad distinta y más modesta.</p>
+
+    <p>Cinco de los 31 municipios no registran un solo hecho en 34 años. Uno de ellos, Río Iró,
+      fue atacado con drones en 2026. Es el caso que obliga a leer un cero con desconfianza.</p>
+  </section>
+
+  <!-- ========== 2. TRATAMIENTO ========== -->
+  <section>
+    <div class="sec-cab"><span class="sec-n">§ 2</span>
+      <h2>De ocho bases a un panel</h2></div>
+
+    <p>La unidad de análisis es el <b>municipio-año</b>: 31 municipios por 34 años, de 1983 a 2016,
+      son <mark class="rev">1.054 filas</mark>. Esa rejilla se construye completa —incluyendo los
+      municipio-año sin ningún hecho, que son la mayoría— porque un modelo de ocurrencia necesita
+      tanto los unos como los ceros. Las bases que llegan en formato largo solo traen las filas con
+      evento; los ceros hay que fabricarlos a propósito.</p>
+
+    <p>El conteo se reconcilia así, y la suma es exacta:</p>
 
     <div class="tabla-env">
       <table>
@@ -105,29 +175,41 @@ import '../styles/separata.css';
       </table>
     </div>
     <p class="nota-fig">Verificado por reconciliación aritmética: 361 + 13 + 25 + 2 = 401.
-      <b>Lo que esta tabla no muestra:</b> cuántos hechos no llegaron nunca al expediente.</p>
+      <b>Lo que no muestra:</b> cuántos hechos no llegaron nunca al expediente.</p>
 
-    <h3 class="sub">El cero es la pregunta difícil</h3>
+    <h3 class="sub">Las cuatro operaciones del tratamiento</h3>
 
-    <p>Un cero en este panel no dice «aquí no hubo reclutamiento». Dice «aquí no hay registro de
-      reclutamiento». Las dos cosas se confunden en el mismo símbolo, y la diferencia entre ellas es
-      precisamente la cobertura del aparato estatal en un departamento con la menor densidad
-      institucional del país.</p>
-
-    <p>De eso se sigue una consecuencia que recorre todo el trabajo: <mark class="rev">toda cifra
-      es un piso, no una estimación</mark>. Donde falta desagregación, la celda queda vacía y marcada;
-      no se imputa. Y el modelo no predice reclutamiento: ordena territorios por riesgo registrado,
-      que es una cantidad distinta y más modesta.</p>
-
-    <p>Cinco de los 31 municipios no registran un solo hecho en 34 años: Cértegui, El Cantón del
-      San Pablo, Nuevo Belén de Bajirá, Río Iró y Unión Panamericana. Río Iró, que el modelo ordenó
-      en el último lugar del departamento, fue atacado con drones en 2026. Es el caso que obliga a
-      leer un cero con desconfianza.</p>
+    <div class="tabla-env">
+      <table>
+        <thead><tr><th class="num">Paso</th><th>Operación</th><th>Decisión y por qué</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="nom">Llave territorial</td>
+            <td>Todo se une por <b>código DIVIPOLA</b>, no por nombre. Los nombres del Chocó varían
+              entre fuentes —tildes, «Nuevo Belén de Bajirá», «El Cantón del San Pablo»— y unir por
+              texto habría perdido municipios en silencio.</td></tr>
+          <tr><td class="num">2</td><td class="nom">Rejilla completa</td>
+            <td>Producto cartesiano de 31 municipios × 34 años, y luego el conteo por la izquierda.
+              Los municipio-año sin hecho quedan en cero explícito.</td></tr>
+          <tr><td class="num">3</td><td class="nom">Deduplicación</td>
+            <td>Se cuentan <b>hechos únicos</b>, no víctimas. Un hecho con varias víctimas cuenta una
+              vez, porque la unidad que el territorio produce es el hecho.</td></tr>
+          <tr><td class="num">4</td><td class="nom">Ribereñidad</td>
+            <td>Única variable calculada por nosotros: se densifican los trazos de los tres ríos a
+              pasos de 0,02°, se mide la distancia perpendicular de punto a segmento desde cada
+              cabecera y se transforma con <code>R = 100·e^(−d/15)</code>. La escala de 15 km es una
+              decisión declarada, no un ajuste.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-fig">Al modelar se pierden las 31 filas de 1983, porque ninguna variable rezagada
+      existe todavía: el panel modelable tiene <b>1.023 filas</b>.
+      <b>Lo que no muestra:</b> el trabajo de conciliación de nombres municipio por municipio, que
+      está en el cuaderno.</p>
   </section>
 
-  <!-- ========== 2. LAS VARIABLES ========== -->
+  <!-- ========== 3. VARIABLES ========== -->
   <section>
-    <div class="sec-cab"><span class="sec-n">§ 2</span>
+    <div class="sec-cab"><span class="sec-n">§ 3</span>
       <h2>Nueve variables, todas rezagadas</h2></div>
 
     <p>Las nueve predictoras se construyen exclusivamente con información anterior al año que se
@@ -138,124 +220,119 @@ import '../styles/separata.css';
   df['acum_prev']    = g.transform(lambda s: s.shift(1).cumsum()).fillna(0)
   df['depto_lag1']   = df['anio'].map(df.groupby('anio')['hechos'].sum().shift(1))</code></pre>
 
-    <p>El escalado va dentro del <code>Pipeline</code>, de modo que la media y la desviación se
-      estiman solo con el tramo de entrenamiento de cada ventana. Las dos vías habituales de fuga
-      —covariable contemporánea y escalado global— quedan cerradas.</p>
+    <div class="tabla-env">
+      <table>
+        <caption>Las nueve, por lo que miden</caption>
+        <thead><tr><th>Grupo</th><th>Variables</th><th>Qué captura</th></tr></thead>
+        <tbody>
+          <tr><td class="nom">Memoria corta</td><td><code>lag1 lag2 lag3 media_movil3</code></td>
+            <td>si el municipio tuvo hechos en los últimos años</td></tr>
+          <tr><td class="nom">Memoria larga</td><td><code>acum_prev anios_activos_prev</code></td>
+            <td>cuánto daño acumula el municipio en toda su serie</td></tr>
+          <tr><td class="nom">Forma temporal</td><td><code>racha_prev anios_desde_ultimo</code></td>
+            <td>si el fenómeno es continuo o episódico, y cuánto lleva en silencio</td></tr>
+          <tr><td class="nom">Contexto</td><td><code>depto_lag1</code></td>
+            <td>la intensidad del departamento entero el año anterior</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-fig">El escalado va dentro del <code>Pipeline</code>, de modo que media y desviación
+      se estiman solo con el tramo de entrenamiento de cada ventana. Las dos vías habituales de fuga
+      —covariable contemporánea y escalado global— quedan cerradas.
+      <b>Lo que no muestra:</b> las variables exógenas —coca, población, ribereñidad— que entran en el
+      análisis territorial pero no en este modelo de ocurrencia.</p>
 
     <h3 class="sub">La colinealidad, y por qué la penalización no es opcional</h3>
 
     <p>Los tres rezagos y su media móvil son funciones de la misma serie. Medido como factor de
-      inflación de varianza, el resultado es extremo:</p>
-
-    <div class="tabla-env">
-      <table>
-        <caption>Cuatro de las nueve variables comparten casi toda su varianza</caption>
-        <thead><tr><th>Variable</th><th class="num">VIF</th><th>Lectura</th></tr></thead>
-        <tbody>
-          <tr><td class="nom">media_movil3</td><td class="num marca-nov">2.081,6</td>
-            <td>es el promedio de los tres rezagos</td></tr>
-          <tr><td class="nom">lag1</td><td class="num marca-nov">321,4</td><td>—</td></tr>
-          <tr><td class="nom">lag2</td><td class="num marca-nov">303,7</td><td>—</td></tr>
-          <tr><td class="nom">lag3</td><td class="num marca-nov">262,6</td><td>—</td></tr>
-          <tr><td class="nom">acum_prev</td><td class="num">15,6</td><td>acumulado histórico</td></tr>
-          <tr><td class="nom">anios_activos_prev</td><td class="num">7,8</td><td>—</td></tr>
-          <tr><td class="nom">racha_prev</td><td class="num">7,1</td><td>—</td></tr>
-          <tr><td class="nom">anios_desde_ultimo</td><td class="num">2,4</td><td>aceptable</td></tr>
-          <tr><td class="nom">depto_lag1</td><td class="num">1,7</td><td>aceptable</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="nota-fig">VIF calculado sobre las nueve variables estandarizadas del panel modelable
-      (1.023 filas). El umbral convencional de preocupación es 10.
-      <b>Lo que no muestra:</b> cuál de las variables colineales es la que «importa» — justamente
-      eso es lo que deja de ser identificable.</p>
+      inflación de varianza: <code>media_movil3</code> da <mark class="nov">2.081,6</mark>;
+      <code>lag1</code>, <code>lag2</code> y <code>lag3</code>, entre 262 y 321. El umbral
+      convencional de preocupación es 10.</p>
 
     <div class="reserva">
       <span class="et">Hallazgo que cambia la lectura del modelo</span>
-      <p>Ajustada por máxima verosimilitud sin penalización, la misma especificación
-      <mark class="nov">no converge</mark>: el coeficiente mayor llega a −61,5 y el error estándar
-      máximo a 52.558. La verosimilitud no identifica estos coeficientes.</p>
-      <p>La penalización L2 no es entonces un refinamiento del modelo: es lo que lo vuelve estimable.
-      Y de ahí se sigue algo incómodo que habíamos pasado por alto: con esta colinealidad,
-      <b>los coeficientes individuales no son interpretables</b>, y tampoco la atribución por SHAP
-      que publicamos. Lo que el modelo identifica es el bloque de memoria histórica en conjunto,
-      no cuál de sus formas manda.</p>
+      <p>Ajustada por máxima verosimilitud sin penalización, esta misma especificación
+        <mark class="nov">no converge</mark>: el coeficiente mayor llega a −61,5 y el error estándar
+        máximo a 52.558. La penalización L2 no es un refinamiento del modelo: es lo que lo vuelve
+        estimable.</p>
+      <p>De ahí se sigue algo incómodo que habíamos pasado por alto: con esta colinealidad,
+        <b>los coeficientes individuales no son interpretables</b>, y tampoco la atribución por SHAP
+        que publicamos. Lo identificado es el bloque de memoria histórica en conjunto, no cuál de sus
+        formas manda.</p>
     </div>
 
-    <p>Al quitar <code>lag2</code>, <code>lag3</code> y <code>media_movil3</code> —las tres
-      redundantes— el conjunto se vuelve estimable y, además,
-      <mark class="rev">predice algo mejor</mark>: AUC-ROC de 0,798 frente a 0,788, y AUC-PR de 0,719
-      frente a 0,704. La especificación más parsimoniosa es la que debe reportarse.</p>
+    <p>Al quitar <code>lag2</code>, <code>lag3</code> y <code>media_movil3</code> el conjunto se vuelve
+      estimable y, además, <mark class="rev">predice algo mejor</mark>: AUC-ROC de 0,798 frente a 0,788.
+      La especificación parsimoniosa es la que debe reportarse.</p>
 
-    <h3 class="sub">Linealidad en el logit</h3>
-
-    <p>La prueba de Box–Tidwell, que añade un término <code>x·log(x)</code> y mira si aporta, rechaza
-      la linealidad en las cuatro continuas: <span class="iv-et"><small>media_movil3 p&lt;0,001 ·
-      acum_prev p&lt;0,001 · anios_activos_prev p=0,0003 · depto_lag1 p&lt;0,001</small></span></p>
-
-    <p>La penalización no corrige una no linealidad. El modelo ordena bien aun así, pero su forma
-      funcional está mal especificada, y esa es una de las cuatro cosas pendientes que recoge el §5.</p>
+    <p>La prueba de Box–Tidwell, además, rechaza la linealidad en el logit de las cuatro continuas
+      (<code>p &lt; 0,001</code> en tres de ellas, <code>p = 0,0003</code> en la cuarta). El modelo
+      ordena bien aun así, pero su forma funcional está mal especificada. Es el primer pendiente del §8.</p>
   </section>
 
-  <!-- ========== 3. LA VALIDACIÓN ========== -->
+  <!-- ========== 4. MODELOS ========== -->
   <section>
-    <div class="sec-cab"><span class="sec-n">§ 3</span>
-      <h2>Once ventanas, y su tamaño real</h2></div>
+    <div class="sec-cab"><span class="sec-n">§ 4</span>
+      <h2>Tres modelos, y una línea base que hay que batir</h2></div>
 
-    <p>La validación es de origen rodante con ventana expansiva: para predecir el año <i>t</i> el
-      modelo se reajusta desde cero con todo lo anterior a <i>t</i> y nada de <i>t</i>. Once ventanas,
-      de 2006 a 2016. No hay validación cruzada aleatoria, porque mezclar años rompe el orden temporal
-      y permite entrenar con el futuro.</p>
-
-    <p>El dato que vuelve honesta la lectura de cualquier métrica es cuántos positivos tiene cada
-      ventana de evaluación:</p>
+    <p>Antes de cualquier modelo hay una regla ingenua que el territorio ya conoce: <b>donde hubo el
+      año pasado, habrá este año</b>. Esa persistencia simple alcanza un AUC-ROC de 0,714. Un modelo
+      que no la supere no aporta nada, y es contra ella —no contra el 0,5 del azar— que se juzga todo
+      lo demás.</p>
 
     <div class="tabla-env">
       <table>
-        <caption>Cada año se evalúa con 31 municipios y entre 5 y 14 positivos</caption>
-        <thead><tr><th class="num">Año</th><th class="num">Filas de ajuste</th>
-          <th class="num">Positivos de ajuste</th><th class="num">Positivos evaluados</th>
-          <th class="num">Hechos</th></tr></thead>
+        <caption>Qué estima cada modelo y para qué sirve</caption>
+        <thead><tr><th>Modelo</th><th>Estima</th><th>Papel en el trabajo</th></tr></thead>
         <tbody>
-          <tr><td class="num">2006</td><td class="num">682</td><td class="num">61</td><td class="num">12</td><td class="num">16</td></tr>
-          <tr><td class="num">2007</td><td class="num">713</td><td class="num">73</td><td class="num">12</td><td class="num">28</td></tr>
-          <tr><td class="num">2008</td><td class="num">744</td><td class="num">85</td><td class="num">8</td><td class="num">17</td></tr>
-          <tr><td class="num">2009</td><td class="num">775</td><td class="num">93</td><td class="num">9</td><td class="num">31</td></tr>
-          <tr><td class="num">2010</td><td class="num">806</td><td class="num">102</td><td class="num">11</td><td class="num">26</td></tr>
-          <tr><td class="num">2011</td><td class="num">837</td><td class="num">113</td><td class="num">12</td><td class="num">27</td></tr>
-          <tr><td class="num">2012</td><td class="num">868</td><td class="num">125</td><td class="num">13</td><td class="num">28</td></tr>
-          <tr><td class="num">2013</td><td class="num">899</td><td class="num">138</td><td class="num">14</td><td class="num">40</td></tr>
-          <tr><td class="num">2014</td><td class="num">930</td><td class="num">152</td><td class="num">10</td><td class="num">35</td></tr>
-          <tr><td class="num">2015</td><td class="num">961</td><td class="num">162</td><td class="num">8</td><td class="num">17</td></tr>
-          <tr class="destaca"><td class="num">2016</td><td class="num">992</td><td class="num">170</td>
-            <td class="num marca-nov">5</td><td class="num">11</td></tr>
+          <tr class="rebaja"><td class="nom">Persistencia</td><td>regla fija, sin ajuste</td>
+            <td>línea base obligatoria</td></tr>
+          <tr class="destaca"><td class="nom"><b>Logística con penalización L2</b></td>
+            <td>probabilidad de que haya al menos un hecho</td>
+            <td><b>el modelo que se usa.</b> Interpretable, estable y el que mejor ordena</td></tr>
+          <tr><td class="nom">XGBoost</td><td>la misma probabilidad, con árboles potenciados</td>
+            <td>control: comprueba si hay estructura no lineal que la logística deje fuera</td></tr>
+          <tr><td class="nom">Binomial negativa</td><td>el número de hechos, no solo si los hubo</td>
+            <td>lectura en razones de incidencia; justificada por sobredispersión χ²/gl = 1,17</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="nota-fig">El ajuste final dispone de 170 positivos para 9 variables: 18,9 eventos por
-      variable, por encima del mínimo convencional de 10. <b>Lo que no muestra:</b> que el año 2016,
-      con 5 positivos, es el más frágil de los once, y es también el único en que la logística no
-      supera a la línea base.</p>
+    <p class="nota-fig">El hallazgo metodológico es que <b>el modelo más simple gana</b>: XGBoost, con
+      más capacidad, ordena peor. Con 1.023 filas, 170 positivos y nueve variables colineales, la
+      flexibilidad adicional se gasta en ruido. <b>Lo que no muestra:</b> que la configuración de
+      XGBoost no se ajustó por validación interna, de modo que su desventaja es una cota superior de
+      su desempeño posible.</p>
 
-    <p>El conjunto acumulado fuera de muestra tiene <mark class="rev">341 municipio-año</mark>,
-      276 hechos y una prevalencia de 0,334. Esa prevalencia es la referencia contra la que debe
-      leerse el AUC-PR, y es el punto donde se nos había colado el error más grave de la página
-      anterior.</p>
+    <h3 class="sub">La única prueba honesta es viajar en el tiempo</h3>
+
+    <p>La validación es de <b>origen rodante con ventana expansiva</b>: para predecir el año <i>t</i>
+      el modelo se reajusta desde cero con todo lo anterior a <i>t</i> y nada de <i>t</i>. Once
+      ventanas, de 2006 a 2016. No hay validación cruzada aleatoria, porque mezclar años rompe el
+      orden temporal y permite entrenar con el futuro.</p>
+
+    <div class="aparato">
+      <div><dt>Ventanas</dt><dd>11<span>2006–2016, una por año</span></dd></div>
+      <div><dt>Evaluados</dt><dd>341<span>municipio-año fuera de muestra</span></dd></div>
+      <div><dt>Positivos por ventana</dt><dd>5–14<span>el año 2016 es el más frágil</span></dd></div>
+      <div><dt>Eventos por variable</dt><dd>18,9<span>mínimo convencional: 10</span></dd></div>
+      <div><dt>Ajuste completo</dt><dd>0,79 s<span>las once ventanas, dos modelos</span></dd></div>
+      <div><dt>Semilla</dt><dd>42<span>fija y declarada</span></dd></div>
+    </div>
   </section>
-  </div><!-- /hoja -->
+  </div>
 
-  <!-- ========== 4. LAS CIFRAS ========== -->
+  <!-- ========== 5. DESEMPEÑO ========== -->
   <div class="ancho">
   <section>
-    <div class="sec-cab centro">
-      <span class="sec-n">§ 4</span>
-      <h2>Cada métrica con su intervalo</h2></div>
+    <div class="sec-cab centro"><span class="sec-n">§ 5</span>
+      <h2>El desempeño, con su intervalo</h2></div>
 
     <div class="centro">
     <p>Los intervalos se obtienen por remuestreo de bloques: se sortean los 31 municipios con
       reemplazo, 4.000 veces, y se recalcula la métrica completa en cada sorteo. Remuestrear
       municipios y no filas es lo que respeta la dependencia dentro de cada municipio y entre
-      municipios de un mismo año.</p>
+      municipios de un mismo año. El precio es que los intervalos salen anchos; ese ancho es
+      información, no un defecto del método.</p>
     </div>
 
     <div class="iv" id="iv-metricas" style="margin-block:1.6rem 0"></div>
@@ -268,103 +345,45 @@ import '../styles/separata.css';
       estadístico captura.</p>
 
     <div class="centro">
-    <h3 class="sub">Las nueve cifras que corregimos</h3>
-
-    <p>Al rastrear cada número publicado hasta el dato que lo produjo, cinco de ellos aparecieron
-      escritos a mano en el guion que armaba el tablero, con un comentario que los atribuía a una
-      sección del cuaderno que no los produce. Probamos doce poblaciones candidatas —dos modelos, tres
-      periodos, dos restricciones— y ninguna los devuelve.</p>
-    </div>
+    <h3 class="sub">Por qué estas métricas y no otras</h3>
 
     <div class="tabla-env">
       <table>
-        <caption>Lo publicado, lo que el recálculo arroja, y en qué dirección iba el error</caption>
-        <thead><tr><th>Cifra</th><th class="num">Publicada</th><th class="num">Sostenida</th>
-          <th>Qué pasó</th></tr></thead>
+        <thead><tr><th>Métrica</th><th>Referencia</th><th>Por qué se usa</th></tr></thead>
         <tbody>
-          <tr><td class="nom">AUC-PR del modelo</td><td class="num marca-pub">0,834</td>
-            <td class="num marca-rev">0,704</td><td>no reproducible; máximo hallado 0,755</td></tr>
-          <tr><td class="nom">Referencia del AUC-PR</td><td class="num marca-pub">0,603</td>
-            <td class="num marca-rev">0,334</td>
-            <td>la prevalencia real; el error <b>subestimaba</b> la ventaja</td></tr>
-          <tr><td class="nom">Ventaja sobre el azar</td><td class="num marca-pub">1,38×</td>
-            <td class="num marca-rev">2,10×</td><td>consecuencia del anterior</td></tr>
-          <tr><td class="nom">Brier</td><td class="num marca-pub">0,298</td>
-            <td class="num marca-rev">0,376</td><td>la descalibración era peor de lo dicho</td></tr>
-          <tr><td class="nom">Brier de referencia</td><td class="num marca-pub">0,239</td>
-            <td class="num marca-rev">0,223</td><td>p(1−p) con la prevalencia correcta</td></tr>
-          <tr><td class="nom">Precisión@5</td><td class="num marca-pub">0,94</td>
-            <td class="num marca-rev">0,76</td><td>0,82 con XGBoost; 0,94 no sale de ninguna combinación</td></tr>
-          <tr><td class="nom">Semáforo, tasas por nivel</td>
-            <td class="num marca-pub">0,790 / 0,650 / 0,532</td>
-            <td class="num marca-rev">0,596 / 0,301 / 0,105</td>
-            <td>el cuadro publicado era casi plano; el real separa mucho más</td></tr>
-          <tr><td class="nom">Razón de tasas alto/bajo</td><td class="num marca-pub">1,49×</td>
-            <td class="num marca-rev">5,67×</td><td>el modelo discrimina mejor de lo que decíamos</td></tr>
-          <tr><td class="nom">Cobertura preventiva</td>
-            <td class="num marca-pub">53,0 % en 20,1 %</td>
-            <td class="num marca-rev">61,6 % en 16,1 %</td>
-            <td>derivaba del cuadro anterior; la real es mejor</td></tr>
+          <tr><td class="nom">AUC-PR</td><td class="num">0,334</td>
+            <td>Se lee contra la prevalencia, no contra 0,5. Con clases desbalanceadas es la que
+              mide lo que importa: cuánta precisión conserva el modelo al priorizar pocos territorios.</td></tr>
+          <tr><td class="nom">AUC-ROC</td><td class="num">0,500</td>
+            <td>Se reporta por comparabilidad, pero premia aciertos sobre la clase mayoritaria,
+              que son los fáciles.</td></tr>
+          <tr><td class="nom">Precisión@5</td><td class="num">0,334</td>
+            <td>La métrica operativa: si solo puedo atender cinco municipios, ¿cuántos acierto?</td></tr>
+          <tr><td class="nom">Brier</td><td class="num">0,223</td>
+            <td>Calibración, no ordenamiento. Responde si la probabilidad emitida significa algo.</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="nota-fig centro">
-      Siete de los nueve errores iban en contra del proyecto: lo hacían ver peor de lo que es.
-      Dos lo favorecían —el AUC-PR y la precisión@5— y son los dos que había que quitar.
-      <b>Lo que no muestra:</b> por qué se escribieron a mano; el guion no lo registra y no lo
-      vamos a reconstruir con una conjetura.</p>
 
-    <div class="centro">
-    <h3 class="sub">El semáforo, recalculado</h3>
-
-    <p>Dividido en terciles del riesgo estimado fuera de muestra, el semáforo queda así —y la
-      monotonía, que es la única propiedad que vuelve utilizable un semáforo, se cumple con holgura:</p>
-    </div>
-
-    <div class="tabla-env">
-      <table>
-        <caption>El tercil alto concentra tres cuartas partes del daño en un tercio del panel</caption>
-        <thead><tr><th>Nivel</th><th class="num">Municipio-año</th><th class="num">Con ocurrencia</th>
-          <th class="num">Tasa real</th><th class="num">Hechos</th><th class="num">% de los hechos</th></tr></thead>
-        <tbody>
-          <tr class="destaca"><td class="nom"><b>Alto</b></td><td class="num">114</td><td class="num">68</td>
-            <td class="num">0,596</td><td class="num">210</td><td class="num">76,1 %</td></tr>
-          <tr><td class="nom">Medio</td><td class="num">113</td><td class="num">34</td>
-            <td class="num">0,301</td><td class="num">50</td><td class="num">18,1 %</td></tr>
-          <tr class="rebaja"><td class="nom">Bajo</td><td class="num">114</td><td class="num">12</td>
-            <td class="num">0,105</td><td class="num">16</td><td class="num">5,8 %</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="nota-fig centro">
-      Terciles de la probabilidad estimada en las once ventanas de origen rodante.
-      Razón de tasas entre el nivel alto y el bajo: <b>5,67</b>, con intervalo del 95 %
-      [2,70; 13,79] por remuestreo de municipios.
-      <b>Lo que no muestra:</b> que el intervalo es ancho porque los 31 municipios son pocos; el
-      límite inferior, 2,70, es la afirmación defendible.</p>
-
-    <div class="centro">
-    <h3 class="sub">La calibración, que estaba mal por construcción</h3>
+    <h3 class="sub">La calibración estaba mal por construcción</h3>
 
     <p>El modelo se entrenó con <code>class_weight='balanced'</code>. Esa opción compensa el
-      desbalance de clases y mejora el ordenamiento, pero deforma las probabilidades a propósito: la
-      probabilidad media que el modelo emite es <mark class="pub">0,769</mark> cuando la tasa real es
-      <mark class="rev">0,334</mark>. Sobrepredice 2,3 veces. Su Brier, 0,376, es peor que el de
-      responder siempre la prevalencia.</p>
-
-    <p>Lo que no sabíamos es que el remedio sale casi gratis:</p>
+      desbalance y mejora el ordenamiento, pero deforma las probabilidades a propósito: la
+      probabilidad media que emite es <mark class="pub">0,769</mark> cuando la tasa real es
+      <mark class="rev">0,334</mark>. Sobrepredice 2,3 veces, y su Brier es peor que el de responder
+      siempre la prevalencia. El remedio sale casi gratis:</p>
     </div>
 
     <div class="tabla-env">
       <table>
-        <caption>Quitar la reponderación no cuesta ordenamiento, y recalibrar mejora el Brier a menos de la mitad</caption>
+        <caption>Quitar la reponderación no cuesta ordenamiento; recalibrar baja el Brier a menos de la mitad</caption>
         <thead><tr><th>Variante</th><th class="num">Brier</th><th class="num">Prob. media</th>
           <th class="num">Tasa real</th><th class="num">AUC-ROC</th></tr></thead>
         <tbody>
-          <tr><td class="nom">Logística con <code>balanced</code> (la publicada)</td>
+          <tr><td class="nom">Con <code>balanced</code> (la publicada)</td>
             <td class="num marca-pub">0,376</td><td class="num">0,769</td><td class="num">0,334</td>
             <td class="num">0,788</td></tr>
-          <tr><td class="nom">La misma, sin reponderar</td><td class="num">0,185</td>
+          <tr><td class="nom">Sin reponderar</td><td class="num">0,185</td>
             <td class="num">0,439</td><td class="num">0,334</td><td class="num">0,786</td></tr>
           <tr class="destaca"><td class="nom">Más recalibración isotónica</td>
             <td class="num marca-rev">0,150</td><td class="num">0,302</td><td class="num">0,323</td>
@@ -374,346 +393,325 @@ import '../styles/separata.css';
     </div>
     <p class="nota-fig centro">
       La recalibración isotónica se ajusta con las ventanas 2006–2011 y se evalúa en 2012–2016, sin
-      reutilizar ningún año. En esa misma ventana, el modelo sin recalibrar da Brier 0,341.
-      El AUC-ROC apenas se mueve: el ordenamiento no era el problema.
-      <b>Lo que no muestra:</b> si la función de recalibración se mantiene estable en un periodo
-      posterior a 2016, que es donde haría falta.</p>
+      reutilizar ningún año. El AUC-ROC apenas se mueve: el ordenamiento no era el problema.
+      <b>Lo que no muestra:</b> si la función de recalibración se mantiene estable después de 2016,
+      que es donde haría falta.</p>
 
     <div class="centro">
     <p>Y recalibrar no es cosmética. Simulando paneles completos desde las probabilidades del modelo
-      y comparándolos con el panel observado, el modelo sin recalibrar <mark class="nov">no reproduce
-      ninguno</mark> de los cuatro rasgos que probamos; el recalibrado reproduce
-      <mark class="rev">los cuatro</mark>.</p>
+      y comparándolos con el observado, el modelo sin recalibrar <mark class="nov">no reproduce
+      ninguno</mark> de los cuatro rasgos probados —total de ocurrencias, máximo de municipios activos
+      en un año, municipios silentes y rachas—; el recalibrado reproduce <mark class="rev">los
+      cuatro</mark>, con valores predictivos entre 0,122 y 0,885.</p>
     </div>
-
-    <div class="tabla-env">
-      <table>
-        <caption>Chequeo predictivo: cuatro rasgos del panel, 2.000 paneles simulados</caption>
-        <thead><tr><th>Rasgo del panel</th><th class="num">Observado</th>
-          <th class="num">Sin recalibrar</th><th class="num">Recalibrado</th></tr></thead>
-        <tbody>
-          <tr><td class="nom">Total de ocurrencias</td><td class="num">50</td>
-            <td class="num marca-nov">69,8</td><td class="num marca-rev">55,5</td></tr>
-          <tr><td class="nom">Máximo de municipios activos en un año</td><td class="num">14</td>
-            <td class="num marca-nov">17,0</td><td class="num marca-rev">14,0</td></tr>
-          <tr><td class="nom">Municipios sin ninguna ocurrencia</td><td class="num">10</td>
-            <td class="num marca-nov">6,0</td><td class="num marca-rev">7,3</td></tr>
-          <tr><td class="nom">Años consecutivos con ocurrencia</td><td class="num">27</td>
-            <td class="num marca-nov">37,2</td><td class="num marca-rev">24,2</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="nota-fig centro">
-      Ventana 2012–2016, 155 municipio-año. Valores predictivos del modelo recalibrado entre 0,122 y
-      0,885; del no recalibrado, tres por encima de 0,99 y uno en 0,020.
-      <b>Lo que no muestra:</b> rasgos de dependencia espacial entre municipios vecinos, que no
-      probamos.</p>
   </section>
 
-  <!-- ========== 5. LA PRUEBA DE 2026 ========== -->
-  <div class="centro">
+  <!-- ========== 6. ALARMAS ========== -->
   <section>
-    <div class="sec-cab"><span class="sec-n">§ 5</span>
-      <h2>Lo que pasó en 2026, y lo que no podemos decir de ello</h2></div>
+    <div class="sec-cab centro"><span class="sec-n">§ 6</span>
+      <h2>Las alarmas, y qué pasa cuando se encienden</h2></div>
 
-    <p>En 2026, seis municipios del Chocó registraron ataques con drones o artefactos lanzados:
-      El Litoral del San Juan, Condoto, Nóvita, Río Iró, Sipí y Bajo Baudó. Cuatro de los seis estaban
-      en el nivel más bajo del semáforo. El modelo, medido como problema de ordenamiento sobre esos
-      seis desenlaces, da un AUC de 0,337.</p>
+    <div class="centro">
+    <p>Un AUC es un resumen; una alarma es una decisión. Para convertir la probabilidad en alarma hay
+      que fijar un umbral, y el umbral no lo decide la estadística sino la capacidad de respuesta: si
+      una entidad puede atender cinco municipios, la política correcta es otra que si puede atender
+      quince.</p>
 
-    <p>Habíamos publicado ese número como «una señal invertida». Eso no se sostiene. Con seis
-      positivos entre 31 municipios, el intervalo del 95 % de ese AUC es
-      <mark class="rev">[0,120; 0,577]</mark>, y contiene el 0,500. La prueba de permutación —que aquí
-      puede hacerse <b>exacta</b>, enumerando las 736.281 maneras de repartir seis ataques entre 31
-      municipios— da un valor p bilateral de 0,230.</p>
-
-    <div class="reserva">
-      <span class="et">Corrección de interpretación</span>
-      <p>El ordenamiento histórico <b>no mostró información</b> sobre dónde cayeron los ataques de
-        2026. Eso es distinto de haber mostrado información invertida, que es lo que afirmamos. Con
-        seis desenlaces no se puede distinguir una cosa de la otra, y la «brecha de deriva» de 0,432
-        que publicamos restaba un punto estimado a otro cuyo intervalo cruza el azar: no es una
-        cantidad reportable.</p>
+    <p>Por eso no publicamos un umbral sino tres, con su matriz de confusión al lado. Todas se evalúan
+      sobre los mismos 341 municipio-año fuera de muestra, de los cuales 114 registraron reclutamiento.</p>
     </div>
 
-    <p>Lo que sí resiste es la otra mitad del hallazgo. Un índice construido sin el historial de
-      reclutamiento —cercanía al río San Juan, coca acumulada y divergencia entre presente y pasado—
-      ordena esos seis municipios con un AUC de <mark class="rev">0,927</mark>, intervalo
-      [0,820; 1,000], y un valor p exacto de 0,00023. Con pesos iguales y sin ningún ajuste,
-      0,913.</p>
+    <div class="matrices" id="matrices"></div>
 
+    <p class="nota-fig centro">
+      Matrices de confusión del modelo recomendado —sin reponderar, con recalibración isotónica—
+      sobre las once ventanas de validación. La barra de cada casilla es su tamaño relativo dentro
+      de la fila. <b>Lo que no muestran:</b> que un falso positivo y un falso negativo no cuestan lo
+      mismo. Un falso positivo gasta capacidad de respuesta; un falso negativo deja un territorio sin
+      mirar. La elección entre las tres políticas es de quien responde, no nuestra.</p>
+
+    <div class="centro">
     <div class="tabla-env">
       <table>
-        <caption>Ningún componente solo llega donde llegan los tres juntos</caption>
-        <thead><tr><th>Componentes</th><th class="num">AUC</th><th class="num">De 6 en el top-6</th></tr></thead>
+        <caption>Lo mismo, en números, con los intervalos del 95 %</caption>
+        <thead><tr><th>Política</th><th class="num">Precisión</th><th class="num">Sensibilidad</th>
+          <th class="num">Especificidad</th><th class="num">Hechos cubiertos</th></tr></thead>
         <tbody>
-          <tr><td class="nom">Cercanía al San Juan</td><td class="num">0,777</td><td class="num">2</td></tr>
-          <tr><td class="nom">Coca acumulada</td><td class="num">0,780</td><td class="num">3</td></tr>
-          <tr><td class="nom">Divergencia presente/pasado</td><td class="num">0,720</td><td class="num">2</td></tr>
-          <tr><td class="nom">San Juan + coca</td><td class="num">0,880</td><td class="num">3</td></tr>
-          <tr><td class="nom">Coca + divergencia</td><td class="num">0,847</td><td class="num">2</td></tr>
-          <tr class="destaca"><td class="nom"><b>Los tres, pesos iguales</b></td>
-            <td class="num">0,913</td><td class="num">4</td></tr>
+          <tr><td class="nom">Los 5 de mayor riesgo cada año<br>
+            <span style="font-size:.78em;color:var(--suave)">16,1 % del territorio</span></td>
+            <td class="num">0,800<br><span style="font-size:.85em;color:var(--suave)">0,58–0,92</span></td>
+            <td class="num">0,386<br><span style="font-size:.85em;color:var(--suave)">0,17–0,58</span></td>
+            <td class="num">0,952<br><span style="font-size:.85em;color:var(--suave)">0,91–0,98</span></td>
+            <td class="num">62,0 %</td></tr>
+          <tr class="destaca"><td class="nom">Semáforo en nivel alto<br>
+            <span style="font-size:.78em;color:var(--suave)">33,4 % del territorio</span></td>
+            <td class="num">0,614<br><span style="font-size:.85em;color:var(--suave)">0,46–0,75</span></td>
+            <td class="num">0,614<br><span style="font-size:.85em;color:var(--suave)">0,41–0,76</span></td>
+            <td class="num">0,806<br><span style="font-size:.85em;color:var(--suave)">0,69–0,89</span></td>
+            <td class="num">77,2 %</td></tr>
+          <tr><td class="nom">Probabilidad ≥ 0,33<br>
+            <span style="font-size:.78em;color:var(--suave)">46,9 % del territorio</span></td>
+            <td class="num">0,519<br><span style="font-size:.85em;color:var(--suave)">0,36–0,65</span></td>
+            <td class="num">0,728<br><span style="font-size:.85em;color:var(--suave)">0,55–0,84</span></td>
+            <td class="num">0,661<br><span style="font-size:.85em;color:var(--suave)">0,53–0,77</span></td>
+            <td class="num">85,1 %</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="nota-fig">La descomposición importa porque cinco de los seis municipios atacados están
-      en la cuenca del San Juan, y un índice que solo midiera cercanía al río sería casi tautológico.
-      No lo es: con 0,777, el río solo captura 2 de 6 en el top-6; el sexto municipio, Bajo Baudó,
-      está a 57 km del San Juan y entra por la coca, con 4.066 ha acumuladas.
-      <b>Lo que no muestra:</b> lo que sigue.</p>
+    <p class="nota-fig">Intervalos por remuestreo de bloques de municipio (B = 2.000).
+      La diferencia entre el modelo publicado y el recomendado es de dos casillas en la matriz del
+      tercil —68/46/46/181 frente a 70/44/44/183—, inmaterial para cualquier decisión.</p>
+
+    <p>La forma de la curva es la que importa en una reunión con quien responde: <b>apretar la
+      prioridad sube la precisión y baja la cobertura</b>. Con cinco municipios, cuatro de cada cinco
+      alarmas aciertan, pero se queda fuera el 38 % del daño. Con el tercil, se cubre el 77 % del
+      daño al precio de que una de cada tres alarmas sea falsa.</p>
+
+    <p>Por eso la cobertura se reporta <mark class="rev">siempre junto a su costo territorial</mark>.
+      Priorizar el departamento entero daría 100 % de cobertura y haría inútil el sistema.</p>
+    </div>
+  </section>
+
+  <!-- ========== 7. CONCORDANCIA ========== -->
+  <div class="centro">
+  <section>
+    <div class="sec-cab"><span class="sec-n">§ 7</span>
+      <h2>Qué tanto coincide con quien ya advierte</h2></div>
+
+    <p>La pregunta obvia para cualquier evaluador es si esto no está ya hecho. La Defensoría del
+      Pueblo emite alertas tempranas en el Chocó desde hace años, y conviene mirar el dato antes de
+      opinar.</p>
+
+    <div class="aparato">
+      <div><dt>Con alerta temprana</dt><dd>30<span>de 31 municipios</span></dd></div>
+      <div><dt>Con alerta de inminencia</dt><dd>24<span>de 31 municipios</span></dd></div>
+      <div><dt>Atacados en 2026 con alerta previa</dt><dd>6<span>de 6, cinco con inminencia</span></dd></div>
+    </div>
+
+    <p>La coincidencia binaria es degenerada: <mark class="pub">casi todo el departamento está
+      advertido</mark>, y eso es correcto desde el mandato de la Defensoría, que es advertir donde hay
+      riesgo, no repartir capacidad de respuesta. Los seis municipios atacados con drones en 2026
+      tenían alerta previa, los seis.</p>
+
+    <div class="reserva">
+      <span class="et">El dato que justifica el trabajo</span>
+      <p>El número de alertas de la Defensoría <b>no distingue</b> a los municipios que fueron
+        atacados: 5,17 alertas en promedio entre los seis atacados frente a 5,24 entre los otros
+        veinticinco, con un valor p de 0,799 en la U de Mann-Whitney.</p>
+      <p>No es un fallo suyo: es la consecuencia de advertir en todas partes, que es lo que su mandato
+        exige. Pero deja intacto el problema de quien debe responder con recursos finitos. El aporte
+        de un modelo no es advertir mejor, es <b>ordenar dentro de lo advertido</b>.</p>
+    </div>
+
+    <p>Dicho eso, los dos ordenamientos sí concuerdan más de lo que concordarían por azar:</p>
+
+    <div class="tabla-env">
+      <table>
+        <caption>Concordancia entre el riesgo del modelo y las series de la Defensoría</caption>
+        <thead><tr><th>Contraste</th><th class="num">Valor</th><th class="num">p</th><th>Lectura</th></tr></thead>
+        <tbody>
+          <tr><td class="nom">ρ de Spearman con alertas estructurales</td><td class="num">0,421</td>
+            <td class="num">0,018</td><td>concuerda</td></tr>
+          <tr><td class="nom">ρ de Spearman con alertas tempranas</td><td class="num">0,375</td>
+            <td class="num">0,038</td><td>concuerda</td></tr>
+          <tr class="rebaja"><td class="nom">ρ de Spearman con alertas de inminencia</td>
+            <td class="num">0,201</td><td class="num">0,277</td>
+            <td>no distinguible del azar</td></tr>
+          <tr class="destaca"><td class="nom">Coincidencia entre los diez primeros de cada
+            ordenamiento</td><td class="num">6 de 10</td><td class="num">0,032</td>
+            <td>por azar se esperarían 3,2 (Fisher exacta)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-fig">Riesgo del modelo al cierre de 2016 contra los conteos de alertas por
+      municipio. <b>Lo que no muestra:</b> la fecha de cada alerta. Con el conteo acumulado no se
+      puede saber si una alerta precede o sigue al riesgo que el modelo estima, de modo que esto mide
+      concordancia y no anticipación. Resolverlo exige el inventario de alertas con fecha, que es el
+      tercer pendiente del §8.</p>
+
+    <p>La conclusión operativa es doble. El modelo <mark class="rev">coincide</mark> con la Defensoría
+      lo suficiente para no ser un instrumento ajeno al territorio: seis de los diez primeros son los
+      mismos. Y <mark class="rev">se separa</mark> lo suficiente para aportar: cuatro de los diez no
+      están entre sus diez, y el ordenamiento interno difiere.</p>
+
+    <h3 class="sub">El límite, dicho entero</h3>
+
+    <p>Ninguno de los dos instrumentos señaló a los seis municipios atacados en 2026. La Defensoría
+      los advirtió junto con todos los demás; nuestro semáforo puso a cuatro de los seis en el nivel
+      más bajo. Medido como ordenamiento, el modelo da un AUC de <mark class="nov">0,337</mark>, pero
+      con seis desenlaces el intervalo va de 0,120 a 0,577 y contiene el azar: lo defendible es que el
+      historial <b>no mostró información</b>, no que la mostrara invertida.</p>
+
+    <p>Lo que sí resiste es la otra mitad. Un índice construido sin el historial de reclutamiento
+      —cercanía al río San Juan, coca acumulada y divergencia entre presente y pasado— ordena esos seis
+      con un AUC de <mark class="rev">0,927</mark>, intervalo [0,820; 1,000], y un valor p exacto de
+      0,00023 enumerando las 736.281 asignaciones posibles. Con pesos iguales y sin ajuste alguno, 0,913.</p>
 
     <div class="reserva">
       <span class="et">La reserva que ningún intervalo arregla</span>
       <p>Los tres componentes de ese índice se eligieron <b>después</b> de saber qué municipios fueron
-        atacados. La prueba de permutación responde «¿este índice separa a estos seis mejor que una
-        asignación al azar?», y la respuesta es sí. No responde «¿habríamos elegido estos tres
-        componentes antes de ver los ataques?», y esa es la pregunta que decide si el hallazgo vale.</p>
-      <p>Por eso 0,927 es una <b>hipótesis</b>, no un resultado validado: una cota superior de lo que
-        cabría esperar, que solo se vuelve evidencia si el índice se congela hoy y se evalúa contra
-        desenlaces que todavía no han ocurrido. Eso es lo que proponemos hacer, y es verificable por
-        cualquiera porque el índice queda escrito.</p>
+        atacados. La permutación responde «¿este índice separa a estos seis mejor que una asignación
+        al azar?», y la respuesta es sí; no responde «¿lo habríamos elegido antes de ver los ataques?».</p>
+      <p>Por eso 0,927 es una <b>hipótesis</b>, no un resultado validado. Solo se vuelve evidencia si
+        el índice se congela hoy y se evalúa contra desenlaces que todavía no han ocurrido. Eso es lo
+        que proponemos, y es verificable por cualquiera porque el índice queda escrito.</p>
     </div>
   </section>
 
-  <!-- ========== 6. PREGUNTAS ========== -->
+  <!-- ========== 8. CORRECCIONES Y PENDIENTES ========== -->
   <section>
-    <div class="sec-cab"><span class="sec-n">§ 6</span>
-      <h2>Las preguntas que el trabajo debe poder responder</h2></div>
+    <div class="sec-cab"><span class="sec-n">§ 8</span>
+      <h2>Lo que corregimos y lo que falta</h2></div>
 
-    <p>Siete objeciones que un panel de 31 unidades invita a hacer, con el número que cada una exige.
-      Están aquí porque las hicimos nosotros primero.</p>
+    <p>Al rastrear cada número publicado hasta el dato que lo produjo, nueve no se sostuvieron. Están
+      corregidos arriba y enumerados aquí porque borrarlos en silencio sería la peor manera de
+      corregirlos.</p>
+
+    <div class="tabla-env">
+      <table>
+        <thead><tr><th>Cifra</th><th class="num">Publicada</th><th class="num">Sostenida</th></tr></thead>
+        <tbody>
+          <tr><td class="nom">AUC-PR del modelo</td><td class="num marca-pub">0,834</td>
+            <td class="num marca-rev">0,704</td></tr>
+          <tr><td class="nom">Referencia del AUC-PR</td><td class="num marca-pub">0,603</td>
+            <td class="num marca-rev">0,334</td></tr>
+          <tr><td class="nom">Ventaja sobre el azar</td><td class="num marca-pub">1,38×</td>
+            <td class="num marca-rev">2,10×</td></tr>
+          <tr><td class="nom">Brier y su referencia</td><td class="num marca-pub">0,298 / 0,239</td>
+            <td class="num marca-rev">0,376 / 0,223</td></tr>
+          <tr><td class="nom">Precisión@5</td><td class="num marca-pub">0,94</td>
+            <td class="num marca-rev">0,76</td></tr>
+          <tr><td class="nom">Tasas del semáforo</td><td class="num marca-pub">0,790 / 0,650 / 0,532</td>
+            <td class="num marca-rev">0,596 / 0,301 / 0,105</td></tr>
+          <tr><td class="nom">Razón alto/bajo</td><td class="num marca-pub">1,49×</td>
+            <td class="num marca-rev">5,67×</td></tr>
+          <tr><td class="nom">Cobertura preventiva</td><td class="num marca-pub">53,0 % en 20,1 %</td>
+            <td class="num marca-rev">61,6 % en 16,1 %</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-fig">Siete de los nueve errores iban en contra del proyecto: lo hacían ver peor de
+      lo que es. Dos lo favorecían —el AUC-PR y la precisión@5— y son los dos que había que quitar.
+      La réplica previa a este recálculo reprodujo los veintitrés números del cuaderno, idénticos a
+      tres decimales.</p>
+
+    <div class="tabla-env">
+      <table>
+        <caption>Cuatro pendientes, en orden de lo que más cambiaría el trabajo</caption>
+        <thead><tr><th>Pendiente</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr class="destaca"><td class="nom"><b>Reespecificar en forma jerárquica</b></td>
+            <td>Simulando 600 paneles con coeficientes conocidos, la logística agrupada sesga la
+              persistencia <b>un 39 % hacia arriba</b> y la cobertura de sus intervalos cae al 35 %.
+              La jerárquica con intercepto aleatorio por municipio recupera el coeficiente —sesgo de
+              −0,024— y la componente de varianza, 0,783 frente a una verdad de 0,8.</td></tr>
+          <tr><td class="nom"><b>Forma funcional</b></td>
+            <td>Box–Tidwell rechaza la linealidad en las cuatro continuas. Splines o tramos, con el
+              criterio de selección declarado.</td></tr>
+          <tr><td class="nom"><b>Alertas de la Defensoría con fecha</b></td>
+            <td>Sin la fecha de cada alerta solo podemos medir concordancia, no anticipación. Es lo
+              que convertiría el §7 en una prueba de valor incremental.</td></tr>
+          <tr><td class="nom"><b>Congelar el índice de corredor</b></td>
+            <td>Única manera de convertir el 0,927 de hipótesis en resultado.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Y falta lo que no depende del método. Sin una entidad que se comprometa a responder, el sistema
+      puede medir si acierta, pero no si sirve.</p>
+  </section>
+
+  <!-- ========== TECNOLOGÍA ========== -->
+  <section>
+    <div class="sec-cab"><span class="sec-n">§ 9</span>
+      <h2>Con qué está hecho</h2></div>
+
+    <p>Python 3.12 con <code>scikit-learn</code> para la logística penalizada, el <code>Pipeline</code>
+      de escalado y la recalibración isotónica; <code>xgboost</code> para los árboles potenciados;
+      <code>statsmodels</code> para los modelos de conteo, los errores agrupados, GEE, Box–Tidwell y la
+      logística jerárquica bayesiana por inferencia variacional; <code>scipy</code> para los contrastes
+      no paramétricos y la prueba exacta de Fisher; y <code>shap</code> para la atribución, que hereda
+      el problema de identificación del §3 y debe leerse por bloques.</p>
+
+    <p>El modelo es barato: las once ventanas completas corren en <b>0,79 s</b>, y una sola en 9,6 ms.
+      Lo caro fue construir la fuente. El costo computacional real está en la verificación —4.000
+      remuestreos de bloques y la enumeración de 736.281 permutaciones—, y aun así el conjunto corre en
+      minutos en un portátil.</p>
+
+    <p>Toda la validación de este documento se hizo reconstruyendo el panel desde la fuente primaria y
+      replicando los veintitrés números del cuaderno antes de calcular cualquier cifra nueva.</p>
+  </section>
+
+  <!-- ========== NOTAS ========== -->
+  <section>
+    <div class="sec-cab"><span class="sec-n">Notas</span>
+      <h2>Decisiones y fuentes</h2></div>
 
     <details>
-      <summary>El <i>n</i> no son 1.023 filas, son 31 municipios. ¿Por qué una verosimilitud que las
-        trata como independientes?</summary>
+      <summary>¿Por qué el n no son 1.023 filas sino 31 municipios?</summary>
       <div class="resp">
-        <p>Es la objeción correcta, y la medimos de tres maneras. Con errores agrupados por municipio,
-          los errores estándar quedan en promedio en <span class="dato">0,97×</span> los que suponen
-          independencia. La correlación intra-municipio estimada por GEE con estructura intercambiable
-          es <span class="dato">−0,024</span>. Y la desviación estándar del intercepto aleatorio en
-          una logística jerárquica bayesiana es <span class="dato">0,29</span> en escala logit.</p>
-        <p>Las tres apuntan a lo mismo: las variables rezagadas —en particular los años desde el
-          último hecho— ya absorben casi toda la heterogeneidad entre municipios, y queda poca
-          correlación residual que corregir. El modelo jerárquico, ajustado por inferencia
-          variacional, predice fuera de muestra prácticamente igual: AUC-ROC
-          <span class="dato">0,792</span> frente a <span class="dato">0,788</span>.</p>
-        <p>Lo cual no cierra el asunto, y la simulación de abajo explica por qué.</p>
+        <p>Es la objeción correcta y la medimos de tres maneras. Con errores agrupados por municipio,
+          los errores estándar quedan en <span class="dato">0,97×</span> los que suponen independencia.
+          La correlación intra-municipio estimada por GEE es <span class="dato">−0,024</span>. Y la
+          desviación del intercepto aleatorio en una logística jerárquica es
+          <span class="dato">0,29</span> en escala logit.</p>
+        <p>Las tres apuntan a lo mismo: las variables rezagadas ya absorben casi toda la heterogeneidad
+          entre municipios. Pero eso no cierra el asunto, porque la simulación del §8 muestra que el
+          <b>punto</b> sigue sesgado aunque el margen no lo parezca. El coeficiente de persistencia del
+          modelo publicado se lee como cota superior.</p>
       </div>
     </details>
 
     <details>
-      <summary>¿Recupera el estimador la verdad con 31 unidades y 34 periodos?</summary>
+      <summary>¿Con qué criterio se eligió la penalización?</summary>
       <div class="resp">
-        <p>Lo probamos generando 600 paneles de 31 municipios por 34 años con coeficientes conocidos
-          —persistencia de 1,2 en escala logit, intercepto aleatorio de desviación 0,8— y una tasa de
-          ocurrencia simulada de 0,187, cercana a la real de 0,171. El diseño generador y el estimado
-          son idénticos, para que lo que se mida sea el estimador y no una desalineación nuestra.</p>
-        <div class="tabla-env">
-          <table>
-            <thead><tr><th>Estimador</th><th class="num">Coef. estimado</th><th class="num">Sesgo</th>
-              <th class="num">Cobertura del IC 95 %</th></tr></thead>
-            <tbody>
-              <tr><td class="nom">Logística agrupada, EE independientes</td><td class="num">1,669</td>
-                <td class="num marca-nov">+0,469</td><td class="num marca-nov">35,2 %</td></tr>
-              <tr><td class="nom">Logística agrupada, EE por municipio</td><td class="num">1,669</td>
-                <td class="num marca-nov">+0,469</td><td class="num marca-nov">45,0 %</td></tr>
-              <tr class="destaca"><td class="nom">Jerárquica, intercepto aleatorio</td>
-                <td class="num">1,176</td><td class="num marca-rev">−0,024</td>
-                <td class="num">—</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>El resultado es inequívoco y va en contra de la especificación que publicamos: ignorar el
-          intercepto aleatorio <b>sesga la persistencia un 39 % hacia arriba</b>, y ningún ajuste de
-          errores estándar lo arregla, porque el problema está en el punto y no en su margen. La
-          jerárquica recupera el coeficiente —sesgo de −0,024— y también la componente de varianza:
-          <span class="dato">0,783</span> frente a una verdad de 0,8.</p>
-        <p>De ahí la regla que adoptamos: el coeficiente de persistencia del modelo publicado se lee
-          como <b>cota superior</b>, y la especificación jerárquica es la que debe reportarse cuando
-          lo que se quiere es interpretar coeficientes y no solo ordenar territorios.</p>
+        <p>No se eligió: el cuaderno usa el valor por omisión de la biblioteca, <code>C = 1,0</code>.
+          Decirlo es parte de la respuesta. Lo que sí hicimos es medir cuánto importa: sobre cinco
+          órdenes de magnitud, de <span class="dato">C = 0,001 a C = 100</span>, el AUC-ROC fuera de
+          muestra se mueve entre <span class="dato">0,787 y 0,808</span>, amplitud muy por debajo del
+          ancho del intervalo de la propia métrica.</p>
+        <p>No ajustamos <code>C</code> por el desempeño en la prueba, porque sería elegir el modelo con
+          los datos que lo califican. Queda como rango de sensibilidad, no como valor óptimo.</p>
       </div>
     </details>
 
     <details>
-      <summary>¿Con qué criterio eligieron la penalización? ¿Y si cambia?</summary>
+      <summary>Con 31 municipios, ¿cuántos deciden el ajuste?</summary>
       <div class="resp">
-        <p>No la elegimos: el cuaderno usa el valor por omisión de la biblioteca,
-          <code>C = 1,0</code>, que corresponde a una penalización L2 moderada. Decirlo es parte de
-          la respuesta.</p>
-        <p>Lo que sí hicimos es medir cuánto importa. Sobre cinco órdenes de magnitud, de
-          <span class="dato">C = 0,001</span> a <span class="dato">C = 100</span>, el AUC-ROC fuera de
-          muestra se mueve entre <span class="dato">0,787 y 0,808</span>: una amplitud de 0,021, muy
-          por debajo del ancho del intervalo de la propia métrica. La penalización más fuerte es
-          levemente mejor, lo que es coherente con la colinealidad del §2.</p>
-        <p>No ajustamos <code>C</code> por el desempeño en la prueba, porque eso sería elegir el
-          modelo con los datos que lo califican. Queda como rango de sensibilidad, no como valor
-          óptimo.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>Con 31 municipios, ¿cuántos están decidiendo el ajuste?</summary>
-      <div class="resp">
-        <p>Dejamos cada municipio fuera del entrenamiento, uno por vez, y repetimos las once ventanas
-          completas: 341 reajustes. El AUC fuera de muestra se mueve entre
-          <span class="dato">−0,020 y +0,004</span> respecto de 0,788.</p>
-        <p>El municipio más influyente es Riosucio, con 48 hechos acumulados: sin él, el AUC baja a
-          0,769. Ninguno de los otros treinta mueve la métrica más de cuatro milésimas. El ajuste no
-          depende de un puñado de observaciones, que es lo que había que descartar.</p>
+        <p>Dejamos cada municipio fuera del entrenamiento, uno por vez, repitiendo las once ventanas:
+          341 reajustes. El AUC se mueve entre <span class="dato">−0,020 y +0,004</span> respecto de
+          0,788. El más influyente es Riosucio, con 48 hechos acumulados. Ninguno de los otros treinta
+          mueve la métrica más de cuatro milésimas: el ajuste no depende de un puñado de observaciones.</p>
       </div>
     </details>
 
     <details>
       <summary>¿Hay fuga temporal en alguna parte?</summary>
       <div class="resp">
-        <p>Tres cierres, todos verificables en el código. Primero, cada predictora lleva
-          <code>shift(1)</code> antes de cualquier acumulado o media móvil. Segundo, el escalado va
-          dentro del <code>Pipeline</code>, de modo que la media y la desviación se estiman solo con el
-          tramo de entrenamiento de cada ventana. Tercero, el modelo se reajusta desde cero en cada una
-          de las once ventanas, con un colchón que excluye el año evaluado.</p>
-        <p>Queda una vía de contaminación que no es fuga de datos sino de selección: el cuaderno
-          prueba seis configuraciones de XGBoost y anuncia «la mejor por AUC-ROC» comparándolas
-          <b>en el conjunto de prueba</b>. Esa frase es exploratoria y así debe leerse. No afecta la
-          conclusión principal —que la logística supera a XGBoost— porque esa comparación usa la
-          configuración inicial, fijada antes de mirar la prueba.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>¿Qué tan rápido es, y cuánto cuesta reproducirlo?</summary>
-      <div class="resp">
-        <p>Las once ventanas completas —logística y XGBoost, reajuste desde cero en cada una— corren
-          en <span class="dato">0,79 s</span>. Por ventana: <span class="dato">9,6 ms</span> la
-          logística, <span class="dato">47,3 ms</span> XGBoost. La logística jerárquica bayesiana por
-          inferencia variacional, <span class="dato">0,24 s</span>.</p>
-        <p>El costo está en otra parte. El remuestreo de bloques con B = 4.000 y la enumeración exacta
-          de las 736.281 permutaciones son lo que consume tiempo, y aun así el conjunto completo de
-          verificaciones corre en minutos en un portátil. El modelo es barato: lo caro fue construir
-          la fuente.</p>
-        <p>Semilla fija en 42, declarada y usada en todos los estimadores con componente aleatoria.</p>
+        <p>Tres cierres verificables en el código: <code>shift(1)</code> antes de cada acumulado;
+          escalado dentro del <code>Pipeline</code>, estimado solo con el tramo de entrenamiento de cada
+          ventana; y reajuste desde cero en cada una de las once ventanas.</p>
+        <p>Queda una vía que no es fuga de datos sino de selección: el cuaderno prueba seis
+          configuraciones de XGBoost y anuncia «la mejor por AUC-ROC» comparándolas en el conjunto de
+          prueba. Esa frase es exploratoria. No afecta la conclusión principal —que la logística supera
+          a XGBoost— porque esa comparación usa la configuración inicial, fijada antes de mirar la
+          prueba.</p>
       </div>
     </details>
 
     <details>
       <summary>¿Por qué un modelo de ocurrencia y no de conteo?</summary>
       <div class="resp">
-        <p>Hay los dos. El de conteo es una binomial negativa, justificada porque la prueba de
-          sobredispersión de Poisson da <span class="dato">χ²/gl = 1,17</span>. Aquí también
-          corregimos algo nuestro: el cuaderno fija el parámetro de dispersión en
-          <code>alpha = 1,0</code> y compara el AIC contra Poisson con ese valor arbitrario. Estimado
-          por máxima verosimilitud, <span class="dato">alpha = 1,136</span>, y el AIC pasa de 767,6 a
-          767,4: la conclusión no cambia, pero la comparación ahora es legítima.</p>
-        <p>Con errores agrupados por municipio, las razones de incidencia quedan en
+        <p>Hay los dos. El de conteo es una binomial negativa, justificada porque la sobredispersión de
+          Poisson da <span class="dato">χ²/gl = 1,17</span>. Aquí también corregimos algo nuestro: el
+          cuaderno fija la dispersión en <code>alpha = 1,0</code> y compara el AIC contra ese valor
+          arbitrario. Estimada por máxima verosimilitud, <span class="dato">alpha = 1,136</span>, y el
+          AIC pasa de 767,6 a 767,4: la conclusión no cambia, pero la comparación ahora es legítima.</p>
+        <p>Con errores agrupados, las razones de incidencia quedan en
           <span class="dato">1,58 [1,09; 2,30]</span> para la media móvil de tres años y
-          <span class="dato">1,27 [1,13; 1,44]</span> para los años activos previos. El valor p de la
-          primera pasa de menos de 0,001 a <span class="dato">0,016</span> al agrupar: sigue siendo
-          significativa, un orden de magnitud más débil.</p>
-        <p>La decisión de reportar el de ocurrencia como modelo principal es operativa: lo que una
-          entidad puede hacer con la salida es priorizar territorios, no anticipar cuántos hechos
-          habrá en cada uno.</p>
-      </div>
-    </details>
-  </section>
-
-  <!-- ========== 7. LO QUE FALTA ========== -->
-  <section>
-    <div class="sec-cab"><span class="sec-n">§ 7</span>
-      <h2>Lo que falta</h2></div>
-
-    <p>Cuatro cosas, en orden de lo que más cambiaría el trabajo:</p>
-
-    <div class="tabla-env">
-      <table>
-        <thead><tr><th>Pendiente</th><th>Por qué importa</th></tr></thead>
-        <tbody>
-          <tr><td class="nom"><b>Reespecificar en forma jerárquica</b></td>
-            <td>La simulación del §6 muestra un sesgo del 39 % en la persistencia. Es la corrección
-              de mayor efecto y está a una reescritura de distancia.</td></tr>
-          <tr><td class="nom"><b>Forma funcional</b></td>
-            <td>Box–Tidwell rechaza la linealidad en las cuatro continuas. Splines o
-              discretización por tramos, con el criterio de selección declarado.</td></tr>
-          <tr><td class="nom"><b>Variables de la Defensoría a nivel municipal</b></td>
-            <td>Recuperadas a nivel nacional, no integradas al panel municipal. La ganancia de AUC
-              que habíamos atribuido a desaparición forzada <span class="marca-nov">no es
-              verificable</span> hasta que esa integración exista.</td></tr>
-          <tr><td class="nom"><b>Congelar el índice de corredor</b></td>
-            <td>Es la única manera de convertir el 0,927 de hipótesis en resultado. Requiere
-              publicar el índice hoy y esperar.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>Y falta lo que no depende del método. Sin una entidad que se comprometa a responder, el
-      sistema puede medir si acierta, pero no si sirve.</p>
-  </section>
-
-  <!-- ========== TECNOLOGÍA ========== -->
-  <section>
-    <div class="sec-cab"><span class="sec-n">§ 8</span>
-      <h2>Con qué está hecho</h2></div>
-
-    <div class="aparato">
-      <div><dt>Unidad de análisis</dt><dd>1.054<span>municipio-año; 1.023 modelables</span></dd></div>
-      <div><dt>Hechos</dt><dd>401<span>361 con municipio y año</span></dd></div>
-      <div><dt>Ventanas</dt><dd>11<span>origen rodante, 2006–2016</span></dd></div>
-      <div><dt>Variables</dt><dd>9<span>6 estimables sin colinealidad</span></dd></div>
-      <div><dt>Eventos por variable</dt><dd>18,9<span>mínimo convencional: 10</span></dd></div>
-      <div><dt>Ajuste completo</dt><dd>0,79 s<span>las once ventanas, dos modelos</span></dd></div>
-    </div>
-
-    <p>Python 3.12 con <code>scikit-learn</code> para la logística penalizada y el
-      <code>Pipeline</code> de escalado, <code>xgboost</code> para los árboles potenciados,
-      <code>statsmodels</code> para los modelos de conteo, los errores agrupados, GEE, Box–Tidwell y
-      la logística jerárquica bayesiana por inferencia variacional, <code>scipy</code> para los
-      contrastes no paramétricos, y <code>shap</code> para la atribución —que, como dice el §2,
-      hereda el problema de identificación de la colinealidad y debe leerse por bloques.</p>
-
-    <p>El índice de ribereñidad se construye por geometría propia: se densifican los trazos de los
-      ríos Atrato, San Juan y Baudó a pasos de 0,02°, se calcula la distancia perpendicular de punto a
-      segmento desde cada cabecera municipal, y se transforma con <code>R = 100·e^(−d/15)</code>, de
-      modo que la influencia del río decae con una escala de 15 km. Es la única variable del panel que
-      no viene de una base oficial sino de un cálculo nuestro sobre geometrías oficiales, y por eso su
-      receta queda escrita.</p>
-
-    <p>La validación de este documento se hizo reconstruyendo el panel desde la fuente primaria y
-      replicando los 23 números del cuaderno: los 23 salen idénticos a tres decimales. Solo después
-      de esa réplica se calculó cualquier cifra nueva.</p>
-  </section>
-
-  <!-- ========== NOTAS ========== -->
-  <section>
-    <div class="sec-cab"><span class="sec-n">Notas</span>
-      <h2>Fuentes y decisiones</h2></div>
-
-    <details>
-      <summary>¿Por qué AUC-PR y no AUC-ROC?</summary>
-      <div class="resp">
-        <p>Con una prevalencia de 0,334, el AUC-ROC premia aciertos sobre la clase mayoritaria, que
-          son los fáciles. El AUC-PR se lee contra la prevalencia, no contra 0,500, y por eso mide lo
-          que importa: cuánta precisión conserva el modelo al priorizar pocos territorios. Reportamos
-          los dos y la referencia de cada uno.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>¿Por qué remuestreo de bloques y no bootstrap ordinario?</summary>
-      <div class="resp">
-        <p>Remuestrear filas trataría los 34 años de un municipio como 34 observaciones
-          independientes, y los intervalos saldrían demasiado estrechos. Remuestrear los 31
-          municipios con reemplazo conserva la serie completa de cada uno y respeta la dependencia
-          serial. El precio es que los intervalos son anchos; ese ancho es información, no un defecto
-          del método.</p>
-      </div>
-    </details>
-
-    <details>
-      <summary>¿Por qué permutación exacta en vez de aproximada?</summary>
-      <div class="resp">
-        <p>Porque se puede. Con seis ataques entre 31 municipios hay 736.281 asignaciones posibles, y
-          enumerarlas todas es más rápido que sortear diez mil. Elimina el error de simulación: el
-          valor p de 0,00023 no tiene margen de muestreo. La versión aproximada que habíamos publicado,
-          p = 0,0001, era el límite de resolución de diez mil sorteos, no una medición.</p>
+          <span class="dato">1,27 [1,13; 1,44]</span> para los años activos previos.</p>
+        <p>Se reporta el de ocurrencia como principal por una razón operativa: lo que una entidad hace
+          con la salida es priorizar territorios, no anticipar cuántos hechos habrá en cada uno.</p>
       </div>
     </details>
 
@@ -728,51 +726,55 @@ import '../styles/separata.css';
 
     <h3 class="sub">Referencias</h3>
     <div class="refs"><ol>
-      <li>Jurisdicción Especial para la Paz. (2026). <i>Caso 07: Reclutamiento y utilización de
-        niñas y niños en el conflicto armado</i>. Expediente del caso.</li>
+      <li>Jurisdicción Especial para la Paz. (2026). <i>Caso 07: Reclutamiento y utilización de niñas
+        y niños en el conflicto armado</i>. Expediente anonimizado del caso.</li>
+      <li>Unidad para la Atención y Reparación Integral a las Víctimas. (2026).
+        <i>Registro Único de Víctimas</i>, corte de marzo de 2026.</li>
       <li>Defensoría del Pueblo. (2026, 30 de marzo). <i>Alerta temprana para El Litoral del San
         Juan</i>, Chocó.</li>
-      <li>Unidad para la Atención y Reparación Integral a las Víctimas. (2026).
-        <i>Registro Único de Víctimas</i>.</li>
-      <li>UNODC &amp; Gobierno de Colombia. (2026). <i>Monitoreo de territorios afectados por
-        cultivos ilícitos</i>.</li>
-      <li>Departamento Administrativo Nacional de Estadística. (2021).
-        <i>Proyecciones de población municipal</i>.</li>
+      <li>UNODC &amp; Gobierno de Colombia. (2026). <i>Monitoreo de territorios afectados por cultivos
+        ilícitos</i>.</li>
+      <li>Departamento Administrativo Nacional de Estadística. (2021). <i>Proyecciones de población
+        municipal</i> y <i>áreas municipales 1985–2020</i>.</li>
     </ol></div>
   </section>
 
-  <p class="aforismo">Una cifra sin intervalo no es una medición: es una opinión con decimales.</p>
+  <p class="aforismo">Advertir es decir que hay peligro. Priorizar es decir por dónde empezar.
+    No es la misma frase, y no la dice el mismo instrumento.</p>
 
-  <p class="colofon">Esta separata revisa el trabajo publicado en torredbabel.com/choco y lo corrige
-    donde no se sostenía. Todas las cifras provienen de fuentes oficiales primarias citadas y son un
-    piso, nunca una estimación, por el subregistro propio del conflicto armado. Donde falta
-    desagregación la celda queda vacía y marcada. Los guiones de verificación y el panel reconstruido
-    acompañan a este documento.</p>
+  <p class="colofon">Esta separata acompaña al tablero publicado en torredbabel.com/choco y expone el
+    método detrás de sus cifras. Todas provienen de fuentes oficiales primarias citadas y son un piso,
+    nunca una estimación, por el subregistro propio del conflicto armado. Donde falta desagregación la
+    celda queda vacía y marcada.</p>
 
-  </div><!-- /ancho -->
-  </div><!-- cierre contenedor medida -->
+  </div>
+  </div>
   </div>
 </Base>
 
 <script is:inline>
 (function(){
-  // La barra de intervalo: punto estimado, barra del IC95, y referencia de azar punteada.
+  // --- cinta de los 31 municipios ---
+  function cinta(id, n, total, clase){
+    var e=document.getElementById(id); if(!e) return;
+    var s='';
+    for(var i=0;i<total;i++) s+='<span class="'+(i<n?clase:'')+'"></span>';
+    e.innerHTML=s;
+  }
+  cinta('c-def',30,31,'on');
+  cinta('c-mod',10,31,'pri');
+
+  // --- barra de intervalo ---
   function barra(d){
-    var x0=d.min!==undefined?d.min:0, x1=d.max!==undefined?d.max:1;
-    var T=function(v){return ((v-x0)/(x1-x0))*100};
+    var x0=0,x1=1,T=function(v){return ((v-x0)/(x1-x0))*100};
     var tono=d.tono==='pub'?'var(--a)':(d.tono==='nov'?'var(--ac)':
              (d.tono==='base'?'var(--suave)':'var(--b)'));
-    var s='<svg viewBox="0 0 100 24" preserveAspectRatio="none" role="img" aria-label="'+
-      (d.aria||'')+'">';
-    // pista
+    var s='<svg viewBox="0 0 100 24" preserveAspectRatio="none" role="img" aria-label="'+(d.aria||'')+'">';
     s+='<line x1="0" y1="12" x2="100" y2="12" stroke="var(--regla)" stroke-width="1"'+
        ' vector-effect="non-scaling-stroke"/>';
-    // referencia de azar
-    if(d.ref!==undefined){
+    if(d.ref!==undefined)
       s+='<line x1="'+T(d.ref)+'" y1="2" x2="'+T(d.ref)+'" y2="22" stroke="var(--suave)"'+
          ' stroke-width="1" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>';
-    }
-    // intervalo
     if(d.ic){
       s+='<line x1="'+T(d.ic[0])+'" y1="12" x2="'+T(d.ic[1])+'" y2="12" stroke="'+tono+
          '" stroke-width="7" stroke-linecap="butt" opacity=".3"/>';
@@ -781,44 +783,23 @@ import '../styles/separata.css';
       s+='<line x1="'+T(d.ic[1])+'" y1="5" x2="'+T(d.ic[1])+'" y2="19" stroke="'+tono+
          '" stroke-width="1.5" vector-effect="non-scaling-stroke"/>';
     }
-    // punto: linea de longitud cero con remate redondo, para que el estirado
-    // horizontal del viewBox no lo convierta en elipse
     s+='<line x1="'+T(d.v)+'" y1="12" x2="'+T(d.v)+'" y2="12" stroke="'+tono+
        '" stroke-width="8.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>';
-    s+='</svg>';
-    return s;
+    return s+'</svg>';
   }
   function pinta(id, filas, eje){
-    var n=document.getElementById(id); if(!n) return;
-    var h='';
+    var n=document.getElementById(id); if(!n) return; var h='';
     filas.forEach(function(d){
       var det=d.ic?('IC 95 % '+d.ic[0].toFixed(3).replace('.',',')+' – '+
                     d.ic[1].toFixed(3).replace('.',',')):(d.nota||'sin intervalo');
-      h+='<div class="iv-fila"><div class="iv-et">'+d.et+
-         '<small>'+d.v.toFixed(3).replace('.',',')+'  ·  '+det+'</small></div>'+
+      h+='<div class="iv-fila"><div class="iv-et">'+d.et+'<small>'+
+         d.v.toFixed(3).replace('.',',')+'  ·  '+det+'</small></div>'+
          '<div class="iv-pista">'+barra(d)+'</div></div>';
     });
-    if(eje){
-      h+='<div class="iv-eje"><div></div><div class="marcas"><span>0,0</span>'+
-         '<span>0,25</span><span>0,50</span><span>0,75</span><span>1,0</span></div></div>';
-    }
+    if(eje) h+='<div class="iv-eje"><div></div><div class="marcas"><span>0,0</span>'+
+      '<span>0,25</span><span>0,50</span><span>0,75</span><span>1,0</span></div></div>';
     n.innerHTML=h;
   }
-
-  pinta('iv-antes',[
-    {et:'AUC-PR del modelo', v:0.834, tono:'pub', nota:'como se publicó', ref:0.334,
-     aria:'AUC-PR publicado de 0,834, sin intervalo'},
-    {et:'Ordenamiento sobre 2026', v:0.337, tono:'pub', nota:'«señal invertida»', ref:0.5,
-     aria:'AUC de 0,337 publicado sin intervalo'}
-  ]);
-
-  pinta('iv-despues',[
-    {et:'AUC-PR del modelo', v:0.704, ic:[0.463,0.843], ref:0.334,
-     aria:'AUC-PR de 0,704 con intervalo de 0,463 a 0,843'},
-    {et:'Ordenamiento sobre 2026', v:0.337, ic:[0.120,0.577], tono:'nov', ref:0.5,
-     aria:'AUC de 0,337 con intervalo de 0,120 a 0,577, que contiene 0,5'}
-  ], true);
-
   pinta('iv-metricas',[
     {et:'AUC-ROC · logística', v:0.788, ic:[0.685,0.866], ref:0.5,
      aria:'AUC-ROC 0,788, intervalo 0,685 a 0,866'},
@@ -832,10 +813,39 @@ import '../styles/separata.css';
      aria:'AUC-PR 0,628, intervalo 0,427 a 0,789'},
     {et:'Precisión@5 · logística', v:0.764, ic:[0.527,1.0], ref:0.334,
      aria:'Precisión en los cinco primeros, 0,764'},
-    {et:'Precisión@5 · XGBoost', v:0.818, ic:[0.527,0.945], ref:0.334,
-     aria:'Precisión en los cinco primeros con XGBoost, 0,818'},
     {et:'Cobertura con top-5', v:0.616, ic:[0.371,0.764],
      aria:'Cobertura de hechos priorizando cinco municipios, 0,616'}
   ], true);
+
+  // --- matrices de confusion, a escala ---
+  var MX=[
+    {t:'Los 5 de mayor riesgo cada año', s:'55 alarmas · 16,1 % del territorio',
+     VP:44, FP:11, FN:70, VN:216, prec:0.800, sens:0.386},
+    {t:'Semáforo en nivel alto', s:'114 alarmas · 33,4 % del territorio',
+     VP:70, FP:44, FN:44, VN:183, prec:0.614, sens:0.614},
+    {t:'Probabilidad calibrada ≥ 0,33', s:'160 alarmas · 46,9 % del territorio',
+     VP:83, FP:77, FN:31, VN:150, prec:0.519, sens:0.728}
+  ];
+  function celda(n, tot, clase, q){
+    var alt=tot?Math.round(100*n/tot):0;
+    return '<div class="celda '+clase+'"><i style="height:'+alt+'%;opacity:.22"></i>'+
+           '<span class="n">'+n+'</span><span class="q">'+q+'</span></div>';
+  }
+  var cont=document.getElementById('matrices');
+  if(cont){
+    cont.innerHTML=MX.map(function(m){
+      var f1=m.VP+m.FP, f2=m.FN+m.VN;
+      return '<div class="mx"><h4>'+m.t+'</h4><p class="mx-sub">'+m.s+'</p>'+
+        '<div class="mx-rej">'+
+          '<div class="eje"></div><div class="eje">Hubo hecho</div><div class="eje">No hubo</div>'+
+          '<div class="lat">Alarma<br>encendida</div>'+
+            celda(m.VP,f1,'acierto','acierto')+celda(m.FP,f1,'fallo','falsa alarma')+
+          '<div class="lat">Sin<br>alarma</div>'+
+            celda(m.FN,f2,'fallo','se escapó')+celda(m.VN,f2,'acierto','correcto')+
+        '</div>'+
+        '<p class="mx-pie">precisión <b>'+m.prec.toFixed(3).replace('.',',')+'</b>'+
+        '  ·  sensibilidad <b>'+m.sens.toFixed(3).replace('.',',')+'</b></p></div>';
+    }).join('');
+  }
 })();
 </script>
