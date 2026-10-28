@@ -91,7 +91,28 @@ code{font-family:var(--mono);font-size:.84em;background:var(--hondo);padding:.05
   medidas y el desempeño, con la celda del cuaderno que produce cada cosa.
   Sin relato — para eso está <a href="https://torredbabel.com/choco-modelo">la separata</a>.
   Los archivos están en <code>datos/</code> y el cuaderno en <code>cuaderno/</code>.
+  Todo se organiza alrededor de un corte: <b>antes y después del acuerdo de paz</b>.
 </p>
+
+<div class="cab"><h2>Los dos regímenes</h2><span class="ref">guiones 04 y 08</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>Ordenamiento</th><th class="n">AUC antes<br>1983–2016</th>
+    <th class="n">IC 95 %</th><th class="n">AUC después<br>2017–2026</th>
+    <th class="n">IC 95 %</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td class="nom">Memoria histórica</td><td class="n">0,760</td>
+      <td class="n">[0,665; 0,835]</td><td class="n">0,337</td><td class="n">[0,123; 0,577]</td></tr>
+    <tr><td class="nom">Corredor en disputa</td><td class="n">0,470</td>
+      <td class="n">[0,358; 0,591]</td><td class="n">0,927</td><td class="n">[0,813; 1,000]</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">AUC del ordenamiento directo, sin modelo, en cada régimen. <b>Antes:</b> 527
+  municipio-año de 2000 a 2016, 155 con reclutamiento registrado. <b>Después:</b> los 31
+  municipios y los 6 ataques con dron de 2026. La diagonal ordena; en la contradiagonal, los dos
+  intervalos contienen el 0,500 del azar. <b>Lo que no muestra:</b> que la celda de abajo a la
+  derecha es la única construida sabiendo el desenlace, y por eso la única que no prueba nada por
+  sí sola.</p>
 
 <div class="fichas">
   <div><dt>Unidad</dt><dd>1.054<span>municipio-año; 1.023 modelables</span></dd></div>
@@ -294,6 +315,38 @@ code{font-family:var(--mono);font-size:.84em;background:var(--hondo);padding:.05
 <p class="nota">Prueba de permutación <b>exacta</b>: se enumeran las 736.281 maneras de repartir
   seis ataques entre 31 municipios, de modo que el valor p no tiene error de simulación. El p del
   semáforo es bilateral; los demás, unilaterales.</p>
+
+<div class="cab"><h2>El corredor contra el régimen anterior</h2><span class="ref">guion 08</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>Ordenamiento</th><th class="n">AUC</th><th class="n">AUC-PR</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td class="nom">Memoria histórica</td><td class="n">0,760</td><td class="n">0,608</td></tr>
+    <tr><td class="nom">Coca acumulada</td><td class="n">0,553</td><td class="n">0,366</td></tr>
+    <tr><td class="nom">Coca del año anterior</td><td class="n">0,526</td><td class="n">0,350</td></tr>
+    <tr class="lo"><td class="nom">Corredor en disputa</td><td class="n">0,470</td><td class="n">0,335</td></tr>
+    <tr class="lo"><td class="nom">Cercanía al río San Juan</td><td class="n">0,449</td><td class="n">0,301</td></tr>
+  </tbody>
+</table></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>¿Añade sobre la memoria? (origen rodante)</th><th class="n">AUC-ROC</th>
+    <th class="n">AUC-PR</th><th class="n">Precisión@5</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td class="nom">Memoria histórica sola (9 variables)</td><td class="n">0,784</td>
+      <td class="n">0,700</td><td class="n">0,836</td></tr>
+    <tr><td class="nom">Memoria + cercanía al río</td><td class="n">0,782</td><td class="n">0,696</td><td class="n">0,800</td></tr>
+    <tr><td class="nom">Memoria + coca anual</td><td class="n">0,781</td><td class="n">0,697</td><td class="n">0,818</td></tr>
+    <tr><td class="nom">Memoria + corredor completo</td><td class="n">0,779</td><td class="n">0,693</td><td class="n">0,818</td></tr>
+    <tr class="lo"><td class="nom">Corredor solo</td><td class="n">0,511</td><td class="n">0,378</td><td class="n">0,382</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">527 municipio-año de 2000 a 2016, 155 positivos; referencia de azar del AUC-PR:
+  0,294. El índice se reconstruye año por año con la coca del UNODC, rezagada un año. Ganancia de
+  añadir el corredor completo: <b>−0,005</b>, intervalo [−0,015; +0,001], probabilidad de ganancia
+  positiva de 0,07. El modelo de memoria da aquí 0,784 y no 0,788 porque se entrena desde 2000;
+  la comparación entre filas sí es interna y válida. <b>Lo que no muestra:</b> si el corredor
+  aporta sobre violencia posterior al acuerdo, que es lo que no se puede probar todavía.</p>
 
 <div class="aviso">
   <p>Dos reservas que ningún intervalo arregla.</p>

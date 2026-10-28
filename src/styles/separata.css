@@ -130,6 +130,63 @@
   font-size:.9rem;color:var(--suave);margin:.45rem 0 0;line-height:1.45
 }
 
+/* --- El dos por dos: cuatro AUC, dos instrumentos por dos regímenes.
+   El color de la casilla dice el RÉGIMEN —ocre antes del acuerdo, índigo
+   después—, nunca el veredicto. El veredicto lo lleva el filete: macizo si el
+   intervalo excluye el azar, punteado si lo contiene. Un solo código de color
+   en toda la pieza, que es lo que permite leer la diagonal de un vistazo. --- */
+.pieza-separata .dosxdos{
+  display:grid;grid-template-columns:7.5rem 1fr 1fr;gap:3px;margin:0 0 1rem
+}
+.pieza-separata .dosxdos .col{
+  font-family:var(--apoyo);font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--suave);display:flex;align-items:flex-end;padding:0 0 .35rem .15rem;line-height:1.25
+}
+.pieza-separata .dosxdos .fil{
+  font-family:var(--apoyo);font-size:.7rem;color:var(--tinta);display:flex;align-items:center;
+  text-align:right;justify-content:flex-end;padding-right:.5rem;line-height:1.25;font-weight:500
+}
+.pieza-separata .cel{
+  border:1px dashed var(--regla);padding:.6rem .65rem;background:var(--papel)
+}
+.pieza-separata .cel.antes.si{border:1px solid var(--a);background:var(--a-tenue)}
+.pieza-separata .cel.post.si{border:1px solid var(--b);background:var(--b-tenue)}
+.pieza-separata .cel .auc{
+  font-family:var(--mono);font-size:1.35rem;color:var(--fuerte);line-height:1;
+  font-variant-numeric:tabular-nums
+}
+.pieza-separata .cel .ic{
+  font-family:var(--mono);font-size:.63rem;color:var(--suave);margin-top:.2rem;
+  font-variant-numeric:tabular-nums;line-height:1.3
+}
+.pieza-separata .cel .ver{margin-top:.45rem;height:.85rem}
+.pieza-separata .cel .ver svg{display:block;width:100%;height:100%;overflow:visible}
+.pieza-separata .cel .vd{
+  font-family:var(--apoyo);font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;
+  margin-top:.4rem;line-height:1.3;color:var(--suave)
+}
+.pieza-separata .cel.antes.si .vd{color:var(--a-texto)}
+.pieza-separata .cel.post.si .vd{color:var(--b-texto)}
+.pieza-separata .dosxdos-pie{
+  font-family:var(--apoyo);font-size:.72rem;line-height:1.5;color:var(--suave);margin:0 0 1.3rem
+}
+.pieza-separata .dosxdos-pie b{color:var(--tinta);font-weight:600}
+
+/* Fila de tabla del régimen anterior al acuerdo, y numeral de sección posterior */
+.pieza-separata tr.antes td{background:var(--a-tenue)}
+.pieza-separata .sec-n.post{color:var(--b-texto)}
+
+/* Bloque de horizonte: lo que se podría explicar, frente a lo que se explica */
+.pieza-separata .horizonte{
+  border-left:2px solid var(--b);padding:.1rem 0 .1rem .95rem;margin-block:1.1rem 1.5rem
+}
+.pieza-separata .horizonte .et{
+  font-family:var(--apoyo);font-size:.65rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--b-texto);display:block;margin-bottom:.35rem
+}
+.pieza-separata .horizonte p:last-child{margin-bottom:0}
+
+
 /* --- Cinta de los 31 municipios: una columna por municipio, siempre en una fila.
    El conteo uno por uno es el argumento: 30 casillas encendidas frente a 10. --- */
 .pieza-separata .cinta{display:grid;gap:.75rem;margin:0 0 1.5rem}
@@ -414,6 +471,10 @@
   .pieza-separata .aparato{grid-template-columns:repeat(auto-fit,minmax(7rem,1fr))}
   .pieza-separata .casillas{gap:1px}
   .pieza-separata .casillas span{height:1.15rem}
+  .pieza-separata .dosxdos{grid-template-columns:5.2rem 1fr 1fr;gap:2px}
+  .pieza-separata .dosxdos .fil{font-size:.62rem}
+  .pieza-separata .cel{padding:.45rem .4rem}
+  .pieza-separata .cel .auc{font-size:1.1rem}
 }
 @media (prefers-reduced-motion:reduce){
   .pieza-separata *{animation:none!important;transition:none!important}
