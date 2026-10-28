@@ -193,11 +193,11 @@ const panelAlt =
           </div>
         </div>
       </div>
-      <p class="figura-nota">Validación de origen rodante con ventana expansiva. El desempeño se reporta contra la línea base de prevalencia —AUC-PR 0,834 frente a 0,603— y no contra el 0,5 del azar, porque con clases desbalanceadas el AUC-ROC solo exagera.</p>
+      <p class="figura-nota">Validación de origen rodante con ventana expansiva, once ventanas sobre 341 municipio-año. El desempeño se reporta contra la prevalencia —AUC-PR 0,704, intervalo del 95 % [0,463; 0,843], frente a 0,334— y no contra el 0,5 del azar, porque con clases desbalanceadas el AUC-ROC solo exagera. Los intervalos salen de remuestrear los 31 municipios con reemplazo, 4.000 veces, y son anchos porque 31 unidades son pocas.</p>
     </section>
 
     <section class="columna">
-      <p>Con ese método el modelo traduce cada municipio-año a un nivel de alerta, y el nivel se valida contra lo que ocurrió después: 79,0 % de reclutamiento real en el nivel alto, 65,0 % en el medio y 53,2 % en el bajo. La monotonía se cumple, que es la única prueba que vuelve utilizable un semáforo.</p>
+      <p>Con ese método el modelo traduce cada municipio-año a un nivel de alerta, y el nivel se valida contra lo que ocurrió después: 59,6 % de reclutamiento real en el nivel alto, 30,1 % en el medio y 10,5 % en el bajo. La monotonía se cumple, que es la única prueba que vuelve utilizable un semáforo, y la razón entre el nivel alto y el bajo es de 5,67 veces, con intervalo [2,70; 13,79].</p>
       <p>Queda una pregunta más incómoda: de todo lo que medimos, ¿qué explica de verdad la alarma?</p>
     </section>
 
@@ -219,7 +219,7 @@ const panelAlt =
               <ul>
                 <li class="atenuable" data-t="hist"><mark class="hallado">Historia acumulada</mark></li>
                 <li class="atenuable" data-t="anios"><mark class="hallado">Años activos previos</mark></li>
-                <li class="atenuable lazo" data-t="desap"><mark class="hallado">Desaparición forzada</mark><span class="lazo-nota">sube el AUC de 0,769 a 0,795</span></li>
+                <li class="atenuable lazo" data-t="desap"><mark class="hallado">Desaparición forzada</mark><span class="lazo-nota">recuperada a nivel nacional; falta integrarla al panel municipal</span></li>
                 <li class="atenuable" data-t="rib"><mark class="hallado">Ribereñidad</mark></li>
               </ul>
               <p class="niveles-rotulo">Lo que el dato confirmó</p>
@@ -282,7 +282,7 @@ const panelAlt =
             <div class="paso"><p>Cuatro de los seis estaban en el nivel más bajo del semáforo. Río Iró, el último atacado, <mark class="contado">no registra un solo hecho</mark> en los treinta y cuatro años de la serie.</p></div>
           </div>
           <div class="recorrido-paso" data-n="2" data-lado="der" data-foco="A">
-            <div class="paso"><p>Medido como problema de ordenamiento, el desempeño es de <mark class="contado">0,337</mark>: por debajo del 0,500 que daría asignar el riesgo al azar. No es ruido, es una señal invertida.</p></div>
+            <div class="paso"><p>Medido como problema de ordenamiento, el desempeño es de <mark class="contado">0,337</mark>, por debajo del 0,500 del azar. Pero con seis ataques el intervalo va de 0,120 a 0,577 y contiene el azar: lo honesto es decir que el historial no mostró información, no que la mostrara invertida.</p></div>
           </div>
           <div class="recorrido-paso" data-n="3" data-lado="izq" data-foco="B">
             <div class="paso"><p>Pero las variables para anticiparlo ya estaban en la base. Cercanía al San Juan, coca acumulada y divergencia entre presente y pasado alcanzan <mark class="hallado">0,927</mark>, sin usar el historial de reclutamiento.</p></div>
@@ -292,7 +292,7 @@ const panelAlt =
           </div>
         </div>
       </div>
-      <p class="figura-nota">Panel A: riesgo del semáforo al cierre de 2016. Panel B: índice de corredor en disputa, construido sin datos posteriores a 2025. Diez mil permutaciones del desenlace dan p = 0,0001; con pesos iguales y sin ajuste alguno el índice alcanza 0,913. Con seis positivos sobre treinta y un municipios, 0,927 es una cota superior: las cifras defendibles son las de los tres componentes por separado.</p>
+      <p class="figura-nota">Panel A: riesgo del semáforo al cierre de 2016. Panel B: índice de corredor en disputa, construido sin datos posteriores a 2025. La prueba de permutación aquí puede hacerse exacta —enumerando las 736.281 maneras de repartir seis ataques entre treinta y un municipios— y da p = 0,00023; con pesos iguales y sin ajuste alguno el índice alcanza 0,913. Con seis positivos, 0,927 tiene intervalo [0,820; 1,000] y es una cota superior. Hay una reserva que ningún intervalo arregla: los tres componentes se eligieron después de saber qué municipios fueron atacados, de modo que 0,927 es una hipótesis que solo se vuelve evidencia si el índice se congela hoy y se evalúa contra lo que todavía no ha ocurrido.</p>
     </section>
 
     <section class="columna">
@@ -304,10 +304,10 @@ const panelAlt =
     <section class="columna">
       <h2 class="seccion">Lo que sigue</h2>
       <p>La tentación es medir este trabajo por el número de niñas y niños que no fueron reclutados. Esa cifra no existe y no puede construirse: un reclutamiento evitado no deja registro, y cualquier estimación de ese contrafactual sería una invención.</p>
-      <p>Por eso la métrica norte mide otra cosa, observable y bajo nuestro control: <mark class="firme">qué parte del daño ocurrió en territorios que el sistema había priorizado antes</mark>. Hoy el nivel alto del semáforo cubre 123 de los 232 hechos observados usando el 20,1 % del panel.</p>
+      <p>Por eso la métrica norte mide otra cosa, observable y bajo nuestro control: <mark class="firme">qué parte del daño ocurrió en territorios que el sistema había priorizado antes</mark>. En las once ventanas de validación, el nivel alto del semáforo cubre 210 de los 276 hechos observados usando el 33,4 % del panel; y si la prioridad se aprieta a cinco municipios por año —el 16,1 % del territorio— cubre el 61,6 %.</p>
       <div class="proporcion" aria-hidden="true">
-        <div class="proporcion-barra"><span class="p-hallado" style="flex:123"></span><span class="p-resto" style="flex:109"></span></div>
-        <p class="etiqueta">Hechos cubiertos por el nivel alto 123 · fuera de la prioridad 109</p>
+        <div class="proporcion-barra"><span class="p-hallado" style="flex:210"></span><span class="p-resto" style="flex:66"></span></div>
+        <p class="etiqueta">Hechos cubiertos por el nivel alto 210 · fuera de la prioridad 66</p>
       </div>
       <p>La cobertura se reporta siempre junto al costo territorial, porque priorizar todo el departamento la llevaría a 100 % y haría inútil el sistema. Ese par —cuánto cubre y a qué costo— es la métrica completa, y la meta a doce meses es 70 % sin pasar del 25 % del territorio.</p>
       <p>Falta lo que no depende de nosotros. Sin una entidad que se comprometa a responder, el sistema puede medir si acierta, pero no si sirve.</p>
@@ -318,6 +318,26 @@ const panelAlt =
 
   <section class="notas" aria-labelledby="notas-titulo">
     <h2 id="notas-titulo">Notas y método</h2>
+    <details>
+      <summary>Revisión de cifras del 27 de octubre de 2026</summary>
+      <p>Reconstruimos el panel desde la fuente primaria y replicamos los veintitrés números del cuaderno:
+      los veintitrés salen idénticos a tres decimales. Solo después de esa réplica recalculamos lo demás, y
+      nueve cifras de esta página no se sostuvieron. Quedan corregidas arriba, y las dejamos enumeradas aquí
+      porque borrarlas en silencio sería la peor manera de corregirlas.</p>
+      <p>No se sostenían: el AUC-PR, publicado en 0,834 y que recalculado da 0,704; su referencia, publicada
+      en 0,603 cuando la prevalencia real es 0,334; la ventaja sobre el azar que de ahí se seguía; el Brier y
+      su referencia; la precisión@5, publicada en 0,94 y que da 0,76; las tres tasas del semáforo; la razón
+      entre el nivel alto y el bajo; y la cobertura preventiva. Siete de los nueve errores iban en contra del
+      proyecto: lo hacían ver peor de lo que es. Dos lo favorecían, y son los dos que había que quitar.</p>
+      <p>Se corrigieron además dos interpretaciones. El AUC de 0,337 sobre los ataques de 2026 tiene intervalo
+      [0,120; 0,577], que contiene el azar: con seis desenlaces no puede llamarse señal invertida, y la
+      «brecha de deriva» que publicamos restaba un punto estimado a otro cuyo intervalo cruza el azar, de modo
+      que no es una cantidad reportable. Y la ganancia de AUC que habíamos atribuido a la variable de
+      desaparición forzada no es verificable mientras esa variable siga recuperada solo a nivel nacional.</p>
+      <p>Todas las métricas llevan ahora intervalo del 95 % por remuestreo de los 31 municipios con reemplazo
+      (B = 4.000). Remuestrear municipios y no filas es lo que respeta la dependencia dentro de cada municipio;
+      el precio es que los intervalos salen anchos, y ese ancho es información.</p>
+    </details>
     <details>
       <summary>¿Qué registro visual usa esta pieza?</summary>
       <p>El registro «Placa», inventado para ella. El mundo del que sale es la placa conmemorativa: lo que se
@@ -476,7 +496,7 @@ const panelAlt =
       clave: 'Alertas emitidas por la Defensoría del Pueblo entre 2016 y 2025, incluidas las de inminencia.' },
     { id: 'semaforo', n: 'Semáforo del modelo', r: 'ambar', esc: 'cat', u: 'nivel de alerta',
       v: m => m.riesgo,
-      clave: 'Los tres niveles que el modelo produjo al cierre de 2016. Validados: 79,0 % de reclutamiento real en ALTA, 65,0 % en MEDIA y 53,2 % en BAJA.' },
+      clave: 'Los tres niveles que el modelo produjo al cierre de 2016. Validados fuera de muestra: 59,6 % de reclutamiento real en ALTA, 30,1 % en MEDIA y 10,5 % en BAJA.' },
     { id: 'giro', n: 'El giro', r: 'div', esc: 'div', u: 'puestos que gana o pierde',
       v: m => m.rh - m.rc,
       clave: 'Las dos lecturas enfrentadas. En agua, los municipios que el índice de corredor sube respecto del semáforo; en ámbar, los que baja. Es el hallazgo central del proyecto, puesto a la mano.' }
