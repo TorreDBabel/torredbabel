@@ -1,0 +1,191 @@
+{
+ "tiempo_total_rodante_s": 0.79,
+ "tiempo_ajuste_lr_s": 0.106,
+ "tiempo_ajuste_xgb_s": 0.52,
+ "tiempo_ajuste_lr_ventana_ms": 9.6,
+ "tiempo_ajuste_xgb_ventana_ms": 47.3,
+ "n_pool": 341,
+ "hechos_pool": 276,
+ "prevalencia_pool": 0.3343,
+ "lr_aucroc": 0.7884,
+ "lr_aucroc_ic": [
+  0.685,
+  0.866
+ ],
+ "lr_aucpr": 0.7036,
+ "lr_aucpr_ic": [
+  0.463,
+  0.843
+ ],
+ "lr_prec5": 0.7636,
+ "lr_prec5_ic": [
+  0.527,
+  1.0
+ ],
+ "lr_cob5": 0.6159,
+ "lr_cob5_ic": [
+  0.371,
+  0.764
+ ],
+ "lr_brier": 0.376,
+ "lr_brier_ic": [
+  0.313,
+  0.436
+ ],
+ "xgb_aucroc": 0.7477,
+ "xgb_aucroc_ic": [
+  0.642,
+  0.832
+ ],
+ "xgb_aucpr": 0.6282,
+ "xgb_aucpr_ic": [
+  0.427,
+  0.789
+ ],
+ "xgb_prec5": 0.8182,
+ "xgb_prec5_ic": [
+  0.527,
+  0.945
+ ],
+ "xgb_cob5": 0.6123,
+ "xgb_cob5_ic": [
+  0.349,
+  0.76
+ ],
+ "xgb_brier": 0.2839,
+ "xgb_brier_ic": [
+  0.236,
+  0.33
+ ],
+ "aucpr_azar": 0.3343,
+ "brier_ref": 0.2225,
+ "prec5_azar": 0.3343,
+ "lift_aucpr_lr": 2.105,
+ "calibracion": [
+  {
+   "variante": "logística con class_weight=balanced",
+   "brier": 0.376,
+   "prob_media": 0.769,
+   "tasa_real": 0.334,
+   "aucroc": 0.788
+  },
+  {
+   "variante": "logística sin reponderar",
+   "brier": 0.185,
+   "prob_media": 0.439,
+   "tasa_real": 0.334,
+   "aucroc": 0.786
+  },
+  {
+   "variante": "XGBoost con scale_pos_weight",
+   "brier": 0.284,
+   "prob_media": 0.597000002861023,
+   "tasa_real": 0.334,
+   "aucroc": 0.748
+  },
+  {
+   "variante": "logística + isotónica (ajuste 2006-2011, prueba 2012-2016)",
+   "brier": 0.15,
+   "prob_media": 0.302,
+   "tasa_real": 0.323,
+   "aucroc": 0.81
+  },
+  {
+   "variante": "   (la misma ventana sin recalibrar, para comparar)",
+   "brier": 0.341,
+   "prob_media": 0.73,
+   "tasa_real": 0.323,
+   "aucroc": 0.822
+  }
+ ],
+ "semaforo": [
+  {
+   "nivel": "BAJA",
+   "mun_anios": 114,
+   "ocurrencias": 12,
+   "hechos": 16,
+   "tasa": 0.10526315789473684,
+   "pct_territorio": 33.4,
+   "pct_hechos": 5.8
+  },
+  {
+   "nivel": "MEDIA",
+   "mun_anios": 113,
+   "ocurrencias": 34,
+   "hechos": 50,
+   "tasa": 0.3008849557522124,
+   "pct_territorio": 33.1,
+   "pct_hechos": 18.1
+  },
+  {
+   "nivel": "ALTA",
+   "mun_anios": 114,
+   "ocurrencias": 68,
+   "hechos": 210,
+   "tasa": 0.5964912280701754,
+   "pct_territorio": 33.4,
+   "pct_hechos": 76.1
+  }
+ ],
+ "lift_alta_baja": 5.67,
+ "lift_alta_baja_ic": [
+  2.695,
+  13.787
+ ],
+ "cpa_top5": 61.6,
+ "terr_top5": 16.1,
+ "cpa_top8": 71.7,
+ "terr_top8": 25.8,
+ "vif": {
+  "lag1": 321.38,
+  "lag2": 303.74,
+  "lag3": 262.55,
+  "media_movil3": 2081.57,
+  "acum_prev": 15.59,
+  "anios_activos_prev": 7.79,
+  "racha_prev": 7.05,
+  "anios_desde_ultimo": 2.37,
+  "depto_lag1": 1.65
+ },
+ "alpha_estimado": 1.136,
+ "negbin": [
+  {
+   "index": "const",
+   "IRR": 0.076,
+   "p sin agrupar": 0.0,
+   "p agrupado por municipio": 0.0,
+   "IC95 inf": 0.051,
+   "IC95 sup": 0.114
+  },
+  {
+   "index": "media_movil3",
+   "IRR": 1.582,
+   "p sin agrupar": 0.0,
+   "p agrupado por municipio": 0.016,
+   "IC95 inf": 1.089,
+   "IC95 sup": 2.299
+  },
+  {
+   "index": "anios_activos_prev",
+   "IRR": 1.275,
+   "p sin agrupar": 0.0,
+   "p agrupado por municipio": 0.0,
+   "IC95 inf": 1.127,
+   "IC95 sup": 1.443
+  },
+  {
+   "index": "depto_lag1",
+   "IRR": 1.035,
+   "p sin agrupar": 0.001,
+   "p agrupado por municipio": 0.002,
+   "IC95 inf": 1.013,
+   "IC95 sup": 1.058
+  }
+ ],
+ "aic": {
+  "poisson": 823.1,
+  "bn_alfa1": 767.6,
+  "bn_alfa_est": 767.4
+ },
+ "n_municipios_conglomerados": 31
+}

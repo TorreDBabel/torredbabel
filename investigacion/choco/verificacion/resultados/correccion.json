@@ -1,0 +1,84 @@
+{
+ "simulacion": {
+  "replicas": 600,
+  "b1_verdadero": 1.2,
+  "sd_verdadero": 0.8,
+  "b1_agrupada": 1.669,
+  "sesgo_agrupada": 0.469,
+  "sd_empirica": 0.228,
+  "ee_iid": 0.181,
+  "ee_cluster": 0.22,
+  "cobertura_iid": 35.2,
+  "cobertura_cluster": 45.0,
+  "b1_mixto": 1.176,
+  "sesgo_mixto": -0.024,
+  "sd_recuperada": 0.783,
+  "tasa_simulada": 0.187
+ },
+ "chequeo_predictivo": [
+  {
+   "modelo": "logística sin reponderar",
+   "rasgo": "total de ocurrencias",
+   "observado": 50.0,
+   "simulado": 69.8,
+   "p_predictivo": 1.0,
+   "veredicto": "NO reproducido"
+  },
+  {
+   "modelo": "logística sin reponderar",
+   "rasgo": "máximo de municipios activos en un año",
+   "observado": 14.0,
+   "simulado": 17.0,
+   "p_predictivo": 0.993,
+   "veredicto": "NO reproducido"
+  },
+  {
+   "modelo": "logística sin reponderar",
+   "rasgo": "municipios sin ninguna ocurrencia",
+   "observado": 10.0,
+   "simulado": 6.0,
+   "p_predictivo": 0.02,
+   "veredicto": "NO reproducido"
+  },
+  {
+   "modelo": "logística sin reponderar",
+   "rasgo": "años consecutivos con ocurrencia (rachas)",
+   "observado": 27.0,
+   "simulado": 37.2,
+   "p_predictivo": 0.996,
+   "veredicto": "NO reproducido"
+  },
+  {
+   "modelo": "la misma, recalibrada",
+   "rasgo": "total de ocurrencias",
+   "observado": 50.0,
+   "simulado": 55.5,
+   "p_predictivo": 0.885,
+   "veredicto": "reproducido"
+  },
+  {
+   "modelo": "la misma, recalibrada",
+   "rasgo": "máximo de municipios activos en un año",
+   "observado": 14.0,
+   "simulado": 14.0,
+   "p_predictivo": 0.604,
+   "veredicto": "reproducido"
+  },
+  {
+   "modelo": "la misma, recalibrada",
+   "rasgo": "municipios sin ninguna ocurrencia",
+   "observado": 10.0,
+   "simulado": 7.3,
+   "p_predictivo": 0.122,
+   "veredicto": "reproducido"
+  },
+  {
+   "modelo": "la misma, recalibrada",
+   "rasgo": "años consecutivos con ocurrencia (rachas)",
+   "observado": 27.0,
+   "simulado": 24.2,
+   "p_predictivo": 0.286,
+   "veredicto": "reproducido"
+  }
+ ]
+}

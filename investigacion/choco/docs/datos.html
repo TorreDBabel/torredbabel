@@ -1,0 +1,387 @@
+<title>Datos del Chocó</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300..700;1,300..600&family=Libre+Franklin:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+/* Registro «separata». Pagina de referencia: sin relato, solo las tablas que
+   alguien necesita para juzgar el trabajo, con la cita al cuaderno en cada una. */
+:root{
+  --papel:#fbfaf6; --hondo:#f3f1e8; --regla:#cec9b8;
+  --tinta:#332f28; --fuerte:#15120d; --suave:#6d6757;
+  --a:#c98a2e; --a-texto:#6b4409; --b:#1f5e6e; --b-texto:#174d5b; --b-tenue:#e4eef0;
+  --ac:#8c2b33;
+  --texto:'Crimson Pro',Georgia,serif;
+  --apoyo:'Libre Franklin','Helvetica Neue',Arial,sans-serif;
+  --mono:'Roboto Mono','SF Mono',Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --papel:#14161a; --hondo:#1c1f25; --regla:#333842;
+  --tinta:#d8d4c8; --fuerte:#f4f2ea; --suave:#948d7c;
+  --a:#e0a94e; --a-texto:#e8bb6d; --b:#5ba9bc; --b-texto:#7cc0d0; --b-tenue:#15262b;
+  --ac:#d9707a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --papel:#14161a; --hondo:#1c1f25; --regla:#333842;
+  --tinta:#d8d4c8; --fuerte:#f4f2ea; --suave:#948d7c;
+  --a:#e0a94e; --a-texto:#e8bb6d; --b:#5ba9bc; --b-texto:#7cc0d0; --b-tenue:#15262b;
+  --ac:#d9707a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);
+  font-size:1rem;line-height:1.55;margin:0}
+.hoja{max-width:54rem;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}
+h1{font-size:2.1rem;line-height:1.1;margin:0 0 .4rem;font-weight:400;letter-spacing:-.015em}
+.bajada{font-family:var(--apoyo);font-size:.82rem;color:var(--suave);line-height:1.6;
+  margin:0 0 1.4rem;max-width:40rem}
+.bajada a{color:var(--b-texto)}
+h2{font-size:1.28rem;font-weight:400;margin:0;letter-spacing:-.01em;line-height:1.2}
+.cab{border-top:1px solid var(--fuerte);padding-top:.5rem;margin:2.3rem 0 1rem;
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.cab .ref{font-family:var(--mono);font-size:.68rem;color:var(--a-texto);white-space:nowrap}
+p{margin:0 0 .9em;max-width:42rem}
+.tabla{overflow-x:auto;margin-block:.6rem 1.1rem;
+  border-top:1px solid var(--fuerte);border-bottom:1px solid var(--fuerte)}
+table{width:100%;border-collapse:collapse;font-family:var(--apoyo);font-size:.78rem}
+th,td{padding:.38rem .5rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--regla)}
+thead th{font-size:.64rem;text-transform:uppercase;letter-spacing:.07em;color:var(--suave);
+  font-weight:600;border-bottom:1px solid var(--fuerte);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:var(--mono);font-size:.74rem;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+td.nom{font-family:var(--texto);font-size:.92rem}
+tr.hi td{background:var(--b-tenue)}
+tr.lo td{color:var(--suave)}
+code{font-family:var(--mono);font-size:.84em;background:var(--hondo);padding:.05em .3em}
+.nota{font-family:var(--apoyo);font-size:.71rem;line-height:1.5;color:var(--suave);
+  margin:0 0 1.5rem;max-width:44rem}
+.nota b{color:var(--tinta);font-weight:600}
+.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:1px;
+  background:var(--regla);border:1px solid var(--regla);margin-block:1rem 1.4rem}
+.fichas div{background:var(--papel);padding:.65rem .7rem}
+.fichas dt{font-family:var(--apoyo);font-size:.6rem;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--suave);margin:0 0 .22rem;line-height:1.3}
+.fichas dd{margin:0;font-family:var(--mono);font-size:1.12rem;color:var(--fuerte);
+  font-variant-numeric:tabular-nums;line-height:1.1}
+.fichas dd span{display:block;font-family:var(--apoyo);font-size:.63rem;color:var(--suave);
+  margin-top:.22rem;line-height:1.35;font-variant-numeric:normal}
+.iv{display:grid;gap:.25rem;margin-block:.8rem 0}
+.iv-f{display:grid;grid-template-columns:minmax(0,11rem) 1fr;gap:.6rem;align-items:center;
+  padding:.25rem 0}
+.iv-e{font-family:var(--apoyo);font-size:.76rem;line-height:1.25;min-width:0}
+.iv-e small{display:block;font-family:var(--mono);font-size:.66rem;color:var(--suave);
+  font-variant-numeric:tabular-nums}
+.iv-p{height:1.45rem;min-width:0}
+.iv-p svg{display:block;width:100%;height:100%;overflow:visible}
+.eje{display:grid;grid-template-columns:minmax(0,11rem) 1fr;gap:.6rem;margin-top:.1rem}
+.eje .mk{display:flex;justify-content:space-between;font-family:var(--mono);
+  font-size:.62rem;color:var(--suave);font-variant-numeric:tabular-nums}
+.aviso{border-left:2px solid var(--ac);background:var(--papel);padding:.2rem 0 .2rem .9rem;
+  margin-block:1rem 1.4rem;font-size:.95rem;max-width:42rem}
+.aviso p:last-child{margin-bottom:0}
+.pie{font-family:var(--apoyo);font-size:.7rem;color:var(--suave);line-height:1.6;
+  border-top:1px solid var(--regla);padding-top:.9rem;margin-top:2.5rem;max-width:44rem}
+@media (max-width:30rem){.iv-f,.eje{grid-template-columns:1fr;gap:.1rem}
+  .iv-e small{display:inline;margin-left:.4rem}}
+</style>
+
+<div class="hoja">
+
+<h1>Datos del Chocó</h1>
+<p class="bajada">
+  Página de referencia del sistema de alerta territorial: los archivos, las variables, las
+  medidas y el desempeño, con la celda del cuaderno que produce cada cosa.
+  Sin relato — para eso está <a href="https://torredbabel.com/choco-modelo">la separata</a>.
+  Los archivos están en <code>datos/</code> y el cuaderno en <code>cuaderno/</code>.
+</p>
+
+<div class="fichas">
+  <div><dt>Unidad</dt><dd>1.054<span>municipio-año; 1.023 modelables</span></dd></div>
+  <div><dt>Hechos</dt><dd>361<span>de 401 en el expediente</span></dd></div>
+  <div><dt>Municipios</dt><dd>31<span>1983–2016</span></dd></div>
+  <div><dt>Prevalencia</dt><dd>0,334<span>fuera de muestra</span></dd></div>
+  <div><dt>Ventanas</dt><dd>11<span>origen rodante 2006–2016</span></dd></div>
+  <div><dt>Semilla</dt><dd>42<span>fija en todo</span></dd></div>
+</div>
+
+<!-- ============ ARCHIVOS ============ -->
+<div class="cab"><h2>Los archivos</h2><span class="ref">celdas 5 y 13</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>Archivo</th><th class="n">Filas</th><th>Qué es</th></tr></thead>
+  <tbody>
+    <tr><td class="nom"><code>panel_municipal_1983_2016.csv</code></td><td class="n">1.054</td>
+      <td>el panel base: municipio, año, hechos</td></tr>
+    <tr><td class="nom"><code>panel_modelable_1984_2016.csv</code></td><td class="n">1.023</td>
+      <td>el anterior con las nueve variables rezagadas</td></tr>
+    <tr><td class="nom"><code>base_municipal.csv</code></td><td class="n">31</td>
+      <td>ficha por municipio: coca, población, ríos, alertas</td></tr>
+    <tr><td class="nom"><code>base_municipal_corredor.csv</code></td><td class="n">31</td>
+      <td>la ficha más el semáforo y el índice de corredor</td></tr>
+    <tr class="hi"><td class="nom"><code>predicciones_fuera_de_muestra.csv</code></td>
+      <td class="n">341</td>
+      <td><b>el atajo:</b> las 341 predicciones de los tres modelos. Cualquier métrica se
+        recalcula desde aquí sin reentrenar</td></tr>
+    <tr><td class="nom"><code>tablero_choco.json</code></td><td class="n">31</td>
+      <td>contornos y series que alimentan el tablero</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">Reconciliación del expediente: 361 con municipio y año + 13 sin municipio + 25 sin
+  año + 2 fuera de rango = 401. <b>Un cero significa sin registro, no sin reclutamiento.</b>
+  Cinco municipios no registran un solo hecho en 34 años.</p>
+
+<!-- ============ VARIABLES ============ -->
+<div class="cab"><h2>Las nueve variables</h2><span class="ref">celda 13</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>Variable</th><th>Qué mide</th><th class="n">VIF</th></tr></thead>
+  <tbody>
+    <tr><td class="nom"><code>lag1</code> <code>lag2</code> <code>lag3</code></td>
+      <td>hechos de hace uno, dos y tres años</td><td class="n">321 · 304 · 263</td></tr>
+    <tr><td class="nom"><code>media_movil3</code></td><td>media de los tres años anteriores</td>
+      <td class="n">2.081,6</td></tr>
+    <tr><td class="nom"><code>acum_prev</code></td><td>suma de todos los hechos previos</td>
+      <td class="n">15,6</td></tr>
+    <tr><td class="nom"><code>anios_activos_prev</code></td><td>años previos con al menos un hecho</td>
+      <td class="n">7,8</td></tr>
+    <tr><td class="nom"><code>racha_prev</code></td><td>años consecutivos con hechos</td>
+      <td class="n">7,1</td></tr>
+    <tr><td class="nom"><code>anios_desde_ultimo</code></td>
+      <td>años desde el último hecho; 99 si nunca hubo</td><td class="n">2,4</td></tr>
+    <tr><td class="nom"><code>depto_lag1</code></td><td>total departamental del año anterior</td>
+      <td class="n">1,7</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">Todas llevan <code>shift(1)</code>: ninguna usa información del año que predice.
+  El escalado va dentro del <code>Pipeline</code>, de modo que media y desviación se estiman solo
+  con el tramo de entrenamiento de cada ventana.
+  <b>Umbral convencional del VIF: 10.</b> Con esta colinealidad los coeficientes individuales no
+  están identificados; ajustada sin penalización, la especificación no converge (coeficiente
+  máximo −61,5; error estándar máximo 52.558).</p>
+
+<!-- ============ VENTANAS ============ -->
+<div class="cab"><h2>Las ventanas de validación</h2><span class="ref">celda 34</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th class="n">Año</th><th class="n">Filas de ajuste</th><th class="n">Positivos de ajuste</th>
+    <th class="n">Positivos evaluados</th><th class="n">Hechos</th><th class="n">AUC logística</th></tr></thead>
+  <tbody>
+    <tr><td class="n">2006</td><td class="n">682</td><td class="n">61</td><td class="n">12</td><td class="n">16</td><td class="n">0,739</td></tr>
+    <tr><td class="n">2007</td><td class="n">713</td><td class="n">73</td><td class="n">12</td><td class="n">28</td><td class="n">0,735</td></tr>
+    <tr><td class="n">2008</td><td class="n">744</td><td class="n">85</td><td class="n">8</td><td class="n">17</td><td class="n">0,837</td></tr>
+    <tr><td class="n">2009</td><td class="n">775</td><td class="n">93</td><td class="n">9</td><td class="n">31</td><td class="n">0,813</td></tr>
+    <tr><td class="n">2010</td><td class="n">806</td><td class="n">102</td><td class="n">11</td><td class="n">26</td><td class="n">0,775</td></tr>
+    <tr><td class="n">2011</td><td class="n">837</td><td class="n">113</td><td class="n">12</td><td class="n">27</td><td class="n">0,807</td></tr>
+    <tr><td class="n">2012</td><td class="n">868</td><td class="n">125</td><td class="n">13</td><td class="n">28</td><td class="n">0,806</td></tr>
+    <tr><td class="n">2013</td><td class="n">899</td><td class="n">138</td><td class="n">14</td><td class="n">40</td><td class="n">0,866</td></tr>
+    <tr><td class="n">2014</td><td class="n">930</td><td class="n">152</td><td class="n">10</td><td class="n">35</td><td class="n">0,924</td></tr>
+    <tr><td class="n">2015</td><td class="n">961</td><td class="n">162</td><td class="n">8</td><td class="n">17</td><td class="n">0,777</td></tr>
+    <tr class="lo"><td class="n">2016</td><td class="n">992</td><td class="n">170</td><td class="n">5</td><td class="n">11</td><td class="n">0,700</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">Origen rodante con ventana expansiva: para predecir el año <i>t</i>, el modelo se
+  reajusta desde cero con todo lo anterior a <i>t</i> y nada de <i>t</i>. El ajuste final dispone
+  de 170 positivos para 9 variables: <b>18,9 eventos por variable</b> (mínimo convencional: 10).
+  El año 2016, con cinco positivos, es el más frágil y el único en que la logística no supera a la
+  línea base.</p>
+
+<!-- ============ DESEMPEÑO ============ -->
+<div class="cab"><h2>El desempeño</h2><span class="ref">celdas 18, 20, 23, 34</span></div>
+
+<div class="iv" id="iv"></div>
+<div class="eje"><div></div><div class="mk"><span>0,0</span><span>0,25</span><span>0,50</span>
+  <span>0,75</span><span>1,0</span></div></div>
+<p class="nota" style="margin-top:.8rem">341 municipio-año fuera de muestra, 276 hechos.
+  Intervalos del 95 % por remuestreo de bloques de municipio, B = 4.000 — se sortean los 31
+  municipios con reemplazo, no las filas. La línea punteada marca la referencia de azar:
+  <b>0,500</b> para el AUC-ROC y <b>0,334</b> —la prevalencia— para el AUC-PR y la precisión@5.
+  <b>Lo que no muestra:</b> la incertidumbre de la fuente, que ningún intervalo captura.</p>
+
+<div class="tabla"><table>
+  <thead><tr><th>Modelo</th><th class="n">AUC-ROC</th><th class="n">AUC-PR</th>
+    <th class="n">Precisión@5</th><th class="n">Brier</th></tr></thead>
+  <tbody>
+    <tr class="lo"><td class="nom">Persistencia (línea base)</td><td class="n">0,714</td>
+      <td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+    <tr class="hi"><td class="nom">Logística con penalización L2</td><td class="n">0,788</td>
+      <td class="n">0,704</td><td class="n">0,764</td><td class="n">0,376</td></tr>
+    <tr><td class="nom">XGBoost</td><td class="n">0,748</td><td class="n">0,628</td>
+      <td class="n">0,818</td><td class="n">0,284</td></tr>
+    <tr><td class="nom">Logística sin reponderar</td><td class="n">0,786</td><td class="n">0,703</td>
+      <td class="n">0,800</td><td class="n">0,185</td></tr>
+    <tr><td class="nom">Más recalibración isotónica</td><td class="n">0,810</td><td class="n">—</td>
+      <td class="n">—</td><td class="n">0,150</td></tr>
+    <tr><td class="nom">Jerárquica, intercepto aleatorio</td><td class="n">0,792</td>
+      <td class="n">0,711</td><td class="n">0,782</td><td class="n">—</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">Referencia del Brier: <b>0,223</b>, la del predictor constante que siempre responde
+  la prevalencia. El modelo entrenado con <code>class_weight='balanced'</code> emite una
+  probabilidad media de 0,769 contra una tasa real de 0,334: sobrepredice 2,3 veces. Quitar la
+  reponderación no cuesta ordenamiento, y recalibrar baja el Brier a menos de la mitad.</p>
+
+<!-- ============ ALARMAS ============ -->
+<div class="cab"><h2>Las alarmas</h2><span class="ref">celda 29 · guion 07</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>Política</th><th class="n">Acierto</th><th class="n">Falsa alarma</th>
+    <th class="n">Se escapó</th><th class="n">Correcto</th><th class="n">Precisión</th>
+    <th class="n">Sensib.</th><th class="n">Hechos cubiertos</th></tr></thead>
+  <tbody>
+    <tr><td class="nom">Los 5 de mayor riesgo cada año<br>
+      <span style="font-size:.85em;color:var(--suave)">16,1 % del territorio</span></td>
+      <td class="n">44</td><td class="n">11</td><td class="n">70</td><td class="n">216</td>
+      <td class="n">0,800</td><td class="n">0,386</td><td class="n">62,0 %</td></tr>
+    <tr class="hi"><td class="nom">Semáforo en nivel alto<br>
+      <span style="font-size:.85em;color:var(--suave)">33,4 % del territorio</span></td>
+      <td class="n">70</td><td class="n">44</td><td class="n">44</td><td class="n">183</td>
+      <td class="n">0,614</td><td class="n">0,614</td><td class="n">77,2 %</td></tr>
+    <tr><td class="nom">Probabilidad calibrada ≥ 0,33<br>
+      <span style="font-size:.85em;color:var(--suave)">46,9 % del territorio</span></td>
+      <td class="n">83</td><td class="n">77</td><td class="n">31</td><td class="n">150</td>
+      <td class="n">0,519</td><td class="n">0,728</td><td class="n">85,1 %</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">Intervalos del 95 % por remuestreo de bloques (B = 2.000): precisión del tercil
+  alto 0,46–0,75; sensibilidad 0,41–0,76. El semáforo por terciles cumple monotonía —tasas reales
+  de 0,596, 0,301 y 0,105— con una razón alto/bajo de <b>5,67</b>, intervalo [2,70; 13,79].
+  <b>Lo que no muestra:</b> que un falso positivo y un falso negativo no cuestan lo mismo. Uno
+  gasta capacidad de respuesta; el otro deja un territorio sin mirar.</p>
+
+<!-- ============ CONTRASTE ============ -->
+<div class="cab"><h2>Contraste con la Defensoría del Pueblo</h2><span class="ref">guion 07</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>Contraste</th><th class="n">Valor</th><th class="n">p</th><th>Lectura</th></tr></thead>
+  <tbody>
+    <tr><td class="nom">Municipios con alerta temprana</td><td class="n">30 de 31</td>
+      <td class="n">—</td><td>la coincidencia binaria es degenerada</td></tr>
+    <tr><td class="nom">Atacados en 2026 con alerta previa</td><td class="n">6 de 6</td>
+      <td class="n">—</td><td>cinco con alerta de inminencia</td></tr>
+    <tr class="lo"><td class="nom">Alertas: atacados frente al resto</td>
+      <td class="n">5,17 vs 5,24</td><td class="n">0,799</td>
+      <td>U de Mann-Whitney: <b>no distingue</b></td></tr>
+    <tr><td class="nom">Spearman con alertas estructurales</td><td class="n">0,421</td>
+      <td class="n">0,018</td><td>concuerda</td></tr>
+    <tr><td class="nom">Spearman con alertas tempranas</td><td class="n">0,375</td>
+      <td class="n">0,038</td><td>concuerda</td></tr>
+    <tr class="hi"><td class="nom">Coincidencia entre los diez primeros</td><td class="n">6 de 10</td>
+      <td class="n">0,032</td><td>Fisher exacta; por azar se esperarían 3,2</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">La Defensoría advirtió casi todo el departamento, que es lo correcto desde su
+  mandato. <b>Lo que no muestra:</b> la fecha de cada alerta. Con el conteo acumulado no se puede
+  saber si una alerta precede o sigue al riesgo estimado, de modo que esto mide concordancia y no
+  anticipación.</p>
+
+<!-- ============ 2026 ============ -->
+<div class="cab"><h2>Los ataques de 2026</h2><span class="ref">guion 04</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th>Ordenamiento</th><th class="n">AUC</th><th class="n">IC 95 %</th>
+    <th class="n">p exacta</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td class="nom">Índice de corredor en disputa</td><td class="n">0,927</td>
+      <td class="n">[0,820; 1,000]</td><td class="n">0,00023</td></tr>
+    <tr><td class="nom">Coca acumulada</td><td class="n">0,780</td><td class="n">—</td>
+      <td class="n">0,017</td></tr>
+    <tr><td class="nom">Cercanía al río San Juan</td><td class="n">0,777</td>
+      <td class="n">[0,580; 0,940]</td><td class="n">0,018</td></tr>
+    <tr><td class="nom">Divergencia presente/pasado</td><td class="n">0,720</td><td class="n">—</td>
+      <td class="n">0,051</td></tr>
+    <tr class="lo"><td class="nom">Semáforo histórico de reclutamiento</td><td class="n">0,337</td>
+      <td class="n">[0,120; 0,577]</td><td class="n">0,230</td></tr>
+  </tbody>
+</table></div>
+<p class="nota">Prueba de permutación <b>exacta</b>: se enumeran las 736.281 maneras de repartir
+  seis ataques entre 31 municipios, de modo que el valor p no tiene error de simulación. El p del
+  semáforo es bilateral; los demás, unilaterales.</p>
+
+<div class="aviso">
+  <p>Dos reservas que ningún intervalo arregla.</p>
+  <p><b>El AUC de 0,337</b> tiene intervalo [0,120; 0,577], que contiene el azar. Con seis
+    desenlaces lo defendible es decir que el historial no mostró información, no que la mostrara
+    invertida.</p>
+  <p><b>El AUC de 0,927</b> proviene de un índice cuyos tres componentes se eligieron después de
+    saber qué municipios fueron atacados. Es una hipótesis, no un resultado validado: solo se
+    vuelve evidencia si el índice se congela y se evalúa contra desenlaces futuros.</p>
+</div>
+
+<!-- ============ CUADERNO ============ -->
+<div class="cab"><h2>Dónde está cada cosa en el cuaderno</h2>
+  <span class="ref">52 celdas · Python 3.12</span></div>
+
+<div class="tabla"><table>
+  <thead><tr><th class="n">Celda</th><th>Qué hace</th></tr></thead>
+  <tbody>
+    <tr><td class="n">3</td><td>configuración y semilla (42)</td></tr>
+    <tr><td class="n">5</td><td>carga del panel y verificación de conteos</td></tr>
+    <tr><td class="n">13</td><td>construcción de las nueve variables rezagadas</td></tr>
+    <tr><td class="n">15</td><td>partición temporal fija: 1984–2010 / 2011–2016</td></tr>
+    <tr><td class="n">18</td><td>línea base de persistencia</td></tr>
+    <tr><td class="n">20</td><td>regresión logística penalizada</td></tr>
+    <tr><td class="n">23</td><td>XGBoost</td></tr>
+    <tr><td class="n">25</td><td>seis configuraciones de XGBoost <i>(exploratorio: se comparan en la prueba)</i></td></tr>
+    <tr><td class="n">29</td><td>cobertura con los cinco primeros</td></tr>
+    <tr><td class="n">31</td><td>Poisson y binomial negativa; sobredispersión</td></tr>
+    <tr class="hi"><td class="n">34</td><td><b>validación de origen rodante, once ventanas</b></td></tr>
+    <tr><td class="n">37</td><td>SHAP <i>(hereda el problema de identificación del VIF)</i></td></tr>
+    <tr><td class="n">42</td><td>riesgo al cierre de 2016 y contraste contemporáneo</td></tr>
+    <tr><td class="n">50</td><td>verificación final de integridad: trece comprobaciones</td></tr>
+  </tbody>
+</table></div>
+
+<p class="pie">
+  Los siete guiones de <code>verificacion/</code> recalculan todo desde cero y dejan su salida en
+  <code>verificacion/resultados/</code>. El primero reconstruye el panel desde la fuente primaria
+  y replica los veintitrés números del cuaderno: los veintitrés salen idénticos a tres decimales.
+  <br><br>
+  Toda cifra de este trabajo es un piso, no una estimación: el subregistro del conflicto armado
+  hace que lo registrado sea siempre menos que lo ocurrido. Ninguna salida muestra ubicaciones de
+  grupos armados, rutas, ni dato alguno por debajo del municipio.
+  <br><br>
+  Alexander Beltrán · Maestría en Ciencia de Datos, Universidad Ean · Bogotá, octubre de 2026
+</p>
+
+</div>
+
+<script>
+(function(){
+  var D=[
+    {e:'AUC-ROC · logística', v:0.788, ic:[0.685,0.866], ref:0.5},
+    {e:'AUC-ROC · XGBoost', v:0.748, ic:[0.642,0.832], ref:0.5},
+    {e:'AUC-ROC · persistencia', v:0.714, t:'base', ref:0.5, n:'línea base, sin intervalo'},
+    {e:'AUC-PR · logística', v:0.704, ic:[0.463,0.843], ref:0.334},
+    {e:'AUC-PR · XGBoost', v:0.628, ic:[0.427,0.789], ref:0.334},
+    {e:'Precisión@5 · logística', v:0.764, ic:[0.527,1.0], ref:0.334},
+    {e:'Precisión@5 · XGBoost', v:0.818, ic:[0.527,0.945], ref:0.334},
+    {e:'Cobertura con top-5', v:0.616, ic:[0.371,0.764]}
+  ];
+  function barra(d){
+    var T=function(v){return v*100};
+    var c=d.t==='base'?'var(--suave)':'var(--b)';
+    var s='<svg viewBox="0 0 100 24" preserveAspectRatio="none" role="img" aria-label="'+
+      d.e+' '+d.v.toFixed(3)+'">';
+    s+='<line x1="0" y1="12" x2="100" y2="12" stroke="var(--regla)" stroke-width="1"'+
+       ' vector-effect="non-scaling-stroke"/>';
+    if(d.ref!==undefined)
+      s+='<line x1="'+T(d.ref)+'" y1="2" x2="'+T(d.ref)+'" y2="22" stroke="var(--suave)"'+
+         ' stroke-width="1" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>';
+    if(d.ic){
+      s+='<line x1="'+T(d.ic[0])+'" y1="12" x2="'+T(d.ic[1])+'" y2="12" stroke="'+c+
+         '" stroke-width="7" opacity=".3"/>';
+      [d.ic[0],d.ic[1]].forEach(function(x){
+        s+='<line x1="'+T(x)+'" y1="5" x2="'+T(x)+'" y2="19" stroke="'+c+
+           '" stroke-width="1.5" vector-effect="non-scaling-stroke"/>';});
+    }
+    s+='<line x1="'+T(d.v)+'" y1="12" x2="'+T(d.v)+'" y2="12" stroke="'+c+
+       '" stroke-width="8.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>';
+    return s+'</svg>';
+  }
+  document.getElementById('iv').innerHTML = D.map(function(d){
+    var det = d.ic ? ('IC 95 % '+d.ic[0].toFixed(3).replace('.',',')+' – '+
+                      d.ic[1].toFixed(3).replace('.',',')) : (d.n||'');
+    return '<div class="iv-f"><div class="iv-e">'+d.e+'<small>'+
+      d.v.toFixed(3).replace('.',',')+'  ·  '+det+'</small></div>'+
+      '<div class="iv-p">'+barra(d)+'</div></div>';
+  }).join('');
+})();
+</script>
