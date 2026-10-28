@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Registro «Separata» · inventado para la pieza /choco-modelo (octubre de 2026)
+   --------------------------------------------------------------------------
+   El mundo: una separata de revista estadística. El objeto impreso que un
+   investigador recibe de su propio artículo y reparte a mano. Esta pieza no
+   cuenta una historia: sustenta unas cifras ante quien sabe leerlas, y para
+   eso el mundo visual correcto no es el cuaderno ni la placa, sino el papel
+   crema de una tirada corta, con filetes finos, secciones numeradas y las
+   cifras alineadas en monoespaciada.
+
+   LA FORMA DEL REALCE es la versalita con filete de un pelo. En una separata
+   la palabra no se resalta con color de fondo —eso es resaltador, otro mundo—:
+   se compone en versalitas y se subraya con una línea de un punto. El color
+   vive en el filete; la letra se oscurece lo justo para que la marca se lea
+   como marca y no como adorno.
+
+   LOS TRES PAPELES DE COLOR, con el significado fijo de toda la pieza:
+     · marca A · «lo publicado»  — ocre de tinta vieja. Lo que habíamos dicho.
+     · marca B · «lo sostenido»  — índigo de corrección. Lo que el recálculo
+       arroja. Se separa de la marca A en claridad, no solo en tono.
+     · acento  · «lo no verificado» — granate. Reservado para lo que no pudimos
+       comprobar y queda marcado como faltante. Nunca decora.
+
+   EL GRÁFICO DE LA PIEZA es la barra de intervalo: punto estimado, barra del
+   intervalo de confianza y una vertical punteada en la referencia de azar. Es
+   el objeto que a estas cifras les faltaba, de modo que la pieza está dibujada
+   con aquello de lo que trata.
+
+   Letras: Crimson Pro (texto), Libre Franklin (claves y rótulos) y Roboto Mono
+   (cifras, ejes y tablas). Las tres se sirven desde el propio sitio.
+
+   Pieza anterior: /choco, en el registro «Placa». El cambio es deliberado:
+   el tablero se mira, la separata se sustenta.
+   ========================================================================== */
+
+
+/* --- Reposición de colisiones ---------------------------------------------
+   Seis nombres de clase viven también en libro.css o marco.css con otro
+   sentido: allí .apertura abre un artículo y .lema titula la portada. Las
+   propiedades que este registro no declara se filtrarían desde esos archivos.
+   La lista sale de cruzar las clases del marcado con las de los dos estilos
+   del marco; si se añade una clase nueva, conviene repetir ese cruce.
+   -------------------------------------------------------------------------- */
+.pieza-separata :is(.aforismo,.apertura,.clave,.entradilla,.lema,.leyenda){
+  display:block;position:static;float:none;width:auto;max-width:none;min-height:0;
+  margin:0;padding:0;border:0;background:none;box-shadow:none;
+  grid-template-columns:none;place-items:normal;gap:normal;text-align:inherit;
+  font-style:normal
+}
+.pieza-separata mark{
+  background:none;border-radius:0;box-shadow:none;text-decoration:none;padding:0
+}
+/* No basta con reponer las clases: libro.css también alcanza a sus hijos.
+   `.lema > span` allí es una caja flex de ancho completo, y `.apertura > div`
+   y `.apertura p` traen su propio reparto. Bajo este registro vuelven a ser
+   texto en línea. */
+.pieza-separata .lema > span{
+  display:inline;align-self:auto;align-items:normal;gap:normal
+}
+/* `:not([class])` deja fuera los bloques propios de este registro: libro.css
+   apunta a los div sin clase del cuerpo de un artículo, no a .par-cifra. */
+.pieza-separata .apertura > div:not([class]){display:block;flex-direction:row;gap:normal}
+.pieza-separata .apertura p{margin:0 0 1.05em}
+
+
+/* --- Contrato del registro ------------------------------------------------- */
+.pieza-separata{
+  color-scheme:light;
+
+  --papel:#fbfaf6; --hondo:#f3f1e8; --pie:#e9e6da; --regla:#cec9b8;
+  --tinta:#332f28; --fuerte:#15120d; --suave:#6d6757;
+
+  --a:#c98a2e; --a-texto:#6b4409; --a-tenue:#f6eedd;   /* lo publicado */
+  --b:#1f5e6e; --b-texto:#174d5b; --b-tenue:#e4eef0;   /* lo sostenido */
+  --ac:#8c2b33; --ac-tenue:#f7e8e7;                    /* lo no verificado */
+
+  --texto:'Crimson Pro Variable','Crimson Pro',Georgia,'Times New Roman',serif;
+  --apoyo:'Libre Franklin','Helvetica Neue',Arial,sans-serif;
+  --mono:'Roboto Mono Variable','Roboto Mono','SF Mono',Consolas,monospace;
+
+  --medida:35rem;
+  --margen:clamp(1rem,5vw,2.5rem);
+
+  background:var(--papel);
+  color:var(--tinta);
+  font-family:var(--texto);
+  font-size:1.0625rem;
+  line-height:1.62;
+  font-variant-numeric:oldstyle-nums;
+  padding-block:0 4rem;
+  overflow-x:clip;
+}
+.pieza-separata *{box-sizing:border-box}
+.pieza-separata ::selection{background:var(--b-tenue);color:var(--fuerte)}
+
+.pieza-separata .hoja{
+  max-width:var(--medida);margin-inline:auto;padding-inline:var(--margen)
+}
+.pieza-separata .ancho{
+  max-width:52rem;margin-inline:auto;padding-inline:var(--margen)
+}
+.pieza-separata .centro{max-width:var(--medida);margin-inline:auto}
+.pieza-separata p{margin:0 0 1.05em}
+.pieza-separata a{color:var(--b-texto);text-decoration-thickness:1px;text-underline-offset:2px}
+
+
+/* --- El realce: versalita con filete de un pelo ----------------------------- */
+.pieza-separata mark{
+  color:inherit;font-variant:small-caps;letter-spacing:.03em;
+  font-weight:500;padding-inline:.08em;border-bottom:1px solid currentColor
+}
+.pieza-separata mark.pub{color:var(--a-texto);border-color:var(--a)}
+.pieza-separata mark.rev{color:var(--b-texto);border-color:var(--b)}
+.pieza-separata mark.nov{color:var(--ac);border-color:var(--ac)}
+
+
+/* --- Apertura -------------------------------------------------------------- */
+.pieza-separata .apertura{padding-block:2.5rem 2.5rem}
+.pieza-separata .apertura .invita{
+  font-family:var(--apoyo);font-size:.7rem;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--suave);margin:0 0 1.5rem
+}
+.pieza-separata .par-cifra{display:grid;gap:1.1rem;margin:0 0 1.6rem}
+.pieza-separata .cifra-caso{border-top:1px solid var(--regla);padding-top:.7rem}
+.pieza-separata .cifra-caso h3{
+  font-family:var(--apoyo);font-size:.68rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.1em;margin:0 0 .5rem;color:var(--suave)
+}
+.pieza-separata .cifra-caso .leyenda{
+  font-size:.9rem;color:var(--suave);margin:.45rem 0 0;line-height:1.45
+}
+
+
+/* --- La barra de intervalo: el gráfico de la pieza -------------------------- */
+.pieza-separata .iv{display:grid;grid-template-columns:1fr;gap:.3rem}
+.pieza-separata .iv-fila{
+  display:grid;grid-template-columns:minmax(0,10.5rem) 1fr;gap:.6rem;
+  align-items:center;padding-block:.3rem
+}
+.pieza-separata .iv-et{
+  font-family:var(--apoyo);font-size:.78rem;line-height:1.25;min-width:0;color:var(--tinta)
+}
+.pieza-separata .iv-et small{
+  display:block;font-family:var(--mono);font-size:.68rem;color:var(--suave);
+  font-variant-numeric:tabular-nums;letter-spacing:-.01em
+}
+.pieza-separata .iv-pista{position:relative;height:1.55rem;min-width:0}
+.pieza-separata .iv-pista svg{display:block;width:100%;height:100%;overflow:visible}
+.pieza-separata .iv-eje{
+  display:grid;grid-template-columns:minmax(0,10.5rem) 1fr;gap:.6rem;
+  font-family:var(--mono);font-size:.64rem;color:var(--suave);
+  font-variant-numeric:tabular-nums;margin-top:.15rem
+}
+.pieza-separata .iv-eje .marcas{display:flex;justify-content:space-between}
+
+
+/* --- Lema ------------------------------------------------------------------ */
+.pieza-separata .lema-caja{
+  border-top:2px solid var(--fuerte);border-bottom:1px solid var(--regla);
+  padding-block:1.6rem 1.3rem;margin-block:1rem 2.2rem
+}
+.pieza-separata h1.lema{
+  font-size:clamp(2rem,7vw,2.9rem);line-height:1.08;margin:0 0 .7rem;
+  font-weight:400;letter-spacing:-.015em;text-wrap:balance;font-family:var(--texto);
+  color:var(--fuerte)
+}
+/* Cada par «nexo + palabra» viaja junto: el título puede partirse entre los dos
+   pares, nunca entre el nexo y su palabra. */
+.pieza-separata h1.lema .par{display:inline-block;white-space:nowrap;margin-right:.35em}
+.pieza-separata h1.lema .nx{color:var(--suave);font-style:italic;font-weight:300}
+.pieza-separata h1.lema .w1{
+  font-variant:small-caps;letter-spacing:.02em;color:var(--a-texto);
+  border-bottom:2px solid var(--a)
+}
+.pieza-separata h1.lema .w2{
+  font-variant:small-caps;letter-spacing:.02em;color:var(--b-texto);
+  border-bottom:2px solid var(--b)
+}
+.pieza-separata .entradilla{
+  font-size:1.1rem;line-height:1.5;color:var(--tinta);margin:0 0 .9rem;font-family:var(--texto)
+}
+.pieza-separata .firma{
+  font-family:var(--apoyo);font-size:.76rem;color:var(--suave);margin:0;line-height:1.5
+}
+
+
+/* --- Clave de lectura y ruta ------------------------------------------------ */
+.pieza-separata .clave{
+  background:var(--hondo);border-left:2px solid var(--regla);
+  padding:.95rem 1.1rem;margin-block:0 2rem;font-size:.97rem;line-height:1.55
+}
+.pieza-separata .ruta{font-size:1.02rem;margin-block:0 2.5rem}
+.pieza-separata .ruta ol{
+  font-family:var(--apoyo);font-size:.85rem;margin:.7rem 0 0;padding:0;
+  list-style:none;display:grid;gap:.3rem
+}
+.pieza-separata .ruta ol li{padding-left:1.9rem;position:relative;color:var(--suave);margin:0}
+.pieza-separata .ruta ol li b{color:var(--tinta);font-weight:600}
+.pieza-separata .ruta ol li::before{
+  content:attr(data-n);position:absolute;left:0;top:0;
+  font-family:var(--mono);font-size:.72rem;color:var(--a-texto)
+}
+
+
+/* --- Secciones -------------------------------------------------------------- */
+.pieza-separata section{padding-block:2.2rem 0}
+.pieza-separata .sec-cab{
+  border-top:1px solid var(--fuerte);padding-top:.55rem;margin-bottom:1.3rem
+}
+.pieza-separata .sec-n{
+  font-family:var(--mono);font-size:.7rem;color:var(--a-texto);letter-spacing:.06em
+}
+.pieza-separata h2{
+  font-size:1.5rem;line-height:1.2;margin:.15rem 0 0;font-weight:400;
+  letter-spacing:-.01em;text-wrap:balance;font-family:var(--texto);color:var(--fuerte)
+}
+.pieza-separata h3.sub{
+  font-family:var(--apoyo);font-size:.8rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--suave);margin:2rem 0 .7rem
+}
+
+
+/* --- Tablas ------------------------------------------------------------------ */
+.pieza-separata .tabla-env{
+  overflow-x:auto;margin-block:1rem 1.3rem;
+  border-top:1px solid var(--fuerte);border-bottom:1px solid var(--fuerte)
+}
+.pieza-separata table{
+  width:100%;border-collapse:collapse;font-family:var(--apoyo);font-size:.8rem;margin:0
+}
+.pieza-separata caption{
+  caption-side:top;text-align:left;font-family:var(--texto);font-size:1rem;
+  line-height:1.4;padding:0 0 .6rem;color:var(--fuerte)
+}
+.pieza-separata th,.pieza-separata td{
+  padding:.42rem .55rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--regla)
+}
+.pieza-separata thead th{
+  font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--suave);
+  font-weight:600;border-bottom:1px solid var(--fuerte);white-space:nowrap
+}
+.pieza-separata tbody tr:last-child td{border-bottom:0}
+.pieza-separata td.num,.pieza-separata th.num{
+  text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap;font-size:.76rem
+}
+.pieza-separata td.nom{font-family:var(--texto);font-size:.93rem}
+.pieza-separata tr.destaca td{background:var(--b-tenue)}
+.pieza-separata tr.rebaja td{color:var(--suave)}
+.pieza-separata .marca-pub{color:var(--a-texto);font-weight:600}
+.pieza-separata .marca-rev{color:var(--b-texto);font-weight:600}
+.pieza-separata .marca-nov{color:var(--ac);font-weight:600}
+.pieza-separata .nota-fig{
+  font-family:var(--apoyo);font-size:.73rem;line-height:1.5;color:var(--suave);
+  margin:.1rem 0 1.6rem
+}
+.pieza-separata .nota-fig b{color:var(--tinta);font-weight:600}
+
+
+/* --- Aparato de cifras -------------------------------------------------------- */
+.pieza-separata .aparato{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));
+  gap:1px;background:var(--regla);border:1px solid var(--regla);margin-block:1.2rem 1.5rem
+}
+.pieza-separata .aparato div{background:var(--papel);padding:.7rem .75rem}
+.pieza-separata .aparato dt{
+  font-family:var(--apoyo);font-size:.63rem;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--suave);margin:0 0 .25rem;line-height:1.3
+}
+.pieza-separata .aparato dd{
+  margin:0;font-family:var(--mono);font-size:1.18rem;color:var(--fuerte);
+  font-variant-numeric:tabular-nums;line-height:1.1
+}
+.pieza-separata .aparato dd span{
+  display:block;font-family:var(--apoyo);font-size:.66rem;color:var(--suave);
+  margin-top:.25rem;line-height:1.35;font-variant-numeric:normal
+}
+
+
+/* --- Reserva: lo que no se sostiene -------------------------------------------- */
+.pieza-separata .reserva{
+  border:1px solid var(--ac);background:var(--ac-tenue);padding:.9rem 1rem;
+  margin-block:1.2rem 1.5rem;font-size:.97rem;line-height:1.55
+}
+.pieza-separata .reserva .et{
+  font-family:var(--apoyo);font-size:.65rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--ac);display:block;margin-bottom:.4rem
+}
+.pieza-separata .reserva p:last-child{margin-bottom:0}
+
+
+/* --- Preguntas desplegables ------------------------------------------------------ */
+.pieza-separata details{border-top:1px solid var(--regla);padding-block:.55rem;margin:0}
+.pieza-separata details:last-of-type{border-bottom:1px solid var(--regla)}
+.pieza-separata summary{
+  cursor:pointer;list-style:none;display:flex;gap:.65rem;align-items:baseline;
+  font-size:1rem;line-height:1.45;color:var(--fuerte);font-family:var(--texto)
+}
+.pieza-separata summary::-webkit-details-marker{display:none}
+.pieza-separata summary::before{
+  content:'+';font-family:var(--mono);font-size:.95rem;color:var(--a-texto);
+  flex:0 0 .8rem;line-height:1.5
+}
+.pieza-separata details[open] summary::before{content:'\2212'}
+.pieza-separata details[open] summary{margin-bottom:.6rem}
+.pieza-separata .resp{padding-left:1.45rem;font-size:.97rem;color:var(--tinta)}
+.pieza-separata .resp p:last-child{margin-bottom:0}
+.pieza-separata .resp .dato{
+  font-family:var(--mono);font-size:.82rem;color:var(--b-texto);
+  font-variant-numeric:tabular-nums
+}
+
+
+/* --- Código ----------------------------------------------------------------------- */
+.pieza-separata pre{
+  font-family:var(--mono);font-size:.74rem;line-height:1.55;background:var(--hondo);
+  border-left:2px solid var(--b);padding:.75rem .85rem;overflow-x:auto;margin-block:.8rem 1.2rem
+}
+.pieza-separata code{
+  font-family:var(--mono);font-size:.86em;background:var(--hondo);padding:.05em .3em
+}
+.pieza-separata pre code{background:none;padding:0;font-size:1em}
+
+
+/* --- Cierre ------------------------------------------------------------------------ */
+.pieza-separata .aforismo{
+  font-size:1.3rem;line-height:1.4;font-style:italic;text-align:center;
+  border-top:1px solid var(--fuerte);border-bottom:1px solid var(--fuerte);
+  padding-block:1.8rem;margin-block:2.5rem 1rem;color:var(--fuerte);text-wrap:balance
+}
+.pieza-separata .colofon{
+  font-family:var(--apoyo);font-size:.72rem;line-height:1.6;color:var(--suave);
+  border-top:1px solid var(--regla);padding-top:1rem;margin-top:2.5rem
+}
+.pieza-separata .refs{
+  font-family:var(--apoyo);font-size:.76rem;line-height:1.6;color:var(--tinta);margin-block:1rem
+}
+.pieza-separata .refs ol{margin:0;padding:0;display:grid;gap:.6rem}
+.pieza-separata .refs li{list-style:none;padding-left:1.3rem;text-indent:-1.3rem;margin:0}
+
+
+/* --- Teléfono ----------------------------------------------------------------------- */
+@media (max-width:30rem){
+  .pieza-separata .iv-fila,.pieza-separata .iv-eje{grid-template-columns:1fr;gap:.15rem}
+  .pieza-separata .iv-et small{display:inline;margin-left:.4rem}
+  .pieza-separata .aparato{grid-template-columns:repeat(auto-fit,minmax(7rem,1fr))}
+}
+@media (prefers-reduced-motion:reduce){
+  .pieza-separata *{animation:none!important;transition:none!important}
+}
