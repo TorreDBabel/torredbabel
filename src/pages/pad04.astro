@@ -1,0 +1,25 @@
+---
+// Programación y Analítica de Datos (AFPN0006) · sesión 4 · Laboratorio de estructuras: «De la lista a la tabla».
+// Registro «Cuaderno»: Literata, Fraunces, Shantell Sans y Fira Code.
+// Python corre en el navegador con Pyodide 0.26.4, que se descarga de cdn.jsdelivr.net.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource-variable/literata/opsz.css';
+import '@fontsource-variable/literata/opsz-italic.css';
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/shantell-sans/wght.css';
+import '@fontsource-variable/shantell-sans/wght-italic.css';
+import '@fontsource-variable/fira-code/wght.css';
+import estilo from '../clases/pad04/laboratorio.css?raw';
+import cuerpo from '../clases/pad04/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de estructuras"
+  curso="Programación y Analítica de Datos"
+  sesion={4}
+  descripcion="Listas, tuplas, diccionarios y conjuntos con datos de la economía colombiana: Python en el navegador, ejercicios que se califican solos, errores explicados en español y el camino del dato hasta la tabla."
+  tema="#f8f4ea"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

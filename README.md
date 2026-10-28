@@ -254,6 +254,7 @@ seguir el curso lección por lección:
 | `torredbabel.com/masvalendatos04` | Más valen datos que percepciones (AFPN0087) | 4 · Laboratorio de visualización |
 | `torredbabel.com/diseñometricas04` | Diseño de métricas para el marketing (AFPN0097) | 4 · Laboratorio de conversión y atribución |
 | `torredbabel.com/programaciondatos03` | Programación y Analítica de Datos (AFPN0006) | 3 · Laboratorio de ciclos (for y while) |
+| `torredbabel.com/pad04` | Programación y Analítica de Datos (AFPN0006) | 4 · Laboratorio de estructuras (listas, tuplas, diccionarios, conjuntos y registros) |
 
 - Son material de clase: no llevan la cabecera ni el pie de Torre D. Babel, ni el nombre del
   docente. Lo importante es el mensaje: el pie trae solo el correo de contacto.
@@ -267,7 +268,10 @@ seguir el curso lección por lección:
 - Si la dirección lleva eñe, agregue en `astro.config.mjs` la versión sin eñe, que lleva a la
   original: `/disenometricas03` abre `/diseñometricas03` y `/disenometricas04`, `/diseñometricas04`.
 - La sesión siguiente es otra dirección (`masvalendatos05`); las anteriores no se borran.
-- El laboratorio de Programación corre Python en el navegador con Pyodide 0.26.4, que la página
+- Desde la sesión 4, Programación y Analítica de Datos usa la dirección corta `pad<NN>`
+  (`pad04`, `pad05`…): cabe en un QR pequeño y se dicta en clase sin deletrear. La sesión 3 sigue en
+  `programaciondatos03`.
+- Los laboratorios de Programación corren Python en el navegador con Pyodide 0.26.4, que la página
   descarga de cdn.jsdelivr.net la primera vez (unos 10 MB). El código de los estudiantes no sale
   de su navegador.
 

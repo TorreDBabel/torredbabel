@@ -1,0 +1,1830 @@
+<div class="r-cuaderno">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 4</a>
+  <ol class="bn-lista"><li><a href="#camino-del-dato" data-sec="camino-del-dato"><span>0</span>El camino</a></li><li><a href="#listas" data-sec="listas"><span>1</span>Listas</a></li><li><a href="#tuplas" data-sec="tuplas"><span>2</span>Tuplas</a></li><li><a href="#diccionarios" data-sec="diccionarios"><span>3</span>Diccionarios</a></li><li><a href="#conjuntos" data-sec="conjuntos"><span>4</span>Conjuntos</a></li><li><a href="#registros" data-sec="registros"><span>5</span>Registros</a></li><li><a href="#que-caja" data-sec="que-caja"><span>6</span>¿Qué caja?</a></li><li><a href="#para-la-casa" data-sec="para-la-casa"><span>7</span>Para la casa</a></li><li><a href="#arenero-sec" data-sec="arenero-sec"><span>8</span>Arenero</a></li></ol>
+  <span class="bn-cuenta" aria-live="polite"></span>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Programación y Analítica de Datos · Sesión 4 · Laboratorio</p>
+
+  <section class="columna"><p>De 2015 a 2025, Colombia tuvo once inflaciones anuales: once números que dicen cuánto subieron, en promedio, los precios de cada año. Están en la guía, en los informes del DANE y en los titulares de cada enero. Antes de mirarlas en Python, haga las tres apuestas de la guía. Si ya las anotó en el cuaderno, márquelas aquí.</p></section>
+  <div class="apuesta triple">
+    <p>Antes de empezar, tres preguntas</p>
+    <div class="pregunta" data-ok="2022" data-nombre="Año"><p>¿En qué año fue más alta la inflación?</p><div class="opciones" role="group" aria-label="Año"><button type="button" data-v="2016">2016</button><button type="button" data-v="2020">2020</button><button type="button" data-v="2022">2022</button><button type="button" data-v="2025">2025</button></div></div>
+    <div class="pregunta"><p>¿Cuánto fue el promedio de las once?</p><div class="deslizador"><label class="solo-lector" for="apuesta-promedio">Promedio en %</label><input type="range" id="apuesta-promedio" min="0" max="15" step="0.1" value="4"><output for="apuesta-promedio">4,0 %</output></div></div>
+    <div class="pregunta" data-ok="1" data-nombre="Variables"><p>Si cada inflación fuera una variable, ¿cuántas variables tendría que crear?</p><div class="opciones" role="group" aria-label="Variables"><button type="button" data-v="11">11, una por año</button><button type="button" data-v="22">22, año y valor</button><button type="button" data-v="1">1, si es la caja adecuada</button></div></div>
+    <div class="mandos"><button type="button" class="boton primario" data-accion="revelar">Ver las respuestas</button></div>
+    <p class="dato" hidden><span data-juicio></span> La inflación más alta fue la de <b>2022, 13,12 %</b>, y el promedio de los once años, <b>5,77 %</b>. Y basta <b>una</b> variable: una lista. En la estación 1 la verá con todas sus posiciones.</p>
+  </div>
+
+  <p class="motor" data-estado="espera" role="status"><span>Python se prepara en cuanto la página termina de cargar.</span></p>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De la lista a la tabla"><span class="par"><span class="nexo">De la</span> <mark class="marca-a">lista</mark></span><span class="par"><span class="nexo">a la</span> <mark class="marca-b">tabla</mark></span></h1>
+    <p class="entradilla">Python tiene cuatro cajas para guardar muchos datos: listas, tuplas, diccionarios y conjuntos. Este laboratorio las abre una por una, con datos de la economía colombiana, hasta que juntas forman una tabla lista para analizar.</p>
+    <p class="firma">Bogotá, octubre de 2026</p>
+  </header>
+
+  <blockquote class="epigrafe"><p>«El orden y la conexión de las ideas es el mismo que el orden y la conexión de las cosas.»</p><footer>Baruch Spinoza, <cite>Ética</cite>, parte II, proposición 7 (1677)</footer></blockquote>
+
+  <section class="columna">
+    <p>Funes, el personaje de Borges con el que empieza la guía, lo recordaba todo y por eso no podía pensar. Spinoza lo dice al revés: pensar bien es ordenar las ideas como están ordenadas las cosas. Con los datos pasa igual. Una serie de años tiene un orden; un año que ya pasó no cambia; un precio se busca por su nombre; una lista de ciudades no debería repetir ninguna. Cada estructura de Python copia una de esas formas.</p>
+    <p>En este laboratorio <mark class="marca-a">la lista</mark> es el punto de partida: datos en fila que se encuentran por su posición. <mark class="marca-b">La tabla</mark> es la llegada: filas y columnas con nombre, listas para hacerles preguntas. Y <mark class="marca-c">el dato</mark> es lo que permanece: 13,12 sigue siendo 13,12 en cualquier caja; lo que cambia es lo que se le puede preguntar.</p>
+    <ul class="leyenda" aria-label="Clave de colores"><li><mark class="marca-a">A</mark> el punto de partida</li><li><mark class="marca-b">B</mark> la llegada</li><li><mark class="marca-c">C</mark> lo que permanece</li></ul>
+    <p>El recorrido tiene nueve estaciones: el camino que sigue un dato, las cuatro cajas una por una, los registros que las juntan en una tabla, una prueba para elegir la caja, la tarea de su propia inflación y un arenero. Cada ejercicio de la guía tiene aquí dos cosas: un recuadro para comprobar lo que hizo a mano en el cuaderno y una estación para escribirlo en Python, que lo califica y le dice dónde está el error.</p>
+  </section>
+
+  <section class="nivel" id="camino-del-dato"><span class="estrellas">0 · antes de las cajas</span><h2>El camino del dato</h2><p>Del dato suelto al análisis, en cinco etapas.</p></section>
+  <section class="columna"><p>Cada mes alguien anota precios en tiendas de muchas ciudades, y un mes después el DANE publica una sola cifra. Entre una cosa y otra hay cinco etapas: recolectar, limpiar, transformar, analizar y comunicar. Se repiten en cualquier análisis, sea de precios, de empleo o de las ventas de una tienda. Mírelas con siete precios del kilo de arroz.</p></section>
+  
+<div class="figura">
+<div class="figura-cabeza"><h3 class="figura-titulo">Siete anotaciones se vuelven una frase</h3><p class="figura-clave">Avance con «Siguiente paso». A la derecha se ilumina la línea que hace el trabajo; en las fichas, lo naranja es lo que cambió.</p></div>
+<div class="camino" id="camino">
+  <ol class="etapas"><li data-etapa="1">1 · Recolectar<small>anotar precios</small></li><li data-etapa="2">2 · Limpiar<small>«$4.800» → 4800</small></li><li data-etapa="3">3 · Transformar<small>texto → número</small></li><li data-etapa="4">4 · Analizar<small>promedio, extremos</small></li><li data-etapa="5">5 · Comunicar<small>una frase</small></li></ol>
+  <div class="camino-cuerpo">
+    <div>
+      <p class="camino-que" aria-live="polite"></p>
+      <ul class="fichas" aria-label="Los datos en este paso"></ul>
+      <p class="titular-dato" hidden></p>
+      <div class="mandos"><button type="button" class="boton" data-c="-1">Anterior</button><button type="button" class="boton primario" data-c="1">Siguiente paso</button><button type="button" class="boton" data-c="correr">Correrlo en Python</button></div>
+    </div>
+    <div><ol class="codigo-vivo" aria-label="El programa completo"><li>crudos = [&quot;$4.800&quot;, &quot; 4.950&quot;, &quot;$5.100 &quot;, &quot;&quot;, &quot;4.800&quot;, &quot;5.000&quot;, &quot;4.950&quot;]</li><li> </li><li>limpios = []</li><li>for texto in crudos:</li><li>    texto = texto.strip()                # sin espacios</li><li>    texto = texto.replace(&quot;$&quot;, &quot;&quot;)       # sin $</li><li>    texto = texto.replace(&quot;.&quot;, &quot;&quot;)       # sin puntos de miles</li><li>    if texto != &quot;&quot;:                      # sin vacíos</li><li>        limpios.append(int(texto))       # de texto a número</li><li> </li><li>limpios.sort()                           # de menor a mayor</li><li>promedio = sum(limpios) / len(limpios)</li><li>diferencia = max(limpios) - min(limpios)</li><li>print(&quot;Promedio:&quot;, round(promedio), &quot;pesos&quot;)</li><li>print(&quot;De la más barata a la más cara:&quot;, diferencia)</li></ol><pre class="salida" hidden></pre></div>
+  </div>
+</div>
+</div>
+  <section class="columna"><p>¿Notó dónde se fue la mayor parte del programa? En limpiar. Así es casi siempre, y por eso el curso se detendrá en eso las próximas semanas. Pero para limpiar primero hay que guardar, y siete precios no caben en una cajita. Ahí empiezan las estructuras.</p></section>
+
+  <section class="nivel" id="listas"><span class="estrellas">1 · lista · [ ]</span><h2>Listas: una fila de cajitas numeradas</h2><p>Para las series: un dato por año, por mes o por día, en el orden en que pasaron.</p></section>
+  <section class="columna"><p>Una lista guarda varios valores, en orden, en una sola variable: entre corchetes y separados por comas. Cada valor tiene una <b>posición</b>, y aquí está la primera sorpresa: Python empieza a contar en cero. También se puede contar desde el final, con números negativos: −1 es el último. Y una lista se puede cambiar: agregarle, quitarle, ordenarla.</p></section>
+  
+<div class="apuesta" data-dato="2022">
+  <p>En la lista de inflaciones, que empieza en 2015, ¿a qué año corresponde <code>inflacion[7]</code>?</p>
+  <div class="opciones" role="group" aria-label="Su apuesta"><button type="button" data-v="2021">2021</button><button type="button" data-v="2022">2022</button><button type="button" data-v="2023">2023</button></div>
+  <p class="dato" hidden><span data-juicio></span> Es 2022: la posición 0 es 2015, la 1 es 2016, y así hasta la 7. Contar desde cero es la primera costumbre que hay que ganar.</p>
+</div>
+  
+<div class="figura">
+<div class="figura-cabeza"><h3 class="figura-titulo">Once años de inflación en una sola variable</h3><p class="figura-clave">Toque una barra para ver su posición. Mueva los deslizadores para cortar una tajada. Debajo de cada barra: su posición, el año y, en morado, la posición contando desde el final.</p></div>
+<div class="explorador" id="explorador">
+  <ul class="barras-lista" aria-label="inflacion, de 2015 a 2025, en %"><li><button type="button" aria-label="Posición 0: 2015, 6,77 %"><span class="valor">6,77</span><span class="barra" style="--h:42.3%"></span></button></li><li><button type="button" aria-label="Posición 1: 2016, 5,75 %"><span class="valor">5,75</span><span class="barra" style="--h:35.9%"></span></button></li><li><button type="button" aria-label="Posición 2: 2017, 4,09 %"><span class="valor">4,09</span><span class="barra" style="--h:25.6%"></span></button></li><li><button type="button" aria-label="Posición 3: 2018, 3,18 %"><span class="valor">3,18</span><span class="barra" style="--h:19.9%"></span></button></li><li><button type="button" aria-label="Posición 4: 2019, 3,8 %"><span class="valor">3,80</span><span class="barra" style="--h:23.8%"></span></button></li><li><button type="button" aria-label="Posición 5: 2020, 1,61 %"><span class="valor">1,61</span><span class="barra" style="--h:10.1%"></span></button></li><li><button type="button" aria-label="Posición 6: 2021, 5,62 %"><span class="valor">5,62</span><span class="barra" style="--h:35.1%"></span></button></li><li><button type="button" aria-label="Posición 7: 2022, 13,12 %"><span class="valor">13,12</span><span class="barra" style="--h:82.0%"></span></button></li><li><button type="button" aria-label="Posición 8: 2023, 9,28 %"><span class="valor">9,28</span><span class="barra" style="--h:58.0%"></span></button></li><li><button type="button" aria-label="Posición 9: 2024, 5,2 %"><span class="valor">5,20</span><span class="barra" style="--h:32.5%"></span></button></li><li><button type="button" aria-label="Posición 10: 2025, 5,1 %"><span class="valor">5,10</span><span class="barra" style="--h:31.9%"></span></button></li></ul>
+  <ul class="posiciones" aria-hidden="true"><li><b>[0]</b><span class="anio">2015<br></span><span class="neg">[-11]</span></li><li><b>[1]</b><span class="anio">2016<br></span><span class="neg">[-10]</span></li><li><b>[2]</b><span class="anio">2017<br></span><span class="neg">[-9]</span></li><li><b>[3]</b><span class="anio">2018<br></span><span class="neg">[-8]</span></li><li><b>[4]</b><span class="anio">2019<br></span><span class="neg">[-7]</span></li><li><b>[5]</b><span class="anio">2020<br></span><span class="neg">[-6]</span></li><li><b>[6]</b><span class="anio">2021<br></span><span class="neg">[-5]</span></li><li><b>[7]</b><span class="anio">2022<br></span><span class="neg">[-4]</span></li><li><b>[8]</b><span class="anio">2023<br></span><span class="neg">[-3]</span></li><li><b>[9]</b><span class="anio">2024<br></span><span class="neg">[-2]</span></li><li><b>[10]</b><span class="anio">2025<br></span><span class="neg">[-1]</span></li></ul>
+  <div class="deslizador"><label for="tajada-desde">desde la posición</label><input type="range" id="tajada-desde" min="0" max="10" value="6"><output for="tajada-desde">6</output></div>
+  <div class="deslizador"><label for="tajada-hasta">hasta antes de la</label><input type="range" id="tajada-hasta" min="1" max="11" value="11"><output for="tajada-hasta">11</output></div>
+  <div class="lectura"><p class="lectura-caja" data-lee="elegida" aria-live="polite"></p><p class="lectura-caja" data-lee="tajada" aria-live="polite"></p></div>
+</div>
+<p class="figura-nota">Fuente: DANE, variación anual del IPC a diciembre, 2015-2025. Python escribe 5.2 y no 5.20: el cero final no cambia el número.</p>
+</div>
+  <section class="columna"><p>La tajada contesta una pregunta que el promedio de once años esconde: ¿cambia la conclusión según los años que se miren? Ponga los deslizadores en 0 y 5 (2015 a 2019) y después en 6 y 11 (2021 a 2025). Ahora pruebe los ejemplos de la guía en Python de verdad.</p></section>
+  
+<div class="consola" data-consola="listas">
+  <div class="consola-cabeza"><span>Pruébelo en Python</span><small>La lista <code>inflacion</code> ya está creada.</small></div>
+  <div class="consola-botones" role="group" aria-label="Líneas para probar"><button type="button" data-linea="inflacion[0]">inflacion[0]</button><button type="button" data-linea="inflacion[7]">inflacion[7]</button><button type="button" data-linea="inflacion[-1]">inflacion[-1]</button><button type="button" data-linea="inflacion[-3:]">inflacion[-3:]</button><button type="button" data-linea="len(inflacion)">len(inflacion)</button><button type="button" data-linea="max(inflacion)">max(inflacion)</button><button type="button" data-linea="inflacion.index(max(inflacion))">inflacion.index(max(inflacion))</button><button type="button" data-linea="sum(inflacion) / len(inflacion)">sum(inflacion) / len(inflacion)</button><button type="button" data-linea="inflacion.append(4.50)">inflacion.append(4.50)</button><button type="button" data-linea="inflacion">inflacion</button><button type="button" data-linea="inflacion[11]">inflacion[11]</button><button type="button" data-linea="inflacion[20]">inflacion[20]</button></div>
+  <ol class="consola-historia" aria-live="polite"></ol>
+  <form class="consola-linea"><label for="consola-listas">&gt;&gt;&gt;</label><input id="consola-listas" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="escriba una línea de Python">
+    <button class="boton primario" type="submit">Ejecutar</button><button class="boton" type="button" data-reinicia>Reiniciar</button></form>
+</div>
+  <section class="columna"><p>Fíjese en dos cosas. Después de <code>append</code> la lista tiene doce datos, y <code>inflacion[11]</code> ya existe: una lista se puede cambiar. Y si pide una posición que no existe, Python no inventa nada: avisa. El botón Reiniciar devuelve la lista a como estaba.</p></section>
+  
+<section class="valida" id="v1" data-v="V1" aria-labelledby="V1-t">
+  <p class="est-rotulo"><span>Ejercicio 1 a, b y d</span><span>en su cuaderno</span><span class="hecho">✓ Comprobado</span></p>
+  <h3 id="V1-t">Compruebe el ejercicio 1</h3>
+  <p class="figura-clave">Escriba lo que respondió a mano en el ejercicio 1. Para los números puede usar puntos de miles o no; para la tajada, escriba la lista como la escribiría Python.</p>
+  <pre class="codigo">salarios = [908526, 1000000, 1160000, 1300000, 1423500, 1750905]   # 2021 a 2026</pre>
+  <ul class="valida-lista"><li><label class="que" for="vV1-0"><code>salarios[0]</code></label><input id="vV1-0" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV1-1"><code>salarios[-1]</code></label><input id="vV1-1" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV1-2"><code>salarios[2:4]</code></label><input id="vV1-2" inputmode="text" autocomplete="off" spellcheck="false" placeholder="[ , ]"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV1-3"><code>len(salarios)</code></label><input id="vV1-3" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV1-4">¿En qué posición está el de 2024?</label><input id="vV1-4" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV1-5">¿Cuánto más es el de 2026 que el de 2021, en pesos?</label><input id="vV1-5" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li></ul>
+  <div class="mandos">
+    <button type="button" class="boton primario" data-accion="validar">Comprobar mis respuestas</button>
+    <button type="button" class="boton" data-accion="python">Verlo en Python</button>
+    <button type="button" class="boton" data-accion="borrar">Borrar</button>
+  </div>
+  <p class="valida-resumen" aria-live="polite"></p>
+</section>
+  
+<section class="estacion" id="ejL1" data-ej="L1" aria-labelledby="ejL1-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 1 c</span><span>★</span><span>posiciones negativas</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejL1-t">¿Cuánto subió el mínimo en 2026?</h3>
+  </header>
+  <div class="texto"><p>Cada diciembre el Gobierno fija el salario mínimo del año siguiente. Para saber cuánto subió en 2026 basta comparar los dos últimos datos de la lista. La pregunta es cómo llegar a ellos sin contar: si el año que viene la lista crece, «el último» debe seguir siendo el último.</p>
+    <p class="pide">Complete <code>ultimo</code> y <code>penultimo</code> con posiciones negativas. El programa calcula el aumento en porcentaje.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="L1"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-L1" aria-label="Su código: ¿Cuánto subió el mínimo en 2026?">salarios = [908526, 1000000, 1160000, 1300000, 1423500, 1750905]   # 2021 a 2026
+
+ultimo = ___       # el de 2026, contado desde el final
+penultimo = ___    # el de 2025
+
+aumento_2026 = round((ultimo / penultimo - 1) * 100, 1)
+print(&quot;En 2026 el mínimo subió&quot;, aumento_2026, &quot;%&quot;)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>El último elemento de una lista es <code>lista[-1]</code>; el penúltimo, <code>lista[-2]</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">salarios = [908526, 1000000, 1160000, 1300000, 1423500, 1750905]   # 2021 a 2026
+
+ultimo = salarios[-1]       # el de 2026, contado desde el final
+penultimo = salarios[-2]    # el de 2025
+
+aumento_2026 = round((ultimo / penultimo - 1) * 100, 1)
+print(&quot;En 2026 el mínimo subió&quot;, aumento_2026, &quot;%&quot;)</pre>
+      <div><p>Con posiciones negativas el programa no necesita saber cuántos datos tiene la lista: <code>salarios[-1]</code> es el último hoy y lo seguirá siendo cuando se agregue 2027. El cociente 1.750.905 ÷ 1.423.500 da 1,23: el mínimo subió 23,0 %.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+  
+<section class="estacion" id="ejL2" data-ej="L2" aria-labelledby="ejL2-t">
+  <header>
+    <p class="est-rotulo"><span>Lista · tajada</span><span>★</span><span>slice</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejL2-t">El promedio de los últimos cinco años</h3>
+  </header>
+  <div class="texto"><p>El promedio de once años mezcla épocas muy distintas: la calma de 2020 y el salto de 2022. Muchas veces la pregunta es por un periodo: ¿cuánto subieron los precios, en promedio, de 2021 a 2025? Para eso se toma una <b>tajada</b> de la lista.</p>
+    <p class="pide">Escriba la tajada que toma los cinco últimos años de <code>inflacion</code>, contando desde el final.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="L2"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-L2" aria-label="Su código: El promedio de los últimos cinco años">inflacion = [6.77, 5.75, 4.09, 3.18, 3.80, 1.61, 5.62, 13.12, 9.28, 5.20, 5.10]   # 2015 a 2025
+
+ultimos5 = ___        # una tajada: los cinco últimos, 2021 a 2025
+promedio = round(sum(ultimos5) / len(ultimos5), 2)
+
+print(ultimos5)
+print(&quot;Promedio 2021-2025:&quot;, promedio, &quot;%&quot;)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden><code>lista[-5:]</code> quiere decir «desde la quinta contando desde el final, hasta el final».</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">inflacion = [6.77, 5.75, 4.09, 3.18, 3.80, 1.61, 5.62, 13.12, 9.28, 5.20, 5.10]   # 2015 a 2025
+
+ultimos5 = inflacion[-5:]        # una tajada: los cinco últimos, 2021 a 2025
+promedio = round(sum(ultimos5) / len(ultimos5), 2)
+
+print(ultimos5)
+print(&quot;Promedio 2021-2025:&quot;, promedio, &quot;%&quot;)</pre>
+      <div><p><code>inflacion[-5:]</code> toma desde la quinta posición contando desde el final hasta el último dato. Con números positivos sería <code>inflacion[6:11]</code>, pero esa versión deja de servir cuando llega el dato de 2026. El promedio de 2021 a 2025, 7,66 %, es casi dos puntos más alto que el de los once años, 5,77 %: el periodo que se escoge cambia la conclusión.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="tuplas"><span class="estrellas">2 · tupla · ( )</span><h2>Tuplas: un registro sellado</h2><p>Para lo que va junto y no debe cambiar.</p></section>
+  <section class="columna"><p>Una tupla se parece a una lista, pero va entre paréntesis y no se puede cambiar después de creada. ¿Para qué sirve algo que no se puede cambiar? Para los registros: datos que van juntos y describen un hecho que ya pasó. El salario mínimo de 2022 fue $1.000.000 y la inflación de ese año, 13,12 %; lo que ya pasó no se reescribe, y la tupla lo protege de un cambio por accidente.</p><p>Una tupla también se puede <b>desempacar</b>: repartir sus valores en varias cajitas en una sola línea.</p></section>
+  
+<div class="apuesta" data-dato="error">
+  <p>Si escribe <code>registro[2] = 10</code>, ¿qué hace Python?</p>
+  <div class="opciones" role="group" aria-label="Su apuesta"><button type="button" data-v="cambia">Cambia 13.12 por 10</button><button type="button" data-v="error">Se niega: da un error</button><button type="button" data-v="agrega">Agrega el 10 al final</button></div>
+  <p class="dato" hidden><span data-juicio></span> Python se niega: una tupla no se puede cambiar. Pruébelo abajo y mire qué hace el sello.</p>
+</div>
+  
+<div class="figura" id="sellado">
+<div class="figura-cabeza"><h3 class="figura-titulo">El año 2022, sellado</h3><p class="figura-clave">Use la consola de abajo: lea la tupla, desempáquela y, si quiere, intente cambiarla. Mire qué hace el sello.</p></div>
+<div class="sellado">
+  <div class="registro" role="img" aria-label="registro = (2022, 1000000, 13.12)"><span>2022<small>[0] anio</small></span><span>1000000<small>[1] salario</small></span><span>13.12<small>[2] inflacion</small></span></div>
+  <div class="sello" aria-hidden="true">sellada<br>no cambia</div>
+</div>
+<ul class="cajitas-sueltas" id="cajitas-sueltas" aria-live="polite" aria-label="Cajitas desempacadas"></ul>
+</div>
+  
+<div class="consola" data-consola="tuplas">
+  <div class="consola-cabeza"><span>Pruébelo en Python</span><small>Ya están creadas <code>registro</code> y <code>historia</code>, una lista de tuplas.</small></div>
+  <div class="consola-botones" role="group" aria-label="Líneas para probar"><button type="button" data-linea="registro[0]">registro[0]</button><button type="button" data-linea="registro[2]">registro[2]</button><button type="button" data-linea="len(registro)">len(registro)</button><button type="button" data-linea="anio, salario, inflacion = registro">anio, salario, inflacion = registro</button><button type="button" data-linea="salario">salario</button><button type="button" data-linea="registro[2] = 10">registro[2] = 10</button><button type="button" data-linea="registro.append(2026)">registro.append(2026)</button><button type="button" data-linea="historia">historia</button><button type="button" data-linea="for anio, salario in historia:
+    print(anio, salario)">for anio, salario in historia:
+    print(anio, salario)</button></div>
+  <ol class="consola-historia" aria-live="polite"></ol>
+  <form class="consola-linea"><label for="consola-tuplas">&gt;&gt;&gt;</label><input id="consola-tuplas" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="escriba una línea de Python">
+    <button class="boton primario" type="submit">Ejecutar</button><button class="boton" type="button" data-reinicia>Reiniciar</button></form>
+</div>
+  <section class="columna"><p>El error no es una falla: es una protección. ¿Querría usted que alguien pudiera editar la inflación de 2022 sin darse cuenta? Y fíjese en <code>historia</code>: una lista de tuplas ya es la forma más sencilla de una tabla, en la que cada tupla es una fila.</p></section>
+  
+<section class="valida" id="v2" data-v="V2" aria-labelledby="V2-t">
+  <p class="est-rotulo"><span>Ejercicio 2 a y d</span><span>en su cuaderno</span><span class="hecho">✓ Comprobado</span></p>
+  <h3 id="V2-t">Compruebe el ejercicio 2</h3>
+  <p class="figura-clave">Escriba lo que respondió en las partes a) y d) del ejercicio 2. Para la parte b), el ciclo, está la estación siguiente.</p>
+  <pre class="codigo">datos = [(2021, 3.50, 5.62), (2022, 10.07, 13.12), (2023, 16.00, 9.28),
+         (2024, 12.07, 5.20), (2025, 9.50, 5.10)]</pre>
+  <ul class="valida-lista"><li><label class="que" for="vV2-0"><code>datos[1]</code></label><input id="vV2-0" inputmode="text" autocomplete="off" spellcheck="false" placeholder="( , , )"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV2-1"><code>datos[1][2]</code></label><input id="vV2-1" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li class="opcion"><span class="que">¿Por qué conviene que cada registro sea una tupla y no una lista?</span><span class="marca-r" aria-hidden="true"></span><div class="eleccion" role="group" aria-label="¿Por qué conviene que cada registro sea una tupla y no una lista?"><button type="button" class="chip" aria-pressed="false">Porque guarda más datos</button><button type="button" class="chip" aria-pressed="false">Porque un hecho que ya pasó no debe poder cambiarse por accidente</button><button type="button" class="chip" aria-pressed="false">Porque se escribe más rápido</button></div><p class="ayuda" aria-live="polite"></p><p class="python"></p></li></ul>
+  <div class="mandos">
+    <button type="button" class="boton primario" data-accion="validar">Comprobar mis respuestas</button>
+    <button type="button" class="boton" data-accion="python">Verlo en Python</button>
+    <button type="button" class="boton" data-accion="borrar">Borrar</button>
+  </div>
+  <p class="valida-resumen" aria-live="polite"></p>
+</section>
+  
+<section class="estacion" id="ejT1" data-ej="T1" aria-labelledby="ejT1-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 2 b</span><span>★★</span><span>desempacar tuplas</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejT1-t">¿En qué años perdió el salario mínimo?</h3>
+  </header>
+  <div class="texto"><p>Cada tupla es un año sellado: cuánto subió el mínimo y cuánto subieron los precios. Si el mínimo sube menos que los precios, quien lo gana puede comprar menos que el año anterior: pierde <b>poder de compra</b>.</p>
+    <p class="pide">Complete la condición y lo que se agrega a <code>perdio</code>: los años en que el aumento fue menor que la inflación. Después mire la prueba de escritorio: es la parte c) del ejercicio.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="T1"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-T1" aria-label="Su código: ¿En qué años perdió el salario mínimo?"># cada tupla: (año, aumento del salario mínimo en %, inflación en %)
+datos = [(2021, 3.50, 5.62), (2022, 10.07, 13.12), (2023, 16.00, 9.28),
+         (2024, 12.07, 5.20), (2025, 9.50, 5.10)]
+
+perdio = []
+for anio, aumento, inflacion in datos:
+    if ___:
+        perdio.append(___)
+
+print(&quot;Años en que el mínimo perdió:&quot;, perdio)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>La condición compara dos de las tres cajitas de cada vuelta: <code>aumento &lt; inflacion</code>. Lo que se agrega es el año.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo"># cada tupla: (año, aumento del salario mínimo en %, inflación en %)
+datos = [(2021, 3.50, 5.62), (2022, 10.07, 13.12), (2023, 16.00, 9.28),
+         (2024, 12.07, 5.20), (2025, 9.50, 5.10)]
+
+perdio = []
+for anio, aumento, inflacion in datos:
+    if aumento &lt; inflacion:
+        perdio.append(anio)
+
+print(&quot;Años en que el mínimo perdió:&quot;, perdio)</pre>
+      <div><p>En cada vuelta, el <code>for</code> desempaca una tupla en tres cajitas: <code>anio</code>, <code>aumento</code> e <code>inflacion</code>. En 2021 el mínimo subió 3,5 % y los precios 5,62 %; en 2022, 10,07 % frente a 13,12 %. En esos dos años, quien ganaba el mínimo pudo comprar menos.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="diccionarios"><span class="estrellas">3 · diccionario · {clave: valor}</span><h2>Diccionarios: cajones con etiqueta</h2><p>Para lo que se busca por su nombre.</p></section>
+  <section class="columna"><p>En una lista, cada dato se busca por su posición. Pero muchas veces lo natural es buscar por un nombre: ¿cuánto subió la salud? Para eso está el diccionario: pares <code>clave: valor</code> entre llaves. La clave es la etiqueta del cajón; el valor, lo que hay adentro. Las claves no se repiten y hay que escribirlas exactamente igual: «Salud» y «salud» son dos etiquetas distintas.</p></section>
+  <details class="nuez"><summary>¿Qué es una división de gasto?</summary><p>El DANE agrupa lo que compran los hogares en doce divisiones (alimentos, vivienda y servicios, transporte, educación…) y calcula cuánto subió cada una. La inflación del titular es un promedio de todas, en el que pesa más lo que más compran los hogares.</p></details>
+  
+<div class="apuesta" data-dato="educacion">
+  <p>¿Qué subió más en 2025: la salud o la educación?</p>
+  <div class="opciones" role="group" aria-label="Su apuesta"><button type="button" data-v="salud">La salud</button><button type="button" data-v="educacion">La educación</button><button type="button" data-v="igual">Subieron igual</button></div>
+  <p class="dato" hidden><span data-juicio></span> La educación: 7,36 %, frente a 7,20 % de la salud. Ábralas en la cajonera: se busca por la etiqueta.</p>
+</div>
+  
+<div class="figura">
+<div class="figura-cabeza"><h3 class="figura-titulo">La inflación de 2025, división por división</h3><p class="figura-clave">Toque un cajón para abrirlo, o pídalo por su clave, entre comillas, como se escribe en Python.</p></div>
+<ul class="cajonera" id="cajonera" aria-label="El diccionario ipc"><li><button type="button" class="cajon" data-clave="Restaurantes y hoteles"><span class="etiqueta">"Restaurantes y hoteles"</span><span class="contenido">7.91</span></button></li><li><button type="button" class="cajon" data-clave="Educación"><span class="etiqueta">"Educación"</span><span class="contenido">7.36</span></button></li><li><button type="button" class="cajon" data-clave="Salud"><span class="etiqueta">"Salud"</span><span class="contenido">7.2</span></button></li><li><button type="button" class="cajon" data-clave="Transporte"><span class="etiqueta">"Transporte"</span><span class="contenido">5.35</span></button></li><li><button type="button" class="cajon" data-clave="Alimentos"><span class="etiqueta">"Alimentos"</span><span class="contenido">5.07</span></button></li><li><button type="button" class="cajon" data-clave="Vivienda y servicios"><span class="etiqueta">"Vivienda y servicios"</span><span class="contenido">4.76</span></button></li></ul>
+<form class="buscador" id="buscador-cajon"><label for="clave-cajon">ipc[</label><input id="clave-cajon" autocomplete="off" spellcheck="false" placeholder='"Salud"'><span aria-hidden="true">]</span><button class="boton primario" type="submit">Abrir</button></form>
+<div class="mandos-centrados"><button type="button" class="boton" data-cajon="mayores">¿Cuáles subieron más que 5,10 %?</button><button type="button" class="boton" data-cajon="max">¿Cuál subió más?</button><button type="button" class="boton" data-cajon="todos">Abrir todos</button><button type="button" class="boton" data-cajon="cerrar">Cerrar</button></div>
+<p class="respuesta-viva" id="respuesta-cajon" aria-live="polite"></p>
+<p class="figura-nota">Fuente: DANE, IPC, variación anual a diciembre de 2025; seis de las doce divisiones, con nombres abreviados.</p>
+</div>
+  
+<div class="consola" data-consola="diccionarios">
+  <div class="consola-cabeza"><span>Pruébelo en Python</span><small>Ya están creados <code>ipc</code> y <code>gasto</code>, el presupuesto del ejercicio 3.</small></div>
+  <div class="consola-botones" role="group" aria-label="Líneas para probar"><button type="button" data-linea="ipc[&quot;Salud&quot;]">ipc[&quot;Salud&quot;]</button><button type="button" data-linea="ipc[&quot;salud&quot;]">ipc[&quot;salud&quot;]</button><button type="button" data-linea="len(ipc)">len(ipc)</button><button type="button" data-linea="list(ipc.keys())">list(ipc.keys())</button><button type="button" data-linea="list(ipc.values())">list(ipc.values())</button><button type="button" data-linea="max(ipc, key=ipc.get)">max(ipc, key=ipc.get)</button><button type="button" data-linea="sum(gasto.values())">sum(gasto.values())</button><button type="button" data-linea="gasto[2]">gasto[2]</button><button type="button" data-linea="gasto[&quot;Entretenimiento&quot;] = 120000">gasto[&quot;Entretenimiento&quot;] = 120000</button><button type="button" data-linea="len(gasto)">len(gasto)</button><button type="button" data-linea="gasto">gasto</button></div>
+  <ol class="consola-historia" aria-live="polite"></ol>
+  <form class="consola-linea"><label for="consola-diccionarios">&gt;&gt;&gt;</label><input id="consola-diccionarios" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="escriba una línea de Python">
+    <button class="boton primario" type="submit">Ejecutar</button><button class="boton" type="button" data-reinicia>Reiniciar</button></form>
+</div>
+  <section class="columna"><p>Dos errores que verá mucho: una clave mal escrita y una posición donde va una clave, como <code>gasto[2]</code>. Los dos dan <code>KeyError</code>: el diccionario busca una etiqueta que no tiene. Y agregar un cajón es tan sencillo como asignarle un valor a una clave nueva.</p></section>
+  
+<section class="valida" id="v3" data-v="V3" aria-labelledby="V3-t">
+  <p class="est-rotulo"><span>Ejercicio 3 a, b, c y d</span><span>en su cuaderno</span><span class="hecho">✓ Comprobado</span></p>
+  <h3 id="V3-t">Compruebe el ejercicio 3</h3>
+  <p class="figura-clave">Escriba lo que respondió a mano en las partes a), b), c) y d) del ejercicio 3. El peso puede ir con uno o con dos decimales.</p>
+  <pre class="codigo">gasto = {&quot;Alimentos&quot;: 900000, &quot;Vivienda y servicios&quot;: 1100000, &quot;Transporte&quot;: 300000,
+         &quot;Educación&quot;: 250000, &quot;Salud&quot;: 150000, &quot;Restaurantes y hoteles&quot;: 100000}</pre>
+  <ul class="valida-lista"><li><label class="que" for="vV3-0"><code>gasto[&quot;Transporte&quot;]</code></label><input id="vV3-0" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li class="opcion"><span class="que">¿Qué pasa con gasto[2]?</span><span class="marca-r" aria-hidden="true"></span><div class="eleccion" role="group" aria-label="¿Qué pasa con gasto[2]?"><button type="button" class="chip" aria-pressed="false">Devuelve 300000, el tercero</button><button type="button" class="chip" aria-pressed="false">Error KeyError: no hay ninguna clave 2</button><button type="button" class="chip" aria-pressed="false">Devuelve &quot;Transporte&quot;</button></div><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV3-2">Gasto total del mes</label><input id="vV3-2" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV3-3">Peso de los alimentos, en %</label><input id="vV3-3" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV3-4">Total con «Entretenimiento» ($120.000)</label><input id="vV3-4" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV3-5">len(gasto) después de agregarlo</label><input id="vV3-5" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li></ul>
+  <div class="mandos">
+    <button type="button" class="boton primario" data-accion="validar">Comprobar mis respuestas</button>
+    <button type="button" class="boton" data-accion="python">Verlo en Python</button>
+    <button type="button" class="boton" data-accion="borrar">Borrar</button>
+  </div>
+  <p class="valida-resumen" aria-live="polite"></p>
+</section>
+  
+<section class="estacion" id="ejD1" data-ej="D1" aria-labelledby="ejD1-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 3 b, c y e</span><span>★★</span><span>recorrer un diccionario</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejD1-t">El peso de cada división</h3>
+  </header>
+  <div class="texto"><p>El <b>peso</b> de una división es la parte del gasto total que se va en ella: gasto en esa división ÷ gasto total. Con el diccionario del hogar del ejercicio 3, el programa calcula el total y arma otro diccionario con el peso de cada división, en porcentaje.</p>
+    <p class="pide">Complete el total del mes y el peso de cada división, en % y con un decimal.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="D1"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-D1" aria-label="Su código: El peso de cada división">gasto = {&quot;Alimentos&quot;: 900000, &quot;Vivienda y servicios&quot;: 1100000, &quot;Transporte&quot;: 300000,
+         &quot;Educación&quot;: 250000, &quot;Salud&quot;: 150000, &quot;Restaurantes y hoteles&quot;: 100000}
+
+total = ___
+pesos = {}
+for division in gasto:
+    pesos[division] = ___      # en %, con un decimal
+
+print(&quot;Gasto del mes:&quot;, total)
+for division in pesos:
+    print(division, pesos[division], &quot;%&quot;)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>El total es <code>sum(gasto.values())</code>. Dentro del ciclo, <code>gasto[division]</code> es lo que se gasta en esa división.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">gasto = {&quot;Alimentos&quot;: 900000, &quot;Vivienda y servicios&quot;: 1100000, &quot;Transporte&quot;: 300000,
+         &quot;Educación&quot;: 250000, &quot;Salud&quot;: 150000, &quot;Restaurantes y hoteles&quot;: 100000}
+
+total = sum(gasto.values())
+pesos = {}
+for division in gasto:
+    pesos[division] = round(gasto[division] / total * 100, 1)      # en %, con un decimal
+
+print(&quot;Gasto del mes:&quot;, total)
+for division in pesos:
+    print(division, pesos[division], &quot;%&quot;)</pre>
+      <div><p><code>sum(gasto.values())</code> suma los seis valores sin escribirlos. En el ciclo, <code>division</code> va tomando cada clave y <code>gasto[division]</code> abre su cajón. Vivienda y servicios pesa 39,3 %: casi cuatro de cada diez pesos del hogar se van en ella.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="conjuntos"><span class="estrellas">4 · conjunto · { }</span><h2>Conjuntos: una bolsa sin repetidos</h2><p>Para lo que importa qué hay, no cuántas veces.</p></section>
+  <section class="columna"><p>Un conjunto guarda valores sin orden y sin repetidos: si un valor ya está, no se agrega otra vez. Se escribe entre llaves, como el diccionario, pero sin claves. Sirve para dos cosas muy frecuentes al tratar datos: comparar grupos y quitar repetidos. Las operaciones son las del colegio: lo que tienen en común (<code>&amp;</code>), todo junto (<code>|</code>) y lo que tiene uno y el otro no (<code>-</code>).</p></section>
+  
+<div class="figura">
+<div class="figura-cabeza"><h3 class="figura-titulo">Dos familias, dos canastas</h3><p class="figura-clave">Marque qué compra cada familia, A o B, y elija una operación: quedan resaltados los productos del resultado.</p></div>
+<div class="venn-marco">
+  <div class="venn-rotulos"><span>canasta_a</span><span>canasta_b</span></div>
+  <div class="venn" id="venn">
+    <svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="108" cy="50" rx="104" ry="48" fill="var(--marca-a)"/><ellipse cx="192" cy="50" rx="104" ry="48" fill="var(--marca-b)" fill-opacity=".55"/></svg>
+    <ul class="region" data-region="a" aria-label="Solo en la canasta A"></ul>
+    <ul class="region" data-region="ab" aria-label="En las dos canastas"></ul>
+    <ul class="region" data-region="b" aria-label="Solo en la canasta B"></ul>
+  </div>
+  <div class="mandos-centrados" role="group" aria-label="Operaciones">
+    <button type="button" class="chip" data-op="y" aria-pressed="false">a &amp; b</button><button type="button" class="chip" data-op="o" aria-pressed="false">a | b</button><button type="button" class="chip" data-op="a-b" aria-pressed="false">a - b</button><button type="button" class="chip" data-op="b-a" aria-pressed="false">b - a</button><button type="button" class="chip" data-op="nada">Quitar</button>
+  </div>
+  <p class="resultado-set" id="resultado-set" aria-live="polite"></p>
+</div>
+<ul class="productos" aria-label="Qué compra cada familia"><li data-p="arroz"><span>arroz</span><span><label><input type="checkbox" data-c="a" checked aria-label="arroz en canasta_a">A</label> <label><input type="checkbox" data-c="b" checked aria-label="arroz en canasta_b">B</label></span></li><li data-p="leche"><span>leche</span><span><label><input type="checkbox" data-c="a" checked aria-label="leche en canasta_a">A</label> <label><input type="checkbox" data-c="b" checked aria-label="leche en canasta_b">B</label></span></li><li data-p="huevos"><span>huevos</span><span><label><input type="checkbox" data-c="a" checked aria-label="huevos en canasta_a">A</label> <label><input type="checkbox" data-c="b"  aria-label="huevos en canasta_b">B</label></span></li><li data-p="café"><span>café</span><span><label><input type="checkbox" data-c="a" checked aria-label="café en canasta_a">A</label> <label><input type="checkbox" data-c="b"  aria-label="café en canasta_b">B</label></span></li><li data-p="pan"><span>pan</span><span><label><input type="checkbox" data-c="a" checked aria-label="pan en canasta_a">A</label> <label><input type="checkbox" data-c="b" checked aria-label="pan en canasta_b">B</label></span></li><li data-p="carne"><span>carne</span><span><label><input type="checkbox" data-c="a"  aria-label="carne en canasta_a">A</label> <label><input type="checkbox" data-c="b" checked aria-label="carne en canasta_b">B</label></span></li><li data-p="papa"><span>papa</span><span><label><input type="checkbox" data-c="a"  aria-label="papa en canasta_a">A</label> <label><input type="checkbox" data-c="b" checked aria-label="papa en canasta_b">B</label></span></li><li data-p="panela"><span>panela</span><span><label><input type="checkbox" data-c="a"  aria-label="panela en canasta_a">A</label> <label><input type="checkbox" data-c="b"  aria-label="panela en canasta_b">B</label></span></li><li data-p="queso"><span>queso</span><span><label><input type="checkbox" data-c="a"  aria-label="queso en canasta_a">A</label> <label><input type="checkbox" data-c="b"  aria-label="queso en canasta_b">B</label></span></li></ul>
+</div>
+  
+<div class="apuesta" data-dato="4">
+  <p>Una encuesta recogió siete respuestas. Cada una trae la ciudad de quien respondió. ¿En cuántas ciudades se hizo?</p>
+  <div class="opciones" role="group" aria-label="Su apuesta"><button type="button" data-v="7">7</button><button type="button" data-v="5">5</button><button type="button" data-v="4">4</button><button type="button" data-v="3">3</button></div>
+  <p class="dato" hidden><span data-juicio></span> En cuatro. Hay siete respuestas, pero Bogotá aparece tres veces y Medellín dos. Compruébelo abajo.</p>
+</div>
+  
+<div class="figura" id="repetidos">
+<div class="figura-cabeza"><h3 class="figura-titulo">Siete respuestas, ¿siete ciudades?</h3><p class="figura-clave">La lista guarda una ciudad por respuesta. Conviértala en conjunto y mire qué queda.</p></div>
+<div class="columna-media"><ul class="fichas" aria-label="ciudades"><li data-v="Bogotá">Bogotá</li><li data-v="Medellín">Medellín</li><li data-v="Bogotá">Bogotá</li><li data-v="Cali">Cali</li><li data-v="Medellín">Medellín</li><li data-v="Barranquilla">Barranquilla</li><li data-v="Bogotá">Bogotá</li></ul>
+<div class="mandos"><button type="button" class="boton primario" data-accion="set">set(ciudades)</button></div>
+<p class="resultado-set" aria-live="polite">len(ciudades) → 7<small>Siete respuestas. ¿Siete ciudades?</small></p></div>
+</div>
+  
+<div class="consola" data-consola="conjuntos">
+  <div class="consola-cabeza"><span>Pruébelo en Python</span><small>Ya están creadas <code>canasta_a</code>, <code>canasta_b</code> y la lista <code>ciudades</code>.</small></div>
+  <div class="consola-botones" role="group" aria-label="Líneas para probar"><button type="button" data-linea="canasta_a &amp; canasta_b">canasta_a &amp; canasta_b</button><button type="button" data-linea="canasta_a | canasta_b">canasta_a | canasta_b</button><button type="button" data-linea="canasta_a - canasta_b">canasta_a - canasta_b</button><button type="button" data-linea="set(ciudades)">set(ciudades)</button><button type="button" data-linea="len(set(ciudades))">len(set(ciudades))</button><button type="button" data-linea="&quot;leche&quot; in canasta_a">&quot;leche&quot; in canasta_a</button><button type="button" data-linea="canasta_a[0]">canasta_a[0]</button><button type="button" data-linea="type({})">type({})</button><button type="button" data-linea="type(set())">type(set())</button><button type="button" data-linea="canasta_a.add(&quot;panela&quot;)">canasta_a.add(&quot;panela&quot;)</button><button type="button" data-linea="canasta_a">canasta_a</button></div>
+  <ol class="consola-historia" aria-live="polite"></ol>
+  <form class="consola-linea"><label for="consola-conjuntos">&gt;&gt;&gt;</label><input id="consola-conjuntos" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="escriba una línea de Python">
+    <button class="boton primario" type="submit">Ejecutar</button><button class="boton" type="button" data-reinicia>Reiniciar</button></form>
+</div>
+  <section class="columna"><p>Dos cuidados. Como un conjunto no tiene orden, no existe la posición 0: <code>canasta_a[0]</code> da error, y Python puede mostrar los elementos en otro orden cada vez. Y <code>{}</code> vacío no es un conjunto sino un diccionario vacío: el conjunto vacío se escribe <code>set()</code>.</p><p>En el ejercicio 4, las personas de la encuesta tienen un código y no un nombre. No es un detalle: en Colombia, la Ley 1581 de 2012 protege los datos personales, y una encuesta bien hecha guarda solo lo necesario para responder su pregunta. Para saber quién siguió de un mes al otro, el código basta.</p></section>
+  
+<section class="valida" id="v4" data-v="V4" aria-labelledby="V4-t">
+  <p class="est-rotulo"><span>Ejercicio 4 a, b, c y d</span><span>en su cuaderno</span><span class="hecho">✓ Comprobado</span></p>
+  <h3 id="V4-t">Compruebe el ejercicio 4</h3>
+  <p class="figura-clave">Escriba lo que respondió a mano en el ejercicio 4. Los conjuntos van entre llaves; el orden no importa.</p>
+  <pre class="codigo">enero = {101, 102, 103, 104, 105}
+febrero = {103, 104, 105, 106, 107}</pre>
+  <ul class="valida-lista"><li><label class="que" for="vV4-0"><code>enero &amp; febrero</code></label><input id="vV4-0" inputmode="text" autocomplete="off" spellcheck="false" placeholder="{ , }"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV4-1"><code>febrero - enero</code></label><input id="vV4-1" inputmode="text" autocomplete="off" spellcheck="false" placeholder="{ , }"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV4-2"><code>enero - febrero</code></label><input id="vV4-2" inputmode="text" autocomplete="off" spellcheck="false" placeholder="{ , }"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV4-3"><code>len(enero | febrero)</code></label><input id="vV4-3" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li class="opcion"><span class="que">Con listas, ¿qué pasa con enero & febrero?</span><span class="marca-r" aria-hidden="true"></span><div class="eleccion" role="group" aria-label="Con listas, ¿qué pasa con enero &amp; febrero?"><button type="button" class="chip" aria-pressed="false">Da [103, 104, 105]</button><button type="button" class="chip" aria-pressed="false">Da un error: &amp; no funciona con listas</button><button type="button" class="chip" aria-pressed="false">Da una lista vacía</button></div><p class="ayuda" aria-live="polite"></p><p class="python"></p></li></ul>
+  <div class="mandos">
+    <button type="button" class="boton primario" data-accion="validar">Comprobar mis respuestas</button>
+    <button type="button" class="boton" data-accion="python">Verlo en Python</button>
+    <button type="button" class="boton" data-accion="borrar">Borrar</button>
+  </div>
+  <p class="valida-resumen" aria-live="polite"></p>
+</section>
+  
+<section class="estacion" id="ejC1" data-ej="C1" aria-labelledby="ejC1-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 4</span><span>★★</span><span>& · | · -</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejC1-t">Quién se quedó en la encuesta</h3>
+  </header>
+  <div class="texto"><p>Una encuesta de empleo (simulada) entrevista cada mes a un grupo de personas, identificadas con un código para proteger su identidad. Para saber si alguien consiguió o perdió trabajo hay que comparar a la misma persona en los dos meses.</p>
+    <p class="pide">Escriba las cuatro operaciones de conjuntos.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="C1"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-C1" aria-label="Su código: Quién se quedó en la encuesta">enero = {101, 102, 103, 104, 105}      # códigos de quienes respondieron en enero
+febrero = {103, 104, 105, 106, 107}    # códigos de quienes respondieron en febrero
+
+ambos = ___            # respondieron los dos meses
+nuevos = ___           # están en febrero y no en enero
+salieron = ___         # estaban en enero y no en febrero
+total_personas = ___   # cuántas personas distintas respondieron
+
+print(&quot;Los dos meses:&quot;, ambos)
+print(&quot;Nuevos:&quot;, nuevos, &quot;· Salieron:&quot;, salieron)
+print(&quot;Personas distintas:&quot;, total_personas)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden><code>&amp;</code> es lo que está en los dos, <code>-</code> lo que tiene el primero y no el segundo, y <code>|</code> todo junto, sin repetir.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">enero = {101, 102, 103, 104, 105}      # códigos de quienes respondieron en enero
+febrero = {103, 104, 105, 106, 107}    # códigos de quienes respondieron en febrero
+
+ambos = enero &amp; febrero                # respondieron los dos meses
+nuevos = febrero - enero               # están en febrero y no en enero
+salieron = enero - febrero             # estaban en enero y no en febrero
+total_personas = len(enero | febrero)  # cuántas personas distintas respondieron
+
+print(&quot;Los dos meses:&quot;, ambos)
+print(&quot;Nuevos:&quot;, nuevos, &quot;· Salieron:&quot;, salieron)
+print(&quot;Personas distintas:&quot;, total_personas)</pre>
+      <div><p>Tres personas respondieron los dos meses: solo con ellas se puede medir si alguien consiguió o perdió empleo. La unión <code>enero | febrero</code> no repite a nadie, por eso tiene 7 códigos y no 10. Con listas, <code>enero &amp; febrero</code> daría un error: las operaciones de grupos son de los conjuntos.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="registros"><span class="estrellas">5 · registros · [{…}, {…}]</span><h2>Registros: la lista de diccionarios ya es una tabla</h2><p>Aquí se juntan las piezas.</p></section>
+  <section class="columna"><p>Una lista de diccionarios es una lista en la que cada elemento es un diccionario con las mismas claves. Mírela con atención y verá una tabla: cada diccionario es una fila (un año, una venta, una persona) y cada clave es una columna. Sobre ella se hace lo que pedía el camino del dato: <b>transformar</b>, agregando una columna calculada, y <b>analizar</b>, quedándose con las filas que importan.</p></section>
+  <details class="nuez"><summary>¿Qué es la variación real?</summary><p>Cuánto cambió lo que se puede comprar. Si el salario sube 10 % y los precios 13 %, con el salario nuevo se compra menos que antes: la variación real es negativa. Se calcula así: (1 + aumento) ÷ (1 + inflación) − 1, con el aumento y la inflación como fracciones (0,10 y no 10).</p></details>
+  
+<div class="apuesta" data-dato="4">
+  <p>Si a cada diccionario se le agrega la clave <code>"real"</code>, ¿cuántas columnas tendrá la tabla?</p>
+  <div class="opciones" role="group" aria-label="Su apuesta"><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="6">6</button></div>
+  <p class="dato" hidden><span data-juicio></span> Cuatro: una por clave. Cada fila ganó una clave, así que la tabla ganó una columna. Hágalo con el botón Transformar.</p>
+</div>
+  
+<div class="figura">
+<div class="figura-cabeza"><h3 class="figura-titulo">Cada diccionario es una fila; cada clave, una columna</h3><p class="figura-clave">Pase el cursor por el código o por la tabla. Después transforme y analice con los botones, en ese orden.</p></div>
+<div class="tabla-viva" id="tabla-viva">
+  <div><pre class="tv-codigo" aria-label="La lista de diccionarios"></pre>
+    <div class="tv-mandos"><button type="button" class="boton primario" data-tv="transformar">1 · Transformar: agregar «real»</button><button type="button" class="boton" data-tv="filtrar">2 · Analizar: real &lt; 0</button><button type="button" class="boton" data-tv="2026">Agregar 2026 (supuesto)</button><button type="button" class="boton" data-tv="reiniciar">Volver a empezar</button></div>
+    <div class="tv-paso"></div>
+  </div>
+  <div><div class="tabla-marco"><table class="tabla tv-tabla" aria-label="registros como tabla"></table></div>
+    <p class="tv-nota" aria-live="polite"></p>
+    <div id="supuesto-2026" hidden><div class="deslizador"><label for="inflacion-2026">Inflación que usted supone para 2026</label><input type="range" id="inflacion-2026" min="0" max="30" step="0.1" value="5"><output for="inflacion-2026">5,0 %</output></div><p class="tv-nota" id="veredicto-2026" aria-live="polite"></p></div>
+  </div>
+</div>
+<p class="figura-nota">Aumentos del salario mínimo: decretos anuales. Inflación: DANE. La fila de 2026 lleva el aumento real del mínimo, 23 %, y una inflación que usted supone: la de 2026 todavía no se conoce.</p>
+</div>
+  <section class="columna"><p>pandas, la herramienta de tablas que llega el miércoles 11 de noviembre, hace esto mismo con una línea: <code>pd.DataFrame(registros)</code> convierte la lista de diccionarios en una tabla. Quien entiende la lista de diccionarios entiende qué hay dentro de una tabla de pandas.</p></section>
+  
+<section class="valida" id="v5" data-v="V5" aria-labelledby="V5-t">
+  <p class="est-rotulo"><span>Ejercicio 5 a, b y d</span><span>en su cuaderno</span><span class="hecho">✓ Comprobado</span></p>
+  <h3 id="V5-t">Compruebe el ejercicio 5</h3>
+  <p class="figura-clave">Escriba lo que respondió a mano en las partes a), b) y d) del ejercicio 5. Las partes c) y e) están en las dos estaciones siguientes.</p>
+  <pre class="codigo">ventas = [{&quot;producto&quot;: &quot;Leche&quot;,   &quot;unidades&quot;: 26, &quot;precio&quot;: 4800},
+          {&quot;producto&quot;: &quot;Pan&quot;,     &quot;unidades&quot;: 55, &quot;precio&quot;: 600},
+          {&quot;producto&quot;: &quot;Cerveza&quot;, &quot;unidades&quot;: 15, &quot;precio&quot;: 3500}]</pre>
+  <ul class="valida-lista"><li><label class="que" for="vV5-0"><code>ventas[1][&quot;unidades&quot;]</code></label><input id="vV5-0" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li class="opcion"><span class="que">¿Por qué hay dos pares de corchetes?</span><span class="marca-r" aria-hidden="true"></span><div class="eleccion" role="group" aria-label="¿Por qué hay dos pares de corchetes?"><button type="button" class="chip" aria-pressed="false">Porque es un error de escritura</button><button type="button" class="chip" aria-pressed="false">El primero escoge la fila; el segundo, la columna</button><button type="button" class="chip" aria-pressed="false">Porque el diccionario tiene dos valores</button></div><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV5-2">¿Cuántas filas tiene la tabla?</label><input id="vV5-2" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV5-3">¿Cuántas columnas, antes del ingreso?</label><input id="vV5-3" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li><li><label class="que" for="vV5-4">Ingreso total de la tienda</label><input id="vV5-4" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="un número"><span class="marca-r" aria-hidden="true"></span><p class="ayuda" aria-live="polite"></p><p class="python"></p></li></ul>
+  <div class="mandos">
+    <button type="button" class="boton primario" data-accion="validar">Comprobar mis respuestas</button>
+    <button type="button" class="boton" data-accion="python">Verlo en Python</button>
+    <button type="button" class="boton" data-accion="borrar">Borrar</button>
+  </div>
+  <p class="valida-resumen" aria-live="polite"></p>
+</section>
+  
+<section class="estacion" id="ejR1" data-ej="R1" aria-labelledby="ejR1-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 5 c y d</span><span>★★</span><span>columna nueva</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejR1-t">El ingreso de cada producto</h3>
+  </header>
+  <div class="texto"><p>Doña Rosa anota sus ventas como registros: cada diccionario es una fila de su tabla. El <b>ingreso</b> de cada producto es lo que recibió por venderlo: unidades × precio. Agregarlo a cada fila es <b>transformar</b>: la tabla gana una columna.</p>
+    <p class="pide">Complete el ingreso de cada fila y el ingreso total de la tienda.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="R1"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-R1" aria-label="Su código: El ingreso de cada producto">ventas = [{&quot;producto&quot;: &quot;Leche&quot;,   &quot;unidades&quot;: 26, &quot;precio&quot;: 4800},
+          {&quot;producto&quot;: &quot;Pan&quot;,     &quot;unidades&quot;: 55, &quot;precio&quot;: 600},
+          {&quot;producto&quot;: &quot;Cerveza&quot;, &quot;unidades&quot;: 15, &quot;precio&quot;: 3500}]
+
+for fila in ventas:
+    fila[&quot;ingreso&quot;] = ___             # una columna nueva
+
+total_ingreso = 0
+for fila in ventas:
+    total_ingreso = ___
+
+for fila in ventas:
+    print(fila[&quot;producto&quot;], fila[&quot;ingreso&quot;])
+print(&quot;Ingreso total:&quot;, total_ingreso)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>Una fila es un diccionario: <code>fila["unidades"]</code> y <code>fila["precio"]</code> abren sus cajones.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">ventas = [{&quot;producto&quot;: &quot;Leche&quot;,   &quot;unidades&quot;: 26, &quot;precio&quot;: 4800},
+          {&quot;producto&quot;: &quot;Pan&quot;,     &quot;unidades&quot;: 55, &quot;precio&quot;: 600},
+          {&quot;producto&quot;: &quot;Cerveza&quot;, &quot;unidades&quot;: 15, &quot;precio&quot;: 3500}]
+
+for fila in ventas:
+    fila[&quot;ingreso&quot;] = fila[&quot;unidades&quot;] * fila[&quot;precio&quot;]             # una columna nueva
+
+total_ingreso = 0
+for fila in ventas:
+    total_ingreso = total_ingreso + fila[&quot;ingreso&quot;]
+
+for fila in ventas:
+    print(fila[&quot;producto&quot;], fila[&quot;ingreso&quot;])
+print(&quot;Ingreso total:&quot;, total_ingreso)</pre>
+      <div><p>El primer ciclo transforma: cada fila gana la clave <code>"ingreso"</code>, y la tabla pasa de tres columnas a cuatro. El segundo es un acumulador, como los de la sesión de ciclos. La leche deja $124.800; el pan, aunque se vende más, solo $33.000.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+  
+<section class="estacion" id="ejR2" data-ej="R2" aria-labelledby="ejR2-t">
+  <header>
+    <p class="est-rotulo"><span>Ejercicio 5 e</span><span>★★★</span><span>el mejor hasta ahora</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejR2-t">Reto: el producto que más dinero deja</h3>
+  </header>
+  <div class="texto"><p>El pan es lo que más se vende: 55 unidades. ¿Es también lo que más dinero deja? Para saberlo hay que recorrer la tabla guardando «el mejor hasta ahora» y compararlo en cada vuelta.</p>
+    <p class="pide">Escriba el ciclo completo. Esta vez, sin <code>max()</code>: el reto es construir usted lo que esa función hace por dentro.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="R2"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-R2" aria-label="Su código: Reto: el producto que más dinero deja">ventas = [{&quot;producto&quot;: &quot;Leche&quot;,   &quot;unidades&quot;: 26, &quot;precio&quot;: 4800},
+          {&quot;producto&quot;: &quot;Pan&quot;,     &quot;unidades&quot;: 55, &quot;precio&quot;: 600},
+          {&quot;producto&quot;: &quot;Cerveza&quot;, &quot;unidades&quot;: 15, &quot;precio&quot;: 3500}]
+
+mejor = &quot;&quot;      # el producto con más ingreso, hasta ahora
+mayor = 0       # su ingreso
+# Escriba el ciclo: calcule el ingreso de cada fila y quédese con el mayor
+___
+
+print(&quot;Más dinero deja:&quot;, mejor, &quot;con&quot;, mayor)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden>Dentro del <code>for</code>: calcule el ingreso de la fila; <code>if</code> es mayor que <code>mayor</code>, actualice <code>mayor</code> y <code>mejor</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">ventas = [{&quot;producto&quot;: &quot;Leche&quot;,   &quot;unidades&quot;: 26, &quot;precio&quot;: 4800},
+          {&quot;producto&quot;: &quot;Pan&quot;,     &quot;unidades&quot;: 55, &quot;precio&quot;: 600},
+          {&quot;producto&quot;: &quot;Cerveza&quot;, &quot;unidades&quot;: 15, &quot;precio&quot;: 3500}]
+
+mejor = &quot;&quot;      # el producto con más ingreso, hasta ahora
+mayor = 0       # su ingreso
+for fila in ventas:
+    ingreso = fila[&quot;unidades&quot;] * fila[&quot;precio&quot;]
+    if ingreso &gt; mayor:
+        mayor = ingreso
+        mejor = fila[&quot;producto&quot;]
+
+print(&quot;Más dinero deja:&quot;, mejor, &quot;con&quot;, mayor)</pre>
+      <div><p>«El mejor hasta ahora» empieza vacío y en cada vuelta se compara con la fila nueva. La leche deja $124.800 con solo 26 unidades, porque cada una vale $4.800. Lo que más se vende no es necesariamente lo que más deja: una tienda que solo mirara las unidades tomaría malas decisiones.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="que-caja"><span class="estrellas">6 · elegir la estructura</span><h2>¿Qué caja uso?</h2><p>No hay una estructura mejor que las otras: hay una adecuada para cada pregunta.</p></section>
+  <section class="columna"><p>Decida en estas cinco situaciones, distintas de las de la guía. La pregunta que decide casi siempre es una sola: ¿cómo voy a buscar estos datos después? Por posición, por nombre, por pertenencia, o fila por fila.</p></section>
+  <ol class="quiz"><li data-ok="lista" data-por="Es una serie: importa el orden y se busca por posición (enero es la 0)."><p>Las ventas de cada mes de 2025 de una tienda, en orden.</p><div class="opciones" role="group" aria-label="Elija la estructura"><button type="button" data-v="lista">lista</button><button type="button" data-v="tupla">tupla</button><button type="button" data-v="diccionario">diccionario</button><button type="button" data-v="conjunto">conjunto</button><button type="button" data-v="tabla">lista de diccionarios</button></div><p class="veredicto" aria-live="polite"></p></li><li data-ok="conjunto" data-por="Importa quién está, no cuántas veces ni en qué orden. Y &lt;code&gt;todos - entregaron&lt;/code&gt; dice quién falta."><p>Los códigos de los estudiantes que ya entregaron la tarea, para saber quién falta.</p><div class="opciones" role="group" aria-label="Elija la estructura"><button type="button" data-v="lista">lista</button><button type="button" data-v="tupla">tupla</button><button type="button" data-v="diccionario">diccionario</button><button type="button" data-v="conjunto">conjunto</button><button type="button" data-v="tabla">lista de diccionarios</button></div><p class="veredicto" aria-live="polite"></p></li><li data-ok="diccionario" data-por="Se busca por nombre: la ciudad es la clave y la tasa, el valor."><p>La tasa de desempleo de cada ciudad, para buscarla por el nombre de la ciudad.</p><div class="opciones" role="group" aria-label="Elija la estructura"><button type="button" data-v="lista">lista</button><button type="button" data-v="tupla">tupla</button><button type="button" data-v="diccionario">diccionario</button><button type="button" data-v="conjunto">conjunto</button><button type="button" data-v="tabla">lista de diccionarios</button></div><p class="veredicto" aria-live="polite"></p></li><li data-ok="tupla" data-por="Dos datos que van juntos y no deben cambiar: un registro sellado."><p>La latitud y la longitud de Bogotá.</p><div class="opciones" role="group" aria-label="Elija la estructura"><button type="button" data-v="lista">lista</button><button type="button" data-v="tupla">tupla</button><button type="button" data-v="diccionario">diccionario</button><button type="button" data-v="conjunto">conjunto</button><button type="button" data-v="tabla">lista de diccionarios</button></div><p class="veredicto" aria-live="polite"></p></li><li data-ok="tabla" data-por="Cada factura es un registro con las mismas claves: una lista de diccionarios, es decir, una tabla."><p>Mil facturas, cada una con fecha, cliente y valor, para analizarlas.</p><div class="opciones" role="group" aria-label="Elija la estructura"><button type="button" data-v="lista">lista</button><button type="button" data-v="tupla">tupla</button><button type="button" data-v="diccionario">diccionario</button><button type="button" data-v="conjunto">conjunto</button><button type="button" data-v="tabla">lista de diccionarios</button></div><p class="veredicto" aria-live="polite"></p></li></ol>
+
+  <section class="nivel" id="para-la-casa"><span class="estrellas">7 · dos diccionarios juntos</span><h2>Para la casa: su propia inflación</h2><p>La tarea de la guía, con deslizadores y con Python.</p></section>
+  <section class="columna"><p>El titular dice que en 2025 la inflación fue 5,10 %. Pero ese número es un promedio de todo el país, y cada hogar vive la suya según en qué gasta. Un hogar que gasta mucho en educación sintió más el 7,36 % de esa división; uno que gasta sobre todo en vivienda, el 4,76 %.</p></section>
+  
+<div class="figura">
+<div class="figura-cabeza"><h3 class="figura-titulo">La inflación de un hogar es un promedio con pesos</h3><p class="figura-clave">Los deslizadores empiezan con el hogar del ejercicio 3. Muévalos con el gasto aproximado del suyo: lo que mueve aquí no sale de este navegador.</p></div>
+<div class="hogar" id="hogar">
+  <div><ul class="gastos" aria-label="Gasto del hogar al mes"><li><label for="g-0"><span>Alimentos</span><output for="g-0">$900.000</output></label><input type="range" id="g-0" min="0" max="4000000" step="50000" value="900000"></li><li><label for="g-1"><span>Vivienda y servicios</span><output for="g-1">$1.100.000</output></label><input type="range" id="g-1" min="0" max="4000000" step="50000" value="1100000"></li><li><label for="g-2"><span>Transporte</span><output for="g-2">$300.000</output></label><input type="range" id="g-2" min="0" max="4000000" step="50000" value="300000"></li><li><label for="g-3"><span>Educación</span><output for="g-3">$250.000</output></label><input type="range" id="g-3" min="0" max="4000000" step="50000" value="250000"></li><li><label for="g-4"><span>Salud</span><output for="g-4">$150.000</output></label><input type="range" id="g-4" min="0" max="4000000" step="50000" value="150000"></li><li><label for="g-5"><span>Restaurantes y hoteles</span><output for="g-5">$100.000</output></label><input type="range" id="g-5" min="0" max="4000000" step="50000" value="100000"></li></ul>
+    <div class="mandos"><button type="button" class="boton" data-accion="hogar-base">Volver al hogar del ejercicio 3</button></div></div>
+  <div aria-live="polite">
+    <p class="cifra-hogar"></p>
+    <p class="frase-hogar"></p>
+    <div class="apilada" aria-hidden="true"></div>
+    <div class="eje-hogar" aria-hidden="true"><span>0 %</span><span>2 %</span><span>4 %</span><span>6 %</span><span>8 %</span></div>
+    <div class="tabla-marco"><table class="aportes"><thead><tr><th>División</th><th>Peso</th><th>Subió</th><th>Aporte</th></tr></thead><tbody></tbody><tfoot><tr><td>Inflación personal</td><td></td><td></td><td></td></tr></tfoot></table></div>
+  </div>
+</div>
+<p class="figura-nota">Cada tramo de la barra es el aporte de una división: peso × lo que subió. La línea punteada es la inflación del país, 5,10 %. Variaciones por división: DANE, 2025, seis de doce divisiones; por eso el resultado es una aproximación.</p>
+</div>
+  <section class="columna"><p>Con estos deslizadores puede pensar la pregunta g) de la tarea: si un subsidio se ajusta con la inflación del titular, ¿a qué hogares se les queda corto? Pruebe con un hogar que gasta casi todo en educación y otro que gasta casi todo en vivienda. Un promedio describe a todos y no coincide exactamente con nadie.</p></section>
+  
+<section class="estacion" id="ejCasa" data-ej="Casa" aria-labelledby="ejCasa-t">
+  <header>
+    <p class="est-rotulo"><span>Para la casa d</span><span>★★★</span><span>dos diccionarios</span><span class="hecho">✓ Resuelto</span></p>
+    <h3 id="ejCasa-t">Para la casa: su propia inflación</h3>
+  </header>
+  <div class="texto"><p>La inflación personal es un promedio en el que cada división pesa según cuánto gasta el hogar en ella: suma de (peso × inflación de la división). Los dos diccionarios de hoy tienen las mismas claves, y por eso se pueden juntar: con la clave de uno se abre el cajón del otro.</p>
+    <p class="pide">Complete el peso (como fracción, no en %) y el aporte de cada división. El resto del ciclo ya está escrito.</p>
+  </div>
+  <div class="banco">
+    <div>
+      <div class="editor" data-nombre="Su código" data-ej="Casa"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-Casa" aria-label="Su código: Para la casa: su propia inflación">ipc = {&quot;Restaurantes y hoteles&quot;: 7.91, &quot;Educación&quot;: 7.36, &quot;Salud&quot;: 7.20,
+       &quot;Transporte&quot;: 5.35, &quot;Alimentos&quot;: 5.07, &quot;Vivienda y servicios&quot;: 4.76}     # % en 2025, DANE
+gasto = {&quot;Alimentos&quot;: 900000, &quot;Vivienda y servicios&quot;: 1100000, &quot;Transporte&quot;: 300000,
+         &quot;Educación&quot;: 250000, &quot;Salud&quot;: 150000, &quot;Restaurantes y hoteles&quot;: 100000}
+
+total = sum(gasto.values())
+inflacion_personal = 0
+mas_aporta = &quot;&quot;
+mayor_aporte = 0
+
+for division, valor in gasto.items():
+    peso = ___
+    aporte = ___
+    inflacion_personal = inflacion_personal + aporte
+    if aporte &gt; mayor_aporte:
+        mayor_aporte = aporte
+        mas_aporta = division
+
+inflacion_personal = round(inflacion_personal, 2)
+print(&quot;Inflación personal:&quot;, inflacion_personal, &quot;% · la del país: 5.1 %&quot;)
+print(&quot;Lo que más aporta:&quot;, mas_aporta, round(mayor_aporte, 2), &quot;puntos&quot;)
+</textarea></div>
+      <div class="mandos">
+        <button type="button" class="boton primario" data-accion="comprobar">Comprobar</button>
+        <button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button>
+        <button type="button" class="boton" data-accion="pista" aria-expanded="false">Pista</button>
+        <button type="button" class="boton" data-accion="reiniciar">Volver a empezar</button>
+      </div>
+      <p class="atajo">Cambie los <code>___</code> por su código. Tab pone cuatro espacios de sangría; Ctrl + Enter comprueba.</p>
+      <p class="pista" hidden><code>peso = valor / total</code>. El aporte multiplica ese peso por la inflación de la división, que está en el otro diccionario: <code>ipc[division]</code>.</p>
+    </div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Escriba su código y presione <b>Comprobar</b>. Aquí le diré si va bien y, si no, por dónde buscar.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+  <details class="solucion"><summary>Ver la solución <small>Inténtelo primero: equivocarse aquí no cuesta nada</small></summary>
+    <div class="sol-cuerpo"><pre class="codigo">ipc = {&quot;Restaurantes y hoteles&quot;: 7.91, &quot;Educación&quot;: 7.36, &quot;Salud&quot;: 7.20,
+       &quot;Transporte&quot;: 5.35, &quot;Alimentos&quot;: 5.07, &quot;Vivienda y servicios&quot;: 4.76}     # % en 2025, DANE
+gasto = {&quot;Alimentos&quot;: 900000, &quot;Vivienda y servicios&quot;: 1100000, &quot;Transporte&quot;: 300000,
+         &quot;Educación&quot;: 250000, &quot;Salud&quot;: 150000, &quot;Restaurantes y hoteles&quot;: 100000}
+
+total = sum(gasto.values())
+inflacion_personal = 0
+mas_aporta = &quot;&quot;
+mayor_aporte = 0
+
+for division, valor in gasto.items():
+    peso = valor / total
+    aporte = peso * ipc[division]
+    inflacion_personal = inflacion_personal + aporte
+    if aporte &gt; mayor_aporte:
+        mayor_aporte = aporte
+        mas_aporta = division
+
+inflacion_personal = round(inflacion_personal, 2)
+print(&quot;Inflación personal:&quot;, inflacion_personal, &quot;% · la del país: 5.1 %&quot;)
+print(&quot;Lo que más aporta:&quot;, mas_aporta, round(mayor_aporte, 2), &quot;puntos&quot;)</pre>
+      <div><p>Vivienda y servicios fue la división que menos subió (4,76 %), y sin embargo es la que más aporta: 1,87 puntos, porque se lleva el 39,3 % del gasto. La inflación personal de este hogar, 5,40 %, es un poco mayor que la del titular, 5,10 %, porque gasta en cosas que subieron más que el promedio, como la educación y la salud.</p><button type="button" class="boton" data-accion="rastrear-solucion">Ver la solución paso a paso</button></div></div>
+  </details>
+</section>
+
+  <section class="nivel" id="arenero-sec"><span class="estrellas">8 · arenero · sin calificación</span><h2>Su propio camino del dato</h2><p>Aquí no hay respuesta correcta.</p></section>
+  <section class="columna"><p>El código es el del camino del dato, más corto. Agregue una anotación con coma decimal, como <code>"4,950"</code>, y mire el error: es el tema de la sesión del viernes 6 de noviembre, limpiar y transformar. O cambie los precios por los de algo que usted compre.</p></section>
+  
+<section class="arenero estacion" aria-label="Arenero">
+  <div class="banco">
+    <div><div class="editor" data-nombre="Arenero" data-ej="arenero"><pre class="numeros" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre><textarea spellcheck="false" autocapitalize="off" autocomplete="off" id="codigo-arenero" aria-label="Arenero"># Arenero: el camino del dato, para que lo cambie a su gusto.
+# Idea 1: agregue a crudos una anotación con coma, como &quot;4,950&quot;. ¿Qué pasa?
+# Idea 2: cambie los precios por los de algo que usted compre.
+crudos = [&quot;$4.800&quot;, &quot; 4.950&quot;, &quot;$5.100 &quot;, &quot;&quot;, &quot;4.800&quot;, &quot;5.000&quot;, &quot;4.950&quot;]
+
+limpios = []
+for texto in crudos:
+    texto = texto.strip().replace(&quot;$&quot;, &quot;&quot;).replace(&quot;.&quot;, &quot;&quot;)
+    if texto != &quot;&quot;:
+        limpios.append(int(texto))
+
+print(limpios)
+print(&quot;Promedio:&quot;, round(sum(limpios) / len(limpios)))
+</textarea></div>
+      <div class="mandos"><button type="button" class="boton primario" data-accion="ejecutar">Ejecutar</button><button type="button" class="boton" data-accion="rastrear">Ver paso a paso</button></div>
+      <p class="atajo">Ctrl + Enter también ejecuta. Lo que escribe se guarda solo en este navegador.</p></div>
+    <div class="panel" aria-live="polite"><div class="panel-cabeza"><span>Resultado</span></div><div class="veredicto-caja"><p>Presione <b>Ejecutar</b>. Si algo falla, aquí verá el error explicado en español.</p></div><pre class="salida"></pre></div>
+  </div>
+  <div class="rastro" hidden tabindex="0"></div>
+</section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a las once inflaciones</h2>
+    <p>Las once inflaciones del principio ya no son once cajitas sueltas: son una lista que se recorre, se corta y se resume. El año 2022 cabe en una tupla que nadie edita por accidente; la inflación de la salud se encuentra por su nombre; los repetidos se van con un conjunto. Y una lista de diccionarios ya es la tabla con la que trabajará pandas.</p>
+    <p>Funes recordaba todo y no podía pensar. Elegir la caja es la primera decisión de un análisis, porque decide qué preguntas se le podrán hacer a los datos.</p>
+    <p class="aforismo">Antes de analizar, hay que ordenar.</p>
+  </section>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿Cómo corre Python dentro de esta página?</summary><p>Con Pyodide, una versión de Python que funciona dentro del navegador. La primera vez se descargan unos 10 MB; después queda guardado. Su código no se envía a ningún servidor: corre en su equipo, y lo que escribe se guarda solo en este navegador para que no lo pierda si recarga. Una alarma detiene cualquier programa que dé más de 200.000 pasos: así un ciclo infinito no congela la página.</p></details>
+  <details><summary>¿Cómo se califica cada ejercicio?</summary><p>El laboratorio ejecuta su programa y revisa el valor final de las variables que pide el ejercicio; el recuadro muestra cada comprobación con ✓ o ✗. Después lo corre otra vez con un dato cambiado, por ejemplo un año más en la lista: si usted escribió un resultado a mano en vez de calcularlo, ahí se nota. También revisa que use lo que el ejercicio pide (posiciones negativas, una tajada, <code>&amp;</code>, un <code>for</code>). Los errores de Python se traducen al español, con el número de línea y una pista.</p><p>Los recuadros «Compruebe el ejercicio» comparan lo que usted escribió a mano con lo que da Python. Aceptan los números con o sin puntos de miles y con coma o punto decimal.</p></details>
+  <details><summary>¿De dónde salen los datos?</summary><p>Son reales: la inflación anual de 2015 a 2025 (DANE, IPC, variación de diciembre a diciembre); la variación de 2025 de seis de las doce divisiones del IPC (DANE, con nombres abreviados); el salario mínimo de 2021 a 2026 y sus aumentos (decretos anuales). Son simulados: los precios del arroz del camino del dato, el presupuesto del hogar, las ventas de doña Rosa, las canastas, las ciudades y los códigos de la encuesta. La inflación de 2026 de la tabla es un supuesto que usted elige.</p></details>
+  <details><summary>¿Por qué el código escribe anio y no año?</summary><p>Python acepta la ñ en los nombres de las variables, pero no todos los teclados ni todas las herramientas la manejan bien. Por eso la guía y el laboratorio escriben <code>anio</code>.</p></details>
+  <details><summary>¿Qué no muestra este laboratorio?</summary><p>La inflación personal usa seis de las doce divisiones del IPC, así que es una aproximación. La variación real compara el aumento del mínimo con la inflación del mismo año; hay otras maneras de medir el poder de compra. Y desde la versión 3.7 de Python los diccionarios conservan el orden en que se agregaron las claves; en versiones más viejas ese orden no está garantizado.</p></details>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+</div>
+<script type="application/json" id="datos-lab">{"ej": {"L1": {"checks": [["ultimo == 1750905", "ultimo es el salario de 2026", "<code>ultimo<\/code> debería ser el salario de 2026, $1.750.905: el último de la lista, <code>salarios[-1]<\/code>."], ["penultimo == 1423500", "penultimo es el salario de 2025", "<code>penultimo<\/code> debería ser el de 2025, $1.423.500. Contando desde el final: −1 es el último, −2 el anterior."], ["aumento_2026 == 23.0", "el aumento da 23,0 %", "El aumento debería dar 23,0 %. No cambie la línea que lo calcula."]], "requiere": null, "requiere2": null, "prohibe": null, "requiere_texto": null, "requiere_re": [["salarios\\[\\s*-\\s*\\d", "Puede que el resultado esté bien, pero este ejercicio pide contar desde el final, con posiciones negativas: <code>salarios[-1]<\/code>."]], "variantes": [{"buscar": "[908526, 1000000, 1160000, 1300000, 1423500, 1750905]", "cambiar": "[908526, 1000000, 1160000, 1300000, 1423500, 1750905, 1950000]", "checks": [["ultimo == 1950000", "", ""], ["penultimo == 1750905", "", ""]], "etiqueta": "sigue funcionando si la lista crece un año", "mensaje": "Con un dato más en la lista (un supuesto para 2027), su <code>ultimo<\/code> ya no sería el último. Cuente desde el final: <code>salarios[-1]<\/code> y <code>salarios[-2]<\/code>."}], "arranque": "salarios = [908526, 1000000, 1160000, 1300000, 1423500, 1750905]   # 2021 a 2026\n\nultimo = ___       # el de 2026, contado desde el final\npenultimo = ___    # el de 2025\n\naumento_2026 = round((ultimo / penultimo - 1) * 100, 1)\nprint(\"En 2026 el mínimo subió\", aumento_2026, \"%\")\n", "solucion": "salarios = [908526, 1000000, 1160000, 1300000, 1423500, 1750905]   # 2021 a 2026\n\nultimo = salarios[-1]       # el de 2026, contado desde el final\npenultimo = salarios[-2]    # el de 2025\n\naumento_2026 = round((ultimo / penultimo - 1) * 100, 1)\nprint(\"En 2026 el mínimo subió\", aumento_2026, \"%\")\n"}, "L2": {"checks": [["len(ultimos5) == 5", "la tajada tiene cinco datos", "La tajada debería tener cinco datos. Recuerde: en <code>[a:b]<\/code> entra la posición <code>a<\/code> y no entra la <code>b<\/code>."], ["ultimos5 == [5.62, 13.12, 9.28, 5.2, 5.1]", "son los de 2021 a 2025", "Tiene cinco datos, pero no son los últimos cinco (2021 a 2025). Cuente desde el final."], ["promedio == 7.66", "el promedio da 7,66 %", "El promedio debería dar 7,66 %. No cambie la línea que lo calcula."]], "requiere": null, "requiere2": null, "prohibe": null, "requiere_texto": null, "requiere_re": [["inflacion\\s*\\[[^\\]]*:", "Este ejercicio pide una tajada: corchetes con dos puntos, como <code>inflacion[a:b]<\/code>."]], "variantes": [{"buscar": "[6.77, 5.75, 4.09, 3.18, 3.80, 1.61, 5.62, 13.12, 9.28, 5.20, 5.10]", "cambiar": "[6.77, 5.75, 4.09, 3.18, 3.80, 1.61, 5.62, 13.12, 9.28, 5.20, 5.10, 4.50]", "checks": [["ultimos5 == [13.12, 9.28, 5.2, 5.1, 4.5]", "", ""]], "etiqueta": "sigue funcionando si se agrega 2026", "mensaje": "Si la lista crece con 2026, su tajada ya no toma los cinco últimos años. Cuente desde el final: <code>inflacion[-5:]<\/code> no depende del largo de la lista."}], "arranque": "inflacion = [6.77, 5.75, 4.09, 3.18, 3.80, 1.61, 5.62, 13.12, 9.28, 5.20, 5.10]   # 2015 a 2025\n\nultimos5 = ___        # una tajada: los cinco últimos, 2021 a 2025\npromedio = round(sum(ultimos5) / len(ultimos5), 2)\n\nprint(ultimos5)\nprint(\"Promedio 2021-2025:\", promedio, \"%\")\n", "solucion": "inflacion = [6.77, 5.75, 4.09, 3.18, 3.80, 1.61, 5.62, 13.12, 9.28, 5.20, 5.10]   # 2015 a 2025\n\nultimos5 = inflacion[-5:]        # una tajada: los cinco últimos, 2021 a 2025\npromedio = round(sum(ultimos5) / len(ultimos5), 2)\n\nprint(ultimos5)\nprint(\"Promedio 2021-2025:\", promedio, \"%\")\n"}, "T1": {"checks": [["len(perdio) == 2", "encontró dos años", "Deberían ser dos años. Si le salen los cinco, revise la sangría: el <code>append<\/code> va dentro del <code>if<\/code>. Si le sale otro número, revise la condición: <code>aumento &lt; inflacion<\/code>."], ["perdio == [2021, 2022]", "son 2021 y 2022", "Tiene dos datos, pero deberían ser los años 2021 y 2022: agregue <code>anio<\/code>, no el aumento ni la inflación."]], "requiere": "for", "requiere2": null, "prohibe": null, "requiere_texto": null, "requiere_re": null, "variantes": [{"buscar": "(2025, 9.50, 5.10)", "cambiar": "(2025, 4.00, 5.10)", "checks": [["perdio == [2021, 2022, 2025]", "", ""]], "etiqueta": "acierta también con otros datos", "mensaje": "Si 2025 hubiera tenido un aumento de 4 %, su programa debería agregar también 2025. ¿Escribió los años a mano? El ciclo debe decidirlo con la condición."}], "arranque": "# cada tupla: (año, aumento del salario mínimo en %, inflación en %)\ndatos = [(2021, 3.50, 5.62), (2022, 10.07, 13.12), (2023, 16.00, 9.28),\n         (2024, 12.07, 5.20), (2025, 9.50, 5.10)]\n\nperdio = []\nfor anio, aumento, inflacion in datos:\n    if ___:\n        perdio.append(___)\n\nprint(\"Años en que el mínimo perdió:\", perdio)\n", "solucion": "# cada tupla: (año, aumento del salario mínimo en %, inflación en %)\ndatos = [(2021, 3.50, 5.62), (2022, 10.07, 13.12), (2023, 16.00, 9.28),\n         (2024, 12.07, 5.20), (2025, 9.50, 5.10)]\n\nperdio = []\nfor anio, aumento, inflacion in datos:\n    if aumento < inflacion:\n        perdio.append(anio)\n\nprint(\"Años en que el mínimo perdió:\", perdio)\n"}, "D1": {"checks": [["total == 2800000", "el total del mes es $2.800.000", "El total debería ser $2.800.000. Pista: <code>gasto.values()<\/code> entrega solo los valores, y <code>sum()<\/code> los suma."], ["len(pesos) == 6", "hay un peso por división", "<code>pesos<\/code> debería tener seis claves, una por división."], ["pesos['Alimentos'] == 32.1", "alimentos pesan 32,1 %", "El peso de alimentos debería ser 32,1. Divida <code>gasto[division]<\/code> entre <code>total<\/code>, multiplique por 100 y redondee: <code>round(..., 1)<\/code>."], ["pesos == {'Alimentos': 32.1, 'Vivienda y servicios': 39.3, 'Transporte': 10.7, 'Educación': 8.9, 'Salud': 5.4, 'Restaurantes y hoteles': 3.6}", "los seis pesos son correctos", "Alguno de los seis pesos no coincide. Revise que use la misma fórmula para todas las divisiones."]], "requiere": "for", "requiere2": null, "prohibe": null, "requiere_texto": null, "requiere_re": null, "variantes": [{"buscar": "\"Transporte\": 300000", "cambiar": "\"Transporte\": 600000", "checks": [["total == 3100000", "", ""], ["pesos == {k: round(v / 3100000 * 100, 1) for k, v in gasto.items()}", "", ""]], "etiqueta": "acierta también si cambia un gasto", "mensaje": "Si el transporte costara $600.000, el total y todos los pesos deberían cambiar. ¿Escribió el total a mano? Calcúlelo con <code>sum(gasto.values())<\/code>."}], "arranque": "gasto = {\"Alimentos\": 900000, \"Vivienda y servicios\": 1100000, \"Transporte\": 300000,\n         \"Educación\": 250000, \"Salud\": 150000, \"Restaurantes y hoteles\": 100000}\n\ntotal = ___\npesos = {}\nfor division in gasto:\n    pesos[division] = ___      # en %, con un decimal\n\nprint(\"Gasto del mes:\", total)\nfor division in pesos:\n    print(division, pesos[division], \"%\")\n", "solucion": "gasto = {\"Alimentos\": 900000, \"Vivienda y servicios\": 1100000, \"Transporte\": 300000,\n         \"Educación\": 250000, \"Salud\": 150000, \"Restaurantes y hoteles\": 100000}\n\ntotal = sum(gasto.values())\npesos = {}\nfor division in gasto:\n    pesos[division] = round(gasto[division] / total * 100, 1)      # en %, con un decimal\n\nprint(\"Gasto del mes:\", total)\nfor division in pesos:\n    print(division, pesos[division], \"%\")\n"}, "C1": {"checks": [["ambos == {103, 104, 105}", "los dos meses: 103, 104 y 105", "<code>ambos<\/code> debería tener a 103, 104 y 105: lo que está en los dos conjuntos se saca con <code>&amp;<\/code>."], ["nuevos == {106, 107}", "nuevos: 106 y 107", "<code>nuevos<\/code> debería tener a 106 y 107. Si le dio {101, 102}, la resta está al revés: <code>febrero - enero<\/code> es lo que está en febrero y no en enero."], ["salieron == {101, 102}", "salieron: 101 y 102", "<code>salieron<\/code> debería tener a 101 y 102: los que estaban en enero y no en febrero, <code>enero - febrero<\/code>."], ["total_personas == 7", "en total, 7 personas", "Deberían ser 7 personas distintas. Si le dio 10, sumó las dos listas de códigos y contó dos veces a quienes repiten: use <code>len(enero | febrero)<\/code>."]], "requiere": null, "requiere2": null, "prohibe": null, "requiere_texto": null, "requiere_re": [["(enero\\s*&\\s*febrero|febrero\\s*&\\s*enero)", "Para «los dos meses» use la intersección: <code>enero &amp; febrero<\/code>."], ["(enero|febrero)\\s*-\\s*(enero|febrero)", "Para los nuevos y los que salieron use la diferencia, con el signo menos: <code>febrero - enero<\/code>."]], "variantes": [{"buscar": "febrero = {103, 104, 105, 106, 107}", "cambiar": "febrero = {103, 104, 106, 107, 108, 109}", "checks": [["ambos == {103, 104}", "", ""], ["nuevos == {106, 107, 108, 109}", "", ""], ["salieron == {101, 102, 105}", "", ""], ["total_personas == 9", "", ""]], "etiqueta": "acierta también con otro mes de febrero", "mensaje": "Con otros códigos en febrero su programa no da lo que debería. ¿Escribió algún resultado a mano? Deje que las operaciones lo calculen."}], "arranque": "enero = {101, 102, 103, 104, 105}      # códigos de quienes respondieron en enero\nfebrero = {103, 104, 105, 106, 107}    # códigos de quienes respondieron en febrero\n\nambos = ___            # respondieron los dos meses\nnuevos = ___           # están en febrero y no en enero\nsalieron = ___         # estaban en enero y no en febrero\ntotal_personas = ___   # cuántas personas distintas respondieron\n\nprint(\"Los dos meses:\", ambos)\nprint(\"Nuevos:\", nuevos, \"· Salieron:\", salieron)\nprint(\"Personas distintas:\", total_personas)\n", "solucion": "enero = {101, 102, 103, 104, 105}      # códigos de quienes respondieron en enero\nfebrero = {103, 104, 105, 106, 107}    # códigos de quienes respondieron en febrero\n\nambos = enero & febrero                # respondieron los dos meses\nnuevos = febrero - enero               # están en febrero y no en enero\nsalieron = enero - febrero             # estaban en enero y no en febrero\ntotal_personas = len(enero | febrero)  # cuántas personas distintas respondieron\n\nprint(\"Los dos meses:\", ambos)\nprint(\"Nuevos:\", nuevos, \"· Salieron:\", salieron)\nprint(\"Personas distintas:\", total_personas)\n"}, "R1": {"checks": [["[f['ingreso'] for f in ventas] == [124800, 33000, 52500]", "ingresos: 124.800 · 33.000 · 52.500", "Los ingresos deberían ser 124.800, 33.000 y 52.500: en cada fila, <code>fila[\"unidades\"] * fila[\"precio\"]<\/code>."], ["total_ingreso == 210300", "el total es $210.300", "El total debería ser $210.300. El acumulador suma lo que ya llevaba más el ingreso de la fila: <code>total_ingreso + fila[\"ingreso\"]<\/code>."]], "requiere": "for", "requiere2": null, "prohibe": null, "requiere_texto": null, "requiere_re": null, "variantes": [{"buscar": "\"unidades\": 55", "cambiar": "\"unidades\": 60", "checks": [["[f['ingreso'] for f in ventas] == [124800, 36000, 52500]", "", ""], ["total_ingreso == 213300", "", ""]], "etiqueta": "acierta también si cambian las ventas", "mensaje": "Si se vendieran 60 panes, el ingreso del pan y el total deberían cambiar. ¿Escribió algún número a mano?"}], "arranque": "ventas = [{\"producto\": \"Leche\",   \"unidades\": 26, \"precio\": 4800},\n          {\"producto\": \"Pan\",     \"unidades\": 55, \"precio\": 600},\n          {\"producto\": \"Cerveza\", \"unidades\": 15, \"precio\": 3500}]\n\nfor fila in ventas:\n    fila[\"ingreso\"] = ___             # una columna nueva\n\ntotal_ingreso = 0\nfor fila in ventas:\n    total_ingreso = ___\n\nfor fila in ventas:\n    print(fila[\"producto\"], fila[\"ingreso\"])\nprint(\"Ingreso total:\", total_ingreso)\n", "solucion": "ventas = [{\"producto\": \"Leche\",   \"unidades\": 26, \"precio\": 4800},\n          {\"producto\": \"Pan\",     \"unidades\": 55, \"precio\": 600},\n          {\"producto\": \"Cerveza\", \"unidades\": 15, \"precio\": 3500}]\n\nfor fila in ventas:\n    fila[\"ingreso\"] = fila[\"unidades\"] * fila[\"precio\"]             # una columna nueva\n\ntotal_ingreso = 0\nfor fila in ventas:\n    total_ingreso = total_ingreso + fila[\"ingreso\"]\n\nfor fila in ventas:\n    print(fila[\"producto\"], fila[\"ingreso\"])\nprint(\"Ingreso total:\", total_ingreso)\n"}, "R2": {"checks": [["mayor == 124800", "el mayor ingreso es $124.800", "El mayor ingreso debería ser $124.800. ¿Calcula en cada vuelta <code>fila[\"unidades\"] * fila[\"precio\"]<\/code> y lo compara con <code>mayor<\/code>?"], ["mejor == 'Leche'", "el producto es la leche", "El producto debería ser la leche. Cuando el ingreso supera a <code>mayor<\/code>, guarde también <code>fila[\"producto\"]<\/code>."]], "requiere": "for", "requiere2": null, "prohibe": ["max(", "Esta vez, hágalo sin <code>max()<\/code>: el reto es construir usted mismo lo que esa función hace por dentro."], "requiere_texto": null, "requiere_re": null, "variantes": [{"buscar": "\"unidades\": 15", "cambiar": "\"unidades\": 40", "checks": [["mejor == 'Cerveza'", "", ""], ["mayor == 140000", "", ""]], "etiqueta": "acierta también si cambian las ventas", "mensaje": "Si se vendieran 40 cervezas, la cerveza dejaría $140.000 y sería la mejor. Su programa no lo encuentra: ¿escribió el resultado a mano?"}], "arranque": "ventas = [{\"producto\": \"Leche\",   \"unidades\": 26, \"precio\": 4800},\n          {\"producto\": \"Pan\",     \"unidades\": 55, \"precio\": 600},\n          {\"producto\": \"Cerveza\", \"unidades\": 15, \"precio\": 3500}]\n\nmejor = \"\"      # el producto con más ingreso, hasta ahora\nmayor = 0       # su ingreso\n# Escriba el ciclo: calcule el ingreso de cada fila y quédese con el mayor\n___\n\nprint(\"Más dinero deja:\", mejor, \"con\", mayor)\n", "solucion": "ventas = [{\"producto\": \"Leche\",   \"unidades\": 26, \"precio\": 4800},\n          {\"producto\": \"Pan\",     \"unidades\": 55, \"precio\": 600},\n          {\"producto\": \"Cerveza\", \"unidades\": 15, \"precio\": 3500}]\n\nmejor = \"\"      # el producto con más ingreso, hasta ahora\nmayor = 0       # su ingreso\nfor fila in ventas:\n    ingreso = fila[\"unidades\"] * fila[\"precio\"]\n    if ingreso > mayor:\n        mayor = ingreso\n        mejor = fila[\"producto\"]\n\nprint(\"Más dinero deja:\", mejor, \"con\", mayor)\n"}, "Casa": {"checks": [["abs(inflacion_personal) < 50", "da un porcentaje razonable", "Le dio un número enorme. Si el peso ya está en porcentaje (32,1) y además lo multiplica por la inflación en % (5,07), el resultado sale cien veces más grande. Use el peso como fracción: <code>valor / total<\/code>."], ["inflacion_personal == 5.4", "la inflación personal es 5,40 %", "La inflación personal debería dar 5,40 %. El aporte de cada división es <code>peso * ipc[division]<\/code>."], ["mas_aporta == 'Vivienda y servicios'", "lo que más aporta: vivienda y servicios", "La división que más aporta debería ser vivienda y servicios. Revise el aporte: peso × inflación de esa división."]], "requiere": "for", "requiere2": null, "prohibe": null, "requiere_texto": null, "requiere_re": null, "variantes": [{"buscar": "\"Educación\": 250000", "cambiar": "\"Educación\": 1250000", "checks": [["inflacion_personal == round(sum(v / sum(gasto.values()) * ipc[k] for k, v in gasto.items()), 2)", "", ""]], "etiqueta": "acierta también con otro hogar", "mensaje": "Con otro presupuesto (más gasto en educación), su programa no da la inflación que debería. Revise que el peso use <code>valor<\/code> y <code>total<\/code>, y el aporte <code>ipc[division]<\/code>."}], "arranque": "ipc = {\"Restaurantes y hoteles\": 7.91, \"Educación\": 7.36, \"Salud\": 7.20,\n       \"Transporte\": 5.35, \"Alimentos\": 5.07, \"Vivienda y servicios\": 4.76}     # % en 2025, DANE\ngasto = {\"Alimentos\": 900000, \"Vivienda y servicios\": 1100000, \"Transporte\": 300000,\n         \"Educación\": 250000, \"Salud\": 150000, \"Restaurantes y hoteles\": 100000}\n\ntotal = sum(gasto.values())\ninflacion_personal = 0\nmas_aporta = \"\"\nmayor_aporte = 0\n\nfor division, valor in gasto.items():\n    peso = ___\n    aporte = ___\n    inflacion_personal = inflacion_personal + aporte\n    if aporte > mayor_aporte:\n        mayor_aporte = aporte\n        mas_aporta = division\n\ninflacion_personal = round(inflacion_personal, 2)\nprint(\"Inflación personal:\", inflacion_personal, \"% · la del país: 5.1 %\")\nprint(\"Lo que más aporta:\", mas_aporta, round(mayor_aporte, 2), \"puntos\")\n", "solucion": "ipc = {\"Restaurantes y hoteles\": 7.91, \"Educación\": 7.36, \"Salud\": 7.20,\n       \"Transporte\": 5.35, \"Alimentos\": 5.07, \"Vivienda y servicios\": 4.76}     # % en 2025, DANE\ngasto = {\"Alimentos\": 900000, \"Vivienda y servicios\": 1100000, \"Transporte\": 300000,\n         \"Educación\": 250000, \"Salud\": 150000, \"Restaurantes y hoteles\": 100000}\n\ntotal = sum(gasto.values())\ninflacion_personal = 0\nmas_aporta = \"\"\nmayor_aporte = 0\n\nfor division, valor in gasto.items():\n    peso = valor / total\n    aporte = peso * ipc[division]\n    inflacion_personal = inflacion_personal + aporte\n    if aporte > mayor_aporte:\n        mayor_aporte = aporte\n        mas_aporta = division\n\ninflacion_personal = round(inflacion_personal, 2)\nprint(\"Inflación personal:\", inflacion_personal, \"% · la del país: 5.1 %\")\nprint(\"Lo que más aporta:\", mas_aporta, round(mayor_aporte, 2), \"puntos\")\n"}}, "valida": {"V1": {"preludio": "salarios = [908526, 1000000, 1160000, 1300000, 1423500, 1750905]", "preguntas": [{"expr": "salarios[0]", "tipo": "num", "ok": 908526, "tol": null, "mal": "Python empieza a contar en 0: <code>salarios[0]<\/code> es el primero, el de 2021."}, {"expr": "salarios[-1]", "tipo": "num", "ok": 1750905, "tol": null, "mal": "−1 es el último de la lista: el de 2026."}, {"expr": "salarios[2:4]", "tipo": "lista", "ok": [1160000, 1300000], "tol": null, "mal": "En una tajada entra la posición 2 y no entra la 4: son dos valores, no tres."}, {"expr": "len(salarios)", "tipo": "num", "ok": 6, "tol": null, "mal": "<code>len<\/code> cuenta cuántos datos hay, no la última posición."}, {"expr": "salarios.index(1300000)", "tipo": "num", "ok": 3, "tol": null, "mal": "2021 está en la 0, 2022 en la 1… cuente hasta 2024."}, {"expr": "salarios[-1] - salarios[0]", "tipo": "num", "ok": 842379, "tol": null, "mal": "Reste el primero del último: 1.750.905 − 908.526."}]}, "V2": {"preludio": "datos = [(2021, 3.50, 5.62), (2022, 10.07, 13.12), (2023, 16.00, 9.28),\n         (2024, 12.07, 5.20), (2025, 9.50, 5.10)]", "preguntas": [{"expr": "datos[1]", "tipo": "tupla", "ok": [2022, 10.07, 13.12], "tol": null, "mal": "La posición 1 es la segunda tupla, la de 2022. Y se escribe entre paréntesis: es una tupla completa."}, {"expr": "datos[1][2]", "tipo": "num", "ok": 13.12, "tol": 0.001, "mal": "Primero se escoge la tupla (posición 1) y dentro de ella, la posición 2: la inflación."}, {"expr": "", "tipo": "opcion", "ok": 1, "tol": null, "mal": "Piense en la inflación de 2022: ¿querría que alguien pudiera editarla sin darse cuenta?"}]}, "V3": {"preludio": "gasto = {\"Alimentos\": 900000, \"Vivienda y servicios\": 1100000, \"Transporte\": 300000,\n         \"Educación\": 250000, \"Salud\": 150000, \"Restaurantes y hoteles\": 100000}", "preguntas": [{"expr": "gasto[\"Transporte\"]", "tipo": "num", "ok": 300000, "tol": null, "mal": "Se busca por la etiqueta: el cajón «Transporte» guarda $300.000."}, {"expr": "gasto[2]", "tipo": "opcion", "ok": 1, "tol": null, "mal": "Un diccionario no busca por posición sino por clave. ¿Hay alguna clave que se llame 2?"}, {"expr": "sum(gasto.values())", "tipo": "num", "ok": 2800000, "tol": null, "mal": "Sume los seis valores."}, {"expr": "round(gasto['Alimentos'] / sum(gasto.values()) * 100, 2)", "tipo": "num", "ok": 32.14, "tol": 0.06, "mal": "900.000 ÷ 2.800.000, por 100."}, {"expr": "gasto[\"Entretenimiento\"] = 120000\nsum(gasto.values())", "tipo": "num", "ok": 2920000, "tol": null, "mal": "Al total anterior súmele los $120.000 del cajón nuevo."}, {"expr": "gasto[\"Entretenimiento\"] = 120000\nlen(gasto)", "tipo": "num", "ok": 7, "tol": null, "mal": "Había seis cajones y se agregó uno."}]}, "V4": {"preludio": "enero = {101, 102, 103, 104, 105}\nfebrero = {103, 104, 105, 106, 107}", "preguntas": [{"expr": "enero & febrero", "tipo": "conjunto", "ok": [103, 104, 105], "tol": null, "mal": "Lo que está en los dos conjuntos a la vez."}, {"expr": "febrero - enero", "tipo": "conjunto", "ok": [106, 107], "tol": null, "mal": "Lo que está en febrero y no en enero: los nuevos."}, {"expr": "enero - febrero", "tipo": "conjunto", "ok": [101, 102], "tol": null, "mal": "Lo que estaba en enero y ya no está en febrero."}, {"expr": "len(enero | febrero)", "tipo": "num", "ok": 7, "tol": null, "mal": "La unión no repite: cuente cada código una sola vez."}, {"expr": "list(enero) & list(febrero)", "tipo": "opcion", "ok": 1, "tol": null, "mal": "Las operaciones de grupos (&amp;, |, -) son de los conjuntos. Pruébelo con «Verlo en Python»."}]}, "V5": {"preludio": "ventas = [{\"producto\": \"Leche\",   \"unidades\": 26, \"precio\": 4800},\n          {\"producto\": \"Pan\",     \"unidades\": 55, \"precio\": 600},\n          {\"producto\": \"Cerveza\", \"unidades\": 15, \"precio\": 3500}]", "preguntas": [{"expr": "ventas[1][\"unidades\"]", "tipo": "num", "ok": 55, "tol": null, "mal": "<code>ventas[1]<\/code> es la segunda fila, la del pan; dentro de ella, el cajón «unidades»."}, {"expr": "", "tipo": "opcion", "ok": 1, "tol": null, "mal": "Mire la tabla: primero se escoge la fila, y dentro de la fila, la columna."}, {"expr": "len(ventas)", "tipo": "num", "ok": 3, "tol": null, "mal": "Una fila por diccionario."}, {"expr": "len(ventas[0])", "tipo": "num", "ok": 3, "tol": null, "mal": "Una columna por clave: producto, unidades y precio."}, {"expr": "sum(f[\"unidades\"] * f[\"precio\"] for f in ventas)", "tipo": "num", "ok": 210300, "tol": null, "mal": "26 × 4.800 + 55 × 600 + 15 × 3.500."}]}}, "consolas": {"listas": "inflacion = [6.77, 5.75, 4.09, 3.18, 3.80, 1.61, 5.62, 13.12, 9.28, 5.20, 5.10]", "tuplas": "registro = (2022, 1000000, 13.12)\nhistoria = [(2021, 908526), (2022, 1000000), (2023, 1160000)]", "diccionarios": "ipc = {\"Restaurantes y hoteles\": 7.91, \"Educación\": 7.36, \"Salud\": 7.2, \"Transporte\": 5.35, \"Alimentos\": 5.07, \"Vivienda y servicios\": 4.76}\ngasto = {\"Alimentos\": 900000, \"Vivienda y servicios\": 1100000, \"Transporte\": 300000, \"Educación\": 250000, \"Salud\": 150000, \"Restaurantes y hoteles\": 100000}", "conjuntos": "canasta_a = {\"arroz\", \"leche\", \"huevos\", \"café\", \"pan\"}\ncanasta_b = {\"leche\", \"pan\", \"carne\", \"papa\", \"arroz\"}\nciudades = [\"Bogotá\", \"Medellín\", \"Bogotá\", \"Cali\", \"Medellín\", \"Barranquilla\", \"Bogotá\"]"}, "camino": [{"etapa": 1, "lineas": [1], "texto": "Así llegan los datos: siete precios del kilo de arroz, anotados a mano en siete tiendas (son simulados). Entre comillas: para Python son <b>textos<\/b>, no números, y no los puede sumar.", "fichas": [["\"$4.800\"", "texto"], ["\" 4.950\"", "texto"], ["\"$5.100 \"", "texto"], ["\"\"", "texto"], ["\"4.800\"", "texto"], ["\"5.000\"", "texto"], ["\"4.950\"", "texto"]]}, {"etapa": 2, "lineas": [4, 5], "texto": "<b>Limpiar<\/b>, primer cuidado: <code>.strip()<\/code> quita los espacios de los bordes, que no se ven pero estorban.", "fichas": [["\"$4.800\"", "texto"], ["\"4.950\"", "texto cambio"], ["\"$5.100\"", "texto cambio"], ["\"\"", "texto"], ["\"4.800\"", "texto"], ["\"5.000\"", "texto"], ["\"4.950\"", "texto"]]}, {"etapa": 2, "lineas": [6, 7], "texto": "Segundo cuidado: <code>.replace()<\/code> quita el signo $ y el punto de miles. «$4.800» se vuelve «4800».", "fichas": [["\"4800\"", "texto cambio"], ["\"4950\"", "texto cambio"], ["\"5100\"", "texto cambio"], ["\"\"", "texto"], ["\"4800\"", "texto cambio"], ["\"5000\"", "texto cambio"], ["\"4950\"", "texto cambio"]]}, {"etapa": 2, "lineas": [8], "texto": "Tercero: alguien dejó una casilla en blanco. El <code>if<\/code> la descarta.", "fichas": [["\"4800\"", "texto"], ["\"4950\"", "texto"], ["\"5100\"", "texto"], ["\"\"", "texto sale"], ["\"4800\"", "texto"], ["\"5000\"", "texto"], ["\"4950\"", "texto"]]}, {"etapa": 3, "lineas": [9], "texto": "<b>Transformar<\/b>: <code>int()<\/code> convierte cada texto en número y <code>.append()<\/code> lo guarda en la lista <code>limpios<\/code>. Ahora sí se puede sumar.", "fichas": [["4800", "numero"], ["4950", "numero"], ["5100", "numero"], ["4800", "numero"], ["5000", "numero"], ["4950", "numero"]]}, {"etapa": 3, "lineas": [11], "texto": "Transformar también es ordenar: <code>.sort()<\/code> deja la lista de menor a mayor.", "fichas": [["4800", "numero"], ["4800", "numero"], ["4950", "numero"], ["4950", "numero"], ["5000", "numero"], ["5100", "numero"]]}, {"etapa": 4, "lineas": [12, 13], "texto": "<b>Analizar<\/b>: el promedio es 4.933 pesos (4933,33 sin redondear) y de la tienda más barata a la más cara hay 300 pesos.", "fichas": [["4800", "numero"], ["4800", "numero"], ["4950", "numero"], ["4950", "numero"], ["5000", "numero"], ["5100", "numero"]]}, {"etapa": 5, "lineas": [14, 15], "texto": "<b>Comunicar<\/b>: una frase que cualquiera entiende, sin código.", "fichas": [["4800", "numero"], ["4800", "numero"], ["4950", "numero"], ["4950", "numero"], ["5000", "numero"], ["5100", "numero"]], "titular": "El kilo de arroz cuesta en promedio $4.933; de la tienda más barata a la más cara hay $300."}], "camino_codigo": "crudos = [\"$4.800\", \" 4.950\", \"$5.100 \", \"\", \"4.800\", \"5.000\", \"4.950\"]\n\nlimpios = []\nfor texto in crudos:\n    texto = texto.strip()                # sin espacios\n    texto = texto.replace(\"$\", \"\")       # sin $\n    texto = texto.replace(\".\", \"\")       # sin puntos de miles\n    if texto != \"\":                      # sin vacíos\n        limpios.append(int(texto))       # de texto a número\n\nlimpios.sort()                           # de menor a mayor\npromedio = sum(limpios) / len(limpios)\ndiferencia = max(limpios) - min(limpios)\nprint(\"Promedio:\", round(promedio), \"pesos\")\nprint(\"De la más barata a la más cara:\", diferencia)\n", "inflacion": [6.77, 5.75, 4.09, 3.18, 3.8, 1.61, 5.62, 13.12, 9.28, 5.2, 5.1], "ipc": {"Restaurantes y hoteles": 7.91, "Educación": 7.36, "Salud": 7.2, "Transporte": 5.35, "Alimentos": 5.07, "Vivienda y servicios": 4.76}, "gasto": {"Alimentos": 900000, "Vivienda y servicios": 1100000, "Transporte": 300000, "Educación": 250000, "Salud": 150000, "Restaurantes y hoteles": 100000}, "registros": [{"anio": 2021, "aumento": 3.5, "inflacion": 5.62}, {"anio": 2022, "aumento": 10.07, "inflacion": 13.12}, {"anio": 2023, "aumento": 16.0, "inflacion": 9.28}]}</script>
+<script type="text/x-python" id="motor-python">"""Motor del laboratorio de estructuras: corre el código del estudiante, lo comprueba, traduce los errores
+al español y arma la prueba de escritorio. Corre igual en Pyodide (navegador) y en CPython (pruebas).
+Todas las funciones públicas devuelven JSON."""
+import sys, io, json, re, contextlib
+
+LIMITE_PASOS = 200_000
+LIMITE_RASTRO = 160
+
+
+class _CicloInfinito(Exception):
+    pass
+
+
+def _linea_de(e):
+    if isinstance(e, SyntaxError):
+        return e.lineno
+    n, tb = None, e.__traceback__
+    while tb is not None:
+        if tb.tb_frame.f_code.co_filename == "<estudiante>":
+            n = tb.tb_lineno
+        tb = tb.tb_next
+    return n
+
+
+def _traducir(e, codigo):
+    n = _linea_de(e)
+    donde = f" en la línea {n}" if n else ""
+    tipo, msg = type(e).__name__, str(e)
+    lineas = codigo.splitlines()
+    linea = lineas[n - 1] if n and n <= len(lineas) else ""
+    if isinstance(e, _CicloInfinito):
+        return ("El programa dio demasiadas vueltas y lo detuve: parece un <b>ciclo infinito<\/b>. "
+                "Revise que dentro del ciclo cambie lo que la condición pregunta.")
+    if tipo in ("IndentationError", "TabError"):
+        if "expected an indented block" in msg:
+            return f"Falta la <b>sangría<\/b>{donde}: después de una línea que termina en <code>:<\/code>, las de adentro van con cuatro espacios."
+        if "unexpected indent" in msg:
+            return f"Hay una <b>sangría de más<\/b>{donde}: esa línea empieza con espacios que no corresponden."
+        return f"La <b>sangría<\/b> no cuadra{donde}. Las líneas de un mismo bloque deben empezar en la misma columna."
+    if tipo == "SyntaxError":
+        if re.match(r"\s*(for|while|if|else|elif|def)\b", linea) and not linea.split("#")[0].rstrip().endswith(":"):
+            return f"Falta el <b>dos puntos<\/b> <code>:<\/code> al final de la línea {n}."
+        if re.search(r"\b(if|while|elif)\b[^=!<>]*[^=!<>]=[^=]", linea):
+            return f"En la línea {n}, para <b>comparar<\/b> se escriben dos signos: <code>==<\/code>. Uno solo, <code>=<\/code>, guarda."
+        if "never closed" in msg or "unmatched" in msg or "does not match" in msg:
+            return f"Un paréntesis, corchete o llave quedó sin cerrar o no corresponde{donde}. Cuente: cada <code>[<\/code> necesita su <code>]<\/code>, y cada <code>{{<\/code> su <code>}}<\/code>."
+        if re.search(r"\d,\d", linea):
+            return f"En la línea {n} hay un número con coma decimal. En Python el decimal se escribe con <b>punto<\/b>: <code>5.62<\/code>, no <code>5,62<\/code>."
+        return f"Python no entiende la escritura{donde}. Revise paréntesis, corchetes, llaves, comillas y dos puntos."
+    if tipo == "NameError":
+        m = re.search(r"name '(.+?)' is not defined", msg)
+        nom = m.group(1) if m else "?"
+        extra = " Si es un texto, va entre comillas: <code>\"" + nom + "\"<\/code>." if nom[:1].isupper() else ""
+        return f"Usa el nombre <code>{nom}<\/code>{donde}, pero esa variable no existe. ¿Está bien escrito? ¿Le dio un valor antes?{extra}"
+    if tipo == "KeyError":
+        clave = msg.strip("'\"")
+        return (f"Busca la clave <code>{msg}<\/code>{donde}, pero el diccionario no la tiene. Las claves deben escribirse "
+                f"<b>exactamente<\/b> igual: «Salud» y «salud» son claves distintas, y una tilde también cuenta."
+                + (" Un diccionario no tiene posiciones: se busca por su clave, no por un número." if clave.lstrip("-").isdigit() else ""))
+    if tipo == "AttributeError":
+        m = re.search(r"'(\w+)' object has no attribute '(\w+)'", msg)
+        if m:
+            obj, met = m.groups()
+            if obj == "tuple" and met in ("append", "remove", "insert", "pop", "sort"):
+                return f"Una <b>tupla no se puede cambiar<\/b>{donde}: no tiene <code>.{met}()<\/code>. Si necesita agregar datos, use una lista."
+            if obj == "set" and met == "append":
+                return f"Un <b>conjunto<\/b> se agranda con <code>.add()<\/code>, no con <code>.append()<\/code>{donde}."
+            if obj == "dict" and met == "append":
+                return f"Un <b>diccionario<\/b> no tiene <code>.append()<\/code>{donde}: para agregar se escribe <code>d[clave] = valor<\/code>."
+            if obj == "list" and met == "add":
+                return f"Una <b>lista<\/b> se agranda con <code>.append()<\/code>, no con <code>.add()<\/code>{donde}."
+            return f"Los datos de tipo <code>{obj}<\/code> no tienen <code>.{met}<\/code>{donde}. Revise qué clase de caja está usando."
+        return f"Python se detuvo{donde}: <code>{msg}<\/code>"
+    if tipo == "TypeError":
+        if "does not support item assignment" in msg and "tuple" in msg:
+            return f"Una <b>tupla no se puede cambiar<\/b> después de creada{donde}. Es un registro sellado: para cambiar datos, use una lista."
+        if "unhashable" in msg:
+            return f"Dentro de un conjunto, o como clave de un diccionario, no puede ir una lista{donde}: use una tupla o un texto."
+        if "indices must be integers" in msg and "list" in msg:
+            return f"En una <b>lista<\/b> se busca por posición, con un número{donde}. Para buscar por nombre se usa un diccionario."
+        if "indices must be integers" in msg and "tuple" in msg:
+            return f"En una <b>tupla<\/b> se busca por posición, con un número{donde}."
+        if "not subscriptable" in msg and "set" in msg:
+            return f"Un <b>conjunto<\/b> no tiene posiciones{donde}: no se puede pedir <code>[0]<\/code>. Si necesita orden, conviértalo en lista con <code>sorted()<\/code>."
+        if "not subscriptable" in msg and ("int" in msg or "float" in msg):
+            return f"Usa corchetes sobre un número{donde}, como si fuera una lista. Revise qué guarda esa variable."
+        if "unsupported operand" in msg and re.search(r"[&|-]", msg) and "list" in msg:
+            return f"Las operaciones <code>&amp;<\/code>, <code>|<\/code> y <code>-<\/code> entre grupos son de <b>conjuntos<\/b>{donde}. Convierta las listas con <code>set()<\/code>."
+        if "can only concatenate" in msg or "unsupported operand" in msg:
+            return f"Mezcla tipos de datos que no se combinan{donde}, por ejemplo un texto con un número, o una lista con un número. Detalle: <code>{msg}<\/code>"
+        if "not callable" in msg:
+            return f"Usa paréntesis después de algo que no es una función{donde}. ¿Quiso usar corchetes <code>[ ]<\/code> para buscar?"
+        return f"Mezcla tipos de datos que no se pueden combinar{donde}. Detalle: <code>{msg}<\/code>"
+    if tipo == "IndexError":
+        return f"Pide una posición que no existe{donde}. Las posiciones empiezan en 0: si una lista tiene 11 datos, van de la 0 a la 10 (o, desde el final, de la −1 a la −11). <code>len()<\/code> le dice cuántos hay."
+    if tipo == "ValueError":
+        return f"Un valor no tiene la forma esperada{donde}: <code>{msg}<\/code>. Si desempaca una tupla, deben coincidir cuántos nombres y cuántos valores hay."
+    if tipo == "ZeroDivisionError":
+        return f"Hay una división entre cero{donde}."
+    return f"Python se detuvo con un error{donde}: <code>{tipo}: {msg}<\/code>"
+
+
+def _num(v):
+    if isinstance(v, bool):
+        return repr(v)
+    if isinstance(v, int):
+        return f"{v:,}".replace(",", ".")
+    if isinstance(v, float):
+        return (f"{v:,.4f}" if abs(v) < 1 and v != 0 else f"{v:,.2f}").replace(",", "_").replace(".", ",").replace("_", ".")
+    return None
+
+
+def _simple(v, prof=0):
+    if v is None or isinstance(v, bool):
+        return repr(v)
+    if isinstance(v, (int, float)):
+        return _num(v)
+    if isinstance(v, str):
+        return repr(v)
+    if prof > 2:
+        return "…"
+    if isinstance(v, list):
+        return "[" + ", ".join(_simple(x, prof + 1) for x in v[:8]) + (", …" if len(v) > 8 else "") + "]"
+    if isinstance(v, tuple):
+        return "(" + ", ".join(_simple(x, prof + 1) for x in v[:8]) + (", …" if len(v) > 8 else "") + ")"
+    if isinstance(v, (set, frozenset)):
+        try:
+            items = sorted(v)
+        except TypeError:
+            items = list(v)
+        return "{" + ", ".join(_simple(x, prof + 1) for x in items[:8]) + (", …" if len(v) > 8 else "") + "}" if v else "set()"
+    if isinstance(v, dict):
+        items = list(v.items())
+        return "{" + ", ".join(f"{_simple(k, prof + 1)}: {_simple(x, prof + 1)}" for k, x in items[:6]) + (", …" if len(items) > 6 else "") + "}"
+    return None
+
+
+def _foto(f_locals):
+    out = {}
+    for k, v in f_locals.items():
+        if k.startswith("_") or k in ("pd",):
+            continue
+        s = _simple(v)
+        if s is not None:
+            out[k] = s
+    return out
+
+
+def _ejecutar(codigo, rastrear=False):
+    contador, pasos = [0], []
+
+    def traza(frame, evento, arg):
+        if frame.f_code.co_filename != "<estudiante>":
+            return None
+        if evento == "line":
+            contador[0] += 1
+            if contador[0] > LIMITE_PASOS:
+                raise _CicloInfinito()
+            if rastrear and len(pasos) < LIMITE_RASTRO:
+                pasos.append([frame.f_lineno, _foto(frame.f_locals)])
+        return traza
+
+    ns = {"__name__": "__main__"}
+    salida, error = io.StringIO(), None
+    try:
+        obj = compile(codigo, "<estudiante>", "exec")
+    except SyntaxError as e:
+        return ns, "", e, pasos, 0
+    sys.settrace(traza)
+    try:
+        with contextlib.redirect_stdout(salida):
+            exec(obj, ns)
+    except BaseException as e:  # noqa: BLE001
+        error = e
+    finally:
+        sys.settrace(None)
+    if rastrear:
+        pasos.append([None, _foto(ns)])
+    return ns, salida.getvalue(), error, pasos, contador[0]
+
+
+def _sin_comentarios(codigo):
+    return "\n".join(l.split("#")[0] for l in codigo.splitlines())
+
+
+def _revisar(checks, ns):
+    """Devuelve (lista de resultados, variable que falta). Cada check: [expresión, etiqueta, mensaje]."""
+    res = []
+    for ch in checks:
+        expr, etiqueta, msg = ch[0], ch[1], ch[2]
+        try:
+            ok = bool(eval(expr, dict(ns)))
+        except NameError as e:
+            m = re.search(r"name '(.+?)' is not defined", str(e))
+            return res, (m.group(1) if m else "?")
+        except Exception:  # noqa: BLE001
+            ok = False
+        res.append({"ok": ok, "etiqueta": etiqueta, "mensaje": msg})
+    return res, None
+
+
+def comprobar(codigo, spec_json):
+    spec = json.loads(spec_json)
+    r = {"estado": "mal", "mensaje": "", "salida": "", "nota": 0, "total": len(spec["checks"]) + len(spec.get("variantes") or []), "checks": []}
+    if "___" in codigo:
+        r["estado"] = "falta"
+        r["mensaje"] = "Todavía hay espacios en blanco <code>___<\/code> por llenar. Cámbielos por su código."
+        return json.dumps(r)
+    ns, salida, error, _, _ = _ejecutar(codigo)
+    r["salida"] = salida[-4000:]
+    if error is not None:
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(error, codigo)
+        return json.dumps(r)
+    limpio = _sin_comentarios(codigo)
+    for palabra in [spec.get("requiere"), spec.get("requiere2")]:
+        if palabra and not re.search(rf"\b{palabra}\b", limpio):
+            r["mensaje"] = f"El resultado puede estar bien, pero este ejercicio pide usar <code>{palabra}<\/code>."
+            return json.dumps(r)
+    for texto, msg in spec.get("requiere_texto") or []:
+        if texto not in limpio:
+            r["mensaje"] = msg
+            return json.dumps(r)
+    for patron, msg in spec.get("requiere_re") or []:
+        if not re.search(patron, limpio):
+            r["mensaje"] = msg
+            return json.dumps(r)
+    if spec.get("prohibe") and spec["prohibe"][0] in limpio:
+        r["mensaje"] = spec["prohibe"][1]
+        return json.dumps(r)
+    res, falta = _revisar(spec["checks"], ns)
+    if falta:
+        r["mensaje"] = f"No encuentro la variable <code>{falta}<\/code>. ¿La creó con ese nombre exacto?"
+        return json.dumps(r)
+    r["checks"] = [{"ok": x["ok"], "etiqueta": x["etiqueta"]} for x in res]
+    r["nota"] = sum(1 for x in res if x["ok"])
+    fallos = [x["mensaje"] for x in res if not x["ok"]]
+    if fallos:
+        r["mensaje"] = fallos[0]
+        return json.dumps(r)
+    # Pruebas con otros datos: el mismo programa, con un dato cambiado, debe seguir dando lo correcto.
+    for v in spec.get("variantes") or []:
+        if v["buscar"] not in codigo:
+            r["checks"].append({"ok": True, "etiqueta": v["etiqueta"] + " (no se probó: usted cambió los datos)"})
+            r["nota"] += 1
+            continue
+        ns2, _, error2, _, _ = _ejecutar(codigo.replace(v["buscar"], v["cambiar"], 1))
+        ok2 = error2 is None
+        if ok2:
+            res2, falta2 = _revisar(v["checks"], ns2)
+            ok2 = not falta2 and all(x["ok"] for x in res2)
+        r["checks"].append({"ok": ok2, "etiqueta": v["etiqueta"]})
+        if not ok2:
+            r["mensaje"] = v["mensaje"]
+            return json.dumps(r)
+        r["nota"] += 1
+    r["estado"] = "ok"
+    return json.dumps(r)
+
+
+def ejecutar(codigo):
+    ns, salida, error, _, _ = _ejecutar(codigo)
+    r = {"estado": "ok", "salida": salida[-6000:], "mensaje": ""}
+    if error is not None:
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(error, codigo)
+    return json.dumps(r)
+
+
+def rastrear(codigo):
+    if "___" in codigo:
+        return json.dumps({"estado": "falta", "mensaje": "Llene primero los espacios <code>___<\/code>; después podrá verlo paso a paso.", "pasos": []})
+    ns, salida, error, pasos, n = _ejecutar(codigo, rastrear=True)
+    r = {"estado": "ok", "pasos": pasos, "lineas": codigo.splitlines(), "total": n, "corto": n > LIMITE_RASTRO, "mensaje": ""}
+    if error is not None:
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(error, codigo)
+    return json.dumps(r)
+
+
+# ---------- Consola: una línea de Python a la vez, con memoria propia ----------
+_ESPACIOS = {}
+
+
+def consola(clave, preludio, linea):
+    ns = _ESPACIOS.get(clave)
+    if ns is None:
+        ns = {"__name__": "__main__"}
+        exec(compile(preludio, "<preludio>", "exec"), ns)
+        _ESPACIOS[clave] = ns
+    r = {"estado": "ok", "salida": "", "valor": None, "mensaje": ""}
+    try:
+        try:
+            obj, modo = compile(linea, "<estudiante>", "eval"), "eval"
+        except SyntaxError:
+            obj, modo = compile(linea, "<estudiante>", "exec"), "exec"
+    except SyntaxError as e:
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(e, linea).replace(" en la línea 1", "")
+        return json.dumps(r)
+    contador = [0]
+
+    def traza(frame, evento, arg):
+        if frame.f_code.co_filename != "<estudiante>":
+            return None
+        if evento == "line":
+            contador[0] += 1
+            if contador[0] > LIMITE_PASOS:
+                raise _CicloInfinito()
+        return traza
+
+    salida = io.StringIO()
+    sys.settrace(traza)
+    try:
+        with contextlib.redirect_stdout(salida):
+            valor = eval(obj, ns) if modo == "eval" else exec(obj, ns)
+        if modo == "eval" and valor is not None:
+            r["valor"] = repr(valor)
+            r["tipo"] = type(valor).__name__
+            if isinstance(valor, tuple) and re.search(r"\d,\d", linea):
+                r["nota"] = "Ojo: Python leyó una <b>tupla<\/b>, porque la coma separa valores. El decimal se escribe con punto: <code>5.62<\/code>."
+    except BaseException as e:  # noqa: BLE001
+        r["estado"] = "error"
+        r["mensaje"] = _traducir(e, linea).replace(" en la línea 1", "")
+        r["tipo_error"] = type(e).__name__
+    finally:
+        sys.settrace(None)
+    r["salida"] = salida.getvalue()[-3000:]
+    return json.dumps(r)
+
+
+def reiniciar_consola(clave):
+    _ESPACIOS.pop(clave, None)
+    return "{}"
+
+
+def verificar(preludio, exprs_json):
+    """Corre cada expresión de una validación en un espacio nuevo y devuelve lo que Python responde."""
+    out = []
+    for expr in json.loads(exprs_json):
+        if not expr:
+            out.append(None)
+            continue
+        ns = {"__name__": "__main__"}
+        exec(compile(preludio, "<preludio>", "exec"), ns)
+        lineas = expr.split("\n")
+        try:
+            for l in lineas[:-1]:
+                exec(compile(l, "<estudiante>", "exec"), ns)
+            v = eval(compile(lineas[-1], "<estudiante>", "eval"), ns)
+            out.append({"ok": True, "valor": repr(v)})
+        except Exception as e:  # noqa: BLE001
+            out.append({"ok": False, "valor": type(e).__name__, "mensaje": re.sub(r" en la línea \d+", "", _traducir(e, expr))})
+    return json.dumps(out)
+</script>
+<script>
+/* Laboratorio de estructuras · Python de verdad en el navegador (Pyodide).
+   Nada de lo que la persona escribe sale de su navegador: el código corre aquí mismo. */
+(() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js');
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const guardar = (k, v) => { try { localStorage.setItem('pad04:' + k, v); } catch (e) {} };
+  const leer = k => { try { return localStorage.getItem('pad04:' + k); } catch (e) { return null; } };
+  const D = JSON.parse($('#datos-lab').textContent);
+  const MOTOR = $('#motor-python').textContent.split('<\\/').join('</');
+  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const miles = n => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const dec = (n, d = 2) => n.toFixed(d).replace('.', ',');
+  const py = v => (Number.isInteger(v) ? String(v) : String(+v.toFixed(10)));   // como lo escribe Python
+  const redondo = (x, d) => Math.round(x * 10 ** d + (x >= 0 ? 1e-9 : -1e-9)) / 10 ** d;
+
+  /* ---------- 1. Python en el navegador ---------- */
+  const PYO = window.LAB_PYODIDE || 'https://cdn.jsdelivr.net/npm/pyodide@0.26.4/';
+  const aviso = $('.motor');
+  const pinta = (estado, texto) => { if (aviso) { aviso.dataset.estado = estado; aviso.querySelector('span').innerHTML = texto; } };
+  let promesa = null;
+  function python() {
+    if (promesa) return promesa;
+    pinta('cargando', 'Preparando Python en su navegador. La primera vez tarda unos segundos…');
+    promesa = new Promise((ok, no) => {
+      const s = document.createElement('script');
+      s.src = PYO + 'pyodide.js';
+      s.onload = async () => {
+        try {
+          const p = await loadPyodide(Object.assign({ indexURL: PYO }, window.LAB_STDLIB ? { stdLibURL: window.LAB_STDLIB } : {}));
+          p.runPython(MOTOR);
+          pinta('listo', '<b>Python está listo.</b> Su código corre aquí, en su navegador: nada de lo que escribe sale de este equipo.');
+          ok(p);
+        } catch (e) { no(e); }
+      };
+      s.onerror = () => no(new Error('No se pudo descargar Python'));
+      document.head.appendChild(s);
+    }).catch(e => {
+      pinta('falla', '<b>No pude cargar Python</b> en este navegador (revise su conexión y recargue la página). Mientras tanto puede usar las figuras, comprobar sus respuestas a mano y abrir las soluciones.');
+      promesa = null;
+      throw e;
+    });
+    return promesa;
+  }
+  async function llamar(fn, ...args) {
+    const p = await python();
+    return JSON.parse(p.globals.get(fn)(...args));
+  }
+  const arrancar = () => python().catch(() => {});
+  if ('requestIdleCallback' in window) requestIdleCallback(arrancar, { timeout: 2500 }); else setTimeout(arrancar, 800);
+  const SIN_PYTHON = 'Python no está disponible en este momento. Recargue la página; mientras tanto, compare con la solución.';
+
+  /* ---------- 2. Editores ---------- */
+  function editor(caja) {
+    const ta = $('textarea', caja), nums = $('.numeros', caja);
+    const ajusta = () => {
+      const n = ta.value.split('\n').length;
+      nums.textContent = Array.from({ length: n }, (_, i) => i + 1).join('\n');
+      ta.style.height = 'auto';
+      ta.style.height = ta.scrollHeight + 'px';
+    };
+    ta.addEventListener('input', () => { ajusta(); if (caja.dataset.ej) guardar('codigo:' + caja.dataset.ej, ta.value); });
+    ta.addEventListener('keydown', e => {
+      const { selectionStart: a, selectionEnd: b, value: v } = ta;
+      if (e.key === 'Tab' && !e.shiftKey) {
+        e.preventDefault(); ta.setRangeText('    ', a, b, 'end'); ta.dispatchEvent(new Event('input'));
+      } else if (e.key === 'Tab' && e.shiftKey) {
+        e.preventDefault();
+        const ini = v.lastIndexOf('\n', a - 1) + 1;
+        const quita = (v.slice(ini, ini + 4).match(/^ {1,4}/) || [''])[0].length;
+        if (quita) { ta.setRangeText('', ini, ini + quita, 'preserve'); ta.selectionStart = ta.selectionEnd = Math.max(ini, a - quita); ta.dispatchEvent(new Event('input')); }
+      } else if (e.key === 'Enter' && !e.ctrlKey && !e.metaKey) {
+        e.preventDefault();
+        const ini = v.lastIndexOf('\n', a - 1) + 1, linea = v.slice(ini, a);
+        let sangria = (linea.match(/^ */) || [''])[0];
+        if (/:\s*(#.*)?$/.test(linea)) sangria += '    ';
+        ta.setRangeText('\n' + sangria, a, b, 'end'); ta.dispatchEvent(new Event('input'));
+      } else if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault(); const p = caja.closest('.estacion, .arenero'); const btn = p && $('[data-accion=comprobar], [data-accion=ejecutar]', p); if (btn) btn.click();
+      }
+    });
+    const previo = caja.dataset.ej && leer('codigo:' + caja.dataset.ej);
+    if (previo) ta.value = previo;
+    ajusta();
+    return ta;
+  }
+
+  /* ---------- 3. Veredicto, con la lista de comprobaciones ---------- */
+  const TITULOS = { ok: '✓ ¡Va muy bien!', mal: '✗ Todavía no', error: '✗ Python encontró un problema', falta: '… Le falta completar', corriendo: 'Ejecutando…' };
+  function veredicto(panel, r, extra) {
+    panel.dataset.estado = r.estado;
+    $('.panel-cabeza span', panel).textContent = TITULOS[r.estado] || 'Resultado';
+    const caja = $('.veredicto-caja', panel);
+    const lista = r.checks && r.checks.length
+      ? `<ul class="chequeo">${r.checks.map(c => `<li class="${c.ok ? '' : 'no'}">${c.etiqueta}</li>`).join('')}<li class="nota-n">${r.nota} de ${r.total} comprobaciones</li></ul>` : '';
+    caja.innerHTML = r.estado === 'ok'
+      ? `<p class="titulo-v">Correcto.</p><p>${extra || 'Su programa da el resultado esperado, y también con otros datos.'}</p>${lista}`
+      : `<p>${r.mensaje || ''}</p>${lista}`;
+    $('.salida', panel).textContent = r.salida || '';
+  }
+
+  /* ---------- 4. Prueba de escritorio paso a paso ---------- */
+  const esCabeza = l => /^\s*(for|while)\b/.test(l || '');
+  function rastro(contenedor, r) {
+    contenedor.hidden = false;
+    const lineas = r.lineas || [], pasos = r.pasos || [];
+    const filas = pasos.slice(0, -1).map((p, k) => ({ linea: p[0], antes: p[1], despues: (pasos[k + 1] || p)[1] }));
+    let vuelta = 0, fuera = false;
+    const sangria = n => ((lineas[n - 1] || '').match(/^ */) || [''])[0].length;
+    filas.forEach((f, k) => {
+      if (esCabeza(lineas[f.linea - 1])) {
+        const sig = filas[k + 1];
+        if (sig && sig.linea > f.linea && sangria(sig.linea) > sangria(f.linea)) { vuelta += 1; fuera = false; } else { f.sale = true; fuera = true; }
+      } else f.fuera = fuera;
+      f.vuelta = vuelta;
+    });
+    const nombres = [];
+    filas.forEach(f => Object.keys(f.despues).forEach(n => { if (!nombres.includes(n)) nombres.push(n); }));
+    contenedor.innerHTML = `
+      <div class="rastro-cabeza"><span>Prueba de escritorio automática</span><span class="cuenta-vueltas"></span></div>
+      <div class="rastro-cuerpo">
+        <ol class="rastro-codigo">${lineas.map(l => `<li>${esc(l) || ' '}</li>`).join('')}</ol>
+        <div class="rastro-vars"><p class="rastro-que"></p><ul class="cajitas"></ul></div>
+      </div>
+      <div class="rastro-mandos">
+        <button type="button" class="boton" data-r="-1">Anterior</button>
+        <button type="button" class="boton primario" data-r="1">Siguiente paso</button>
+        <button type="button" class="boton" data-r="fin">Ir al final</button>
+        <button type="button" class="boton" data-r="tabla" aria-expanded="false">Ver la tabla</button>
+        <span class="cuenta" aria-live="polite"></span>
+      </div>
+      <div class="rastro-tabla-marco" hidden tabindex="0"></div>`;
+    if (r.mensaje) $('.rastro-cabeza', contenedor).insertAdjacentHTML('afterend', `<p class="rastro-que" style="padding:.6rem .9rem;margin:0;border-bottom:1.5px dashed var(--regla)">${r.mensaje}</p>`);
+    const lis = $$('.rastro-codigo li', contenedor), que = $('.rastro-vars .rastro-que', contenedor), caj = $('.cajitas', contenedor), cuenta = $('.cuenta', contenedor), cv = $('.cuenta-vueltas', contenedor);
+    const marco = $('.rastro-tabla-marco', contenedor);
+    const filasT = filas.map((f, k) => ({ f, k })).filter(({ f }) => nombres.some(n => f.despues[n] !== f.antes[n]));
+    marco.innerHTML = `<table class="tabla"><thead><tr><th>Paso</th><th>Línea</th>${nombres.map(n => `<th>${esc(n)}</th>`).join('')}</tr></thead><tbody>${filasT.map(({ f, k }) => `<tr data-k="${k}"><td>${k + 1}</td><td>${f.linea}</td>${nombres.map(n => `<td>${f.despues[n] !== f.antes[n] ? '<b>' + esc(f.despues[n] ?? '') + '</b>' : esc(f.despues[n] ?? '')}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    let i = 0;
+    const ir = n => {
+      if (!filas.length) { que.textContent = 'No hubo pasos que mostrar.'; return; }
+      i = Math.max(0, Math.min(filas.length - 1, n));
+      const f = filas[i];
+      lis.forEach((li, k) => li.classList.toggle('aqui', k === f.linea - 1));
+      const lin = (lineas[f.linea - 1] || '').trim();
+      let texto = `Python ejecutó la línea ${f.linea}`;
+      if (esCabeza(lin)) {
+        const w = /^while/.test(lin);
+        texto = f.sale ? (w ? `La condición del while ya no se cumple: el ciclo termina (línea ${f.linea})` : `Ya no quedan elementos: el for termina (línea ${f.linea})`)
+                       : (w ? `La condición del while se cumple: entra otra vez (línea ${f.linea})` : `El for toma el siguiente elemento (línea ${f.linea})`);
+      }
+      que.innerHTML = `<b>Paso ${i + 1}</b>${texto}`;
+      caj.innerHTML = Object.keys(f.despues).map(n => `<li class="${f.despues[n] !== f.antes[n] ? 'cambio' : ''}"><span>${esc(n)}</span><span>${esc(f.despues[n])}</span></li>`).join('') || '<li><span>—</span><span>Todavía no hay variables</span></li>';
+      cuenta.textContent = `Paso ${i + 1} de ${filas.length}${r.corto ? ' (se muestran los primeros)' : ''}`;
+      cv.textContent = f.sale ? 'Fin del ciclo' : f.fuera ? 'Después del ciclo' : (f.vuelta ? `Vuelta ${f.vuelta}` : 'Antes del ciclo');
+      $$('tr[data-k]', marco).forEach(tr => tr.classList.toggle('aqui', +tr.dataset.k === i));
+      $$('[data-r]', contenedor).forEach(b => { if (b.dataset.r === '-1') b.disabled = i === 0; if (b.dataset.r === '1' || b.dataset.r === 'fin') b.disabled = i === filas.length - 1; });
+      const activa = lis[f.linea - 1]; if (activa && activa.scrollIntoViewIfNeeded) activa.scrollIntoViewIfNeeded(false);
+    };
+    $$('[data-r]', contenedor).forEach(b => b.addEventListener('click', () => {
+      if (b.dataset.r === 'fin') ir(filas.length - 1);
+      else if (b.dataset.r === 'tabla') { marco.hidden = !marco.hidden; b.setAttribute('aria-expanded', !marco.hidden); b.textContent = marco.hidden ? 'Ver la tabla' : 'Ocultar la tabla'; }
+      else ir(i + Number(b.dataset.r));
+    }));
+    contenedor.addEventListener('keydown', e => { if (e.key === 'ArrowRight') ir(i + 1); else if (e.key === 'ArrowLeft') ir(i - 1); });
+    ir(0);
+  }
+
+  /* ---------- 5. Progreso: estaciones de código y comprobaciones a mano ---------- */
+  const piezas = $$('.estacion[data-ej], .valida[data-v]');
+  const resueltos = new Set(JSON.parse(leer('resueltos') || '[]'));
+  const cuentaNav = $('.bn-cuenta');
+  const clave = el => el.dataset.ej || el.dataset.v;
+  function progreso() {
+    piezas.forEach(s => s.classList.toggle('resuelta', resueltos.has(clave(s))));
+    const n = piezas.filter(s => resueltos.has(clave(s))).length;
+    if (cuentaNav) { cuentaNav.textContent = `✓ ${n}/${piezas.length}`; cuentaNav.title = `${n} de ${piezas.length} estaciones resueltas`; }
+  }
+  const resolver = k => { resueltos.add(k); guardar('resueltos', JSON.stringify([...resueltos])); progreso(); };
+  progreso();
+
+  /* ---------- 6. Estaciones de código ---------- */
+  $$('.estacion[data-ej]').forEach(est => {
+    const num = est.dataset.ej, spec = D.ej[num];
+    const ta = editor($('.editor', est)), panel = $('.panel', est), cont = $('.rastro', est), pista = $('.pista', est);
+    const specJson = JSON.stringify({ checks: spec.checks, requiere: spec.requiere, requiere2: spec.requiere2, prohibe: spec.prohibe, requiere_texto: spec.requiere_texto, requiere_re: spec.requiere_re, variantes: spec.variantes });
+    $('[data-accion=comprobar]', est).addEventListener('click', async () => {
+      veredicto(panel, { estado: 'corriendo', mensaje: 'Un momento: Python está corriendo su programa.' });
+      try {
+        const r = await llamar('comprobar', ta.value, specJson);
+        veredicto(panel, r);
+        if (r.estado === 'ok') resolver(num);
+      } catch (e) { veredicto(panel, { estado: 'error', mensaje: SIN_PYTHON }); }
+    });
+    $('[data-accion=rastrear]', est).addEventListener('click', async () => {
+      try { rastro(cont, await llamar('rastrear', ta.value)); cont.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+      catch (e) { veredicto(panel, { estado: 'error', mensaje: SIN_PYTHON }); }
+    });
+    $('[data-accion=pista]', est).addEventListener('click', e => { pista.hidden = !pista.hidden; e.currentTarget.setAttribute('aria-expanded', !pista.hidden); });
+    $('[data-accion=reiniciar]', est).addEventListener('click', () => { ta.value = spec.arranque; ta.dispatchEvent(new Event('input')); veredicto(panel, { estado: '', mensaje: 'Volvió al código de arranque.' }); panel.dataset.estado = ''; $('.panel-cabeza span', panel).textContent = 'Resultado'; cont.hidden = true; });
+    const verSol = $('[data-accion=rastrear-solucion]', est);
+    if (verSol) verSol.addEventListener('click', async () => { try { rastro(cont, await llamar('rastrear', spec.solucion)); cont.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } catch (e) {} });
+  });
+
+  /* ---------- 7. Arenero ---------- */
+  $$('.arenero').forEach(a => {
+    const ta = editor($('.editor', a)), panel = $('.panel', a), cont = $('.rastro', a);
+    $('[data-accion=ejecutar]', a).addEventListener('click', async () => {
+      veredicto(panel, { estado: 'corriendo', mensaje: '' });
+      try { const r = await llamar('ejecutar', ta.value); if (r.estado === 'ok') r.mensaje = 'Su programa corrió sin errores. Mire abajo lo que imprimió.'; veredicto(panel, { ...r, estado: r.estado === 'ok' ? '' : r.estado }); if (r.estado === 'ok') $('.panel-cabeza span', panel).textContent = '✓ Corrió sin errores'; }
+      catch (e) { veredicto(panel, { estado: 'error', mensaje: SIN_PYTHON }); }
+    });
+    const rb = $('[data-accion=rastrear]', a);
+    if (rb) rb.addEventListener('click', async () => { try { rastro(cont, await llamar('rastrear', ta.value)); } catch (e) {} });
+  });
+
+  /* ---------- 8. Apuestas y quiz ---------- */
+  $$('.apuesta[data-dato]').forEach(ap => {
+    const dato = $('.dato', ap);
+    $$('.opciones button', ap).forEach(b => b.addEventListener('click', () => {
+      $$('.opciones button', ap).forEach(x => x.setAttribute('aria-pressed', x === b));
+      dato.hidden = false; $('[data-juicio]', ap).textContent = b.dataset.v === ap.dataset.dato ? 'Usted acertó.' : `Usted eligió «${b.textContent}».`;
+    }));
+  });
+  $$('.apuesta.triple').forEach(ap => {
+    const dato = $('.dato', ap);
+    $$('.pregunta[data-ok] .opciones button', ap).forEach(b => b.addEventListener('click', () => {
+      $$('button', b.parentElement).forEach(x => x.setAttribute('aria-pressed', x === b));
+    }));
+    const r = $('input[type=range]', ap), out = $('output', ap);
+    const muestra = () => { out.textContent = dec(+r.value, 1) + ' %'; };
+    r.addEventListener('input', muestra); muestra();
+    $('[data-accion=revelar]', ap).addEventListener('click', () => {
+      const juicios = [];
+      $$('.pregunta[data-ok]', ap).forEach(p => {
+        const el = $('button[aria-pressed=true]', p);
+        juicios.push(!el ? `${p.dataset.nombre}: no apostó.` : el.dataset.v === p.dataset.ok ? `${p.dataset.nombre}: acertó.` : `${p.dataset.nombre}: usted dijo ${el.textContent}.`);
+      });
+      const dif = +r.value - 5.77;
+      juicios.splice(1, 0, `Promedio: usted dijo ${dec(+r.value, 1)} %, ${Math.abs(dif) < .3 ? 'casi exacto' : dif > 0 ? `${dec(dif, 1)} puntos por encima` : `${dec(-dif, 1)} puntos por debajo`}.`);
+      $('[data-juicio]', ap).textContent = juicios.join(' ');
+      dato.hidden = false;
+    });
+  });
+  $$('.quiz li').forEach(li => {
+    const v = $('.veredicto', li);
+    $$('button', li).forEach(b => b.addEventListener('click', () => {
+      $$('button', li).forEach(x => x.setAttribute('aria-pressed', x === b));
+      v.innerHTML = (b.dataset.v === li.dataset.ok ? '<b>Así es.</b> ' : '<b>Mírelo otra vez.</b> ') + li.dataset.por;
+    }));
+  });
+
+  /* ---------- 9. Consolas: una línea de Python a la vez ---------- */
+  $$('.consola').forEach(c => {
+    const id = c.dataset.consola, preludio = D.consolas[id], hist = $('.consola-historia', c), form = $('form', c), inp = $('input', form);
+    const pasadas = []; let pos = 0;
+    async function correr(linea) {
+      if (!linea.trim()) return;
+      pasadas.push(linea); pos = pasadas.length;
+      const li = document.createElement('li');
+      li.innerHTML = `<div class="entrada">${esc(linea)}</div><div class="sin-valor">…</div>`;
+      hist.appendChild(li);
+      while (hist.children.length > 14) hist.firstElementChild.remove();
+      hist.scrollTop = hist.scrollHeight;
+      let r;
+      try { r = await llamar('consola', id, preludio, linea); }
+      catch (e) { r = { estado: 'error', mensaje: SIN_PYTHON }; }
+      let html = `<div class="entrada">${esc(linea)}</div>`;
+      if (r.salida) html += `<div class="impreso">${esc(r.salida.replace(/\n$/, ''))}</div>`;
+      if (r.estado === 'error') html += `<p class="falla">${r.mensaje}</p>`;
+      else if (r.valor !== null && r.valor !== undefined) html += `<div class="valor">${esc(r.valor)}</div>`;
+      else if (!r.salida) html += `<div class="sin-valor">(listo: esta línea guarda o cambia algo, pero no muestra nada)</div>`;
+      if (r.nota) html += `<p class="aviso">${r.nota}</p>`;
+      li.innerHTML = html;
+      hist.scrollTop = hist.scrollHeight;
+      c.dispatchEvent(new CustomEvent('resultado', { detail: { linea, r } }));
+    }
+    $$('.consola-botones button', c).forEach(b => b.addEventListener('click', () => correr(b.dataset.linea)));
+    form.addEventListener('submit', e => { e.preventDefault(); const v = inp.value; inp.value = ''; correr(v); });
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'ArrowUp' && pos > 0) { e.preventDefault(); pos -= 1; inp.value = pasadas[pos]; }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); pos = Math.min(pasadas.length, pos + 1); inp.value = pasadas[pos] || ''; }
+    });
+    const rein = $('[data-reinicia]', c);
+    if (rein) rein.addEventListener('click', async () => { hist.innerHTML = ''; try { await llamar('reiniciar_consola', id); } catch (e) {} c.dispatchEvent(new CustomEvent('reinicio')); });
+  });
+
+  /* ---------- 10. El camino del dato ---------- */
+  const camino = $('#camino');
+  if (camino) {
+    const P = D.camino, etapas = $$('.etapas li', camino), fichas = $('.fichas', camino), que = $('.camino-que', camino), tit = $('.titular-dato', camino);
+    const lineas = $$('.codigo-vivo li', camino), salida = $('.salida', camino);
+    let k = 0;
+    const ir = n => {
+      k = Math.max(0, Math.min(P.length - 1, n));
+      const p = P[k];
+      etapas.forEach(e => { const n2 = +e.dataset.etapa; e.classList.toggle('activa', n2 === p.etapa); e.classList.toggle('hecha', n2 < p.etapa); });
+      que.innerHTML = `<b>Paso ${k + 1} de ${P.length}.</b> ${p.texto}`;
+      fichas.innerHTML = p.fichas.map(f => `<li class="${f[1]}">${esc(f[0])}</li>`).join('');
+      tit.hidden = !p.titular; tit.textContent = p.titular || '';
+      lineas.forEach((li, i) => li.classList.toggle('aqui', p.lineas.includes(i + 1)));
+      $('[data-c="-1"]', camino).disabled = k === 0;
+      $('[data-c="1"]', camino).disabled = k === P.length - 1;
+    };
+    $$('[data-c]', camino).forEach(b => b.addEventListener('click', async () => {
+      if (b.dataset.c === 'correr') {
+        salida.hidden = false; salida.textContent = '…';
+        try { const r = await llamar('ejecutar', D.camino_codigo); salida.textContent = r.estado === 'ok' ? r.salida : r.mensaje.replace(/<[^>]+>/g, ''); }
+        catch (e) { salida.textContent = SIN_PYTHON; }
+      } else ir(k + Number(b.dataset.c));
+    }));
+    ir(0);
+  }
+
+  /* ---------- 11. Explorador de la lista ---------- */
+  const expl = $('#explorador');
+  if (expl) {
+    const V = D.inflacion, A0 = 2015, n = V.length;
+    const barras = $$('.barras-lista button', expl), desde = $('#tajada-desde', expl), hasta = $('#tajada-hasta', expl);
+    const oD = $('output[for=tajada-desde]', expl), oH = $('output[for=tajada-hasta]', expl);
+    const cajaE = $('[data-lee=elegida]', expl), cajaT = $('[data-lee=tajada]', expl);
+    let elegida = 7;
+    const pinta2 = () => {
+      let a = +desde.value, b = +hasta.value;
+      if (a >= b) { if (document.activeElement === desde) { b = a + 1; hasta.value = b; } else { a = b - 1; desde.value = a; } }
+      oD.textContent = a; oH.textContent = b;
+      barras.forEach((x, i) => { x.classList.toggle('en-tajada', i >= a && i < b); x.classList.toggle('elegida', i === elegida); x.setAttribute('aria-pressed', i === elegida); });
+      const v = V[elegida];
+      cajaE.innerHTML = `Toque una barra. <span class="grande">inflacion[${elegida}] → ${py(v)}</span>Es la misma que <code>inflacion[${elegida - n}]</code>, contando desde el final. Corresponde a ${A0 + elegida}.`;
+      const t = V.slice(a, b), prom = t.reduce((s, x) => s + x, 0) / t.length;
+      const neg = b === n ? `inflacion[${a - n}:]` : `inflacion[${a - n}:${b - n}]`;
+      cajaT.innerHTML = `Mueva los dos deslizadores. <span class="grande">inflacion[${a}:${b}] → [${t.map(py).join(', ')}]</span>Entra la posición ${a} y no entra la ${b}: son ${t.length} ${t.length === 1 ? 'dato' : 'datos'}, de ${A0 + a} a ${A0 + b - 1}. Con negativos: <code>${neg}</code>. Promedio: <b>${dec(prom)} %</b>.`;
+    };
+    barras.forEach((x, i) => x.addEventListener('click', () => { elegida = i; pinta2(); }));
+    [desde, hasta].forEach(r => r.addEventListener('input', pinta2));
+    pinta2();
+  }
+
+  /* ---------- 12. La tupla sellada ---------- */
+  const sell = $('#sellado');
+  if (sell) {
+    const reg = $('.registro', sell), sello = $('.sello', sell), sueltas = $('#cajitas-sueltas'), cons = $('.consola[data-consola=tuplas]');
+    const VALS = [['anio', '2022'], ['salario', '1000000'], ['inflacion', '13.12']];
+    cons.addEventListener('resultado', e => {
+      const { linea, r } = e.detail;
+      $$('span', reg).forEach(s => s.classList.remove('leida'));
+      if (r.estado === 'error') {
+        reg.classList.remove('sacude'); sello.classList.remove('late'); void reg.offsetWidth;
+        reg.classList.add('sacude'); sello.classList.add('late');
+        return;
+      }
+      const m = linea.trim().match(/^registro\[(-?\d)\]$/);
+      if (m) { const i = (+m[1] + 3) % 3; const s = $$('span', reg)[i]; if (s) s.classList.add('leida'); }
+      if (/^\s*anio\s*,\s*salario\s*,\s*inflacion\s*=\s*registro/.test(linea)) sueltas.innerHTML = VALS.map(([k, v]) => `<li>${k} = ${v}</li>`).join('');
+    });
+    cons.addEventListener('reinicio', () => { sueltas.innerHTML = ''; });
+  }
+
+  /* ---------- 13. La cajonera del diccionario ---------- */
+  const caj = $('#cajonera');
+  if (caj) {
+    const IPC = D.ipc, cajones = $$('.cajon', caj.parentElement), resp = $('#respuesta-cajon'), form = $('#buscador-cajon'), inp = $('#clave-cajon');
+    const abre = (k, solo) => cajones.forEach(c => { if (solo) c.classList.toggle('abierto', c.dataset.clave === k); else if (c.dataset.clave === k) c.classList.add('abierto'); });
+    cajones.forEach(c => c.addEventListener('click', () => {
+      const k = c.dataset.clave; const abierto = c.classList.toggle('abierto');
+      cajones.forEach(x => x.classList.remove('destaca'));
+      resp.innerHTML = abierto ? `<code>ipc["${esc(k)}"]</code> → <b>${py(IPC[k])}</b>. Se buscó por la etiqueta, no por la posición.` : '';
+    }));
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const txt = inp.value.trim(); if (!txt) return;
+      cajones.forEach(x => x.classList.remove('destaca'));
+      try {
+        const r = await llamar('consola', 'cajonera', D.consolas.diccionarios, `ipc[${txt}]`);
+        if (r.estado === 'ok') { const k = txt.replace(/^["']|["']$/g, ''); abre(k, true); resp.innerHTML = `<code>ipc[${esc(txt)}]</code> → <b>${esc(r.valor)}</b>`; }
+        else { cajones.forEach(c => c.classList.remove('abierto')); resp.innerHTML = `<span class="falla">${r.mensaje}</span>`; caj.classList.remove('sacude'); void caj.offsetWidth; caj.classList.add('sacude'); }
+      } catch (err) { resp.textContent = SIN_PYTHON; }
+    });
+    $$('[data-cajon]', caj.parentElement).forEach(b => b.addEventListener('click', () => {
+      const q = b.dataset.cajon;
+      cajones.forEach(x => x.classList.remove('destaca', 'abierto'));
+      if (q === 'mayores') {
+        const ks = Object.keys(IPC).filter(k => IPC[k] > 5.10);
+        ks.forEach(k => { const c = cajones.find(x => x.dataset.clave === k); c.classList.add('abierto', 'destaca'); });
+        resp.innerHTML = `<code>for division, variacion in ipc.items(): if variacion &gt; 5.10</code> → ${ks.length} de ${Object.keys(IPC).length}: ${ks.join(' · ')}. Subieron más que el promedio del país.`;
+      } else if (q === 'max') {
+        const k = Object.keys(IPC).reduce((a, b2) => IPC[b2] > IPC[a] ? b2 : a);
+        const c = cajones.find(x => x.dataset.clave === k); c.classList.add('abierto', 'destaca');
+        resp.innerHTML = `<code>max(ipc, key=ipc.get)</code> → <b>'${esc(k)}'</b>: la clave cuyo valor es el mayor (${py(IPC[k])} %).`;
+      } else if (q === 'todos') { cajones.forEach(x => x.classList.add('abierto')); resp.innerHTML = `<code>ipc.values()</code> → los ${cajones.length} valores, sin las etiquetas.`; }
+      else { resp.innerHTML = ''; }
+    }));
+  }
+
+  /* ---------- 14. Conjuntos: dos canastas y una lista con repetidos ---------- */
+  const venn = $('#venn');
+  if (venn) {
+    const marco = venn.closest('.venn-marco'), res = $('#resultado-set'), regiones = { a: $('[data-region=a]', venn), ab: $('[data-region=ab]', venn), b: $('[data-region=b]', venn) };
+    const prods = $$('.productos li', marco.parentElement);
+    const canastas = () => {
+      const A = new Set(), B = new Set();
+      prods.forEach(li => { const p = li.dataset.p; if ($('[data-c=a]', li).checked) A.add(p); if ($('[data-c=b]', li).checked) B.add(p); });
+      return { A, B };
+    };
+    let op = null;
+    const rep = s => s.size ? `{${[...s].sort((x, y) => x.localeCompare(y, 'es')).map(x => `'${x}'`).join(', ')}}` : 'set()';
+    const pinta3 = () => {
+      const { A, B } = canastas();
+      const solo = (X, Y) => [...X].filter(x => !Y.has(x));
+      const chips = arr => arr.sort((x, y) => x.localeCompare(y, 'es')).map(x => `<li data-p="${x}">${x}</li>`).join('');
+      regiones.a.innerHTML = chips(solo(A, B)); regiones.b.innerHTML = chips(solo(B, A)); regiones.ab.innerHTML = chips([...A].filter(x => B.has(x)));
+      venn.classList.toggle('operando', !!op);
+      if (!op) { res.innerHTML = `<small>canasta_a tiene ${A.size} productos y canasta_b ${B.size}. Elija una operación.</small>`; return; }
+      let R, txt;
+      if (op === 'y') { R = new Set([...A].filter(x => B.has(x))); txt = 'canasta_a & canasta_b'; }
+      else if (op === 'o') { R = new Set([...A, ...B]); txt = 'canasta_a | canasta_b'; }
+      else if (op === 'a-b') { R = new Set(solo(A, B)); txt = 'canasta_a - canasta_b'; }
+      else { R = new Set(solo(B, A)); txt = 'canasta_b - canasta_a'; }
+      $$('.region li', venn).forEach(li => li.classList.toggle('resultado', R.has(li.dataset.p)));
+      const que = { y: 'lo que compran las dos', o: 'todo lo que compran entre las dos, sin repetir', 'a-b': 'lo que solo compra A', 'b-a': 'lo que solo compra B' }[op];
+      res.innerHTML = `${esc(txt)} → ${esc(rep(R))}<small>${que} · len(...) → ${R.size}. Python puede mostrar los elementos en otro orden: un conjunto no tiene orden.</small>`;
+    };
+    $$('.productos input', marco.parentElement).forEach(i => i.addEventListener('change', pinta3));
+    $$('[data-op]', marco).forEach(b => b.addEventListener('click', () => { op = b.dataset.op === 'nada' ? null : b.dataset.op; $$('[data-op]', marco).forEach(x => x.setAttribute('aria-pressed', x === b && !!op)); pinta3(); }));
+    pinta3();
+  }
+  const rep = $('#repetidos');
+  if (rep) {
+    const lis = $$('.fichas li', rep), out = $('.resultado-set', rep), btn = $('[data-accion=set]', rep);
+    let hecho = false;
+    btn.addEventListener('click', () => {
+      hecho = !hecho;
+      const vistos = new Set();
+      lis.forEach(li => { const v = li.dataset.v; const dup = vistos.has(v); vistos.add(v); li.classList.toggle('sale', hecho && dup); });
+      btn.textContent = hecho ? 'Volver a la lista' : 'set(ciudades)';
+      out.innerHTML = hecho ? `set(ciudades) → {${[...vistos].map(x => `'${x}'`).join(', ')}}<small>len(set(ciudades)) → ${vistos.size}: la encuesta se hizo en ${vistos.size} ciudades, no en ${lis.length}.</small>`
+                            : `len(ciudades) → ${lis.length}<small>Siete respuestas. ¿Siete ciudades?</small>`;
+    });
+  }
+
+  /* ---------- 15. La tabla viva ---------- */
+  const tv = $('#tabla-viva');
+  if (tv) {
+    const R0 = D.registros, codigo = $('.tv-codigo', tv), tabla = $('.tv-tabla', tv), nota = $('.tv-nota', tv), paso = $('.tv-paso', tv);
+    const sup = $('#supuesto-2026'), supR = $('#inflacion-2026'), supO = $('output[for=inflacion-2026]');
+    let filas, transformado, filtrado, con2026;
+    const realDe = f => redondo(((1 + f.aumento / 100) / (1 + f.inflacion / 100) - 1) * 100, 2);
+    const reinicia = () => { filas = R0.map(f => ({ ...f })); transformado = false; filtrado = false; con2026 = false; sup.hidden = true; paso.innerHTML = ''; nota.textContent = 'Pase el cursor (o el dedo) por una línea del código: se ilumina su fila en la tabla. Pase por una clave: se ilumina su columna.'; dibuja(); };
+    const num2 = v => v.toFixed(2);
+    function dibuja() {
+      const todas = con2026 ? [...filas, { anio: 2026, aumento: 23.0, inflacion: +supR.value, supuesto: true }] : filas;
+      if (transformado) todas.forEach(f => { f.real = realDe(f); });
+      const cols = ['anio', 'aumento', 'inflacion', ...(transformado ? ['real'] : [])];
+      const k = c => `<span class="clave-c" data-col="${c}">"${c}"</span>`;
+      codigo.innerHTML = 'registros = [' + todas.map((f, i) => `${i ? '\n             ' : ''}<span class="fila-c" data-f="${i}">{${k('anio')}: ${f.anio}, ${k('aumento')}: ${num2(f.aumento)}, ${k('inflacion')}: ${num2(f.inflacion)}${transformado ? `, <span class="nueva">${k('real')}: ${py(f.real)}</span>` : ''}}</span>`).join(',') + ']' + (con2026 ? '\n# la fila de 2026 es un supuesto: su inflación aún no se conoce' : '');
+      tabla.innerHTML = `<thead><tr><th></th>${cols.map(c => `<th data-col="${c}" class="${c === 'real' ? 'nueva-col' : ''}">${c}</th>`).join('')}</tr></thead><tbody>${todas.map((f, i) => `<tr data-f="${i}" tabindex="0" class="${f.supuesto ? 'supuesto' : ''} ${filtrado && !(f.real < 0) ? 'fuera' : ''}"><td>${i}</td>${cols.map(c => `<td data-col="${c}" class="num ${c === 'real' ? 'nueva-col' : ''}">${c === 'anio' ? f[c] : dec(f[c])}</td>`).join('')}</tr>`).join('')}</tbody>`;
+      $$('.fila-c', codigo).forEach(s => {
+        const on = v => { $$(`tr[data-f="${s.dataset.f}"]`, tabla).forEach(t => t.classList.toggle('foco', v)); };
+        s.addEventListener('mouseenter', () => on(true)); s.addEventListener('mouseleave', () => on(false));
+      });
+      $$('tr[data-f]', tabla).forEach(t => {
+        const on = v => { $$(`.fila-c[data-f="${t.dataset.f}"]`, codigo).forEach(s => s.classList.toggle('foco', v)); t.classList.toggle('foco', v); };
+        ['mouseenter', 'focus'].forEach(ev => t.addEventListener(ev, () => on(true))); ['mouseleave', 'blur'].forEach(ev => t.addEventListener(ev, () => on(false)));
+      });
+      $$('.clave-c', codigo).forEach(s => {
+        const on = v => { $$(`.clave-c[data-col="${s.dataset.col}"]`, codigo).forEach(x => x.classList.toggle('foco', v)); $$(`[data-col="${s.dataset.col}"]`, tabla).forEach(x => x.classList.toggle('foco', v)); };
+        s.addEventListener('mouseenter', () => on(true)); s.addEventListener('mouseleave', () => on(false));
+      });
+    }
+    $$('[data-tv]', tv).forEach(b => b.addEventListener('click', () => {
+      const q = b.dataset.tv;
+      if (q === 'transformar') {
+        transformado = true;
+        paso.innerHTML = `<pre class="codigo">for fila in registros:                    # TRANSFORMAR
+    real = (1 + fila["aumento"] / 100) / (1 + fila["inflacion"] / 100) - 1
+    fila["real"] = round(real * 100, 2)</pre>`;
+        nota.textContent = 'Cada fila ganó la clave "real": la tabla tiene ahora cuatro columnas. La variación real dice si el mínimo compró más o menos que el año anterior.';
+      } else if (q === 'filtrar') {
+        if (!transformado) { nota.textContent = 'Primero transforme: para filtrar por "real", esa columna tiene que existir.'; return; }
+        filtrado = !filtrado;
+        paso.innerHTML = filtrado ? `<pre class="codigo">perdio = [fila for fila in registros if fila["real"] &lt; 0]   # en Python puro
+tabla[tabla["real"] &lt; 0]                                     # lo mismo en pandas</pre>` : '';
+        const quedan = (con2026 ? [...filas, { anio: 2026, aumento: 23, inflacion: +supR.value }] : filas).filter(f => realDe(f) < 0).map(f => f.anio);
+        nota.textContent = filtrado ? `ANALIZAR: quedan ${quedan.length} filas (${quedan.join(' y ') || 'ninguna'}). En esos años el mínimo subió menos que los precios.` : 'Se quitó el filtro: la tabla vuelve a mostrar todas las filas.';
+      } else if (q === '2026') {
+        con2026 = !con2026; sup.hidden = !con2026;
+        nota.textContent = con2026 ? 'Agregó 2026: el mínimo subió 23 %, pero la inflación de 2026 todavía no se conoce. Supóngala con el deslizador.' : 'Quitó la fila de 2026.';
+      } else reinicia();
+      dibuja();
+    }));
+    const mueve = () => {
+      supO.textContent = dec(+supR.value, 1) + ' %';
+      const real = realDe({ aumento: 23, inflacion: +supR.value });
+      $('#veredicto-2026').innerHTML = `Con una inflación de ${dec(+supR.value, 1)} %, el mínimo de 2026 ${real >= 0 ? `<b>gana</b> ${dec(real)} % de poder de compra` : `<b>pierde</b> ${dec(-real)} % de poder de compra`}. Deja de ganar cuando la inflación pasa de 23 %.`;
+      dibuja();
+    };
+    supR.addEventListener('input', mueve);
+    reinicia(); mueve();
+  }
+
+  /* ---------- 16. Comprobar lo que hizo a mano ---------- */
+  const NUM_RE = /-?\d{1,3}(?:\.\d{3})+(?![\d.])|-?\d+(?:\.\d+|,\d{1,2}(?!\d))?/g;
+  const aNum = t => {
+    t = t.trim().replace(/[$%\s]/g, '');
+    if (/^-?\d{1,3}(\.\d{3})+$/.test(t)) t = t.replace(/\./g, '');
+    else if (/^-?\d+,\d+$/.test(t)) t = t.replace(',', '.');
+    else if (/^-?\d{1,3}(\.\d{3})+,\d+$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+    return t === '' ? NaN : Number(t);
+  };
+  const numeros = t => (t.match(NUM_RE) || []).map(x => aNum(x));
+  const CIERRA = { lista: ['[', ']'], tupla: ['(', ')'], conjunto: ['{', '}'] };
+  function evalua(p, txt, elegido) {
+    if (p.tipo === 'opcion') return elegido === undefined ? null : elegido === p.ok;
+    if (!txt.trim()) return null;
+    if (p.tipo === 'num') { const v = aNum(txt); return Math.abs(v - p.ok) <= (p.tol || 0) + 1e-9 ? true : false; }
+    const ns = numeros(txt), ok = p.ok;
+    const iguales = p.tipo === 'conjunto' ? JSON.stringify([...ns].sort((a, b) => a - b)) === JSON.stringify([...ok].sort((a, b) => a - b))
+                                          : JSON.stringify(ns) === JSON.stringify(ok);
+    if (!iguales) return false;
+    const [a, b] = CIERRA[p.tipo] || ['', ''];
+    const t = txt.trim();
+    if (a && !(t.startsWith(a) && t.endsWith(b))) return 'forma';
+    return true;
+  }
+  const NOMBRE = { lista: 'una lista, entre corchetes [ ]', tupla: 'una tupla, entre paréntesis ( )', conjunto: 'un conjunto, entre llaves { }' };
+  $$('.valida[data-v]').forEach(v => {
+    const k = v.dataset.v, spec = D.valida[k], lis = $$('.valida-lista > li', v), resumen = $('.valida-resumen', v);
+    const elegidos = {};
+    const previo = JSON.parse(leer('valida:' + k) || '{}');
+    lis.forEach((li, i) => {
+      const inp = $('input', li);
+      if (inp && previo[i] !== undefined) inp.value = previo[i];
+      $$('.eleccion button', li).forEach((b, j) => {
+        b.addEventListener('click', () => { elegidos[i] = j; $$('.eleccion button', li).forEach(x => x.setAttribute('aria-pressed', x === b)); });
+        if (previo[i] === j) { elegidos[i] = j; b.setAttribute('aria-pressed', 'true'); }
+      });
+    });
+    $('[data-accion=validar]', v).addEventListener('click', () => {
+      let bien = 0; const guarda = {};
+      lis.forEach((li, i) => {
+        const p = spec.preguntas[i], inp = $('input', li), ayuda = $('.ayuda', li);
+        const r = evalua(p, inp ? inp.value : '', elegidos[i]);
+        guarda[i] = inp ? inp.value : elegidos[i];
+        li.classList.toggle('bien', r === true); li.classList.toggle('mal', r !== true && r !== null);
+        ayuda.innerHTML = r === true ? '' : r === null ? 'Falta su respuesta.' : r === 'forma' ? `Los valores están bien, pero se escribe como ${NOMBRE[p.tipo]}.` : p.mal;
+        if (r === true) bien += 1;
+      });
+      guardar('valida:' + k, JSON.stringify(guarda));
+      resumen.textContent = bien === lis.length ? `✓ Las ${lis.length} respuestas coinciden con las de Python. Su trabajo a mano está bien.` : `${bien} de ${lis.length} bien. Revise las marcadas con ✗: la pista dice por dónde buscar.`;
+      if (bien === lis.length) resolver(k);
+    });
+    $('[data-accion=python]', v).addEventListener('click', async () => {
+      try {
+        const out = await llamar('verificar', spec.preludio, JSON.stringify(spec.preguntas.map(p => p.expr)));
+        lis.forEach((li, i) => { const o = out[i], cel = $('.python', li); if (!o) { cel.innerHTML = ''; return; } cel.innerHTML = o.ok ? esc(o.valor) : `${esc(o.valor)}: ${o.mensaje.replace(/<[^>]+>/g, '')}`; });
+      } catch (e) { resumen.textContent = SIN_PYTHON; }
+    });
+    $('[data-accion=borrar]', v).addEventListener('click', () => {
+      lis.forEach((li, i) => { const inp = $('input', li); if (inp) inp.value = ''; delete elegidos[i]; $$('.eleccion button', li).forEach(x => x.setAttribute('aria-pressed', 'false')); li.classList.remove('bien', 'mal'); $('.ayuda', li).innerHTML = ''; $('.python', li).innerHTML = ''; });
+      resumen.textContent = ''; guardar('valida:' + k, '{}');
+    });
+  });
+
+  /* ---------- 17. Para la casa: la inflación de su hogar ---------- */
+  const hogar = $('#hogar');
+  if (hogar) {
+    const IPC = D.ipc, BASE = D.gasto, divs = Object.keys(BASE), sl = $$('.gastos input', hogar);
+    const COLORES = ['var(--s1)', 'var(--s2)', 'var(--s3)', 'var(--s4)', 'var(--s5)', 'var(--s6)'];
+    const ESCALA = 8;
+    const guardado = JSON.parse(leer('hogar') || 'null');
+    if (guardado) sl.forEach((s, i) => { if (guardado[i] !== undefined) s.value = guardado[i]; });
+    const calc = () => {
+      const g = sl.map(s => +s.value), total = g.reduce((a, b) => a + b, 0);
+      sl.forEach((s, i) => { $(`output[for="${s.id}"]`, hogar).textContent = '$' + miles(g[i]); });
+      guardar('hogar', JSON.stringify(g));
+      const filas = divs.map((d, i) => { const peso = total ? g[i] / total : 0; return { d, gasto: g[i], peso, inf: IPC[d], aporte: peso * IPC[d], color: COLORES[i] }; });
+      const personal = filas.reduce((a, f) => a + f.aporte, 0);
+      const mayor = filas.reduce((a, f) => f.aporte > a.aporte ? f : a, filas[0]);
+      $('.cifra-hogar', hogar).innerHTML = total ? `${dec(personal)} <small>%</small>` : '— <small>%</small>';
+      const dif = personal - 5.10;
+      $('.frase-hogar', hogar).innerHTML = !total ? 'Mueva al menos un deslizador: un hogar sin gasto no tiene inflación.'
+        : `Esta es la inflación personal de este hogar en 2025: ${Math.abs(dif) < .005 ? 'igual a' : dif > 0 ? `<b>${dec(dif)} puntos más</b> que` : `<b>${dec(-dif)} puntos menos</b> que`} la del titular, 5,10 %. Lo que más aporta: ${mayor.d.toLowerCase()} (${dec(mayor.aporte)} puntos).`;
+      let x = 0;
+      $('.apilada', hogar).innerHTML = filas.map(f => { const w = f.aporte / ESCALA * 100; const h = `<span class="tramo" style="left:${x}%;width:${w}%;background:${f.color}" title="${f.d}: ${dec(f.aporte)} puntos"></span>`; x += w; return h; }).join('') + `<span class="pais" style="left:${5.10 / ESCALA * 100}%"><span>país 5,10 %</span></span>`;
+      $('.aportes tbody', hogar).innerHTML = filas.map(f => `<tr class="${f === mayor && total ? 'mayor' : ''}"><td><span class="muestra" style="background:${f.color}"></span>${f.d}</td><td>${dec(f.peso * 100, 1)} %</td><td>${dec(f.inf)} %</td><td>${dec(f.aporte)}</td></tr>`).join('');
+      $('.aportes tfoot td:last-child', hogar).textContent = dec(personal);
+    };
+    sl.forEach(s => s.addEventListener('input', calc));
+    $('[data-accion=hogar-base]', hogar).addEventListener('click', () => { sl.forEach((s, i) => { s.value = BASE[divs[i]]; }); calc(); });
+    calc();
+  }
+
+  /* ---------- 18. Navegación por estaciones ---------- */
+  const enlaces = $$('.bn-lista a');
+  const secciones = enlaces.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+  let pend = false, ultimo = null;
+  const marcar = () => {
+    pend = false;
+    let mejor = null;
+    secciones.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * .4) mejor = s.id; });
+    if (mejor === ultimo) return;
+    ultimo = mejor;
+    enlaces.forEach(a => a.setAttribute('aria-current', a.dataset.sec === mejor));
+    const act = enlaces.find(a => a.dataset.sec === mejor);
+    if (act) { const l = act.closest('.bn-lista'); l.scrollTo({ left: act.offsetLeft - l.clientWidth / 2 + act.clientWidth / 2 }); }
+  };
+  addEventListener('scroll', () => { if (!pend) { pend = true; requestAnimationFrame(marcar); } }, { passive: true });
+  marcar();
+  addEventListener('beforeprint', () => $$('details').forEach(d => d.open = true));
+})();
+
+</script>
