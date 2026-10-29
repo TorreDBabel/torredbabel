@@ -9,6 +9,9 @@
 // La pieza anterior, /choco, va en el registro «Placa»: el tablero se mira, la
 // separata se sustenta. El cambio de registro es deliberado.
 // Letras del registro: Crimson Pro, Libre Franklin y Roboto Mono.
+//
+// GENERADO por entrega/generar_pagina.py desde entrega/cifra-intervalo.html.
+// No editar aquí: editar el artefacto y volver a generar.
 import Base from '../layouts/Base.astro';
 import '@fontsource-variable/crimson-pro/wght.css';
 import '@fontsource-variable/crimson-pro/wght-italic.css';
@@ -44,29 +47,37 @@ import '../styles/separata.css';
     <h1 class="lema"><span class="par"><span class="nx">Del</span> <span class="w1">archivo</span></span><span
       class="par"><span class="nx">al</span> <span class="w2">presente</span></span></h1>
     <p class="entradilla">El archivo del daño del Chocó explica bien la guerra que lo produjo y
-      deja de explicar lo que vino después del acuerdo de paz. Esta separata mide las dos cosas,
-      dice qué podemos explicar hoy con lo que tenemos y qué haría falta para explicar lo demás.</p>
+      deja de explicar lo que vino después del acuerdo de paz. La primera parte de esta separata mide
+      las dos cosas y precisa qué permitía saber ese archivo en su momento; la segunda, qué falta
+      para explicar lo demás y hasta dónde llega el método fuera del Chocó.</p>
     <p class="firma">Alexander Beltrán · Maestría en Ciencia de Datos, Universidad Ean ·
       Bogotá, octubre de 2026</p>
   </div>
 
   <p class="clave">A lo largo de la página, la <mark class="pub">versalita ocre</mark> marca lo
     anterior al acuerdo de paz y la <mark class="rev">versalita índigo</mark> lo posterior, de modo
-    que cada afirmación dice de qué lado de 2016 está. La <mark class="nov">versalita granate</mark>
-    queda para lo que no pudimos verificar. El código no cambia de significado en ningún punto.</p>
+    que cada afirmación dice de qué lado de 2016 está. La
+    <mark class="nov">versalita granate</mark> queda para lo que no pudimos verificar. El código no cambia de significado en ningún punto.</p>
 
   <div class="ruta">
-    <p>El recorrido va de un régimen al otro, y termina en lo que falta:</p>
+    <p>La separata va en dos partes, cada una con sus conclusiones:</p>
     <ol>
-      <li data-n="1"><b>El archivo.</b> Ocho fuentes, un panel de 1.054 filas, y qué significa un cero.</li>
-      <li data-n="2"><b>Antes del acuerdo.</b> Lo que la memoria explica, y cuánto.</li>
-      <li data-n="3"><b>Después del acuerdo.</b> Lo que la memoria deja de explicar.</li>
-      <li data-n="4"><b>El giro, probado en los dos sentidos.</b></li>
-      <li data-n="5"><b>Lo que hoy podemos explicar</b> y lo que podríamos con más variables.</li>
-      <li data-n="6"><b>Lo que corregimos.</b></li>
+      <li data-n="I"><b>Lo que el archivo permitía saber.</b> Las nueve fuentes y el panel (§1), lo
+        que la memoria explica dentro del régimen que la produjo (§2), lo que deja de explicar
+        después del acuerdo (§3), y el giro probado en los dos sentidos (§4).</li>
+      <li data-n="II"><b>El terreno que se está preparando.</b> Lo que hoy se puede afirmar y con
+        qué estado, las variables de contexto que faltan, de dónde saldrían y hasta dónde llega la
+        arquitectura si se lleva al resto del país (§5). Cierra el registro de correcciones (§6).</li>
     </ol>
   </div>
 
+  </div>
+
+  <div class="parte">
+    <span class="n">Primera parte</span>
+    <h2>Lo que el archivo permitía saber</h2>
+    <p>Un expediente de treinta y cuatro años, convertido en panel y medido fuera de muestra: qué
+      ordena, con cuánto margen, y en qué momento exacto deja de ordenar.</p>
   </div>
 
   <!-- ========== 1. EL ARCHIVO ========== -->
@@ -180,7 +191,8 @@ import '../styles/separata.css';
     <p>En 2026, seis municipios del Chocó registraron ataques con drones o artefactos lanzados: El
       Litoral del San Juan, Condoto, Nóvita, Río Iró, Sipí y Bajo Baudó. Cuatro de los seis estaban
       en el nivel más bajo del semáforo. Río Iró, el último atacado, no registra un solo hecho de
-      reclutamiento en los treinta y cuatro años de la serie.</p>
+      reclutamiento en el expediente que modelamos; una fuente independiente, descrita más abajo,
+      documenta allí 6,3 víctimas entre 1995 y 2015.</p>
 
     <p>Medido como problema de ordenamiento, el semáforo da un AUC de
       <mark class="nov">0,337</mark>. Pero con seis desenlaces el intervalo va de 0,123 a 0,577 y
@@ -188,12 +200,89 @@ import '../styles/separata.css';
       las 736.281 maneras de repartir seis ataques entre 31 municipios— da un valor p bilateral de
       0,230.</p>
 
+    <p>Un resultado así admite una explicación benigna: que la memoria sí informe y nosotros la
+      hayamos medido mal. El expediente que modelamos cuenta solo hechos atribuidos a las antiguas
+      FARC-EP, y en el Chocó ese actor explica el 41,8 % del fenómeno frente al 39,3 % del ELN. Para
+      descartarlo se recurre a una novena fuente: los microdatos del proyecto conjunto entre la
+      Jurisdicción Especial para la Paz, la Comisión de la Verdad y el Human Rights Data Analysis
+      Group, que reconstruyen <mark class="pub">19.226 víctimas únicas</mark> de reclutamiento en 808
+      municipios entre 1990 y 2017 a partir de treinta y cuatro listas, con cien réplicas de
+      imputación múltiple. En el Chocó registran 654 víctimas en 29 municipios.</p>
+
+    <div class="tabla-env">
+      <table>
+        <caption>Ocho maneras de medir la memoria, y el mismo resultado</caption>
+        <thead><tr><th>Cómo se mide la memoria histórica</th><th class="num">AUC</th>
+          <th class="num">IC 95 %</th><th class="num">p</th></tr></thead>
+        <tbody>
+          <tr class="post"><td class="nom">Fuente independiente, todo el periodo y todos los actores</td>
+            <td class="num">0,500</td><td class="num">0,240 – 0,753</td><td class="num">1,000</td></tr>
+          <tr><td class="nom">Fuente independiente, solo ELN</td>
+            <td class="num">0,553</td><td class="num">0,260 – 0,833</td><td class="num">0,709</td></tr>
+          <tr><td class="nom">Fuente independiente, últimos cinco años (2013–2017)</td>
+            <td class="num">0,533</td><td class="num">0,257 – 0,807</td><td class="num">0,826</td></tr>
+          <tr><td class="nom">Fuente independiente, últimos diez años (2008–2017)</td>
+            <td class="num">0,527</td><td class="num">0,260 – 0,787</td><td class="num">0,859</td></tr>
+          <tr><td class="nom">Fuente independiente, sin FARC (ELN, paramilitares, otros)</td>
+            <td class="num">0,493</td><td class="num">0,220 – 0,773</td><td class="num">0,974</td></tr>
+          <tr><td class="nom">Fuente independiente, solo FARC</td>
+            <td class="num">0,460</td><td class="num">0,267 – 0,653</td><td class="num">0,779</td></tr>
+          <tr><td class="nom">Nuestro expediente (hechos de la era FARC)</td>
+            <td class="num">0,383</td><td class="num">0,157 – 0,633</td><td class="num">0,396</td></tr>
+          <tr class="antes"><td class="nom"><b>Nuestro semáforo publicado</b></td>
+            <td class="num">0,337</td><td class="num">0,123 – 0,580</td><td class="num">0,230</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="nota-fig">AUC calculado sobre los 31 municipios con los seis ataques de 2026 como
+      desenlace. Valor p bilateral por enumeración exacta de las 736.281 reparticiones posibles;
+      intervalo por remuestreo estratificado de los dos grupos, B = 10.000. Los ocho intervalos
+      contienen 0,5 y ninguno de los ocho valores p baja de 0,20. La tabla no muestra capacidad
+      predictiva de ninguna de las ocho medidas sobre otros desenlaces, ni descarta que con más
+      ataques observados alguna de ellas llegue a separarse del azar.</p>
+
     <div class="reserva">
       <span class="et">Lo que se puede y no se puede afirmar</span>
       <p>El ordenamiento histórico <b>no mostró información</b> sobre dónde cayeron los ataques de
         2026. Eso es distinto de haber mostrado información invertida. Con seis desenlaces no se
         puede distinguir una cosa de la otra, y cualquier cifra que reste este AUC a otro —como la
         «brecha de deriva» que publicamos en una versión anterior— no es reportable.</p>
+      <p>Lo que la novena fuente permite afirmar es más estrecho y más firme: el resultado
+        <b>no depende de cómo midamos la memoria</b>. Medirla con todos los actores, con el actor hoy
+        activo, o restringirla a los años inmediatamente anteriores al acuerdo no mueve el AUC fuera
+        del azar. La hipótesis benigna —que el archivo informaba y nosotros lo medimos mal— queda
+        descartada con los datos disponibles. Queda en pie la otra: que el reclutamiento posterior al
+        acuerdo ocupa un territorio que el archivo anterior no describe.</p>
+    </div>
+
+    <h3 class="sub">Lo que el contraste sí corrigió</h3>
+
+    <p>La novena fuente no cambia el resultado central, pero sí corrige dos lecturas del tablero, y
+      las dos van en contra de lo que publicamos.</p>
+
+    <p>La primera son los ceros. Cinco municipios no registran un solo hecho en los treinta y cuatro
+      años, y la página advertía que un renglón vacío puede ser un territorio del que no se sabe.
+      <mark class="nov">Tres de los cinco</mark> tienen víctimas documentadas en la fuente
+      independiente: Río Iró 6,3, Cértegui 2,1 y El Cantón del San Pablo 1,1. Los otros dos siguen en
+      cero en las dos fuentes, y con dos fuentes no se puede distinguir un territorio sin hechos de
+      uno sin cobertura.</p>
+
+    <p>La segunda es más costosa. <b>Bajo Baudó</b> aparece en el panel con 3 hechos, en el puesto 23 del semáforo
+      y en el nivel bajo del semáforo. En la fuente independiente tiene
+      <mark class="nov">45,3 víctimas</mark> y ocupa el puesto 4, con 34,2 atribuidas al ELN y una
+      serie que crece justo antes del acuerdo —6,1 en 2013, 4,0 en 2014, 9,2 en 2015 y 9,0 en 2016—.
+      Fue atacado con drones en 2026.</p>
+
+    <div class="reserva">
+      <span class="et">De dónde viene la diferencia</span>
+      <p>No de un defecto del modelo, sino del alcance del expediente: cuenta hechos atribuidos a las
+        antiguas FARC-EP, que explican el <b>41,8 %</b> del fenómeno medido en el Chocó, frente al
+        39,3 % del ELN y el 11,7 % de las estructuras paramilitares. Bajo Baudó quedó en el nivel bajo
+        porque el actor que allí recluta no estaba en la cuenta.</p>
+      <p>Las dos series siguen midiendo cosas distintas —hechos frente a víctimas, periodos que no
+        coinciden— y correlacionan a 0,76 entre municipios, de modo que concuerdan en la forma del
+        territorio. Lo que no se puede hacer es sumarlas ni usar una para validar el conteo de la
+        otra.</p>
     </div>
 
     <p>Y hay algo que el propio departamento ya sabía. La Defensoría del Pueblo había emitido
@@ -295,15 +384,56 @@ import '../styles/separata.css';
       <p>Y cierra una puerta con evidencia: meter el corredor como variable en el modelo de
         reclutamiento del Chocó queda descartado. No por opinión, por medición.</p>
     </div>
+
+    <div class="cierre">
+      <span class="et">Conclusiones de la primera parte</span>
+      <ol>
+        <li><b>El archivo ordenaba el territorio, y se puede decir con cuánta
+          precisión.</b> AUC-ROC de 0,788 contra una línea base de persistencia de 0,714, fuera de
+          muestra y en
+          once ventanas sucesivas; el semáforo es monótono, con una razón de tasas de 5,67 entre el
+          nivel alto y el bajo, y el nivel alto concentra el 77 % del daño registrado en el 33 % del
+          territorio. Precisión@5 de 0,836: de los cinco municipios priorizados cada año, cuatro
+          registraron hecho.</li>
+        <li><b>Ese ordenamiento era lo que faltaba, no la advertencia.</b> La Defensoría del Pueblo
+          emitió alertas tempranas en 30 de los 31 municipios, y los seis atacados en 2026 estaban
+          los seis advertidos. Pero el número de alertas no los distingue del resto —5,17 frente a
+          5,24, con p de 0,799—, de modo que advertir no repartía prioridad. Donde todo está
+          advertido, un orden defendible es la pieza que no existía.</li>
+        <li><b>Nada de esto requería datos que no existieran.</b> Las nueve fuentes son oficiales y
+          todas anteriores a los ataques de 2026; ocho de ellas son de descarga abierta, y el panel
+          completo se reconstruye desde una sola con un guion. Lo que no existía no era el dato ni la
+          técnica: era el panel con el cero explícito y la validación que permite leer cada cifra con
+          su margen.</li>
+        <li><b>El instrumento tiene una fecha de caducidad, y está medida.</b> Sobre los ataques de
+          2026 el intervalo del AUC contiene el azar, y las ocho maneras de medir la memoria dan el
+          mismo resultado. Un sistema construido sobre este archivo habría ordenado bien hasta 2016
+          y habría dejado de hacerlo después, y la propia serie avisa del cambio: en 2017 el ELN pasa
+          a explicar el 68,4 % del reclutamiento registrado en el Chocó, frente al 26,4 % de las
+          FARC-EP.</li>
+        <li><b>El punto ciego más caro era de alcance, no de método.</b> Contar solo los hechos
+          atribuidos a las antiguas FARC-EP dejó fuera el 58,2 % del fenómeno y puso a Bajo Baudó en
+          el puesto 23 del semáforo y en su nivel bajo, cuando en la fuente independiente ocupa el
+          puesto 4 y su serie crece justo antes del acuerdo. Fue atacado en 2026. La corrección no
+          exige un modelo nuevo: exige contar todos los actores.</li>
+      </ol>
+    </div>
   </section>
+
+  <div class="parte b">
+    <span class="n">Segunda parte</span>
+    <h2>El terreno que se está preparando</h2>
+    <p>Qué se puede afirmar hoy y con qué estado, qué variables faltan y de dónde saldrían, y hasta
+      dónde llega esta arquitectura si se lleva del Chocó al resto del país.</p>
+  </div>
 
   <!-- ========== 5. HOY Y DESPUÉS ========== -->
   <section>
-    <div class="sec-cab"><span class="sec-n">§ 5</span>
+    <div class="sec-cab"><span class="sec-n post">§ 5</span>
       <h2>Lo que hoy podemos explicar</h2></div>
 
-    <p>Conviene separar las tres cosas, porque se confunden con facilidad y la confusión es lo que
-      hunde un trabajo ante un evaluador.</p>
+    <p>Las tres cosas conviene separarlas, porque el lenguaje corriente las confunde: lo que está
+      demostrado, lo que se propone probar y lo que ningún diseño puede entregar.</p>
 
     <div class="tabla-env">
       <table>
@@ -349,10 +479,14 @@ import '../styles/separata.css';
             <span style="font-size:.85em;color:var(--suave)">la serie termina en 2016</span></td>
             <td>Probar el corredor contra el fenómeno que dice explicar, en vez de contra seis
               ataques. Convertiría la hipótesis del §4 en resultado.</td></tr>
-          <tr><td class="nom"><b>Estimación del subregistro</b><br>
-            <span style="font-size:.85em;color:var(--suave)">captura-recaptura sobre varias fuentes</span></td>
-            <td>Separar «no hubo» de «no se registró», que es el límite duro de todo el trabajo.
-              Existen microdatos nacionales con municipio DIVIPOLA y herramienta publicada.</td></tr>
+          <tr class="post"><td class="nom"><b>Estimación del subregistro</b><br>
+            <span style="font-size:.85em;color:var(--suave)">primer paso dado</span></td>
+            <td>Separar «no hubo» de «no se registró», que es el límite duro de todo el trabajo. El
+              contraste del §3 ya dio el primer paso con una segunda fuente y corrigió tres ceros.
+              Falta la estimación propiamente dicha —captura-recaptura con mezclas de clases
+              latentes— que requiere varias listas por estrato: en el Chocó hay 19 municipios con 10
+              o más víctimas y 13 con 10 o más vistas en dos fuentes o más, de modo que es estimable
+              para parte del departamento y no para todo.</td></tr>
           <tr><td class="nom"><b>Variables de contexto anuales</b><br>
             <span style="font-size:.85em;color:var(--suave)">hoy solo la coca lo es</span></td>
             <td>Población flotante, deserción escolar, minería, presencia institucional. Harían del
@@ -371,6 +505,57 @@ import '../styles/separata.css';
         homicidio, amenazas a liderazgos. Lo que no se hereda es la validación: cada fenómeno exige
         su propia calibración y su propia prueba, y el §4 es precisamente la demostración de por
         qué. Un instrumento que funciona en un régimen puede valer cero en otro.</p>
+    </div>
+
+    <h3 class="sub">Hasta dónde llega, medido y no supuesto</h3>
+
+    <p>La extensión al resto del país ya tiene su primer dato, y no es una promesa: la fuente del §3
+      cubre <mark class="rev">808 municipios</mark> con 19.226 víctimas únicas entre 1990 y 2017,
+      presunto responsable, sexo, etnia y edad, y cien réplicas que propagan la incertidumbre de lo
+      imputado en lugar de esconderla. El Chocó, con sus 654 víctimas, es el 3,4 % de ese total: el
+      piloto cabe veintinueve veces dentro del material disponible.</p>
+
+    <p>Eso cambia el orden de magnitud de las tres cosas que limitan el piloto. La rejilla pasa de
+      1.054 municipio-año a más de veintidós mil; las unidades independientes, de 31 a 808, que es lo
+      que estrecharía los intervalos que hoy miden casi cuatro décimas de ancho; y la variable
+      dependiente deja de ser «hechos de un actor» para ser «víctimas de todos los actores», que es
+      la corrección que el §3 midió como la más costosa de las dos que encontró.</p>
+
+    <div class="reserva">
+      <span class="et">Lo que no se hereda al subir de escala</span>
+      <p>Las ocho fuentes de contexto del §1 son del Chocó. La coca del UNODC y la población del DANE
+        son nacionales y anuales, pero las alertas de la Defensoría, los eventos de OCHA y las
+        geometrías fluviales habría que reconstruirlos para cada departamento, y la ribereñidad del
+        Atrato no tiene equivalente en un departamento sin ríos navegables. Un panel nacional no es
+        este panel con más filas: es una decisión nueva sobre qué variables son comparables entre
+        territorios que no se parecen.</p>
+      <p>Tampoco se hereda el régimen. El cambio que el §4 mide para el Chocó —memoria que ordena
+        antes y no después— puede tener otra fecha, otro signo u otra causa en el Catatumbo o en el
+        Cauca, y afirmarlo sin medirlo repetiría exactamente el error que esta separata documenta.</p>
+    </div>
+
+    <div class="cierre b">
+      <span class="et">Conclusiones de la segunda parte</span>
+      <ol>
+        <li><b>Lo demostrado y lo propuesto quedan separados, con su estado explícito.</b> Tres
+          afirmaciones están medidas fuera de muestra y con intervalos; una es hipótesis, porque su
+          índice se construyó viendo el desenlace; y una no será afirmable con ningún diseño, porque
+          un reclutamiento evitado no deja registro.</li>
+        <li><b>Lo que falta son datos, no técnicas.</b> Las cuatro brechas —alertas con fecha,
+          reclutamiento 2017–2026, estimación del subregistro y variables de contexto anuales— se
+          cierran con información que existe en entidades identificadas, y la vía para pedirla son
+          derechos de petición con destinatario y plazo.</li>
+        <li><b>El material para la escala nacional ya está en la mano.</b> 808 municipios, 19.226
+          víctimas únicas, 34 listas y 100 réplicas, en una fuente oficial de descarga abierta. El
+          piloto del Chocó es el 3,4 % de ese material.</li>
+        <li><b>Subir de escala estrecha los intervalos y amplía la variable dependiente, pero no
+          traslada el hallazgo.</b> Pasar de 31 a 808 unidades independientes es lo que hoy limita
+          cada cifra; contar todos los actores corrige el punto ciego que el §3 midió. Lo que no se
+          puede trasladar es el cambio de régimen: en cada territorio hay que volver a medirlo.</li>
+        <li><b>El límite que no se mueve es el otro.</b> El sistema puede medir si ordena bien y con
+          cuánto margen; no puede medir si sirve mientras no haya una entidad que se comprometa a
+          responder con capacidad finita según ese orden. Esa parte no es estadística.</li>
+      </ol>
     </div>
   </section>
 
@@ -425,7 +610,8 @@ import '../styles/separata.css';
     <details>
       <summary>¿Por qué el n no son 1.023 filas sino 31 municipios?</summary>
       <div class="resp">
-        <p>Es la objeción correcta y la medimos de tres maneras. Con errores agrupados por
+        <p>Son 31 unidades observadas 34 veces, y esa distinción gobierna la lectura de todos los
+          intervalos. Está medida de tres maneras. Con errores agrupados por
           municipio, los errores estándar quedan en <span class="dato">0,97×</span> los que suponen
           independencia; la correlación intra-municipio por GEE es <span class="dato">−0,024</span>;
           y la desviación del intercepto aleatorio en una logística jerárquica es
@@ -503,20 +689,31 @@ import '../styles/separata.css';
         cultivos ilícitos</i>, series municipales anuales desde 1999.</li>
       <li>Departamento Administrativo Nacional de Estadística. (2021). <i>Proyecciones de población
         municipal</i> y <i>áreas municipales 1985–2020</i>.</li>
+      <li>Jurisdicción Especial para la Paz, Comisión para el Esclarecimiento de la Verdad &amp;
+        Human Rights Data Analysis Group. <i>Reclutamiento y utilización de niños y niñas en el
+        conflicto armado colombiano</i> [microdatos]. Catálogo 795 de microdatos del DANE.
+        Estimación por imputación múltiple sobre 34 listas de registro, 100 réplicas.</li>
+      <li>Manrique-Vallier, D. (2016). Bayesian population size estimation using Dirichlet process
+        mixtures. <i>Biometrics</i>, 72(4), 1246–1254.</li>
     </ol></div>
   </section>
 
   <p class="aforismo">Un archivo explica la guerra que lo produjo. Que explique la siguiente
     hay que probarlo, no suponerlo.</p>
 
-  <p class="colofon">Esta separata acompaña al tablero publicado en torredbabel.com/choco y expone
-    el método detrás de sus cifras. Los datos, el cuaderno y los ocho guiones de verificación están
-    en github.com/TorreDBabel/torredbabel, carpeta investigacion/choco. Todas las cifras provienen
-    de fuentes oficiales primarias citadas y son un piso, nunca una estimación, por el subregistro
-    propio del conflicto armado. Donde falta desagregación la celda queda vacía y marcada.</p>
+  <p class="colofon">Esta separata acompaña al tablero publicado en
+    <a href="/choco">torredbabel.com/choco</a> y expone el método detrás de sus cifras; el
+    <a href="/choco-mapa">plano del proyecto</a> dice dónde está cada cosa. Los datos, las dos
+    fuentes primarias, el cuaderno y los once guiones de verificación están en
+    github.com/TorreDBabel/torredbabel, carpeta investigacion/choco; el archivo MANUAL.md dice en qué
+    orden leerlos y qué devuelve cada uno.
+    Todas las cifras provienen de fuentes oficiales primarias citadas y son un piso, nunca una
+    estimación, por el subregistro propio del conflicto armado. Donde falta desagregación la celda
+    queda vacía y marcada.</p>
 
   </div>
   </div>
+
   </div>
 </Base>
 

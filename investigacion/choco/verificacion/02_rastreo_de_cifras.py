@@ -7,9 +7,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score, average_precision_score, brier_score_loss
 from xgboost import XGBClassifier
+import os
+DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'datos')
 
 SEED = 42
-datos = pd.read_csv('/home/claude/curaduria/panel_modelable.csv')
+datos = pd.read_csv(os.path.join(DATOS, 'panel_modelable_1984_2016.csv'))
 FEATS = ['lag1', 'lag2', 'lag3', 'media_movil3', 'acum_prev',
          'anios_activos_prev', 'racha_prev', 'anios_desde_ultimo', 'depto_lag1']
 

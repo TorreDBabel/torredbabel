@@ -14,10 +14,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.isotonic import IsotonicRegression
 from scipy import stats
+import os
+DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'datos')
+SALIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resultados')
+os.makedirs(SALIDA, exist_ok=True)
 
 SEED = 42
 rng = np.random.default_rng(SEED)
-datos = pd.read_csv('/home/claude/curaduria/panel_modelable.csv')
+datos = pd.read_csv(os.path.join(DATOS, 'panel_modelable_1984_2016.csv'))
 FEATS = ['lag1','lag2','lag3','media_movil3','acum_prev',
          'anios_activos_prev','racha_prev','anios_desde_ultimo','depto_lag1']
 R = {}
@@ -102,7 +106,7 @@ for nom, a in pol.items():
 
 # ---------- B. concordancia con la Defensoria ----------
 print('\n\n=== B. CONCORDANCIA CON LAS ALERTAS DE LA DEFENSORIA ===')
-b = pd.read_csv('/home/claude/base_drones.csv')
+b = pd.read_csv(os.path.join(DATOS, 'base_municipal_corredor.csv'))
 print(f"municipios con al menos una alerta temprana: {int((b.alertas>0).sum())} de {len(b)}")
 print(f"municipios con alerta de inminencia:          {int((b.inminencia>0).sum())} de {len(b)}")
 print("\nla coincidencia binaria es degenerada: la Defensoria advirtio casi todo el")
@@ -155,5 +159,5 @@ R['atacados_defensoria'] = dict(
     media_resto=round(float(b[b.dron_2026==0].alertas.mean()),2),
     p_mannwhitney=round(float(pu),3))
 
-json.dump(R, open('/home/claude/curaduria/alarmas.json','w'), indent=1, ensure_ascii=False, default=float)
+json.dump(R, open(os.path.join(SALIDA, 'alarmas.json'),'w'), indent=1, ensure_ascii=False, default=float)
 print('\nguardado en alarmas.json')

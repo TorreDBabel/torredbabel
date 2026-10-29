@@ -186,6 +186,51 @@
 }
 .pieza-separata .horizonte p:last-child{margin-bottom:0}
 
+/* Divisor de parte: filete doble, como la portadilla de un tomo. La separata va en
+   dos partes y cada una abre con esto y cierra con .cierre */
+.pieza-separata .parte{
+  border-top:3px double var(--fuerte);border-bottom:1px solid var(--fuerte);
+  padding:1.5rem 0 1.3rem;margin-block:3.4rem 2.2rem;text-align:center
+}
+.pieza-separata .parte .n{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--suave);display:block;margin-bottom:.5rem
+}
+.pieza-separata .parte h2{
+  font-size:clamp(1.45rem,1.1rem + 1.6vw,2.05rem);line-height:1.18;font-weight:600;
+  margin:0 auto .55rem;max-width:26ch;letter-spacing:-.012em
+}
+.pieza-separata .parte p{
+  font-family:var(--apoyo);font-size:.9rem;line-height:1.5;color:var(--suave);
+  max-width:46ch;margin:0 auto
+}
+.pieza-separata .parte.b{border-top-color:var(--b);border-bottom-color:var(--b)}
+.pieza-separata .parte.b .n{color:var(--b-texto)}
+
+/* Cierre de parte: las conclusiones, numeradas con cifra de dos dígitos */
+.pieza-separata .cierre{
+  border:1px solid var(--fuerte);background:var(--hondo);
+  padding:1.15rem 1.25rem 1.05rem;margin-block:2rem 1.2rem
+}
+.pieza-separata .cierre .et{
+  font-family:var(--mono);font-size:.66rem;font-weight:500;text-transform:uppercase;
+  letter-spacing:.13em;color:var(--fuerte);display:block;
+  border-bottom:1px solid var(--regla);padding-bottom:.5rem;margin-bottom:.85rem
+}
+.pieza-separata .cierre ol{margin:0;padding-left:0;list-style:none;counter-reset:cc}
+.pieza-separata .cierre li{
+  counter-increment:cc;position:relative;padding-left:2.1rem;margin-bottom:.8rem;
+  font-size:.97rem;line-height:1.56
+}
+.pieza-separata .cierre li::before{
+  content:counter(cc,decimal-leading-zero);position:absolute;left:0;top:.16em;
+  font-family:var(--mono);font-size:.72rem;color:var(--suave);letter-spacing:.04em
+}
+.pieza-separata .cierre li:last-child{margin-bottom:0}
+.pieza-separata .cierre li b{color:var(--fuerte)}
+.pieza-separata .cierre.b{border-color:var(--b)}
+.pieza-separata .cierre.b .et{color:var(--b-texto);border-bottom-color:var(--b)}
+
 
 /* --- Cinta de los 31 municipios: una columna por municipio, siempre en una fila.
    El conteo uno por uno es el argumento: 30 casillas encendidas frente a 10. --- */

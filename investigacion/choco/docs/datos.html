@@ -230,10 +230,13 @@ code{font-family:var(--mono);font-size:.84em;background:var(--hondo);padding:.05
       <td class="n">0,800</td><td class="n">0,185</td></tr>
     <tr><td class="nom">Más recalibración isotónica</td><td class="n">0,810</td><td class="n">—</td>
       <td class="n">—</td><td class="n">0,150</td></tr>
-    <tr><td class="nom">Jerárquica, intercepto aleatorio</td><td class="n">0,792</td>
-      <td class="n">0,711</td><td class="n">0,782</td><td class="n">—</td></tr>
+    <tr><td class="nom">Jerárquica, intercepto aleatorio</td><td class="n">0,791</td>
+      <td class="n">0,710</td><td class="n">0,782</td><td class="n">—</td></tr>
   </tbody>
 </table></div>
+<p class="nota">La fila jerárquica es la única del cuadro que no es reproducible bit a bit: se
+  estima por inferencia variacional y su AUC se mueve alrededor de una milésima entre corridas,
+  aun con la semilla fija. Las demás salen idénticas a tres decimales.</p>
 <p class="nota">Referencia del Brier: <b>0,223</b>, la del predictor constante que siempre responde
   la prevalencia. El modelo entrenado con <code>class_weight='balanced'</code> emite una
   probabilidad media de 0,769 contra una tasa real de 0,334: sobrepredice 2,3 veces. Quitar la

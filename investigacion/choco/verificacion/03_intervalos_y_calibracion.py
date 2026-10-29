@@ -10,10 +10,14 @@ from sklearn.isotonic import IsotonicRegression
 from xgboost import XGBClassifier
 import statsmodels.api as sm
 from statsmodels.stats.outliers_influence import variance_inflation_factor
+import os
+DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'datos')
+SALIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resultados')
+os.makedirs(SALIDA, exist_ok=True)
 
 SEED = 42
 rng = np.random.default_rng(SEED)
-datos = pd.read_csv('/home/claude/curaduria/panel_modelable.csv')
+datos = pd.read_csv(os.path.join(DATOS, 'panel_modelable_1984_2016.csv'))
 FEATS = ['lag1', 'lag2', 'lag3', 'media_movil3', 'acum_prev',
          'anios_activos_prev', 'racha_prev', 'anios_desde_ultimo', 'depto_lag1']
 R = {}
@@ -187,5 +191,5 @@ R['negbin'] = comp.reset_index().to_dict('records')
 R['aic'] = {'poisson': round(poi.aic, 1), 'bn_alfa1': round(nb_fijo.aic, 1), 'bn_alfa_est': round(nb_est.aic, 1)}
 R['n_municipios_conglomerados'] = int(train.municipio.nunique())
 
-json.dump(R, open('/home/claude/curaduria/intervalos.json', 'w'), indent=1, ensure_ascii=False, default=float)
+json.dump(R, open(os.path.join(SALIDA, 'intervalos.json'), 'w'), indent=1, ensure_ascii=False, default=float)
 print('\nguardado en intervalos.json')

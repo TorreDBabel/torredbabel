@@ -11,10 +11,14 @@ from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score, average_precision_score
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+import os
+DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'datos')
+SALIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resultados')
+os.makedirs(SALIDA, exist_ok=True)
 
 SEED = 42
 rng = np.random.default_rng(SEED)
-datos = pd.read_csv('/home/claude/curaduria/panel_modelable.csv')
+datos = pd.read_csv(os.path.join(DATOS, 'panel_modelable_1984_2016.csv'))
 FEATS = ['lag1', 'lag2', 'lag3', 'media_movil3', 'acum_prev',
          'anios_activos_prev', 'racha_prev', 'anios_desde_ultimo', 'depto_lag1']
 R = {}
@@ -257,5 +261,5 @@ for k, f_ in [('total de ocurrencias', lambda m: m.sum()),
 print(pd.DataFrame(ch).to_string(index=False))
 R['chequeo_predictivo'] = ch
 
-json.dump(R, open('/home/claude/curaduria/luque.json', 'w'), indent=1, ensure_ascii=False, default=float)
+json.dump(R, open(os.path.join(SALIDA, 'luque.json'), 'w'), indent=1, ensure_ascii=False, default=float)
 print('\nguardado en luque.json')

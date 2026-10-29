@@ -1,0 +1,400 @@
+---
+// Chocó · el plano del proyecto: dónde está cada cosa.
+// Registro «Taller» (ver src/styles/taller.css). Es la tercera pieza de la serie y
+// cambia de registro a propósito: /choco va en «Placa» y /choco-modelo en «Separata».
+// El tablero se mira, la separata se sustenta, el plano se consulta.
+// Letras del registro: IBM Plex Serif, IBM Plex Sans y IBM Plex Mono.
+//
+// GENERADO por entrega/generar_mapa.py desde entrega/mapa-proyecto.html.
+// No editar aquí: editar el artefacto y volver a generar.
+import Base from '../layouts/Base.astro';
+import '@fontsource/ibm-plex-serif/400.css';
+import '@fontsource/ibm-plex-serif/400-italic.css';
+import '@fontsource/ibm-plex-serif/500.css';
+import '@fontsource/ibm-plex-serif/600.css';
+import '@fontsource-variable/ibm-plex-sans/wght.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/taller.css';
+---
+
+<Base
+  titulo="Plano del proyecto"
+  descripcion="Dónde está cada cosa del proyecto de alerta territorial del Chocó: las nueve fuentes, la cadena que las convierte en panel, los once guiones que lo comprueban y las piezas publicadas, repartidos en las dos partes del trabajo."
+  tipo="article"
+>
+  <div class="pieza-taller">
+  <div class="plano">
+
+  <!-- ====================== CARTELA ====================== -->
+  <header class="cartela">
+    <div>
+      <h1>Plano del <span class="rec">proyecto</span></h1>
+      <p class="baja">Dónde está cada cosa: las nueve fuentes, la cadena que las convierte en panel,
+        los once guiones que lo comprueban y las piezas publicadas, repartidos en las dos partes del
+        trabajo.</p>
+    </div>
+    <dl class="rotulo">
+      <div><dt>Obra</dt><dd>Alerta territorial del Chocó</dd></div>
+      <div><dt>Versión</dt><dd>1.0</dd></div>
+      <div><dt>Unidad</dt><dd>municipio-año</dd></div>
+      <div><dt>Rejilla</dt><dd>31 × 34 = 1.054</dd></div>
+      <div><dt>Fecha</dt><dd>octubre de 2026</dd></div>
+    </dl>
+  </header>
+
+  <p class="clave">A lo largo del plano, el recuadro <span class="m ma">ámbar</span> marca lo que
+    pertenece a la primera parte —lo que el archivo permitía saber—, el
+    <span class="m mb">azul</span> lo que pertenece a la segunda —el terreno que se está preparando—, el
+    <span class="m mc">gris</span> la infraestructura que comparten, y el
+    <span class="m mr">rojo</span> es el lápiz de corrección: lo que falta y lo que se corrigió. El
+    código no cambia de significado en ningún punto.</p>
+
+  <!-- ====================== LÁMINA 1 · LAS FUENTES ====================== -->
+  <section class="lam">
+    <div class="lam-cab"><span class="n">Lámina 1</span><h2>Las nueve fuentes</h2></div>
+    <p>Ocho construyen el panel; la novena lo contrasta desde afuera. Dos están incluidas en el
+      repositorio porque son las que el primer guion necesita para reconstruirlo todo; las demás se
+      descargan de su institución, y <code>FUENTES.md</code> trae el enlace de cada una.</p>
+
+    <div class="fig">
+      <div class="tabla-env">
+        <table>
+          <caption>Qué aporta cada una, y dónde está</caption>
+          <thead><tr><th>Fuente</th><th>Qué aporta al trabajo</th><th>Dónde está</th></tr></thead>
+          <tbody>
+            <tr class="a"><td><b>JEP · Caso 07</b></td>
+              <td>los hechos de reclutamiento con municipio y año: es la variable que se modela.
+                401 hechos, 361 con municipio y año</td>
+              <td class="mn">fuente/ ✓</td></tr>
+            <tr class="a"><td>UNODC–SIMCI</td>
+              <td>hectáreas de coca por municipio y <b>por año</b>, desde 1999. La única variable de
+                contexto que es anual</td>
+              <td class="mn">fuente/ ✓</td></tr>
+            <tr class="a"><td>UARIV · Registro Único de Víctimas</td>
+              <td>contraste del conteo, corte de marzo de 2026</td>
+              <td class="mn">descarga</td></tr>
+            <tr class="a"><td>Defensoría del Pueblo</td>
+              <td>alertas tempranas: estructurales, de inminencia y su total. Sin fecha</td>
+              <td class="mn">descarga</td></tr>
+            <tr class="a"><td>OCHA</td><td>eventos humanitarios 2016–2025</td>
+              <td class="mn">descarga</td></tr>
+            <tr class="a"><td>DANE · población y áreas</td><td>normalización de tasas</td>
+              <td class="mn">descarga</td></tr>
+            <tr class="a"><td>DANE · geometrías</td>
+              <td>contornos municipales y trazos de los ríos Atrato, San Juan y Baudó</td>
+              <td class="mn">descarga</td></tr>
+            <tr class="b"><td><b>JEP · CEV · HRDAG</b><br>
+              <span style="font-family:var(--mono);font-size:.72rem;color:var(--suave)">catálogo 795
+              del DANE</span></td>
+              <td>19.226 víctimas únicas en 808 municipios, 1990–2017, con presunto responsable,
+                sexo, etnia y edad. 34 listas integradas y 100 réplicas de imputación múltiple.
+                <b>No entra al panel: lo contrasta</b></td>
+              <td class="mn">descarga<br>397 MB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fig-pie"><b>Lo que la lámina no muestra:</b> el expediente del Caso 07 en bruto, que
+        no se publica ni se publicará. Lo incluido es su agregado a municipio-año, que es la unidad de
+        análisis. Ver ETICA.md.</p>
+    </div>
+  </section>
+
+  <!-- ====================== LÁMINA 2 · LA CADENA ====================== -->
+  <section class="lam">
+    <div class="lam-cab"><span class="n">Lámina 2</span><h2>La cadena de datos</h2></div>
+    <p>Cada eslabón es un archivo real del repositorio, y cada flecha es un paso que un guion
+      ejecuta. La cadena se recorre completa en unos quince segundos desde la fuente primaria, de modo
+      que nada de lo publicado depende de un cálculo que no se pueda repetir.</p>
+
+    <div class="fig">
+      <div class="cadena">
+        <div class="eslabon"><div class="caja a">
+          <span class="arch">fuente/series_anuales_municipales_choco_1983_2016.xlsx</span>
+          <span class="cota">884 filas · 5 hojas</span>
+          <span class="dice">El expediente agregado a municipio-año, tal como llega.</span>
+        </div></div>
+
+        <div class="flecha"><i>guion 01</i> · hoja «Serie larga municipal» más los 5 municipios sin
+          ningún registro</div>
+
+        <div class="eslabon"><div class="caja a">
+          <span class="arch">datos/panel_municipal_1983_2016.csv</span>
+          <span class="cota">1.054 × 4 · 361 hechos</span>
+          <span class="dice">La rejilla completa, con los municipio-año sin hecho en
+            <b>cero explícito</b>. Sin esos ceros, un modelo de ocurrencia no se puede estimar.</span>
+        </div></div>
+
+        <div class="flecha"><i>guion 01</i> · nueve variables de memoria histórica, todas con
+          <code>shift(1)</code></div>
+
+        <div class="eslabon"><div class="caja a">
+          <span class="arch">datos/panel_modelable_1984_2016.csv</span>
+          <span class="cota">1.023 × 13</span>
+          <span class="dice">El panel con las variables. Aquí está la dependiente,
+            <code>ocurrencia</code>. Se pierden las 31 filas de 1983, donde ninguna variable rezagada
+            existe.</span>
+        </div></div>
+
+        <div class="flecha"><i>guion 01</i> · origen rodante: 11 ventanas, reajuste desde cero en
+          cada una</div>
+
+        <div class="eslabon"><div class="caja a">
+          <span class="arch">datos/predicciones_fuera_de_muestra.csv</span>
+          <span class="cota">341 × 7 · 3 modelos</span>
+          <span class="dice">El atajo de todo el trabajo: cualquier métrica se recalcula desde aquí
+            en dos líneas, sin reentrenar nada.</span>
+        </div></div>
+
+        <div class="flecha"><i>se bifurca</i></div>
+
+        <div class="ramas">
+          <div class="caja a">
+            <span class="arch">datos/base_municipal_corredor.csv</span>
+            <span class="cota">31 × 40</span>
+            <span class="dice">Riesgo 2016, nivel del semáforo, índice de corredor y la marca de
+              ataque en 2026. Alimenta el tablero <b>/choco</b>.</span>
+          </div>
+          <div class="caja a">
+            <span class="arch">verificacion/resultados/*.json</span>
+            <span class="cota">9 archivos</span>
+            <span class="dice">Métricas con su intervalo, calibración, influencia y matrices.
+              Alimentan la separata <b>/choco-modelo</b>.</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="fig-pie"><b>Tres cierres contra la fuga temporal:</b> <code>shift(1)</code> antes de
+        cada acumulado; el escalado estimado dentro de la tubería y solo con el tramo de entrenamiento
+        de cada ventana; y el reajuste desde cero en cada una de las once.</p>
+    </div>
+
+    <div class="fig" style="margin-top:1.1rem">
+      <div class="cadena">
+        <div class="eslabon"><div class="caja b">
+          <span class="arch">catálogo 795 del DANE &nbsp;<span style="font-family:var(--apoyo);
+            font-size:.8rem;color:var(--suave)">(fuera del repositorio)</span></span>
+          <span class="cota">100 archivos · 397 MB</span>
+          <span class="dice">Las cien réplicas de imputación múltiple, una por archivo.</span>
+        </div></div>
+        <div class="flecha"><i>guiones 09 a 11</i> · cada cantidad se calcula dentro de cada réplica
+          y después se resume entre réplicas</div>
+        <div class="eslabon"><div class="caja b">
+          <span class="arch">datos/contraste_verdata_municipal.csv</span>
+          <span class="cota">31 × 10</span>
+          <span class="dice">Los dos conteos y los dos ordenamientos, municipio por municipio, con el
+            rango del 95 % entre réplicas.</span>
+        </div></div>
+      </div>
+      <p class="fig-pie"><b>Lo que esta cadena no permite:</b> sumar las dos series ni usar una para
+        validar el conteo de la otra. Una cuenta hechos de un actor, la otra víctimas de todos, y los
+        periodos no coinciden. Lo comparable es el ordenamiento, que correlaciona a 0,76.</p>
+    </div>
+  </section>
+
+  <!-- ====================== LÁMINA 3 · EL REPOSITORIO ====================== -->
+  <section class="lam">
+    <div class="lam-cab"><span class="n">Lámina 3</span><h2>El repositorio, carpeta por carpeta</h2></div>
+    <p>Cinco archivos de texto en la raíz y cinco carpetas, sin solaparse: <code>fuente/</code> es lo
+      que entró, <code>datos/</code> lo que se derivó, <code>cuaderno/</code> lo que se estimó,
+      <code>verificacion/</code> lo que lo comprueba y <code>docs/</code> lo que se lee sin correr
+      nada.</p>
+
+    <div class="fig">
+      <div class="arbol">
+        <div class="nodo">
+          <span class="ruta">· raíz</span>
+          <span class="que">Qué es el trabajo, cómo leerlo y de dónde sale cada dato.</span>
+          <ul>
+            <li><b>README.md</b> — el trabajo en dos partes y la regla que gobierna todo</li>
+            <li><b>PROYECTO.md</b> — el argumento completo, con las conclusiones de cada parte</li>
+            <li><b>MANUAL.md</b> — el manual de lectura: tres recorridos y las limitaciones medidas</li>
+            <li><b>FUENTES.md</b> — las nueve fuentes, qué aporta cada una y dónde se descarga</li>
+            <li><b>ETICA.md</b> — qué no se publica, y por qué la omisión es parte del diseño</li>
+          </ul>
+        </div>
+        <div class="nodo">
+          <span class="ruta">fuente/</span>
+          <span class="que">Las dos fuentes primarias, sin tocar. Todo lo demás se deriva de
+            aquí.</span>
+          <ul>
+            <li>series_anuales_municipales_choco_1983_2016.xlsx <em>JEP · Caso 07</em></li>
+            <li>unodc_simci_cultivos_municipal.xlsx <em>UNODC–SIMCI</em></li>
+          </ul>
+        </div>
+        <div class="nodo">
+          <span class="ruta">datos/</span>
+          <span class="que">Siete archivos derivados, con su diccionario de columnas.</span>
+          <ul>
+            <li><b>panel_municipal_1983_2016.csv</b> — 1.054 filas, el panel base</li>
+            <li><b>panel_modelable_1984_2016.csv</b> — 1.023 filas, con las variables</li>
+            <li><b>base_municipal.csv</b> — 31 filas, una por municipio</li>
+            <li><b>base_municipal_corredor.csv</b> — la anterior más el semáforo y el corredor</li>
+            <li><b>predicciones_fuera_de_muestra.csv</b> — 341 predicciones, el atajo</li>
+            <li><b>contraste_verdata_municipal.csv</b> — el panel frente a la fuente externa
+              <em class="mb">2.ª parte</em></li>
+            <li><b>tablero_choco.json</b> — lo que pinta el mapa de /choco</li>
+            <li><b>DICCIONARIO.md</b> — cada columna, su tipo y la decisión que hay detrás</li>
+          </ul>
+        </div>
+        <div class="nodo">
+          <span class="ruta">cuaderno/</span>
+          <span class="que">El cuaderno original con sus salidas guardadas: se lee sin
+            ejecutar.</span>
+          <ul>
+            <li>modelo_riesgo_reclutamiento_choco.ipynb — construye el panel, estima la logística y
+              el XGBoost, valida con origen rodante y produce el semáforo</li>
+          </ul>
+        </div>
+        <div class="nodo">
+          <span class="ruta">verificacion/</span>
+          <span class="que">Once guiones que recalculan el trabajo desde los datos, con semilla fija
+            en 42 y rutas relativas al repositorio.</span>
+          <ul>
+            <li><b>01</b> réplica del cuaderno — las 23 cifras desde la fuente primaria
+              <em>1.ª parte</em></li>
+            <li><b>02</b> rastreo de cifras — de qué población salió cada número publicado</li>
+            <li><b>03</b> intervalos y calibración — remuestreo de bloques, B = 4.000</li>
+            <li><b>04</b> prueba exacta 2026 — enumera las 736.281 reparticiones posibles</li>
+            <li><b>05</b> diagnósticos de panel — independencia, VIF, influencia, Box–Tidwell</li>
+            <li><b>06</b> simulación y chequeo — 600 paneles con coeficientes conocidos</li>
+            <li><b>07</b> alarmas y Defensoría — matriz de confusión y concordancia</li>
+            <li><b>08</b> corredor en el tiempo — la única prueba que refuta una hipótesis propia</li>
+            <li><b>09</b> contraste con la fuente externa <em class="mb">2.ª parte</em></li>
+            <li><b>10</b> la memoria bien medida — ocho operacionalizaciones
+              <em class="mb">2.ª parte</em></li>
+            <li><b>11</b> cobertura de la fuente externa <em class="mb">2.ª parte</em></li>
+            <li>LEEME.md — qué responde cada uno y cuánto tarda · resultados/ — las salidas</li>
+          </ul>
+        </div>
+        <div class="nodo">
+          <span class="ruta">docs/</span>
+          <span class="que">Lo que se abre y se lee, sin instalar nada.</span>
+          <ul>
+            <li><b>datos.html</b> — las bases, las medidas y el desempeño con sus intervalos</li>
+            <li><b>terminos-choco.pdf</b> — glosario de los términos del trabajo, 6 páginas</li>
+            <li><b>dataset-nacional.pdf</b> — qué variables faltan y cómo pedirlas, 4 páginas
+              <em class="mb">2.ª parte</em></li>
+          </ul>
+        </div>
+      </div>
+      <p class="fig-pie">Todo vive en
+        <a href="https://github.com/TorreDBabel/torredbabel/tree/main/investigacion/choco"><b>github.com/TorreDBabel/torredbabel</b>, carpeta <b>investigacion/choco</b></a>. Los guiones
+        funcionan después de un clon, sin ajustar rutas; los tres últimos piden además la carpeta de
+        microdatos como argumento.</p>
+    </div>
+  </section>
+
+  <!-- ====================== LÁMINA 4 · LAS DOS PARTES ====================== -->
+  <section class="lam">
+    <div class="lam-cab"><span class="n">Lámina 4</span><h2>Las dos partes, y qué pertenece a cada una</h2></div>
+    <p>El trabajo se cuenta en dos partes porque responden preguntas distintas: la primera, qué
+      permitía saber el archivo en su momento; la segunda, qué falta para responder lo que la primera
+      dejó abierto. Cada una cierra con sus conclusiones en <code>PROYECTO.md</code>.</p>
+
+    <div class="partes">
+      <div class="parte">
+        <span class="et">Primera parte</span>
+        <h3>Lo que el archivo permitía saber</h3>
+        <p>Treinta y cuatro años de reclutamiento registrado, convertidos en panel y medidos fuera de
+          muestra: qué ordena el archivo, con cuánto margen y en qué momento exacto deja de
+          ordenar.</p>
+        <dl>
+          <dt>Fuentes</dt><dd>las ocho primeras de la lámina 1</dd>
+          <dt>Datos</dt><dd><code>panel_*</code>, <code>base_municipal*</code>,
+            <code>predicciones_*</code></dd>
+          <dt>Verificación</dt><dd>guiones <code>01</code> a <code>08</code></dd>
+          <dt>Publicado</dt><dd>el tablero <a href="/choco"><code>/choco</code></a> y los §1 a §4 de
+            la separata <a href="/choco-modelo"><code>/choco-modelo</code></a></dd>
+        </dl>
+        <p class="cifra-clave">
+          AUC-ROC <b>0,788</b> fuera de muestra, contra una línea base de persistencia de 0,714<br>
+          el nivel alto del semáforo cubre el <b>77 %</b> del daño con el <b>33 %</b> del territorio<br>
+          precisión@5 de <b>0,836</b>: de cinco priorizados, cuatro registraron hecho<br>
+          sobre los ataques de 2026, el intervalo del AUC <b>contiene el azar</b>
+        </p>
+      </div>
+
+      <div class="parte dos">
+        <span class="et">Segunda parte</span>
+        <h3>El terreno que se está preparando</h3>
+        <p>Una fuente de alcance nacional con la que se midió el alcance real del panel, y la lista
+          de lo que falta para llevar el método del Chocó al resto del país, con destinatario y
+          norma.</p>
+        <dl>
+          <dt>Fuentes</dt><dd>la novena de la lámina 1, más las cuatro brechas de la lámina 5</dd>
+          <dt>Datos</dt><dd><code>contraste_verdata_municipal.csv</code></dd>
+          <dt>Verificación</dt><dd>guiones <code>09</code> a <code>11</code></dd>
+          <dt>Publicado</dt><dd>el §5 de la separata <a href="/choco-modelo"><code>/choco-modelo</code></a>
+            y <code>docs/dataset-nacional.pdf</code></dd>
+        </dl>
+        <p class="cifra-clave">
+          <b>808</b> municipios y <b>19.226</b> víctimas únicas ya disponibles, 1990–2017<br>
+          el panel cuenta el <b>41,8 %</b> del fenómeno: el ELN explica otro 39,3 %<br>
+          tres de los cinco municipios «sin un solo hecho» <b>sí tienen víctimas</b><br>
+          en 2017 el ELN pasa a explicar el <b>68,4 %</b> del reclutamiento del Chocó
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== LÁMINA 5 · LO QUE FALTA ====================== -->
+  <section class="lam">
+    <div class="lam-cab"><span class="n">Lámina 5</span><h2>Lo que falta, en lápiz rojo</h2></div>
+    <p>Ninguna de las cuatro es una técnica que no sepamos aplicar: son datos que están en entidades
+      identificadas. Van en orden de cuánto cambiarían el trabajo.</p>
+
+    <div class="falta">
+      <div>
+        <span class="n">01</span>
+        <h4>Alertas de la Defensoría con fecha</h4>
+        <p>Hoy está el conteo acumulado por municipio, no su fecha. Sin fecha no se puede saber si una
+          alerta precede o sigue al riesgo estimado, y por eso lo que se mide es concordancia y no
+          anticipación. Es el pendiente de mayor rendimiento.</p>
+        <p class="donde">Defensoría del Pueblo · Sistema de Alertas Tempranas</p>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <h4>Reclutamiento registrado de 2017 a 2026</h4>
+        <p>La serie termina en 2016. Con la década siguiente, el índice de corredor se probaría contra
+          el fenómeno que dice explicar en vez de contra seis ataques, y la hipótesis pasaría a ser
+          resultado o quedaría descartada.</p>
+        <p class="donde">JEP · UARIV</p>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <h4>Estimación del subregistro</h4>
+        <p>Separar «no hubo» de «no se registró» es el límite duro de todo el trabajo. El contraste de
+          la segunda parte dio el primer paso con una segunda fuente y corrigió tres ceros; falta la
+          estimación por captura-recaptura con clases latentes, que necesita varias listas por
+          estrato. En el Chocó hay 19 municipios con 10 o más víctimas y 13 con 10 o más vistas en dos
+          fuentes o más: es estimable para parte del departamento, no para todo.</p>
+        <p class="donde">catálogo 795 del DANE · ya descargable</p>
+      </div>
+      <div>
+        <span class="n">04</span>
+        <h4>Variables de contexto anuales</h4>
+        <p>Hoy solo la coca lo es. Población flotante, deserción escolar, minería y presencia
+          institucional harían del corredor un índice vivo y no una fotografía, y son las que
+          permitirían comparar territorios que no se parecen.</p>
+        <p class="donde">DANE · Ministerio de Educación · Agencia Nacional de Minería</p>
+      </div>
+    </div>
+    <p class="fig-pie" style="margin-top:.8rem"><b>Lo que ninguna de las cuatro resuelve:</b> el
+      sistema puede medir si ordena bien y con cuánto margen, pero no si sirve, mientras no haya una
+      entidad que se comprometa a responder con capacidad finita según ese orden. Esa parte no es
+      estadística.</p>
+  </section>
+
+  <p class="aforismo">Un archivo explica la guerra que lo produjo. Que explique la siguiente hay que
+    probarlo, no suponerlo.</p>
+
+  <p class="colofon">Plano de la versión 1.0 · Alerta territorial del Chocó · Alexander Beltrán ·
+    Maestría en Ciencia de Datos, Universidad Ean · Bogotá, octubre de 2026 · Todas las cifras
+    provienen de fuentes oficiales primarias citadas y son un piso, nunca una estimación, por el
+    subregistro propio del conflicto armado. Ninguna salida de este trabajo muestra ubicaciones de
+    grupos armados, rutas ni dato alguno por debajo del municipio.</p>
+
+  </div>
+  </div>
+</Base>

@@ -29,6 +29,12 @@ sin presencia estatal que lo registre. Publicar esa cifra como si fuera la segun
 dijera «aquí no pasa nada»— puede costar recursos de protección a un territorio que los necesita.
 Por eso toda salida de este trabajo repite la misma advertencia: **las cifras son un piso**.
 
+La advertencia dejó de ser teórica. Contrastados con una segunda fuente oficial, **tres de los
+cinco municipios que el panel registra con cero hechos sí tienen víctimas documentadas**: Río Iró,
+Cértegui y El Cantón del San Pablo. Los otros dos siguen en cero en las dos fuentes, y con dos
+fuentes no se puede distinguir un territorio sin hechos de uno sin cobertura. El guion
+`09_contraste_con_verdata.py` lo recalcula.
+
 ## Lo que el modelo no debe usarse para decidir
 
 - Para **negar** recursos a un municipio de riesgo bajo. El ordenamiento dice por dónde empezar,
@@ -45,4 +51,5 @@ Que reporte **la cobertura junto al costo territorial**, siempre. Priorizar el d
 entero da 100 % de cobertura y hace inútil el sistema; reportar solo la cobertura es propaganda.
 El par es la métrica completa.
 
-Y que lea antes el `MANUAL.md`, en particular sus seis puntos débiles.
+Y que lea antes el [`MANUAL.md`](MANUAL.md), en particular su sección 5, donde están las ocho
+limitaciones del trabajo con la medición de cada una.

@@ -17,12 +17,17 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score, average_precision_score
+import os
+DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'datos')
+SALIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resultados')
+os.makedirs(SALIDA, exist_ok=True)
 
 SEED = 42
 rng = np.random.default_rng(SEED)
 
 # ---------- 1. coca anual por municipio ----------
-d = pd.read_excel('/mnt/user-data/uploads/RPT_CultivosIlicitos_2026-08-26--223513.xlsx',
+d = pd.read_excel(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'fuente',
+                               'unodc_simci_cultivos_municipal.xlsx'),
                   sheet_name='CultivosIlicitos', header=8)
 d = d[d['DEPARTAMENTO'].astype(str).str.contains('CHOC', na=False)].copy()
 anios = [c for c in d.columns if str(c).replace('.0', '').isdigit()]
@@ -36,8 +41,8 @@ print(f"coca anual: {coca.anio.min()}-{coca.anio.max()}, "
       f"{coca.cod_divipola.nunique()} municipios, total {coca.coca.sum():,.0f} ha")
 
 # ---------- 2. panel + geografia ----------
-P = pd.read_csv('/home/claude/curaduria/panel_modelable.csv')
-base = pd.read_csv('/home/claude/base_municipal.csv')
+P = pd.read_csv(os.path.join(DATOS, 'panel_modelable_1984_2016.csv'))
+base = pd.read_csv(os.path.join(DATOS, 'base_municipal.csv'))
 P = P.merge(base[['municipio', 'cod_divipola', 'd_san_juan', 'riberenidad']], on='municipio')
 P = P.merge(coca[['cod_divipola', 'anio', 'coca']], on=['cod_divipola', 'anio'], how='left')
 P['coca'] = P.coca.fillna(0.0)
@@ -144,6 +149,6 @@ print(mov.head(5).round(1).to_string())
 R['movimiento'] = dict(mediana=round(float(mov.median()), 1), maximo=round(float(mov.max()), 1),
                        mun_max=mov.index[0])
 
-json.dump(R, open('/home/claude/curaduria/corredor_tiempo.json', 'w'),
+json.dump(R, open(os.path.join(SALIDA, 'corredor_tiempo.json'), 'w'),
           indent=1, ensure_ascii=False, default=float)
 print('\nguardado en corredor_tiempo.json')
