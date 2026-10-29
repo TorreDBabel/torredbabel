@@ -1,6 +1,6 @@
 # Diccionario de datos
 
-Seis archivos. Todos en UTF-8, separador coma, decimal punto. Los nombres de municipio van en
+Siete archivos. Todos en UTF-8, separador coma, decimal punto. Los nombres de municipio van en
 mayúsculas con tilde, como los entrega la fuente.
 
 ---
@@ -116,6 +116,37 @@ d = pd.read_csv('predicciones_fuera_de_muestra.csv')
 print(roc_auc_score(d.y, d.lr), average_precision_score(d.y, d.lr))
 # 0.788  0.704
 ```
+
+---
+
+## `contraste_verdata_municipal.csv` — el panel frente a la fuente externa
+
+**31 filas**, una por municipio. Lo produce el guion `09_contraste_con_verdata.py` a partir de los
+microdatos del catálogo 795 del DANE, que no se redistribuyen aquí.
+
+| columna | qué es |
+|---|---|
+| `municipio`, `cod` | nombre y código DIVIPOLA, la llave de unión |
+| `casos_total`, `farc_total` | **hechos** del panel, 1983–2016, atribuidos a las antiguas FARC-EP |
+| `verdata` | **víctimas** únicas de todos los actores, 1990–2017, media entre las 100 réplicas |
+| `verdata_lo`, `verdata_hi` | percentiles 2,5 y 97,5 entre réplicas: la incertidumbre de lo imputado |
+| `rank_panel`, `rank_verdata` | puesto del municipio en cada una de las dos series de conteo, de mayor a menor |
+| `rank_semaforo`, `nivel_semaforo` | el puesto y el nivel que publica el tablero, tomados de `base_municipal_corredor.csv` |
+| `salto` | `rank_panel − rank_verdata`. Positivo: el panel lo subvaloraba. |
+
+**`rank_panel` y `rank_semaforo` no son lo mismo y conviene no confundirlos.** El primero ordena
+por **hechos acumulados**; el segundo es el `rank_hist` del tablero, que ordena por el **riesgo
+estimado para 2016**. Bajo Baudó, por ejemplo, es el 21.º por hechos y el 23.º por riesgo
+estimado. Al comparar contra lo que se ve en `/choco`, el que corresponde es `rank_semaforo`.
+
+Las dos columnas de conteo **no son comparables como cantidades**: una cuenta hechos y la otra
+víctimas, y los periodos no coinciden. Lo comparable es el **ordenamiento**, y correlaciona a 0,76
+(Pearson) y 0,73 (Spearman) entre municipios. Sumarlas, restarlas o usar una para validar el conteo
+de la otra no tiene sentido.
+
+La media entre réplicas se calcula **con cero explícito en las réplicas donde el municipio no
+aparece**. Promediar solo sobre las réplicas donde aparece infla los municipios pequeños, que son
+precisamente los que interesan: con ese sesgo, Río Iró daba 9,1 víctimas en lugar de 6,3.
 
 ---
 

@@ -1,0 +1,74 @@
+[
+ {
+  "medida": "verdata, todo el periodo y todos los actores",
+  "auc": 0.5,
+  "ic": [
+   0.24,
+   0.753
+  ],
+  "p_bilateral": 1.0
+ },
+ {
+  "medida": "verdata, solo FARC",
+  "auc": 0.46,
+  "ic": [
+   0.267,
+   0.653
+  ],
+  "p_bilateral": 0.7793
+ },
+ {
+  "medida": "verdata, sin FARC (ELN, paras, otros)",
+  "auc": 0.493,
+  "ic": [
+   0.22,
+   0.773
+  ],
+  "p_bilateral": 0.9743
+ },
+ {
+  "medida": "verdata, solo ELN",
+  "auc": 0.553,
+  "ic": [
+   0.26,
+   0.833
+  ],
+  "p_bilateral": 0.7088
+ },
+ {
+  "medida": "verdata, ultimos 10 años (2008-2017)",
+  "auc": 0.527,
+  "ic": [
+   0.26,
+   0.787
+  ],
+  "p_bilateral": 0.8585
+ },
+ {
+  "medida": "verdata, ultimos 5 años (2013-2017)",
+  "auc": 0.533,
+  "ic": [
+   0.257,
+   0.807
+  ],
+  "p_bilateral": 0.8261
+ },
+ {
+  "medida": "nuestro panel (hechos era FARC)",
+  "auc": 0.383,
+  "ic": [
+   0.157,
+   0.633
+  ],
+  "p_bilateral": 0.3961
+ },
+ {
+  "medida": "nuestro semaforo publicado",
+  "auc": 0.337,
+  "ic": [
+   0.123,
+   0.58
+  ],
+  "p_bilateral": 0.2304
+ }
+]

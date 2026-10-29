@@ -161,7 +161,7 @@
  ],
  "rho_intra": -0.0235,
  "razon_ee_media": 0.97,
- "tiempo_mixto_s": 0.24,
+ "tiempo_mixto_s": 0.29,
  "sd_intercepto_aleatorio": 0.29,
  "comparacion_jerarquico": [
   {
@@ -184,8 +184,8 @@
   },
   {
    "modelo": "logística jerárquica, intercepto aleatorio por municipio",
-   "aucroc": 0.792,
-   "aucpr": 0.711,
+   "aucroc": 0.791,
+   "aucpr": 0.71,
    "prec5": 0.782
   }
  ],

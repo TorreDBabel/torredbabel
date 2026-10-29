@@ -4,8 +4,12 @@ intervalo por remuestreo, y descomposicion del indice compuesto para ver
 cuanto de su desempeno es tautologico."""
 import numpy as np, pandas as pd, json, itertools
 from sklearn.metrics import roc_auc_score
+import os
+DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'datos')
+SALIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resultados')
+os.makedirs(SALIDA, exist_ok=True)
 
-b = pd.read_csv('/home/claude/base_drones.csv')
+b = pd.read_csv(os.path.join(DATOS, 'base_municipal_corredor.csv'))
 y = b['dron_2026'].values.astype(int)
 n, k = len(b), int(y.sum())
 rng = np.random.default_rng(42)
@@ -90,5 +94,5 @@ print(f"\ndistancia al San Juan — atacados: mediana {at.d_san_juan.median():.1
 print(f"de los 6 atacados, {int((at.d_san_juan <= b.d_san_juan.median()).sum())} están por debajo de la mediana departamental")
 R['d_san_juan_atacados'] = at.to_dict('records')
 
-json.dump(R, open('/home/claude/curaduria/drones.json', 'w'), indent=1, ensure_ascii=False, default=float)
+json.dump(R, open(os.path.join(SALIDA, 'drones.json'), 'w'), indent=1, ensure_ascii=False, default=float)
 print('\nguardado en drones.json')

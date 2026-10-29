@@ -6,17 +6,21 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score, average_precision_score, brier_score_loss
 from xgboost import XGBClassifier
+import os
+DATOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'datos')
+SALIDA = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resultados')
+os.makedirs(SALIDA, exist_ok=True)
 
 SEED = 42
 np.random.seed(SEED)
-UP = '/mnt/user-data/uploads/'
+FUENTE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'fuente',
+                      'series_anuales_municipales_choco_1983_2016.xlsx')
 
 # ---------- 1. panel 31 x 34 ----------
-s = pd.read_excel(UP + 'series_anuales_municipales_choco_1983_2016__1_.xlsx',
-                  sheet_name='Serie larga municipal')
+s = pd.read_excel(FUENTE, sheet_name='Serie larga municipal')
 s = s.rename(columns={'MUNICIPIO': 'municipio', 'ANIO': 'anio',
                       'HECHOS_UNICOS': 'hechos', 'COD_MPIO': 'cod'})
-base = pd.read_csv('/home/claude/base_municipal.csv')
+base = pd.read_csv(os.path.join(DATOS, 'base_municipal.csv'))
 cero = sorted(set(base.municipio) - set(s.municipio))
 anios = sorted(s.anio.unique())
 extra = pd.DataFrame([{'municipio': m, 'anio': a, 'hechos': 0} for m in cero for a in anios])
@@ -125,8 +129,8 @@ print(f"agrupado:       base {roc_auc_score(pool['y'],pool['base']):.3f} (0,714)
       f"xgb {roc_auc_score(pool['y'],pool['xgb']):.3f} (0,748)")
 
 P = pd.DataFrame(pool)
-P.to_csv('/home/claude/curaduria/pool_rodante.csv', index=False)
-datos.to_csv('/home/claude/curaduria/panel_modelable.csv', index=False)
+P.to_csv(os.path.join(SALIDA, 'pool_rodante.csv'), index=False)
+datos.to_csv(os.path.join(DATOS, 'panel_modelable_1984_2016.csv'), index=False)
 print(f"\npool rodante: {len(P)} filas | hechos {int(P.hechos.sum())} | prevalencia {P.y.mean():.3f}")
 print(f"AUC-PR agrupado lr {average_precision_score(P.y,P.lr):.3f} | base-azar {P.y.mean():.3f}")
 print(f"Brier lr {brier_score_loss(P.y,P.lr):.3f} | Brier de referencia (constante=prevalencia) "

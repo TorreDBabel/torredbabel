@@ -103,6 +103,38 @@ y se mide la distancia perpendicular de punto a segmento desde cada cabecera mun
 
 ---
 
+## 9. JEP – CEV – HRDAG · Microdatos de reclutamiento (verdata)
+
+**Qué aporta.** Esta fuente **no entra al panel**: sirve para contrastarlo desde afuera. Es la
+estimación conjunta de la Jurisdicción Especial para la Paz, la Comisión de la Verdad y el Human
+Rights Data Analysis Group, que integra treinta y cuatro listas de registro y reconstruye
+**19.226 víctimas únicas** de reclutamiento de niñas, niños y adolescentes en 808 municipios entre
+1990 y 2017. Trae presunto responsable, sexo, etnia y edad, y entrega **cien réplicas de imputación
+múltiple** para los campos faltantes, de modo que la incertidumbre de lo imputado se propaga en
+lugar de esconderse.
+
+**Cómo se lee.** Las cien réplicas no se apilan ni se promedian fila a fila: cada cantidad se
+calcula dentro de cada réplica y luego se resume la distribución entre réplicas. Una víctima es un
+`match_group_id`, no una fila.
+
+**Qué mostró en el Chocó.** 654 víctimas en 29 municipios, frente a los 361 hechos del panel. Las
+dos series miden cosas distintas —víctimas frente a hechos, periodos que no coinciden— y
+correlacionan a 0,76 entre municipios. Atribuye el 41,8 % de las víctimas chocoanas a las antiguas
+FARC-EP, el 39,3 % al ELN y el 11,7 % a estructuras paramilitares, lo que fija el alcance del
+panel: cuenta el 41,8 % del fenómeno medido.
+
+Dos municipios cambian de lugar al contrastarlos. **Río Iró**, que en el panel no registra ningún
+hecho, tiene 6,3 víctimas documentadas entre 1995 y 2015. **Bajo Baudó**, que en el panel tiene 3
+hechos y queda en el puesto 23 del semáforo, tiene 45,3 víctimas y sube al puesto 4 por
+número de víctimas; de ellas 34,2 se atribuyen
+al ELN y la serie crece en los últimos años de la ventana —6,1 en 2013, 4,0 en 2014, 9,2 en 2015 y
+9,0 en 2016—. Los dos fueron atacados con drones en 2026.
+
+**Dónde se descarga.** Microdatos del DANE, catálogo 795:
+<https://microdatos.dane.gov.co/index.php/catalog/795/get-microdata>
+
+---
+
 ## Cómo se unen
 
 Todo se une por **código DIVIPOLA**, nunca por nombre. Los nombres del Chocó varían entre fuentes
@@ -121,3 +153,12 @@ reclutamiento. Las dos cosas se confunden en el mismo símbolo, y la distancia e
 cobertura del aparato estatal en el departamento con menor densidad institucional del país.
 Cinco de los 31 municipios no registran un solo hecho en 34 años; uno de ellos, Río Iró, fue
 atacado con drones en 2026.
+
+La advertencia dejó de ser una precaución teórica. Contrastados con la fuente 9, **tres de esos
+cinco municipios sí tienen víctimas documentadas**: Río Iró 6,3, Cértegui 2,1 y El Cantón del San
+Pablo 1,1. El cero del panel era ausencia de registro en una fuente, no ausencia del hecho en el
+territorio.
+
+Los otros dos —Nuevo Belén de Bajirá y Unión Panamericana— siguen en cero en las dos fuentes. Con
+dos fuentes no se puede distinguir un territorio sin hechos de uno sin cobertura, y la celda queda
+marcada como lo que es: desconocida.

@@ -1,0 +1,214 @@
+/* Registro «Taller» — plano de taller: papel tecnico, linea fina, cotas y rotulos.
+   El realce es un RECUADRO de 1,5 px con esquina viva, nunca una franja, y el color
+   carga el reparto del trabajo en dos partes: ambar la primera, azul la segunda,
+   gris lo compartido y rojo el lapiz de correccion.
+
+   GENERADO por entrega/generar_mapa.py desde entrega/mapa-proyecto.html.
+   No editar aqui: editar el artefacto y volver a generar.
+
+   Todo cuelga de .pieza-taller para que el registro no se escape al resto del
+   sitio ni reciba lo que marco.css define para la pagina. */
+
+/* ============================================================================
+   Registro «Taller». Un plano de taller: papel técnico, línea fina, cotas y
+   rótulos. El realce es un RECUADRO de 1,5 px con esquina viva, nunca una franja.
+   El color carga el reparto del trabajo en dos partes:
+     ámbar  = primera parte, lo que el archivo permitía saber
+     azul   = segunda parte, el terreno que se está preparando
+     gris   = infraestructura compartida por las dos
+     rojo   = lápiz de corrección: lo que falta o lo que se corrigió
+   El código no cambia de significado en ningún punto del plano.
+   ========================================================================== */
+.pieza-taller{
+  color-scheme:light;
+
+  --fondo:#f2f4f3; --hondo:#e4e8e7; --pie:#d6dbda; --regla:#bfc7c6;
+  --tinta:#3c4846; --fuerte:#15201e; --suave:#6e7a78;
+  --a:#f2b705; --a-trazo:#9c7500; --a-texto:#4a3700; --a-tenue:#fdf4dc;
+  --b:#2b7fb8; --b-trazo:#1b5a85; --b-texto:#14425f; --b-tenue:#e3eef6;
+  --c:#cbd5d3;
+  --ac:#c2452d; --ac-tenue:#fbe9e6;
+  --texto:'IBM Plex Serif',Georgia,serif;
+  --apoyo:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',Consolas,monospace;
+}
+.pieza-taller *{box-sizing:border-box}
+.pieza-taller{-webkit-text-size-adjust:100%}
+.pieza-taller{
+  margin:0;background:var(--fondo);color:var(--tinta);
+  font-family:var(--texto);font-size:1.02rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased
+}
+.pieza-taller .plano{max-width:76rem;margin:0 auto;padding:0 16px 5rem}
+/* el enlace, en el taller, es una cota: subrayado de un pelo en el trazo azul */
+.pieza-taller a{color:inherit;text-decoration:underline;text-decoration-color:var(--b);
+  text-decoration-thickness:1px;text-underline-offset:.18em}
+.pieza-taller a:hover, .pieza-taller a:focus-visible{color:var(--b-texto);text-decoration-thickness:2px}
+.pieza-taller a:focus-visible{outline:2px solid var(--b);outline-offset:2px}
+
+/* ---------- cartela: el rótulo del plano, arriba a la derecha ---------- */
+.pieza-taller .cartela{
+  border-bottom:1px solid var(--fuerte);margin-top:2.2rem;padding-bottom:1.1rem;
+  display:grid;gap:1.2rem
+}
+@media (min-width:62rem){.pieza-taller .cartela{grid-template-columns:1fr 20rem;align-items:end}}
+.pieza-taller .cartela h1{
+  font-size:clamp(1.85rem,1.2rem + 2.6vw,3.1rem);line-height:1.08;font-weight:600;
+  letter-spacing:-.02em;margin:0 0 .5rem;color:var(--fuerte)
+}
+.pieza-taller .cartela h1 .rec{
+  display:inline-block;border:1.5px solid var(--a);padding:0 .22em;
+  color:var(--a-texto);background:var(--a-tenue)
+}
+.pieza-taller .cartela .baja{font-family:var(--apoyo);font-size:.98rem;line-height:1.5;color:var(--suave);
+  max-width:48ch;margin:0}
+.pieza-taller .rotulo{border:1px solid var(--regla);background:var(--hondo);font-family:var(--mono);
+  font-size:.7rem;line-height:1.5}
+.pieza-taller .rotulo div{display:flex;justify-content:space-between;gap:.8rem;
+  padding:.4rem .6rem;border-bottom:1px solid var(--regla)}
+.pieza-taller .rotulo div:last-child{border-bottom:0}
+.pieza-taller .rotulo dt{color:var(--suave);text-transform:uppercase;letter-spacing:.07em;font-size:.64rem}
+.pieza-taller .rotulo dd{margin:0;color:var(--fuerte);text-align:right}
+
+/* ---------- clave de lectura ---------- */
+.pieza-taller .clave{
+  font-family:var(--apoyo);font-size:.92rem;line-height:1.65;
+  background:var(--hondo);border-left:2px solid var(--regla);
+  padding:.9rem 1.1rem;margin:1.6rem 0 0
+}
+.pieza-taller .clave .m{display:inline-block;border:1.5px solid;padding:0 .25em;font-weight:500;
+  font-family:var(--mono);font-size:.82em}
+.pieza-taller .m.ma{border-color:var(--a);background:var(--a-tenue);color:var(--a-texto)}
+.pieza-taller .m.mb{border-color:var(--b);background:var(--b-tenue);color:var(--b-texto)}
+.pieza-taller .m.mc{border-color:var(--c);background:transparent;color:var(--suave)}
+.pieza-taller .m.mr{border-color:var(--ac);background:var(--ac-tenue);color:var(--ac)}
+
+/* ---------- lámina: cada bloque del plano ---------- */
+.pieza-taller .lam{margin-top:3.2rem}
+.pieza-taller .lam-cab{display:flex;align-items:baseline;gap:.75rem;
+  border-top:1px solid var(--fuerte);padding-top:.5rem;margin-bottom:.3rem}
+.pieza-taller .lam-cab .n{font-family:var(--mono);font-size:.7rem;letter-spacing:.09em;color:var(--suave);
+  white-space:nowrap}
+.pieza-taller .lam-cab h2{font-size:clamp(1.15rem,1rem + .7vw,1.5rem);line-height:1.2;font-weight:600;
+  margin:0;color:var(--fuerte);letter-spacing:-.01em}
+.pieza-taller .lam > p{font-family:var(--apoyo);font-size:.94rem;line-height:1.6;color:var(--suave);
+  max-width:62ch;margin:.5rem 0 1.4rem}
+
+/* ---------- figura con retícula de plano al fondo ---------- */
+.pieza-taller .fig{
+  border:1px solid var(--regla);padding:1.3rem 1.1rem;
+  background-color:var(--hondo);
+  background-image:linear-gradient(var(--regla) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--regla) 1px,transparent 1px);
+  background-size:8px 8px;background-position:-1px -1px;
+  position:relative
+}
+.pieza-taller .fig::before{content:'';position:absolute;inset:0;background:var(--hondo);opacity:.6;
+  pointer-events:none}
+.pieza-taller .fig > *{position:relative}
+.pieza-taller .fig-pie{font-family:var(--mono);font-size:.7rem;line-height:1.55;color:var(--suave);
+  margin:.75rem 0 0;max-width:72ch}
+.pieza-taller .fig-pie b{color:var(--tinta);font-weight:500}
+
+/* ---------- la cadena de datos: cajas con rótulo colgando ---------- */
+.pieza-taller .cadena{display:grid;gap:0}
+.pieza-taller .eslabon{display:grid;gap:.1rem}
+.pieza-taller .caja{
+  border:1.5px solid var(--regla);background:var(--fondo);padding:.6rem .75rem;
+  display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;align-items:baseline
+}
+.pieza-taller .caja.a{border-color:var(--a)}
+.pieza-taller .caja.b{border-color:var(--b)}
+.pieza-taller .caja.r{border-color:var(--ac);border-style:dashed}
+.pieza-taller .caja .arch{font-family:var(--mono);font-size:.78rem;color:var(--fuerte);font-weight:500;
+  word-break:break-word}
+.pieza-taller .caja .cota{font-family:var(--mono);font-size:.68rem;color:var(--suave);white-space:nowrap}
+.pieza-taller .caja .dice{grid-column:1/-1;font-family:var(--apoyo);font-size:.84rem;line-height:1.45;
+  color:var(--suave)}
+.pieza-taller .flecha{display:flex;align-items:center;gap:.5rem;padding:.3rem 0 .3rem .9rem;
+  font-family:var(--mono);font-size:.68rem;color:var(--suave)}
+.pieza-taller .flecha::before{content:'';width:0;height:1.5rem;border-left:1px solid var(--regla);
+  margin-left:-.9rem;margin-right:.55rem}
+.pieza-taller .flecha i{font-style:normal;color:var(--tinta)}
+
+/* bifurcación final */
+.pieza-taller .ramas{display:grid;gap:.75rem;margin-top:.1rem;padding-left:.9rem;
+  border-left:1px solid var(--regla)}
+@media (min-width:46rem){.pieza-taller .ramas{grid-template-columns:1fr 1fr}}
+
+/* ---------- el árbol del repositorio ---------- */
+.pieza-taller .arbol{display:grid;gap:1px;background:var(--regla)}
+.pieza-taller .nodo{background:var(--fondo);padding:.7rem .85rem;display:grid;
+  grid-template-columns:auto 1fr;gap:.25rem .8rem;align-items:baseline}
+.pieza-taller .nodo .ruta{font-family:var(--mono);font-size:.8rem;font-weight:500;color:var(--fuerte);
+  white-space:nowrap}
+.pieza-taller .nodo .que{font-family:var(--apoyo);font-size:.86rem;line-height:1.45;color:var(--tinta)}
+.pieza-taller .nodo ul{grid-column:1/-1;margin:.45rem 0 0;padding:0;list-style:none;
+  display:grid;gap:.22rem}
+.pieza-taller .nodo li{font-family:var(--mono);font-size:.72rem;line-height:1.5;color:var(--suave);
+  padding-left:1.1rem;position:relative;overflow-wrap:anywhere}
+.pieza-taller .nodo li::before{content:'·';position:absolute;left:.3rem;color:var(--regla)}
+.pieza-taller .nodo li b{color:var(--tinta);font-weight:500}
+.pieza-taller .nodo li em{font-style:normal;color:var(--a-texto);border:1px solid var(--a);
+  padding:0 .2em;margin-left:.3em;font-size:.92em}
+.pieza-taller .nodo li em.mb{color:var(--b-texto);border-color:var(--b)}
+.pieza-taller .nodo li em.mr{color:var(--ac);border-color:var(--ac)}
+
+/* ---------- tabla de plano ---------- */
+.pieza-taller .tabla-env{overflow-x:auto;margin:0 -1.1rem;padding:0 1.1rem}
+.pieza-taller table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:30rem}
+.pieza-taller caption{font-family:var(--apoyo);font-size:.74rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--suave);text-align:left;padding-bottom:.5rem}
+.pieza-taller th{font-family:var(--apoyo);font-size:.7rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--suave);text-align:left;
+  border-bottom:1px solid var(--fuerte);padding:.4rem .6rem .35rem}
+.pieza-taller td{border-bottom:1px solid var(--regla);padding:.5rem .6rem;vertical-align:top;
+  font-family:var(--apoyo);line-height:1.5}
+.pieza-taller td.mn{font-family:var(--mono);font-size:.78rem;color:var(--fuerte);white-space:nowrap}
+.pieza-taller td.num{font-family:var(--mono);text-align:right;white-space:nowrap;color:var(--fuerte)}
+.pieza-taller tr.a td:first-child{box-shadow:inset 2px 0 0 var(--a)}
+.pieza-taller tr.b td:first-child{box-shadow:inset 2px 0 0 var(--b)}
+.pieza-taller tr.r td{background:var(--ac-tenue)}
+.pieza-taller tr.r td:first-child{box-shadow:inset 2px 0 0 var(--ac)}
+
+/* ---------- las dos partes, una al lado de la otra ---------- */
+.pieza-taller .partes{display:grid;gap:1.1rem}
+@media (min-width:52rem){.pieza-taller .partes{grid-template-columns:1fr 1fr}}
+.pieza-taller .parte{border:1.5px solid var(--a);background:var(--fondo);padding:1rem 1.1rem}
+.pieza-taller .parte.dos{border-color:var(--b)}
+.pieza-taller .parte .et{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--a-texto);display:block;margin-bottom:.3rem}
+.pieza-taller .parte.dos .et{color:var(--b-texto)}
+.pieza-taller .parte h3{font-size:1.1rem;line-height:1.25;font-weight:600;margin:0 0 .5rem;
+  color:var(--fuerte)}
+.pieza-taller .parte > p{font-family:var(--apoyo);font-size:.88rem;line-height:1.55;margin:0 0 .85rem;
+  color:var(--tinta)}
+.pieza-taller .parte dl{margin:0;font-size:.84rem;font-family:var(--apoyo)}
+.pieza-taller .parte dt{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--suave);margin-top:.7rem}
+.pieza-taller .parte dd{margin:.15rem 0 0;color:var(--tinta);line-height:1.5}
+.pieza-taller .parte dd code{font-family:var(--mono);font-size:.92em;color:var(--fuerte)}
+.pieza-taller .cifra-clave{font-family:var(--mono);font-size:.74rem;color:var(--suave);
+  border-top:1px solid var(--regla);margin-top:.9rem;padding-top:.6rem;line-height:1.6}
+.pieza-taller .cifra-clave b{color:var(--fuerte);font-weight:500}
+
+/* ---------- lo que falta: el lápiz rojo ---------- */
+.pieza-taller .falta{display:grid;gap:1px;background:var(--regla);border:1px solid var(--ac)}
+.pieza-taller .falta > div{background:var(--fondo);padding:.75rem .9rem;display:grid;
+  grid-template-columns:auto 1fr;gap:.3rem .9rem;align-items:baseline}
+.pieza-taller .falta .n{font-family:var(--mono);font-size:.7rem;color:var(--ac);white-space:nowrap}
+.pieza-taller .falta h4{font-family:var(--apoyo);font-size:.92rem;font-weight:600;margin:0;
+  color:var(--fuerte)}
+.pieza-taller .falta p{grid-column:2;font-family:var(--apoyo);font-size:.85rem;line-height:1.5;
+  margin:.2rem 0 0;color:var(--suave)}
+.pieza-taller .falta .donde{grid-column:2;font-family:var(--mono);font-size:.7rem;color:var(--ac);
+  margin:.35rem 0 0}
+
+/* ---------- cierre ---------- */
+.pieza-taller .aforismo{font-size:clamp(1.12rem,1rem + .8vw,1.45rem);line-height:1.4;font-weight:500;
+  font-style:italic;color:var(--fuerte);max-width:34ch;margin:3.6rem auto 0;
+  text-align:center;border-top:1px solid var(--fuerte);
+  border-bottom:1px solid var(--fuerte);padding:1.3rem 0}
+.pieza-taller .colofon{font-family:var(--mono);font-size:.68rem;line-height:1.7;color:var(--suave);
+  max-width:66ch;margin:1.8rem auto 0;text-align:center}
+@media print{.pieza-taller{background:#fff}.pieza-taller .fig::before{display:none}}
