@@ -172,6 +172,7 @@ mark{background:none;color:inherit}
 .chequeo li::before{content:"✓";font-weight:700;color:var(--trazo-b)}
 .chequeo li.no::before{content:"✗";color:var(--trazo-a)}
 .chequeo li.no{color:var(--tinta-fuerte)}
+.chequeo li.nota-n{display:block}
 .chequeo li.nota-n::before{content:none}
 .chequeo .nota-n{grid-column:1/-1;margin-top:.2rem;font:500 .875rem/1.3 var(--mono);color:var(--tinta-suave)}
 .panel[data-estado=ok]{border-color:var(--trazo-b);border-width:2px}

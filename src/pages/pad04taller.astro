@@ -1,0 +1,25 @@
+---
+// Programación y Analítica de Datos (AFPN0006) · sesión 4 · Taller de listas y tuplas: diez ejercicios
+// para practicar por cuenta propia, con el código que se ve correr línea por línea.
+// Registro «Pizarra»: Newsreader, Space Grotesk y Space Mono.
+// Python corre en el navegador con Pyodide 0.26.4, que se descarga de cdn.jsdelivr.net.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource-variable/newsreader/opsz.css';
+import '@fontsource-variable/newsreader/opsz-italic.css';
+import '@fontsource-variable/space-grotesk/wght.css';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/space-mono/700.css';
+import estilo from '../clases/pad04taller/laboratorio.css?raw';
+import cuerpo from '../clases/pad04taller/laboratorio.html?raw';
+---
+<Clase
+  titulo="Taller de listas y tuplas"
+  curso="Programación y Analítica de Datos"
+  sesion={4}
+  descripcion="Diez ejercicios de listas y tuplas con los datos de la guía: se predicen, se completan, se comprueban solos y se ven correr línea por línea. Python corre en el navegador."
+  tema="#15181c"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

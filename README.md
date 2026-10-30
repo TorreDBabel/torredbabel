@@ -255,6 +255,7 @@ seguir el curso lección por lección:
 | `torredbabel.com/diseñometricas04` | Diseño de métricas para el marketing (AFPN0097) | 4 · Laboratorio de conversión y atribución |
 | `torredbabel.com/programaciondatos03` | Programación y Analítica de Datos (AFPN0006) | 3 · Laboratorio de ciclos (for y while) |
 | `torredbabel.com/pad04` | Programación y Analítica de Datos (AFPN0006) | 4 · Laboratorio de estructuras (listas, tuplas, diccionarios, conjuntos y registros) |
+| `torredbabel.com/pad04taller` | Programación y Analítica de Datos (AFPN0006) | 4 · Taller de listas y tuplas (práctica autónoma) |
 
 - Son material de clase: no llevan la cabecera ni el pie de Torre D. Babel, ni el nombre del
   docente. Lo importante es el mensaje: el pie trae solo el correo de contacto.
@@ -267,7 +268,8 @@ seguir el curso lección por lección:
   las aloja el sitio, como en el resto de las páginas.
 - Si la dirección lleva eñe, agregue en `astro.config.mjs` la versión sin eñe, que lleva a la
   original: `/disenometricas03` abre `/diseñometricas03` y `/disenometricas04`, `/diseñometricas04`.
-- La sesión siguiente es otra dirección (`masvalendatos05`); las anteriores no se borran.
+- La sesión siguiente es otra dirección (`masvalendatos05`); las anteriores no se borran. Un taller o
+  una práctica de la misma sesión lleva la dirección de la sesión y una palabra (`pad04taller`).
 - Desde la sesión 4, Programación y Analítica de Datos usa la dirección corta `pad<NN>`
   (`pad04`, `pad05`…): cabe en un QR pequeño y se dicta en clase sin deletrear. La sesión 3 sigue en
   `programaciondatos03`.

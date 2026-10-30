@@ -966,9 +966,9 @@ def _num(v):
     if isinstance(v, bool):
         return repr(v)
     if isinstance(v, int):
-        return f"{v:,}".replace(",", ".")
+        return repr(v)                      # como lo escribe Python: 2021, 1000000
     if isinstance(v, float):
-        return (f"{v:,.4f}" if abs(v) < 1 and v != 0 else f"{v:,.2f}").replace(",", "_").replace(".", ",").replace("_", ".")
+        return repr(round(v, 4))            # 5.6683 y no 5.668333333333333
     return None
 
 
