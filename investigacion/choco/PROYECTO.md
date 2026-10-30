@@ -94,8 +94,8 @@ cambio: en 2017, el primer año tras el acuerdo, el ELN pasa a explicar el 68,4 
 registrado en el Chocó frente al 26,4 % de las FARC-EP.
 
 **5. El punto ciego más caro era de alcance, no de método.** Contar solo los hechos atribuidos a las
-antiguas FARC-EP dejó fuera el 58,2 % del fenómeno y puso a Bajo Baudó en el puesto 23 del semáforo y en su nivel
-bajo del semáforo, cuando en la fuente independiente ocupa el puesto 4 y su serie crece justo antes
+antiguas FARC-EP dejó fuera el 58,2 % del fenómeno y puso a Bajo Baudó en el puesto 23 del semáforo
+y en su nivel bajo, cuando en la fuente independiente ocupa el puesto 4 y su serie crece justo antes
 del acuerdo. Fue atacado en 2026. La corrección no exige un modelo nuevo: exige contar todos los
 actores.
 
