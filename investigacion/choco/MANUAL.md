@@ -90,6 +90,7 @@ origen rodante y produce el semáforo. Las veintitrés cifras que imprime son la
 |---|---|
 | `datos.html` | una página con las bases, las medidas, el desempeño con sus intervalos y las referencias al cuaderno. Se abre en cualquier navegador. |
 | `terminos-choco.pdf` | glosario de los términos técnicos del trabajo, en seis páginas. |
+| `dataset-nacional.pdf` | qué variables de contexto faltan, en qué entidad están y cómo pedirlas, en cuatro páginas. Es el documento de la segunda parte. |
 
 ---
 
@@ -231,8 +232,8 @@ cambio.
 
 El expediente contabiliza hechos atribuidos a las antiguas FARC-EP, que explican el **41,8 %** del
 fenómeno medido en el Chocó, frente al 39,3 % del ELN y el 11,7 % de las estructuras paramilitares
-(guion **09**). Es la limitación de mayor consecuencia práctica: puso a Bajo Baudó en el puesto 23 del semáforo y
-en el nivel bajo del semáforo cuando en la fuente independiente ocupa el puesto 4, y tres de los
+(guion **09**). Es la limitación de mayor consecuencia práctica: puso a Bajo Baudó en el puesto 23
+del semáforo y en su nivel bajo cuando en la fuente independiente ocupa el puesto 4, y tres de los
 cinco municipios sin un solo hecho en el panel sí tienen víctimas documentadas. La corrección no
 exige un modelo nuevo, exige contar todos los actores.
 

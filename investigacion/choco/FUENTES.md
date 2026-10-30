@@ -1,7 +1,8 @@
 # Fuentes
 
-Ocho fuentes oficiales. Ninguna cifra de este trabajo se estima: cada una viene de una de estas
-bases y se cita. Donde una fuente no desagrega, la celda queda vacía y marcada; no se imputa.
+Nueve fuentes oficiales: ocho construyen el panel y la novena lo contrasta desde afuera. Ninguna
+cifra de este trabajo se estima: cada una viene de una de estas bases y se cita. Donde una fuente
+no desagrega, la celda queda vacía y marcada; no se imputa.
 
 ---
 
@@ -125,10 +126,9 @@ panel: cuenta el 41,8 % del fenómeno medido.
 
 Dos municipios cambian de lugar al contrastarlos. **Río Iró**, que en el panel no registra ningún
 hecho, tiene 6,3 víctimas documentadas entre 1995 y 2015. **Bajo Baudó**, que en el panel tiene 3
-hechos y queda en el puesto 23 del semáforo, tiene 45,3 víctimas y sube al puesto 4 por
-número de víctimas; de ellas 34,2 se atribuyen
-al ELN y la serie crece en los últimos años de la ventana —6,1 en 2013, 4,0 en 2014, 9,2 en 2015 y
-9,0 en 2016—. Los dos fueron atacados con drones en 2026.
+hechos y queda en el puesto 23 del semáforo, tiene 45,3 víctimas y sube al puesto 4 por número de
+víctimas; de ellas 34,2 se atribuyen al ELN, y la serie crece en los últimos años de la ventana
+—6,1 en 2013, 4,0 en 2014, 9,2 en 2015 y 9,0 en 2016—. Los dos fueron atacados con drones en 2026.
 
 **Dónde se descarga.** Microdatos del DANE, catálogo 795:
 <https://microdatos.dane.gov.co/index.php/catalog/795/get-microdata>
