@@ -1,0 +1,24 @@
+---
+// Más valen datos que percepciones (AFPN0087) · sesión 5 · Laboratorio de análisis exploratorio.
+// Registro «Expediente»: Libre Baskerville, Public Sans y JetBrains Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/libre-baskerville/400.css';
+import '@fontsource/libre-baskerville/400-italic.css';
+import '@fontsource/libre-baskerville/700.css';
+import '@fontsource-variable/public-sans/wght.css';
+import '@fontsource-variable/public-sans/wght-italic.css';
+import '@fontsource-variable/jetbrains-mono/wght.css';
+import estilo from '../clases/masvalendatos05/laboratorio.css?raw';
+import cuerpo from '../clases/masvalendatos05/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de análisis exploratorio"
+  curso="Más valen datos que percepciones"
+  sesion={5}
+  descripcion="Un laboratorio para explorar datos antes de concluir: qué es una fila, qué limpiar, qué se sale de lo normal y qué hallazgo sirve para decidir. Sesión 5 de Más valen datos que percepciones."
+  tema="#faf9f6"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

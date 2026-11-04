@@ -1,0 +1,26 @@
+---
+// Diseño de métricas para el marketing (AFPN0097) · sesión 5 · Laboratorio de retención y lealtad.
+// Registro «Informe»: Atkinson Hyperlegible Next y Atkinson Hyperlegible Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+// La dirección sin eñe (/disenometricas05) lleva aquí: ver astro.config.mjs.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/atkinson-hyperlegible-next/300.css';
+import '@fontsource/atkinson-hyperlegible-next/400.css';
+import '@fontsource/atkinson-hyperlegible-next/400-italic.css';
+import '@fontsource/atkinson-hyperlegible-next/500.css';
+import '@fontsource/atkinson-hyperlegible-next/600.css';
+import '@fontsource/atkinson-hyperlegible-mono/400.css';
+import '@fontsource/atkinson-hyperlegible-mono/500.css';
+import estilo from '../clases/diseñometricas05/laboratorio.css?raw';
+import cuerpo from '../clases/diseñometricas05/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de retención y lealtad"
+  curso="Diseño de métricas para el marketing"
+  sesion={5}
+  descripcion="Un laboratorio para medir cuánto se queda y cuánto deja cada cliente, leer el NPS con cuidado y decidir entre conseguir y retener. Sesión 5 de Diseño de métricas para el marketing."
+  tema="#ffffff"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

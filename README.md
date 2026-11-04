@@ -253,6 +253,8 @@ seguir el curso lección por lección:
 | `torredbabel.com/diseñometricas03` | Diseño de métricas para el marketing (AFPN0097) | 3 · Laboratorio de adquisición |
 | `torredbabel.com/masvalendatos04` | Más valen datos que percepciones (AFPN0087) | 4 · Laboratorio de visualización |
 | `torredbabel.com/diseñometricas04` | Diseño de métricas para el marketing (AFPN0097) | 4 · Laboratorio de conversión y atribución |
+| `torredbabel.com/masvalendatos05` | Más valen datos que percepciones (AFPN0087) | 5 · Laboratorio de análisis exploratorio |
+| `torredbabel.com/diseñometricas05` | Diseño de métricas para el marketing (AFPN0097) | 5 · Laboratorio de retención y lealtad |
 | `torredbabel.com/programaciondatos03` | Programación y Analítica de Datos (AFPN0006) | 3 · Laboratorio de ciclos (for y while) |
 | `torredbabel.com/pad04` | Programación y Analítica de Datos (AFPN0006) | 4 · Laboratorio de estructuras (listas, tuplas, diccionarios, conjuntos y registros) |
 | `torredbabel.com/pad04taller` | Programación y Analítica de Datos (AFPN0006) | 4 · Taller de listas y tuplas (práctica autónoma) |
@@ -267,7 +269,7 @@ seguir el curso lección por lección:
   fuente y se vuelven a copiar, no se editan aquí a mano. La única diferencia es que las letras
   las aloja el sitio, como en el resto de las páginas.
 - Si la dirección lleva eñe, agregue en `astro.config.mjs` la versión sin eñe, que lleva a la
-  original: `/disenometricas03` abre `/diseñometricas03` y `/disenometricas04`, `/diseñometricas04`.
+  original: `/disenometricas03` abre `/diseñometricas03`; `/disenometricas04`, `/diseñometricas04`, y `/disenometricas05`, `/diseñometricas05`.
 - La sesión siguiente es otra dirección (`masvalendatos05`); las anteriores no se borran. Un taller o
   una práctica de la misma sesión lleva la dirección de la sesión y una palabra (`pad04taller`).
 - Desde la sesión 4, Programación y Analítica de Datos usa la dirección corta `pad<NN>`

@@ -1,0 +1,657 @@
+<div class="r-informe">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 5</a>
+  <ol class="bn-lista">
+    <li><a href="#banera" data-sec="banera"><span>1</span>La bañera</a></li>
+    <li><a href="#record" data-sec="record"><span>2</span>Récord de inscritos</a></li>
+    <li><a href="#nps" data-sec="nps"><span>3</span>El NPS que subió</a></li>
+    <li><a href="#llave" data-sec="llave"><span>4</span>Llave o desagüe</a></li>
+    <li><a href="#casa" data-sec="casa"><span>5</span>Para la casa</a></li>
+    <li><a href="#su-negocio" data-sec="su-negocio"><span>6</span>Su negocio</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Diseño de métricas para el marketing · Sesión 5 · Laboratorio</p>
+
+  <!-- APERTURA -->
+  <section class="columna" aria-label="Apertura">
+    <p>En septiembre, Academia Puente inscribió 58 estudiantes nuevos, su mejor mes del año. La junta celebró. Este es el informe de estudiantes activos de ese mes:</p>
+  </section>
+  <section class="figura" aria-labelledby="a1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="a1t">Entraron 58 y la academia terminó con 17 estudiantes menos</h3><p class="figura-clave">Estudiantes activos al empezar y al terminar septiembre de 2026, con los que llegaron y los que se fueron.</p></div>
+    <ul class="hbars" id="fig-apertura" style="--nombre:13rem;--nombre-m:8rem"></ul>
+    <p class="figura-nota">Caso simulado, continuación de las sesiones 1 a 4. La barra de «se fueron» cuenta a quienes no renovaron la mensualidad.</p>
+  </section>
+  <section class="columna">
+    <div class="apuesta viva" id="voto">
+      <p class="rotulo">Vote antes de seguir</p>
+      <p style="margin:0;font:400 1.25rem/1.3 var(--serif);color:var(--tinta-fuerte)">¿Fue un buen mes para la academia?</p>
+      <div class="voto" role="group" aria-label="Su voto">
+        <button type="button" data-voto="si">Sí: récord de inscritos</button><button type="button" data-voto="no">No: hay menos estudiantes</button><button type="button" data-voto="depende">Depende de quién se fue</button>
+      </div>
+      <p class="voto-dato" hidden aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De conseguir a conservar"><span class="par"><span class="nexo">De</span> <mark class="marca-a">conseguir</mark></span><span class="par"><span class="nexo">a</span> <mark class="marca-b">conservar</mark></span></h1>
+    <p class="entradilla">El cliente que se va no hace ruido. Este laboratorio mide cuánto se queda cada cliente, cuánto deja y qué conviene más: abrir la llave de los nuevos o cerrar el desagüe por donde se van.</p>
+    <p class="firma">Bogotá, noviembre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«Las empresas pueden aumentar sus utilidades casi un 100 % reteniendo apenas un 5 % más de sus clientes.»</p><footer>F. Reichheld y W. E. Sasser, «Zero Defections», <cite>Harvard Business Review</cite>, 1990 · traducción propia; el efecto cambia mucho entre industrias</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer este laboratorio: la pastilla amarilla marca <mark class="marca-a">lo que se va</mark> —el cliente que no renueva, la cuenta que solo mira la llave—, la azul <mark class="marca-b">lo que se queda</mark> —el cliente que sigue y lo que deja— y la gris <mark class="marca-c">lo que permanece</mark>: la regla de cada fórmula; <span class="giro">el rojo subraya el giro</span>. En los gráficos, cada propuesta conserva su muestra:</p>
+    <ul class="claves" aria-label="Muestras de los gráficos">
+      <li><span class="muestra s"></span>hoy, sin cambios</li>
+      <li><span class="muestra a"></span>abrir la llave</li>
+      <li><span class="muestra b"></span>cerrar el desagüe</li>
+      <li><span class="muestra x"></span>el punto que decide</li>
+    </ul>
+    <p style="margin-top:2rem">El recorrido sigue la guía, y cada estación con ejercicio cierra con un recuadro para comprobar lo que usted hizo a mano:</p>
+    <ol class="ruta-lista">
+      <li><a href="#banera">La bañera que se vacía</a></li>
+      <li><a href="#record">Récord de inscritos · ej. 1</a></li>
+      <li><a href="#nps">El NPS que subió · ej. 2</a></li>
+      <li><a href="#llave">Llave o desagüe · ej. 3</a></li>
+      <li><a href="#casa">Para la casa</a></li>
+      <li><a href="#su-negocio">Su negocio</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Las perillas mueven los supuestos; los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no, sin regalarle la respuesta. Lo que usted escribe aquí no sale de su navegador.</p>
+  </section>
+
+  <!-- 1 · BAÑERA -->
+  <div class="estacion" id="banera">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1</span>La bañera que se vacía</h2>
+    <p>Por la llave entran los <mark class="marca-b">nuevos</mark> de cada mes; por el desagüe se va el <mark class="marca-a">churn</mark>, un porcentaje de los que hay. Si los dos se mantienen, el nivel deja de moverse donde lo que entra es igual a lo que sale: <mark class="marca-c">nuevos ÷ churn</mark>. Mueva las dos perillas y mire hacia dónde va la academia.</p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t">El nivel de la bañera lo decide el desagüe tanto como la llave</h3><p class="figura-clave">Estudiantes activos mes a mes durante dos años, desde los 348 de hoy. La línea punteada es el nivel al que se acerca la bañera.</p></div>
+    <div class="mandos">
+      <label class="perilla">Nuevos por mes <output id="b-n-o"></output><input id="b-n" type="range" min="10" max="120" step="1" value="58"></label>
+      <label class="perilla">Churn mensual <output id="b-c-o"></output><input id="b-c" type="range" min="5" max="40" step="1" value="20"></label>
+    </div>
+    <div class="lienzo" id="fig-banera"></div>
+    <ul class="resumen-lab" id="banera-res"></ul>
+    <p class="lectura" id="banera-lect" aria-live="polite"></p>
+    <p class="figura-nota">Supone que los nuevos y el churn no cambian mes a mes. Margen por estudiante: $98.000 al mes (sesión 3).</p>
+  </section>
+  <div class="pruebe">
+    <p class="rotulo">Pruebe esto</p>
+    <div class="repasos">
+      <details class="repaso"><summary>Deje los nuevos en 58 y baje el churn de 20 % a 10 %. ¿Qué le pasa al nivel?</summary><p>Se duplica, de 290 a 580 estudiantes: el nivel es nuevos ÷ churn, así que partir el churn por la mitad es como doblar la llave.</p></details>
+      <details class="repaso"><summary>Con el churn en 20 %, ¿cuántos nuevos por mes hacen falta para quedarse en los 348 de hoy?</summary><p>Unos 70: 348 × 0,20 = 69,6. Con 58 por mes, la academia va a seguir bajando aunque cada mes sea «récord».</p></details>
+    </div>
+  </div>
+  </div>
+
+  <!-- 2 · RÉCORD -->
+  <div class="estacion" id="record">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 1</span>El cliente más barato puede ser el más caro</h2>
+    <p>La junta quiere duplicar TikTok porque trae los clics más baratos. Pero un estudiante de TikTok se va mucho antes: de cada 100, se van 40 al mes. El valor de vida del cliente (CLV) es <mark class="marca-c">margen ÷ churn</mark>, y la pregunta es cuántas veces devuelve lo que costó traerlo. Mueva la renovación de TikTok.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t" aria-live="polite">TikTok apenas devuelve lo que cuesta</h3><p class="figura-clave">Veces que el CLV de cada canal devuelve su costo de adquisición. La línea continua marca 1 (empate) y la punteada, 3 (la regla práctica).</p></div>
+    <div class="mandos">
+      <label class="perilla">Renovación mensual de TikTok <output id="r-tt-o"></output><input id="r-tt" type="range" min="40" max="95" step="1" value="60"></label>
+      <label class="casilla"><input type="checkbox" id="r-equipo"> Sumar al CAC el equipo comercial ($62.069 por inscrito)</label>
+    </div>
+    <ul class="hbars" id="fig-record" style="--nombre:10rem;--nombre-m:6.5rem"></ul>
+    <ul class="resumen-lab" id="record-res"></ul>
+    <p class="lectura" id="record-lect" aria-live="polite"></p>
+    <p class="figura-nota">CAC de pauta de la sesión 3: TikTok $225.000, Meta $135.000 y Google $75.000. Referidos y orgánico no tienen pauta, por eso no aparecen.</p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej1" novalidate><h3>Compruebe su cuaderno · Ejercicio 1</h3><p>Porcentajes con un decimal; pesos sin decimales; CLV/CAC con un decimal.</p><fieldset class="grupo-campos"><legend>TikTok Ads</legend><div class="campos"><label class="campo"><span class="campo-t">Churn (%)</span><input inputmode="decimal" data-ok="40.0" data-tol="0.1" data-pct="1" data-pista="se fueron ÷ activos al 1 de septiembre × 100, con los de TikTok Ads."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV ($)</span><input inputmode="decimal" data-ok="245000.0" data-tol="600" data-pista="margen mensual ($98.000) ÷ churn en decimales; o margen × permanencia."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV/CAC</span><input inputmode="decimal" data-ok="1.088889" data-tol="0.06" data-pista="CLV ÷ CAC de pauta del canal."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Meta Ads</legend><div class="campos"><label class="campo"><span class="campo-t">Churn (%)</span><input inputmode="decimal" data-ok="22.0" data-tol="0.1" data-pct="1" data-pista="se fueron ÷ activos al 1 de septiembre × 100, con los de Meta Ads."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV ($)</span><input inputmode="decimal" data-ok="445454.545455" data-tol="600" data-pista="margen mensual ($98.000) ÷ churn en decimales; o margen × permanencia."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV/CAC</span><input inputmode="decimal" data-ok="3.299663" data-tol="0.06" data-pista="CLV ÷ CAC de pauta del canal."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Google</legend><div class="campos"><label class="campo"><span class="campo-t">Churn (%)</span><input inputmode="decimal" data-ok="15.0" data-tol="0.1" data-pct="1" data-pista="se fueron ÷ activos al 1 de septiembre × 100, con los de Google."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV ($)</span><input inputmode="decimal" data-ok="653333.333333" data-tol="600" data-pista="margen mensual ($98.000) ÷ churn en decimales; o margen × permanencia."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV/CAC</span><input inputmode="decimal" data-ok="8.711111" data-tol="0.06" data-pista="CLV ÷ CAC de pauta del canal."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Total de la academia</legend><div class="campos"><label class="campo"><span class="campo-t">Churn (%)</span><input inputmode="decimal" data-ok="20.547945" data-tol="0.1" data-pct="1" data-pista="75 ÷ 365 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV ($)</span><input inputmode="decimal" data-ok="476933.333333" data-tol="1500" data-pista="98.000 ÷ churn total en decimales."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Churn: TikTok 40 %, Meta 22 %, Google 15 %, referidos 12 %, orgánico 20 %; total 20,5 %. Permanencia: 2,5, 4,5, 6,7, 8,3 y 5 meses. CLV: $245.000, $445.455, $653.333, $816.667 y $490.000; total $476.933. CLV/CAC de pauta: TikTok <strong>1,1</strong>, Meta 3,3 y Google 8,7. Con el equipo comercial, el CAC de TikTok sube a $287.069 y supera su CLV: cada estudiante de TikTok hace perder plata. El mes no fue bueno: entraron 58 y se fueron 75.</p></div></form></section>
+  </div>
+
+  <!-- 3 · NPS -->
+  <div class="estacion" id="nps">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 2</span>El NPS subió porque cambió a quién se le preguntó</h2>
+    <p>La Forja pasó de +10 a +40 en un mes. En octubre la encuesta fue para todos; en noviembre, solo para quienes van 8 veces o más. Escoja a quién se le manda y mire cuánto se mueve el número sin que nadie esté más contento. El NPS es <mark class="marca-c">% promotores − % detractores</mark>.</p>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t">La misma gente, otro NPS</h3><p class="figura-clave">Respuestas de la encuesta, de detractores (0 a 6) a promotores (9 y 10).</p></div>
+    <div class="pestanas" role="group" aria-label="Encuesta">
+      <button type="button" data-enc="todos" aria-pressed="true">Octubre · todos</button><button type="button" data-enc="frec" aria-pressed="false">Octubre · frecuentes</button><button type="button" data-enc="poco" aria-pressed="false">Octubre · poco frecuentes</button><button type="button" data-enc="nov" aria-pressed="false">Noviembre · frecuentes</button>
+    </div>
+    <span class="nps-cifra" id="nps-cifra"></span><span class="nps-que" id="nps-que"></span>
+    <div class="apilada" id="nps-barra" role="img"><span class="det"></span><span class="pas"></span><span class="pro"></span></div>
+    <p class="apilada-leyenda"><span>Detractores</span><span>Pasivos</span><span>Promotores</span></p>
+    <p class="lectura" id="nps-lect" aria-live="polite"></p>
+  </section>
+  <section class="figura" aria-labelledby="f3bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3bt">Los detractores de octubre fueron los que cancelaron</h3><p class="figura-clave">De cada 100 socios de cada grupo que respondió en octubre, cuántos cancelaron en noviembre.</p></div>
+    <ul class="hbars" id="fig-zonas" style="--nombre:9rem;--nombre-m:6.5rem"></ul>
+    <p class="figura-nota">Caso simulado. Una encuesta que solo le pregunta a quien ya está contento deja por fuera a quien está a punto de irse.</p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej2" novalidate><h3>Compruebe su cuaderno · Ejercicio 2</h3><p>El NPS sin signo de porcentaje; el churn con un decimal.</p><fieldset class="grupo-campos"><legend>Las tres encuestas</legend><div class="campos"><label class="campo"><span class="campo-t">NPS de octubre, todos</span><input inputmode="decimal" data-ok="10" data-tol="0.5" data-pista="(48 − 36) ÷ 120 × 100: promotores menos detractores, sobre todas las respuestas."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">NPS de octubre, frecuentes</span><input inputmode="decimal" data-ok="38" data-tol="0.5" data-pista="(27 − 8) ÷ 50 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">NPS de noviembre</span><input inputmode="decimal" data-ok="40" data-tol="0.5" data-pista="(33 − 9) ÷ 60 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Churn de noviembre por zona</legend><div class="campos"><label class="campo"><span class="campo-t">Promotores (%)</span><input inputmode="decimal" data-ok="2.083333" data-tol="0.1" data-pct="1" data-pista="1 ÷ 48 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Pasivos (%)</span><input inputmode="decimal" data-ok="11.111111" data-tol="0.1" data-pct="1" data-pista="4 ÷ 36 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Detractores (%)</span><input inputmode="decimal" data-ok="33.333333" data-tol="0.1" data-pct="1" data-pista="12 ÷ 36 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>NPS: octubre con todos <strong>+10</strong>; octubre solo frecuentes <strong>+38</strong>; noviembre <strong>+40</strong>. Comparado con el grupo comparable, subió 2 puntos, no 30. Churn de noviembre: promotores 2,1 %, pasivos 11,1 % y detractores <strong>33,3 %</strong>. La encuesta de noviembre dejó por fuera justo a los que estaban por irse. Si el bono depende del NPS, escoger a quién se le pregunta es la ley de Goodhart de la sesión 1.</p></div></form></section>
+  </div>
+
+  <!-- 4 · LLAVE O DESAGÜE -->
+  <div class="estacion" id="llave">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Ejercicio 3</span>Cerrar el desagüe gana, si la promesa se cumple</h2>
+    <p>Dos millones al mes y dos propuestas: <span class="t-a">más pauta</span>, que trae 12 nuevos más, o <span class="t-b">un tutor para el primer mes</span>, que promete bajar el churn de 20 % a 16 %. Mueva las promesas y mire cómo se llena cada bañera, mes a mes.</p>
+  </section>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t" aria-live="polite">Las dos bañeras, mes a mes</h3><p class="figura-clave">Estudiantes activos durante tres años, desde los 348 de hoy, con cada propuesta y sin ninguna.</p></div>
+    <div class="mandos">
+      <label class="perilla">A · nuevos más por mes <output id="l-a-o"></output><input id="l-a" type="range" min="0" max="30" step="1" value="12"></label>
+      <label class="perilla">B · churn con el tutor <output id="l-b-o"></output><input id="l-b" type="range" min="10" max="20" step="0.5" value="16"></label>
+    </div>
+    <div class="lienzo" id="fig-llave"></div>
+    <ul class="resumen-lab" id="llave-res"></ul>
+    <p class="lectura" id="llave-lect" aria-live="polite"></p>
+    <p class="figura-nota">Margen después de pagar = activos × $98.000 − $2.000.000. Supone que cada promesa se cumple desde el primer mes; en la realidad hay que medirla por cohorte.</p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej3" novalidate><h3>Compruebe su cuaderno · Ejercicio 3</h3><p>Activos con un decimal si hace falta; pesos sin decimales.</p><fieldset class="grupo-campos"><legend>Activos a la larga</legend><div class="campos"><label class="campo"><span class="campo-t">Hoy</span><input inputmode="decimal" data-ok="290.0" data-tol="0.5" data-pista="58 ÷ 0,20."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">A · llave</span><input inputmode="decimal" data-ok="350.0" data-tol="0.5" data-pista="(58 + 12) ÷ 0,20."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">B · desagüe</span><input inputmode="decimal" data-ok="362.5" data-tol="0.6" data-pista="58 ÷ 0,16."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Margen y empate</legend><div class="campos"><label class="campo"><span class="campo-t">A · margen después de pagar ($)</span><input inputmode="decimal" data-ok="32300000.0" data-tol="6000" data-pista="activos de A × 98.000 − 2.000.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">B · margen después de pagar ($)</span><input inputmode="decimal" data-ok="33525000.0" data-tol="60000" data-pista="activos de B × 98.000 − 2.000.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CAC marginal de A ($)</span><input inputmode="decimal" data-ok="166666.666667" data-tol="2" data-pista="2.000.000 ÷ 12 inscritos más."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Churn de empate (%)</span><input inputmode="decimal" data-ok="16.571429" data-tol="0.1" data-pct="1" data-pista="el churn con el que 58 ÷ churn da los mismos 350 activos de A."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Activos a la larga: hoy 290, A 350, B 362,5. Margen mensual después de pagar: A <strong>$32.300.000</strong>, B <strong>$33.525.000</strong>; B gana por $1.225.000 al mes. CAC marginal de A: $166.667. Si el churn solo baja a 18 %, B deja $29.577.778 y pierde. Empate: churn de <strong>16,6 %</strong> (58 ÷ 350). La promesa del tutor se prueba con una cohorte, unos meses, antes de comprometer el año.</p></div></form></section>
+  </div>
+
+  <!-- 5 · CASA -->
+  <div class="estacion" id="casa">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 5 · Para la casa</span>Pausar en vez de cancelar</h2>
+    <p>Al Club del Café le cancelaron 40 de 500 suscriptores en octubre; 12 dijeron que se les acumulaba el café. La agencia propone quitar el botón de cancelar. Hay otra salida: ofrecer «pausar un mes». Mueva cuántos de esos 12 prefieren pausar.</p>
+  </section>
+  <section class="figura" aria-labelledby="f5t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f5t">Una pausa honesta también baja el churn</h3><p class="figura-clave">Lo que deja un suscriptor del Club del Café según cuántos de los que acumulan café eligen pausar.</p></div>
+    <div class="mandos">
+      <label class="perilla">De los 12 que acumulan café, pausan <output id="c-p-o"></output><input id="c-p" type="range" min="0" max="100" step="25" value="50"></label>
+    </div>
+    <ul class="resumen-lab" id="casa-res"></ul>
+    <p class="lectura" id="casa-lect" aria-live="polite"></p>
+    <p class="figura-nota">Margen: 40 % de $45.000, $18.000 por mes. CAC: $3.000.000 de pauta ÷ 60 suscriptores nuevos.</p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-casa" novalidate><h3>Compruebe su cuaderno · Para la casa</h3><p>Porcentajes con un decimal; pesos sin decimales.</p><fieldset class="grupo-campos"><legend>Club del Café</legend><div class="campos"><label class="campo"><span class="campo-t">Churn (%)</span><input inputmode="decimal" data-ok="8.0" data-tol="0.1" data-pct="1" data-pista="40 ÷ 500 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Permanencia (meses)</span><input inputmode="decimal" data-ok="12.5" data-tol="0.1" data-pista="1 ÷ 0,08."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV ($)</span><input inputmode="decimal" data-ok="225000.0" data-tol="300" data-pista="18.000 ÷ 0,08."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV/CAC</span><input inputmode="decimal" data-ok="4.5" data-tol="0.05" data-pista="CLV ÷ (3.000.000 ÷ 60)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CSAT de las entregas (%)</span><input inputmode="decimal" data-ok="80.0" data-tol="0.2" data-pct="1" data-pista="(180 + 140) ÷ 400 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Churn si la mitad pausa (%)</span><input inputmode="decimal" data-ok="6.8" data-tol="0.1" data-pct="1" data-pista="(40 − 6) ÷ 500 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Churn 8 %, permanencia 12,5 meses, CLV <strong>$225.000</strong>, CAC $50.000, CLV/CAC 4,5, CSAT 80 %. Si 6 de los 12 pausan: churn 6,8 % y CLV $264.706. Quitar el botón subiría el esfuerzo (CES) y los detractores: un cliente atrapado no es un cliente retenido.</p></div></form></section>
+  </div>
+
+  <!-- 6 · SU NEGOCIO -->
+  <div class="estacion" id="su-negocio">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 6</span>La bañera de su negocio</h2>
+    <p>Escriba los números de un negocio que usted conozca: una tienda, un gimnasio, una aplicación, el emprendimiento de su familia. Si no los tiene, estímelos y dígalo.</p>
+    <div class="areas" id="su-campos">
+      <label>Margen mensual por cliente ($)<input class="campo-libre" data-k="m" inputmode="decimal" value="30.000"></label>
+      <label>Clientes al empezar el mes<input class="campo-libre" data-k="a" inputmode="decimal" value="200"></label>
+      <label>Se fueron en el mes<input class="campo-libre" data-k="b" inputmode="decimal" value="16"></label>
+      <label>Llegaron nuevos<input class="campo-libre" data-k="n" inputmode="decimal" value="20"></label>
+      <label>Lo que costó conseguirlos ($)<input class="campo-libre" data-k="i" inputmode="decimal" value="1.200.000"></label>
+    </div>
+  </section>
+  <section class="figura">
+    <ul class="resumen-lab" id="su-res"></ul>
+    <p class="lectura" id="su-lect" aria-live="polite"></p>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a la apertura</h2>
+    <p id="cierre-voto">Septiembre fue récord de inscritos y la academia terminó con 17 estudiantes menos. Con 58 nuevos y un churn de 20 %, la bañera se acerca a 290: celebrar la llave sin mirar el desagüe es celebrar a ciegas.</p>
+    <p>Reichheld y Sasser lo midieron hace más de treinta años: un poco más de retención mueve mucho las utilidades. <span class="giro">El churn no es un número de servicio al cliente: decide cuánto vale cada cliente y cuánto se puede pagar por conseguirlo.</span> Antes de celebrar una cifra de inscritos, tres preguntas: ¿cuántos se fueron?, ¿cuánto deja cada uno?, ¿y a quién se le preguntó si estaba contento?</p>
+    <p class="aforismo">La llave llena; el desagüe decide.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Academia Puente, el gimnasio La Forja y Café Monteverde son casos simulados que continúan las sesiones 1 a 4. La tarifa ($280.000), el margen (35 %), el CAC de pauta por canal y el costo del equipo comercial son los de la sesión 3; la renovación por canal se convirtió en bajas de septiembre.</p></details>
+  <details><summary>¿Qué suponen la bañera y el CLV?</summary><p>Que los nuevos por mes y el churn no cambian, que el margen es el mismo cada mes y que un peso de dentro de dos años vale lo mismo que uno de hoy. Es la versión sencilla: sirve para comparar canales y decisiones, no para valorar la empresa. Un CLV completo descuenta el valor del dinero en el tiempo y sigue cada cohorte por separado.</p></details>
+  <details><summary>¿Qué es el NPS y quién lo creó?</summary><p>El Net Promoter Score lo propuso Fred Reichheld en 2003 en la Harvard Business Review; es marca registrada de Bain &amp; Company, Satmetrix y Fred Reichheld. El CES, o índice de esfuerzo del cliente, viene de Dixon, Freeman y Toman (2010).</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra, y también su voto.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Informe»: papel blanco, tinta azul marino y pastillas, el de mayor legibilidad, porque esta sesión es de números que se presentan a una junta. Forma «intuición y tropiezo»: parece un buen mes, pero falla porque se van más de los que llegan; la prueba se arma paso a paso y el cierre vuelve a la apertura. Recursos: la apuesta (el voto), la perilla y la tarjeta de repaso. La sesión anterior usó el registro «Noche clara».</p></details>
+  <ol class="citas">
+    <li>Reichheld, F. y Sasser, W. E. (1990). «Zero Defections: Quality Comes to Services». <i>Harvard Business Review</i>, 68(5).</li>
+    <li>Reichheld, F. (2003). «The One Number You Need to Grow». <i>Harvard Business Review</i>, 81(12).</li>
+    <li>Dixon, M., Freeman, K. y Toman, N. (2010). «Stop Trying to Delight Your Customers». <i>Harvard Business Review</i>, 88(7-8).</li>
+    <li>Jeffery, M. (2010). <i>Data-Driven Marketing: The 15 Metrics Everyone in Marketing Should Know</i>. Wiley.</li>
+  </ol>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"margen": 98000, "act": 365, "nuevos": 58, "bajas": 75, "fin": 348, "cacEquipo": 62068.96551724138, "canales": [{"canal": "TikTok Ads", "act": 50, "bajas": 20, "cac": 225000.0}, {"canal": "Meta Ads", "act": 100, "bajas": 22, "cac": 135000.0}, {"canal": "Google (búsqueda)", "act": 80, "bajas": 12, "cac": 75000.0}, {"canal": "Referidos", "act": 75, "bajas": 9, "cac": null}, {"canal": "Orgánico", "act": 60, "bajas": 12, "cac": null}], "npsOct": {"prom": 48, "pas": 36, "det": 36}, "npsFrec": {"prom": 27, "pas": 15, "det": 8}, "npsPoco": {"prom": 21, "pas": 21, "det": 28}, "npsNov": {"prom": 33, "pas": 18, "det": 9}, "zonas": {"prom": 2.083333333333333, "pas": 11.11111111111111, "det": 33.33333333333333}, "churnBase": 0.2, "costo": 2000000, "cafe": {"inicio": 500, "bajas": 40, "nuevos": 60, "pauta": 3000000, "margen": 18000.0, "acumulado": 12}};
+/* Núcleo común de los laboratorios: números a la colombiana, escalas, barras animadas, navegación y comprobaciones. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+
+/* Laboratorio · Diseño de métricas para el marketing · Sesión 5: retención y lealtad. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const pct = (v, d = 1) => num(v, d) + ' %';
+  const al = (ids, fn) => { ids.forEach(id => { const e = typeof id === 'string' ? $(id) : id; if (e) { e.addEventListener('input', fn); e.addEventListener('change', fn); } }); fn(); };
+  const salida = (id, t) => { const o = $(id + '-o'); if (o) o.textContent = t; };
+  const angosto = () => matchMedia('(max-width: 520px)').matches;
+  const M = D.margen, HOY = D.fin;
+  const res = (el, items) => { el.innerHTML = items.map(([t, v]) => `<li>${t}<b>${v}</b></li>`).join(''); };
+  const signo = v => (v > 0 ? '+' : '') + num(v);
+  let voto = null;
+
+  /* Líneas de varios escenarios, con rótulo directo al final de cada una. */
+  function lineas(el, series, o = {}) {
+    const f = marco(el, o.alto || 300, { i: 46, d: angosto() ? 12 : 118, ab: 36 });
+    const n = series[0].v.length - 1;
+    const todos = series.flatMap(s => s.v).concat(o.refs ? o.refs.map(r => r.v) : []);
+    const mx = Math.max(...todos), mn = Math.min(...todos), pad = Math.max((mx - mn) * .25, mx * .04);
+    const hi = mx + pad, lo = Math.max(0, Math.floor((mn - pad * 1.6) / 50) * 50);
+    const x = lin(0, n, f.x0, f.x1), y = lin(lo, hi, f.yb, f.yt);
+    ejeY(f, y, marcas(lo, hi, 4).filter(v => v >= lo));
+    ejeX(f, x, marcas(0, n, angosto() ? 4 : 6), v => v === 0 ? 'hoy' : 'mes ' + v);
+    (o.refs || []).forEach(r => { S('line', { x1: f.x0, x2: f.x1, y1: y(r.v), y2: y(r.v), class: 'l-nivel' }, f.svg); if (r.t) T(f.svg, f.x0 + 4, y(r.v) - 6, r.t, { class: 'ts' }); });
+    const fin = [];
+    series.forEach(s => {
+      S('path', { d: s.v.map((v, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ',' + y(v).toFixed(1)).join(''), class: s.clase }, f.svg);
+      fin.push({ y: y(s.v[n]), t: s.nombre + ' · ' + num(s.v[n]) });
+    });
+    if (!angosto()) {
+      fin.sort((a, b) => a.y - b.y);
+      for (let i = 1; i < fin.length; i++) if (fin[i].y - fin[i - 1].y < 16) fin[i].y = fin[i - 1].y + 16;
+      fin.forEach(e => T(f.svg, f.x1 + 6, e.y + 4, e.t, { class: 'nf' }));
+    }
+    (o.puntos || []).forEach(p => rombo(f.svg, x(p.i), y(p.v), 6, 'pt-x'));
+    f.svg.setAttribute('aria-label', o.alt || '');
+    return f;
+  }
+  const simular = (a0, n, c, meses) => { const v = [a0]; for (let i = 1; i <= meses; i++) v.push(v[i - 1] * (1 - c) + n); return v; };
+
+  /* ---------- apertura ---------- */
+  function apertura() {
+    hbars($('#fig-apertura'), [
+      { id: 'ini', nombre: 'Activos al 1 de septiembre', valor: D.act, clase: 'hb-gris' },
+      { id: 'nue', nombre: 'Inscritos nuevos', valor: D.nuevos, texto: '+' + D.nuevos, clase: 'hb-valor-c' },
+      { id: 'baj', nombre: 'Se fueron', valor: D.bajas, texto: '−' + D.bajas, clase: 'hb-costo' },
+      { id: 'fin', nombre: 'Activos al 30 de septiembre', valor: D.fin, clase: 'hb-dec' }], { max: 400 });
+  }
+  apertura();
+  $$('#voto [data-voto]').forEach(b => b.addEventListener('click', () => {
+    voto = b.dataset.voto;
+    $$('#voto [data-voto]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = $('#voto .voto-dato'); d.hidden = false;
+    d.innerHTML = {
+      si: 'Anotado: usted cree que <strong>sí</strong>, por el récord de inscritos. Mire la estación 1: con este churn, ¿hacia dónde va la bañera?',
+      no: 'Anotado: usted cree que <strong>no</strong>, porque hay menos estudiantes. En la estación 2 verá que no todos los que se fueron valían lo mismo.',
+      depende: 'Anotado: usted cree que <strong>depende de quién se fue</strong>. Es la pregunta de la estación 2: el churn cambia mucho de un canal a otro.'
+    }[voto];
+    cierre();
+  }));
+  function cierre() {
+    const p = $('#cierre-voto'); if (!p) return;
+    const base = 'Septiembre fue récord de inscritos y la academia terminó con 17 estudiantes menos. Con 58 nuevos y un churn de 20 %, la bañera se acerca a 290: celebrar la llave sin mirar el desagüe es celebrar a ciegas.';
+    p.textContent = !voto ? base : ({ si: 'Usted votó que sí fue un buen mes. ', no: 'Usted votó que no, y tenía razón en el número. ', depende: 'Usted votó que dependía de quién se fue, y esa era la pregunta. ' })[voto] + base;
+  }
+
+  /* ---------- 1 · bañera ---------- */
+  al(['#b-n', '#b-c'], () => {
+    const n = +$('#b-n').value, c = +$('#b-c').value / 100;
+    salida('#b-n', num(n)); salida('#b-c', pct(c * 100, 0));
+    const v = simular(HOY, n, c, 24), L = n / c;
+    lineas($('#fig-banera'), [{ nombre: 'activos', v, clase: 'l-b' }], { refs: [{ v: L, t: 'nivel a la larga · ' + num(L) }], alto: 280,
+      alt: `Gráfico de líneas de estudiantes activos durante 24 meses, que va de 348 hacia ${num(L)}.` });
+    res($('#banera-res'), [['Nivel a la larga', num(L)], ['En 12 meses', num(v[12])], ['Salen el primer mes', num(HOY * c)], ['CLV de un estudiante', pesos(M / c)]]);
+    const sube = L > HOY + 1, baja = L < HOY - 1;
+    $('#banera-lect').innerHTML = sube ? `Entran ${num(n)} y el primer mes salen ${num(HOY * c)}: la bañera <b>sube</b> hacia ${num(L)} estudiantes.`
+      : baja ? `Entran ${num(n)} y el primer mes salen ${num(HOY * c)}: aunque cada mes llegue gente nueva, la bañera <b>baja</b> hacia ${num(L)} estudiantes.`
+      : `Entran casi los mismos que salen: la bañera se queda cerca de ${num(L)} estudiantes.`;
+  });
+
+  /* ---------- 2 · récord ---------- */
+  al(['#r-tt', '#r-equipo'], () => {
+    const r = +$('#r-tt').value / 100, eq = $('#r-equipo').checked;
+    salida('#r-tt', pct(r * 100, 0));
+    const pagos = D.canales.filter(c => c.cac);
+    const items = pagos.map(c => {
+      const churn = c.canal === 'TikTok Ads' ? 1 - r : c.bajas / c.act;
+      const clv = M / churn, cac = c.cac + (eq ? D.cacEquipo : 0);
+      return { c, churn, clv, cac, ratio: clv / cac };
+    });
+    hbars($('#fig-record'), items.map(i => ({ id: i.c.canal, nombre: i.c.canal.replace(' (búsqueda)', ''), valor: i.ratio, texto: num(i.ratio, 1) + ' veces',
+      clase: { 'TikTok Ads': 'hb-tiktok', 'Meta Ads': 'hb-meta' }[i.c.canal] || 'hb-google' })),
+      { refs: [{ valor: 1, texto: angosto() ? '' : 'empate' }, { valor: 3, texto: angosto() ? '' : '3 a 1' }], max: Math.max(9, ...items.map(i => i.ratio)) });
+    const tt = items[0];
+    res($('#record-res'), [['Churn de TikTok', pct(tt.churn * 100, 0)], ['Permanencia', num(1 / tt.churn, 1) + ' meses'], ['CLV de TikTok', pesos(tt.clv)], ['CAC de TikTok', pesos(tt.cac)]]);
+    const tt3 = 1 - M / (3 * tt.cac), tt1 = 1 - M / tt.cac;
+    $('#f2t').textContent = tt.ratio < 1 ? 'Cada estudiante de TikTok cuesta más de lo que deja' : tt.ratio < 3 ? 'TikTok apenas devuelve lo que cuesta' : 'Con esa renovación, TikTok ya pasa la regla de 3 a 1';
+    $('#record-lect').innerHTML = `Con una renovación de ${pct(r * 100, 0)}, un estudiante de TikTok deja <b>${pesos(tt.clv)}</b> y costó <b>${pesos(tt.cac)}</b>: devuelve <b>${num(tt.ratio, 1)}</b> veces lo que costó. `
+      + (tt1 > 0 ? `Para empatar necesita renovar al ${pct(tt1 * 100, 0)}; para llegar a 3 a 1, al ${pct(Math.min(tt3, .999) * 100, 0)}. ` : '')
+      + 'Duplicar la pauta en TikTok sin subir esa renovación es comprar clientes que se van antes de pagar lo que costaron.';
+  });
+
+  /* ---------- 3 · NPS ---------- */
+  const ENC = { todos: D.npsOct, frec: D.npsFrec, poco: D.npsPoco, nov: D.npsNov };
+  const QUE = { todos: 'Octubre · encuesta a todos los socios', frec: 'Octubre · solo socios con 8 visitas o más', poco: 'Octubre · solo socios con menos de 8 visitas', nov: 'Noviembre · solo socios con 8 visitas o más' };
+  function nps(e) {
+    const g = ENC[e], n = g.prom + g.pas + g.det, p = g.prom / n * 100, pa = g.pas / n * 100, d = g.det / n * 100, v = Math.round(p - d);
+    $('#nps-cifra').textContent = signo(v);
+    $('#nps-que').textContent = `${QUE[e]} · ${n} respuestas`;
+    const b = $('#nps-barra'), [sd, sp, so] = b.children;
+    sd.style.flexBasis = d + '%'; sp.style.flexBasis = pa + '%'; so.style.flexBasis = p + '%';
+    sd.textContent = d >= 8 ? pct(d, 0) : ''; sp.textContent = pa >= 8 ? pct(pa, 0) : ''; so.textContent = p >= 8 ? pct(p, 0) : '';
+    b.setAttribute('aria-label', `Barra apilada: ${pct(d, 0)} detractores, ${pct(pa, 0)} pasivos y ${pct(p, 0)} promotores; NPS ${signo(v)}.`);
+    $('#nps-lect').innerHTML = {
+      todos: 'Con todos los socios, el NPS de octubre es <b>+10</b>: 40 % de promotores menos 30 % de detractores.',
+      frec: 'Solo con los frecuentes, el mismo octubre da <b>+38</b>. Esta es la comparación justa con noviembre.',
+      poco: 'Los que van poco dan <b>−10</b>: hay más detractores que promotores. Son los que la encuesta de noviembre dejó por fuera.',
+      nov: 'Noviembre da <b>+40</b>. Frente a los frecuentes de octubre (+38), subió 2 puntos, no 30: <b>lo que cambió fue a quién se le preguntó</b>.'
+    }[e];
+  }
+  $$('[data-enc]').forEach(b => b.addEventListener('click', () => { $$('[data-enc]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); nps(b.dataset.enc); }));
+  nps('todos');
+  hbars($('#fig-zonas'), [
+    { id: 'pro', nombre: 'Promotores', valor: D.zonas.prom, texto: pct(D.zonas.prom), clase: 'hb-valor-c' },
+    { id: 'pas', nombre: 'Pasivos', valor: D.zonas.pas, texto: pct(D.zonas.pas), clase: 'hb-gris' },
+    { id: 'det', nombre: 'Detractores', valor: D.zonas.det, texto: pct(D.zonas.det), clase: 'hb-costo' }], { max: 40 });
+
+  /* ---------- 4 · llave o desagüe ---------- */
+  al(['#l-a', '#l-b'], () => {
+    const ea = +$('#l-a').value, cb = +$('#l-b').value / 100, c0 = D.churnBase, n0 = D.nuevos, C = D.costo;
+    salida('#l-a', '+' + num(ea)); salida('#l-b', pct(cb * 100, 1).replace(',0 %', ' %'));
+    const hoy = simular(HOY, n0, c0, 36), A = simular(HOY, n0 + ea, c0, 36), B = simular(HOY, n0, cb, 36);
+    const LA = (n0 + ea) / c0, LB = n0 / cb, netA = LA * M - C, netB = LB * M - C;
+    let cruce = null; for (let i = 1; i <= 36; i++) if (cruce === null && Math.sign(B[i] - A[i]) !== Math.sign(B[1] - A[1])) cruce = i;
+    const emp = n0 * M / (netA + C);
+    lineas($('#fig-llave'), [{ nombre: 'hoy', v: hoy, clase: 'l-s' }, { nombre: 'A · llave', v: A, clase: 'l-a' }, { nombre: 'B · desagüe', v: B, clase: 'l-b' }],
+      { alto: 320, puntos: cruce ? [{ i: cruce, v: B[cruce] }] : [], alt: `Gráfico de líneas de estudiantes activos durante 36 meses: hoy, con la propuesta A y con la propuesta B.` });
+    res($('#llave-res'), [['A · activos a la larga', num(LA, 1)], ['B · activos a la larga', num(LB, 1)], ['A · margen después de pagar', pesos(netA)], ['B · margen después de pagar', pesos(netB)], ['Churn con el que B empata', pct(emp * 100)]]);
+    const gana = netB > netA ? 'B' : netA > netB ? 'A' : null;
+    $('#f4t').textContent = !gana ? 'Las dos propuestas dejan lo mismo a la larga' : gana === 'B' ? 'Cerrar el desagüe deja más, si la promesa se cumple' : 'Con esa promesa, abrir la llave deja más';
+    $('#llave-lect').innerHTML = (gana ? `A la larga gana <b>${gana}</b>, por <b>${pesos(Math.abs(netB - netA))}</b> al mes. ` : '')
+      + `B gana mientras el churn con el tutor baje de <b>${pct(emp * 100)}</b>. `
+      + (cruce ? `Las bañeras se cruzan en el mes ${cruce}: antes de eso, A se ve mejor en el informe. ` : '')
+      + 'Por eso la promesa del tutor se prueba con una cohorte antes de pagar el año.';
+  });
+
+  /* ---------- 5 · casa ---------- */
+  al(['#c-p'], () => {
+    const p = +$('#c-p').value / 100, K = D.cafe;
+    salida('#c-p', pct(p * 100, 0));
+    const bajas = K.bajas - K.acumulado * p, ch = bajas / K.inicio, clv = K.margen / ch, cac = K.pauta / K.nuevos;
+    res($('#casa-res'), [['Cancelan', num(bajas)], ['Churn', pct(ch * 100)], ['Permanencia', num(1 / ch, 1) + ' meses'], ['CLV', pesos(clv)], ['CLV/CAC', num(clv / cac, 1)]]);
+    $('#casa-lect').innerHTML = p === 0 ? 'Sin la opción de pausar, el churn es 8 % y cada suscriptor deja $225.000.'
+      : `Si ${num(K.acumulado * p)} de los 12 pausan en vez de cancelar, el churn baja a <b>${pct(ch * 100)}</b> y cada suscriptor deja <b>${pesos(clv)}</b>, sin esconder el botón de cancelar: la pausa resuelve el motivo, no lo tapa.`;
+  });
+
+  /* ---------- 6 · su negocio ---------- */
+  al($$('#su-campos input'), () => {
+    const v = {}; $$('#su-campos input').forEach(i => v[i.dataset.k] = leer(i.value));
+    if (!(v.a > 0) || !(v.b >= 0) || !(v.m > 0)) { $('#su-res').innerHTML = ''; $('#su-lect').textContent = 'Escriba al menos el margen, los clientes al empezar y los que se fueron.'; return; }
+    if (v.b > v.a) { $('#su-res').innerHTML = ''; $('#su-lect').textContent = 'Se fueron más clientes de los que había al empezar: revise los números.'; return; }
+    const ch = v.b / v.a, clv = ch > 0 ? v.m / ch : Infinity, cac = v.n > 0 && v.i >= 0 ? v.i / v.n : NaN, L = ch > 0 && v.n >= 0 ? v.n / ch : Infinity;
+    res($('#su-res'), [['Churn', pct(ch * 100)], ['Permanencia', ch > 0 ? num(1 / ch, 1) + ' meses' : '—'], ['CLV', isFinite(clv) ? pesos(clv) : '—'], ['CAC', isFinite(cac) ? pesos(cac) : '—'], ['CLV/CAC', isFinite(clv / cac) ? num(clv / cac, 1) : '—'], ['Nivel a la larga', isFinite(L) ? num(L) : '—']]);
+    const r = clv / cac;
+    $('#su-lect').innerHTML = !(ch > 0) ? 'Nadie se fue este mes: con un solo mes no se puede estimar la permanencia. Mire varios meses.'
+      : `Cada cliente se queda unos <b>${num(1 / ch, 1)} meses</b> y deja <b>${pesos(clv)}</b>. ` + (isFinite(r) ? (r < 1 ? 'Cuesta más conseguirlo de lo que deja: antes de buscar más clientes, cierre el desagüe.' : r < 3 ? 'Devuelve lo que cuesta, pero con poco margen de error.' : 'Devuelve más de tres veces lo que cuesta.') : '')
+        + (isFinite(L) ? ` Con estos números, el negocio se acerca a <b>${num(L)}</b> clientes.` : '');
+  });
+
+  activarComprobaciones();
+  Transiciones.todo();
+  addEventListener('resize', () => { apertura(); ['#b-n', '#r-tt', '#l-a'].forEach(s => $(s).dispatchEvent(new Event('input'))); });
+})();
+
+</script>

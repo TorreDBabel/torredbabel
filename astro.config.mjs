@@ -20,5 +20,6 @@ export default defineConfig({
   redirects: {
     '/disenometricas03': '/diseñometricas03/',
     '/disenometricas04': '/diseñometricas04/',
+    '/disenometricas05': '/diseñometricas05/',
   },
 });
