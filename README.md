@@ -5,7 +5,10 @@ Sitio de Torre D. Babel, hecho con [Astro](https://astro.build) y publicado en G
 ## La portada se publica idéntica al diseño aprobado
 
 La portada (`src/pages/index.astro`) es copia exacta del artefacto «Torre D. Babel · Noche clara»
-(https://claude.ai/artifact/HFjH4CdTu5KDdfQRmXSPDA), aprobado el 10 de octubre de 2026: el mismo
+(https://claude.ai/artifact/HFjH4CdTu5KDdfQRmXSPDA), aprobado el 10 de octubre de 2026 y renovado el
+5 de noviembre de 2026 con las dos líneas (aprovechar los datos y optimizar procesos productivos), la
+pregunta de madurez de seis respuestas, el camino de ingeniería de producción y el marco de la
+NTC-ISO 9001:2026. Tiene el mismo
 marcado, la misma hoja de estilos (`src/styles/noche.css`) y el mismo guion del cielo, la torre y la
 constelación. Las diferencias son solo de lugar: los enlaces a Artículos y Demos son internos, los
 logos salen de `public/marcas/` y el formulario de contacto vive en `src/components/Formulario.astro`

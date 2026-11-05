@@ -16,9 +16,10 @@ interface Props {
 const { titulo, descripcion, indexar, rotulo, encabezado, entradilla } = Astro.props;
 const ruta = Astro.url.pathname;
 const menu = [
+  { href: '/#pregunta', texto: 'La pregunta' },
   { href: '/#torre', texto: 'La torre' },
-  { href: '/#lengua', texto: 'La lengua' },
-  { href: '/#persona', texto: 'La persona' },
+  { href: '/#camino', texto: 'El camino' },
+  { href: '/#norma', texto: 'La norma' },
   { href: '/articulos/', texto: 'Artículos' },
   { href: '/demos/', texto: 'Demos' },
   { href: '/contacto/', texto: 'Conversemos' },
