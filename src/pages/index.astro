@@ -97,32 +97,32 @@ import Formulario from '../components/Formulario.astro';
   </div>
   <form class="madurez" id="madurez" aria-labelledby="f-madurez">
     <ol class="madurez-lista">
-      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m1-t" data-tema="Procesos descritos y seguidos" data-norma="ISO 9001:2026, 4.4 y 8.1">
+      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m1-t" data-tema="Procesos descritos y seguidos">
         <span class="num" aria-hidden="true">1</span>
         <p class="madurez-texto" id="m1-t">¿Sus procesos clave están descritos, y la gente los sigue como están escritos?</p>
         <div class="opciones"><input type="radio" name="m1" id="m1-2" value="2"><label for="m1-2">Sí</label><input type="radio" name="m1" id="m1-1" value="1"><label for="m1-1">A medias</label><input type="radio" name="m1" id="m1-0" value="0"><label for="m1-0">No</label></div>
       </div></li>
-      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m2-t" data-tema="Registro del dato cuando ocurre" data-norma="ISO 9001:2026, 7.5">
+      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m2-t" data-tema="Registro del dato cuando ocurre">
         <span class="num" aria-hidden="true">2</span>
         <p class="madurez-texto" id="m2-t">¿Los datos se registran en un sistema en el momento en que ocurren, y no después o de memoria?</p>
         <div class="opciones"><input type="radio" name="m2" id="m2-2" value="2"><label for="m2-2">Sí</label><input type="radio" name="m2" id="m2-1" value="1"><label for="m2-1">A medias</label><input type="radio" name="m2" id="m2-0" value="0"><label for="m2-0">No</label></div>
       </div></li>
-      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m3-t" data-tema="Una sola versión de cada cifra" data-norma="ISO 9001:2026, 7.5.3">
+      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m3-t" data-tema="Una sola versión de cada cifra">
         <span class="num" aria-hidden="true">3</span>
         <p class="madurez-texto" id="m3-t">¿Cada cifra importante tiene una sola versión, la misma para todas las áreas?</p>
         <div class="opciones"><input type="radio" name="m3" id="m3-2" value="2"><label for="m3-2">Sí</label><input type="radio" name="m3" id="m3-1" value="1"><label for="m3-1">A medias</label><input type="radio" name="m3" id="m3-0" value="0"><label for="m3-0">No</label></div>
       </div></li>
-      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m4-t" data-tema="Trazabilidad del dato, del origen al informe" data-norma="ISO 9001:2026, 7.1.5.1 y 8.5.2">
+      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m4-t" data-tema="Trazabilidad del dato, del origen al informe">
         <span class="num" aria-hidden="true">4</span>
         <p class="madurez-texto" id="m4-t">¿Puede seguir un dato desde donde nace hasta el informe en que aparece?</p>
         <div class="opciones"><input type="radio" name="m4" id="m4-2" value="2"><label for="m4-2">Sí</label><input type="radio" name="m4" id="m4-1" value="1"><label for="m4-1">A medias</label><input type="radio" name="m4" id="m4-0" value="0"><label for="m4-0">No</label></div>
       </div></li>
-      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m5-t" data-tema="Indicadores con fórmula y responsable" data-norma="ISO 9001:2026, 6.2 y 9.1.1">
+      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m5-t" data-tema="Indicadores con fórmula y responsable">
         <span class="num" aria-hidden="true">5</span>
         <p class="madurez-texto" id="m5-t">¿Sus indicadores tienen una fórmula escrita y una persona que responde por ellos?</p>
         <div class="opciones"><input type="radio" name="m5" id="m5-2" value="2"><label for="m5-2">Sí</label><input type="radio" name="m5" id="m5-1" value="1"><label for="m5-1">A medias</label><input type="radio" name="m5" id="m5-0" value="0"><label for="m5-0">No</label></div>
       </div></li>
-      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m6-t" data-tema="Decisiones tomadas con datos" data-norma="ISO 9001:2026, 9.1.3 y 9.3; ISO 9000:2026, 4.2.7">
+      <li><div class="madurez-item" role="radiogroup" aria-labelledby="m6-t" data-tema="Decisiones tomadas con datos">
         <span class="num" aria-hidden="true">6</span>
         <p class="madurez-texto" id="m6-t">¿Las decisiones importantes del último mes se tomaron mirando datos?</p>
         <div class="opciones"><input type="radio" name="m6" id="m6-2" value="2"><label for="m6-2">Sí</label><input type="radio" name="m6" id="m6-1" value="1"><label for="m6-1">A medias</label><input type="radio" name="m6" id="m6-0" value="0"><label for="m6-0">No</label></div>
@@ -138,7 +138,7 @@ import Formulario from '../components/Formulario.astro';
     <li data-ruta="media"><span class="rango">De 5 a 8 puntos</span><strong>Hay camino, con tramos sin trazar.</strong>Ruta combinada: <a href="#camino">el camino</a> donde el dato se pierde y la torre sobre lo que ya funciona.</li>
     <li data-ruta="baja"><span class="rango">De 0 a 4 puntos</span><strong>El dato todavía no tiene camino.</strong>Empiece por <a href="#camino">el camino</a>: la línea 2, optimizar los procesos productivos.</li>
   </ol>
-  <figcaption class="figura-nota">Fuente: elaboración propia. Las preguntas recorren temas de la ISO 9001:2026 (procesos, información documentada, trazabilidad, indicadores y análisis) y el principio de toma de decisiones basada en la evidencia de la ISO 9000:2026. Es el comienzo de una conversación, no una auditoría ni un modelo de madurez certificado: no mide el tamaño del esfuerzo ni reemplaza una visita.</figcaption>
+  <figcaption class="figura-nota">Fuente: elaboración propia. Las preguntas se inspiran en los fundamentos de la gestión de la calidad que recogen la ISO 9001:2026 y la ISO 9000:2026. Es el comienzo de una conversación, no una auditoría ni un modelo de madurez certificado: no mide el tamaño del esfuerzo ni reemplaza una visita.</figcaption>
 </figure>
 
 <section class="columna" id="torre">
@@ -355,7 +355,7 @@ import Formulario from '../components/Formulario.astro';
       <div>
         <p class="tramo-rotulo">Ver el proceso como es</p>
         <h4 class="tramo-pregunta">¿Qué pasa de verdad?</h4>
-        <p class="tramo-texto">Vamos al lugar donde ocurre, conversamos con quien lo hace y lo dibujamos: proveedores, entradas, pasos, salidas y clientes (SIPOC), y el flujo completo en notación BPMN.</p>
+        <p class="tramo-texto">Recorremos el proceso donde ocurre, con quien lo hace, y lo dibujamos como es, no como lo cuenta el manual.</p>
         <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">el proceso de memoria</mark></span><span><b>entra</b><mark class="marca-b">un mapa que todos reconocen</mark></span><span><b>se queda</b><mark class="marca-c">quien lo hace</mark></span></p>
       </div>
     </li>
@@ -364,7 +364,7 @@ import Formulario from '../components/Formulario.astro';
       <div>
         <p class="tramo-rotulo">Medir</p>
         <h4 class="tramo-pregunta">¿Cuánto tarda y cuánto rinde?</h4>
-        <p class="tramo-texto">Con estudio del trabajo medimos tiempos, capacidades, esperas e inventario en proceso, y ubicamos el cuello de botella: el paso que le marca el ritmo a todos los demás.</p>
+        <p class="tramo-texto">Medimos lo que hoy se supone, hasta encontrar el paso que le marca el ritmo a todos los demás.</p>
         <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">la impresión</mark></span><span><b>entra</b><mark class="marca-b">tiempos medidos</mark></span></p>
       </div>
     </li>
@@ -373,7 +373,7 @@ import Formulario from '../components/Formulario.astro';
       <div>
         <p class="tramo-rotulo">Encontrar la causa</p>
         <h4 class="tramo-pregunta">¿Por qué falla?</h4>
-        <p class="tramo-texto">Un diagrama de Pareto para elegir qué atacar primero; el de Ishikawa y los cinco porqués para llegar a la causa raíz y no quedarse en el síntoma.</p>
+        <p class="tramo-texto">Separamos el síntoma de la causa, para corregir lo que de verdad origina el problema.</p>
         <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">buscar culpables</mark></span><span><b>entra</b><mark class="marca-b">la causa raíz</mark></span></p>
       </div>
     </li>
@@ -382,7 +382,7 @@ import Formulario from '../components/Formulario.astro';
       <div>
         <p class="tramo-rotulo">Rediseñar</p>
         <h4 class="tramo-pregunta">¿Cómo debería ser?</h4>
-        <p class="tramo-texto">Con Lean quitamos lo que no agrega valor: esperas, reprocesos, traslados y doble digitación. Cuando el problema es de fondo, reingeniería: repensar el proceso desde cero<sup><a href="#cita-3" id="vuelta-3">3</a></sup>.</p>
+        <p class="tramo-texto">Quitamos lo que no agrega valor y, cuando el problema es de fondo, repensamos el proceso desde la raíz.</p>
         <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">reprocesos</mark></span><span><b>entra</b><mark class="marca-b">un flujo más corto</mark></span></p>
       </div>
     </li>
@@ -391,7 +391,7 @@ import Formulario from '../components/Formulario.astro';
       <div>
         <p class="tramo-rotulo">Estandarizar</p>
         <h4 class="tramo-pregunta">¿Dónde nace el dato?</h4>
-        <p class="tramo-texto">El proceso nuevo queda escrito, se enseña y se automatiza donde conviene. Cada paso clave registra su dato en el sistema en el momento en que ocurre, y cada indicador tiene fórmula y responsable.</p>
+        <p class="tramo-texto">El proceso nuevo queda escrito y se enseña. Cada paso clave deja su dato en el momento en que ocurre, y cada indicador tiene quien responda por él.</p>
         <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">cada quien a su manera</mark></span><span><b>entra</b><mark class="marca-b lazo">el dato en su origen</mark></span></p>
         <span class="lazo-nota">Aquí empieza la torre.</span>
       </div>
@@ -401,7 +401,7 @@ import Formulario from '../components/Formulario.astro';
       <div>
         <p class="tramo-rotulo">Mejorar siempre</p>
         <h4 class="tramo-pregunta">¿Qué aprendimos?</h4>
-        <p class="tramo-texto">El ciclo planificar, hacer, verificar y actuar, y el kaizen: mejoras pequeñas y medidas, una tras otra. El proyecto termina; la costumbre de mejorar se queda.</p>
+        <p class="tramo-texto">Se mide el resultado y se vuelve a empezar, con mejoras pequeñas y constantes. El proyecto termina; la costumbre de mejorar se queda.</p>
         <p class="piso-marcas"><span><b>sale</b><mark class="marca-a">el proyecto que se acaba</mark></span><span><b>entra</b><mark class="marca-b">la costumbre de mejorar</mark></span><span><b>se queda</b><mark class="marca-c">su equipo</mark></span></p>
       </div>
     </li>
@@ -416,55 +416,43 @@ import Formulario from '../components/Formulario.astro';
 
 <section class="columna" id="norma">
   <h2 class="seccion" data-num="IV">La norma</h2>
-  <p>El 16 de septiembre de 2026, ICONTEC publicó la NTC-ISO 9001:2026, la adopción en Colombia de la nueva versión de la norma internacional de sistemas de gestión de la calidad<sup><a href="#cita-4" id="vuelta-4">4</a></sup>. Es la regla con la que trabajamos las dos líneas.</p>
-  <p>La norma no exige documentos con su misma estructura ni un método formal para los riesgos. Pide que la organización entienda sus procesos, los controle, mida lo que importa y mejore con evidencia. Uno de los siete principios en que se apoya lo dice sin rodeos: la toma de decisiones basada en la evidencia<sup><a href="#cita-5" id="vuelta-5">5</a></sup>.</p>
+  <p>El 16 de septiembre de 2026, ICONTEC publicó la NTC-ISO 9001:2026, la adopción en Colombia de la nueva versión de la norma internacional de sistemas de gestión de la calidad<sup><a href="#cita-3" id="vuelta-3">3</a></sup>. Es la regla con la que trabajamos las dos líneas.</p>
+  <p>La norma no exige documentos con su misma estructura ni un método formal para los riesgos. Pide que la organización entienda sus procesos, los controle, mida lo que importa y mejore con evidencia. Uno de los siete principios en que se apoya lo dice sin rodeos: la toma de decisiones basada en la evidencia<sup><a href="#cita-4" id="vuelta-4">4</a></sup>.</p>
   <p>Ahí se juntan nuestras dos líneas: <span class="giro">el proceso produce el dato, y el dato alimenta la decisión.</span></p>
 </section>
 
 <figure class="figura" aria-labelledby="f-norma">
   <div class="figura-cabeza">
     <h3 class="figura-titulo" id="f-norma">El dato atraviesa la norma de punta a punta</h3>
-    <p class="figura-clave">La norma se ordena en el ciclo planificar, hacer, verificar y actuar, que al final vuelve a empezar. Bajo cada fase, los numerales donde intervenimos; la etiqueta dice qué línea responde: <span class="linea">camino</span> para los procesos y <span class="linea">dato</span> para los datos.</p>
+    <p class="figura-clave">La norma se ordena en el ciclo planificar, hacer, verificar y actuar, que al final vuelve a empezar. Bajo cada fase, lo que pide en esencia; la etiqueta dice qué línea responde: <span class="linea">camino</span> para los procesos y <span class="linea">dato</span> para los datos.</p>
   </div>
   <ol class="ciclo">
     <li class="fase">
-      <p class="fase-rotulo">Capítulos 4 a 6</p>
+      <p class="fase-rotulo">Antes de hacer</p>
       <h4>Planificar</h4>
-      <ul>
-        <li><b>4.4 <span class="linea">camino</span></b>Los procesos, con sus entradas, salidas, secuencia, criterios, indicadores y responsables.</li>
-        <li><b>6.1.3 <span class="linea">dato</span></b>Las oportunidades se analizan, se tratan y se evalúan; un proyecto de datos es una de ellas.</li>
-        <li><b>6.3 <span class="linea">camino</span></b>El cambio, planificado: propósito, consecuencias, recursos, responsables y seguimiento.</li>
-      </ul>
+      <p class="fase-texto">Entender el contexto y los procesos, prever sus riesgos y oportunidades y planificar cada cambio antes de hacerlo.</p>
+      <p class="fase-lineas"><span class="linea">camino</span></p>
     </li>
     <li class="fase">
-      <p class="fase-rotulo">Capítulos 7 y 8</p>
+      <p class="fase-rotulo">Mientras se hace</p>
       <h4>Hacer</h4>
-      <ul>
-        <li><b>7.1.5 <span class="linea">dato</span></b>Los sistemas que recogen y analizan datos cuentan como recursos de medición y deben dar resultados válidos y fiables.</li>
-        <li><b>7.1.6 <span class="linea">camino</span><span class="linea">dato</span></b>El conocimiento de la organización se conserva, se aplica y se comparte.</li>
-        <li><b>7.5 <span class="linea">dato</span></b>La información documentada, disponible, protegida y con sus versiones bajo control.</li>
-        <li><b>8.5.1 <span class="linea">camino</span></b>La operación en condiciones controladas, incluida la prevención del error humano.</li>
-      </ul>
+      <p class="fase-texto">Operar en condiciones controladas, con personas competentes, conocimiento que no se pierde e información confiable.</p>
+      <p class="fase-lineas"><span class="linea">camino</span><span class="linea">dato</span></p>
     </li>
     <li class="fase">
-      <p class="fase-rotulo">Capítulo 9</p>
+      <p class="fase-rotulo">Después de hacer</p>
       <h4>Verificar</h4>
-      <ul>
-        <li><b>9.1 <span class="linea">dato</span></b>Qué medir, cómo y cuándo, y el análisis que evalúa el desempeño, los riesgos y las oportunidades.</li>
-        <li><b>9.2 <span class="linea">camino</span></b>La auditoría interna, con objetivos propios en cada una.</li>
-        <li><b>9.3 <span class="linea">dato</span></b>La revisión por la dirección, con tendencias y alineada con la estrategia.</li>
-      </ul>
+      <p class="fase-texto">Medir, analizar y revisar el desempeño con evidencia, hasta llegar a la mesa de la dirección.</p>
+      <p class="fase-lineas"><span class="linea">dato</span></p>
     </li>
     <li class="fase">
-      <p class="fase-rotulo">Capítulo 10</p>
+      <p class="fase-rotulo">Para la próxima vez</p>
       <h4>Actuar</h4>
-      <ul>
-        <li><b>10.1 <span class="linea">dato</span></b>La mejora continua, que se alimenta del análisis de datos y de la revisión por la dirección.</li>
-        <li><b>10.2 <span class="linea">camino</span></b>Las no conformidades, con sus causas y su acción correctiva.</li>
-      </ul>
+      <p class="fase-texto">Corregir las causas de lo que falla y mejorar de forma continua, con los datos como guía.</p>
+      <p class="fase-lineas"><span class="linea">camino</span><span class="linea">dato</span></p>
     </li>
   </ol>
-  <figcaption class="figura-nota">Fuente: NTC-ISO 9001:2026, numerales citados, resumidos en palabras propias; no es el texto de la norma. Que los sistemas de datos cuenten como recursos de medición lo explica su anexo A, que orienta y no añade requisitos. Lo que la figura no muestra: los demás numerales también aplican, y cada organización define el alcance de su sistema.</figcaption>
+  <figcaption class="figura-nota">Fuente: NTC-ISO 9001:2026, resumida en palabras propias; no es el texto de la norma. Lo que la figura no muestra: el detalle de cada requisito, y que cada organización define el alcance de su propio sistema.</figcaption>
 </figure>
 
 <section class="columna">
@@ -476,7 +464,7 @@ import Formulario from '../components/Formulario.astro';
   <h2 class="seccion" data-num="V">La persona</h2>
   <aside class="nota-margen">Automatizar libera horas. Lo que se haga con ellas no lo decide la máquina.</aside>
   <p>Un proceso es una secuencia de pasos, y cada paso lo da alguien. Cuando automatizamos una tarea, liberamos horas; lo que se haga con ellas depende de la persona que antes las gastaba copiando.</p>
-  <p>Kant llamó Ilustración a salir de una minoría de edad de la que uno mismo es responsable, y la resumió en atreverse a servirse del propio entendimiento<sup><a href="#cita-6" id="vuelta-6">6</a></sup>. En los datos, esa salida tiene una forma concreta: entender de dónde sale una cifra, poder preguntar por ella y no depender de nadie para leerla. Por eso enseñamos mientras construimos.</p>
+  <p>Kant llamó Ilustración a salir de una minoría de edad de la que uno mismo es responsable, y la resumió en atreverse a servirse del propio entendimiento<sup><a href="#cita-5" id="vuelta-5">5</a></sup>. En los datos, esa salida tiene una forma concreta: entender de dónde sale una cifra, poder preguntar por ella y no depender de nadie para leerla. Por eso enseñamos mientras construimos.</p>
 </section>
 
 <p class="destacado">La ciencia de datos transforma el proceso; el conocimiento transforma a quien lo hace.</p>
@@ -497,12 +485,6 @@ import Formulario from '../components/Formulario.astro';
   </ul>
   <figcaption class="figura-nota">Estas preguntas no reemplazan una auditoría ni un concepto jurídico; los preparan.</figcaption>
 </figure>
-
-<section class="columna">
-  <h3 class="figura-titulo quien" id="quien">¿Quién está detrás?</h3>
-  <p>Alexander Beltrán, ingeniero de producción y tecnólogo industrial de la Universidad Distrital Francisco José de Caldas, estudiante de la maestría en Ciencia de Datos de la Universidad Ean y docente universitario.</p>
-  <p>Su trabajo ha pasado por las dos líneas de esta página. En la manufactura química documentó procesos con SIPOC, estandarizó procedimientos de producción y construyó indicadores y matrices de riesgo. Después siguió los indicadores de una operación de comercio omnicanal, auditó la calidad y buscó causas raíz en un centro de contacto, y construyó tableros en telecomunicaciones. Hoy integra y modela datos con Python y bodegas en la nube en el sector farmacéutico y de la salud.</p>
-</section>
 
 <section class="columna" id="puerta">
   <h2 class="seccion" data-num="VI">Conversemos</h2>
@@ -528,7 +510,7 @@ import Formulario from '../components/Formulario.astro';
   <h2 id="n-titulo">Notas y método</h2>
   <details>
     <summary>¿Cómo sé si mis datos están maduros?</summary>
-    <p>Las seis preguntas de esta página son un primer termómetro. Un diagnóstico de verdad mira el proceso donde ocurre: se recorre, se conversa con quien lo hace y se revisa una muestra de los datos. Las preguntas no siguen un modelo de madurez certificado; recorren temas que la ISO 9001:2026 y la ISO 9000:2026 tratan como base de un sistema de gestión de la calidad.</p>
+    <p>Las seis preguntas de esta página son un primer termómetro, no un modelo de madurez certificado. Un diagnóstico completo pide conocer su operación de cerca, y empieza con una conversación.</p>
   </details>
   <details>
     <summary>¿Qué pasa con mis respuestas a las seis preguntas?</summary>
@@ -555,17 +537,15 @@ import Formulario from '../components/Formulario.astro';
     <p>Son ilustrativos: no representan datos de ninguna organización. Se dibujan siempre con la misma semilla, y los que forman la torre son siempre los mismos. Si su equipo pidió menos movimiento, el cielo se queda quieto.</p>
   </details>
   <details>
-    <summary>¿Cómo está hecha esta página?</summary>
-    <p>Lector supuesto: quien decide en una organización y sospecha que sus datos dicen menos de lo que podrían. Forma de la historia: del lector al mapa; empieza por su organización, con seis preguntas, se abre a las dos líneas y a la norma que las une, y vuelve a su caso en la conversación. Registro visual: Noche clara. Recursos: barra de progreso, frase destacada y la pregunta de seis respuestas. Formato: página web; se mueven el cielo de la apertura, la torre que se enciende piso por piso y la constelación que se dibuja al llegar, y sin guion todo se lee quieto.</p>
-    <p>La portada anterior, de octubre de 2026, usaba el mismo registro y la forma pieza por pieza, con cuatro servicios de datos; esta conserva su cielo y su torre, y añade la pregunta, el camino de los procesos y la norma. Las traducciones de Platón, Descartes y Kant son propias o de uso común, no versiones literales de una edición concreta. Los numerales de las normas ISO se resumen con palabras propias, porque su texto está protegido por derechos de autor.</p>
+    <summary>¿De dónde salen las citas?</summary>
+    <p>Se indican abajo. Las traducciones de Platón, Descartes y Kant son propias o de uso común, no versiones literales de una edición concreta. Las normas ISO se resumen con palabras propias, porque su texto está protegido por derechos de autor.</p>
   </details>
   <ol class="citas">
     <li id="cita-1">Real Academia Española, <a href="https://dle.rae.es/babel"><cite>Diccionario de la lengua española</cite>, «babel»</a>. <a href="#vuelta-1" aria-label="Volver al texto">↑</a></li>
     <li id="cita-2">René Descartes, <cite>Discurso del método</cite>, 1637, segunda parte, segundo precepto. Traducción de uso común. <a href="#vuelta-2" aria-label="Volver al texto">↑</a></li>
-    <li id="cita-3">Michael Hammer y James Champy, <cite>Reengineering the Corporation: A Manifesto for Business Revolution</cite>, 1993. <a href="#vuelta-3" aria-label="Volver al texto">↑</a></li>
-    <li id="cita-4">ICONTEC, NTC-ISO 9001:2026, edición 6.0, 16 de septiembre de 2026: requisitos para sistemas de gestión de la calidad, adopción idéntica de la ISO 9001:2026. <a href="#vuelta-4" aria-label="Volver al texto">↑</a></li>
-    <li id="cita-5">ICONTEC, NTC-ISO 9000:2026, edición 5.0, 27 de mayo de 2026: fundamentos y vocabulario de la gestión de la calidad, numeral 4.2.7. <a href="#vuelta-5" aria-label="Volver al texto">↑</a></li>
-    <li id="cita-6">Immanuel Kant, <cite>Respuesta a la pregunta: ¿Qué es la Ilustración?</cite>, 1784. Paráfrasis del primer párrafo. <a href="#vuelta-6" aria-label="Volver al texto">↑</a></li>
+    <li id="cita-3">ICONTEC, NTC-ISO 9001:2026, edición 6.0, 16 de septiembre de 2026: requisitos para sistemas de gestión de la calidad, adopción idéntica de la ISO 9001:2026. <a href="#vuelta-3" aria-label="Volver al texto">↑</a></li>
+    <li id="cita-4">ICONTEC, NTC-ISO 9000:2026, edición 5.0, 27 de mayo de 2026: fundamentos y vocabulario de la gestión de la calidad. <a href="#vuelta-4" aria-label="Volver al texto">↑</a></li>
+    <li id="cita-5">Immanuel Kant, <cite>Respuesta a la pregunta: ¿Qué es la Ilustración?</cite>, 1784. Paráfrasis del primer párrafo. <a href="#vuelta-5" aria-label="Volver al texto">↑</a></li>
     <li>Platón, <cite>Crátilo</cite>, 402a, donde Sócrates atribuye la idea a Heráclito. Traducción propia del griego, para el epígrafe.</li>
   </ol>
 </section>
@@ -604,7 +584,7 @@ import Formulario from '../components/Formulario.astro';
     const nodo = (tag, clase, texto) => { const n = document.createElement(tag); if (clase) n.className = clase; if (texto != null) n.textContent = texto; return n; };
     let resumen = '';
     const pintar = () => {
-      const resp = grupos.map(g => { const r = g.querySelector('input:checked'); return r ? { v: +r.value, tema: g.dataset.tema, norma: g.dataset.norma } : null; });
+      const resp = grupos.map(g => { const r = g.querySelector('input:checked'); return r ? { v: +r.value, tema: g.dataset.tema } : null; });
       const hechas = resp.filter(Boolean).length, total = grupos.length;
       if (hechas < total) {
         cuenta.hidden = false;
@@ -622,7 +602,7 @@ import Formulario from '../components/Formulario.astro';
       if (flojas.length) {
         piezas.push(nodo('p', 'madurez-revisar-titulo', 'Por aquí empezaría la conversación'));
         const lista = nodo('ul', 'madurez-revisar');
-        flojas.forEach(r => { const li = nodo('li'); li.append(nodo('b', null, nombres[r.v]), r.tema, nodo('span', 'norma', 'En la norma: ' + r.norma)); lista.append(li); });
+        flojas.forEach(r => { const li = nodo('li'); li.append(nodo('b', null, nombres[r.v]), r.tema); lista.append(li); });
         piezas.push(lista);
       }
       const acciones = nodo('p', 'madurez-acciones'), ir = nodo('a', 'boton', ruta.ir), llevar = nodo('button', 'boton', 'Llevar el resultado a mi mensaje');
