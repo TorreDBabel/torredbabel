@@ -1,0 +1,536 @@
+<div class="r-herbario">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 6</a>
+  <ol class="bn-lista">
+    <li><a href="#letras" data-sec="letras"><span>1</span>Tres letras</a></li>
+    <li><a href="#doce" data-sec="doce"><span>2</span>Doce clientes</a></li>
+    <li><a href="#rejilla" data-sec="rejilla"><span>3</span>¿Quién deja la plata?</a></li>
+    <li><a href="#presupuesto" data-sec="presupuesto"><span>4</span>Doscientos mil</a></li>
+    <li><a href="#casa" data-sec="casa"><span>5</span>Su lista</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Más valen datos que percepciones · Sesión 6 · Laboratorio</p>
+
+  <section class="columna" aria-label="Apertura">
+    <p>Doña Rosa quiere vender más en noviembre. Su idea: mandarles a los 120 clientes del Club del Pan un cupón de 30 % por WhatsApp. Su sobrino le dice: «Espere. No todos sus clientes son el mismo cliente».</p>
+    <div class="apuesta viva" id="voto">
+      <p class="rotulo">Vote antes de seguir</p>
+      <p style="margin:0;font:400 1.3rem/1.3 var(--serif);color:var(--tinta-fuerte)">¿A quién le mandaría usted el cupón?</p>
+      <div class="voto" role="group" aria-label="Su voto">
+        <button type="button" data-voto="todos">A todos: es más justo</button><button type="button" data-voto="pocos">A los que compran poco</button><button type="button" data-voto="depende">Depende de cada cliente</button>
+      </div>
+      <p class="voto-dato" hidden aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De todos a cada uno"><span class="par"><span class="nexo">De</span> <mark class="marca-a">todos</mark></span><span class="par"><span class="nexo">a</span> <mark class="marca-b">cada uno</mark></span></h1>
+    <p class="entradilla">Tratar a todos los clientes igual es tratar mal a casi todos. Este laboratorio separa a los clientes del Club del Pan con tres preguntas y busca una acción distinta para cada grupo.</p>
+    <p class="firma">Bogotá, noviembre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«Parece que la justicia es igualdad, y lo es, pero no para todos, sino para los iguales; y la desigualdad parece ser justa, y lo es, pero no para todos, sino para los desiguales.»</p><footer>Aristóteles, <cite>Política</cite>, libro III, 1280a · traducción propia</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer este herbario: el filete ocre subraya <mark class="marca-a">lo que se pierde</mark> al tratar a todos igual, el verde <mark class="marca-b">lo que se gana</mark> al mirar a cada uno, y el gris <mark class="marca-c">la regla</mark> con que se clasifica; <span class="giro">el subrayado ciruela marca el giro</span>. Cada cliente es una ficha, con su número, su código en cursiva y su cartela.</p>
+    <ol class="ruta-lista">
+      <li><a href="#letras">Las tres letras</a></li>
+      <li><a href="#doce">Doce clientes, doce códigos · ej. 1</a></li>
+      <li><a href="#rejilla">¿Quién deja la plata? · ej. 2</a></li>
+      <li><a href="#presupuesto">Doscientos mil pesos · ej. 3</a></li>
+      <li><a href="#casa">Su lista · para la casa</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no. Lo que usted escribe no sale de su navegador. Fecha de corte de los datos: 31 de octubre de 2026; periodo: septiembre y octubre.</p>
+  </section>
+
+  <div class="estacion" id="letras">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1</span>Tres preguntas por cliente</h2>
+    <p>Escoja un cliente. La <mark class="marca-c">recencia</mark> son los días desde su última compra; la <mark class="marca-c">frecuencia</mark>, cuántas veces compró; el <mark class="marca-c">monetario</mark>, cuánto gastó. Cada letra se vuelve un puntaje de 1 a 3.</p>
+    <p class="busque"><label for="cli">Cliente:</label><select id="cli"></select></p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t" aria-live="polite">Una ficha por cliente</h3><p class="figura-clave">Cortes: R 3 si compró hace 7 días o menos, 2 si de 8 a 21, 1 si 22 o más; F 3 si 8 compras o más, 2 si 4 a 7, 1 si 3 o menos; M 3 desde $120.000, 2 desde $50.000, 1 por debajo.</p></div>
+    <ul class="especimenes" id="ficha-uno" style="max-width:24rem"></ul>
+    <p class="lectura" id="letras-lect" aria-live="polite"></p>
+  </section>
+  </div>
+
+  <div class="estacion" id="doce">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 1</span>Los cortes deciden quién es quién</h2>
+    <p>Estos son los doce clientes del ejercicio. Primero puntúelos en el cuaderno; después muestre los códigos y mueva los cortes. Las fichas que cambian de segmento se tiñen.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t" aria-live="polite">Doce clientes, doce códigos</h3><p class="figura-clave">Código R-F-M y segmento de cada cliente con los cortes que usted elija.</p></div>
+    <div class="botones-fila"><button type="button" id="ver-cod" aria-pressed="false">Mostrar códigos y segmentos</button><button type="button" id="cortes-guia">Volver a los cortes de la guía</button></div>
+    <div class="mandos">
+      <label class="perilla">R = 3 hasta (días) <output id="r3-o"></output><input id="r3" type="range" min="3" max="14" step="1" value="7"></label>
+      <label class="perilla">R = 2 hasta (días) <output id="r2-o"></output><input id="r2" type="range" min="15" max="35" step="1" value="21"></label>
+      <label class="perilla">F = 3 desde (compras) <output id="f3-o"></output><input id="f3" type="range" min="5" max="12" step="1" value="8"></label>
+    </div>
+    <ul class="especimenes oculto-cod" id="fichas-doce"></ul>
+    <p class="lectura" id="doce-lect" aria-live="polite"></p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej1" novalidate><h3>Compruebe su cuaderno · Ejercicio 1</h3><p>Cuente clientes; los puntajes son 1, 2 o 3.</p><fieldset class="grupo-campos"><legend>Los doce, por segmento</legend><div class="campos"><label class="campo"><span class="campo-t">Campeones</span><input inputmode="decimal" data-ok="2" data-tol="0" data-pista="cuente los clientes cuyo R y F caen en la casilla de «Campeones» de la rejilla."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Leales</span><input inputmode="decimal" data-ok="3" data-tol="0" data-pista="cuente los clientes cuyo R y F caen en la casilla de «Leales» de la rejilla."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Nuevos</span><input inputmode="decimal" data-ok="1" data-tol="0" data-pista="cuente los clientes cuyo R y F caen en la casilla de «Nuevos» de la rejilla."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Necesitan atención</span><input inputmode="decimal" data-ok="2" data-tol="0" data-pista="cuente los clientes cuyo R y F caen en la casilla de «Necesitan atención» de la rejilla."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">En riesgo</span><input inputmode="decimal" data-ok="2" data-tol="0" data-pista="cuente los clientes cuyo R y F caen en la casilla de «En riesgo» de la rejilla."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Dormidos</span><input inputmode="decimal" data-ok="2" data-tol="0" data-pista="cuente los clientes cuyo R y F caen en la casilla de «Dormidos» de la rejilla."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Los casos de borde</legend><div class="campos"><label class="campo"><span class="campo-t">R de C-095</span><input inputmode="decimal" data-ok="2" data-tol="0" data-pista="21 días está dentro de «8 a 21»."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">M de C-095</span><input inputmode="decimal" data-ok="1" data-tol="0" data-pista="$49.500 es menos de $50.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">M de C-083</span><input inputmode="decimal" data-ok="3" data-tol="0" data-pista="$120.000 ya es «$120.000 o más»."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Códigos: C-003 3-3-3, C-017 3-3-2, C-024 3-1-1, C-031 2-2-2, C-038 2-3-3, C-045 2-1-1, C-052 1-3-3, C-060 1-2-2, C-066 1-1-1, C-071 1-1-3, C-083 3-2-3, C-095 2-1-1. Segmentos: Campeones 2 (C-003, C-017), Leales 3, Nuevos 1, Necesitan atención 2, En riesgo 2, Dormidos 2. C-071 es Dormido aunque su M sea 3: un solo pedido grande, hace 50 días.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="rejilla">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 2</span>Un tercio de los clientes deja dos tercios de las ventas</h2>
+    <p>La rejilla ubica a los 120 clientes por recencia y frecuencia. Toque una casilla para ver su segmento. Después saque al hotel del barrio y mire qué le pasa al <mark class="marca-a">promedio</mark> de los Campeones.</p>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t">Los 120 clientes del Club del Pan</h3><p class="figura-clave">Filas: recencia (arriba, compraron hace poco). Columnas: frecuencia (a la derecha, compran seguido). En cada casilla, el número de clientes.</p></div>
+    <div class="rejilla" id="rejilla-r" role="group" aria-label="Rejilla de recencia y frecuencia"></div>
+    <label class="casilla" style="max-width:var(--col-texto);margin:0 auto 1rem;display:block"><input type="checkbox" id="sin-hotel"> Sacar al hotel del barrio (gastó $1.620.000)</label>
+    <ul class="resumen-lab" id="seg-res"></ul>
+    <p class="lectura" id="seg-lect" aria-live="polite"></p>
+  </section>
+  <section class="figura" aria-labelledby="f3bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3bt">Porcentaje de los clientes frente a porcentaje de las ventas</h3><p class="figura-clave">Barra gris: parte de los clientes. Barra verde: parte de las ventas de septiembre y octubre.</p></div>
+    <ul class="hbars" id="fig-pesos" style="--nombre:11rem;--nombre-m:7rem"></ul>
+    <p class="figura-nota">Datos simulados del Club del Pan. Ventas totales del periodo: $9.048.000.</p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej2" novalidate><h3>Compruebe su cuaderno · Ejercicio 2</h3><p>Porcentajes con un decimal; pesos sin decimales.</p><fieldset class="grupo-campos"><legend>Porcentajes</legend><div class="campos"><label class="campo"><span class="campo-t">% de los clientes, Campeones</span><input inputmode="decimal" data-ok="11.666667" data-tol="0.1" data-pct="1" data-pista="14 ÷ 120 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">% de las ventas, Campeones</span><input inputmode="decimal" data-ok="34.996684" data-tol="0.1" data-pct="1" data-pista="ventas de los Campeones ÷ 9.048.000 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">% de las ventas, Campeones y Leales</span><input inputmode="decimal" data-ok="65.235411" data-tol="0.1" data-pct="1" data-pista="sume las ventas de los dos segmentos y divida entre el total."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">% de las ventas, solo el hotel</span><input inputmode="decimal" data-ok="17.904509" data-tol="0.1" data-pct="1" data-pista="1.620.000 ÷ 9.048.000 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Promedios</legend><div class="campos"><label class="campo"><span class="campo-t">Gasto promedio, Campeones ($)</span><input inputmode="decimal" data-ok="226178.571429" data-tol="2" data-pista="ventas del segmento ÷ 14."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Promedio de los Campeones sin el hotel ($)</span><input inputmode="decimal" data-ok="118961.538462" data-tol="2" data-pista="(ventas − 1.620.000) ÷ 13."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Gasto promedio, En riesgo ($)</span><input inputmode="decimal" data-ok="85977.272727" data-tol="2" data-pista="ventas del segmento ÷ 22."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Clientes y ventas: Campeones 11,7 % y 35,0 %; Leales 25,0 % y 30,2 %; Nuevos 10,0 % y 2,6 %; Necesitan atención 13,3 % y 3,5 %; En riesgo 18,3 % y 20,9 %; Dormidos 21,7 % y 7,8 %. Campeones y Leales: 36,7 % de los clientes y <strong>65,2 %</strong> de las ventas. El hotel solo es el <strong>17,9 %</strong> de todas las ventas; el promedio de los Campeones baja de $226.179 a $118.962 sin él. Los En riesgo dejan el 20,9 %: se están yendo clientes que pesan.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="presupuesto">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Ejercicio 3</span>El descuento a quien iba a comprar igual es un regalo</h2>
+    <p>Doña Rosa tiene $200.000 para noviembre. Escoja las acciones y mire cuánto queda. Después mueva cuántos de los Campeones que «responden» habrían comprado igual: lo que vende una acción es solo lo que <mark class="marca-b">cambia</mark>.</p>
+  </section>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t" aria-live="polite">El plan de noviembre</h3><p class="figura-clave">Costo, clientes que responden y ventas esperadas de cada acción.</p></div>
+    <ul class="acciones" id="acciones"></ul>
+    <div class="medidor" id="medidor"><span></span></div>
+    <div class="mandos"><label class="perilla">De los Campeones que responden, habrían comprado igual <output id="igual-o"></output><input id="igual" type="range" min="0" max="100" step="5" value="85"></label></div>
+    <ul class="resumen-lab" id="plan-res"></ul>
+    <p class="lectura" id="plan-lect" aria-live="polite"></p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej3" novalidate><h3>Compruebe su cuaderno · Ejercicio 3</h3><p>Pesos sin decimales; ventas por peso con dos decimales.</p><fieldset class="grupo-campos"><legend>Las acciones</legend><div class="campos"><label class="campo"><span class="campo-t">Costo total, En riesgo ($)</span><input inputmode="decimal" data-ok="132000" data-tol="1" data-pista="22 clientes × $6.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Ventas esperadas, En riesgo ($)</span><input inputmode="decimal" data-ok="297000.0" data-tol="1" data-pista="22 × 0,30 × $45.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Ventas por peso, Campeones</span><input inputmode="decimal" data-ok="9.0" data-tol="0.05" data-pista="ventas esperadas ÷ costo total."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Ventas por peso, Dormidos</span><input inputmode="decimal" data-ok="0.133333" data-tol="0.01" data-pista="26 × 0,04 × $10.000 ÷ (26 × $3.000)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Costo del plan sin los Dormidos ($)</span><input inputmode="decimal" data-ok="184000" data-tol="1" data-pista="sume el costo total de las otras tres."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>En riesgo: $132.000, 6,6 responden, $297.000 (2,25 por peso). Necesitan atención: $24.000, 2,4, $28.800 (1,2). Dormidos: $78.000, 1,04, $10.400 (0,13). Campeones: $28.000, 8,4, $252.000 (9 por peso). Sin los Dormidos el plan cuesta <strong>$184.000</strong> y cabe. Si 50 de cada 60 Campeones habrían comprado igual, esa acción vende de verdad unos $42.000: vale la pena porque no es un descuento sino un reconocimiento barato.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="casa">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 5 · Para la casa</span>El RFM de su lista</h2>
+    <p>Pegue una lista con una línea por cliente: un código, los días desde su última compra, el número de compras y lo que gastó, separados por comas o tabuladores (puede copiarla de Excel). Use los cortes de la guía o muévalos en la estación 2.</p>
+    <div class="areas"><label>Su lista<textarea id="lista" spellcheck="false">C-1, 3, 10, 150000
+C-2, 30, 9, 140000
+C-3, 5, 1, 12000
+C-4, 45, 1, 8000
+C-5, 14, 5, 60000</textarea></label></div>
+  </section>
+  <section class="figura">
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-lista"><thead><tr><th>Cliente</th><th class="num">R</th><th class="num">F</th><th class="num">M</th><th>Código</th><th>Segmento</th></tr></thead><tbody></tbody></table></div>
+    <ul class="resumen-lab" id="lista-res"></ul>
+    <p class="lectura" id="lista-lect" aria-live="polite"></p>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a la apertura</h2>
+    <p id="cierre-voto">Un cupón de 30 % para los 120 les regala descuento a los Campeones, que iban a comprar igual, y molesta a los Dormidos, que no van a volver por un mensaje. Los que más lo necesitan son los clientes En riesgo: compraban seguido y dejaron de venir.</p>
+    <p>Aristóteles decía que la justicia trata igual a los iguales y distinto a los distintos. <span class="giro">Segmentar no es discriminar: es dejar de tratar como iguales a clientes que no lo son, para atender mejor a cada uno.</span> Con una condición: que la acción se pueda explicar a cada cliente sin vergüenza.</p>
+    <p class="aforismo">No todos los clientes son el mismo cliente.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Los 120 clientes del Club del Pan son simulados: los doce del ejercicio 1, el hotel del barrio y 107 más, generados con una semilla fija para que todos vean los mismos números. Las ventas son de septiembre y octubre de 2026, con fecha de corte el 31 de octubre.</p></details>
+  <details><summary>¿Por qué tres niveles y no cinco?</summary><p>Para que el ejercicio se pueda hacer a mano. Con muchos clientes se suelen usar quintiles: cinco grupos del mismo tamaño por cada letra. La lógica es la misma; cambia la resolución.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Herbario»: una lámina de naturalista, con cada cliente como un espécimen con su número, su nombre en cursiva y su cartela, porque segmentar es clasificar muchas cosas pequeñas. Forma «retrato único»: un cliente representa a todos y luego se multiplica en doce y en ciento veinte. Recursos: el voto, la perilla y las fichas. La sesión anterior usó el registro «Expediente».</p></details>
+  <ol class="citas">
+    <li>Hughes, A. M. (1994). <i>Strategic Database Marketing</i>. Probus.</li>
+    <li>Provost, F. y Fawcett, T. (2013). <i>Data Science for Business</i>. O'Reilly.</li>
+    <li>Congreso de Colombia (2012). Ley Estatutaria 1581, de protección de datos personales.</li>
+  </ol>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"club": [{"id": "C-001", "r": 1, "f": 13, "m": 184000}, {"id": "C-002", "r": 1, "f": 11, "m": 155500}, {"id": "C-003", "r": 2, "f": 12, "m": 168000}, {"id": "C-004", "r": 7, "f": 15, "m": 120000}, {"id": "C-005", "r": 1, "f": 9, "m": 81000}, {"id": "C-006", "r": 7, "f": 8, "m": 98500}, {"id": "C-007", "r": 5, "f": 11, "m": 122000}, {"id": "C-008", "r": 5, "f": 13, "m": 145500}, {"id": "C-009", "r": 1, "f": 13, "m": 80000}, {"id": "C-010", "r": 4, "f": 12, "m": 144500}, {"id": "C-011", "r": 4, "f": 8, "m": 81000}, {"id": "C-012", "r": 7, "f": 14, "m": 85500}, {"id": "C-013", "r": 18, "f": 12, "m": 144000}, {"id": "C-014", "r": 13, "f": 12, "m": 145500}, {"id": "C-015", "r": 16, "f": 8, "m": 90000}, {"id": "C-016", "r": 15, "f": 12, "m": 168000}, {"id": "C-017", "r": 5, "f": 9, "m": 81000}, {"id": "C-018", "r": 18, "f": 7, "m": 49000}, {"id": "C-019", "r": 16, "f": 5, "m": 56500}, {"id": "C-020", "r": 7, "f": 5, "m": 62500}, {"id": "C-021", "r": 15, "f": 12, "m": 110000}, {"id": "C-022", "r": 12, "f": 8, "m": 114500}, {"id": "C-023", "r": 16, "f": 11, "m": 122500}, {"id": "C-024", "r": 3, "f": 2, "m": 14000}, {"id": "C-025", "r": 8, "f": 4, "m": 20500}, {"id": "C-026", "r": 20, "f": 11, "m": 155500}, {"id": "C-027", "r": 11, "f": 7, "m": 65500}, {"id": "C-028", "r": 15, "f": 11, "m": 155500}, {"id": "C-029", "r": 13, "f": 12, "m": 61000}, {"id": "C-030", "r": 10, "f": 11, "m": 67500}, {"id": "C-031", "r": 12, "f": 6, "m": 72000}, {"id": "C-032", "r": 16, "f": 8, "m": 96500}, {"id": "C-033", "r": 13, "f": 11, "m": 68500}, {"id": "C-034", "r": 8, "f": 11, "m": 110000}, {"id": "C-035", "r": 0, "f": 5, "m": 26500}, {"id": "C-036", "r": 18, "f": 12, "m": 74000}, {"id": "C-037", "r": 6, "f": 7, "m": 44000}, {"id": "C-038", "r": 15, "f": 10, "m": 132000}, {"id": "C-039", "r": 8, "f": 9, "m": 63000}, {"id": "C-040", "r": 10, "f": 11, "m": 79000}, {"id": "C-041", "r": 18, "f": 6, "m": 85000}, {"id": "C-042", "r": 21, "f": 6, "m": 44000}, {"id": "C-043", "r": 9, "f": 12, "m": 133500}, {"id": "C-044", "r": 2, "f": 3, "m": 25500}, {"id": "C-045", "r": 18, "f": 2, "m": 22000}, {"id": "C-046", "r": 0, "f": 1, "m": 11000}, {"id": "C-047", "r": 0, "f": 2, "m": 20000}, {"id": "C-048", "r": 0, "f": 3, "m": 37000}, {"id": "C-049", "r": 4, "f": 2, "m": 20000}, {"id": "C-050", "r": 7, "f": 2, "m": 14500}, {"id": "C-051", "r": 3, "f": 2, "m": 21500}, {"id": "C-052", "r": 28, "f": 11, "m": 154000}, {"id": "C-053", "r": 3, "f": 3, "m": 20000}, {"id": "C-054", "r": 6, "f": 1, "m": 10500}, {"id": "C-055", "r": 2, "f": 1, "m": 14000}, {"id": "C-056", "r": 7, "f": 3, "m": 25500}, {"id": "C-057", "r": 19, "f": 3, "m": 15500}, {"id": "C-058", "r": 18, "f": 3, "m": 26000}, {"id": "C-059", "r": 10, "f": 1, "m": 8500}, {"id": "C-060", "r": 35, "f": 5, "m": 61000}, {"id": "C-061", "r": 12, "f": 2, "m": 29500}, {"id": "C-062", "r": 21, "f": 1, "m": 12000}, {"id": "C-063", "r": 10, "f": 2, "m": 15000}, {"id": "C-064", "r": 15, "f": 2, "m": 23000}, {"id": "C-065", "r": 15, "f": 1, "m": 12000}, {"id": "C-066", "r": 44, "f": 1, "m": 9000}, {"id": "C-067", "r": 15, "f": 2, "m": 14000}, {"id": "C-068", "r": 20, "f": 3, "m": 27000}, {"id": "C-069", "r": 21, "f": 1, "m": 8000}, {"id": "C-070", "r": 9, "f": 2, "m": 21500}, {"id": "C-071", "r": 50, "f": 1, "m": 180000}, {"id": "C-072", "r": 16, "f": 3, "m": 21000}, {"id": "C-073", "r": 13, "f": 1, "m": 12000}, {"id": "C-074", "r": 35, "f": 5, "m": 47000}, {"id": "C-075", "r": 35, "f": 13, "m": 119000}, {"id": "C-076", "r": 39, "f": 14, "m": 196500}, {"id": "C-077", "r": 28, "f": 8, "m": 49500}, {"id": "C-078", "r": 32, "f": 5, "m": 26000}, {"id": "C-079", "r": 33, "f": 14, "m": 86000}, {"id": "C-080", "r": 42, "f": 8, "m": 49000}, {"id": "C-081", "r": 42, "f": 6, "m": 55000}, {"id": "C-082", "r": 26, "f": 4, "m": 45000}, {"id": "C-083", "r": 6, "f": 4, "m": 120000}, {"id": "C-084", "r": 48, "f": 4, "m": 20000}, {"id": "C-085", "r": 37, "f": 4, "m": 36000}, {"id": "C-086", "r": 28, "f": 14, "m": 198000}, {"id": "C-087", "r": 44, "f": 9, "m": 110000}, {"id": "C-088", "r": 24, "f": 10, "m": 102000}, {"id": "C-089", "r": 35, "f": 13, "m": 157500}, {"id": "C-090", "r": 29, "f": 14, "m": 142000}, {"id": "C-091", "r": 38, "f": 10, "m": 91000}, {"id": "C-092", "r": 25, "f": 10, "m": 51000}, {"id": "C-093", "r": 43, "f": 8, "m": 49000}, {"id": "C-094", "r": 48, "f": 9, "m": 47000}, {"id": "C-095", "r": 21, "f": 3, "m": 49500}, {"id": "C-096", "r": 43, "f": 1, "m": 14000}, {"id": "C-097", "r": 29, "f": 1, "m": 6000}, {"id": "C-098", "r": 24, "f": 1, "m": 15000}, {"id": "C-099", "r": 60, "f": 3, "m": 27000}, {"id": "C-100", "r": 49, "f": 3, "m": 22000}, {"id": "C-101", "r": 48, "f": 2, "m": 22500}, {"id": "C-102", "r": 48, "f": 3, "m": 24500}, {"id": "C-103", "r": 33, "f": 3, "m": 17500}, {"id": "C-104", "r": 56, "f": 3, "m": 43500}, {"id": "C-105", "r": 38, "f": 1, "m": 8000}, {"id": "C-106", "r": 23, "f": 2, "m": 29500}, {"id": "C-107", "r": 48, "f": 2, "m": 20500}, {"id": "C-108", "r": 59, "f": 1, "m": 9000}, {"id": "C-109", "r": 24, "f": 3, "m": 43000}, {"id": "C-110", "r": 43, "f": 3, "m": 44500}, {"id": "C-111", "r": 42, "f": 1, "m": 7500}, {"id": "C-112", "r": 37, "f": 2, "m": 10500}, {"id": "C-113", "r": 54, "f": 1, "m": 13500}, {"id": "C-114", "r": 45, "f": 1, "m": 15000}, {"id": "C-115", "r": 43, "f": 1, "m": 11000}, {"id": "C-116", "r": 51, "f": 3, "m": 38000}, {"id": "C-117", "r": 52, "f": 3, "m": 27500}, {"id": "C-118", "r": 1, "f": 18, "m": 1620000, "nota": "Hotel del barrio: compra para sus desayunos"}, {"id": "C-119", "r": 32, "f": 3, "m": 33500}, {"id": "C-120", "r": 53, "f": 1, "m": 12000}], "doce": [{"id": "C-003", "r": 2, "f": 12, "m": 168000}, {"id": "C-017", "r": 5, "f": 9, "m": 81000}, {"id": "C-024", "r": 3, "f": 2, "m": 14000}, {"id": "C-031", "r": 12, "f": 6, "m": 72000}, {"id": "C-038", "r": 15, "f": 10, "m": 132000}, {"id": "C-045", "r": 18, "f": 2, "m": 22000}, {"id": "C-052", "r": 28, "f": 11, "m": 154000}, {"id": "C-060", "r": 35, "f": 5, "m": 61000}, {"id": "C-066", "r": 44, "f": 1, "m": 9000}, {"id": "C-071", "r": 50, "f": 1, "m": 180000}, {"id": "C-083", "r": 6, "f": 4, "m": 120000}, {"id": "C-095", "r": 21, "f": 3, "m": 49500}], "acciones": [["En riesgo", "Llamada de doña Rosa + una mogolla de regalo en el próximo pedido", 6000, 0.3, 45000], ["Necesitan atención", "Mensaje con el pan del día y 10 % de descuento", 1500, 0.15, 12000], ["Dormidos", "Cupón de 30 % por WhatsApp", 3000, 0.04, 10000], ["Campeones", "Tarjeta de cliente fundador (sin descuento) y probar primero el pan nuevo", 2000, 0.6, 30000]], "presupuesto": 200000};
+/* Núcleo común de los laboratorios: números a la colombiana, escalas, barras animadas, navegación y comprobaciones. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+
+/* Laboratorio · Más valen datos que percepciones · Sesión 6: segmentación RFM. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const pct = (v, d = 1) => num(v, d) + ' %';
+  const al = (ids, fn) => { ids.forEach(id => { const e = typeof id === 'string' ? $(id) : id; if (e) { e.addEventListener('input', fn); e.addEventListener('change', fn); } }); fn(); };
+  const salida = (id, t) => { const o = $(id + '-o'); if (o) o.textContent = t; };
+  const angosto = () => matchMedia('(max-width: 520px)').matches;
+  const res = (el, items) => { el.innerHTML = items.map(([t, v]) => `<li>${t}<b>${v}</b></li>`).join(''); };
+  const GUIA = { r3: 7, r2: 21, f2: 4, f3: 8, m2: 50000, m3: 120000 };
+  const pts = (x, k = GUIA) => [x.r <= k.r3 ? 3 : x.r <= k.r2 ? 2 : 1, x.f >= k.f3 ? 3 : x.f >= k.f2 ? 2 : 1, x.m >= k.m3 ? 3 : x.m >= k.m2 ? 2 : 1];
+  const seg = (pr, pf) => pr === 3 && pf === 3 ? 'Campeones' : pr >= 2 && pf >= 2 ? 'Leales' : pr === 3 ? 'Nuevos' : pr === 2 ? 'Necesitan atención' : pf >= 2 ? 'En riesgo' : 'Dormidos';
+  const SEGS = ['Campeones', 'Leales', 'Nuevos', 'Necesitan atención', 'En riesgo', 'Dormidos'];
+  const cls = s => 'seg-' + s.split(' ')[0];
+  const ficha = (x, k) => { const [a, b, c] = pts(x, k), s = seg(a, b); return `<li class="especimen" data-id="${x.id}"><span class="num">N.º ${x.id.slice(2)}</span><h4><span class="cod">${a}-${b}-${c}</span></h4><p class="cartela">${x.r} días · ${x.f} compras · ${pesos(x.m)}</p><span class="seg ${cls(s)}" style="background:var(--c)">${s}</span></li>`; };
+  let voto = null;
+
+  /* apertura */
+  $$('#voto [data-voto]').forEach(b => b.addEventListener('click', () => {
+    voto = b.dataset.voto; $$('#voto [data-voto]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = $('#voto .voto-dato'); d.hidden = false;
+    d.innerHTML = { todos: 'Anotado: <strong>a todos</strong>. En la estación 4 verá cuánto de ese descuento se va en clientes que iban a comprar igual.',
+      pocos: 'Anotado: <strong>a los que compran poco</strong>. En la estación 3 verá que entre ellos hay dos grupos muy distintos: los nuevos y los dormidos.',
+      depende: 'Anotado: <strong>depende de cada cliente</strong>. Es justo lo que hace el RFM: tres preguntas por cliente.' }[voto];
+    const c = $('#cierre-voto'); if (c) c.textContent = ({ todos: 'Usted votó por mandarlo a todos. ', pocos: 'Usted votó por los que compran poco. ', depende: 'Usted votó que dependía de cada cliente, y así fue. ' })[voto]
+      + 'Un cupón de 30 % para los 120 les regala descuento a los Campeones, que iban a comprar igual, y molesta a los Dormidos, que no van a volver por un mensaje. Los que más lo necesitan son los clientes En riesgo: compraban seguido y dejaron de venir.';
+  }));
+
+  /* 1 · tres letras */
+  const sel = $('#cli');
+  sel.innerHTML = D.club.map(x => `<option value="${x.id}">${x.id}${x.nota ? ' · hotel' : ''}</option>`).join('');
+  sel.value = 'C-003';
+  al(['#cli'], () => {
+    const x = D.club.find(c => c.id === sel.value), [a, b, c] = pts(x), s = seg(a, b);
+    $('#ficha-uno').innerHTML = ficha(x);
+    $('#f1t').textContent = `${x.id}: ${s}`;
+    $('#letras-lect').innerHTML = `Compró hace <b>${x.r} días</b> (R = ${a}), <b>${x.f} veces</b> (F = ${b}) y gastó <b>${pesos(x.m)}</b> (M = ${c}). `
+      + ({ Campeones: 'Compra seguido y hace poco: el mejor cliente.', Leales: 'Tiene la costumbre de comprar.', Nuevos: 'Llegó hace poco: su segunda compra decide si se queda.',
+        'Necesitan atención': 'Compró hace unas semanas, pocas veces: un recordatorio a tiempo puede bastar.', 'En riesgo': 'Compraba seguido y dejó de venir: hay que averiguar qué pasó.',
+        Dormidos: 'Hace mucho no compra y compraba poco.' })[s] + (x.nota ? ` ${x.nota}.` : '') + (c === 3 && b === 1 ? ' Gastó mucho, pero en pocas compras: el monetario solo engaña.' : '');
+  });
+
+  /* 2 · doce clientes */
+  const DOCE = D.doce;
+  let antes = {};
+  const cortes = () => ({ ...GUIA, r3: +$('#r3').value, r2: +$('#r2').value, f3: +$('#f3').value });
+  al(['#r3', '#r2', '#f3'], () => {
+    const k = cortes(); salida('#r3', k.r3); salida('#r2', k.r2); salida('#f3', k.f3);
+    $('#fichas-doce').innerHTML = DOCE.map(x => ficha(x, k)).join('');
+    let cambios = 0;
+    DOCE.forEach(x => { const s = seg(...pts(x, k).slice(0, 2)), s0 = seg(...pts(x).slice(0, 2)); if (s !== s0) { cambios++; $(`#fichas-doce [data-id="${x.id}"]`).classList.add('cambio'); } });
+    const cuenta = SEGS.map(s => [s, DOCE.filter(x => seg(...pts(x, k).slice(0, 2)) === s).length]).filter(z => z[1]);
+    const guia = k.r3 === 7 && k.r2 === 21 && k.f3 === 8;
+    $('#f2t').textContent = guia ? 'Doce clientes con los cortes de la guía' : cambios ? `Con estos cortes, ${cambios} ${cambios === 1 ? 'cliente cambia' : 'clientes cambian'} de segmento` : 'Con estos cortes, nadie cambia de segmento';
+    $('#doce-lect').innerHTML = cuenta.map(([s, n]) => `${s}: <b>${n}</b>`).join(' · ') + (guia ? '' : '. Los cortes no son verdad ni mentira: son una decisión, y hay que poder justificarla.');
+  });
+  $('#ver-cod').addEventListener('click', e => { const u = $('#fichas-doce'); u.classList.toggle('oculto-cod'); e.currentTarget.setAttribute('aria-pressed', String(!u.classList.contains('oculto-cod'))); });
+  $('#cortes-guia').addEventListener('click', () => { $('#r3').value = 7; $('#r2').value = 21; $('#f3').value = 8; $('#r3').dispatchEvent(new Event('input')); });
+
+  /* 3 · rejilla */
+  const rj = $('#rejilla-r'); let elegido = 'Campeones';
+  const ETQ_R = { 3: 'R = 3<br>7 días o menos', 2: 'R = 2<br>8 a 21', 1: 'R = 1<br>22 o más' }, ETQ_F = { 1: 'F = 1<br>3 o menos', 2: 'F = 2<br>4 a 7', 3: 'F = 3<br>8 o más' };
+  let h = '';
+  [3, 2, 1].forEach(r => { h += `<span class="eje">${ETQ_R[r]}</span>`; [1, 2, 3].forEach(f => { const s = seg(r, f), n = D.club.filter(x => { const p = pts(x); return p[0] === r && p[1] === f; }).length; h += `<button type="button" class="${cls(s)}" data-seg="${s}" aria-pressed="false"><b>${s}</b>${n} clientes</button>`; }); });
+  h += '<span class="eje"></span>' + [1, 2, 3].map(f => `<span class="eje">${ETQ_F[f]}</span>`).join('');
+  rj.innerHTML = h;
+  $$('button', rj).forEach(b => b.addEventListener('click', () => { elegido = b.dataset.seg; pinta3(); }));
+  function pinta3() {
+    const sin = $('#sin-hotel').checked, base = D.club.filter(x => !(sin && x.nota)), tot = base.reduce((s, x) => s + x.m, 0), n = base.length;
+    $$('button', rj).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.seg === elegido)));
+    const st = s => { const g = base.filter(x => seg(...pts(x).slice(0, 2)) === s), ms = g.map(x => x.m); return { n: g.length, v: ms.reduce((a, b) => a + b, 0), prom: ms.length ? media(ms) : 0, med: ms.length ? mediana(ms) : 0 }; };
+    const e = st(elegido);
+    res($('#seg-res'), [['Clientes', `${e.n} · ${pct(e.n / n * 100)}`], ['Ventas', `${pesos(e.v)} · ${pct(e.v / tot * 100)}`], ['Gasto promedio', pesos(e.prom)], ['Gasto mediano', pesos(e.med)]]);
+    const cl = st('Campeones'), le = st('Leales');
+    $('#seg-lect').innerHTML = `Campeones y Leales son el <b>${pct((cl.n + le.n) / n * 100)}</b> de los clientes y dejan el <b>${pct((cl.v + le.v) / tot * 100)}</b> de las ventas. `
+      + (sin ? `Sin el hotel, el promedio de los Campeones baja a <b>${pesos(cl.prom)}</b>, muy cerca de su mediana: un solo cliente inflaba el promedio.`
+        : `El hotel solo es el <b>${pct(1620000 / tot * 100)}</b> de todas las ventas: por eso el promedio de los Campeones (${pesos(cl.prom)}) se aleja tanto de su mediana (${pesos(cl.med)}).`);
+    hbars($('#fig-pesos'), SEGS.flatMap(s => { const z = st(s); return [{ id: s + 'c', nombre: s, valor: z.n / n * 100, texto: pct(z.n / n * 100) + ' de clientes', clase: 'hb-cli' }, { id: s + 'v', nombre: '', valor: z.v / tot * 100, texto: pct(z.v / tot * 100) + ' de ventas', clase: 'hb-ven' }]; }), { max: 40 });
+  }
+  $('#sin-hotel').addEventListener('change', pinta3); pinta3();
+
+  /* 4 · presupuesto */
+  const PRES = D.presupuesto, NSEG = s => D.club.filter(x => seg(...pts(x).slice(0, 2)) === s).length;
+  $('#acciones').innerHTML = D.acciones.map((a, i) => { const n = NSEG(a[0]); return `<li><label><input type="checkbox" data-i="${i}" ${a[0] !== 'Dormidos' ? 'checked' : ''}><span><b>${a[0]}</b> · ${a[1]}<span class="det">${n} clientes × ${pesos(a[2])} = ${pesos(n * a[2])} · responden el ${pct(a[3] * 100, 0)} · gastan ${pesos(a[4])}</span></span></label></li>`; }).join('');
+  al([...$$('#acciones input'), '#igual'], () => {
+    const ig = +$('#igual').value / 100; salida('#igual', pct(ig * 100, 0));
+    let costo = 0, ventas = 0, incr = 0;
+    $$('#acciones input').forEach(c => { if (!c.checked) return; const a = D.acciones[+c.dataset.i], n = NSEG(a[0]), v = n * a[3] * a[4]; costo += n * a[2]; ventas += v; incr += a[0] === 'Campeones' ? v * (1 - ig) : v; });
+    const m = $('#medidor'); m.firstElementChild.style.width = Math.min(100, costo / PRES * 100) + '%'; m.classList.toggle('pasado', costo > PRES);
+    res($('#plan-res'), [['Costo del plan', pesos(costo)], ['Queda del presupuesto', pesos(PRES - costo)], ['Ventas esperadas', pesos(ventas)], ['Ventas que cambian', pesos(incr)], ['Ventas que cambian por peso', costo ? num(incr / costo, 2) : '—']]);
+    $('#f4t').textContent = costo > PRES ? 'El plan se pasa del presupuesto' : 'El plan cabe en el presupuesto';
+    $('#plan-lect').innerHTML = (costo > PRES ? `Se pasa por <b>${pesos(costo - PRES)}</b>: quite una acción. ` : '')
+      + `Si el ${pct(ig * 100, 0)} de los Campeones que responden habría comprado igual, de las ventas esperadas solo <b>${pesos(incr)}</b> cambian de verdad. `
+      + 'Por eso a los Campeones no se les da descuento: se les reconoce.';
+  });
+
+  /* 5 · su lista */
+  al(['#lista'], () => {
+    const filas = $('#lista').value.split(/\n+/).map(l => l.split(/[,;\t]+/).map(s => s.trim())).filter(c => c.length >= 4 && c[0]);
+    const ok = [], malas = [];
+    filas.forEach(c => { const r = leer(c[1]), f = leer(c[2]), m = leer(c[3]); if ([r, f, m].every(isFinite) && r >= 0 && f >= 0 && m >= 0) ok.push({ id: c[0], r, f, m }); else malas.push(c[0]); });
+    const k = cortes();
+    $('#tabla-lista tbody').innerHTML = ok.map(x => { const [a, b, c] = pts(x, k); return `<tr><td>${x.id}</td><td class="num">${a}</td><td class="num">${b}</td><td class="num">${c}</td><td>${a}-${b}-${c}</td><td>${seg(a, b)}</td></tr>`; }).join('');
+    res($('#lista-res'), SEGS.map(s => [s, String(ok.filter(x => seg(...pts(x, k).slice(0, 2)) === s).length)]));
+    $('#lista-lect').textContent = (ok.length ? `${ok.length} clientes puntuados con los cortes R ${k.r3} y ${k.r2} días, F ${k.f2} y ${k.f3} compras.` : 'Escriba al menos una línea: código, días, compras, gasto.')
+      + (malas.length ? ` Revise estas líneas, no se pudieron leer: ${malas.join(', ')}. Días, compras y gasto deben ser números y no negativos.` : '');
+  });
+  ['#r3', '#r2', '#f3'].forEach(s => $(s).addEventListener('input', () => $('#lista').dispatchEvent(new Event('input'))));
+
+  activarComprobaciones();
+  Transiciones.todo();
+  addEventListener('resize', pinta3);
+})();
+
+</script>

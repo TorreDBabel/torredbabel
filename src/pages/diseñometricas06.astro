@@ -1,0 +1,22 @@
+---
+// Diseño de métricas para el marketing (AFPN0097) · sesión 6 · Laboratorio de ROI de marketing.
+// Registro «Pizarra»: Newsreader, Space Grotesk y Space Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource-variable/newsreader/wght.css';
+import '@fontsource-variable/newsreader/wght-italic.css';
+import '@fontsource-variable/space-grotesk/wght.css';
+import '@fontsource/space-mono/400.css';
+import estilo from '../clases/diseñometricas06/laboratorio.css?raw';
+import cuerpo from '../clases/diseñometricas06/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de ROI de marketing"
+  curso="Diseño de métricas para el marketing"
+  sesion={6}
+  descripcion="Un laboratorio para medir lo que vuelve de cada peso invertido: ROI frente a ROAS, el grupo de control que separa lo que la campaña causó y el periodo de recuperación. Sesión 6 de Diseño de métricas para el marketing."
+  tema="#15181c"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

@@ -1,0 +1,28 @@
+---
+// Más valen datos que percepciones (AFPN0087) · sesión 6 · Laboratorio de segmentación RFM.
+// Registro «Herbario»: EB Garamond, Archivo y Space Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/eb-garamond/400.css';
+import '@fontsource/eb-garamond/400-italic.css';
+import '@fontsource/eb-garamond/500.css';
+import '@fontsource/eb-garamond/500-italic.css';
+import '@fontsource/eb-garamond/600.css';
+import '@fontsource/archivo/400.css';
+import '@fontsource/archivo/400-italic.css';
+import '@fontsource/archivo/500.css';
+import '@fontsource/archivo/600.css';
+import '@fontsource/space-mono/400.css';
+import estilo from '../clases/masvalendatos06/laboratorio.css?raw';
+import cuerpo from '../clases/masvalendatos06/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de segmentación RFM"
+  curso="Más valen datos que percepciones"
+  sesion={6}
+  descripcion="Un laboratorio para segmentar clientes con recencia, frecuencia y valor: puntuar, ubicar en la rejilla, ver quién deja la plata y decidir una acción por segmento. Sesión 6 de Más valen datos que percepciones."
+  tema="#fbf6ec"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>
