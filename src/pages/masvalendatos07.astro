@@ -1,0 +1,23 @@
+---
+// Más valen datos que percepciones (AFPN0087) · sesión 7 · Laboratorio de IA generativa.
+// Registro «Neón»: Piazzolla, Ancízar Sans y Martian Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource-variable/piazzolla/wght.css';
+import '@fontsource-variable/piazzolla/wght-italic.css';
+import '@fontsource-variable/ancizar-sans/wght.css';
+import '@fontsource-variable/ancizar-sans/wght-italic.css';
+import '@fontsource-variable/martian-mono/wght.css';
+import estilo from '../clases/masvalendatos07/laboratorio.css?raw';
+import cuerpo from '../clases/masvalendatos07/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de IA generativa"
+  curso="Más valen datos que percepciones"
+  sesion={7}
+  descripcion="Un laboratorio para usar un asistente de IA sin creerle a ciegas: revisar sus frases contra los datos, pedirle bien, no pegarle datos personales y volver sus ocurrencias hipótesis comprobables. Sesión 7 de Más valen datos que percepciones."
+  tema="#060608"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

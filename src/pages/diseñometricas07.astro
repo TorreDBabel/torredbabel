@@ -1,0 +1,23 @@
+---
+// Diseño de métricas para el marketing (AFPN0097) · sesión 7 · Laboratorio de métricas de marca y analítica digital.
+// Registro «Recorte»: Work Sans, Archivo Black y DM Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource-variable/work-sans/wght.css';
+import '@fontsource-variable/work-sans/wght-italic.css';
+import '@fontsource/archivo-black/400.css';
+import '@fontsource/dm-mono/400.css';
+import '@fontsource/dm-mono/500.css';
+import estilo from '../clases/diseñometricas07/laboratorio.css?raw';
+import cuerpo from '../clases/diseñometricas07/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de métricas de marca y analítica digital"
+  curso="Diseño de métricas para el marketing"
+  sesion={7}
+  descripcion="Un laboratorio para medir lo que no sale en la caja: reconocimiento de marca, share of voice, GA4, correo y redes, y para separar las métricas útiles de las de vanidad. Sesión 7 de Diseño de métricas para el marketing."
+  tema="#f4f1ea"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

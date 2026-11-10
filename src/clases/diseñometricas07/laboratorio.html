@@ -1,0 +1,563 @@
+<div class="r-recorte">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 7</a>
+  <ol class="bn-lista">
+    <li><a href="#marca" data-sec="marca"><span>1</span>¿Quién nos conoce?</a></li>
+    <li><a href="#web" data-sec="web"><span>2</span>La web por dentro</a></li>
+    <li><a href="#correo" data-sec="correo"><span>3</span>Correo y redes</a></li>
+    <li><a href="#tablero" data-sec="tablero"><span>4</span>El tablero</a></li>
+    <li><a href="#su-marca" data-sec="su-marca"><span>5</span>Su marca</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Diseño de métricas para el marketing · Sesión 7 · Laboratorio</p>
+
+  <section class="columna" aria-label="Apertura">
+    <p>El socio de Laura le pregunta algo que la caja de Café Monteverde no responde: «¿Cuánta gente en Chapinero sabe que existimos?». Laura contrata una encuesta en la calle a 400 personas que toman café y les muestra el logo.</p>
+    <div class="apuesta viva" id="voto">
+      <p class="rotulo">Vote antes de seguir</p>
+      <p style="margin:0;font:400 1.3rem/1.3 var(--serif);color:var(--tinta-fuerte)">De las 400, ¿cuántas cree que reconocieron el logo?</p>
+      <div class="voto" role="group" aria-label="Su voto">
+        <button type="button" data-voto="pocas">Menos de 100</button><button type="button" data-voto="medio">Entre 100 y 250</button><button type="button" data-voto="muchas">Más de 250</button>
+      </div>
+      <p class="voto-dato" hidden aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="De la caja a la memoria"><span class="par"><span class="nexo">De la</span> <mark class="marca-a">caja</mark></span><span class="par"><span class="nexo">a la</span> <mark class="marca-b">memoria</mark></span></h1>
+    <p class="entradilla">Hay métricas que no salen en la caja registradora: cuánta gente recuerda la marca, cuánto se habla de ella y qué hace la gente en la página web. Este laboratorio las mide y separa las que sirven de las que solo hacen sentir bien.</p>
+    <p class="firma">Bogotá, noviembre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«Su ser es ser percibidas; y no es posible que existan fuera de las mentes que las perciben.»</p><footer>George Berkeley, <cite>Tratado sobre los principios del conocimiento humano</cite> (1710), § 3 · traducción propia</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer estos recortes: el bermellón marca <mark class="marca-a">lo que se cuenta en la caja</mark>, el turquesa <mark class="marca-b">lo que vive en la memoria</mark> de la gente y el papel amarillo <mark class="marca-c">la fórmula</mark>; <span class="giro">el subrayado negro marca el giro</span>. En las barras, el bermellón y el turquesa comparan; el gris es el resto.</p>
+    <ol class="ruta-lista">
+      <li><a href="#marca">¿Cuánta gente sabe que existimos? · ej. 1</a></li>
+      <li><a href="#web">La página web por dentro · ej. 2</a></li>
+      <li><a href="#correo">Lo que se abre y lo que se mueve · ej. 3</a></li>
+      <li><a href="#tablero">El tablero de Laura · para la casa</a></li>
+      <li><a href="#su-marca">Las métricas de su marca</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no. Los datos son simulados y las marcas competidoras, inventadas. Lo que usted escribe no sale de su navegador.</p>
+  </section>
+
+  <div class="estacion" id="marca">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1 · Ejercicio 1</span>Casi la mitad reconoce el logo, pero solo uno de cada siete lo recuerda sin ayuda</h2>
+    <p>El embudo de marca va de lo más exigente, ser la <mark class="marca-c">primera marca</mark> que alguien dice, a lo más fácil, <mark class="marca-c">reconocer el logo</mark>, y sigue con la compra. Cambie dónde se hizo la encuesta y mire qué pasa.</p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t" aria-live="polite">El embudo de Café Monteverde</h3><p class="figura-clave">Porcentaje de los 400 encuestados en cada nivel. Turquesa: recordación (lo que vive en la memoria). Bermellón: compra.</p></div>
+    <div class="mandos"><fieldset class="segmento" id="donde"><legend>Dónde se hizo la encuesta</legend><label><input type="radio" name="donde" value="calle" checked>En la calle, en Chapinero</label><label><input type="radio" name="donde" value="puerta">En la puerta del local</label></fieldset></div>
+    <ul class="hbars" id="fig-embudo" style="--nombre:13rem;--nombre-m:8rem"></ul>
+    <p class="lectura" id="embudo-lect" aria-live="polite"></p>
+  </section>
+  <section class="figura" aria-labelledby="f1bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1bt" aria-live="polite">Share of voice</h3><p class="figura-clave">Parte de las menciones de café en redes y reseñas de la zona en octubre. Las otras tres marcas suman 18.800 menciones.</p></div>
+    <div class="mandos"><label class="perilla">Menciones de Café Monteverde <output id="men-o"></output><input id="men" type="range" min="0" max="6000" step="100" value="1200"></label></div>
+    <ul class="hbars" id="fig-sov" style="--nombre:10rem;--nombre-m:7rem"></ul>
+    <ul class="resumen-lab" id="sov-res"></ul>
+    <p class="lectura" id="sov-lect" aria-live="polite"></p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej1" novalidate><h3>Compruebe su cuaderno · Ejercicio 1</h3><p>Porcentajes con un decimal; margen de error en puntos con un decimal.</p><fieldset class="grupo-campos"><legend>El embudo</legend><div class="campos"><label class="campo"><span class="campo-t">Top of mind</span><input inputmode="decimal" data-ok="6.0" data-tol="0.1" data-pct="1" data-pista="24 ÷ 400 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Recordación espontánea</span><input inputmode="decimal" data-ok="15.0" data-tol="0.1" data-pct="1" data-pista="60 ÷ 400 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Recordación asistida</span><input inputmode="decimal" data-ok="45.0" data-tol="0.1" data-pct="1" data-pista="180 ÷ 400 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">De los que la reconocen, la han comprado</span><input inputmode="decimal" data-ok="40.0" data-tol="0.1" data-pct="1" data-pista="72 ÷ 180 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Margen de error del top of mind (puntos)</span><input inputmode="decimal" data-ok="2.327371" data-tol="0.1" data-pista="1,96 × √(0,06 × 0,94 ÷ 400) × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>La conversación</legend><div class="campos"><label class="campo"><span class="campo-t">Share of voice</span><input inputmode="decimal" data-ok="6.0" data-tol="0.1" data-pct="1" data-pista="1.200 ÷ 20.000 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">ESOV (puntos)</span><input inputmode="decimal" data-ok="-2.0" data-tol="0.1" data-pista="SOV − participación de mercado: 6 − 8. Sale negativo."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Top of mind 6 % (±2,3 puntos), espontánea 15 %, asistida 45 %. De los que la reconocen, 40 % la ha comprado; de esos, 41,7 % la compró el último mes: el embudo se cae sobre todo entre <strong>reconocer y recordar</strong> (45 % a 15 %) y entre reconocer y probar. SOV 6 % y ESOV <strong>−2 puntos</strong>: según Jones (1990), tiende a perder participación. La encuesta en la puerta no se compara: allí todos conocen la marca.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="web">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 2</span>El canal que más gente trae es el que menos vende</h2>
+    <p>Este es el informe de GA4 de la tienda en línea en octubre. Escoja la métrica con que quiere ordenar los canales y mire quién queda primero. Las tasas usan como <mark class="marca-c">denominador</mark> las sesiones, salvo que diga otra cosa.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t" aria-live="polite">Cuatro canales, una métrica</h3><p class="figura-clave">Canales de la tienda en línea de Café Monteverde, octubre de 2026.</p></div>
+    <div class="mandos"><fieldset class="segmento" id="met-web"><legend>Ordenar por</legend>
+      <label><input type="radio" name="met-web" value="u" checked>Usuarios</label><label><input type="radio" name="met-web" value="er">Tasa de interacción</label><label><input type="radio" name="met-web" value="rebote">Tasa de rebote</label><label><input type="radio" name="met-web" value="conv">Conversión por sesión</label><label><input type="radio" name="met-web" value="convu">Conversión por usuario</label>
+    </fieldset></div>
+    <ul class="hbars" id="fig-web" style="--nombre:11rem;--nombre-m:7.5rem"></ul>
+    <p class="lectura" id="web-lect" aria-live="polite"></p>
+    <ul class="resumen-lab" id="web-res"></ul>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej2" novalidate><h3>Compruebe su cuaderno · Ejercicio 2</h3><p>Porcentajes con uno o dos decimales.</p><fieldset class="grupo-campos"><legend>Interacción y conversión</legend><div class="campos"><label class="campo"><span class="campo-t">Tasa de interacción, Instagram</span><input inputmode="decimal" data-ok="30.0" data-tol="0.1" data-pct="1" data-pista="1.680 ÷ 5.600 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tasa de rebote, Instagram</span><input inputmode="decimal" data-ok="70.0" data-tol="0.1" data-pct="1" data-pista="1 − interacción."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión por sesión, búsqueda orgánica</span><input inputmode="decimal" data-ok="2.0" data-tol="0.05" data-pct="1" data-pista="88 ÷ 4.400 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión por sesión, correo</span><input inputmode="decimal" data-ok="4.0" data-tol="0.05" data-pct="1" data-pista="36 ÷ 900 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión por sesión, sitio completo</span><input inputmode="decimal" data-ok="1.860465" data-tol="0.02" data-pct="1" data-pista="240 ÷ 12.900 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>La suma que no cuadra</legend><div class="campos"><label class="campo"><span class="campo-t">Suma de usuarios de los canales</span><input inputmode="decimal" data-ok="10000" data-tol="0" data-pista="3.200 + 5.000 + 1.200 + 600."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Personas que llegaron por más de un canal, como mínimo</span><input inputmode="decimal" data-ok="600" data-tol="0" data-pista="suma de canales − usuarios del sitio."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Interacción: orgánica 65 %, Instagram 30 %, directo 70 %, correo 70 % (rebote: 35, 70, 30 y 30 %). Conversión por sesión: 2,0 %, 1,0 %, 3,0 % y <strong>4,0 %</strong>; sitio 1,86 %. Por usuarios gana Instagram; por conversión, el correo. Los usuarios suman 10.000 y el sitio reporta 9.400: al menos <strong>600</strong> personas llegaron por más de un canal.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="correo">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 3</span>El ganador cambia cuando cambia el denominador</h2>
+    <p>Dos correos a la misma lista de 4.000 personas y tres publicaciones en Instagram (12.000 seguidores). Cambie la métrica y mire quién gana. La apertura está inflada desde 2021, porque Apple Mail abre los correos solo para proteger la privacidad.</p>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t" aria-live="polite">Correo A frente a correo B</h3><p class="figura-clave">Bermellón: A, «Nuevo café de origen». Turquesa: B, «20 % en todo». Base de las tasas: 3.800 entregados (aperturas, en el CTOR).</p></div>
+    <div class="mandos"><fieldset class="segmento" id="met-co"><legend>Métrica del correo</legend>
+      <label><input type="radio" name="met-co" value="apertura" checked>Apertura</label><label><input type="radio" name="met-co" value="ctr">CTR</label><label><input type="radio" name="met-co" value="ctor">CTOR</label><label><input type="radio" name="met-co" value="bajas">Bajas</label><label><input type="radio" name="met-co" value="comp">Compras</label><label><input type="radio" name="met-co" value="comp_baja">Compras por baja</label>
+    </fieldset></div>
+    <ul class="hbars" id="fig-co" style="--nombre:12rem;--nombre-m:7rem"></ul>
+    <p class="lectura" id="co-lect" aria-live="polite"></p>
+  </section>
+  <section class="figura" aria-labelledby="f3bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3bt" aria-live="polite">Tres publicaciones</h3><p class="figura-clave">Tasa de interacción: interacciones (me gusta, comentarios, guardados y compartidos) sobre el denominador que escoja.</p></div>
+    <div class="mandos"><fieldset class="segmento" id="den-red"><legend>Dividir entre</legend><label><input type="radio" name="den-red" value="alc" checked>Alcance</label><label><input type="radio" name="den-red" value="seg">Seguidores</label></fieldset></div>
+    <ul class="hbars" id="fig-red" style="--nombre:14rem;--nombre-m:7.5rem"></ul>
+    <p class="lectura" id="red-lect" aria-live="polite"></p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej3" novalidate><h3>Compruebe su cuaderno · Ejercicio 3</h3><p>Porcentajes con uno o dos decimales.</p><fieldset class="grupo-campos"><legend>Los correos</legend><div class="campos"><label class="campo"><span class="campo-t">Entregados de cada correo</span><input inputmode="decimal" data-ok="3800" data-tol="0" data-pista="4.000 − 200."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Apertura de A</span><input inputmode="decimal" data-ok="40.0" data-tol="0.1" data-pct="1" data-pista="1.520 ÷ 3.800 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CTR de B</span><input inputmode="decimal" data-ok="4.5" data-tol="0.05" data-pct="1" data-pista="171 ÷ 3.800 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CTOR de A</span><input inputmode="decimal" data-ok="10.0" data-tol="0.1" data-pct="1" data-pista="152 ÷ 1.520 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CTOR de B</span><input inputmode="decimal" data-ok="15.0" data-tol="0.1" data-pct="1" data-pista="171 ÷ 1.140 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Tasa de bajas de B</span><input inputmode="decimal" data-ok="1.5" data-tol="0.05" data-pct="1" data-pista="57 ÷ 3.800 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Las redes</legend><div class="campos"><label class="campo"><span class="campo-t">Interacción por alcance, carrusel</span><input inputmode="decimal" data-ok="8.0" data-tol="0.05" data-pct="1" data-pista="320 ÷ 4.000 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Interacción por seguidores, reel</span><input inputmode="decimal" data-ok="4.5" data-tol="0.05" data-pct="1" data-pista="540 ÷ 12.000 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>A: apertura 40 %, CTR 4,0 %, CTOR 10 %, bajas 0,5 %, 1,58 compras por baja. B: apertura 30 %, CTR 4,5 %, CTOR 15 %, bajas 1,5 %, 0,84 compras por baja. Por apertura gana A; por CTR, CTOR y compras, B, que espanta tres veces más suscriptores. Redes: por alcance gana el carrusel (8 %); por seguidores, el reel (4,5 %). La apertura y los seguidores son las métricas que dejaría de mirar.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="tablero">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Para la casa</span>Subir un punto y medio en una encuesta de 400 no es subir</h2>
+    <p>El tablero de noviembre de Laura, con su semáforo: verde si cumple la meta, amarillo si mejoró sin cumplirla, rojo si empeoró. Después mueva el tamaño de la encuesta y mire cuándo se podría afirmar que la recordación subió.</p>
+  </section>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t" aria-live="polite">El tablero de noviembre</h3><p class="figura-clave">Valor de noviembre calculado con los datos de la guía, frente a la meta y a octubre.</p></div>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-tab"><thead><tr><th>Métrica</th><th class="num">Octubre</th><th class="num">Noviembre</th><th class="num">Meta</th><th>Semáforo</th></tr></thead><tbody></tbody></table></div>
+    <div class="mandos"><label class="perilla">Personas encuestadas cada mes <output id="enc-o"></output><input id="enc" type="range" min="100" max="6000" step="100" value="400"></label></div>
+    <ul class="resumen-lab" id="tab-res"></ul>
+    <p class="lectura" id="tab-lect" aria-live="polite"></p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-casa" novalidate><h3>Compruebe su cuaderno · Para la casa</h3><p>Porcentajes con un decimal.</p><fieldset class="grupo-campos"><legend>Noviembre</legend><div class="campos"><label class="campo"><span class="campo-t">Recordación espontánea</span><input inputmode="decimal" data-ok="16.5" data-tol="0.1" data-pct="1" data-pista="66 ÷ 400 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Margen de error de la recordación (puntos)</span><input inputmode="decimal" data-ok="3.637569" data-tol="0.1" data-pista="1,96 × √(0,165 × 0,835 ÷ 400) × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Share of voice</span><input inputmode="decimal" data-ok="7.5" data-tol="0.1" data-pct="1" data-pista="1.650 ÷ 22.000 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Conversión por sesión</span><input inputmode="decimal" data-ok="2.2" data-tol="0.05" data-pct="1" data-pista="308 ÷ 14.000 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CTR del correo</span><input inputmode="decimal" data-ok="3.6" data-tol="0.05" data-pct="1" data-pista="270 ÷ 7.500 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Métricas que cumplen su meta</span><input inputmode="decimal" data-ok="1" data-tol="0" data-pista="compare cada valor de noviembre con su meta."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Recordación 16,5 % (amarillo: mejoró sin cumplir), pero con ±3,6 puntos de margen el cambio de 1,5 no se distingue del ruido. SOV 7,5 % (amarillo). Conversión 2,2 % (verde: la única que cumple). CTR 3,6 % (rojo: empeoró). Seguidores 14.800: métrica de vanidad; la cambiaría por compras desde Instagram o por tasa de interacción por alcance.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="su-marca">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 5</span>Las métricas de su marca</h2>
+    <p>Escriba los números de una marca que conozca (o de su proyecto). El laboratorio calcula su embudo, el margen de error y el ESOV.</p>
+    <div class="areas" id="su-campos">
+      <label>Personas encuestadas<input data-k="n" inputmode="decimal" value="300"></label>
+      <label>La dijeron de primera (top of mind)<input data-k="top" inputmode="decimal" value="21"></label>
+      <label>La mencionaron sin ayuda<input data-k="esp" inputmode="decimal" value="54"></label>
+      <label>La reconocieron con el logo<input data-k="asi" inputmode="decimal" value="150"></label>
+      <label>Menciones de la marca<input data-k="m" inputmode="decimal" value="800"></label>
+      <label>Menciones de toda la categoría<input data-k="mt" inputmode="decimal" value="10.000"></label>
+      <label>Participación de mercado (%)<input data-k="som" inputmode="decimal" value="6"></label>
+    </div>
+  </section>
+  <section class="figura">
+    <ul class="resumen-lab" id="su-res"></ul>
+    <p class="memo" id="su-memo" aria-live="polite"></p>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a la apertura</h2>
+    <p id="cierre-voto">De las 400 personas, 180 reconocieron el logo: el 45 %. Pero solo 60 la mencionaron sin ayuda, y apenas 24 la dijeron de primera. Una marca que se reconoce pero no se recuerda no entra en la lista cuando alguien decide dónde tomarse un café.</p>
+    <p>Berkeley decía que el ser de las cosas sensibles es ser percibidas. Para una marca es casi literal: <span class="giro">existe en el mercado en la medida en que existe en la memoria de alguien.</span> Por eso se mide, con una encuesta bien hecha y con su margen de error, y no con los seguidores.</p>
+    <p class="aforismo">Ser es ser recordado.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Café Monteverde es el caso simulado de la sesión 6. La encuesta, las menciones, el informe de GA4, los correos y las publicaciones son simulados; las marcas competidoras son inventadas.</p></details>
+  <details><summary>¿Cómo se calcula el margen de error?</summary><p>Con la aproximación normal al 95 %: 1,96 × √(p × (1 − p) ÷ n). Para saber si una proporción cambió entre dos encuestas, el margen de la diferencia es 1,96 × √(p₁(1 − p₁) ÷ n + p₂(1 − p₂) ÷ n): más grande que el de cada encuesta por separado.</p></details>
+  <details><summary>¿Qué es una sesión con interacción en GA4?</summary><p>La que dura más de 10 segundos, ve dos páginas o más, o tiene un evento clave. La tasa de rebote de GA4 es la parte de las sesiones sin interacción. Desde 2024, GA4 llama «eventos clave» a lo que antes llamaba conversiones.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Recorte»: letras recortadas y pegadas, como un cartel de lanzamiento, porque el tema es la marca. Forma «cambio de denominador»: cada estación muestra cómo cambia el ganador según con qué se divide. Recursos: el voto, el selector de métrica y el semáforo. La sesión anterior usó el registro «Pizarra».</p></details>
+  <ol class="citas">
+    <li>Berkeley, G. (1710). <i>A Treatise Concerning the Principles of Human Knowledge</i>, § 3.</li>
+    <li>Jones, J. P. (1990). «Ad Spending: Maintaining Market Share». <i>Harvard Business Review</i>, enero-febrero.</li>
+    <li>Kaushik, A. (2010). <i>Web Analytics 2.0</i>. Sybex.</li>
+  </ol>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"n": 400, "mv": {"top": 24, "espontanea": 60, "asistida": 180, "compro": 72, "mes": 30}, "puerta": {"top": 120, "espontanea": 280, "asistida": 368, "compro": 340, "mes": 240}, "menciones": [["Café La Cumbre", 9000], ["Granos del Norte", 5000], ["Tostadero Central", 4800], ["Café Monteverde", 1200]], "cuota": 8.0, "ga4": [["Búsqueda orgánica", 3200, 4400, 2860, 88], ["Pauta en Instagram", 5000, 5600, 1680, 56], ["Directo", 1200, 2000, 1400, 60], ["Correo", 600, 900, 630, 36]], "ga4total": {"conv": 1.8604651162790697, "usuarios": 9400}, "correos": [["A · «Nuevo café de origen»", 4000, 200, 1520, 152, 19, 30], ["B · «20 % en todo»", 4000, 200, 1140, 171, 57, 48]], "posts": [["Reel · «Así se tuesta»", 18000, 540], ["Carrusel · «Prensa francesa en 4 pasos»", 4000, 320], ["Foto · «El local un lunes»", 6000, 150]], "seguidores": 12000, "tablero": [{"m": "Recordación espontánea", "meta": 18.0, "oct": 15.0, "num": 66, "den": 400, "u": "%", "vanidad": false}, {"m": "Share of voice", "meta": 8.0, "oct": 6.0, "num": 1650, "den": 22000, "u": "%", "vanidad": false}, {"m": "Conversión web (por sesión)", "meta": 2.0, "oct": 1.8604651162790697, "num": 308, "den": 14000, "u": "%", "vanidad": false}, {"m": "CTR del correo", "meta": 4.0, "oct": 4.25, "num": 270, "den": 7500, "u": "%", "vanidad": false}, {"m": "Seguidores en Instagram", "meta": 15000, "oct": 12000, "num": 14800, "den": 1, "u": "", "vanidad": true}]};
+/* Núcleo común de los laboratorios: números a la colombiana, escalas, barras animadas, navegación y comprobaciones. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+
+/* Laboratorio · Diseño de métricas para el marketing · Sesión 7: métricas de marca y analítica digital. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const pct = (v, d = 1) => num(v, d) + ' %';
+  const res = (el, items) => { el.innerHTML = items.map(([t, v]) => `<li>${t}<b>${v}</b></li>`).join(''); };
+  const radio = n => ($(`input[name="${n}"]:checked`) || {}).value;
+  const angosto = () => matchMedia('(max-width: 520px)').matches;
+  const me = (p, n) => 1.96 * Math.sqrt(p * (1 - p) / n) * 100;
+
+  /* apertura */
+  $$('#voto [data-voto]').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.voto; $$('#voto [data-voto]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = $('#voto .voto-dato'); d.hidden = false;
+    d.innerHTML = { pocas: 'Anotado: <strong>menos de 100</strong>. En la estación 1 verá que son más, aunque muchos menos la recuerdan sin ayuda.',
+      medio: 'Anotado: <strong>entre 100 y 250</strong>. En la estación 1 verá dónde cae el número y qué pasa sin el logo.',
+      muchas: 'Anotado: <strong>más de 250</strong>. En la estación 1 verá que ese número solo sale si se pregunta en la puerta del local.' }[v];
+    $('#cierre-voto').textContent = ({ pocas: 'Usted apostó a menos de 100. ', medio: 'Usted apostó entre 100 y 250, y acertó. ', muchas: 'Usted apostó a más de 250. ' })[v]
+      + 'De las 400 personas, 180 reconocieron el logo: el 45 %. Pero solo 60 la mencionaron sin ayuda, y apenas 24 la dijeron de primera. Una marca que se reconoce pero no se recuerda no entra en la lista cuando alguien decide dónde tomarse un café.';
+  }));
+
+  /* 1 · embudo y SOV */
+  const ETAPAS = [['top', 'Top of mind', 'Primera marca'], ['espontanea', 'Recordación espontánea', 'Sin ayuda'], ['asistida', 'Recordación asistida', 'Con el logo'], ['compro', 'La ha comprado', 'La compró'], ['mes', 'La compró el último mes', 'Último mes']];
+  function embudo() {
+    const donde = radio('donde'), M = donde === 'calle' ? D.mv : D.puerta;
+    hbars($('#fig-embudo'), ETAPAS.map(([k, n, c]) => ({ id: k, nombre: angosto() ? c : n, valor: M[k] / D.n * 100, texto: `${pct(M[k] / D.n * 100)} (${M[k]})`, clase: ['top', 'espontanea', 'asistida'].includes(k) ? 'hb-b' : 'hb-a' })), { max: 100 });
+    const p = k => M[k] / D.n * 100;
+    $('#f1t').textContent = donde === 'calle' ? 'En la calle: 45 % reconoce el logo, 15 % la recuerda sola' : 'En la puerta: 92 % reconoce el logo… porque ya estaban ahí';
+    $('#embudo-lect').innerHTML = donde === 'calle'
+      ? `De los que la reconocen, <b>${pct(M.compro / M.asistida * 100, 0)}</b> la ha comprado; de esos, <b>${pct(M.mes / M.compro * 100)}</b> volvió el último mes. El margen de error del top of mind es ±${num(me(M.top / D.n, D.n), 1)} puntos: el ${pct(p('top'), 0)} puede ser entre ${pct(p('top') - me(M.top / D.n, D.n))} y ${pct(p('top') + me(M.top / D.n, D.n))}.`
+      : `Con la encuesta en la puerta, todo sube: la recordación asistida pasa de 45 % a <b>${pct(p('asistida'), 0)}</b>. No es que la marca sea más conocida; es que se le preguntó a gente que ya estaba entrando. Es el mismo sesgo del NPS de la sesión 5: quién responde decide el resultado.`;
+  }
+  $('#donde').addEventListener('change', embudo); embudo();
+  const otras = D.menciones.filter(m => m[0] !== 'Café Monteverde');
+  function sov() {
+    const m = +$('#men').value; $('#men-o').textContent = num(m);
+    const tot = m + otras.reduce((s, x) => s + x[1], 0), s = m / tot * 100, e = s - D.cuota;
+    const filas = otras.map(([n, v]) => ({ id: n, nombre: n, valor: v / tot * 100, texto: pct(v / tot * 100), clase: 'hb-claro' })).concat([{ id: 'mv', nombre: 'Café Monteverde', valor: s, texto: pct(s), clase: 'hb-b' }]);
+    hbars($('#fig-sov'), filas, { max: 60, orden: 'desc', refs: [{ valor: D.cuota, texto: angosto() ? '' : `cuota ${num(D.cuota)} %` }] });
+    res($('#sov-res'), [['Share of voice', pct(s)], ['Participación de mercado', pct(D.cuota, 0)], ['ESOV', (e >= 0 ? '+' : '−') + num(Math.abs(e), 1) + ' puntos']]);
+    $('#f1bt').textContent = e < 0 ? `Se habla de Monteverde menos de lo que vende` : `Se habla de Monteverde más de lo que vende`;
+    const nec = Math.ceil(D.cuota / 100 * otras.reduce((a, x) => a + x[1], 0) / (1 - D.cuota / 100));
+    $('#sov-lect').innerHTML = `Con ${num(m)} menciones, el ESOV es <b>${(e >= 0 ? '+' : '−') + num(Math.abs(e), 1)} puntos</b>. ` + (e < 0
+      ? `Según Jones (1990), una marca con ESOV negativo tiende a perder participación. Para igualar su cuota necesitaría unas ${num(Math.ceil(nec / 100) * 100)} menciones.`
+      : 'Según Jones (1990), una marca con ESOV positivo tiende a ganar participación con el tiempo; no es una garantía, es una tendencia.');
+  }
+  $('#men').addEventListener('input', sov); sov();
+
+  /* 2 · GA4 */
+  const G = D.ga4.map(([c, u, s, si, k]) => ({ c, u, s, si, k, er: si / s * 100, rebote: (1 - si / s) * 100, conv: k / s * 100, convu: k / u * 100 }));
+  const MET = { u: ['Usuarios', v => num(v)], er: ['Tasa de interacción', v => pct(v, 0)], rebote: ['Tasa de rebote', v => pct(v, 0)], conv: ['Conversión por sesión', v => pct(v, 1)], convu: ['Conversión por usuario', v => pct(v, 1)] };
+  function web() {
+    const k = radio('met-web'), [nom, f] = MET[k], mx = Math.max(...G.map(g => g[k]));
+    hbars($('#fig-web'), G.map(g => ({ id: g.c, nombre: angosto() ? g.c.replace('Búsqueda orgánica', 'Orgánica').replace('Pauta en Instagram', 'Instagram') : g.c, valor: g[k], texto: f(g[k]), clase: g[k] === mx ? (k === 'rebote' ? 'hb-a' : 'hb-b') : 'hb-claro' })), { orden: 'desc', max: mx * 1.15 });
+    const top = G.reduce((a, b) => b[k] > a[k] ? b : a);
+    $('#f2t').textContent = k === 'u' ? 'Por usuarios gana Instagram: la mitad de la gente' : k === 'rebote' ? 'Instagram rebota el 70 % de las veces' : `Por ${nom.toLowerCase()} gana ${top.c === 'Directo' ? 'el tráfico directo' : 'el ' + top.c.toLowerCase()}`;
+    $('#web-lect').innerHTML = ({
+      u: 'Instagram trae 5.000 usuarios, la mitad. Es el número que la agencia muestra. Cambie a conversión y mire qué pasa.',
+      er: 'Solo 3 de cada 10 sesiones que vienen de Instagram tienen interacción; en el correo y el directo, 7 de cada 10.',
+      rebote: 'En GA4, el rebote es lo contrario de la interacción: Instagram, con 30 % de interacción, rebota el 70 %.',
+      conv: `Por sesión, el correo convierte <b>4 veces</b> más que Instagram (4,0 % frente a 1,0 %). El sitio completo convierte ${pct(D.ga4total.conv, 2)}. El correo le escribe a quien ya conoce la marca: no es magia, es el público.`,
+      convu: 'Por usuario, las tasas suben porque hay menos usuarios que sesiones. Cualquiera de las dos sirve, siempre que se diga cuál y se use la misma para comparar.'
+    })[k];
+  }
+  $('#met-web').addEventListener('change', web); web();
+  const su = G.reduce((a, g) => a + g.u, 0);
+  res($('#web-res'), [['Suma de usuarios de los canales', num(su)], ['Usuarios del sitio', num(D.ga4total.usuarios)], ['Llegaron por más de un canal, al menos', num(su - D.ga4total.usuarios)]]);
+
+  /* 3 · correo y redes */
+  const CO = D.correos.map(([n, env, reb, ap, cl, baj, comp]) => { const ent = env - reb; return { n, ent, apertura: ap / ent * 100, ctr: cl / ent * 100, ctor: cl / ap * 100, bajas: baj / ent * 100, comp, comp_baja: comp / baj }; });
+  const MCO = { apertura: v => pct(v, 0), ctr: v => pct(v, 1), ctor: v => pct(v, 0), bajas: v => pct(v, 1), comp: v => num(v) + ' compras', comp_baja: v => num(v, 2) + ' por baja' };
+  function correo() {
+    const k = radio('met-co');
+    hbars($('#fig-co'), CO.map((c, i) => ({ id: 'c' + i, nombre: angosto() ? c.n.split(' · ')[0] + ' · ' + (i ? 'descuento' : 'origen') : c.n, valor: c[k], texto: MCO[k](c[k]), clase: i ? 'hb-b' : 'hb-a' })), { max: Math.max(...CO.map(c => c[k])) * 1.25 });
+    const g = k === 'bajas' ? (CO[0][k] < CO[1][k] ? 0 : 1) : (CO[0][k] > CO[1][k] ? 0 : 1);
+    $('#f3t').textContent = k === 'bajas' ? 'B espanta tres veces más suscriptores que A' : `Por ${({ apertura: 'apertura', ctr: 'CTR', ctor: 'CTOR', comp: 'compras', comp_baja: 'compras por baja' })[k]} gana el correo ${'AB'[g]}`;
+    $('#co-lect').innerHTML = ({
+      apertura: 'Por apertura gana A (40 % frente a 30 %): el asunto llamó más la atención. Pero la apertura está inflada y no dice quién hizo algo.',
+      ctr: 'Por CTR gana B: 4,5 % de los que lo recibieron hizo clic, frente a 4,0 % en A.',
+      ctor: 'De los que abrieron, en B hizo clic el 15 % y en A el 10 %: el contenido de B movió más a quien lo leyó.',
+      bajas: 'B tuvo 57 bajas (1,5 %) y A, 19 (0,5 %). Cada baja es alguien a quien Laura ya no le puede escribir.',
+      comp: 'B vendió 48 y A, 30: el descuento funciona, a corto plazo.',
+      comp_baja: 'Por cada persona que se fue de la lista, A dejó <b>1,58 compras</b> y B, <b>0,84</b>. El descuento vende más hoy y gasta la lista de mañana.'
+    })[k];
+  }
+  $('#met-co').addEventListener('change', correo); correo();
+  function red() {
+    const d = radio('den-red'), P = D.posts.map(([n, a, i]) => ({ n, v: i / (d === 'alc' ? a : D.seguidores) * 100 })), mx = Math.max(...P.map(p => p.v));
+    hbars($('#fig-red'), P.map((p, i) => ({ id: 'p' + i, nombre: angosto() ? p.n.split(' · ')[0] : p.n, valor: p.v, texto: pct(p.v, 2), clase: p.v === mx ? 'hb-b' : 'hb-claro' })), { max: mx * 1.25 });
+    $('#f3bt').textContent = d === 'alc' ? 'Por alcance gana el carrusel: 8 de cada 100 que lo vieron interactuaron' : 'Por seguidores gana el reel, porque lo vio mucha más gente';
+    $('#red-lect').innerHTML = d === 'alc' ? 'Dividir entre el alcance dice qué tan bien le fue a la pieza con quienes la vieron. El carrusel llegó a pocos, pero los movió.'
+      : 'Dividir entre seguidores sirve para comparar cuentas de distinto tamaño. Aquí premia al reel, que llegó a 18.000 cuentas, más que los seguidores.';
+  }
+  $('#den-red').addEventListener('change', red); red();
+
+  /* 4 · tablero */
+  const TB = D.tablero.map(t => { const nov = t.num / t.den * (t.u === '%' ? 100 : 1); return { ...t, nov, sem: t.vanidad ? 'vanidad' : nov >= t.meta ? 'verde' : nov > t.oct ? 'amarillo' : 'rojo' }; });
+  const ver = (v, u) => u === '%' ? pct(v, 1) : num(v);
+  $('#tabla-tab tbody').innerHTML = TB.map(t => `<tr><td>${t.m}</td><td class="num">${ver(t.oct, t.u)}</td><td class="num"><b>${ver(t.nov, t.u)}</b></td><td class="num">${ver(t.meta, t.u)}</td><td><span class="semaforo ${t.sem}">${({ verde: 'Cumple', amarillo: 'Mejoró', rojo: 'Empeoró', vanidad: 'Vanidad' })[t.sem]}</span></td></tr>`).join('');
+  function tablero() {
+    const n = +$('#enc').value; $('#enc-o').textContent = num(n);
+    const p1 = .15, p2 = .165, m1 = me(p2, n), md = 1.96 * Math.sqrt(p1 * (1 - p1) / n + p2 * (1 - p2) / n) * 100;
+    res($('#tab-res'), [['Margen de error de noviembre', '±' + num(m1, 1) + ' puntos'], ['Margen de la diferencia', '±' + num(md, 1) + ' puntos'], ['Cambio observado', '+1,5 puntos']]);
+    const nec = Math.ceil(1.96 ** 2 * (p1 * (1 - p1) + p2 * (1 - p2)) / 0.015 ** 2 / 100) * 100;
+    $('#f4t').textContent = md < 1.5 ? `Con ${num(n)} encuestados, el punto y medio ya se distingue` : 'El tablero de noviembre';
+    $('#tab-lect').innerHTML = (md < 1.5 ? `Con ${num(n)} personas por encuesta, el margen de la diferencia (±${num(md, 1)}) es menor que el cambio: ahí sí se podría decir que subió.`
+      : `Con ${num(n)} personas, la recordación de noviembre (16,5 %) tiene un margen de ±${num(m1, 1)} puntos, y la diferencia con octubre, de ±${num(md, 1)}. El punto y medio cabe en el ruido: <b>no se puede decir que subió</b>.`)
+      + ` Para distinguir un cambio de 1,5 puntos harían falta unas <b>${num(nec)}</b> personas en cada encuesta. Los seguidores no tienen margen de error, pero tampoco dicen nada de la memoria.`;
+  }
+  $('#enc').addEventListener('input', tablero); tablero();
+
+  /* 5 · su marca */
+  function suMarca() {
+    const v = {}; $$('#su-campos input').forEach(i => v[i.dataset.k] = leer(i.value));
+    if (!(v.n > 0)) { $('#su-res').innerHTML = ''; $('#su-memo').textContent = 'Escriba cuántas personas encuestó.'; return; }
+    const p = k => v[k] / v.n * 100, s = v.mt > 0 ? v.m / v.mt * 100 : NaN, e = s - v.som;
+    res($('#su-res'), [['Top of mind', pct(p('top'))], ['Recordación espontánea', pct(p('esp'))], ['Recordación asistida', pct(p('asi'))], ['Margen de la espontánea', '±' + num(me(v.esp / v.n, v.n), 1) + ' pts'], ['Share of voice', isNaN(s) ? '—' : pct(s)], ['ESOV', isNaN(e) ? '—' : (e >= 0 ? '+' : '−') + num(Math.abs(e), 1) + ' pts']]);
+    const rec = v.asi > 0 ? v.esp / v.asi * 100 : 0;
+    $('#su-memo').textContent = `De cada 100 personas que reconocen la marca con el logo, ${num(rec)} la recuerdan sin ayuda. `
+      + (rec < 40 ? 'La marca se reconoce más de lo que se recuerda: el trabajo está en que la nombren sin verla. ' : 'La recordación espontánea está cerca de la asistida: la marca vive en la memoria. ')
+      + (isNaN(e) ? '' : e < 0 ? `Su ESOV es negativo (${num(e, 1)} puntos): se habla de ella menos de lo que vende.` : `Su ESOV es positivo (+${num(e, 1)} puntos): se habla de ella más de lo que vende.`)
+      + ` Cualquier cambio de menos de ${num(me(v.esp / v.n, v.n), 1)} puntos en la espontánea puede ser ruido de la muestra.`;
+  }
+  $('#su-campos').addEventListener('input', suMarca); suMarca();
+
+  activarComprobaciones();
+  Transiciones.todo();
+  addEventListener('resize', () => { embudo(); sov(); web(); correo(); red(); });
+})();
+
+</script>
