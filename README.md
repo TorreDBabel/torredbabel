@@ -265,6 +265,7 @@ seguir el curso lección por lección:
 | `torredbabel.com/programaciondatos03` | Programación y Analítica de Datos (AFPN0006) | 3 · Laboratorio de ciclos (for y while) |
 | `torredbabel.com/pad04` | Programación y Analítica de Datos (AFPN0006) | 4 · Laboratorio de estructuras (listas, tuplas, diccionarios, conjuntos y registros) |
 | `torredbabel.com/pad04taller` | Programación y Analítica de Datos (AFPN0006) | 4 · Taller de listas y tuplas (práctica autónoma) |
+| `torredbabel.com/pad05` | Programación y Analítica de Datos (AFPN0006) | 5 · Laboratorio de pronóstico (exploración de datos y machine learning) |
 
 - Son material de clase: no llevan la cabecera ni el pie de Torre D. Babel, ni el nombre del
   docente. Lo importante es el mensaje: el pie trae solo el correo de contacto.

@@ -1,0 +1,131 @@
+/* Laboratorio de pronóstico · Programación y Analítica de Datos · Sesión 5
+   Registro 2 «Taller»: plano técnico, línea fina, cotas y rótulos; la corrección en lápiz rojo.
+   IBM Plex Serif (texto), IBM Plex Sans (claves y rótulos) e IBM Plex Mono (cotas, ejes, tablas).
+   Un solo tema, claro, a propósito: es una hoja de plano. */
+:root{
+  color-scheme:light;
+  --fondo:#f2f4f3;--fondo-hondo:#e4e8e7;--fondo-pie:#d6dbda;--regla:#bfc7c6;
+  --tinta:#3c4846;--tinta-fuerte:#15201e;--tinta-suave:#626e6c;
+  --marca-a:#f2b705;--marca-b:#2b7fb8;--marca-c:#cbd5d3;
+  --trazo-a:#9b7c17;--trazo-b:#105a89;--hondo-a:#4a3700;--hondo-b:#0b3a5c;
+  --acento:#ae4138;--papel:#fbfcfc;
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans Variable","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,Menlo,monospace;
+  --texto:1.15rem;--col-texto:680px;--col-media:960px;--margen:1rem;--1s:1ms;
+}
+@media (prefers-reduced-motion:no-preference){:root{--1s:1s}}
+@media screen and (max-width:720px){:root{--texto:1.06rem}}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--fondo);-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:4.2rem}
+body{margin:0;background:var(--fondo);color:var(--tinta);font:400 var(--texto)/1.6 var(--serif);-webkit-font-smoothing:antialiased}
+::selection{background:var(--marca-a);color:var(--tinta-fuerte)}
+.libro{padding-inline:max(var(--margen),env(safe-area-inset-left,0px)) max(var(--margen),env(safe-area-inset-right,0px));overflow-x:clip}
+.columna{max-width:var(--col-texto);margin-inline:auto}
+.media{max-width:var(--col-media);margin-inline:auto}
+p{margin:0 0 1.05em}
+strong{color:var(--tinta-fuerte);font-weight:600}
+a{color:var(--trazo-b);text-underline-offset:.18em}
+code,.num{font-family:var(--mono);font-size:.86em}
+h2,h3{font-family:var(--sans);color:var(--tinta-fuerte);line-height:1.2;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,4.2vw,2.05rem);font-weight:600;margin:0 0 .6em}
+h3{font-size:1.12rem;font-weight:600;margin:1.6em 0 .5em}
+.rotulo{font:500 .74rem/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-suave);margin:0 0 .5rem}
+
+/* realce del registro: recuadro de esquina viva */
+.ma,.mb,.mc{font-family:var(--sans);font-style:normal;padding:.02em .3em;border:1.5px solid;white-space:nowrap}
+.ma{border-color:var(--trazo-a);background:color-mix(in srgb,var(--marca-a) 22%,transparent);color:var(--hondo-a)}
+.mb{border-color:var(--trazo-b);background:color-mix(in srgb,var(--marca-b) 22%,transparent);color:var(--hondo-b)}
+.mc{border-color:var(--regla);background:color-mix(in srgb,var(--marca-c) 40%,transparent);color:var(--tinta-fuerte)}
+.corr{color:var(--acento);font-family:var(--sans);font-weight:600}
+
+/* apertura */
+.apertura{min-height:88vh;display:grid;align-content:center;padding-block:3.5rem 2.5rem}
+.apertura .escena{font-size:clamp(1.25rem,3.4vw,1.6rem);line-height:1.45;color:var(--tinta-fuerte);margin-bottom:1.4rem}
+.apuesta{background:var(--papel);border:1px solid var(--regla);padding:1.1rem 1.2rem 1.2rem;position:relative}
+.apuesta::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--regla) 1px,transparent 1px),linear-gradient(90deg,var(--regla) 1px,transparent 1px);background-size:8px 8px;opacity:.18;pointer-events:none}
+.apuesta>*{position:relative}
+.apuesta .cifra{font:600 clamp(2.4rem,9vw,3.6rem)/1 var(--mono);color:var(--tinta-fuerte)}
+.apuesta .cifra small{font-size:.4em;color:var(--tinta-suave)}
+.revelado{display:none;margin-top:1rem;border-top:1px dashed var(--regla);padding-top:.9rem}
+.revelado.si{display:block;animation:entra calc(.5*var(--1s)) ease-out}
+@keyframes entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.titulo{padding-block:2.5rem 1rem}
+.titulo h1{font:600 clamp(2rem,7vw,3.4rem)/1.12 var(--sans);letter-spacing:-.02em;color:var(--tinta-fuerte);margin:0 0 .9rem}
+.titulo h1 .ma,.titulo h1 .mb{white-space:normal;border-width:2px}
+.entradilla{font-size:1.2rem;color:var(--tinta)}
+.firma{font:400 .82rem/1.4 var(--mono);color:var(--tinta-suave);letter-spacing:.04em}
+
+/* navegación por estaciones */
+.estaciones{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--fondo) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--regla);margin-inline:calc(-1*var(--margen));padding:.45rem var(--margen)}
+.estaciones ol{list-style:none;margin:0 auto;padding:0;display:flex;gap:.3rem;max-width:var(--col-media);overflow-x:auto;scrollbar-width:none}
+.estaciones ol::-webkit-scrollbar{display:none}
+.estaciones a{display:block;white-space:nowrap;font:500 .8rem/1 var(--sans);color:var(--tinta);text-decoration:none;padding:.5rem .65rem;border:1px solid transparent}
+.estaciones a span{font-family:var(--mono);color:var(--tinta-suave);margin-right:.3em}
+.estaciones a.activa{border-color:var(--trazo-b);background:var(--papel);color:var(--hondo-b)}
+
+/* estaciones */
+.estacion{padding-block:3.2rem 1rem;border-top:1px solid var(--regla)}
+.estacion:first-of-type{border-top:0}
+.numero{font:600 .8rem/1 var(--mono);color:var(--acento);letter-spacing:.08em}
+.instruccion{font:400 .92rem/1.45 var(--sans);color:var(--tinta-suave);border-left:2px solid var(--marca-a);padding:.1rem 0 .1rem .7rem;margin:0 0 .8rem}
+
+/* figuras */
+.figura{background:var(--papel);border:1px solid var(--regla);padding:.9rem .9rem .6rem;margin:1.2rem 0 1.4rem;position:relative}
+.figura .titulo-fig{font:600 1rem/1.3 var(--sans);color:var(--tinta-fuerte);margin:0 0 .15rem}
+.figura .clave{font:400 .84rem/1.4 var(--sans);color:var(--tinta-suave);margin:0 0 .6rem}
+.figura .fuente{font:400 .76rem/1.4 var(--mono);color:var(--tinta-suave);margin:.5rem 0 0;border-top:1px dashed var(--regla);padding-top:.4rem}
+.figura svg{display:block;width:100%;height:auto;overflow:visible}
+.controles{display:flex;flex-wrap:wrap;gap:.6rem 1.1rem;align-items:end;margin:0 0 .7rem}
+.control{display:grid;gap:.2rem;min-width:0}
+.control label{font:500 .74rem/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--tinta-suave)}
+.control output{font:600 .9rem/1 var(--mono);color:var(--tinta-fuerte)}
+select,input[type=number],input[type=text]{font:500 .92rem/1.2 var(--sans);color:var(--tinta-fuerte);background:#fff;border:1px solid var(--regla);border-radius:0;padding:.42rem .5rem;min-width:0;max-width:100%}
+select:focus-visible,input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--trazo-b);outline-offset:2px}
+input[type=range]{width:min(260px,100%);accent-color:var(--trazo-b)}
+button{font:600 .88rem/1 var(--sans);color:#fff;background:var(--hondo-b);border:0;border-radius:0;padding:.62rem .95rem;cursor:pointer}
+button.sec{background:transparent;color:var(--hondo-b);border:1.5px solid var(--trazo-b)}
+button:hover{filter:brightness(1.12)}
+.ejes text{font:400 11px var(--mono);fill:var(--tinta-suave)}
+.ejes line,.ejes path{stroke:var(--regla)}
+.leyenda{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font:400 .8rem/1.3 var(--sans);color:var(--tinta);margin:.4rem 0 0}
+.leyenda i{display:inline-block;width:18px;height:0;border-top:3px solid;vertical-align:middle;margin-right:.35em}
+.leyenda i.gris{border-top:10px solid #cbd5d3;width:12px}
+.lectura{font:400 .95rem/1.5 var(--sans);color:var(--tinta-fuerte);background:var(--fondo-hondo);padding:.6rem .8rem;margin:.6rem 0 0}
+.lectura b{font-weight:600}
+
+/* tablas */
+.tabla-env{overflow-x:auto;margin:.8rem 0 1rem}
+table{border-collapse:collapse;width:100%;font:400 .86rem/1.35 var(--mono);color:var(--tinta)}
+th{font:600 .74rem/1.2 var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--tinta-suave);text-align:right;border-bottom:1.5px solid var(--tinta-suave);padding:.4rem .5rem}
+td{text-align:right;border-bottom:1px solid var(--regla);padding:.38rem .5rem}
+th:first-child,td:first-child{text-align:left}
+tr.gana td{background:color-mix(in srgb,var(--marca-a) 22%,transparent);color:var(--tinta-fuerte);font-weight:600}
+tr.cerca td{background:color-mix(in srgb,var(--marca-b) 16%,transparent)}
+
+/* comprobación de los ejercicios de la guía */
+.ejercicio{border:1.5px solid var(--tinta-suave);background:var(--papel);padding:1rem 1.1rem 1.1rem;margin:1.5rem 0}
+.ejercicio>.rotulo{color:var(--acento)}
+.ejercicio h3{margin-top:.1rem}
+.pregunta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.4rem .8rem;align-items:center;padding:.55rem 0;border-top:1px dashed var(--regla)}
+.pregunta p{margin:0;font:400 .96rem/1.45 var(--sans)}
+.pregunta .respuesta{display:flex;gap:.4rem;align-items:center}
+.pregunta input{width:6.5rem;font-family:var(--mono)}
+.veredicto{grid-column:1/-1;font:500 .88rem/1.4 var(--sans);min-height:0}
+.veredicto.bien{color:#1d6b3a}
+.veredicto.mal{color:var(--acento)}
+details.solucion{margin-top:.7rem;font:400 .92rem/1.5 var(--sans)}
+details.solucion summary{cursor:pointer;color:var(--hondo-b);font-weight:600}
+@media (max-width:520px){.pregunta{grid-template-columns:minmax(0,1fr)}}
+
+/* notas y pie */
+.notas{padding-block:2.5rem 1rem;border-top:1px solid var(--regla)}
+.notas details{border-bottom:1px solid var(--regla);padding:.7rem 0}
+.notas summary{cursor:pointer;font:600 1rem/1.35 var(--sans);color:var(--tinta-fuerte);list-style:none}
+.notas summary::before{content:"+ ";font-family:var(--mono);color:var(--acento)}
+.notas details[open] summary::before{content:"− "}
+.notas details p{font-size:.98rem;margin:.6rem 0 0}
+.aforismo{font:600 clamp(1.3rem,4vw,1.75rem)/1.35 var(--sans);color:var(--tinta-fuerte);border-left:4px solid var(--acento);padding:.2rem 0 .2rem 1rem;margin:1.6rem 0}
+.pie{margin-top:3rem;background:var(--fondo-pie);margin-inline:calc(-1*var(--margen));padding:1.4rem var(--margen) 1.8rem;text-align:center;font:400 .85rem/1.5 var(--mono);color:var(--tinta)}
+.pie a{color:var(--tinta-fuerte)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

@@ -1,0 +1,28 @@
+---
+// Programación y Analítica de Datos (AFPN0006) · sesión 5 · Laboratorio de pronóstico: explorar
+// cincuenta años de la economía de Estados Unidos (macrodata de statsmodels) y poner a competir
+// cinco modelos de machine learning contra el pronóstico ingenuo.
+// Registro «Taller»: IBM Plex Serif, IBM Plex Sans e IBM Plex Mono.
+// Los pronósticos se calcularon en Python con scikit-learn y van guardados en la página.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/ibm-plex-serif/400.css';
+import '@fontsource/ibm-plex-serif/400-italic.css';
+import '@fontsource/ibm-plex-serif/600.css';
+import '@fontsource-variable/ibm-plex-sans/index.css';
+import '@fontsource-variable/ibm-plex-sans/standard-italic.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/ibm-plex-mono/600.css';
+import estilo from '../clases/pad05/laboratorio.css?raw';
+import cuerpo from '../clases/pad05/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de pronóstico"
+  curso="Programación y Analítica de Datos"
+  sesion={5}
+  descripcion="Cincuenta años de la economía de Estados Unidos y cinco modelos de machine learning que pronostican el próximo trimestre: explorar, relacionar, medir el error y ganarle al pronóstico ingenuo."
+  tema="#f2f4f3"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>
