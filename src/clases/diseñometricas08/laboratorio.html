@@ -1,0 +1,528 @@
+<div class="r-taller">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 8</a>
+  <ol class="bn-lista">
+    <li><a href="#scorecard" data-sec="scorecard"><span>1</span>El scorecard</a></li>
+    <li><a href="#tablero" data-sec="tablero"><span>2</span>El tablero que engaña</a></li>
+    <li><a href="#goodhart" data-sec="goodhart"><span>3</span>Medida y meta</a></li>
+    <li><a href="#sistema" data-sec="sistema"><span>4</span>Su sistema</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Diseño de métricas para el marketing · Sesión 8 · Laboratorio</p>
+
+  <section class="columna" aria-label="Apertura">
+    <p>Laura, la dueña de Café Monteverde, recibe cada mes un tablero de cuarenta números. Lo mira cinco minutos, no sabe qué decidir y lo cierra. Su objetivo para 2027 es «crecer las ventas rentables del Club del Café sin perder a los suscriptores que ya tiene».</p>
+    <div class="apuesta viva" id="voto">
+      <p class="rotulo">Vote antes de seguir</p>
+      <p style="margin:0;font:400 1.3rem/1.3 var(--serif);color:var(--tinta-fuerte)">Si Laura solo pudiera mirar un número al mes, ¿cuál debería ser?</p>
+      <div class="voto" role="group" aria-label="Su voto">
+        <button type="button" data-voto="seg">Los seguidores en Instagram</button><button type="button" data-voto="ven">Las ventas del mes</button><button type="button" data-voto="sus">Los suscriptores activos</button>
+      </div>
+      <p class="voto-dato" hidden aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="Del tablero a la decisión"><span class="par"><span class="nexo">Del</span> <mark class="marca-a">tablero</mark></span><span class="par"><span class="nexo">a la</span> <mark class="marca-b">decisión</mark></span></h1>
+    <p class="entradilla">Un tablero sirve si ayuda a decidir. Este laboratorio arma un scorecard con pocas métricas, revisa un dashboard que exagera y protege cada meta con una métrica de control.</p>
+    <p class="firma">Bogotá, noviembre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«Un mapa no es el territorio que representa; pero, si es correcto, tiene una estructura parecida a la del territorio, y de ahí viene su utilidad.»</p><footer>Alfred Korzybski, <cite>Science and Sanity</cite> (1933) · traducción propia</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer estos planos: el recuadro ámbar marca <mark class="marca-a">el tablero</mark>, lo que se muestra; el azul, <mark class="marca-b">la decisión</mark>, lo que se hace con él; <span class="correccion">la corrección en rojo</span> señala lo que engaña. <span class="giro">El subrayado marca el giro.</span></p>
+    <ol class="ruta-lista">
+      <li><a href="#scorecard">Doce métricas, cinco lugares · ej. 1</a></li>
+      <li><a href="#tablero">El tablero que engaña · ej. 2</a></li>
+      <li><a href="#goodhart">Cuando la medida se vuelve meta · ej. 3</a></li>
+      <li><a href="#sistema">Su sistema de métricas · para la casa</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no. Los datos son simulados. Lo que usted escribe no sale de su navegador.</p>
+  </section>
+
+  <div class="estacion" id="scorecard">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1 · Ejercicio 1</span>De doce métricas, cuatro son de vanidad y una sola resume el objetivo</h2>
+    <p>Para cada métrica, decida si va al scorecard como <mark class="marca-b">principal</mark>, como <mark class="marca-b">KPI</mark> o si no va. El laboratorio le dice si su scorecard quedó equilibrado y le muestra el valor de noviembre de lo que escogió.</p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t" aria-live="polite">Su scorecard</h3><p class="figura-clave">Una métrica principal y cuatro KPI de familias distintas. Las familias y el tipo (resultado o proceso) aparecen debajo de cada una cuando la escoge.</p></div>
+    <ul class="cols" id="cand"></ul>
+    <ul class="resumen-lab" id="sc-res"></ul>
+    <p class="lectura" id="sc-lect" aria-live="polite"></p>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-sc"><thead><tr><th>Métrica escogida</th><th>Papel</th><th class="num">Noviembre</th></tr></thead><tbody></tbody></table></div>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej1" novalidate><h3>Compruebe su cuaderno · Ejercicio 1</h3><p>Pesos sin decimales; porcentajes con un decimal; CLV/CAC con dos decimales.</p><fieldset class="grupo-campos"><legend>Retención</legend><div class="campos"><label class="campo"><span class="campo-t">Churn de noviembre</span><input inputmode="decimal" data-ok="8.0" data-tol="0.1" data-pct="1" data-pista="60 ÷ 750 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Suscriptores al cierre</span><input inputmode="decimal" data-ok="780" data-tol="0" data-pista="750 − 60 + 90."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Adquisición y rentabilidad</legend><div class="campos"><label class="campo"><span class="campo-t">CAC ($)</span><input inputmode="decimal" data-ok="40000.0" data-tol="1" data-pista="3.600.000 ÷ 90."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV ($)</span><input inputmode="decimal" data-ok="225000.0" data-tol="1" data-pista="18.000 ÷ 0,08."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">CLV/CAC</span><input inputmode="decimal" data-ok="5.625" data-tol="0.05" data-pista="225.000 ÷ 40.000."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">ROI de la pauta en la vida del suscriptor</span><input inputmode="decimal" data-ok="462.5" data-tol="0.5" data-pct="1" data-pista="(90 × 225.000 − 3.600.000) ÷ 3.600.000 × 100."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Churn 8 %; suscriptores al cierre 780 (+4 %); CAC $40.000; CLV $225.000; CLV/CAC 5,6; ROI de la pauta 462,5 %. Una opción sólida: principal, suscriptores activos; KPI, churn (retención), CLV/CAC (rentabilidad), recordación espontánea (marca, de proceso) y conversión de la tienda (digital, de proceso). Vanidad: seguidores, usuarios, me gusta y aperturas. La palabra «sin perder» del objetivo obliga a mirar el <strong>churn</strong>: los suscriptores subieron 4 %, pero se fue el 8 % de los que había.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="tablero">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 2</span>Una subida de 10 % dibujada como si fuera de 200 %</h2>
+    <p>Este es el gráfico de barras que la agencia tituló «¡La conversión se disparó!». Mueva el punto donde empieza el eje vertical y mire cómo cambia lo que el dibujo dice, aunque los datos sean los mismos.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t" aria-live="polite">La conversión de la tienda en línea</h3><p class="figura-clave">Octubre 2,0 % y noviembre 2,2 %. Factor de mentira = cambio que se ve en el dibujo ÷ cambio en los datos.</p></div>
+    <div class="mandos"><label class="perilla">El eje vertical empieza en <output id="eje-o"></output><input id="eje" type="range" min="0" max="1.9" step="0.1" value="1.9"></label></div>
+    <div class="lienzo" aria-hidden="true">
+      <div class="barras-v"><div class="eje" id="eje-marcas"></div><div class="bv oct" id="bv-oct"><b>2,0 %</b></div><div class="bv" id="bv-nov"><b>2,2 %</b></div></div>
+      <div class="nombres-v"><span></span><span>Octubre</span><span>Noviembre</span></div>
+    </div>
+    <ul class="resumen-lab" id="lie-res"></ul>
+    <p class="lectura" id="lie-lect" aria-live="polite"></p>
+  </section>
+  <section class="figura" aria-labelledby="f2bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2bt">La torta que suma más de 100</h3><p class="figura-clave">«Participación de las ventas por canal», según el tablero de la agencia.</p></div>
+    <ul class="hbars" id="fig-torta" style="--nombre:10rem;--nombre-m:7rem"></ul>
+    <p class="lectura" id="torta-lect"></p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej2" novalidate><h3>Compruebe su cuaderno · Ejercicio 2</h3><p>Porcentajes sin decimales.</p><fieldset class="grupo-campos"><legend>El gráfico de barras</legend><div class="campos"><label class="campo"><span class="campo-t">Cambio real de la conversión</span><input inputmode="decimal" data-ok="10.0" data-tol="0.1" data-pct="1" data-pista="(2,2 − 2,0) ÷ 2,0 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Veces más alta se ve la barra de noviembre</span><input inputmode="decimal" data-ok="3.0" data-tol="0.05" data-pista="(2,2 − 1,9) ÷ (2,0 − 1,9)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Cambio que se ve en el dibujo</span><input inputmode="decimal" data-ok="200.0" data-tol="0.5" data-pct="1" data-pista="(0,3 − 0,1) ÷ 0,1 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Factor de mentira</span><input inputmode="decimal" data-ok="20.0" data-tol="0.1" data-pista="cambio del dibujo ÷ cambio real."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>La torta</legend><div class="campos"><label class="campo"><span class="campo-t">Suma de los porcentajes</span><input inputmode="decimal" data-ok="112" data-tol="0" data-pct="1" data-pista="46 + 31 + 21 + 14."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>La conversión subió 10 %, pero con el eje en 1,9 % la barra de noviembre se ve 3 veces más alta: un cambio de 200 % en el dibujo y un <strong>factor de mentira de 20</strong>. La torta suma 112 %: hay ventas contadas dos veces o un dato errado. Otros problemas: 14 KPI sin meta ni comparación, flechas de color sin texto, torta en 3D, sin fecha, y la métrica de vanidad (seguidores) es la única destacada.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="goodhart">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 3</span>El mejor NPS del año salió de preguntarles solo a los contentos</h2>
+    <p>El equipo de Laura recibió un bono por NPS. Cambie a quién se le preguntó y mire el número. Después empareje cada meta con la métrica de control que habría delatado la trampa.</p>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t" aria-live="polite">El NPS según a quién se le pregunta</h3><p class="figura-clave">Porcentaje de promotores, pasivos y detractores. NPS = % de promotores − % de detractores.</p></div>
+    <div class="mandos"><fieldset class="segmento" id="muestra"><legend>A quién se le preguntó</legend><label><input type="radio" name="muestra" value="semana" checked>Los que compraron esta semana</label><label><input type="radio" name="muestra" value="base">Toda la base</label></fieldset></div>
+    <ul class="hbars" id="fig-nps" style="--nombre:8rem;--nombre-m:6rem"></ul>
+    <p class="lectura" id="nps-lect" aria-live="polite"></p>
+  </section>
+  <section class="figura" aria-labelledby="f3bt">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3bt" aria-live="polite">Cinco metas, cinco trampas</h3><p class="figura-clave">Para cada meta con bono, escoja la métrica de control que se dañaría si el equipo hiciera la trampa. Luego toque «Revisar».</p></div>
+    <ul class="cols" id="pares"></ul>
+    <div class="botones-fila"><button type="button" id="revisar-pares">Revisar</button></div>
+    <p class="lectura" id="pares-lect" aria-live="polite"></p>
+  </section>
+  <section class="columna"><form class="comprobar" id="c-ej3" novalidate><h3>Compruebe su cuaderno · Ejercicio 3</h3><p>NPS sin signo %; veces con dos decimales.</p><fieldset class="grupo-campos"><legend>Las dos encuestas</legend><div class="campos"><label class="campo"><span class="campo-t">NPS de la encuesta del equipo</span><input inputmode="decimal" data-ok="45.0" data-tol="0.1" data-pista="(110 − 20) ÷ 200 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">NPS de toda la base</span><input inputmode="decimal" data-ok="15.0" data-tol="0.1" data-pista="(160 − 100) ÷ 400 × 100."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Puntos que infla la muestra</span><input inputmode="decimal" data-ok="30.0" data-tol="0.1" data-pista="reste los dos NPS."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Cancelar difícil</legend><div class="campos"><label class="campo"><span class="campo-t">Puntos que bajó el churn</span><input inputmode="decimal" data-ok="2.0" data-tol="0.05" data-pista="8 − 6."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Veces que se multiplicaron las quejas</span><input inputmode="decimal" data-ok="3.75" data-tol="0.02" data-pista="45 ÷ 12."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Puntos que bajó el CES</span><input inputmode="decimal" data-ok="2.7" data-tol="0.05" data-pista="5,1 − 2,4."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>NPS del equipo +45; de toda la base +15: la muestra infla 30 puntos. El churn bajó 2 puntos, pero las quejas se multiplicaron por 3,75 y el CES cayó 2,7 puntos: se fueron menos clientes porque no podían irse. Controles para las metas nuevas: CTR alto con la tasa de bajas; CAC bajo con el churn de los nuevos a 90 días; seguidores con la interacción por alcance. La regla: <strong>ninguna meta con bono sin su métrica de control</strong>.</p></div></form></section>
+  </div>
+
+  <div class="estacion" id="sistema">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Para la casa</span>Su sistema de métricas</h2>
+    <p>Arme el scorecard de una empresa real que conozca: el objetivo, la métrica principal y cuatro KPI, cada uno con su fórmula, meta, frecuencia, responsable y métrica de control. El laboratorio le arma la tabla y el esqueleto del resumen en inglés.</p>
+    <div class="areas" id="sis-base">
+      <label>Empresa<input data-k="empresa" value="Café Monteverde"></label>
+      <label>Objetivo (con número y fecha)<input data-k="objetivo" value="crecer 30 % los suscriptores rentables en 2027"></label>
+      <label>Métrica principal<input data-k="principal" value="Suscriptores activos"></label>
+      <label>Main risk (in English)<input data-k="riesgo" value="churn may rise if we only push acquisition"></label>
+      <label>First recommendation (in English)<input data-k="reco" value="invest first in retention"></label>
+    </div>
+  </section>
+  <section class="figura">
+    <div class="kpis" id="kpis">
+      <div class="kpi-fila kpi-cabeza" aria-hidden="true"><span>KPI</span><span>Fórmula</span><span>Meta</span><span>Frecuencia</span><span>Responsable</span><span>Control</span></div>
+    </div>
+    <div class="tabla-marco" tabindex="0"><table class="tabla" id="tabla-sis"><thead><tr><th>Métrica</th><th>Fórmula</th><th>Meta</th><th>Frecuencia</th><th>Responsable</th><th>Control</th></tr></thead><tbody></tbody></table></div>
+    <ul class="resumen-lab" id="sis-res"></ul>
+    <p class="memo" id="sis-en" lang="en" aria-live="polite"></p>
+  </section>
+
+  <section class="columna">
+    <h2 class="seccion">De vuelta a la apertura</h2>
+    <p id="cierre-voto">Para el objetivo de Laura, el número es suscriptores activos: sube solo si llegan clientes y se quedan. Pero un número solo no basta: subió 4 % en noviembre mientras el churn seguía en 8 %. Por eso el scorecard lleva cuatro KPI y una métrica de control para cada uno.</p>
+    <p>Korzybski recordaba que el mapa no es el territorio. Un tablero tampoco es el negocio: <span class="giro">es útil mientras se parezca a él, y deja de serlo cuando alguien empieza a mejorar el mapa en lugar del territorio.</span> Eso es la ley de Goodhart, y por eso cada meta lleva su pareja.</p>
+    <p class="aforismo">Se mide para decidir, no para lucir.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Café Monteverde y su Club del Café son el caso simulado de las sesiones 6 y 7. El tablero de la agencia, las encuestas y los escenarios de metas también son simulados.</p></details>
+  <details><summary>¿Qué es el factor de mentira?</summary><p>Edward Tufte (1983) lo definió como el tamaño del efecto que muestra el gráfico dividido entre el tamaño del efecto en los datos. Si es 1, el gráfico es fiel; si es mayor, exagera.</p></details>
+  <details><summary>¿Qué es la ley de Goodhart?</summary><p>Charles Goodhart (1975) observó que un indicador pierde su valor cuando se usa para presionar. Marilyn Strathern (1997) lo resumió así: «cuando una medida se convierte en meta, deja de ser una buena medida». Andrew Grove (1983) propuso los indicadores en pareja para protegerse.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Taller»: papel técnico, línea fina y rótulos, porque un sistema de métricas es un plano. Forma «del montón a la decisión». Recursos: el voto, el eje que se mueve y el emparejamiento de metas con controles. La sesión anterior usó el registro «Recorte».</p></details>
+  <ol class="citas">
+    <li>Korzybski, A. (1933). <i>Science and Sanity</i>. Institute of General Semantics.</li>
+    <li>Kaplan, R. S. y Norton, D. P. (1992). «The Balanced Scorecard». <i>Harvard Business Review</i>.</li>
+    <li>Tufte, E. R. (1983). <i>The Visual Display of Quantitative Information</i>. Graphics Press.</li>
+    <li>Strathern, M. (1997). «Improving Ratings». <i>European Review</i>, 5(3).</li>
+    <li>Grove, A. S. (1983). <i>High Output Management</i>. Random House.</li>
+  </ol>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+
+</div>
+<script>
+const D = {"ej1": {"churn": 8.0, "cierre": 780, "cac": 40000.0, "clv": 225000.0, "clv_cac": 5.625, "roi": 462.5, "rec": 16.5, "conv": 2.1999999999999997, "crec": 4.0}, "cand": [{"n": "Suscriptores activos al cierre del mes", "fam": "resultado", "tipo": "R", "vanidad": false}, {"n": "Costo de adquisición (CAC)", "fam": "adquisición", "tipo": "R", "vanidad": false}, {"n": "ROI de la pauta en la vida del suscriptor", "fam": "rentabilidad", "tipo": "R", "vanidad": false}, {"n": "Churn mensual", "fam": "retención", "tipo": "R", "vanidad": false}, {"n": "CLV/CAC", "fam": "rentabilidad", "tipo": "R", "vanidad": false}, {"n": "Recordación espontánea", "fam": "marca", "tipo": "P", "vanidad": false}, {"n": "Tasa de conversión de la tienda en línea", "fam": "digital", "tipo": "P", "vanidad": false}, {"n": "CTR de los correos", "fam": "digital", "tipo": "P", "vanidad": false}, {"n": "Seguidores en Instagram", "fam": "marca", "tipo": "P", "vanidad": true}, {"n": "Usuarios del sitio web", "fam": "digital", "tipo": "P", "vanidad": true}, {"n": "Me gusta en las publicaciones", "fam": "marca", "tipo": "P", "vanidad": true}, {"n": "Tasa de apertura de los correos", "fam": "digital", "tipo": "P", "vanidad": true}], "barras": {"oct": 2.0, "nov": 2.2, "eje_desde": 1.9}, "torta": [["Instagram", 46], ["Búsqueda orgánica", 31], ["Directo", 21], ["Correo", 14]], "nps_base": {"n": 400, "prom": 160, "pas": 140, "det": 100}, "nps_semana": {"n": 200, "prom": 110, "pas": 70, "det": 20}, "escenarios": [["Bono por NPS alto", "Mandar la encuesta solo a quienes compraron esta semana.", "NPS de toda la base, con la misma muestra cada mes"], ["Meta de churn bajo", "Esconder el botón de cancelar y pedir una llamada para darse de baja.", "CES de cancelar y quejas"], ["Meta de seguidores", "Comprar 3.000 seguidores a una agencia.", "Interacción por alcance"], ["Meta de CTR alto", "Poner asuntos engañosos («Su pedido fue enviado»).", "Tasa de bajas"], ["Meta de CAC bajo", "Atraer clientes con un mes gratis que cancelan al segundo mes.", "Churn de los nuevos a 90 días"]]};
+/* Núcleo común de los laboratorios: números a la colombiana, escalas, barras animadas, navegación y comprobaciones. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+
+/* Laboratorio · Diseño de métricas para el marketing · Sesión 8: scorecards, dashboards y ética en la medición. */
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const pct = (v, d = 1) => num(v, d) + ' %';
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const res = (el, items) => { el.innerHTML = items.map(([t, v]) => `<li>${t}<b>${v}</b></li>`).join(''); };
+  const radio = n => ($(`input[name="${n}"]:checked`) || {}).value;
+
+  /* apertura */
+  $$('#voto [data-voto]').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.voto; $$('#voto [data-voto]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = $('#voto .voto-dato'); d.hidden = false;
+    d.innerHTML = { seg: 'Anotado: <strong>seguidores</strong>. En la estación 1 verá por qué es una métrica de vanidad.',
+      ven: 'Anotado: <strong>ventas del mes</strong>. Dicen cuánto se vendió, pero no si los clientes se quedan: el objetivo de Laura pide las dos cosas.',
+      sus: 'Anotado: <strong>suscriptores activos</strong>. Es la que mejor resume el objetivo; en la estación 1 verá por qué no basta sola.' }[v];
+    $('#cierre-voto').textContent = ({ seg: 'Usted escogió los seguidores. ', ven: 'Usted escogió las ventas del mes. ', sus: 'Usted escogió los suscriptores activos, y coincide con la revisión. ' })[v]
+      + 'Para el objetivo de Laura, el número es suscriptores activos: sube solo si llegan clientes y se quedan. Pero un número solo no basta: subió 4 % en noviembre mientras el churn seguía en 8 %. Por eso el scorecard lleva cuatro KPI y una métrica de control para cada uno.';
+  }));
+
+  /* 1 · scorecard */
+  const E = D.ej1, TIPO = { R: 'resultado', P: 'proceso' };
+  const VAL = { 'Suscriptores activos al cierre del mes': `${num(E.cierre)} (+${pct(E.crec, 0)})`, 'Costo de adquisición (CAC)': pesos(E.cac),
+    'ROI de la pauta en la vida del suscriptor': pct(E.roi), 'Churn mensual': pct(E.churn, 0), 'CLV/CAC': num(E.clv_cac, 1), 'Recordación espontánea': pct(E.rec),
+    'Tasa de conversión de la tienda en línea': pct(E.conv), 'CTR de los correos': '3,6 % (sesión 7)', 'Seguidores en Instagram': '14.800', 'Usuarios del sitio web': 'sin dato', 'Me gusta en las publicaciones': 'sin dato', 'Tasa de apertura de los correos': 'sin dato' };
+  $('#cand').innerHTML = D.cand.map((c, i) => `<li data-i="${i}"><span>${i + 1}. ${esc(c.n)}</span><select aria-label="Papel de ${esc(c.n)}"><option value="">No va</option><option value="P">Principal</option><option value="K">KPI</option></select><span class="meta-chica" hidden></span></li>`).join('');
+  function scorecard() {
+    const el = $$('#cand li').map(li => ({ li, c: D.cand[+li.dataset.i], v: $('select', li).value }));
+    el.forEach(({ li, c, v }) => { const m = $('.meta-chica', li); m.hidden = !v; li.classList.toggle('vanidad', !!v && c.vanidad); li.classList.toggle('bien', !!v && !c.vanidad); li.classList.toggle('mal', !!v && c.vanidad);
+      m.textContent = v ? (c.vanidad ? 'Vanidad: sube con facilidad y no ayuda a decidir.' : `Familia: ${c.fam} · indicador de ${TIPO[c.tipo]}`) : ''; });
+    const P = el.filter(x => x.v === 'P'), K = el.filter(x => x.v === 'K'), S = el.filter(x => x.v), van = S.filter(x => x.c.vanidad);
+    const fams = new Set(K.map(x => x.c.fam)), proc = S.filter(x => x.c.tipo === 'P' && !x.c.vanidad).length, resu = S.filter(x => x.c.tipo === 'R').length;
+    res($('#sc-res'), [['Principal', P.length], ['KPI', K.length], ['Familias distintas en los KPI', fams.size], ['Resultado / proceso', `${resu} / ${proc}`], ['De vanidad', van.length]]);
+    const prob = [];
+    if (P.length !== 1) prob.push(P.length ? 'tiene más de una métrica principal' : 'le falta la métrica principal');
+    if (K.length !== 4) prob.push(`tiene ${K.length} KPI en lugar de 4`);
+    if (K.length && fams.size < K.length) prob.push('dos KPI son de la misma familia');
+    if (van.length) prob.push(`incluye ${van.length === 1 ? 'una métrica' : van.length + ' métricas'} de vanidad`);
+    if (S.length && !proc) prob.push('no tiene ningún indicador de proceso: solo verá lo que ya pasó');
+    if (S.length && !el.some(x => x.v && x.c.n === 'Churn mensual')) prob.push('no mira la retención, y el objetivo dice «sin perder a los suscriptores»');
+    $('#f1t').textContent = !S.length ? 'Su scorecard' : prob.length ? `Su scorecard: ${prob.length} ${prob.length === 1 ? 'cosa por revisar' : 'cosas por revisar'}` : 'Un scorecard equilibrado: listo para decidir';
+    $('#sc-lect').innerHTML = !S.length ? 'Escoja una métrica principal y cuatro KPI.' : prob.length ? 'Su scorecard ' + prob.join('; ') + '.' : 'Una métrica principal, cuatro KPI de familias distintas, resultado y proceso, sin vanidad y con la retención a la vista.';
+    $('#tabla-sc tbody').innerHTML = [...P, ...K].map(x => `<tr><td>${esc(x.c.n)}</td><td>${x.v === 'P' ? 'Principal' : 'KPI'}</td><td class="num">${VAL[x.c.n]}</td></tr>`).join('') || '<tr><td colspan="3">Todavía no ha escogido métricas.</td></tr>';
+  }
+  $('#cand').addEventListener('change', scorecard); scorecard();
+
+  /* 2 · el tablero que engaña */
+  const B = D.barras, TOPE = 2.4;
+  function eje() {
+    const e = +$('#eje').value; $('#eje-o').textContent = pct(e);
+    const h = v => (v - e) / (TOPE - e) * 100;
+    $('#bv-oct').style.height = h(B.oct) + '%'; $('#bv-nov').style.height = h(B.nov) + '%';
+    const marcas = [e, (e + TOPE) / 2, TOPE];
+    $('#eje-marcas').innerHTML = marcas.map(m => `<span style="bottom:${(m - e) / (TOPE - e) * 100}%">${num(m, 1)}</span>`).join('');
+    const real = (B.nov - B.oct) / B.oct * 100, vis = ((B.nov - e) - (B.oct - e)) / (B.oct - e) * 100, lie = vis / real;
+    res($('#lie-res'), [['Cambio en los datos', pct(real, 0)], ['Cambio que se ve en el dibujo', pct(vis, 0)], ['Factor de mentira', num(lie, 1)]]);
+    $('#f2t').textContent = lie > 1.5 ? `Con el eje en ${pct(e)}, el dibujo exagera ${num(lie, 0)} veces` : 'Con el eje en cero, el dibujo dice la verdad: subió un poco';
+    $('#lie-lect').innerHTML = e > 0 ? `La barra de noviembre se ve <b>${num((B.nov - e) / (B.oct - e), 1)} veces</b> más alta que la de octubre, pero la conversión solo subió de 2,0 % a 2,2 %. <span class="correccion">Las barras empiezan en cero.</span>`
+      : 'Con el eje desde cero, las dos barras casi se igualan, que es lo que pasó: una mejora real, pero pequeña. Si la diferencia importa, se escribe el número; no se estira el dibujo.';
+  }
+  $('#eje').addEventListener('input', eje); eje();
+  const tot = D.torta.reduce((s, x) => s + x[1], 0);
+  hbars($('#fig-torta'), D.torta.map(([c, v]) => ({ id: c, nombre: c, valor: v, texto: v + ' %', clase: 'hb-g' })).concat([{ id: 't', nombre: 'Suma', valor: tot, texto: tot + ' %', clase: 'hb-r' }]), { max: 120, refs: [{ valor: 100, texto: '100 %' }] });
+  $('#torta-lect').innerHTML = `Las partes suman <b>${tot} %</b>. <span class="correccion">Una torta tiene que sumar 100.</span> Puede que una venta se haya contado en dos canales (como los usuarios de GA4) o que alguien haya copiado un dato de otro mes. En los dos casos, el gráfico no se puede usar hasta aclararlo.`;
+
+  /* 3 · Goodhart */
+  const nps = d => (d.prom - d.det) / d.n * 100;
+  function muestra() {
+    const k = radio('muestra'), d = k === 'base' ? D.nps_base : D.nps_semana;
+    hbars($('#fig-nps'), [['Promotores', d.prom, 'hb-b'], ['Pasivos', d.pas, 'hb-g'], ['Detractores', d.det, 'hb-r']].map(([n, v, c]) => ({ id: n, nombre: n, valor: v / d.n * 100, texto: `${pct(v / d.n * 100, 0)} (${v})`, clase: c })), { max: 100 });
+    const v = nps(d);
+    $('#f3t').textContent = `NPS de ${v >= 0 ? '+' : ''}${num(v)} con ${k === 'base' ? 'toda la base' : 'los que compraron esta semana'}`;
+    $('#nps-lect').innerHTML = k === 'semana' ? `Con los ${d.n} que compraron esta semana, el NPS es <b>+${num(v)}</b>. Es gente que acaba de comprar: los más contentos. <span class="correccion">Cambie a toda la base.</span>`
+      : `Con toda la base (${d.n} suscriptores), el NPS es <b>+${num(v)}</b>: ${num(nps(D.nps_semana) - v)} puntos menos. El número del bono no midió la lealtad; midió a quién se le preguntó.`;
+  }
+  $('#muestra').addEventListener('change', muestra); muestra();
+  const CTRL = D.escenarios.map(e => e[2]), orden = [3, 0, 4, 1, 2];
+  $('#pares').innerHTML = D.escenarios.map(([m, t], i) => `<li data-i="${i}"><span><b>${esc(m)}</b> · ${esc(t)}</span><select aria-label="Métrica de control para ${esc(m)}"><option value="">Escoja…</option>${orden.map(j => `<option value="${j}">${esc(CTRL[j])}</option>`).join('')}</select><span class="meta-chica" hidden></span></li>`).join('');
+  $('#revisar-pares').addEventListener('click', () => {
+    let ok = 0, vac = 0;
+    $$('#pares li').forEach(li => { const i = +li.dataset.i, v = $('select', li).value, m = $('.meta-chica', li); li.classList.remove('bien', 'mal');
+      if (v === '') { vac++; m.hidden = true; return; } const b = +v === i; ok += b; li.classList.add(b ? 'bien' : 'mal'); m.hidden = false;
+      m.textContent = b ? 'Coincide: si el equipo hace la trampa, esta métrica empeora.' : `La revisión dice: ${CTRL[i].toLowerCase()}.`; });
+    $('#f3bt').textContent = vac ? `Lleva ${ok} de ${5 - vac}; faltan ${vac}` : `${ok} de 5 parejas coinciden con la revisión`;
+    $('#pares-lect').innerHTML = vac ? 'Escoja una métrica de control para cada meta.' : 'Cada pareja funciona igual: si el KPI mejora y su control también, la mejora es real; si el KPI mejora y el control empeora, alguien está mejorando el mapa y no el territorio.';
+  });
+
+  /* 4 · su sistema */
+  const EJ = [['Churn mensual', 'canceladas ÷ activos al inicio', '6 % a junio 2027', 'mensual', 'servicio al cliente', 'CES de cancelar y quejas'],
+    ['CAC', 'pauta ÷ suscriptores nuevos', '$35.000', 'mensual', 'mercadeo', 'churn de los nuevos a 90 días'],
+    ['Recordación espontánea', 'la nombran sin ayuda ÷ encuestados', '20 % a diciembre 2027', 'trimestral', 'marca', 'misma encuesta, en la calle'],
+    ['Conversión de la tienda en línea', 'compras ÷ sesiones', '2,5 %', 'mensual', 'canal digital', 'devoluciones']];
+  const CAB = ['KPI', 'Fórmula', 'Meta', 'Frecuencia', 'Responsable', 'Control'];
+  $('#kpis').insertAdjacentHTML('beforeend', EJ.map((f, i) => `<div class="kpi-fila">${f.map((v, j) => `<input aria-label="${CAB[j]} del KPI ${i + 1}" value="${esc(v)}">`).join('')}</div>`).join(''));
+  function sistema() {
+    const b = {}; $$('#sis-base input').forEach(i => b[i.dataset.k] = i.value.trim());
+    const filas = $$('#kpis .kpi-fila:not(.kpi-cabeza)').map(f => $$('input', f).map(i => i.value.trim())).filter(f => f[0]);
+    $('#tabla-sis tbody').innerHTML = [[b.principal || '(métrica principal)', '', '', '', '', '']].concat(filas).map((f, i) => `<tr><td>${i ? '' : '<b>Principal · </b>'}${esc(f[0])}</td>${f.slice(1).map(v => `<td>${esc(v)}</td>`).join('')}</tr>`).join('');
+    const sinControl = filas.filter(f => !f[5]).length, sinMeta = filas.filter(f => !f[2]).length;
+    res($('#sis-res'), [['KPI', filas.length], ['Sin meta', sinMeta], ['Sin métrica de control', sinControl]]);
+    $('#sis-en').textContent = `Our goal at ${b.empresa || '(company)'} is to ${b.objetivo || '(goal, with a number and a date)'}. Our North Star metric is ${b.principal || '(North Star)'}. `
+      + `We will track ${filas.length ? filas.map(f => f[0]).join(', ') : '(KPIs)'}, each one paired with a control metric. The main risk is that ${b.riesgo || '(main risk)'}. Our first recommendation is to ${b.reco || '(first recommendation)'}.`;
+  }
+  $('#sistema').addEventListener('input', sistema); sistema();
+
+  activarComprobaciones();
+  Transiciones.todo();
+  addEventListener('resize', muestra);
+})();
+
+</script>

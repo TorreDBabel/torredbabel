@@ -1,0 +1,26 @@
+---
+// Diseño de métricas para el marketing (AFPN0097) · sesión 8 · Laboratorio de scorecards y dashboards.
+// Registro «Taller»: IBM Plex Serif, IBM Plex Sans e IBM Plex Mono.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource/ibm-plex-serif/300.css';
+import '@fontsource/ibm-plex-serif/400.css';
+import '@fontsource/ibm-plex-serif/400-italic.css';
+import '@fontsource/ibm-plex-serif/600.css';
+import '@fontsource-variable/ibm-plex-sans/wght.css';
+import '@fontsource-variable/ibm-plex-sans/wght-italic.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import estilo from '../clases/diseñometricas08/laboratorio.css?raw';
+import cuerpo from '../clases/diseñometricas08/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de scorecards y dashboards"
+  curso="Diseño de métricas para el marketing"
+  sesion={8}
+  descripcion="Un laboratorio para juntar las métricas en un sistema honesto: escoger un scorecard equilibrado, revisar un dashboard que exagera y proteger cada meta con una métrica de control. Sesión 8 de Diseño de métricas para el marketing."
+  tema="#f2f4f3"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

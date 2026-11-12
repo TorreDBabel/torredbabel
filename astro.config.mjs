@@ -23,5 +23,6 @@ export default defineConfig({
     '/disenometricas05': '/diseñometricas05/',
     '/disenometricas06': '/diseñometricas06/',
     '/disenometricas07': '/diseñometricas07/',
+    '/disenometricas08': '/diseñometricas08/',
   },
 });
