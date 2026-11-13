@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/',
   // El mapa del sitio para los buscadores (sitemap-index.xml, el que anuncian robots.txt y el README).
   // Solo anuncia lo que ya se alcanza desde el menú: portada, artículos, demos y contacto. Las páginas que
-  // se comparten por enlace (laboratorios de clase, visores, /choco) no se anuncian.
+  // se comparten por enlace (laboratorios de clase, visores) no se anuncian.
   integrations: [
     sitemap({
       filter: (pagina) => {
