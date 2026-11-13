@@ -261,6 +261,7 @@ seguir el curso lección por lección:
 | `torredbabel.com/masvalendatos06` | Más valen datos que percepciones (AFPN0087) | 6 · Laboratorio de segmentación RFM |
 | `torredbabel.com/diseñometricas06` | Diseño de métricas para el marketing (AFPN0097) | 6 · Laboratorio de ROI de marketing |
 | `torredbabel.com/masvalendatos07` | Más valen datos que percepciones (AFPN0087) | 7 · Laboratorio de IA generativa |
+| `torredbabel.com/masvalendatos08` | Más valen datos que percepciones (AFPN0087) | 8 · Laboratorio de regresión y predicción |
 | `torredbabel.com/diseñometricas07` | Diseño de métricas para el marketing (AFPN0097) | 7 · Laboratorio de métricas de marca y analítica digital |
 | `torredbabel.com/diseñometricas08` | Diseño de métricas para el marketing (AFPN0097) | 8 · Laboratorio de scorecards y dashboards |
 | `torredbabel.com/programaciondatos03` | Programación y Analítica de Datos (AFPN0006) | 3 · Laboratorio de ciclos (for y while) |

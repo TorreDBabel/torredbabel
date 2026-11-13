@@ -1,0 +1,24 @@
+---
+// Más valen datos que percepciones (AFPN0087) · sesión 8 · Laboratorio de regresión y predicción.
+// Registro «Libro subrayado»: Source Serif 4, Source Sans 3 y Source Code Pro.
+// Es el mismo laboratorio publicado como artefacto; se actualiza desde su fuente, no aquí.
+import Clase from '../layouts/Clase.astro';
+import '@fontsource-variable/source-serif-4/wght.css';
+import '@fontsource-variable/source-serif-4/wght-italic.css';
+import '@fontsource-variable/source-sans-3/wght.css';
+import '@fontsource-variable/source-sans-3/wght-italic.css';
+import '@fontsource/source-code-pro/400.css';
+import '@fontsource/source-code-pro/500.css';
+import estilo from '../clases/masvalendatos08/laboratorio.css?raw';
+import cuerpo from '../clases/masvalendatos08/laboratorio.html?raw';
+---
+<Clase
+  titulo="Laboratorio de regresión y predicción"
+  curso="Más valen datos que percepciones"
+  sesion={8}
+  descripcion="Un laboratorio para ver la relación entre dos variables, trazar la recta de regresión, predecir con ella y saber cuándo no creerle; con la lista de la presentación del proyecto final. Sesión 8 de Más valen datos que percepciones."
+  tema="#fffdf1"
+  estilo={estilo}
+>
+  <Fragment set:html={cuerpo} />
+</Clase>

@@ -1,0 +1,602 @@
+<div class="r-libro">
+<nav class="barra-nav" aria-label="Estaciones del laboratorio">
+  <a class="bn-marca" href="#arriba">Laboratorio · Sesión 8</a>
+  <ol class="bn-lista">
+    <li><a href="#plano" data-sec="plano"><span>1</span>Siete semanas</a></li>
+    <li><a href="#recta" data-sec="recta"><span>2</span>La recta</a></li>
+    <li><a href="#predecir" data-sec="predecir"><span>3</span>Predecir</a></li>
+    <li><a href="#su-recta" data-sec="su-recta"><span>4</span>Su recta</a></li>
+  </ol>
+  <div class="bn-progreso" aria-hidden="true"><span></span></div>
+</nav>
+
+<main class="libro" id="arriba">
+  <p class="rotulo">Universidad Ean · Más valen datos que percepciones · Sesión 8 · Laboratorio</p>
+
+  <section class="columna" aria-label="Apertura">
+    <p>Es viernes en La Nevera. La dueña tiene que preparar hoy la base de los helados de toda la semana: si prepara de más, se pierde; si prepara de menos, se le acaban el sábado a las tres. El pronóstico dice que la semana que viene la tarde estará a 25 °C, más caliente que cualquiera de las últimas siete.</p>
+    <div class="apuesta viva" id="apuesta">
+      <p class="rotulo">Apueste antes de seguir</p>
+      <label for="ap">¿Cuántos helados le diría usted que prepare?</label>
+      <input id="ap" type="range" min="200" max="900" step="10" value="450" aria-describedby="ap-o">
+      <output id="ap-o" for="ap">450</output><button type="button" id="ap-b">Apostar</button>
+      <p class="apuesta-dato" id="ap-dato" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <header class="titular">
+    <h1 class="lema" aria-label="Del pasado al pronóstico"><span class="par"><span class="nexo">Del</span> <mark class="marca-a">pasado</mark></span><span class="par"><span class="nexo">al</span> <mark class="marca-b">pronóstico</mark></span></h1>
+    <p class="entradilla">Una recta resume cómo se mueven juntas dos variables y permite predecir. Este laboratorio enseña a trazarla, a usarla y a saber cuándo no creerle.</p>
+    <p class="firma">Bogotá, noviembre de 2026</p>
+  </header>
+  <blockquote class="epigrafe"><p>«Todas las inferencias que hacemos a partir de la experiencia suponen, como su fundamento, que el futuro se parecerá al pasado.»</p><footer>David Hume, <cite>Investigación sobre el entendimiento humano</cite>, 1748, sección IV · traducción propia</footer></blockquote>
+
+  <section class="columna">
+    <p>Un código para leer este laboratorio: la <mark class="marca-a">franja naranja</mark> es lo que ya pasó, los datos; la <mark class="marca-b">franja rosa</mark> es lo que se predice; la <mark class="marca-c">franja beige</mark> es la regla que no cambia; <span class="giro">el subrayado azul marca el giro</span>. La miraremos en cuatro estaciones:</p>
+    <ol class="ruta-lista">
+      <li><a href="#plano">Siete semanas en un plano · ej. 1</a></li>
+      <li><a href="#recta">La recta a mano · ej. 2</a></li>
+      <li><a href="#predecir">Predecir y no pasarse · ej. 3</a></li>
+      <li><a href="#su-recta">Su recta y su presentación · para la casa</a></li>
+    </ol>
+    <p><strong>Cómo usarlo.</strong> Primero el cuaderno, después el laboratorio. Los recuadros «Compruebe su cuaderno» le dicen qué coincide y le dan una pista para lo que no. Todos los datos de La Nevera son simulados.</p>
+  </section>
+
+  <div class="estacion" id="plano">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 1 · Ejercicio 1</span>Siete semanas en un plano</h2>
+    <p>Cada punto es una semana: la temperatura de la tarde a lo ancho y los helados vendidos a lo alto. Seis semanas suben juntas, como en fila. Una se sale: la de la <mark class="marca-a">feria del barrio</mark>. Préndala y apáguela, y mire qué le pasa al promedio.</p>
+  </section>
+  <section class="figura" aria-labelledby="f1t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f1t" aria-live="polite"></h3><p class="figura-clave">Cada círculo es una semana. La línea punteada naranja es el promedio de helados de las semanas que se cuentan.</p></div>
+    <div class="mandos"><fieldset class="segmento"><legend>¿Cuenta la semana de la feria?</legend>
+      <label><input type="radio" name="feria" value="1" checked>Con la feria</label><label><input type="radio" name="feria" value="0">Sin la feria</label></fieldset></div>
+    <div class="lienzo" id="plano1"></div>
+    <p class="lectura" id="l1" aria-live="polite"></p>
+  </section>
+  <section class="columna">
+    <p>Una sola semana mueve el promedio más de treinta helados. No es un error de digitación: es un <mark class="marca-c">evento</mark> que no se repite cada semana. Se explica, se anota y se deja por fuera de la recta.</p>
+    <form class="comprobar" id="c-ej1" novalidate><h3>Compruebe su cuaderno · Ejercicio 1</h3><p>Promedios con un decimal. Escriba solo el número.</p><fieldset class="grupo-campos"><legend>Los promedios</legend><div class="campos"><label class="campo"><span class="campo-t">Helados, promedio de las siete semanas</span><input inputmode="decimal" data-ok="431.4" data-tol="0.1" data-pista="sume los siete valores (3.020) y divida entre 7."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Helados, promedio sin la feria</span><input inputmode="decimal" data-ok="400" data-tol="0.1" data-pista="quite la semana 4 (620): son seis semanas que suman 2.400."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Temperatura promedio de las seis semanas (°C)</span><input inputmode="decimal" data-ok="19" data-tol="0.1" data-pista="sume las seis temperaturas sin la semana 4 (114) y divida entre 6."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Cuánto sube el promedio por la feria</span><input inputmode="decimal" data-ok="31.4" data-tol="0.1" data-pista="reste el promedio sin la feria del promedio con ella."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>Con la feria: 3.020 ÷ 7 = 431,4 helados. Sin ella: 2.400 ÷ 6 = 400. La feria sube el promedio 31,4 helados. Temperatura promedio de las seis semanas: 114 ÷ 6 = 19 °C. La semana 4 es un evento (la feria del barrio): se explica y se deja por fuera de la recta, porque no se repite cada semana.</p></div></form>
+    <p>Para verlo mejor, ahora trazamos la línea que mejor pasa por las seis semanas.</p>
+  </section>
+  </div>
+
+  <div class="estacion" id="recta">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 2 · Ejercicio 2</span>La recta a mano</h2>
+    <p>La recta de regresión pasa siempre por el punto de los promedios: 19 °C y 400 helados. Usted solo escoge su inclinación. Cada línea rosa es el error de una semana; cada cuadro, ese error <mark class="marca-b">al cuadrado</mark>. La mejor recta es la que deja la menor suma de cuadros.</p>
+  </section>
+  <section class="figura" aria-labelledby="f2t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f2t" aria-live="polite"></h3><p class="figura-clave">Izquierda: las seis semanas, la recta en azul y los errores en rosa. Derecha: la suma de los errores al cuadrado para cada pendiente; el rombo es la suya.</p></div>
+    <div class="mandos"><label class="perilla">Pendiente b: helados más por cada grado <output id="pend-o"></output><input id="pend" type="range" min="0" max="60" step="1" value="12"></label></div>
+    <div class="par-fig">
+      <div><p class="mini-t">Las seis semanas</p><div class="lienzo" id="plano2"></div></div>
+      <div><p class="mini-t">Suma de errores al cuadrado</p><div class="lienzo" id="sse"></div></div>
+    </div>
+    <p class="lectura" id="l2" aria-live="polite"></p>
+  </section>
+  <section class="columna">
+    <p>Por eso se llama de <mark class="marca-c">mínimos cuadrados</mark>: entre todas las rectas posibles, se queda con la que menos se equivoca en total. La fórmula del cuaderno (suma de dx · dy ÷ suma de dx²) llega al mismo fondo de la curva sin tener que probar.</p>
+    <form class="comprobar" id="c-ej2" novalidate><h3>Compruebe su cuaderno · Ejercicio 2</h3><p>Use las seis semanas sin la feria, con x̄ = 19 °C y ȳ = 400 helados.</p><fieldset class="grupo-campos"><legend>La tabla de desviaciones</legend><div class="campos"><label class="campo"><span class="campo-t">Suma de dx · dy</span><input inputmode="decimal" data-ok="2100" data-tol="0.5" data-pista="dx = x − 19 y dy = y − 400; multiplique fila por fila y sume. Revise los signos: menos por menos da más."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Suma de dx²</span><input inputmode="decimal" data-ok="70" data-tol="0.5" data-pista="eleve al cuadrado cada dx (1, 9, 25, 25, 9, 1) y sume."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>La recta</legend><div class="campos"><label class="campo"><span class="campo-t">Pendiente b (helados por grado)</span><input inputmode="decimal" data-ok="30" data-tol="0.05" data-pista="b = suma de dx · dy ÷ suma de dx²."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Intercepto a</span><input inputmode="decimal" data-ok="-170" data-tol="0.5" data-pista="a = ȳ − b · x̄ = 400 − b × 19. Puede dar negativo."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>dx: 1, −3, 5, −5, 3, −1. dy: 20, −70, 140, −160, 110, −40. dx · dy: 20, 210, 700, 800, 330, 40, que suman 2.100. dx²: 1, 9, 25, 25, 9, 1, que suman 70. b = 2.100 ÷ 70 = 30 helados más por cada grado. a = 400 − 30 × 19 = −170. Helados = −170 + 30 × temperatura. El intercepto no es una predicción: a 0 °C nadie vende helados negativos; es el número que ubica la recta.</p></div></form>
+    <p>Ahora usemos la recta para lo que la dueña necesita: predecir.</p>
+  </section>
+  </div>
+
+  <div class="estacion" id="predecir">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 3 · Ejercicio 3</span>Predecir y no pasarse</h2>
+    <p>Mueva la temperatura. Dentro de la franja sombreada, entre 14 y 24 °C, la recta habla de lo que vio. Afuera, la línea se vuelve punteada: <span class="giro">la recta sigue derecho, pero ya no sabe</span>.</p>
+  </section>
+  <section class="figura" aria-labelledby="f3t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f3t" aria-live="polite"></h3><p class="figura-clave">Helados = −170 + 30 × temperatura. La franja es el rango de temperaturas observado; el rombo, la predicción.</p></div>
+    <div class="mandos"><label class="perilla">Temperatura de la tarde <output id="temp-o"></output><input id="temp" type="range" min="0" max="32" step="1" value="21"></label></div>
+    <div class="lienzo" id="plano3"></div>
+    <p class="lectura" id="l3" aria-live="polite"></p>
+  </section>
+  <section class="columna">
+    <div class="apuesta viva" id="causa">
+      <p class="rotulo">El giro</p>
+      <p style="margin:0;font:400 1.25rem/1.35 var(--serif);color:var(--tinta-fuerte)">El vecino vende bloqueador solar y sus ventas también suben con la temperatura. ¿Qué explica que los dos negocios suban juntos?</p>
+      <div class="voto" role="group" aria-label="Su respuesta">
+        <button type="button" class="boton" data-causa="h">Los helados hacen vender bloqueador</button><button type="button" class="boton" data-causa="b">El bloqueador hace vender helados</button><button type="button" class="boton" data-causa="c">El calor mueve a los dos</button>
+      </div>
+      <p id="causa-dato" aria-live="polite" style="margin:1rem 0 0"></p>
+    </div>
+    <form class="comprobar" id="c-ej3" novalidate><h3>Compruebe su cuaderno · Ejercicio 3</h3><p>Use helados = −170 + 30 × temperatura. R² en porcentaje con un decimal.</p><fieldset class="grupo-campos"><legend>Predecir</legend><div class="campos"><label class="campo"><span class="campo-t">Helados a 21 °C</span><input inputmode="decimal" data-ok="460" data-tol="0.5" data-pista="−170 + 30 × 21."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Helados a 25 °C</span><input inputmode="decimal" data-ok="580" data-tol="0.5" data-pista="−170 + 30 × 25. Ojo: 25 °C está un poco fuera de lo observado."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><fieldset class="grupo-campos"><legend>Equivocarse y pasarse</legend><div class="campos"><label class="campo"><span class="campo-t">Residuo de la semana 2</span><input inputmode="decimal" data-ok="20" data-tol="0.5" data-pista="real − predicho: 330 − (−170 + 30 × 16)."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">R² (%)</span><input inputmode="decimal" data-ok="98.1" data-tol="0.1" data-pct="1" data-pista="R² = 1 − suma de residuos² ÷ 64.200. Los residuos son −10, 20, −10, −10, 20 y −10."><span class="veredicto" aria-live="polite"></span></label><label class="campo"><span class="campo-t">Helados a 5 °C</span><input inputmode="decimal" data-ok="-20" data-tol="0.5" data-pista="−170 + 30 × 5. Si da un número raro, va bien: de eso se trata."><span class="veredicto" aria-live="polite"></span></label></div></fieldset><div class="botones"><button class="boton" type="submit">Revisar</button><button class="boton" type="button" data-solucion>Ver la solución</button></div><p class="comprobar-resumen" aria-live="polite"></p><div class="solucion" hidden><p>21 °C: −170 + 630 = 460 helados. 25 °C: −170 + 750 = 580. Semana 2: predicho 310, real 330, residuo +20. Residuos: −10, 20, −10, −10, 20, −10; sus cuadrados suman 1.200. R² = 1 − 1.200 ÷ 64.200 = 0,981: la temperatura explica el 98,1 % de la variación de las ventas en esas semanas. A 5 °C la recta dice −20 helados: imposible. Fuera de lo observado la recta no sabe. Y el bloqueador: el calor mueve a los dos; los helados no venden bloqueador.</p></div></form>
+  </section>
+  </div>
+
+  <div class="estacion" id="su-recta">
+  <section class="columna">
+    <h2 class="seccion"><span class="estacion-num">Estación 4 · Para la casa</span>Su recta y su presentación</h2>
+    <p>Escriba dos variables de su proyecto: la que se conoce antes (x) y la que quiere predecir (y). Pegue un par por línea, separados por un espacio. Viene cargado con La Nevera para que vea que coincide con su cuaderno; reemplácelo por sus datos.</p>
+  </section>
+  <section class="figura" aria-labelledby="f4t">
+    <div class="figura-cabeza"><h3 class="figura-titulo" id="f4t" aria-live="polite">Su recta</h3><p class="figura-clave">Nada sale de su navegador. No escriba datos personales de nadie.</p></div>
+    <div class="columna">
+      <div class="nombres"><label>Variable x (se conoce antes)<input id="nx" value="Temperatura"></label><label>Variable y (se quiere predecir)<input id="ny" value="Helados"></label></div>
+      <label class="solo-lector" for="pares">Pares de datos</label>
+      <textarea class="pares" id="pares" spellcheck="false">20 420
+16 330
+24 540
+14 240
+22 510
+18 360</textarea>
+    </div>
+    <p class="ecuacion" id="ecuacion" aria-live="polite"></p>
+    <div class="lienzo" id="plano4"></div>
+    <ul class="resumen-lab" id="r4"></ul>
+    <div class="pronostico"><label>Predecir para x =<input id="x4" inputmode="decimal" value="21"></label></div>
+    <p class="lectura" id="l4" aria-live="polite"></p>
+  </section>
+  <section class="columna">
+    <p>Con la recta lista, arme el esqueleto de su presentación final: seis partes, cada una con una frase y el número que la sostiene. Marque las que ya tiene.</p>
+    <ul class="lista-pres" id="pres">
+      <li><label><input type="checkbox"><span><span class="t">1 · La pregunta</span><span class="que">Qué decisión quiere ayudar a tomar y para quién. Sesiones 1 y 2.</span></span></label></li>
+      <li><label><input type="checkbox"><span><span class="t">2 · Los datos</span><span class="que">Qué es una fila, cuántas, de dónde salen y de qué periodo. Sesión 5.</span></span></label></li>
+      <li><label><input type="checkbox"><span><span class="t">3 · Lo que encontró al explorar</span><span class="que">Calidad, atípicos y la distribución de la variable principal. Sesiones 3 a 5.</span></span></label></li>
+      <li><label><input type="checkbox"><span><span class="t">4 · El hallazgo</span><span class="que">Una cifra que cambia la decisión: un segmento, una diferencia, una recta. Sesiones 6 y 8.</span></span></label></li>
+      <li><label><input type="checkbox"><span><span class="t">5 · La recomendación</span><span class="que">Qué hacer, con qué métrica sabrá si funcionó y frente a qué grupo de control.</span></span></label></li>
+      <li><label><input type="checkbox"><span><span class="t">6 · Los límites y la ética</span><span class="que">Qué no muestran los datos, cómo cuidó los datos personales (Ley 1581 de 2012) y cómo usó la IA. Sesiones 7 y 8.</span></span></label></li>
+    </ul>
+    <div class="medidor-6" id="med6" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="lectura" id="l-pres" aria-live="polite"></p>
+
+    <h2 class="seccion">De vuelta a la apertura</h2>
+    <p id="cierre">La recta de las seis semanas dice 580 helados para 25 °C. Es una extrapolación corta: 25 °C está apenas por encima de lo observado, así que conviene preparar con un margen.</p>
+    <p>Hume no decía que predecir fuera inútil; decía que toda predicción descansa en un supuesto que los datos no pueden probar: que mañana se portará como ayer. <span class="giro">La recta es buena memoria, no adivina.</span> Por eso una predicción honesta lleva su margen de error y dice qué tendría que pasar para que falle.</p>
+    <p class="aforismo">El pasado informa, pero no promete.</p>
+  </section>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="notas-t">
+  <h2 id="notas-t">Notas y método</h2>
+  <details><summary>¿De dónde salen los datos?</summary><p>Las siete semanas de La Nevera son simuladas, con números redondos para que las cuentas se puedan hacer a mano. En datos reales los puntos no quedan tan alineados y el R² suele ser mucho menor.</p></details>
+  <details><summary>¿Por qué la recta pasa por los promedios?</summary><p>Porque el intercepto se calcula como a = ȳ − b · x̄: con x = x̄ la recta da exactamente ȳ. Por eso en la estación 2 basta escoger la pendiente.</p></details>
+  <details><summary>¿Qué es el «margen» de la predicción?</summary><p>Aquí se usa el residuo más grande de las seis semanas (20 helados) como una forma sencilla de decir cuánto se puede equivocar la recta. Un curso de estadística usaría el error estándar y un intervalo de predicción; la idea es la misma: decir cuánto, no solo qué.</p></details>
+  <details><summary>¿Qué pasa con lo que escribo?</summary><p>Nada sale de su navegador: no se guarda ni se envía. Si recarga la página, se borra.</p></details>
+  <details><summary>¿Con qué registro y qué forma está hecho?</summary><p>Registro «Libro subrayado»: papel crema y resaltador, porque predecir es leer el pasado con atención y marcar lo que importa. Forma «pieza por pieza»: primero los puntos, luego la recta, luego la predicción y sus límites. Recursos: la apuesta, la perilla y la lista de la presentación. La sesión anterior usó el registro «Neón».</p></details>
+  <ol class="citas">
+    <li>Hume, D. (1748). <i>Investigación sobre el entendimiento humano</i>, sección IV.</li>
+    <li>Galton, F. (1886). «Regression towards mediocrity in hereditary stature». <i>Journal of the Anthropological Institute</i>, 15, 246-263. El origen de la palabra «regresión».</li>
+    <li>Congreso de Colombia (2012). Ley Estatutaria 1581, de protección de datos personales.</li>
+  </ol>
+</section>
+<footer class="pie"><p><a href="mailto:babeltran@universidadean.edu.co">babeltran@universidadean.edu.co</a></p></footer>
+</div>
+<script>
+const D = {"sem": [{"s": "Semana 1", "x": 20, "y": 420, "feria": false}, {"s": "Semana 2", "x": 16, "y": 330, "feria": false}, {"s": "Semana 3", "x": 24, "y": 540, "feria": false}, {"s": "Semana 4", "x": 18, "y": 620, "feria": true}, {"s": "Semana 5", "x": 14, "y": 240, "feria": false}, {"s": "Semana 6", "x": 22, "y": 510, "feria": false}, {"s": "Semana 7", "x": 18, "y": 360, "feria": false}], "R": {"mx": 19.0, "my": 400.0, "sxy": 2100.0, "sxx": 70.0, "syy": 64200.0, "a": -170.0, "b": 30.0}};
+/* Núcleo común de los laboratorios: números a la colombiana, escalas, barras animadas, navegación y comprobaciones. */
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, at, padre) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in at) if (at[k] !== undefined && at[k] !== null) e.setAttribute(k, at[k]);
+  if (padre) padre.appendChild(e);
+  return e;
+}
+function T(padre, x, y, texto, at = {}) { const t = S('text', Object.assign({ x, y }, at), padre); t.textContent = texto; return t; }
+
+/* ---------- números ---------- */
+function num(x, d = 0) {
+  if (!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(d);
+  let [e, f] = s.split('.');
+  e = e.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const neg = x < 0 && Number(s) !== 0;
+  return (neg ? '−' : '') + e + (f ? ',' + f : '');
+}
+const numS = (x, d = 1) => num(x, d).replace(/(,\d*?)0+$/, '$1').replace(/,$/, '');
+const pesos = x => (x < 0 ? '−' : '') + '$' + num(Math.abs(Math.round(x)));
+const millones = x => num(x / 1e6, Math.abs(x / 1e6) < 100 ? 1 : 0) + ' millones';
+/* Lee lo que escribe una persona: «3,5», «1.300», «$50.000», «22 %», «-2». */
+function leer(texto) {
+  if (texto === undefined || texto === null) return NaN;
+  let t = String(texto).trim().replace(/[$\s%]/g, '').replace('−', '-');
+  if (!t) return NaN;
+  if (/^-?\d{1,3}(\.\d{3})+(,\d+)?$/.test(t)) t = t.replace(/\./g, '').replace(',', '.');
+  else if (/^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+  return Number(t);
+}
+function leerLista(texto) {
+  return String(texto || '').split(/[\s;]+/).map(leer).filter(v => isFinite(v));
+}
+
+/* ---------- estadística ---------- */
+const suma = a => a.reduce((s, v) => s + v, 0);
+const media = a => suma(a) / a.length;
+function mediana(a) { const b = [...a].sort((x, y) => x - y), n = b.length; return n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2; }
+function modas(a) {
+  const c = new Map(); a.forEach(v => c.set(v, (c.get(v) || 0) + 1));
+  const max = Math.max(...c.values());
+  if (max === 1) return [];
+  return [...c].filter(([, k]) => k === max).map(([v]) => v).sort((x, y) => x - y);
+}
+const sumaCuadrados = a => { const m = media(a); return suma(a.map(v => (v - m) ** 2)); };
+const varianza = a => sumaCuadrados(a) / (a.length - 1);
+const desv = a => Math.sqrt(varianza(a));
+function corr(x, y) {
+  const mx = media(x), my = media(y); let sxy = 0, sxx = 0, syy = 0;
+  for (let i = 0; i < x.length; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+  return sxx && syy ? sxy / Math.sqrt(sxx * syy) : NaN;
+}
+function cuadrantes(x, y) {
+  const mx = media(x), my = media(y); let acuerdo = 0, contra = 0, linea = 0;
+  for (let i = 0; i < x.length; i++) { const p = (x[i] - mx) * (y[i] - my); if (Math.abs(p) < 1e-9) linea++; else if (p > 0) acuerdo++; else contra++; }
+  return { acuerdo, contra, linea, mx, my };
+}
+
+/* ---------- azar con semilla: el mismo experimento da siempre lo mismo ---------- */
+function azar(semilla) {
+  let a = (semilla >>> 0) || 1;
+  return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+}
+function normal(r) { let u = 0; while (u === 0) u = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * r()); }
+function poisson(r, l) { const L = Math.exp(-l); let k = 0, p = 1; do { k++; p *= r(); } while (p > L); return k - 1; }
+
+/* ---------- escalas y marcas ---------- */
+function lin(d0, d1, r0, r1) { const f = v => r0 + (v - d0) / (d1 - d0 || 1) * (r1 - r0); f.inv = p => d0 + (p - r0) / (r1 - r0) * (d1 - d0); return f; }
+function marcas(a, b, n = 5) {
+  if (b <= a) return [a];
+  const p0 = (b - a) / n, p10 = 10 ** Math.floor(Math.log10(p0)), f = p0 / p10;
+  const paso = (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p10, out = [];
+  for (let v = Math.ceil(a / paso - 1e-9) * paso; v <= b + 1e-9; v += paso) out.push(+v.toFixed(10));
+  return out;
+}
+function marco(el, alto, m) {
+  m = Object.assign({ a: 16, d: 14, ab: 40, i: 44 }, m || {});
+  el.innerHTML = '';
+  const W = Math.max(260, Math.round(el.clientWidth || el.getBoundingClientRect().width || 640));
+  const svg = S('svg', { viewBox: `0 0 ${W} ${alto}`, width: W, height: alto, role: 'img' }, el);
+  return { svg, W, H: alto, m, x0: m.i, x1: W - m.d, yb: alto - m.ab, yt: m.a };
+}
+function ejeY(f, esc, ticks, fmt = v => num(v)) {
+  ticks.forEach(v => { const y = esc(v); S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-regla' }, f.svg); T(f.svg, f.x0 - 6, y + 4, fmt(v), { class: 'n', 'text-anchor': 'end' }); });
+}
+function ejeX(f, esc, ticks, fmt = v => num(v), y) {
+  y = y ?? f.yb;
+  S('line', { x1: f.x0, x2: f.x1, y1: y, y2: y, class: 'l-eje' }, f.svg);
+  let ultimo = -1e9;
+  ticks.forEach(v => { const x = esc(v); const t = fmt(v); const w = t.length * 7.4; if (x - w / 2 < ultimo + 4) return; T(f.svg, x, y + 17, t, { class: 'n', 'text-anchor': 'middle' }); ultimo = x + w / 2; });
+}
+function rotuloEje(f, texto, eje) {
+  if (eje === 'x') T(f.svg, (f.x0 + f.x1) / 2, f.H - 4, texto, { 'text-anchor': 'middle', class: 'ts' });
+  else T(f.svg, f.x0 - 34, f.yt - 4, texto, { class: 'ts' });
+}
+/* Línea vertical con su rótulo: el rótulo va en tinta, con la muestra del trazo al lado. */
+function lineaV(f, x, clase, texto, fila = 0, alto) {
+  const y0 = f.yt + 22 + fila * 18, y1 = alto ?? f.yb;
+  S('line', { x1: x, x2: x, y1: y0 - 4, y2: y1, class: clase }, f.svg);
+  if (!texto) return;
+  const ancho = texto.length * 7 + 22, derecha = x + ancho + 6 > f.x1;
+  const tx = derecha ? x - 6 : x + 6, ancla = derecha ? 'end' : 'start';
+  const muestraX = derecha ? tx - ancho + 2 : tx;
+  S('line', { x1: muestraX, x2: muestraX + 14, y1: y0 - 15, y2: y0 - 15, class: clase }, f.svg);
+  const fondo = S('rect', { x: derecha ? tx - ancho + 18 : tx + 17, y: y0 - 26, width: ancho - 18, height: 17, class: 'fondo-svg', 'fill-opacity': .85 }, f.svg);
+  T(f.svg, derecha ? tx : tx + 19, y0 - 12, texto, { 'text-anchor': ancla, class: 'tf' });
+  fondo.setAttribute('width', ancho - 18);
+}
+function rombo(padre, x, y, r = 7, clase = 'r-dec') { return S('path', { d: `M${x},${y - r}L${x + r},${y}L${x},${y + r}L${x - r},${y}Z`, class: clase }, padre); }
+function equis(padre, x, y, r = 5, clase = 'p-neg') { return S('path', { d: `M${x - r},${y - r}L${x + r},${y + r}M${x + r},${y - r}L${x - r},${y + r}`, class: clase }, padre); }
+function estrellaPath(x, y, r) {
+  let d = '';
+  for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; d += (i ? 'L' : 'M') + (x + rr * Math.cos(a)).toFixed(1) + ',' + (y + rr * Math.sin(a)).toFixed(1); }
+  return d + 'Z';
+}
+/* Una flecha trazada a mano: curva suave y punta abierta. */
+function flecha(padre, x1, y1, x2, y2, curva = .18) {
+  const mx = (x1 + x2) / 2 - (y2 - y1) * curva, my = (y1 + y2) / 2 + (x2 - x1) * curva;
+  S('path', { d: `M${x1},${y1}Q${mx},${my} ${x2},${y2}`, class: 'l-mano' }, padre);
+  const a = Math.atan2(y2 - my, x2 - mx), l = 7;
+  S('path', { d: `M${x2 - l * Math.cos(a - .45)},${y2 - l * Math.sin(a - .45)}L${x2},${y2}L${x2 - l * Math.cos(a + .45)},${y2 - l * Math.sin(a + .45)}`, class: 'l-mano' }, padre);
+}
+
+/* Navegación y transiciones de los laboratorios: barra de estaciones, progreso, aparición al entrar,
+   realce que se pasa y recorrido con la figura fija. Sin este guion, la página se lee completa. */
+const Transiciones = (() => {
+  const raiz = document.documentElement;
+  raiz.classList.add('js'); raiz.lang = 'es';
+  const reducido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tareas = []; let pendiente = false;
+  const programar = () => { if (pendiente) return; pendiente = true; requestAnimationFrame(() => { pendiente = false; tareas.forEach(t => t()); }); };
+  addEventListener('scroll', programar, { passive: true }); addEventListener('resize', programar);
+
+  /* 1. Barra de estaciones: aparece al dejar atrás el título, marca la estación en curso y mide el avance. */
+  const nav = document.querySelector('.barra-nav'), tit = document.querySelector('.titular');
+  if (nav) {
+    const links = [...nav.querySelectorAll('.bn-lista a')], lista = nav.querySelector('.bn-lista'), barra = nav.querySelector('.bn-progreso span');
+    const secs = links.map(a => document.getElementById(a.dataset.sec)).filter(Boolean);
+    let actual;
+    tareas.push(() => {
+      const h = raiz.scrollHeight - innerHeight;
+      if (barra) barra.style.setProperty('--p', h > 0 ? Math.min(1, scrollY / h).toFixed(4) : 0);
+      nav.classList.toggle('visible', tit ? tit.getBoundingClientRect().bottom < 0 : scrollY > 300);
+      let a = null; for (const s of secs) if (s.getBoundingClientRect().top < innerHeight * .4) a = s;
+      if (a === actual) return; actual = a;
+      links.forEach(l => l.setAttribute('aria-current', String(!!a && l.dataset.sec === a.id)));
+      const l = a && links.find(x => x.dataset.sec === a.id);
+      if (l) lista.scrollTo({ left: l.offsetLeft - lista.clientWidth / 2 + l.clientWidth / 2, behavior: reducido ? 'auto' : 'smooth' });
+    });
+  }
+
+  if ('IntersectionObserver' in window && !reducido) {
+    /* 2. Lo que está debajo del pliegue aparece al entrar; lo visible al cargar ya está. */
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.figura:not(.recorrido), .comprobar, .pruebe, .historia, .frase, .siguiente, .apuesta, .tabla-marco, .sospechas, .tarjetas-dos').forEach(el => {
+      if (el.getBoundingClientRect().top > innerHeight * .95) { el.classList.add('revela'); io.observe(el); }
+    });
+    /* 3. El realce se pasa al entrar en pantalla. */
+    const ver = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove('por-ver'); ver.unobserve(e.target); } }), { rootMargin: '0px 0px -18% 0px' });
+    document.querySelectorAll('.columna > p').forEach(p => { if (p.querySelector('mark') && p.getBoundingClientRect().top > innerHeight * .82) { p.classList.add('por-ver'); ver.observe(p); } });
+  }
+
+  /* 4. Recorrido: la figura queda fija; manda la última tarjeta que cruzó la línea de lectura. */
+  const recorridos = [];
+  if ('IntersectionObserver' in window) document.querySelectorAll('.recorrido').forEach(rec => {
+    rec.classList.add('vivo');
+    const escena = rec.querySelector('.recorrido-escena'), cabeza = rec.querySelector('.figura-cabeza'), pasos = [...rec.querySelectorAll('.recorrido-paso')];
+    const medir = () => rec.style.setProperty('--alto-escena', escena.offsetHeight + 'px');
+    medir(); addEventListener('resize', medir); document.fonts && document.fonts.ready.then(medir);
+    const aplicar = () => {
+      const foco = rec.dataset.foco ? rec.dataset.foco.split(' ') : null;
+      rec.querySelectorAll('[data-t]').forEach(p => p.classList.toggle('atenuado', !!foco && !foco.includes(p.dataset.t)));
+      if (cabeza) cabeza.classList.toggle('atenuado', !!foco);
+    };
+    recorridos.push({ rec, aplicar, medir });
+    tareas.push(() => {
+      const linea = innerHeight * (matchMedia('(max-width: 720px)').matches ? .75 : .5);
+      let a = null; for (const p of pasos) if (p.querySelector('.paso').getBoundingClientRect().top < linea) a = p;
+      const ultimo = pasos[pasos.length - 1], fin = a === ultimo && ultimo.querySelector('.paso').getBoundingClientRect().bottom < linea - innerHeight * .2;
+      const foco = fin || !a ? '' : a.dataset.foco;
+      if ((rec.dataset.foco || '') === foco) return;
+      if (foco) rec.dataset.foco = foco; else delete rec.dataset.foco;
+      aplicar();
+    });
+  });
+
+  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
+  const todo = () => tareas.forEach(t => t());
+  return { reducido, todo, tras: () => recorridos.forEach(r => { r.aplicar(); r.medir(); }) };
+})();
+
+/* Barras en HTML que cambian de largo y de orden con una transición (técnica FLIP). */
+function hbars(el, items, o = {}) {
+  const fmt = o.fmt || (v => num(v));
+  const refs = o.refs || [];
+  const vals = items.map(i => i.valor).concat(refs.map(r => r.valor));
+  const lo = Math.min(0, o.min ?? Math.min(...vals)), hi = Math.max(0, o.max ?? Math.max(...vals));
+  const angosto = (el.clientWidth || 600) < 520, span = hi - lo || 1, ancho = o.ancho ?? (lo < 0 ? (angosto ? 52 : 70) : (angosto ? 58 : 78));
+  const esc = v => (v - lo) / span * ancho + (lo < 0 ? (angosto ? 22 : 15) : 0);
+  const antes = new Map([...el.children].map(c => [c.dataset.id, c.getBoundingClientRect().top]));
+  const orden = items.slice();
+  if (o.orden === 'desc') orden.sort((a, b) => b.valor - a.valor);
+  orden.forEach(it => {
+    let li = el.querySelector(`[data-id="${it.id}"]`);
+    if (!li) {
+      li = document.createElement('li'); li.className = 'hb-fila'; li.dataset.id = it.id;
+      li.innerHTML = '<span class="hb-nombre"></span><span class="hb-pista"><span class="hb-barra"></span><span class="hb-valor"></span></span>';
+    }
+    el.appendChild(li);
+    li.querySelector('.hb-nombre').textContent = it.nombre;
+    li.querySelector('.hb-barra').className = 'hb-barra ' + (it.clase || 'hb-gris');
+    const a = Math.min(esc(0), esc(it.valor)), w = Math.abs(esc(it.valor) - esc(0));
+    li.style.setProperty('--x', a.toFixed(2) + '%'); li.style.setProperty('--w', Math.max(w, .5).toFixed(2) + '%');
+    li.classList.toggle('neg', it.valor < 0);
+    li.querySelector('.hb-valor').textContent = it.texto ?? fmt(it.valor);
+    li.setAttribute('aria-label', `${it.nombre}: ${it.texto ?? fmt(it.valor)}`);
+    const pista = li.querySelector('.hb-pista');
+    pista.querySelectorAll('.hb-cero, .hb-ref').forEach(x => x.remove());
+    if (lo < 0) { const z = document.createElement('span'); z.className = 'hb-cero'; z.style.left = esc(0) + '%'; pista.appendChild(z); }
+    refs.forEach((r, k) => { const z = document.createElement('span'); z.className = 'hb-ref'; z.style.left = esc(r.valor) + '%'; if (li === el.firstElementChild && r.texto) z.innerHTML = `<span>${r.texto}</span>`; pista.appendChild(z); });
+  });
+  [...el.children].forEach(c => { if (!items.some(i => i.id === c.dataset.id)) c.remove(); });
+  if (refs.length) [...el.children].forEach((li, k) => li.querySelectorAll('.hb-ref').forEach((z, j) => { z.innerHTML = k === 0 && refs[j].texto ? `<span>${refs[j].texto}</span>` : ''; }));
+  if (Transiciones.reducido) return;
+  [...el.children].forEach(c => {
+    const t0 = antes.get(c.dataset.id); if (t0 === undefined) return;
+    const d = t0 - c.getBoundingClientRect().top; if (Math.abs(d) < 1) return;
+    c.style.transition = 'none'; c.style.transform = `translateY(${d}px)`; c.getBoundingClientRect();
+    c.style.transition = ''; c.style.transform = '';
+  });
+}
+
+/* Compruebe su cuaderno: compara lo que el estudiante escribió con la respuesta, con tolerancia y pistas. */
+function activarComprobaciones() {
+  document.querySelectorAll('.comprobar').forEach(f => {
+    const sol = f.querySelector('.solucion'), res = f.querySelector('.comprobar-resumen');
+    f.addEventListener('submit', ev => {
+      ev.preventDefault();
+      let bien = 0, total = 0, vacios = 0;
+      f.querySelectorAll('.campo').forEach(c => {
+        const i = c.querySelector('input'), ver = c.querySelector('.veredicto');
+        if (!i || !i.dataset.ok) return;
+        let v = leer(i.value); total++;
+        c.classList.remove('bien', 'revise');
+        if (!isFinite(v)) { ver.textContent = i.value.trim() ? 'No entendí ese número. Use coma para los decimales.' : ''; vacios += i.value.trim() ? 0 : 1; return; }
+        const ok = +i.dataset.ok, tol = +i.dataset.tol;
+        if (i.dataset.miles && Math.abs(v) >= 1000) v = v / 1000;
+        if (i.dataset.pct && Math.abs(v) < 1 && Math.abs(ok) > 1) v = v * 100;
+        if (Math.abs(v - ok) <= tol + 1e-9) { c.classList.add('bien'); ver.textContent = '✓ Bien.'; bien++; }
+        else { c.classList.add('revise'); ver.textContent = '✗ Revise: ' + i.dataset.pista; }
+      });
+      const hechos = total - vacios;
+      res.textContent = !hechos ? 'Escriba al menos un resultado para revisarlo.' : bien === total ? `Todo coincide: ${bien} de ${total}. Ahora escriba en el cuaderno la frase final: un número, una decisión y la métrica que vigilará.` : `${bien} de ${total} coinciden${vacios ? ` (y ${vacios} sin llenar)` : ''}. Lea la pista de los que no y vuelva al cuaderno antes de mirar la solución.`;
+    });
+    f.querySelector('[data-solucion]').addEventListener('click', ev => {
+      sol.hidden = !sol.hidden;
+      ev.currentTarget.textContent = sol.hidden ? 'Ver la solución' : 'Ocultar la solución';
+      if (!sol.hidden && !Transiciones.reducido) { sol.classList.remove('cambia'); void sol.offsetWidth; sol.classList.add('cambia'); }
+    });
+  });
+}
+
+
+
+
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const sem = D.sem, norm = sem.filter(s => !s.feria), R = D.R;
+  let apuesta = null;
+
+  function plano(el, o) {
+    const f = marco(el, o.alto || 320, Object.assign({ i: 50, ab: 44, a: 36, d: 16 }, o.m || {}));
+    f.X = lin(o.xr[0], o.xr[1], f.x0, f.x1); f.Y = lin(o.yr[0], o.yr[1], f.yb, f.yt);
+    ejeY(f, f.Y, o.ty || marcas(o.yr[0], o.yr[1], 5), o.fy);
+    ejeX(f, f.X, o.tx || marcas(o.xr[0], o.xr[1], 7), o.fx);
+    rotuloEje(f, o.xt, 'x'); if (o.yt) rotuloEje(f, o.yt, 'y');
+    const id = 'c' + Math.random().toString(36).slice(2, 8);
+    const cp = S('clipPath', { id }, S('defs', {}, f.svg)); S('rect', { x: f.x0, y: f.yt, width: f.x1 - f.x0, height: f.yb - f.yt }, cp);
+    f.clip = `url(#${id})`;
+    return f;
+  }
+  const punto = (f, x, y, cls, r = 6) => S('circle', { cx: f.X(x), cy: f.Y(y), r, class: cls }, f.svg);
+  const linea = (f, x0, y0, x1, y1, cls) => S('line', { x1: f.X(x0), y1: f.Y(y0), x2: f.X(x1), y2: f.Y(y1), class: cls, 'clip-path': f.clip }, f.svg);
+
+  /* apertura */
+  $('#ap').addEventListener('input', e => $('#ap-o').textContent = num(+e.target.value));
+  $('#ap-b').addEventListener('click', () => {
+    apuesta = +$('#ap').value; $('#apuesta').classList.add('dicha');
+    $('#ap-dato').innerHTML = `Usted apostó <b>${num(apuesta)} helados</b>. Guárdelo: en la estación 3 verá qué dice la recta, y al final volvemos a su apuesta.`;
+    cierre();
+  });
+
+  /* 1 · siete semanas */
+  let conFeria = true;
+  function f1() {
+    const f = plano($('#plano1'), { xr: [12, 26], yr: [200, 650], xt: 'Temperatura de la tarde (°C)', yt: 'Helados' });
+    const usadas = sem.filter(s => conFeria || !s.feria), m = media(usadas.map(s => s.y));
+    const r = corr(usadas.map(s => s.x), usadas.map(s => s.y));
+    S('line', { x1: f.x0, x2: f.x1, y1: f.Y(m), y2: f.Y(m), class: 'l-media' }, f.svg);
+    T(f.svg, f.x1 - 2, f.Y(m) + 16, 'promedio: ' + numS(m, 1), { class: 'marca-t', 'text-anchor': 'end' });
+    sem.forEach(s => {
+      punto(f, s.x, s.y, s.feria ? (conFeria ? 'p-feria' : 'p-fuera') : 'p-dato', s.feria ? 7 : 6);
+      if (s.feria) T(f.svg, f.X(s.x) + 12, f.Y(s.y) + 4, conFeria ? 'Semana 4 · feria' : 'Semana 4 · fuera', { class: 'ts' });
+    });
+    $('#f1t').textContent = conFeria ? 'Una semana se sale de la fila' : 'Sin la feria, las seis semanas forman casi una línea';
+    $('#l1').innerHTML = `Con ${conFeria ? 'las siete semanas' : 'las seis semanas sin la feria'}, el promedio es <b>${numS(m, 1)}</b> helados y la correlación es <b>r = ${num(r, 2)}</b>. ` +
+      (conFeria ? 'La feria sube el promedio y debilita la relación: es un evento, no el patrón.' : 'La relación es positiva, lineal y muy fuerte: cuando sube la temperatura, suben los helados.');
+  }
+  $$('input[name=feria]').forEach(i => i.addEventListener('change', () => { conFeria = i.value === '1' ? i.checked : !i.checked; f1(); }));
+
+  /* 2 · la recta a mano */
+  const sse = b => R.syy - 2 * b * R.sxy + b * b * R.sxx;
+  function f2() {
+    const b = +$('#pend').value, a = R.my - b * R.mx, e = sse(b);
+    $('#pend-o').textContent = num(b);
+    const f = plano($('#plano2'), { xr: [12, 26], yr: [150, 650], alto: 330, xt: 'Temperatura (°C)', yt: 'Helados' });
+    norm.forEach(p => {
+      const py = f.Y(p.y), ph = f.Y(a + b * p.x), lado = Math.abs(py - ph);
+      S('rect', { x: f.X(p.x), y: Math.min(py, ph), width: lado, height: lado, class: 'c-res', 'clip-path': f.clip }, f.svg);
+    });
+    linea(f, 12, a + b * 12, 26, a + b * 26, 'l-dec');
+    norm.forEach(p => { linea(f, p.x, p.y, p.x, a + b * p.x, 'l-res'); punto(f, p.x, p.y, 'p-dato'); });
+    rombo(f.svg, f.X(R.mx), f.Y(R.my), 6, 'r-dec');
+    T(f.svg, f.X(R.mx) - 9, f.Y(R.my) - 10, 'promedios', { class: 'marca-t', 'text-anchor': 'end' });
+    const g = plano($('#sse'), { xr: [0, 60], yr: [0, 70000], alto: 330, tx: [0, 15, 30, 45, 60], ty: [0, 20000, 40000, 60000], fy: v => v ? num(v / 1000) + ' mil' : '0', xt: 'Pendiente b', m: { i: 50 } });
+    let d = ''; for (let k = 0; k <= 60; k++) d += (k ? 'L' : 'M') + g.X(k).toFixed(1) + ',' + g.Y(sse(k)).toFixed(1);
+    S('path', { d, class: 'l-sse' }, g.svg);
+    S('line', { x1: g.X(30), x2: g.X(30), y1: g.yb, y2: g.Y(sse(30)), class: 'l-regla' }, g.svg);
+    rombo(g.svg, g.X(b), g.Y(e), 7, 'r-dec');
+    $('#f2t').textContent = b === 30 ? 'Con 30 helados por grado, los cuadros son los más pequeños posibles' : `Con ${num(b)} helados por grado, los cuadros todavía pueden achicarse`;
+    $('#l2').innerHTML = `Con b = <b>${num(b)}</b>, el intercepto es a = 400 − ${num(b)} × 19 = <b>${num(a)}</b>, y la suma de los errores al cuadrado es <b>${num(e)}</b>. ` +
+      (b === 30 ? 'Es el mínimo: ninguna otra pendiente deja errores más pequeños. Esa es la recta de mínimos cuadrados.' : b < 30 ? 'La recta queda muy plana: súbale la pendiente.' : 'La recta queda muy empinada: bájele la pendiente.');
+  }
+  $('#pend').addEventListener('input', f2);
+
+  /* 3 · predecir y no pasarse */
+  const pred = t => R.a + R.b * t;
+  function f3() {
+    const t = +$('#temp').value, p = pred(t), dentro = t >= 14 && t <= 24, corta = !dentro && t >= 12 && t <= 26;
+    $('#temp-o').textContent = t + ' °C';
+    const f = plano($('#plano3'), { xr: [0, 32], yr: [-200, 800], alto: 360, tx: [0, 5, 10, 15, 20, 25, 30], xt: 'Temperatura de la tarde (°C)', yt: 'Helados' });
+    S('rect', { x: f.X(14), y: f.yt, width: f.X(24) - f.X(14), height: f.yb - f.yt, class: 'franja' }, f.svg);
+    T(f.svg, (f.X(14) + f.X(24)) / 2, f.yt + 14, 'lo observado', { class: 'marca-t', 'text-anchor': 'middle' });
+    S('line', { x1: f.x0, x2: f.x1, y1: f.Y(0), y2: f.Y(0), class: 'l-eje' }, f.svg);
+    linea(f, 0, pred(0), 14, pred(14), 'l-extra'); linea(f, 24, pred(24), 32, pred(32), 'l-extra'); linea(f, 14, pred(14), 24, pred(24), 'l-dec');
+    norm.forEach(s => punto(f, s.x, s.y, 'p-dato', 5)); sem.filter(s => s.feria).forEach(s => punto(f, s.x, s.y, 'p-fuera', 5));
+    S('line', { x1: f.X(t), x2: f.X(t), y1: f.yb, y2: f.Y(p), class: 'l-regla', 'clip-path': f.clip }, f.svg);
+    rombo(f.svg, f.X(t), f.Y(p), 8, 'r-dec');
+    const izq = f.X(t) > (f.x0 + f.x1) / 2;
+    T(f.svg, f.X(t) + (izq ? -14 : 14), f.Y(p) - 8, num(p) + ' helados', { class: 'nf', 'text-anchor': izq ? 'end' : 'start' });
+    if (!dentro) T(f.svg, f.X(t) + (izq ? -14 : 14), f.Y(p) + 18, 'fuera de lo observado', { class: 'alerta', 'text-anchor': izq ? 'end' : 'start' });
+    $('#f3t').textContent = dentro ? `A ${t} °C, la recta habla de lo que vio` : p < 0 ? `A ${t} °C, la recta dice algo imposible` : `A ${t} °C, la recta adivina`;
+    $('#l3').innerHTML = `A ${t} °C la recta predice <b>${num(p)}</b> helados. ` + (dentro
+      ? `Está dentro de lo observado: si se equivoca como en las seis semanas (el residuo más grande fue 20), serán entre ${num(p - 20)} y ${num(p + 20)}.`
+      : p < 0 ? 'Un número negativo de helados no existe. Fuera de 14 a 24 °C la recta no sabe: solo sigue derecho.'
+      : corta ? `Es una extrapolación corta: ${t} °C está apenas fuera de lo observado. Úsela, pero con un margen más amplio que ±20.`
+      : `${t} °C está lejos de lo observado. Nada garantiza que la relación siga igual: con mucho calor la gente quizá no salga, o se acabe la capacidad de atender.`);
+  }
+  $('#temp').addEventListener('input', f3);
+  const CAUSA = { h: 'No. Que suban juntas no prueba que una mueva a la otra.', b: 'Tampoco. El orden de las variables no dice nada sobre la causa.', c: 'Eso es. El calor es la tercera variable: mueve a las dos. Los helados no venden bloqueador.' };
+  $$('[data-causa]').forEach(b => b.addEventListener('click', () => {
+    $$('[data-causa]').forEach(x => x.setAttribute('aria-pressed', x === b)); $('#causa-dato').textContent = CAUSA[b.dataset.causa];
+  }));
+
+  /* 4 · su recta */
+  function recta(P) {
+    const n = P.length, mx = media(P.map(p => p.x)), my = media(P.map(p => p.y));
+    let sxy = 0, sxx = 0, syy = 0; P.forEach(p => { sxy += (p.x - mx) * (p.y - my); sxx += (p.x - mx) ** 2; syy += (p.y - my) ** 2; });
+    const b = sxy / sxx, a = my - b * mx, sse = P.reduce((s, p) => s + (p.y - a - b * p.x) ** 2, 0);
+    return { n, mx, my, b, a, r: sxy / Math.sqrt(sxx * syy), r2: syy ? 1 - sse / syy : NaN };
+  }
+  const esc = t => t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const dec = v => Math.abs(v) >= 100 ? 0 : Math.abs(v) >= 10 ? 1 : 2;
+  function f4() {
+    const nx = esc($('#nx').value.trim() || 'x'), ny = esc($('#ny').value.trim() || 'y');
+    const P = $('#pares').value.split('\n').map(l => leerLista(l.replace(/\t/g, ' '))).filter(v => v.length >= 2).map(v => ({ x: v[0], y: v[1] }));
+    const el = $('#plano4');
+    const distintos = new Set(P.map(p => p.x)).size;
+    if (P.length < 3 || distintos < 2) {
+      el.innerHTML = ''; $('#r4').innerHTML = ''; $('#ecuacion').textContent = '';
+      $('#l4').textContent = 'Escriba al menos tres pares, uno por línea, con dos números separados por un espacio (y con al menos dos valores distintos de x).'; return;
+    }
+    const q = recta(P), xs = P.map(p => p.x), ys = P.map(p => p.y);
+    const xmin = Math.min(...xs), xmax = Math.max(...xs), ymin = Math.min(...ys), ymax = Math.max(...ys);
+    const px = (xmax - xmin) * .08 || 1, py = (ymax - ymin) * .12 || 1;
+    const tx = marcas(xmin - px, xmax + px, 6), ty = marcas(ymin - py, ymax + py, 5);
+    const xr = [Math.min(tx[0], xmin - px), Math.max(tx[tx.length - 1], xmax + px)], yr = [Math.min(ty[0], ymin - py), Math.max(ty[ty.length - 1], ymax + py)];
+    const f = plano(el, { xr, yr, alto: 320, tx, ty, fx: v => numS(v, 2), fy: v => numS(v, 2), xt: $('#nx').value.trim() || 'x', yt: $('#ny').value.trim() || 'y', m: { i: 58 } });
+    S('rect', { x: f.X(xmin), y: f.yt, width: f.X(xmax) - f.X(xmin), height: f.yb - f.yt, class: 'franja' }, f.svg);
+    linea(f, xr[0], q.a + q.b * xr[0], xr[1], q.a + q.b * xr[1], 'l-dec');
+    P.forEach(p => punto(f, p.x, p.y, 'p-dato', 5));
+    const signo = q.a < 0 ? '−' : '+';
+    $('#ecuacion').innerHTML = `${ny} = ${numS(q.b, dec(q.b))} × ${nx} ${q.b ? signo : ''} ${numS(Math.abs(q.a), dec(q.a))}`;
+    res($('#r4'), [['Pares', num(q.n)], ['Pendiente b', numS(q.b, dec(q.b))], ['Intercepto a', numS(q.a, dec(q.a))], ['Correlación r', num(q.r, 2)], ['R²', numS(q.r2 * 100, 1) + ' %']]);
+    const x0 = leer($('#x4').value);
+    let txt = `Por cada unidad que sube «${nx}», «${ny}» ${q.b >= 0 ? 'sube' : 'baja'} en promedio ${numS(Math.abs(q.b), dec(q.b))}. La recta explica el ${numS(q.r2 * 100, 1)} % de la variación` +
+      (q.r2 < .3 ? ': poco. Antes de predecir, busque otra variable o revise los atípicos.' : q.r2 < .7 ? ': algo. Al predecir, muestre el margen de error.' : ': bastante, dentro del rango observado.');
+    if (isFinite(x0)) {
+      const p = q.a + q.b * x0, fuera = x0 < xmin || x0 > xmax;
+      rombo(f.svg, f.X(Math.min(Math.max(x0, xr[0]), xr[1])), f.Y(Math.min(Math.max(p, yr[0]), yr[1])), 7, 'r-dec');
+      txt += ` Para ${nx} = ${numS(x0, 2)}, la recta predice <mark class="marca-b">${numS(p, dec(p))}</mark>` + (fuera ? `, pero ${numS(x0, 2)} está fuera de lo observado (${numS(xmin, 2)} a ${numS(xmax, 2)}): es una extrapolación.` : '.');
+    }
+    if (q.n < 6) txt += ' Con menos de seis puntos casi cualquier recta parece buena: consiga más datos.';
+    $('#l4').innerHTML = txt;
+  }
+  function res(ul, pares) { ul.innerHTML = pares.map(([t, v]) => `<li>${t}<b>${v}</b></li>`).join(''); }
+  ['#nx', '#ny', '#pares', '#x4'].forEach(s => $(s).addEventListener('input', f4));
+
+  function presentacion() {
+    const k = $$('#pres input').filter(i => i.checked).length;
+    $$('#med6 span').forEach((s, i) => s.classList.toggle('lleno', i < k));
+    $('#l-pres').textContent = k === 6 ? 'Las seis partes listas. Ensaye en voz alta: unos diez minutos, una cifra por parte, y la declaración de cómo usó la IA.' : `Lleva ${k} de 6 partes. Las que faltan, tráigalas a la próxima clase como pregunta.`;
+  }
+  $('#pres').addEventListener('change', presentacion);
+
+  function cierre() {
+    const base = 'La recta de las seis semanas dice 580 helados para 25 °C. Es una extrapolación corta: 25 °C está apenas por encima de lo observado, así que conviene preparar con un margen';
+    if (apuesta === null) { $('#cierre').textContent = base + '.'; return; }
+    const d = apuesta - 580;
+    $('#cierre').textContent = `Usted apostó ${num(apuesta)} helados. ${base}: ` + (Math.abs(d) <= 20 ? 'su apuesta cae dentro del margen. Buen ojo, y ahora tiene con qué sostenerlo.'
+      : d < 0 ? `su apuesta se queda ${num(-d)} helados corta. El sábado a las tres se habrían acabado.` : `su apuesta prepara ${num(d)} helados de más. Se habrían perdido.`);
+  }
+
+  function todo() { f1(); f2(); f3(); f4(); }
+  todo(); presentacion(); cierre();
+  let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(todo, 120); });
+  activarComprobaciones();
+  Transiciones.todo();
+})();
+
+</script>
