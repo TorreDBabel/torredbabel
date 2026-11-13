@@ -1,0 +1,451 @@
+/* ============================================================================
+   Registro 11 · Gabinete — para /logica
+   Ensayo largo de humanidades con lámina de archivo como protagonista.
+   Realce: versalita sin fondo. Notas al margen con calderón. Cifras elzevirianas.
+   Letras: Vollkorn (texto) · Vollkorn SC (versalita) · Rosario (apoyo) · Courier Prime (mono)
+   Contrastes sobre el fondo #fbfaf6:
+     tinta 11,2:1 · fuerte 16,6:1 · suave 4,9:1
+     marca A 5,1:1 · marca B 11,5:1 · marca C 6,4:1 · acento 8,6:1
+   Sobre el fondo hondo #f1efe7 la tinta suave baja a 4,4:1, así que allí no
+   se usa para texto: en los bloques hondos el texto va en tinta.
+   ========================================================================== */
+
+.r-gabinete {
+  --fondo: #fbfaf6;
+  --fondo-hondo: #f1efe7;
+  --fondo-pie: #e4e1d6;
+  --regla: #cfcbbe;
+  --tinta: #2f3a45;
+  --tinta-fuerte: #141c25;
+  --tinta-suave: #66707a;
+  --marca-a: #a3590c;
+  --marca-b: #113570;
+  --marca-c: #525f6b;
+  --trazo-a: #a76620;
+  --trazo-b: #2d6599;
+  --acento: #970428;
+  --serif: 'Vollkorn', Georgia, 'Times New Roman', serif;
+  --versal: 'Vollkorn SC', Georgia, serif;
+  --sans: 'Rosario', Helvetica, Arial, sans-serif;
+  --mono: 'Courier Prime', Consolas, Menlo, monospace;
+
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.1vw + 14px, 20px);
+  line-height: 1.62;
+  font-variant-numeric: oldstyle-num;
+  padding-bottom: 4rem;
+}
+
+/* ---------- retícula ---------- */
+.r-gabinete .columna {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.r-gabinete .ancho {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.r-gabinete section {
+  padding: 3.4rem 0;
+}
+.r-gabinete section + section {
+  border-top: 1px solid var(--regla);
+}
+.r-gabinete p {
+  margin: 0 0 1.1rem;
+}
+.r-gabinete p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- realce: versalita sin fondo ---------- */
+.r-gabinete .ma,
+.r-gabinete .mb,
+.r-gabinete .mc {
+  font-family: var(--versal);
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  font-variant-numeric: normal;
+}
+.r-gabinete .ma { color: var(--marca-a); }
+.r-gabinete .mb { color: var(--marca-b); }
+.r-gabinete .mc { color: var(--marca-c); }
+.r-gabinete .ac {
+  color: var(--acento);
+  text-decoration: underline;
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.18em;
+}
+
+/* ---------- apertura ---------- */
+.r-gabinete .abre {
+  padding-top: 3rem;
+}
+.r-gabinete .experiencia {
+  font-size: 1.42em;
+  line-height: 1.42;
+  color: var(--tinta-fuerte);
+  text-wrap: pretty;
+}
+.r-gabinete .lema {
+  font-family: var(--versal);
+  font-weight: 700;
+  font-size: clamp(38px, 7vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--tinta-fuerte);
+  margin: 2.6rem 0 1rem;
+  text-wrap: balance;
+}
+/* El lema se escalona a propósito: «De Atenas» arriba a la izquierda y «a Jena»
+   abajo a la derecha, para que el título dibuje el trayecto que cuenta la página. */
+.r-gabinete .lema .mitad {
+  display: block;
+  white-space: nowrap;
+}
+.r-gabinete .lema .mitad + .mitad { text-align: right; }
+.r-gabinete .lema .uno { color: var(--marca-a); }
+.r-gabinete .lema .dos { color: var(--marca-b); }
+.r-gabinete .bajada {
+  font-size: 1.12em;
+  line-height: 1.5;
+  color: var(--tinta);
+}
+.r-gabinete .firma {
+  font-family: var(--sans);
+  font-size: 0.82em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-top: 1.4rem;
+}
+
+/* ---------- etiquetas y títulos ---------- */
+.r-gabinete .etiqueta {
+  font-family: var(--mono);
+  font-size: 0.74em;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-bottom: 0.7rem;
+}
+.r-gabinete h2 {
+  font-family: var(--versal);
+  font-weight: 600;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.16;
+  color: var(--tinta-fuerte);
+  margin: 0 0 1.1rem;
+  font-variant-numeric: normal;
+}
+.r-gabinete h3 {
+  font-family: var(--versal);
+  font-weight: 600;
+  font-size: 1.14em;
+  line-height: 1.25;
+  color: var(--tinta-fuerte);
+  margin: 0 0 0.3rem;
+  font-variant-numeric: normal;
+}
+
+/* ---------- filete doble de sección ---------- */
+.r-gabinete .filete {
+  border-top: 3px double var(--regla);
+  margin: 0 auto 1.8rem;
+  max-width: 34rem;
+}
+
+/* ---------- nota al margen, con calderón ---------- */
+.r-gabinete .margen {
+  font-family: var(--sans);
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: var(--tinta);
+  background: var(--fondo-hondo);
+  border-left: 2px solid var(--marca-c);
+  padding: 0.9rem 1.1rem;
+  margin: 1.6rem 0;
+}
+.r-gabinete .margen::before {
+  content: '¶ ';
+  color: var(--marca-c);
+  font-family: var(--serif);
+}
+
+/* ---------- la lámina: el mapa es la protagonista ---------- */
+.r-gabinete .lamina {
+  margin: 0;
+}
+.r-gabinete .lamina figure,
+.r-gabinete figure.lamina {
+  margin: 0;
+}
+.r-gabinete .marco-lamina {
+  background: var(--fondo-hondo);
+  border: 1px solid var(--regla);
+  padding: clamp(12px, 2vw, 28px);
+}
+.r-gabinete .marco-lamina svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* En pantalla angosta el mapa no se encoge hasta volver ilegibles los nombres:
+   se mantiene a un ancho mínimo y la lámina se desliza de lado. */
+.r-gabinete .desliza {
+  display: none;
+  margin: 0.6rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.88em;
+  color: var(--tinta-suave);
+}
+@media (max-width: 860px) {
+  .r-gabinete .marco-lamina {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+  .r-gabinete .marco-lamina svg {
+    width: 820px;
+    max-width: none;
+  }
+  .r-gabinete .desliza { display: block; }
+}
+.r-gabinete .marco-lamina:focus-visible {
+  outline: 2px solid var(--marca-b);
+  outline-offset: 2px;
+}
+.r-gabinete .lamina figcaption {
+  margin-top: 1.1rem;
+  font-size: 0.94em;
+  line-height: 1.55;
+  color: var(--tinta);
+  max-width: 44rem;
+}
+.r-gabinete .lamina figcaption .titulo-lamina {
+  display: block;
+  font-family: var(--versal);
+  font-weight: 600;
+  color: var(--tinta-fuerte);
+  font-size: 1.08em;
+  margin-bottom: 0.35rem;
+}
+.r-gabinete .lamina figcaption .clave {
+  display: block;
+  font-family: var(--sans);
+  color: var(--tinta-suave);
+  margin-bottom: 0.6rem;
+}
+.r-gabinete .lamina figcaption .fuente-lamina {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.92em;
+  color: var(--tinta-suave);
+}
+
+/* dibujo del mapa */
+.r-gabinete .costa {
+  fill: #e7e4d8;
+  stroke: var(--regla);
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+.r-gabinete .ruta {
+  fill: none;
+  stroke: var(--trazo-a);
+  stroke-width: 2;
+  stroke-dasharray: 7 6;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.r-gabinete .parada circle {
+  fill: var(--fondo);
+  stroke: var(--trazo-b);
+  stroke-width: 2.4;
+  vector-effect: non-scaling-stroke;
+}
+.r-gabinete .parada .orden {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--marca-b);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.r-gabinete .parada .nombre {
+  font-family: var(--versal);
+  font-size: 21px;
+  font-weight: 600;
+  fill: var(--tinta-fuerte);
+  paint-order: stroke;
+  stroke: var(--fondo-hondo);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+/* ---------- las estaciones ---------- */
+.r-gabinete .estaciones {
+  list-style: none;
+  margin: 0 auto;
+  max-width: 50rem;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--regla);
+  border: 1px solid var(--regla);
+}
+.r-gabinete .estaciones > li {
+  background: var(--fondo);
+  padding: 1.3rem clamp(14px, 2vw, 1.5rem);
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  column-gap: 0.9rem;
+}
+.r-gabinete .estaciones .orden {
+  font-family: var(--mono);
+  font-size: 0.95em;
+  font-weight: 700;
+  color: var(--marca-b);
+  padding-top: 0.2em;
+}
+.r-gabinete .estaciones .cuando {
+  font-family: var(--mono);
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin: 0 0 0.5rem;
+}
+.r-gabinete .estaciones .que {
+  margin: 0 0 0.5rem;
+}
+.r-gabinete .estaciones .condicion {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 0.93em;
+  line-height: 1.5;
+  color: var(--tinta);
+  border-top: 1px solid var(--regla);
+  padding-top: 0.55rem;
+}
+.r-gabinete .estaciones .condicion .rotulo {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* ---------- lo que se va a leer ---------- */
+.r-gabinete .temario {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.3rem;
+}
+.r-gabinete .temario > li {
+  border-top: 1px solid var(--regla);
+  padding-top: 0.9rem;
+}
+.r-gabinete .temario p {
+  margin: 0;
+  font-size: 0.97em;
+}
+
+/* ---------- cierre ---------- */
+.r-gabinete .aforismo {
+  font-family: var(--versal);
+  font-weight: 600;
+  font-size: clamp(24px, 3.4vw, 36px);
+  line-height: 1.22;
+  color: var(--tinta-fuerte);
+  margin-top: 1.8rem;
+  text-wrap: balance;
+  font-variant-numeric: normal;
+}
+
+/* ---------- contacto ---------- */
+.r-gabinete .conversemos {
+  background: var(--fondo-hondo);
+  border: 1px solid var(--regla);
+  padding: clamp(1.3rem, 3vw, 2.2rem);
+}
+.r-gabinete .conversemos h2 {
+  margin-bottom: 0.7rem;
+}
+.r-gabinete .correo {
+  display: inline-block;
+  margin: 0.6rem 0 0;
+  font-family: var(--mono);
+  font-size: clamp(16px, 2.4vw, 22px);
+  font-weight: 700;
+  color: var(--marca-b);
+  word-break: break-word;
+}
+.r-gabinete .conversemos .otra-via {
+  margin-top: 1.1rem;
+  font-family: var(--sans);
+  font-size: 0.93em;
+  color: var(--tinta);
+}
+
+/* ---------- notas ---------- */
+.r-gabinete .notas {
+  font-size: 0.94em;
+}
+.r-gabinete .notas details {
+  border-top: 1px solid var(--regla);
+  padding: 0.75rem 0;
+}
+.r-gabinete .notas summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  font-family: var(--versal);
+  font-weight: 600;
+  color: var(--tinta-fuerte);
+  min-height: 2.2rem;
+}
+.r-gabinete .notas summary::-webkit-details-marker { display: none; }
+.r-gabinete .notas summary::before {
+  content: '+';
+  font-family: var(--mono);
+  color: var(--marca-a);
+  flex: 0 0 auto;
+}
+.r-gabinete .notas details[open] summary::before { content: '−'; }
+.r-gabinete .notas details > *:not(summary) {
+  margin-top: 0.7rem;
+  color: var(--tinta);
+}
+.r-gabinete .notas ol,
+.r-gabinete .notas ul {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+.r-gabinete .notas li { margin-bottom: 0.5rem; }
+
+/* ---------- enlaces ---------- */
+.r-gabinete a {
+  color: var(--marca-b);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+.r-gabinete a:hover { color: var(--acento); }
+
+/* ---------- teléfono ---------- */
+@media (max-width: 560px) {
+  .r-gabinete .estaciones > li {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+  }
+  .r-gabinete .estaciones .orden { padding-top: 0; }
+  .r-gabinete section { padding: 2.6rem 0; }
+}
