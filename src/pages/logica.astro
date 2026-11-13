@@ -1,0 +1,388 @@
+---
+// Landing de lógica: /logica
+// Registro 11 · Gabinete (la lámina de archivo es la protagonista y lleva pie largo).
+// Forma de la historia: línea de tiempo con retrato — ocho ciudades anclan una cronología larga.
+// El gráfico está hecho del asunto: el mapa es el itinerario de una idea, y la lista de abajo
+// es su equivalente en texto.
+// Las dos citas están verificadas contra la fuente; las referencias van en las notas.
+import Base from '../layouts/Base.astro';
+import '@fontsource/vollkorn/400.css';
+import '@fontsource/vollkorn/600.css';
+import '@fontsource/vollkorn/400-italic.css';
+import '@fontsource/vollkorn-sc/600.css';
+import '@fontsource/vollkorn-sc/700.css';
+import '@fontsource/rosario/400.css';
+import '@fontsource/rosario/400-italic.css';
+import '@fontsource/courier-prime/400.css';
+import '@fontsource/courier-prime/700.css';
+import '../styles/gabinete.css';
+import mapa from '../datos/mapa-logica.json';
+
+const rotulos: Record<string, { dx: number; dy: number; anchor: 'start' | 'end' }> = {
+  'Atenas': { dx: 13, dy: 27, anchor: 'start' },
+  'Alejandría': { dx: 13, dy: 27, anchor: 'start' },
+  'Bagdad': { dx: -13, dy: 27, anchor: 'end' },
+  'Córdoba': { dx: 13, dy: 29, anchor: 'start' },
+  'Toledo': { dx: 13, dy: -14, anchor: 'start' },
+  'París': { dx: 13, dy: -14, anchor: 'start' },
+  'Leiden': { dx: 13, dy: -14, anchor: 'start' },
+  'Jena': { dx: 13, dy: 27, anchor: 'start' },
+};
+const ruta = mapa.puntos.map((p) => `${p.x},${p.y}`).join(' ');
+
+const estaciones = [
+  {
+    lugar: 'Atenas',
+    cuando: 'Siglo IV a. C.',
+    quien: 'Aristóteles',
+    obra: 'Órganon',
+    que: 'Por primera vez alguien estudia un razonamiento por su forma y no por su asunto. Da igual si se habla de caballos o de impuestos: si la forma es buena, la conclusión se sigue.',
+    condicion:
+      'Aristóteles era extranjero en Atenas, y al final de su vida tuvo que salir de la ciudad cuando el ánimo volvió contra todo lo macedonio.',
+  },
+  {
+    lugar: 'Alejandría',
+    cuando: 'Siglos V y VI',
+    quien: 'Amonio · Juan Filópono',
+    obra: 'Comentarios al Órganon',
+    que: 'La lógica deja de ser la obra de un autor y se vuelve una materia que se enseña: con programa, con orden de lectura y con comentario al margen.',
+    condicion:
+      'La escuela sigue abierta dentro de un imperio ya cristiano. La filosofía sobrevive porque enseña, y enseñando se conserva.',
+  },
+  {
+    lugar: 'Bagdad',
+    cuando: 'Siglos VIII a X',
+    quien: 'al-Fārābī',
+    obra: 'El Órganon en árabe',
+    que: 'Se traduce y se discute completo, y se pregunta por primera vez de manera sistemática para qué sirve: si la lógica es un instrumento de toda ciencia o una ciencia aparte.',
+    condicion:
+      'El califato abasí hace de la traducción una política de Estado y la paga. Las ideas viajan donde alguien decide costearlas.',
+  },
+  {
+    lugar: 'Córdoba',
+    cuando: 'Siglo XII',
+    quien: 'Averroes',
+    obra: 'Comentarios a Aristóteles',
+    que: 'La lectura llega a una ambición nueva: entender a Aristóteles mejor de lo que lo entendieron sus intérpretes. Esa ambición es la que después sacudirá a Europa.',
+    condicion:
+      'Escribe bajo los almohades. Al final de su vida cae en desgracia y lo apartan de la corte y de la ciudad.',
+  },
+  {
+    lugar: 'Toledo',
+    cuando: 'Siglo XII',
+    quien: 'La escuela de traductores',
+    obra: 'Del árabe al latín',
+    que: 'Europa latina recupera los libros que había perdido, y los recupera por la vía del árabe: el griego llega traducido dos veces.',
+    condicion:
+      'La ciudad cambia de manos en 1085 y sus bibliotecas quedan al alcance de traductores cristianos, judíos y musulmanes que trabajan en la misma mesa.',
+  },
+  {
+    lugar: 'París',
+    cuando: 'Siglo XIII',
+    quien: 'Pedro Hispano',
+    obra: 'Summulae logicales',
+    que: 'La lógica se vuelve dos cosas a la vez: el método con que se discute todo lo demás y el manual con que se empieza a estudiar. Ese manual se usó durante tres siglos.',
+    condicion:
+      'La universidad prohíbe en 1210 los libros nuevos de Aristóteles —los de física y metafísica, no los de lógica— y medio siglo después los pone en el centro de su programa.',
+  },
+  {
+    lugar: 'Leiden',
+    cuando: '1637',
+    quien: 'René Descartes',
+    obra: 'Discurso del método',
+    que: 'El método deja de ser un arte para ganar disputas y se vuelve una regla para uno mismo: no admitir nada que no se vea con evidencia.',
+    condicion:
+      'Lo imprime en los Países Bajos, lejos de Francia. La condena de Galileo, cuatro años antes, le había mostrado el costo de publicar en el lugar equivocado.',
+  },
+  {
+    lugar: 'Jena',
+    cuando: '1879',
+    quien: 'Gottlob Frege',
+    obra: 'Begriffsschrift',
+    que: 'La lógica recibe una escritura propia, capaz de tratar «todo» y «algún» con exactitud. De ahí sale la lógica que hoy sostiene las matemáticas y la computación.',
+    condicion:
+      'Nace dentro de la universidad alemana del siglo XIX, que había convertido la investigación en un oficio con sueldo. Casi nadie lo leyó en su momento.',
+  },
+];
+---
+
+<Base
+  titulo="Lógica, de Atenas a Jena"
+  descripcion="Una ruta por ocho ciudades para entender cómo se aprendió a razonar con método: quién lo pensó, dónde, y qué tuvo que pasar para que la idea viajara."
+>
+  <div class="r-gabinete">
+    <!-- ================= apertura: la experiencia, antes del título ============ -->
+    <section class="abre">
+      <div class="columna">
+        <p class="experiencia">
+          Usted decidió algo esta semana y tuvo razones. Si alguien le pidiera escribirlas, una debajo de
+          otra, y después señalar cuál sostiene a cuál: ¿aguantaría el orden en que las puso?
+        </p>
+
+        <h1 class="lema"><span class="mitad">De <span class="uno">Atenas</span></span> <span class="mitad">a <span class="dos">Jena</span></span></h1>
+
+        <p class="bajada">
+          Entre la primera página en que alguien estudió un razonamiento por su forma y la primera en que
+          alguien le dio una escritura propia pasaron unos dos mil doscientos años y ocho ciudades. En
+          cada una hubo que decidir si eso se podía enseñar, y quién pagaba por enseñarlo.
+        </p>
+        <p class="firma">Por Alexander Beltrán · Bogotá, noviembre de 2026</p>
+
+        <div class="margen">
+          En esta página, la <span class="ma">versalita ocre</span> nombra los lugares, la
+          <span class="mb">azul</span> a quienes pensaron y la <span class="mc">gris</span> las obras;
+          el <span class="ac">carmín</span> subraya el giro. El código no cambia hasta el final.
+        </div>
+
+        <p>
+          Lo miraremos desde tres lados: <strong>el mapa</strong>, que pone cada idea en un lugar;
+          <strong>las estaciones</strong>, que dicen qué cambió en cada una; y <strong>lo que viene</strong>,
+          que es el plan de lectura de esta página.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= el mapa: la lámina protagonista ====================== -->
+    <section>
+      <div class="ancho">
+        <p class="etiqueta">Uno · El mapa</p>
+        <figure class="lamina">
+          <div class="marco-lamina" tabindex="0" role="group" aria-label="Lámina del mapa, se desliza de lado en pantallas angostas">
+            <svg
+              viewBox={`0 0 ${mapa.W} ${mapa.H}`}
+              role="img"
+              aria-labelledby="mapa-t mapa-c"
+            >
+              <title id="mapa-t">El itinerario de una idea, de Atenas a Jena</title>
+              <desc id="mapa-c">
+                Mapa del Mediterráneo, Europa y el Próximo Oriente con ocho ciudades unidas por una línea
+                punteada en orden cronológico: Atenas, Alejandría, Bagdad, Córdoba, Toledo, París, Leiden
+                y Jena. La lista que sigue al mapa dice lo mismo en palabras.
+              </desc>
+              <path class="costa" d={mapa.trazo} />
+              <polyline class="ruta" points={ruta} />
+              {mapa.puntos.map((p, i) => {
+                const r = rotulos[p.n];
+                return (
+                  <g class="parada">
+                    <circle cx={p.x} cy={p.y} r="13" />
+                    <text class="orden" x={p.x} y={p.y}>{i + 1}</text>
+                    <text class="nombre" x={p.x + r.dx} y={p.y + r.dy} text-anchor={r.anchor}>{p.n}</text>
+                  </g>
+                );
+              })}
+            </svg>
+          </div>
+          <p class="desliza">Deslice el mapa de lado para leer los nombres.</p>
+          <figcaption>
+            <span class="titulo-lamina">La lógica no nació en un lugar: se mudó ocho veces</span>
+            <span class="clave"
+              >La línea punteada sigue el orden del tiempo, no un camino que alguien recorriera: nadie hizo
+              ese viaje. Lo que viajó fueron los libros, y con ellos la costumbre de revisar un
+              razonamiento por su forma.</span
+            >
+            Cada círculo es una ciudad donde esa costumbre cambió de manos y de lengua: del griego al
+            griego comentado en Alejandría, de ahí al árabe en Bagdad y en Córdoba, del árabe al latín en
+            Toledo, del latín al francés en Leiden y del alemán a los símbolos en Jena. El salto más largo
+            del mapa no es el más lejano en kilómetros, sino el de Córdoba a Toledo: doscientos cincuenta
+            kilómetros y una frontera que tardó siglos en poder cruzarse.
+            <span class="fuente-lamina"
+              >Costas dibujadas con los datos públicos de Natural Earth (dominio público), simplificados
+              para esta lámina. Las posiciones de las ciudades son aproximadas, puestas para leer el orden
+              y no para medir distancias. El mapa no muestra fronteras: ninguna de las de hoy existía en
+              siete de estas ocho fechas.</span
+            >
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= las estaciones ======================================= -->
+    <section>
+      <div class="ancho">
+        <hr class="filete" />
+        <div class="columna">
+          <p class="etiqueta">Dos · Las estaciones</p>
+          <h2>Qué cambió en cada ciudad</h2>
+          <p>
+            Cada ficha trae lo mismo: el lugar, quién, la obra, qué cambió, y una línea sobre
+            <em>la condición</em>, que es el contexto político en lo mínimo que hace falta. Esa línea
+            sobra solo si uno cree que las ideas viajan solas.
+          </p>
+        </div>
+
+        <ol class="estaciones">
+          {estaciones.map((e, i) => (
+            <li>
+              <p class="orden">{String(i + 1).padStart(2, '0')}</p>
+              <div>
+                <h3><span class="ma">{e.lugar}</span></h3>
+                <p class="cuando">{e.cuando}</p>
+                <p class="que">
+                  <span class="mb">{e.quien}</span>, <span class="mc">{e.obra}</span>. {e.que}
+                </p>
+                <p class="condicion"><span class="rotulo">La condición ·</span> {e.condicion}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div class="columna" style="margin-top:2rem">
+          <p>
+            Puestas en fila, las ocho condiciones dicen una sola cosa, y es la que vale como contexto
+            político de toda esta historia: <span class="ac">una idea llega hasta donde alguien la paga
+            y se detiene donde alguien la prohíbe</span>. Un califa la financia, una universidad la veta y
+            después la enseña, un rey abre una biblioteca al cambiar de manos una ciudad, una condena en
+            Roma empuja un libro a imprimirse en otro país. Nada de eso cambia si un razonamiento es
+            válido. Todo eso cambia si usted llega a leerlo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= lo que viene ========================================= -->
+    <section>
+      <div class="columna">
+        <p class="etiqueta">Tres · Lo que viene</p>
+        <h2>El plan de lectura</h2>
+        <p>
+          Esta página crece por partes. Cada una se puede leer sola y en cualquier orden, y ninguna da nada
+          por sabido: se empieza desde cero.
+        </p>
+
+        <ol class="temario">
+          <li>
+            <h3>Lógica, desde cero</h3>
+            <p>
+              De qué está hecho un argumento: premisas, conclusión y el paso entre las dos. La diferencia
+              entre <em>válido</em> y <em>verdadero</em>, que no es la misma cosa y se confunde todos los
+              días. Y el catálogo de los pasos que parecen buenos y no lo son.
+            </p>
+          </li>
+          <li>
+            <h3>Otros pensadores</h3>
+            <p>
+              Crisipo y los estoicos, que miraron las proposiciones enteras donde Aristóteles miraba los
+              términos. Boecio, que tradujo lo que si no se habría perdido. Avicena, Ockham, Leibniz,
+              Boole, Peirce. Y Gödel, que probó con lógica cuáles son los límites de la lógica.
+            </p>
+          </li>
+          <li>
+            <h3>Historia y geografía</h3>
+            <p>
+              El mapa de arriba, estación por estación: qué se leía en cada ciudad, en qué lengua, quién
+              lo copiaba y cuánto costaba un libro. La geografía explica demoras que de otro modo parecen
+              desinterés.
+            </p>
+          </li>
+          <li>
+            <h3>Contexto político, lo mínimo</h3>
+            <p>
+              Quién pagó, quién prohibió y qué cambió por eso. Sin tomar partido por ninguna época:
+              interesa el mecanismo, no el bando.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= cierre ================================================ -->
+    <section>
+      <div class="columna">
+        <hr class="filete" />
+        <p>
+          Volvamos al principio. Las razones que usted tuvo esta semana probablemente eran buenas. La
+          pregunta no era si tenía razón, sino si podía mostrar por dónde: cuál premisa sostiene a cuál, y
+          qué pasaría con la conclusión si una de ellas resultara falsa. Eso es lo único que se estudió en
+          esas ocho ciudades durante dos mil doscientos años, y es lo único que se aprende aquí.
+        </p>
+        <p class="aforismo">Pensar con método no es tener razón: es poder mostrar por dónde.</p>
+      </div>
+    </section>
+
+    <!-- ================= conversemos =========================================== -->
+    <section>
+      <div class="columna">
+        <div class="conversemos">
+          <h2>Conversemos</h2>
+          <p>
+            Si quiere ampliar cualquiera de estos puntos, discutir uno, corregirme una fecha o proponer un
+            pensador que falta, escríbame. Las correcciones se agradecen y se publican.
+          </p>
+          <a class="correo" href="mailto:babeltran@torredbabel.com">babeltran@torredbabel.com</a>
+          <p class="otra-via">
+            Si prefiere un formulario, el de <a href="/contacto/">Conversemos</a> llega al mismo lugar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= notas y método ======================================== -->
+    <section class="notas">
+      <div class="columna">
+        <p class="etiqueta">Notas y método</p>
+
+        <details>
+          <summary>Las dos citas, con su referencia</summary>
+          <ol>
+            <li>
+              Aristóteles, <em>Analíticos primeros</em>, I, 1, 24b18–23: «Puestas ciertas cosas, se sigue
+              necesariamente, por ser estas, algo otro.» Es la definición de <em>silogismo</em>, y la
+              primera vez que la necesidad de una conclusión se atribuye a la forma del paso.
+            </li>
+            <li>
+              Descartes, <em>Discurso del método</em>, segunda parte (traducción de Manuel García Morente):
+              «No admitir como verdadera cosa alguna, como no supiese con evidencia que lo es.» Es la
+              primera de sus cuatro reglas.
+            </li>
+          </ol>
+          <p>
+            Las dos se verificaron contra la fuente antes de publicarlas, no de memoria. Si encuentra una
+            diferencia con su edición, escríbame: las traducciones varían y conviene decir cuál se usó.
+          </p>
+        </details>
+
+        <details>
+          <summary>Cómo se hizo el mapa, y qué no muestra</summary>
+          <p>
+            Las costas vienen de los datos públicos de Natural Earth, de dominio público, simplificados
+            hasta dejar solo lo que hace falta para reconocer el Mediterráneo a tamaño de teléfono. La
+            proyección es equirrectangular, ajustada al paralelo 41: a esta latitud deforma poco, pero
+            deforma.
+          </p>
+          <p>
+            El mapa <strong>no</strong> muestra fronteras, rutas reales de viaje ni la extensión de ningún
+            reino, imperio o califato: solo ocho puntos y el orden del tiempo. Tampoco muestra las ciudades
+            que quedaron fuera por caber en ocho y no en veinte —Oxford, Múnich, Lvov, Viena—, ni las
+            tradiciones que esta ruta no toca, empezando por la lógica india y la china, que se
+            desarrollaron por su cuenta.
+          </p>
+        </details>
+
+        <details>
+          <summary>Las fechas y lo que está en discusión</summary>
+          <p>
+            Las fechas de las obras impresas (1637, 1879) son exactas. Los siglos de las otras estaciones
+            son el período de actividad, no una fecha de publicación: la obra de Aristóteles se compiló y
+            ordenó después de su muerte, y los comentarios alejandrinos y la escuela de Toledo son trabajo
+            de varias manos a lo largo de décadas.
+          </p>
+          <p>
+            La autoría de las <em>Summulae logicales</em> se atribuye a Pedro Hispano y ha sido discutida.
+            La atribución se mantiene aquí porque es la corriente, y se señala que lo es.
+          </p>
+        </details>
+
+        <details>
+          <summary>Por qué este orden y no otro</summary>
+          <p>
+            La ruta sigue el camino de los textos del <em>Órganon</em>, no la historia entera de la lógica.
+            Es una decisión y tiene un costo: deja fuera a los estoicos, que fueron contemporáneos de los
+            primeros comentaristas y propusieron otra cosa, y hace parecer continua una historia que tuvo
+            siglos en blanco. Las dos faltas se corrigen en las entregas que vienen.
+          </p>
+        </details>
+      </div>
+    </section>
+  </div>
+</Base>
