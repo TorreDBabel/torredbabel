@@ -3,9 +3,10 @@
    Ensayo largo de humanidades con lámina de archivo como protagonista.
    Realce: versalita sin fondo. Notas al margen con calderón. Cifras elzevirianas.
    Letras: Vollkorn (texto) · Vollkorn SC (versalita) · Rosario (apoyo) · Courier Prime (mono)
-   Contrastes sobre el fondo #fbfaf6:
-     tinta 11,2:1 · fuerte 16,6:1 · suave 4,9:1
-     marca A 5,1:1 · marca B 11,5:1 · marca C 6,4:1 · acento 8,6:1
+   Contrastes sobre el fondo #fbfaf6, truncados hacia abajo (nunca redondeados
+   hacia arriba, que es el redondeo que favorece):
+     tinta 11,1:1 · fuerte 16,4:1 · suave 4,8:1
+     marca A 5,0:1 · marca B 11,3:1 · marca C 6,2:1 · acento 8,5:1
    Sobre el fondo hondo #f1efe7 la tinta suave baja a 4,4:1, así que allí no
    se usa para texto: en los bloques hondos el texto va en tinta.
    ========================================================================== */
